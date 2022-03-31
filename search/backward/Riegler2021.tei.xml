@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Multi-mode Systems for Resilient Security in Industry 4.0</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Michael</forename><surname>Riegler</surname></persName>
+							<email>michael.riegler@jku.at</email>
+						</author>
+						<author>
+							<persName><forename type="first">Johannes</forename><surname>Sametinger</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Dept. of Business Informatics -Software Engineering</orgName>
+								<orgName type="laboratory">LIT Secure and Correct Systems Lab</orgName>
+								<orgName type="institution">Johannes Kepler University Linz</orgName>
+								<address>
+									<addrLine>Altenberger Straße 69</addrLine>
+									<postCode>4040</postCode>
+									<settlement>Linz</settlement>
+									<country key="AT">Austria</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="laboratory">LIT Secure and Correct Systems Lab and Dept. of Business Informatics -Software Engineering Johannes Kepler University Linz</orgName>
+								<address>
+									<addrLine>Altenberger Straße 69</addrLine>
+									<postCode>4040</postCode>
+									<settlement>Linz</settlement>
+									<country key="AT">Austria</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Multi-mode Systems for Resilient Security in Industry 4.0</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1016/j.procs.2021.01.167</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:50+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Multi-mode systems</term>
+					<term>Mode switching</term>
+					<term>Resilience</term>
+					<term>Security</term>
+					<term>Industry 4.0</term>
+					<term>Zero-day vulnerabilities Multi-mode systems</term>
+					<term>Mode switching</term>
+					<term>Resilience</term>
+					<term>Security</term>
+					<term>Industry 4.0</term>
+					<term>Zero-day vulnerabilities</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In the era of the Internet of Things and Industry 4.0, machines and devices are increasingly getting connected. These connections go hand in hand with security vulnerabilities and potential threats to these devices. In regular IT systems, we typically provide updates to eliminate vulnerabilities. In industrial automation and control systems, especially in mass production, legacy systems are widespread and installing updates causes downtime. Availability is one of the top goals; stopping a machine in case of a cybersecurity threat is often too expensive. But, system integrators and asset owners should not have to wait until product or component suppliers release appropriate updates. Due to safety and warranty requirements, developing and distributing updates can take a long time. In the meantime, attackers can pose threats by taking advantage of devices' known vulnerabilities. In this paper, we propose the design of resilient systems based on multi-modal architectures with several operational modes. When vulnerabilities of systems become known, or when systems get even attacked at some point, mode switching can overcome the time between vulnerability disclosure or attack, and the availability of corresponding security patches. Therefore, system integrators and asset owners can actively protect themselves by implicitly or explicitly switching to modes with reduced attack surfaces and, thus, with limited ranges of activity for attackers.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Through recent innovations in electronics and communication, industrial automation and control systems (IACSs) increase availability and efficiency. The reduction of down times, lead times, waste and as well costs have long been targets of the industry. Batch size one, Industry 4.0, digital twin, big data analytics and predictive maintenance are today's buzz words <ref type="bibr" target="#b22">[23]</ref>. Information technology pervades the industry and creates more transparency, increases flex-</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Through recent innovations in electronics and communication, industrial automation and control systems (IACSs) increase availability and efficiency. The reduction of down times, lead times, waste and as well costs have long been targets of the industry. Batch size one, Industry 4.0, digital twin, big data analytics and predictive maintenance are today's buzz words <ref type="bibr" target="#b22">[23]</ref>. Information technology pervades the industry and creates more transparency, increases flex-ibility and adaptability. The Internet of Things (IoT) and especially the Industrial Internet of Things (IIoT) connects physical devices like machines, robots and sensors over various protocols like OPC UA, MQTT and others. Remote monitoring allows support and control across several locations.</p><p>Increased connectivity has its price. In 2019, about 2 billion IoT devices were affected by zero-day vulnerabilities which allowed remote code execution and bypassing firewalls and network address translation <ref type="bibr" target="#b7">[8]</ref>. According to the Allianz Risk Barometer <ref type="bibr" target="#b0">[1]</ref>, cyber incidents are the biggest threat to companies after business interruptions in 2020. In addition to the Covid-19 lockdown, cyberattacks have also led to production downtimes. For example, the German car parts company Gedia and the Belgian loom manufacturer Picanol had to send over 1,500 people home after cyberattacks <ref type="bibr" target="#b8">[9,</ref><ref type="bibr" target="#b23">24]</ref>. Moreover, attackers have used Covid-19 for scam and phishing emails to distribute malware and exploit the new teleworking infrastructure <ref type="bibr" target="#b24">[25]</ref>.</p><p>Security has to be considered over the entire life-cycle of an IACS. In this idea paper we propose the development of resilient systems with several operational modes to mitigate threats in the long term based on ideas in <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b17">18]</ref>. If malware is detected or if vulnerabilities are known to exist, we want to provide protection mechanisms for endangered systems. These systems should automatically switch or manually be switched to a mode with a reduced attack surface.</p><p>In Section 2, we describe opportunities and challenges of Industry 4.0 and Smart Manufacturing from a security perspective. The importance of resilient security will be discussed in Section 3. In Section 4, we will first demonstrate the idea and the use of multi-mode systems from other (non-security) domains, then present mode switching in general, introduce our proposed multi-modal architecture, and provide some sample mode-switch scenarios. We discuss the findings in Section 5 and draw our conclusions in Section 6.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Industry 4.0 &amp; Smart Manufacturing</head><p>According to Lasi et. al <ref type="bibr" target="#b10">[11]</ref>, the fourth industrial revolution will increase digitalization and networking of all manufacturing processes and transform industries from a product-oriented to service-orientated business. This is what we call Industry 4.0. It should provide high flexibility and individualization (batch size one) in product development and production and therefore decrease time to market. Smart Manufacturing is a fundamental concept and is defined by NIST <ref type="bibr" target="#b13">[14]</ref> as "fully-integrated, collaborative manufacturing systems that respond in real time to meet changing demands and conditions in the factory, in the supply network, and in customer needs". Many sensors, actors and embedded systems need to be combined in one IACS that communicates with other systems and services and is either fully automated, semi-automated or operated manually.</p><p>IACSs have a typical life-cycle from 5 to 20 years. They need to work 24/7 and thereby master special security challenges. We have to consider many perspectives and issues: from organizational and regulatory challenges to resource constraints to non-technical aspects like security awareness. Safety, the protection of the environment, including staff, customers and assets, from the IACS and its components is always the most important goal. Manufacturers have to make sure that their systems do not harm people or damage anything. Security can be seen as the opposite of safety. It aims at protecting IACSs and their components from their environments, e.g., from attacks by hackers.</p><p>Safety is at stake when security is weak. For example, if attackers get access to an IACS, take over control of a robot and harm people or cause damage, a security issue also becomes a safety issue. Stopping an IACS in case of potential or real threats is seldom an option. Patches for critical vulnerabilities may not quickly be available. Before they can be installed, they must be tested extensively due to safety, certification and warranty requirements. This takes time. When an update or patch is eventually available, it should be installed as soon as possible, because hackers can use the information about the fixed vulnerabilities to write malware and attack unpatched systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Resilient Security</head><p>Threats refer to incidents with the potential to harm systems and are based on the exploit of vulnerabilities. They can be both intentional and unintentional. Vulnerabilities are mistakes in software or hardware that can be directly used by attackers to gain access to systems or networks <ref type="bibr" target="#b12">[13]</ref>. The span is crucial between the time when a vulnerability becomes known to the public and the time when an update or patch to fix that vulnerability becomes available. As availability is one of the top goals of an IACS, stopping a machine is the worst-case scenario as it typically means losing money. Developing updates is needed, but that may take a comparably long time.</p><p>IACSs and their components need to be certified through quality assurance processes. Due to safety requirements, manufacturers have to get their formal approvals, e.g. European Machinery Directive <ref type="bibr" target="#b3">[4]</ref>. System integrators and asset owners may have to wait until the product or component supplier releases updates. If the asset owner changes something in the hardware or software itself, the warranty may expire. If vulnerabilities are known to attackers, they can develop exploits to take advantage. The development of updates and their distribution has to be accelerated, especially to mitigate zero-day vulnerabilities. But this only helps in the short term. Threats and vulnerabilities must be addressed over the entire life-span of an IACS. A life-time of 20 years makes security by design and defense in depth challenging. Making predictions is quite difficult, especially about the future, as they say. State of the art authentication and cryptography methods, protocols and libraries may be out of date in a few years.</p><p>We have to consider the fact that product manufacturers and component suppliers may discontinue the support of devices. Some manufacturers may even go bankrupt. It is only a matter of time until connected systems get attacked. Even when IACSs are air-gapped, there can be attacks, like the computer worm Stuxnet spread via USB flash drives and caused wide-spread damage <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b9">10]</ref>.</p><p>Systems are considered to be resilient if they do their work despite adverse circumstances and if they recover rapidly from any harm <ref type="bibr" target="#b5">[6]</ref>. No matter how well systems have been designed, unknown or unresolved vulnerabilities can become a risk in the future. Resilient systems protect their important assets by using methods to resist and detect adversities, to mitigate them and to recover. Due to location and time this is often done autonomously <ref type="bibr" target="#b6">[7]</ref>. For resilient security of IACSs, exposure and authentication measures may be adapted depending on the security context by switching modes <ref type="bibr" target="#b20">[21]</ref>. Reduced exposure can be a first step, e.g., to reduce the data transfer rate or to block communication temporarily. In addition, modes are not only useful from a security perspective. If there are external or internal disturbances, problems with a component, a restricted mode like vehicles' limp mode can provide at least the core functionality for mission-critical capabilities and therefore business continuity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Multi-Mode Systems</head><p>The idea of multiple modes and mode switching is well known from domains like, for example, aviation and automobiles. Airplanes have a parking mode, a taxiing mode, a take-off mode, manual and automatic flying mode, landing mode and perhaps an emergency mode. Such multi-mode systems are also used to manage complexity and to divide systems into modes of operation in the automotive domain. Self-driving cars may use a manual mode, an adaptive cruise control mode, a lane keeping assistant mode, an emergency braking mode or a parking mode <ref type="bibr" target="#b14">[15,</ref><ref type="bibr" target="#b1">2]</ref>. Each mode consists of a set of functionalities and a system configuration as well as different control goals. Modes can be represented by finite state machines <ref type="bibr" target="#b14">[15]</ref>. Most vehicles also have a self-protection feature called limp mode. This mode is activated when abnormal behavior is detected to protect engine and transmission from major damage. The car's speed and performance are limited, but it can still be used to drive to a nearby service station or to a safe location at the roadside to wait for assistance.</p><p>Nuclear power plants have also systems with multiple operating modes like power operation, startup, hot standby, hot shutdown, cold shutdown and refueling <ref type="bibr" target="#b25">[26]</ref>. There are special emergency and accident systems to change modes. If there is a malfunction or parameters are exceeding or falling below critical values, the reactor is immediately switched off automatically <ref type="bibr" target="#b21">[22]</ref>. Such an emergency shutdown, called SCRAM, can also be triggered manually by a kill switch. These emergency stop buttons are used on railways, industrial machines, etc. to abort the current operation mode as quickly as possible in order to prevent damages, injuries and deaths. Dead man's switch is a similar fail-safe system at vehicles like motorcycles, snowmobiles and locomotives, which stop (or start) a machine if the human operator becomes unconscious or is removed from control.</p><p>In wireless networks, we know the infrastructure mode and the ad-hoc mode. Unix operating systems support a user-mode, a kernel-mode and if something goes wrong a rescue mode. Portable devices typically support a power saving mode that is turned on when the battery is running low.</p><p>From a security perspective, we imagine the use of several modes with different attack surfaces, e.g., secure (offline) modes for critical operations, modes with wired connection and modes with wireless connection like NFC, Bluetooth or Wi-Fi and modes for configurations. For IACSs, similar to most operational technology, availability and a fail-safe state are more important than confidentiality and integrity. Mode switching can provide an option to achieve both. We may even decide to tolerate restricted availability in order to stay secure and safe.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Mode Switching</head><p>A mode switch, or mode change, can be triggered by a timer or by a specific event. In real-time operating systems, modes are used for the efficient usage of resources and real-time adaptation. For instance, smart phones poll mail servers every 15 minutes (timer) and go into an idle or sleeping mode to save battery thereafter. When a phone call comes in (event), an active mode takes over from the idle mode.</p><p>As mentioned above, mode switching is used in many domains. Other than the use of different modes in digital twins <ref type="bibr" target="#b2">[3]</ref> to detect, simulate and analyze attacks, as of our knowledge, there is no application of different modes in the security context of IACSs. We suggest to switch among modes with different attack surfaces, e.g., a secure mode for critical operations without outside connections, a mode with more or less reduced communication functionality. In the security context, a mode switch can be triggered from outside, for example, if a vulnerability becomes known or if it becomes known that attackers start exploiting a vulnerability. A mode switch should also be triggerable by the system itself, for example, if it has the capability to detect threats <ref type="bibr" target="#b11">[12,</ref><ref type="bibr" target="#b15">16]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Multi-modal Architecture</head><p>A multi-modal architecture with several operational modes needs to have secure and safe transitions between these modes. We have to define conditions when and how mode switches can be performed. We have to decide how to handle unfinished tasks and how to release new tasks of future modes. The number of tasks can lead to potential overloads and deadline misses. Some tasks of the old mode may have to be finished in order to keep patients safe. But we may want to abort non-safety-critical tasks, not only for performance but also for security reasons. To protect IACSs against threats, a risk-based framework that continually manages and assesses security risks along with their proactive addressing has been proposed in <ref type="bibr" target="#b17">[18]</ref>. A multi-modal design approach is used for risk assessment and an adaptive remediation scheme to mitigate security threats.</p><p>Our research objective is to practically demonstrate a holistic approach based on <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b17">18]</ref>. We plan to develop a software prototype to demonstrate how mode switching can resiliently respond to threats and even to zero-day attacks. Several mode change protocols exist to ensure task schedulability, resource management and quality of service <ref type="bibr" target="#b18">[19,</ref><ref type="bibr" target="#b1">2]</ref>. Modes can be switched based on specific conditions, e.g., safety or limited resources. These protocols need to be reviewed from a security perspective and analyzed for adaptation to mode switching in case of security threats.</p><p>We imagine the use of a middleware to provide core functionality for a variety of IACSs and maybe also for devices in other domains. Figure <ref type="figure" target="#fig_0">1</ref> gives an impression about the multi-modal software architecture. Example modes provide different features and attack surfaces and include a secure pre-configured mode (mode 0) for critical operations without outside connections, an emergency or limp mode to control the machine manually, e.g., to free a trapped person, a mode to initialize communication, e.g., NFC to transmit data only over a short distance, a communication mode with higher data transfer rate and more range, e.g., Bluetooth or Wi-Fi and a configuration mode where authorized persons can adapt settings. In a real system design, these modes may be more complex and overlap each other, e.g. some functionalities will be part of several modes. Specific core functionality could be implemented mode independent and work during all modes and switches.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Sample Mode-Switch Scenarios</head><p>A scheduler has to ensure the optimal utilization of resources and a proper and smooth change between individual modes. As mentioned in <ref type="bibr" target="#b16">[17]</ref>, real-time monitoring, threat detection and adaptive risk mitigation can be triggers for mode switches. If sensors detect a threatening situation, a multi-modal system can switch to another mode where further communication is restricted. With such a multi-mode system, system integrators or even operating staff will be able to reduce the attack surface, even if there is an inability to install security patches, even if a manufacturer has discontinued support, and even if a manufacturer no longer exists.</p><p>In case of a denial-of-service attack, e.g., to brute force authentication, systems should switch modes after a certain count of access attempts and deny further access for a specific period of time. Notifications to asset owners and device manufacturers about mode switches can help to detect problems early and to react in time. Such notifications will not prevent attacks, but they will make them more transparent and may prevent further damage. A limited attack surface resulting from a mode switch may allow one-way communication only, where collected data from the IACS can still be transmitted to the asset owner, but configuration changes are not allowed/possible anymore. This would require configuration changes to be done only by the system integrator or service personal, where systems may get changed back to a more flexible programming or configuration mode again. Minor remote changes may also be an option, for example, with a release mechanism that has to be activated manually by pressing a button on an IACS or in some other form. If the IACS is sold or decommissioned, asset owners can switch respectively reset it to the factory mode. Thereby internal passwords, system configuration and intellectual property can't be accessed by anyone.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Discussion</head><p>Mode switching will not provide a silver bullet to solve security problems. IACSs need an overall concept with several security layers (defense in depth), which considers the entire life-cycle from architecture, design and implementation up to eventual decommission. According to the principles for resilient systems listed in <ref type="bibr" target="#b6">[7]</ref> the focus should be on mission-critical capabilities. All type of threats should be considered, not only security. Robustness, safety, interoperability and others are as well important. In fact, mode switching is an approach to provide security by design. Security needs to be considered in the product development from the very beginning. Adversities need to be detected early, and protection needs have to be identified and countermeasures taken. Fundamental security flaws in the architecture should be avoided and the architecture should resistant against security threats and recovers fast from harm.</p><p>It will be crucial how these ideas can be combined and merged with already existing operation modes of IACSs. Do the new modes increase the system's complexity and the risk of unintended interactions or negative side-effects? How does the transition from one mode to another work? Moreover, the multi-modal architecture should not become the new Achilles' heel or a new attack surface. Attackers could misuse the mode-switching mechanism in order to reduce functionality and availability. Table <ref type="table" target="#tab_0">1</ref> summarizes benefits and drawbacks of a multi-modal architecture from a security point of view. We can also see modes more comprehensively. An individual IACS, a class of machines, the production line, or a factory can each have a separate mode, not only from a technical but also from an organizational perspective. Modes of several IACSs can have an effect on the factory or global mode and vice versa. If a number of machines are attacked and they therefore switch to a different mode, this could result in further actions by the operator or manufacturer after a certain threshold value has been exceeded.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Conclusion</head><p>We have argued that a multi-modal architecture and mode switching will make connected industrial control and automation systems more secure and resilient against cyber-attacks. On the one hand, system integrators or asset owners will have the opportunity to reduce the attack surface by themselves without any updates. On the other hand, devices can be equipped with intrusion detection systems to automatically detect and ward off attacks by switching modes. Thus, the likelihood of being attacked can be reduced by limiting an attackers' range of activity. Our future work includes systematic analysis and evaluation of mode switching protocols and an investigation of how to apply them to security, especially in the context of IACSs. First findings of a systematic literature review on mode switching from a security perspective are presented in <ref type="bibr" target="#b19">[20]</ref>. In addition, we plan a prototypical implementation for further evaluation and to demonstrate the effectiveness of mode switching for increased security.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Multi-modal software architecture</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 .</head><label>1</label><figDesc>Benefits and drawbacks of a multi-modal architecture from a security point of view More extensive and more expensive design and development phase Means of risk reduction for system operator (also for unpatched systems and even if manufacturer has stopped service) Potential unintended negative side-effects due to multi-modal architecture Reduced machine down-times due to cyber-attacks</figDesc><table><row><cell>Benefits</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Michael Riegler et al. / Procedia Computer Science 180 (2021) 301-307</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Riegler et al. / Procedia Computer Science 00 (2019) 000-000</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>This work has partially been supported by the LIT Secure and Correct Systems Lab funded by the State of Upper Austria.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Allianz Global Corporate &amp; Specialty SE</title>
+		<ptr target="https://www.agcs.allianz.com/content/dam/onemarketing/agcs/agcs/reports/Allianz-Risk-Barometer-2020-Appendix.pdf" />
+		<imprint>
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+	<note>Allianz Risk Barometer</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">SafeMC: A System for the Design and Evaluation of Mode-Change Protocols</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">T</forename><surname>Phan</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/RTAS.2018.00021</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Real-Time and Embedded Technology and Applications Symposium (RTAS)</title>
+				<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="105" to="116" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Unleashing the Digital Twin&apos;s Potential for ICS Security</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dietz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MSEC.2019.2961650</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security and Privacy Magazine</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="20" to="27" />
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Directive 2006/42/EC of the European Parliament and of the Council</title>
+		<ptr target="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32006L0042&amp;from=EN" />
+		<imprint>
+			<date type="published" when="2006" />
+			<pubPlace>European Union</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<author>
+			<persName><forename type="first">N</forename><surname>Falliere</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Murchu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Chien</surname></persName>
+		</author>
+		<ptr target="https://www.wired.com/imagesblogs/threatlevel/2010/11/w32stuxnetdossier.pdf" />
+		<title level="m">W32.stuxnet dossier. Symantec URL</title>
+				<imprint>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">System Resilience: What Exactly is it</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Firesmith</surname></persName>
+		</author>
+		<ptr target="https://insights.sei.cmu.edu/seiblog/2019/11/system-resilience-what-exactly-is-it.html" />
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">System Resilience Part 7: 16 Guiding Principles for System Resilience</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Firesmith</surname></persName>
+		</author>
+		<ptr target="https://insights.sei.cmu.edu/seiblog/2020/04/part-7-16-guiding-principles-for-system-resilience.html" />
+		<imprint>
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Critical &apos;Update Now&apos; Warning Issued For VxWorks OS Inside 2 Billion IoT Devices</title>
+		<author>
+			<persName><surname>Forbes</surname></persName>
+		</author>
+		<ptr target="https://www.forbes.com/sites/zakdoffman/2019/07/29/warning-as-2-billion-medical-industrial-and-enterprise-iot-devices-at-risk-of-attack/" />
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Travelex hackers shut down German car parts company Gedia in massive &apos;cyber attack</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Goodwin</surname></persName>
+		</author>
+		<ptr target="https://www.computerweekly.com/news/252477247/Travelex-hackers-shut-down-German-car-parts-company-Gedia-in-massive-cyber-attack" />
+		<imprint>
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">The Stuxnet Computer Worm: Harbinger of an Emerging Warfare Capability</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">K</forename><surname>Kerr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rollins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Theohary</surname></persName>
+		</author>
+		<ptr target="https://fas.org/sgp/crs/natsec/R41524.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Congressional Research Service URL</title>
+		<imprint>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lasi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Fettke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">G</forename><surname>Kemper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Feld</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hoffmann</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12599-014-0334-4</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Business &amp; Information Systems Engineering</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="239" to="242" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+	<note>Industry 4.0.</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Data-driven Anomaly Detection with Timing Features for Embedded Systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lysecky</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3279949</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Design Automation of Electronic Systems</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page" from="1" to="27" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">CVE -Common Vulnerabilities and Exposures</title>
+		<author>
+			<persName><surname>Mitre</surname></persName>
+		</author>
+		<ptr target="https://cve.mitre.org/" />
+		<imprint>
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">Smart Manufacturing Operations Planning and Control Program</title>
+		<ptr target="https://www.nist.gov/programs-projects/smart-manufacturing-operations-planning-and-control-program" />
+		<imprint>
+			<date type="published" when="2020" />
+		</imprint>
+		<respStmt>
+			<orgName>National Institute of Standards and Technology (NIST)</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Towards a Compositional Multi-modal Framework for Adaptive Cyber-physical Systems</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">T</forename><surname>Phan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/RTCSA.2011.82</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2011 IEEE 17th International Conference on Embedded and Real-Time Computing Systems and Applications</title>
+				<meeting>the 2011 IEEE 17th International Conference on Embedded and Real-Time Computing Systems and Applications</meeting>
+		<imprint>
+			<date type="published" when="2011" />
+			<biblScope unit="volume">02</biblScope>
+			<biblScope unit="page" from="67" to="73" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Probabilistic Threat Detection for Risk Management in Cyber-physical Medical Systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Carreón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lysecky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rozenblit</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MS.2017.4541031</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Software</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="38" to="43" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Resilient Security of Medical Cyber-Physical Systems, in: Database and Expert Systems Applications</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Carreón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lysecky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rozenblit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sametinger</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-27684-313</idno>
+		<imprint>
+			<date type="published" when="2019" />
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="95" to="100" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Composite Risk Modeling for Automated Threat Mitigation in Medical Devices</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rozenblit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lysecky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sametinger</surname></persName>
+		</author>
+		<idno type="DOI">10.22360/SpringSim.2017.MSM.013</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Modeling and Simulation in Medicine Symposium, 2017 Society for Modeling &amp; Simulation International (SCS)</title>
+				<meeting>the Modeling and Simulation in Medicine Symposium, 2017 Society for Modeling &amp; Simulation International (SCS)</meeting>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="899" to="908" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Mode Change Protocols for Real-Time Systems: A Survey and a New Proposal</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Real</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Crespo</surname></persName>
+		</author>
+		<idno type="DOI">10.1023/B:TIME.0000016129.97430.c6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Real-Time Systems</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page" from="161" to="197" />
+			<date type="published" when="2004" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Mode Switching from a Security Perspective: First Findings of a Systematic Literature Review</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Riegler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sametinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kotsis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Tjoa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Khalil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Fischer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Moser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mashkoor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sametinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fensel</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-59028-46</idno>
+		<editor>Martinez-Gil, J.</editor>
+		<imprint>
+			<date type="published" when="2020" />
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="63" to="73" />
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Database and Expert Systems Applications</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Resilient Context-Aware Medical Device Security</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sametinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Steinwender</surname></persName>
+		</author>
+		<idno>doi:10.1109/ CSCI.2017.310</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Computational Science and Computational Intelligence, Symposium on Health Informatics and Medical Systems (CSCI-ISHI)</title>
+				<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="1775" to="1778" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">Fundamentals of Nuclear Science and Engineering</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">K</forename><surname>Shultis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">E</forename><surname>Faw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Mcgregor</surname></persName>
+		</author>
+		<ptr target="https://cds.cern.ch/record/2245430" />
+		<imprint>
+			<date type="published" when="2016" />
+			<publisher>CRC Press</publisher>
+		</imprint>
+	</monogr>
+	<note>3rd Edition</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">An Overview of Trends and Developments of Internet of Things Applied to Industrial Systems</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">I</forename><surname>Strasser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">P</forename><surname>Andrén</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Vrba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Šuhada</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Moulis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Farid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rohjans</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IECON.2018.8591431</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IECON 2018 -44th Annual Conference of the IEEE Industrial Electronics Society</title>
+				<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="2853" to="2860" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Cyber attack sees Picanol shares suspended</title>
+		<ptr target="https://www.brusselstimes.com/news-contents/economic/89253/cyber-attack-sees-picanol-shares-suspended/" />
+	</analytic>
+	<monogr>
+		<title level="m">The Brussels Times</title>
+				<imprint>
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">Alert (AA20-099A) -COVID-19 Exploited by Malicious Cyber Actors</title>
+		<ptr target="https://us-cert.cisa.gov/ncas/alerts/aa20-099a" />
+		<imprint>
+			<date type="published" when="2020" />
+		</imprint>
+		<respStmt>
+			<orgName>United States Department of Homeland Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA)</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">Standard Technical Specifications -Operating and New Reactors -Current Versions</title>
+		<ptr target="https://www.nrc.gov/reactors/operating/licensing/techspecs/current-approved-sts.html" />
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note>United States Nuclear Regulatory Commission (NRC)</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,491 @@
+Citation_Key,RQ3_Location,RQ3_Assets,RQ3_Data,RQ3_Communication,RQ3_LoI,RQ3_Protocols,RQ3_Tools,RQ3_Operation_Modes,RQ3_Generation,RQ3_Architecture,   
+Akbarian2020,Cloud,ICS Network,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,Simulink,"Kalman Filter (detection), Particle Swarm Optimization (noise), SVM (classification)",Simulation model of the real system that has been obtained easily by system identification algorithms,YES,   
+Almeaibed2021,Cloud,Car Data,"Sensor data, weather data, GPS",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,Simulation,N/A,YES,   
+Anthony2020,Cloud,"Production, Climate, Energy",Sensor data,"DIGITAL_DIGITAL, DIGITAL_PHYSICAl",DIGITAL_TWIN,N/A,Anylogic,Simulation,generic multi-agent simulation model of the greenhouse production flow that includes all production steps from the delivery of initial seedlings until the shipment of the final plants,NO,   
+Assenza2020,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,NO,   
+Atalay2020,Cloud,"Smart Meter, Actuator, Network traffic","Physical information devices identi?ers,
+model, version, storage, input and output size, and location
+are kept as physical models. On the other hand, the devices
+have logical pro?les in the system, such as their mapping in
+the virtual machine, the RAM size, the bandwidth, image size,
+processing power, etc. A dynamic knowledge database is required in the system,
+which keeps the logs of monitoring data to model the behavior
+of a cloudlet. This knowledge database is frequently updated
+and represents the pro?le of the ecosystem the cloudlet resides
+in. The database can be organized to store the energy trend
+information for different times and tasks. Physical models or behavioural models",DIGITAL_PHYSICAL,DIGITAL_TWIN,"TCP/IP, MQTT",N/A,"Simulation, Optimization, Machine Learning, Pattern, Outlier, Data Clustering",N/A,YES,   
+Ayodeji2020,N/A,Process,N/A,N/A,DIGITAL_TWIN,N/A,"Nmap, Nessus",Simulation model,Design driven or data-driven,NO,   
+Bajaj2020,N/A,"Network, Machine",N/A,N/A,N/A,N/A,N/A,N/A,N/A,NO,   
+Bayanifar2017,N/A,"CPS environment, collobritations, functions, modules objectives, tasks",N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Decison making agents via two levels, Filter out redundancies and monitor only useful data",N/A,NO,   
+Becue2018,Cloud,"Indusrial Robots, PLC","collected machine, product and environment data, CTI, Operator Feedback",DIGITAL_EXPERT,DIGITAL_SHADOW,N/A,CyberFactory#1,Ad-hoc algorithms,"The digital twin is based on massive, cumulative, real-time, real-world data measurements across an array of dimensions.",YES,   
+Becue2020,Cloud,Human,"Keyboard, Mouse, Camera, Microphone, Eye-tracking, Emotions, Congitive Behaviour, tacit knowledge","DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,"CPS Twinning, Wrld3d, Mago3d, i-Maintenance, Eclipse Ditto, imodel.js, Twin-Control, Elasticsearch, Kibana ","Model training, GANN, VR, Feature extraction & Profiling , e.g. fatigue, stress, suspicious behaviour","GANN, VR",YES,   
+Biffl2019,N/A,N/A,N/A,N/A,DIGITAL_TWIN,N/A,N/A,N/A,N/A,NO,   
+Biffl2019a,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"Simulation, Replication",N/A,NO,   
+Bitton2018,N/A,"SCADA, ICS, network",network traffic,DIGITAL_EXPERT,DIGITAL_TWIN,"Modbus, DNP3","GRASSMARLIN, OpenVAS, Zeus Scanner, Nmap",Simulation,Formalization on how to derivce cost-efficient twins for ICS,NO,   
+Bore2020,N/A,Human,Behavoural profiles for individuals (Social Networks etc.),N/A,N/A,N/A,N/A,Prediction,N/A,NO,   
+Calo2018,Embedded,IoT Device,States depending on sensor data (unsafe/safe),DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,Simulation,device state model,NO,   
+Campolo2020,Mobile Edge,MaaS vehicles,"e.g., smartphones of commuters, On Board Systems (OBSs) of PT vehicles",DIGITAL_PHYSICAL,DIGITAL_SHADOW,"MQTT, COAP, LwM2m (Leshan), TCP, GPS","User Equipmment App, Mosquitto, Wireshark, DT applications hosted in MEC facilities can further access additional (context) information and provide accurate positioning via data fusion from multiple available sources, also improved by the ME LS.",Replication ,Data from ME (replication),YES,   
+Castellani2021,N/A,"Heating, Ventilation and Air Conditioning (HVAC), Combined Heat and Power (CHP)","Ambient Temperature (Ta), Produced Thermal Power (PTh), Produced Thermal Energy (ETh), Produced Electrical Power (PEl), Produced Electrical Energy (EEl), Water flux (Flux), Water flow temperature (TFlow), Water return temperature (TReturn), Flow/return temperature difference (TDiff)",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"PyOD, Keras, Tensorflow, SimulatinX, Modelica","a Partial Grid Search,Cluster Center (KNN), Siamese Autoencoder, Simuation",Green City Library ,NO,   
+Catarci2019,Cloud,"Factories, Machines everythin","A device shadow is a JSON file that contains the state information, meta-data, timestamp, unique client token, and version of a device connected to the device shadow service.",DIGITAL_PHYSICAL,DIGITAL_TWIN,"MQTT, COAP, LwM2m (Leshan), TCP, GPS, AutomationML, Manufacturing Service Description Language, system models, functional, JSON, REST API
+models, 3D geometric models, multiphysics models,
+manufacturing models, and usage models.","Eclipse Ditto, GE Predix, Bosch IoT Things, Microsoft Azure IoT, IBM Watson IoT, AWS IoT, Experimentable DTs in virtuel testbeds,",Simulation,N/A,N/A,   
+Chhetri2018,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
+Choi2020,N/A,ICS ,"The test digital twin system comprises of an HMI, two PLCs, two network switches, and a firewall – representativecomponents in most ICS scenarios.",DIGITAL_EXPERT,DIGITAL_SHADOW,N/A,"InTouch software from Schneider Electric, An Allen-Bradley CompactLogix 5370-L3 simulates a conveyor belt and a Schneider Electric Modicon M580 is used as a wind farm digital twin providing electricity to the conveyor belt, To simulate the firewall, pfSense, an open-source firewall, was ported onto a commercial system board., ettercap, wireshark, kdiff3, Kali Linux",Simulation,N/A,N/A,   
+Chukkapalli2021,Cloud,Fish Farm,"sensors present in the fish
+farm via Internet.",DIGITAL_PHYSICAL,DIGITAL_SHADOW,N/A,N/A,Replication ,N/A,YES,   
+Cioara2021,N/A,Smart Grid with GER,Model of the whole Grid,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Having a virtual model, one can apply data-driven analytics, run simulations, and what-if analyses to determine the asset behavior in real or hypothetical situations or to decide on control and optimization actions. CONCRETE: DT Model Simulation and Big Data Analytics and Machine Learning","The first step is the creation of the DT model based on the actual measurements done on the energy assets. The energy asset model is constructed by using physics or engineering models, statistics, etc. Augmented reality models can be used for improving the human understanding of the energy assets' operational states",YES,   
+Cioroaica2019,N/A,Smart Agent CPS ECU,"The DT
+shows a projection of the behavior of the smart agent’s
+control algorithm in all situations",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,linked precitve simulation vs pure predicitve simulation,"The DT is an executable
+description of the algorithm that can be controlled in
+a simulated environment.",N/A,   
+CristinaFrancodaSilva2021,N/A,Firmware ,"binaries, IP email hashed passwords",DIGITAL_EXPERT,DIGITAL_SHADOW,N/A,N/A,"Replication/ Transformation, Retracing Vulnerabilities to Requirements",Transformin Firmware to Digital Twin,YES,   
+Damjanovicbehrendt2018ab,Cloud,"Cars, Stakeholders","vehivle model,. Ob board sensor data, steering wheel feedback tuningg data, data require for tyre, driver skills, perceptio etc.",DIGITAL_EXPERT (Driver),DIGITAL_TWIN,N/A,N/A,"security & privacy data analysis, safety and operational analysis, prediction & analytics based decisions for security, location based bevavioural analysis, tempral behavioural analsis of time series, behaviour and performance modelling ",N/A,N/A,   
+Damjanovicbehrendt2018abc,N/A,"Car, Smart Car","In order to do so,
+digital twins require a collection of data
+describing the physical world, context,
+events and situations to be “mirrored” in
+the virtual space. The collected data
+include expert knowledge, historical
+data, inferred data, as well as data integrated
+from other enterprise systems and
+third-party systems.",DIGITAL_PHYSICAL,DIGITAL_TWIN,"Digital twins require a collection of
+models, e.g. data computational models
+(dynamic, behaviour models including
+statistical packages for ML, analytics,
+optimisation) and representational
+models (static, structural models
+including semantic data models,
+NoSQL, relational data models, rule
+engines). Data computational models
+perform analytics and processing along
+the entire product lifecycle phases, supporting
+system models, functional
+models, manufacturing computation",N/A,"Simulation, Analysis, replication, Decision Making, Semantic Data Interoperability, Model Maangement","Digital twins require a collection of
+models, e.g. data computational models
+(dynamic, behaviour models including
+statistical packages for ML, analytics,
+optimisation) and representational
+models (static, structural models
+including semantic data models,
+NoSQL, relational data models, rule
+engines)",YES,   
+Damjanovicbehrendt2019a,N/A,"Car, Smart Car","In order to do so,
+digital twins require a collection of data
+describing the physical world, context,
+events and situations to be “mirrored” in
+the virtual space. The collected data
+include expert knowledge, historical
+data, inferred data, as well as data integrated
+from other enterprise systems and
+third-party systems.",DIGITAL_PHYSICAL,DIGITAL_TWIN,"Digital twins require a collection of
+models, e.g. data computational models
+(dynamic, behaviour models including
+statistical packages for ML, analytics,
+optimisation) and representational
+models (static, structural models
+including semantic data models,
+NoSQL, relational data models, rule
+engines). Data computational models
+perform analytics and processing along
+the entire product lifecycle phases, supporting
+system models, functional
+models, manufacturing computation",N/A,"Simulation, Analysis, replication, Decision Making, Semantic Data Interoperability, Model Maangement","Digital twins require a collection of
+models, e.g. data computational models
+(dynamic, behaviour models including
+statistical packages for ML, analytics,
+optimisation) and representational
+models (static, structural models
+including semantic data models,
+NoSQL, relational data models, rule
+engines)",YES,   
+Danilczyk2019,Cloud (Smart Grid),"Microfrid, Grid Communication Network","real-time data
+about the physical system and provide guidance in real-time.",DIGITAL_PHYSICAL,DIGITAL_TWIN,SCADA,"Matlab App Designer, Mathworks Simulink, SimpowerSystems","Simulation, Machine Learning, Data Analysis, User Interface, Visualization",IEEE 39 Bus,NO,   
+Dietz2020,Cloud,Industrial filing plant,PLC data with actuators,DIGITAL_EXPERT,DIGITAL_TWIN,JSON,"Mininet, Ettercap, Filebeat, Logstash, Elasticsearch, Kibana, Dsiem",Simulation,Manually with MiniCPS,YES,   
+Dietz2020a,N/A,ICS,PLC,DIGITAL_PHYSICAL,DIGITAL_TWIN,"SCADA, AML",N/A,"Simulation, Replication, Analysis","There are works that aim for the automated
+creation of DTs by building a software-defined network
+(SDN) from the AML description of CPSs",YES,   
+Dietz2020abc,"It may even be embedded in the physical asset
+itself or deployed on the cloud or an edge computer",Every Asset,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Analysis, intelligence, simulation and other services",N/A,N/A,   
+Eckhart2018,N/A,CPS,"HMIW, PLCs, Motor etc. ",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"CPS -Twinnign, Mininet, MatIEC","Simulation, Analss",AML files (domain knowledge + engineer knowledge) manually,YES,   
+Eckhart2018a,N/A,ICS,"states of machines, network traffic, system logs, sensor measurements",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"CPS Twinning, CPS State Replication, Mininet","Replicationm, FSM and behavioural models ",AML files (domain knowledge + engineer knowledge) manually,YES,   
+Eckhart2018ab,N/A,CPS,"HMIW, PLCs, Motor etc. ",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,CPS-Twinning,"Simulation, Analss",AML files (domain knowledge + engineer knowledge) manually,YES,   
+Eckhart2019,Cloud,"CPS environment, collobritations, functions, modules objectives, tasks",data availabe (everythng),"DIGITAL_PHYSICAL, DIGITAL_EXPERT",DIGITAL_TWIN,"OPC UA , Aml","CPS Twinning, Mininet","Repolication, Simulation, Analysis",AML files (domain knowledge + engineer knowledge) manually,NO,   
+Eckhart2019ab,N/A,"CPS environment, collobritations, functions, modules objectives, tasks",data availabe (everythng),DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Simulation, Replication",engineering related data (specification files),NO,   
+Eckhart2019abcde,N/A,CPS,"sensor data, traffic, system logs, AML","DIGITAL_PHYSICAL, DIGITAL_EXPERT",DIGITAL_TWIN,AML,"CPS-Twinning,Mininet-WiFi","Simulation, Replication, Monitoring, Visualization",AML files (domain knowledge + engineer knowledge) manually,YES,   
+Empl2021,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"simulations, replications, and analytics",N/A,NO,   
+Erol2020,N/A,"patients, radiology department, Artificial Intelligence-based human biological systems or organs or molecular systems, (physical) processes, people, human body, soldiers","individual and population data, real data","DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_SHADOW,N/A,N/A,"simulation, monitor","Digital twins used for this purpose are built on computer-based, or in silico, models
+that are fed individual and population data; Semic Health's Digital Body Total has developed the
+Digital Twin of Artificial Intelligence-based human biological
+systems or organs or molecular systems, based on aggregated
+data and medical histories, to help diagnose current medical
+conditions and predict possible health problems",NO,   
+Fournaris2019,N/A,CPS,data from CPS,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"analysis, simulation, monitoring",N/A,NO,   
+Furness2019,N/A,CPS,real?time data and other sources,"DIGITAL_PHYSICAL, DIGITAL_EXPERT",DIGITAL_SHADOW,N/A,N/A,"replication, monitoring",N/A,NO,   
+Gajek2020,N/A,"hardware (USB), physical object,
+process, or system, and it can exist in many forms",all the data footprint,"DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,N/A,N/A,"simulation, replication","Creating a Digital Twin within a Blockchain is not different
+from the standard approach. The manufacturer of the
+physical object issues a cryptographic identifier. The corresponding
+certificate attesting the objects attributes is
+stored in the blockchain.",NO,   
+GamezDiaz2020,"edge, cloud","Player, trainee (athletes)",real-time and historical data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"MATLAB, C++, scikit-learn, CAFFE and Kinect Software Development Kit","machine learning, analysis, replication, ",N/A,NO,   
+Garcia2020,"cloud, edge","physical SSC, CPS","sensor data, models",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"replication, analysis, simulation, ML","A distributed
+digital twins (DDT) approach is proposed. To make
+them work in cooperation, knowledge databases should be
+equipped, not only with episodic memory consisting of a
+series of loosely connected parts or events, but also with
+advanced representation constructs and contents that can
+be accessed and manipulated to support explanations generated
+by embedded intelligent agents, including larger-scale
+structures for recording states, plans, actions, and execution
+traces.",YES,   
+Gehrmann2020,cloud,"products, production process (mentioned in the defintion part), IACS",N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,"AML,",N/A,"replication, analysis, ","However, the state replication design in [10] is built upon
+measurement of input values and that the physical and digital
+twin runs functional identical programs or what the authors
+refers to as ”passive state replication”.",YES,   
+Glawe2020,N/A,manufacturing-execution-system (transportation system and the robots),real-time data and the historical data,"DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,N/A,simulation,TODO,YES,   
+Grabis2021,DIGITAL_PHYSICAL,"CAN, aspects of the capability delivery",lice data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,DOE,simulation,"The digital twin is based on a model rep-resenting the network. Various types of models including simulation, statistical, and machine learning could be used. The Design-of-experiments (DOE) module is used to specify scenarios to be explored to identify weaknesses and potential threats.",YES,   
+Guo2020,N/A,"ICS,","geometrical data, kinematic functionality and logical behavior",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Simualtion, analysis",N/A,NO,   
+Hadar2020,N/A,"computer network, SCRs",Analytical Attack Graph (AAG)?,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,AgiHack (Analytical Attack Graph (AAG)),"Simualtion, analysis",N/A,YES,   
+Hammoudeh2020,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
+Hau2020,N/A,CPS,N/A,N/A,N/A,N/A,N/A,simulation,N/A,N/A,   
+He2019,embedded,actual systems,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"monitoring, analysis","The design process of digital twin system
+is formulated as follows: First, the adaptive closed-loop SIM is
+applied to build the data-driven residual generator based on the
+virtual system modeling with unknown parameters of plant models; Second, performance indices for abnormal status diagnosis
+are developed to enhance the identification performance of the
+process monitoring and diagnosis scheme; Finally, corresponding
+to different process faults, optimized control configurations are
+designed based on the offline adaptive tuning and online iterative
+training to improve the security under faulty conditions.",YES,   
+Karlsson2020,N/A,CPS,real world data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"replication, simulation",N/A,NO,   
+Kind2021,N/A,physical device,N/A,N/A,N/A,N/A,N/A,simulation,N/A,N/A,   
+Kruger2021,cloud,physical assest,historical data,DIGITAL_PHYSICAL,"DIGITAL_TWIN, DIGITAL_SHADOW (mentioned diffrent types but mopstley it's about a real DT)","mqtt, json, sql","SLADT, DPWS, REST","simulation, replication, analysis",N/A,N/A,   
+Krundyshev2020,N/A,enterprise network infrastructure,N/A,N/A,N/A,N/A,N/A,simulation,N/A,N/A,   
+KumarKandasamy2021,cloud,physical micro-grid test-bed; cyber-security test-bed or plant. (ICS plant),N/A,DIGITAL_PHYSICAL,DIGITAL_SHADOW,"mqtt, OPC protocol, mms, goose, mqtt, opc-ua, modbus","SCADA, AMI Meters, Historian, Physical Components and Electrical Connections, PLCs, IEDs and Network Switches, Run-time, IEC61850,Attack Designer and Attack Launcher, GOOSE, SPEEDGOAT",simulation,"The architecture of the DT is shown in Figure. 5. The physical
+components in Figure. 1 are simulated on SPEEDGOAT and
+the physical signals are transferred using a data-bus to the IEDs/
+AMIs which act as the interface between physical and network
+components",YES,   
+Kummerow2020,edge,power systems,historical and real time data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"MATLAB, Apache Kafka, SCADA","simulation, analysis, ","The investigation of centralized and decentralized Digital
+Twins is done by using a real time Hardware-in-the-Loop simulation
+system at control center and substation level, extended
+by a numerical analysis system, evaluating all incoming data
+into the system.",YES,   
+Kummerow2020a,N/A,power systems,N/A,N/A,N/A,N/A,SCADA,"simulation, analysis, monitoring",N/A,NO,   
+Laaki2019,N/A,"system (The system comprised of a robotic arm and
+HTC vive virtual reality (VR) system connected over a 4G mobile network)","CAD model les, sales documentation and measurement
+data,","DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,"TCP, UDP","OpenVR, ","simulation, analysis",N/A,YES,   
+Lei2021,N/A,thermal power plant,real time data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation, monitoring, analysis","A
+digital twin can be decoupled as the three-dimensional (3D)
+model, the mathematical model, and the rule model, where
+the 3D model looks exactly like the physical system with 3D
+modeling technologies, the mathematical model is related to
+the mechanisms, kinetics and data of the physical system, and
+rule model defines interactions from users and motion control
+of a digital twin and the corresponding physical system.",YES,   
+Liu2021,N/A,"smart factory, rocket motor, human-robot, manufacturing assets, product","real time data, historical data, sensor data",DIGITAL_PHYSICAL,"DIGITAL_TWIN, DIGITAL_SHADOW (mentioned diffrent types but mopstley it's about a real DT)",N/A,N/A,"simulation, replication, monitoring, analysis",N/A,NO,   
+LlopisSanchez2020,N/A,system (Space operation center),"real-world inputs and
+environmental parameters",DIGITAL_PHYSICAL,N/A,N/A,N/A,"simulation, replication",N/A,N/A,   
+Locklin2020,N/A,"3D printer, ship, parts/ a whole system",data of scenarios ,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation, analysis",N/A,NO,   
+Lopez2021,N/A,smart grid,"sensor data, real time data","DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,N/A,simulation,N/A,NO,   
+Luan2021,"cloud, edge",physical entity,real-time data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation, replication, ",N/A,NO,   
+Madni2021,N/A,physical systems,N/A,N/A,DIGITAL_TWIN,N/A,MBSE testbed,"simulation, replication","Just as importantly, the MBSE testbed
+construct provides a modeling, simulation, and integration environment for developing
+and evaluating digital twins [5].",NO,   
+MailletContoz2020,N/A,IoT devices,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,N/A,N/A,N/A,   
+Martins2020,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Machin learing alg.,N/A,N/A,   
+Mills2021,N/A,procduction system,N/A,N/A,N/A,N/A,N/A,replication,N/A,N/A,   
+Minerva2020,"edge, cloud",individual physical object,"historical data, ",DIGITAL_PHYSICAL,"DIGITAL_TWIN, DIGITAL_SHADOW (mentioned diffrent types but mopstley it's about a real DT)","MQTT, ",N/A,"monitoring, simulation, replication, analysis","the implementation of a Digital Twin infrastructure requires the
+identification, design and implementation of a rich software
+architecture in order to fulfill the requirements and support the
+expected properties.",YES,   
+Mittal2019,N/A,IoT device,N/A,"DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,"MQTT, ",N/A,"simulation, replication, ",N/A,NO,   
+Morales2020,N/A,physical system,N/A,N/A,N/A,N/A,N/A,replication,N/A,N/A,   
+Moro2021,cloud,physical assets,real-time data (sensor data),DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"Constrained Devices Management Platform (CDMP), Eclipse Ditto, ",simulation,N/A,NO,   
+Mullet2021,cloud,CPS,real-time and historical data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation replication, ","To design more secure CPS, the idea is to use digital
+twins in combination with a virtual environment in order
+to analyze how the system behaves under attacks.",NO,   
+Murillo2020a,N/A,CPS,physical and network data,DIGITAL_PHYSICAL,DIGITAL_TWIN,"AML, SQLite","DHALSIM, WNTR, MiniCPS","simulation, replication, analysis, monitoring",N/A,NO,   
+Neethirajan2021,N/A,"pigsty, animals (e.g. cows)","real-time data, sensor data","DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,N/A,"simulation, replication, analysis, decision making",N/A,NO,   
+OlivaresRojas2021,N/A,devices in a smart grid (smart home),sensor data/ historical sensor data,DIGITAL_PHYSICAL,DIGITAL_TWIN,"JSON, ",N/A,"replication, simulation, ","We develop a DT Framework mainly composed of
+a DT Controller. ",YES,   
+Pokhrel2020,"cloud, embedded","system, process ","sensor data, historical data, real-time data",DIGITAL_PHYSICAL,"DIGITAL_TWIN, DIGITAL_SHADOW (mentioned diffrent types but mopstley it's about a real DT)",N/A,N/A,"simulation, analysis, replication, monitoring, predection",N/A,NO,   
+Pushpa2020,"edge, cloud",physical devices,Real-time data processing,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulate, analysis",N/A,NO,   
+Raj2021a,N/A,"different assests/objects (machines, an aerosol drug, Cambridge, a product, patient’s heart)","various real-world data, sensor data, historical data","DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,N/A,N/A,"simulation, replication, ",N/A,NO,   
+Ranjbar2020,N/A,hydrographical network,data collected from SCADA,"DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,N/A,"SCADA, Matlab",simulation,"ThedesignoftheDTrequiressomesteps:a)hydraulicmodelofthehydrographicalsystems,b)identificationofthedynamicsofthecontrolleddevicesandc)calibrationofthehydraulicmodel.",YES,   
+Rasheed2020a,"cloud, edge","different assests/objects (offshore oil platform, human body, education sector, district heating and cooling network, etc.)","real-time (sensor) data, historical data",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation, analysis, monitoring, detection, ",N/A,NO,   
+Rathore2021,"cloud, edge",different assests/objects,"historical and real-time data, for different industries","DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,"Open Simulation Platform, FIWARE, Predix, CNC machine tools control platform IndraMotion
+MTX, Beacon, Thingworx, and others; TwinCat, SAP,Codesys, CNC tools, Aspera, and RaySync; ANSYS Twin Builder,MWorks, Siemens NX
+software, SolidWorks, Autodesk tools, and FreeCAD; ","monitring, simulation, analysis","The data is fed to the data analysis
+and decision-making layer, where AI models, statistical
+and probabilistic approaches, or mathematical models are
+employed to create the DT-based system or the digital twin itself.",NO,   
+Raybourn2018,N/A,physical security systems,"historical and real-time data, sensor data",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"Dante, MILES, ","analysis, simulation","Accurate facility modeling and terrain development are needed for security simulations
+in general and to implement a digital twin. Data feeds must be added to reflect
+the current situation on the ground along with adding predictive capabilities to this
+adaptive model. The site’s digital twin needs sufficient data updates by various
+means (e.g., sensor input, updates from responders) to stay synchronized with
+physical counterparts, and support response force decisions with real-time status.
+Secure facilities usually have a variety of sensors including cameras, fence line
+sensors, and radars that can update the digital twin in real time, and this information
+can be made immediately available to the entire response force.",NO,   
+Reis2020, ,, , ,, , ,,, ,   
+Riegler2021,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
+Rubio2019,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
+Saad2020,cloud,cyberphysical networked microgrids,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,"MQTT, JSON",AWS,"replication, analysis, detection, monitoring","cloud-based DT platform is implemented to be a centric oversight for the NMG system.
+The cloud system hosts the controllers (cyber things) and the
+sensors (physical things) into the cloud IoT core in terms of
+the IoT shadow. The proposed DT covers the digital replica
+for both the physical layer, cyber layers and their hybrid
+interactions.",YES,   
+Saad2020ab,cloud,physical and cyber layers of the networked microgrids,"historical and real-time data, sensor data",DIGITAL_PHYSICAL,DIGITAL_TWIN,"JSON, MQTT","Amazon Web Services, MATLAB/SIMULINK","monitoring, analysis",N/A,YES,   
+Sahal2021,edge,production system (CPPS),"semantic models and operational data (i.e., failure and erroneous data).","DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,"JSON, XML",N/A,"simulation, analysis, prediction","the development of DT needs three
+components: (1) an information model that abstracts the specifications of a physical object;
+(2) a communication mechanism that transfers bi-directional data between a DT and its
+physical counterpart; and (3) a data processing module that can extract information from
+heterogeneous multi-source data to construct the live representation of a physical object",YES,   
+Semenkov2020,cloud,CPS,"real-time data
+about the physical system and provide guidance in real-time.",DIGITAL_PHYSICAL,DIGITAL_SHADOW,NTP,ULCS,simulation,"The design and deployment of digital twins of cyberphysical
+systems is an essential and expanding technology",NO,   
+Semenkov2021 ,cloud,CPS,"real-world data, simulation or machine
+learning models, combined with data analysis",DIGITAL_PHYSICAL,DIGITAL_TWIN,NTP,N/A,"simulation, analysis",initially designed as a system of nested containers. Every container serves as a framework for lower-level components and puts some additional constraint from upper-level requirements onto the container elements,YES,   
+Shah2021,N/A,portable table-top sized temperature-controlled system,real-time data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"Robotic Process Automa-
+tion (RPA) and a PLC program, Ditto",Simulation,"In order to successfully establish a DT environment, real
+time decision-making along with rapid analysis is an impor-
+tant requirement.",YES,   
+Shalaginov2019,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
+Shoumen2017,edge,CPS,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,avatar,"analysis, monitoring",the process of creating (building) digital twins and the adoption of digital twins may be restricted to an industrial oligopoly. The vast majority of users cannot deploy an army of engineers to create custom digital twins for their exclusive experiments.,NO,   
+Stirna,N/A,network and its services,"live data, ARTSS model, Historical data for simulation modeling purposes",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"ARTSS modeling tool, Digital twin target development environment","monitoring, Simulation",The method component defines design of a digital twin according to the capability model.,YES,   
+Sugumar2019,N/A,6- stage water treatment plant,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
+Suhail2021,N/A,industrial processes,"sensor data from factory floor,
+historical production data acquired from product lifecycle data, and domain knowledge to generate comprehensive
+data in the form of models, simulations, replications, or behavioral analytics.",DIGITAL_PHYSICAL,DIGITAL_TWIN,AML,N/A,"simulation, analysis, replication","blockchain-based Digital
+Twins (DTs)",YES,   
+Suhail2021ab,N/A,industrial processes,"sensor data from factory floor,
+historical production data acquired from product lifecycle data, and domain knowledge to generate comprehensive
+data in the form of models, simulations, replications, or behavioral analytics.",DIGITAL_PHYSICAL,DIGITAL_TWIN,AML,N/A,"simulation, analysis, replication","different design solutions from different perspectives are presented (for saftes and security: Introducing S&S
+mechanisms at the DT design phase can help to lower security and incident-response costs thereby making later
+lifecycle phases less prone to errors and incidents [15]. Whereas, S&S rules must be stored and retrieved from the
+ledger to ensure their reliability. This further strengthens the rationale for integrating blockchain with DTs)",YES,   
+Sundaram2020,N/A,N/A,N/A,N/A,N/A,N/A,N/A,monitor,N/A,N/A,   
+Tange2020,N/A,physical devices,N/A,N/A,DIGITAL_TWIN,N/A,N/A,simulation,N/A,N/A,   
+Tao2019,N/A,N/A,"data from the lifecycle of a physical asset and generate valuable
+information through computing",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,replication,N/A,N/A,   
+Tauber2018,cloud,a system,"existing information but also an up-to-date
+picture of the current status",DIGITAL_PHYSICAL,DIGITAL_SHADOW,N/A,N/A,"monitor, analysis, model",N/A,NO,   
+Terziyan2021,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
+Trneberg2021,Cloud,"CPS (representation of anything from a component in a
+production plant, to a product being assembled/manufactured,
+to the entire production system)",N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,"Protocol Buffers (Protobuf), ",N/A,"Detection, model, analysis",we implement and evaluate a cloud-native DT Proof of concept (PoC) platform.,YES,   
+U.Khan2021,"cloud, edge",6G physical system,data generated by IoE devices,"DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,N/A,N/A,"ML, analysis, simulation","the digital twin will use a virtual representation of the 6G physical system
+along with communication, computing, security, and privacy
+technologies to enable 6G-based IoE applications.",YES,   
+Ugarte2020,N/A,CPPS,"real-time data
+about the physical system and provide guidance in real-time.",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulate, model, ","introduce the digital twin as a DevOps accelerator where it stages a DevOps approach throughout the whole
+product life cycle.",NO,   
+Veledar2019,"Cloud, edge",smart car,"real-time sensor data measurements and collections, historical data and ML analytics models)",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulate, prediction, monitoring, ML, analysis","Digital Twin demands technologies and methods
+to be effectively combined e.g. Artificial Intelligence (AI), real-time predictive
+analyses, and forecasting algorithms using Big Data derived from the IoT sensors
+and historical data.",NO,   
+Wu2020,N/A,CPS/CPPS,"physical-to-cyber data exchange and
+cyber-to-physical data exchange",DIGITAL_PHYSICAL,DIGITAL_TWIN,"OPC-UA, MQTT, AML",N/A,"simulation, monitoring, prediction",N/A,NO,   
+Xinxin2019,N/A,"power plants, ICS","current data, the historical data and events&alarms",DIGITAL_PHYSICAL,N/A,"AML (CAEX), PLCopen XML, COLLADA, OPC UA",Refueling Machine,"simulation, analysis,  ","model the system based on a FS, as it able to selectively abstract key
+parts of the functionality of a real world system. AML will be used to model the system with high detail",NO,   
+Xu2020ab,"cloud, supercomputer",CPS,sensor data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Monitoring, Simulation, Detection","we aim to design an advanced detector based on
+a Digital Twin",YES,   
+Xu2021,N/A,CPS,"historical data and fine-tune it with
+real-time data, which simulates the CPS; sensor and actuator values","DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,N/A,"evaluate ATTAIN with three CPS case studies, namely
+Secure Water Treatment (SWaT) [7], Water Distribution
+(WADI) [8], and Battle Of The Attack Detection Algorithms; Generative Adversarial Network
+(GAN)
+(BATADAL) (testbeds)","Simulation, Detection, Machine Learing, OTALA algorithm","We use a Generative Adversarial Network
+(GAN) to implement the ATTAIN digital twin capability,
+which can be trained on labeled historical data and unlabeled
+real-time data with the digital twin model’s ground truth label.",YES,   
+Zhu2020a,"cloud, supercomputer",CPS,sensor data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Simulation, Monitoring, Detection, Kalman Filter, Analysis","we design a Chi-square detector, running in a
+DT. The DT connects to a group of protected sensing devices, collecting relevant
+evidence.",YES,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   
+,,,,,,,,,,,   

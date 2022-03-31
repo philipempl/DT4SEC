@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Unleashing the Digital Twin&apos;s Potential for ICS Security</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+				<availability status="unknown"><p>Copyright Institute of Electrical and Electronics Engineers (IEEE)</p>
+				</availability>
+				<date type="published" when="2020-07">2020-07</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Marietheres</forename><surname>Dietz</surname></persName>
+							<idno type="ORCID">0000-0002-6885-4622</idno>
+						</author>
+						<author>
+							<persName><forename type="first">Gunther</forename><surname>Pernul</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">Auckland University of Technology</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Unleashing the Digital Twin&apos;s Potential for ICS Security</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">IEEE Security &amp; Privacy</title>
+						<title level="j" type="abbrev">IEEE Secur. Privacy</title>
+						<idno type="ISSN">1540-7993</idno>
+						<idno type="eISSN">1558-4046</idno>
+						<imprint>
+							<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+							<biblScope unit="volume">18</biblScope>
+							<biblScope unit="issue">4</biblScope>
+							<biblScope unit="page" from="20" to="27"/>
+							<date type="published" when="2020-07" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/msec.2019.2961650</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:32+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>T raditional industrial infrastructures include operational technology (OT) such as supervisory control and data acquisition (SCADA) systems, human-machine interfaces (HMIs), programmable logic controllers (PLCs), and other field devices. These systems can also be characterized as industrial control systems (ICSs), as they are able to command processes within industrial environments. With the advent of the Industry 4.0 (I4.0) concept, the traditional systems are increasingly integrated with general-purpose IT systems, including enterprise-resource planning systems, mostly by establishing connections via Ethernet, TCP/IP, and wireless technologies, such as Bluetooth. Whereas integrating IT and OT systems certainly benefits communication and the creation of collaborative business processes, it introduces novel attack vectors into industrial ecosystems.</p><p>It was the beginning of a new era when the industrial world became aware of the Stuxnet worm, whose primary target was the Natanz nuclear-enrichment lab in Iran. <ref type="bibr" target="#b0">1</ref> The lab's OT systems were maintained by IT-engineering systems. By using known Windows exploits, attackers infected the IT systems and their maintenance OT devices. Lateral movement via (virtual) private networks became possible, and additional OT systems (especially PLCs and SCADA systems) were targeted. <ref type="bibr" target="#b0">1</ref> However, unlike previous malware, only OT systems that had specific configurations to manage certain industrial processes were attacked. <ref type="bibr" target="#b0">1,</ref><ref type="bibr" target="#b1">2</ref> In particular, Stuxnet targeted frequency-converter drives (PLCs) that controlled the speed of centrifuges: If the drives were connected, the malicious code changed the centrifuges' speed to harmful values. Moreover, those changes were concealed by yet another code. All of these aspects indicated a deep knowledge of system behavior and targeted exploitation, which represented a novel kind of security threat, now commonly known as the advanced persistent threat (APT). <ref type="bibr" target="#b2">3</ref> In 2017, another industrial APT was discovered: Triton. This one targeted industrial safety systems at a petrochemical plant in Saudi Arabia and, undesignedly, caused plant-process shutdowns. The attacker remained in the target network for approximately one year before entering the safety system's engineering workstation. By analyzing the workstation's communication (IT) with its safety systems, the attacker gained knowledge of the hardware controllers (OT). <ref type="bibr" target="#b3">4</ref> These examples show that advanced ICS attacks generally leverage traditional IT systems to reach their final targets. Standards and guidelines to reinforce industrial ecosystems' security [for example, International Electrotechnical Commission (IEC) 62443 and National Institute of Standards and Technology SP 800-82] include measures that encompass security testing and monitoring as well as attack detection. Moreover, many works address various fields of I4.0 security (for example, Kargl et al. <ref type="bibr" target="#b4">5</ref> ). However, industrial security measures can also benefit from I4.0 concepts, <ref type="bibr" target="#b5">6</ref> one of which involves creating a virtual entity that represents IT/OT components: the digital twin (DT).</p><p>In general, a DT refers to a digital representation of any real-world counterpart during its whole lifecycle. At most times, however, it represents an industrial enterprise asset. The core building blocks of the DT paradigm are asset-specific data items, often enhanced with semantic technologies, as well as analysis/simulation environments to digitally explore the real-world asset. <ref type="bibr" target="#b6">7</ref> One of the DT's main purposes is to manage the real-world asset, with a scope ranging from simple monitoring to autonomy. DTs are meant to be applied in asset-centric organizations, especially those with critical infrastructures where losses due to significant downtime (for example, at a power plant) may involve risks beyond a company's financials. DTs can play an important role in mitigating and avoiding these risks by providing comprehensive information about the asset's status, history, and maintenance needs. Some DTs even provide direct interaction with the asset.</p><p>In the Stuxnet example, the frequency-converter drives could have had DTs monitoring their states and sending commands to maintain the necessary centrifuge speed as soon as changes occurred. In terms of security, operations can be carried out in the virtual, isolated environment of the DT without risking negative impact on its real-world counterpart. The direct connection between the twins further supports an immediate reaction to security incidents.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Security-Operation Modes</head><p>Most of the time, a security system operates in one mode. For instance, security-information and event-management systems analyze current event logs that are retrieved from the investigated systems (historical data analytics). In contrast, DTs provide the opportunity to operate in more than one mode; namely, the historical data analytics/optimization, simulation, and replication. Figure <ref type="figure" target="#fig_1">1</ref> depicts the modes and simplistically illustrates the data that are used as the basis for the operations. (Note that we do not claim to have included every such mode. However, we are confident that we have chosen the most relevant ones, as the majority of the DT data-processing capabilities can be assigned to them.)</p><p>In Figure <ref type="figure" target="#fig_1">1</ref>, the real-world twin's state data are captured by the device's sensors or (event) logs and submitted to the DT during the data-collection task. The state data are added to the historical/state database where they can be aggregated and used for ad hoc querying. The specification database includes information about the real-world twin's features, such as the cyberphysical system (CPS) and its composition, including its subparts and program logic. Such IT/OT-system specification is often represented in Automation Markup Language (AML) and used to emulate the real-world twin. The specification database can include other knowledge, including security and safety rules that apply mostly to the program logic. Such rules can contain thresholds and consistency checks and are usually defined in advance. <ref type="bibr" target="#b7">8</ref> For instance, safety rules might impose upper-and lower-speed thresholds on a motor. <ref type="bibr" target="#b7">8</ref> An example of a security rule involves a speed-variable consistency check of an HMI interface and PLC to make sure that the number entered in the HMI is transferred to the PLC without risking a man-in-the-middle (MITM) attack. <ref type="bibr" target="#b7">8</ref> Connected to its real-world counterpart, the DT can immediately release commands to monitor its double's current state, if necessary.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Historical Data Analytics and Optimization</head><p>In addition to the on-the-fly analysis based on the asset's state data, the current and stored historical data comprise the input for various analytical purposes and optimizations; among them, behavioral analytics and predictive maintenance. <ref type="bibr" target="#b6">7</ref> The outcome of those operations can be used to optimize the real-world counterpart; for example, by issuing commands to alter its state.</p><p>Analytics and optimization rely on techniques including machine learning, artificial intelligence, and the like. The historical data can serve as baseline and training data for normal instances. Behavioral analytics, for instance, can then "learn" the behavior of the asset's environment, which, in turn, serves as valuable input for detecting anomalies and optimizing processes. Another analytics technique involves the detection of changes and trends through time. Also, detecting events and patterns is an essential historical data analytics technique. These methods enable typical I4.0 use cases, such as predicting maintenance needs, anticipating manufacturing throughput, and forecasting system health.</p><p>Most of these analyses can be harnessed for security purposes, which are increasingly deployed. For instance, by monitoring the state through time, outliers and changes that could be the result of malicious activities can be detected. Analyzing the relationships between variables through time enables the detection of possible safety/security-rule violations. The state-ofthe-art industrial-ecosystem security includes only a few components that search for anomalies in the behavior of I4.0-essential protocols, such as the OPC United Architecture. The analytics mode of a DT can help to remedy I4.0 security issues.</p><p>In the Stuxnet example, outliers in the network traffic between the WinCC SCADA system and PLC controllers would have indicated the attack. The DT's analytics mode would have shown anomalous traffic between the infected SCADA system and controllers that requested data beyond the legitimate PLC blocks during a 5-s time span. <ref type="bibr" target="#b0">1</ref> Similarly, Triton caused unusual traffic across its victim's network. DT analyses of the network traffic during the attack would have indicated inbound and outbound connections to and from nonstandard ranges as well as anomalous secure-shell sessions. <ref type="bibr" target="#b3">4</ref> </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Simulation</head><p>In contrast to the simple analyses of historical data, simulations of a specified asset present a variety of novel security opportunities. Simulations differ from analyses and optimizations because they are established on a model of a real-world asset, which, in turn, is based on specification data. Simulations are run with user-specified settings and parameters. After the evaluation of the simulation outcome, the real-world counterpart can be adapted to the desired setting by transmitting the respective commands and parameters.</p><p>Simulations engender the following generic advantages: First, test repetitions are realized by resetting the model and rerunning the simulation. Second, in contrast to tests on real-world assets, the simulation time interval is compressed. Third, simulations reveal a system's behavior through a broad range of specified conditions, which supports the comprehension of emergent behavior. Despite all of these benefits, simulations are mostly neglected in current security analyses.</p><p>In terms of security monitoring and operations, these opportunities can be harnessed for a variety of purposes and during the whole asset's lifecycle. For instance, security testers can provide feedback about shortcomings and potential vulnerabilities during the design phase. The setup can also be tested against specified rules for security and safety to detect misconfigurations. New components can be modeled in the virtual environment and tested for security without influencing the production system. Additionally, to cope with missing information, the simulation parameters can be modified. This approach limits the damage to the physical asset and the costs for prototyping and certainly introduces security by design (a concept that will be addressed in the "Security by Design" section). More importantly, security testers can induce security-relevant conditions, such as MITM and insider attacks, and examine the simulated environment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Replication</head><p>The replication mode resembles simulation in the way that it operates on the specification data to emulate the real-world twin. Additionally, stimuli from the real world are induced by incorporating the current state data and reproducing the events from the physical environment. Although the replication mode comes close to historical data analytics, it differs in two ways. The input knowledge (for example, events and resulting activities) must be known to produce the same stimuli in the digital world, whereas historical data analytics needs a large enough data baseline to train effectively. The specification data play a greater role in the replication mode. This provides the benefits of instantly recognizing affected components, tracing This mode is essential for properly detecting threats and attacks. Comparing the state of the DT's replication mode against the real-world state should deliver the same results (consistency) since the physical environment is mirrored to its virtual counterpart by its specification and current events. Consequently, identified divergences represent a possible attack or failure. For instance, hashing the blocks of the real-world PLC should produce hash values that are identical to those of the DT.</p><p>In the Stuxnet example, a divergence in the SCADA/ PLC network traffic between the original set and its virtual replica could have revealed the attack. The package count in the replication mode would have been drastically different from the real state, indicating unusual behavior. Moreover, the attack could have been revealed only on the basis of the PLC state versus the state of its digital counterpart. If the PLC operates under certain configurations, the Stuxnet code will be injected into the controller. <ref type="bibr" target="#b1">2</ref> The Stuxnet infection of certain PLC organization blocks (OBs) is based on increasing the size of the original block. Although the original code of the concerned blocks (that is, OB1 and OB35) remains, the malicious Stuxnet code is prepended. <ref type="bibr" target="#b1">2</ref> In conclusion, an examination of the OB1 and OB35 blocks of an infected PLC would result in an unusual block size as well as an unknown code segment at the beginning. In terms of the DT application, predefined rules for protecting the integrity of the PLC code blocks could be stated in the PLC's specification (see Figure <ref type="figure" target="#fig_2">2</ref>); this would generate an alert as soon as a block size was altered. Figure <ref type="figure" target="#fig_2">2</ref> presents a pseudocode for detecting mismatching block sizes. The regular sizes of each PLC code block (regular_plc_blocksizes) as well as the current block sizes (current_plc_blocksizes) are retrieved. The current block size is compared to the regular one, which produces an alert in case of a mismatch.</p><p>In the Triton example, a divergence between the DT and real-world traffic would have indicated unusual behavior as well. Moreover, differences in the file number between the real-world entity and its virtual twin would have alerted the victim. Although Triton's malicious files were named like legitimate ones (for example, "Kb77846376.exe" to mimic Microsoft update files), <ref type="bibr" target="#b3">4</ref> the compromise would be uncovered by comparing these hashes with the known legitimate ones.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>From Differences to Synergies</head><p>Table 1 highlights the differences between the operation modes in terms of the database, techniques, and applications and further introduces the resulting (dis) advantages. It shows that the combination of these modes covers a broad range of security analyses.</p><p>The interplay of these operation modes empowers users when they apply the DT for security purposes. For instance, the data outcomes of an attack that is induced during the simulation mode can serve as comparison input for the replication mode to detect the attack in the real world. An example would be to simulate the Stuxnet MITM attack on a virtual OT system that subsequently produces certain data outputs. These outputs can be compared with the real-world twin's current state data to detect whether such an attack was happening. Additionally, simulations can detect system weaknesses, such as missing security rules that can be formulated, added to the specification database, tested, and transmitted to the real-world system (ad hoc monitoring).</p><p>The historical data analytics mode can provide information about future system states through its trend analyses. Those predictions can serve as input parameters for simulations. Moreover, the historical data analytics mode supports event identification and provides information about incidents and their occurrences (pattern detection). This serves as the basis for determining the stimuli input for the replication mode.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Related Concepts</head><p>Since some ICS security approaches are conceptually similar, we highlight the commonalities and differences between them and the DT security concept. Testbeds are commonly employed to evaluate the functionality of critical infrastructures and assess the security level by, for example, spotting vulnerabilities and conducting security attacks. However, in contrast to DTs and their operation modes, testbeds usually combine virtual and physical components. For instance, the Electrical Power and Intelligent Control testbed <ref type="bibr" target="#b8">9</ref> provides an active, realistic environment for researchers to explore a system's vulnerability to attacks and the effectiveness of attack-detection algorithms. Another example is the Secure Water Treatment (SWaT) testbed, <ref type="bibr" target="#b9">10</ref> which provides an ICS testbed to conduct security research and training. Purely virtual testbeds are even closer to DTs; however, they are commonly deployed during an  Cyberranges are virtual environments that provide training opportunities, including tools that help to improve the security, stability, and performance of infrastructures and systems. For example, SWaT Security Showdown <ref type="bibr" target="#b10">11</ref> gamifies the testbed <ref type="bibr" target="#b9">10</ref> to provide an enhanced training environment. It targets academia as well as industry ICS security professionals and was designed as a capture-the-flag event. In contrast to cyberranges, DTs focus on the asset, its operation, and its security. However, they might play a role for education and cyber-range challenges in the future. Deception technologies (for example, honeypots) are effective countermeasures against cyberattacks and APTs. They aim to draw attackers away from real systems, usually by simulating the systems' behavior. While DTs certainly have a different aim than deception technologies, their simulation mode may provide a helpful basis for system simulation with honeypots.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ICS Lifecycle Security</head><p>In common practice, an industrial asset's lifecycle phases are handled separately by the participating parties. This leads to duplicate data and information islands and results in wasted resources and inefficient data sharing. The DT paradigm tackles this issue by anchoring all of the lifecycle phases and arranging information continuously across the asset's life. The DT evolves with its real-world twin and incorporates the retrievable and relevant information during the lifecycle. In terms of security, this aspect has advantages including the seamless inclusion of protection measures throughout the entire asset's lifespan, beginning with the planning and design phases. (Note that lifecycle security in the scope of this article is tackled via the asset's lifecycle since DTs are asset centric, not by the lifecycle of security incidents, such as kill/attack chains, which are attack centric.)</p><p>A unified model of asset lifecycle phases does not exist since the phases strongly depend upon their assets, which can manifest as products, processes, or systems. The most common phases, in practice, are the idea, planning, and design (early phases); operation (medium phases); and demolition and end of existence (final phases). In the following, we discuss two aspects that focus on an asset's lifecycle: security by design and digital forensics. We describe how the DT can contribute to security during an asset's early phases as well as during its later lifecycle phases (operation and end of existence).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Security by Design</head><p>Within numerous IT/OT systems, operational functionality outweighs security. Therefore, security is, if addressed at all, often added during later lifecycle phases (for example, the asset's operation) instead of being considered beforehand. The security-by-design principle introduces safety mechanisms before an asset's implementation, ideally during the design phase. <ref type="bibr" target="#b11">12</ref> The lifecycle aspect of a DT complies with the security-by-design principle in the following way: Because a DT aims to incorporate every lifecycle phase, it originates during an asset's planning and design, thereby offering the opportunity to focus on security before operation. This could include stating security and safety rules as input knowledge (specification data; see Figure <ref type="figure" target="#fig_1">1</ref>) to ensure the presence of mechanisms to avoid program-logic misuse and attacks. Another way of introducing security by design through DTs includes simulating a prospective environment to detect vulnerabilities, which supports the creation of a security-aware asset.</p><p>Introducing security by design helps to lower security and incident-response costs. Since safety mechanisms are installed at the beginning, later lifecycle phases are less prone to security incidents. This reduces the expense of maintaining security, as opposed to spending vast amounts to recover from an attack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DTs for Digital Forensics?</head><p>Most security requirements should be considered during an asset's design. Nevertheless, each subsequent lifecycle phase brings its own security demands. While the real-world twin must not exist during the early phases, it will presumably operate and evolve during later ones. As well as implementing-by-design, the DT paradigm provides an opportunity to focus on security during later lifecycle phases. For instance, adding novel functionalities during the operation phase of an OT system might require the formulation of new security rules for connecting IT devices to avoid misuse and attacks.</p><p>When attacks occur during a real-world asset's operation phase, digital forensics can play a decisive role. The primary digital-forensics advantage that DTs present concerns the fact that the real-world counterpart is not modified by attack investigations. Hence, the digital evidence in the real-world counterpart is not contaminated. DTs support the conservation of evidence and presumably lead to higher-quality digital forensics.</p><p>Digital forensics can be divided into live and postmortem categories. Live forensics are performed during an attack to provide a clear overview of what is happening. The replication mode of the DT can help to detect the attack by mirroring the current events. Live forensics also target the attack's point of origin and subsequent lateral movement. The DT's historical database contains the states as they were before and during the attack. Historical data analytics can identify the time of the attack, while, combined with simulation, the replication mode can replay the malicious activities. If the stimuli are not clear, the simulation mode can replicate different versions of the attack by trying different input parameters until an output is produced that mirrors the one in the historical database. These modes enable the back-tracing of different ways to enter a system and the subsequent attack dissemination, which is vital for live and postmortem forensics.</p><p>A minor limitation is that the DT data might be illegitimate evidence. However, the DT helps to select the procedure for finding traces of the attack. Moreover, the DT may store legacy data (in its historical data; see Figure <ref type="figure" target="#fig_1">1</ref>) that might have been deleted from the real-world counterpart. That information may contribute to postmortem digital-forensic investigations. DTs can be kept for documentation purposes after the real-world twin's demolition, providing relevant data for postmortem digital forensics that continue long after an attack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ICS Security and Safety</head><p>IT and OT are not the only elements that converge in ICSs. Security and safety are also incorporated to mitigate the outcomes of malfunctioning components (weaknesses) and malicious activities (threats). While safety and security techniques may be applied separately, their merger will inevitably be called for during later lifecycle phases. The effort to align security and safety solutions increases considerably during later lifecycle stages. <ref type="bibr" target="#b12">13</ref> DTs, with their focus on an asset's lifecycle, may help by addressing the security and safety aspects.</p><p>Generally, the works on ICS security and safety can be categorized as combined security and safety approaches, security-informed safety approaches, and safety-informed security approaches. <ref type="bibr" target="#b12">13</ref> A combined approach consists of the six-step model and information-flow diagrams. <ref type="bibr" target="#b13">14</ref> First, it models the system's functions and structure. Afterward, the system's corresponding information flows are specified. The subsequent steps identify potential failures and weaknesses, safety countermeasures, possible attacks, and security counteractions.</p><p>This example reveals the closeness of the DT operations, especially the simulation mode. The system's structure and functions can be gathered from the specification/component data, which helps to build the emulation. System failures, the exploitation of weaknesses, and attacks can be simulated and further explored, and potential countermeasures can be tested.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Challenges Ahead</head><p>With every novel concept there are challenges to solve. Because the DT paradigm is in its infancy, various obstacles need to be addressed before its effective and efficient operation for security purposes can take place. The major issues are data-related, which influences security operations. For instance, the control logic (of a PLC, for example) provides important security information. If it is missing, has poor detail perception, or is of bad quality, wrong real-world emulations might occur, strongly impacting security operations.</p><p>Although the ICS was identified in 2014, its proprietary nature and a lack of standards represent difficulties. <ref type="bibr" target="#b4">5</ref> However, the increasing adoption of AML, as specified in IEC standard 62714, moves in the right direction. There are works that aim for the automated creation of DTs by building a software-defined network (SDN) from the AML description of CPSs. <ref type="bibr" target="#b7">8</ref> Moreover, ICS can be found in various industries, including manufacturing, energy, and transportation. This introduces the question of whether differences remain in the DT concepts between these domains. Currently, it seems that the DT paradigm can be generalized, as various industrial sectors tackle the technology.</p><p>Another issue arises with the simulation and replication setup. It requires experience with the applied tools and expert knowledge of the data that are used to establish the model. Otherwise, missing or wrong influence factors or improper coarsening can lead to misleading results on which security decisions and actions are based. Knowledge from related works, such as SDNs, testbeds, and cyberranges, should be incorporated. For instance, the works on cyberranges could provide valuable input to train security specialists (for example, pen testers) and institutions (such as security operations centers) about ICS by the security operations of DTs. The works demonstrate a variety of ways to gamify the security practice by, for instance, providing capture-the-flag challenges to identify and defend attacks in the virtual ICS. <ref type="bibr" target="#b10">11</ref> To detect and respond to APTs, future research needs to develop innovative techniques that enhance the traditional approaches. <ref type="bibr" target="#b2">3</ref> Consider anomaly identification in a network topology that has varying criticality. Combining graph theory and structural controllability concepts can provide a dynamic decision mechanism that detects the topological abnormality. <ref type="bibr" target="#b2">3</ref> DTs may provide relevant feedback and uncover improvement possibilities: By incorporating the techniques in the simulation environment and launching an APT attack, the effectiveness of these novel approaches can be tested.</p><p>ICS interconnection remains an open issue. CPSs are physically or digitally connected and often depend on each other. <ref type="bibr" target="#b8">9</ref> Thus, one CPS's security incident or weakness may impact the security of another. Future work should focus on these interconnections, especially to facilitate studying the effect of multiple, simultaneous attacks. <ref type="bibr" target="#b9">10</ref> Whether this remains an issue for DTs depends on the asset a DT represents. If the CPS components within the twin's counterpart are interconnected, the digital or physical connections can be modeled within the DT. If, however, ICSs that are represented by different DTs are interconnected, the question arises: How can dependencies between separate DTs be managed? To find a solution, works on developing a system-of-systems could provide a starting point. <ref type="bibr" target="#b6">7</ref> Covering an asset's whole service span should include all of the lifecycle parties that can provide information about it. However, this multiparty use of a DT can impact the information consistency. For example, the specification of a rotor could include a maximum allowable speed, whereas the specification of the PLC could predefine rules for protecting the integrity of the firmware. The multiparty use of a DT also affects the main security principles, confidentiality, integrity, and availability as well as access-control issues. A DT must ensure that only authorized parties can access, read, and write certain resources. Integrity requires mechanisms that provide data and model consistency among the different domains and lifecycle parties. The availability of a DT is a security requirement that can be tackled by a trusted third party or by applying a decentralized approach, as discussed in Dietz et al. <ref type="bibr" target="#b14">15</ref> A lthough a number of security mechanisms exist for industrial ecosystems (for example, firewalls and air gaps for network segregation), they are usually not sufficient to reach a proper security level. By compromising the Windows engineering systems of contractors that had physical access to the targeted systems, Stuxnet vividly demonstrated how to overcome air gaps. <ref type="bibr" target="#b0">1</ref> Mechanisms beyond conventional information security are typically required to achieve the desired security level. The DT incorporates knowledge from multiple domains that provide the information-security view and a perspective of the control systems and their subparts and program logic. Through the operation modes and their interplay that the DT provides, opportunities to detect novel industrial attack vectors emerge. Moreover, commands from the DT to its real-world counterpart enable immediate defense action.</p><p>More importantly, OT devices feature similar configurations and are usually supplied by a limited number of vendors. The Stuxnet example showed that on the ICS level, the abused exploits represent legitimate product features. Therefore, the current approach to secure industrial assets and especially OT systems starts with the identification of physical vulnerabilities and protection systems, which provide safety but generally fall short of security. <ref type="bibr" target="#b0">1</ref> Consequentially, future research should address the combination of DT data with known IT/OT-system vulnerabilities to detect weaknesses. DTs include configuration knowledge (such as system and software versions) that could be exploited to search for physical vulnerabilities and the presence of protection systems that are prone to security exploits.</p><p>Future studies should address the current challenges in DT research, as outlined in the previous section. While the growing implementation of sensors in I4.0 generally leads to more information and solves a lot of data-related issues, awareness and training for identifying the relevant data remains an important requirement. Researchers and practitioners should work hand in hand to develop standards for I4.0 and I4.0 security beyond what is currently available.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>Günther Pernul | University of Regensburg With the advent of Industry 4.0 (I4.0), traditional operational-technology and IT systems converge, entailing novel attack vectors. However, I4.0 technologies might also contribute to industrial security. Digital Twins are virtual entities of physical industrial systems that offer opportunities for security, such as simulation and replication of system behavior.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. The security operations (dashed lines) in a DT.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. The security rule that protects the integrity of the PLC blocks based their size.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>GET regular_plc_blocksizes AS ARRAY GET current_plc_blocksizes AS ARRAY FOREACH index IN current_plc_blocksizes, regular_plc_blocksizes IF current_plc_blocksize.index!= regular_plc_blocksize.index ALERT ENDIF ENDFOREACH IEEE Security &amp; Privacy Month/Month 2020 industrial asset's design and planning, while the DT covers the whole asset lifecycle.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 . A comparison of the DT security-operation modes.</head><label>1</label><figDesc></figDesc><table><row><cell>Operation mode</cell><cell>Advantage</cell><cell>Disadvantage</cell><cell>Aspect</cell><cell>Manifestation</cell></row><row><cell>Analytics/</cell><cell>• AS-IS state analysis</cell><cell>• Temporal dependencies</cell><cell>Database</cell><cell>State data</cell></row><row><cell>optimization</cell><cell>• Alerts for current security incidents • Broad user base through the prominence of the</cell><cell>• Analysis of potential future conditions not possible • Database size influences the functionality of most of the</cell><cell>Techniques</cell><cell>Statistical analyses, machine learning, and so on Data queries</cell></row><row><cell></cell><cell>techniques</cell><cell>algorithms</cell><cell>Applications</cell><cell>Network-traffic analysis, outlier</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>detection, and so forth</cell></row><row><cell>Simulation</cell><cell>• Time independence</cell><cell>• Hypothetical conditions</cell><cell>Database</cell><cell>Specification data</cell></row><row><cell></cell><cell>• Reproducibility • Repeatability</cell><cell>• AS-IS state not known • Isolated view of system</cell><cell>Techniques</cell><cell>Emulation, simulation</cell></row><row><cell></cell><cell>• Analysis of potential future conditions • Security-by-design support</cell><cell>• Complexity requires professional users</cell><cell>Applications</cell><cell>Vulnerability analysis, system-security testing</cell></row><row><cell>Replication</cell><cell>• AS-IS state analysis</cell><cell>• Temporal dependencies</cell><cell>Database</cell><cell>State data, specification data</cell></row><row><cell></cell><cell>• Alerts for current security incidents • Digital tracing of real-world stimuli/events</cell><cell>• Stimuli/events to be known in advance • Complexity requires professional users</cell><cell>Techniques</cell><cell>Emulation, stimuli reproduction, differential algorithms</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Applications</cell><cell>Attack and threat detection</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Authorized licensed use limited to: Auckland University of Technology. Downloaded on June 05,2020 at 17:06:27 UTC from IEEE Xplore. Restrictions apply.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">www.computer.org/security</note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0" />			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">http://ljournal.ru/wp-content/uploads/2017/03/a-2017-023.pdf</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Langner</surname></persName>
+		</author>
+		<idno type="DOI">10.18411/a-2017-023</idno>
+		<ptr target="https://www.langner.com/wp-content/uploads/2017/03/to-kill-a-centrifuge.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">The Langer Group</title>
+		<imprint>
+			<date type="published" when="2017" />
+			<publisher>LJournal</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">&quot;U.S. Policy in Guatemala, 1966-1996.&quot; National Security Archive Electronic Briefing Book 11. http://nsarchive.gwu.edu/NSAEBB/NSAEBB11/docs/ National Security Archive</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Falliere</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">O</forename><surname>Murchu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Chien</surname></persName>
+		</author>
+		<idno type="DOI">10.1163/2468-1733_shafr_sim160020016</idno>
+		<ptr target="https://nsarchive2.gwu.edu//NSAEBB/NSAEBB424/docs/Cyber-044.pdf" />
+		<imprint>
+			<date>2011</date>
+			<publisher>Brill</publisher>
+			<pubPlace>Symantec, Cupertino, CA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Preventing Advanced Persistent Threats in Complex Control Networks</title>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">E</forename><surname>Rubio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cristina</forename><surname>Alcaraz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Javier</forename><surname>Lopez</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-66399-9_22</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Computer Security – ESORICS 2017</title>
+				<editor>
+			<persName><forename type="first">Computer</forename><surname>Security -Esorics 2017</surname></persName>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Foley</surname></persName>
+			<persName><forename type="first">D</forename><surname>Gollmann</surname></persName>
+			<persName><forename type="first">E</forename><surname>Snekkenes</surname></persName>
+		</editor>
+		<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="402" to="418" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Triton actor TTP profile, custom attack tools, detections, and ATT&amp;CK mapping</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Miller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Brubaker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">Kappelmann</forename><surname>Zafra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Caban</surname></persName>
+		</author>
+		<ptr target="https://www.fireeye.com/blog/threat-research/2019/04/triton-actor-ttp-profile-custom-attack-tools-detections.html" />
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">FireEye</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Insights on the Security and Dependability of Industrial Control Systems</title>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Kargl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rens</forename><forename type="middle">W</forename><surname>Van Der Heijden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hartmut</forename><surname>Konig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alfonso</forename><surname>Valdes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marc</forename><forename type="middle">C</forename><surname>Dacier</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/msp.2014.120</idno>
+		<idno>doi: 10.1109/ MSP.2014.120</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security &amp; Privacy</title>
+		<title level="j" type="abbrev">IEEE Secur. Privacy</title>
+		<idno type="ISSN">1540-7993</idno>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="75" to="78" />
+			<date type="published" when="2014-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Analysis of Cybersecurity Threats in Industry 4.0: The Case of Intrusion Detection</title>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">E</forename><surname>Rubio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rodrigo</forename><surname>Roman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Javier</forename><surname>Lopez</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-99843-5_11</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Critical Information Infrastructures Security</title>
+				<editor>
+			<persName><forename type="first">G</forename><surname>Agostino</surname></persName>
+			<persName><forename type="first">A</forename><surname>Scala</surname></persName>
+		</editor>
+		<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="119" to="130" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Digital Twin: Empowering Enterprises Towards a System-of-Systems Approach</title>
+		<author>
+			<persName><forename type="first">Marietheres</forename><surname>Dietz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12599-019-00624-0</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Business &amp; Information Systems Engineering</title>
+		<title level="j" type="abbrev">Bus Inf Syst Eng</title>
+		<idno type="ISSN">2363-7005</idno>
+		<idno type="ISSNe">1867-0202</idno>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="179" to="184" />
+			<date type="published" when="2019-11-25" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Towards Security-Aware Virtual Environments for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3198458.3198464</idno>
+		<idno>doi: 10.1145/ 3198458.3198464</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 4th ACM Workshop on Cyber-Physical System Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-22" />
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">EPIC: An Electric Power Testbed for Research and Training in Cyber Physical Systems Security</title>
+		<author>
+			<persName><forename type="first">Sridhar</forename><surname>Adepu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nandha</forename><forename type="middle">Kumar</forename><surname>Kandasamy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Mathur</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-12786-2_3</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Computer Security</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="37" to="52" />
+		</imprint>
+	</monogr>
+	<note>in Computer Security, S. K</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">SWaT: a water treatment testbed for research and training on ICS security</title>
+		<author>
+			<persName><forename type="first">Aditya</forename><forename type="middle">P</forename><surname>Mathur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nils</forename><forename type="middle">Ole</forename><surname>Tippenhauer</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cyswater.2016.7469060</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 International Workshop on Cyber-physical Systems for Smart Water Networks (CySWater)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-04-11" />
+			<biblScope unit="page" from="31" to="36" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Gamifying ICS Security Training and Research</title>
+		<author>
+			<persName><forename type="first">Daniele</forename><surname>Antonioli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hamid</forename><forename type="middle">Reza</forename><surname>Ghaeini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sridhar</forename><surname>Adepu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Ochoa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nils</forename><forename type="middle">Ole</forename><surname>Tippenhauer</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3140241.3140253</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2017 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2017 Workshop on Cyber-Physical Systems Security and PrivaCy</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2017-11-03" />
+			<biblScope unit="page" from="93" to="102" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">The security issues of the Internet of Things</title>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Tankard</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s1361-3723(15)30084-1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Fraud &amp; Security</title>
+		<title level="j" type="abbrev">Computer Fraud &amp; Security</title>
+		<idno type="ISSN">1361-3723</idno>
+		<imprint>
+			<biblScope unit="volume">2015</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="11" to="14" />
+			<date type="published" when="2015-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Safety and Security Co-Analyses: A Systematic Literature Review</title>
+		<author>
+			<persName><forename type="first">Elena</forename><surname>Lisova</surname></persName>
+			<idno type="ORCID">0000-0003-2018-0996</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Irfan</forename><surname>Sljivo</surname></persName>
+			<idno type="ORCID">0000-0002-7382-8437</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Aida</forename><surname>Causevic</surname></persName>
+			<idno type="ORCID">0000-0001-5293-3804</idno>
+		</author>
+		<idno type="DOI">10.1109/jsyst.2018.2881017</idno>
+		<idno>doi: 10.1109/ JSYST.2018.2881017</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Systems Journal</title>
+		<title level="j" type="abbrev">IEEE Systems Journal</title>
+		<idno type="ISSN">1932-8184</idno>
+		<idno type="ISSNe">2373-7816</idno>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2189" to="2200" />
+			<date type="published" when="2019-09" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Integrating Six-Step Model with Information Flow Diagrams for Comprehensive Analysis of Cyber-Physical System Safety and Security</title>
+		<author>
+			<persName><forename type="first">Giedre</forename><surname>Sabaliauskaite</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sridhar</forename><surname>Adepu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/hase.2017.25</idno>
+		<idno>doi: 10.1109/ HASE.2017.25</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE 18th International Symposium on High Assurance Systems Engineering (HASE)</title>
+				<meeting><address><addrLine>Singapore</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="41" to="48" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">A Distributed Ledger Approach to Digital Twin Secure Data Sharing</title>
+		<author>
+			<persName><forename type="first">Marietheres</forename><surname>Dietz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benedikt</forename><surname>Putz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-22479-0_15</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Data and Applications Security and Privacy XXXIII</title>
+				<editor>
+			<persName><forename type="first">Applications</forename><surname>Data</surname></persName>
+			<persName><surname>Security</surname></persName>
+			<persName><forename type="first">Xxxiii</forename><surname>Privacy</surname></persName>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Foley</surname></persName>
+			<persName><forename type="first">Ed</forename></persName>
+		</editor>
+		<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="281" to="300" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

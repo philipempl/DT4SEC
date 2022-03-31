@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Digital Twins and Semantic Data Fusion for Security in a Healthcare Environment</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Barry</forename><surname>Norton</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Milestone Systems A/S</orgName>
+								<address>
+									<country key="DK">Denmark</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Mathias</forename><forename type="middle">Jes</forename><surname>Normann</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Milestone Systems A/S</orgName>
+								<address>
+									<country key="DK">Denmark</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Digital Twins and Semantic Data Fusion for Security in a Healthcare Environment</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:47+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Video</term>
+					<term>IoT</term>
+					<term>Digital twin</term>
+					<term>Semantic technologies</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>While the concept of digital twin, and the use of semantic technologies, is already established in the field of IoT, and while the co-existence of such other sensor devices with IP-enabled video cameras is common, this combination, in so-called Video IoT, has yet to see widespread adoption of these technologies. In this paper we discuss our 'in use' context in managing all of these devices, and our experience in building a prototypical implementation of digital twins using semantic technologies.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>The introduction of the IP-enabled digital video camera, commonly called IP camera, by Axis Communications in 1996 [1] enabled video management systems (VMSs) to be built in software. VMSs allow a number of core functions: live viewing of video streams from multiple camera sources; the application of a policy on when to record video; and, the viewing of previously-recorded video streams. Modern VMSs expand beyond these core capabilities, as illustrated in Figure <ref type="figure">1</ref>  <ref type="bibr" target="#b3">[4]</ref>.</p><p>In particular, modern VMSs provide multiple user interfaces which may be 'desktop' (installed), which allows capabilities like driving a video wall, or Web or mobile based -native mobile clients often providing more advanced user interactions, including comprehensive provision for searching over existing video recordings. Furthermore, modern IP cameras allow a high degree of softwarebased configuration, both with analogues to traditional cameras -i.e. aperture, shutter speed, etc. -and digital specific video streams characteristics -such as resolution and codec / compression targets. In fact a single camera might produce multiple streams with different settings for this latter class. Furthermore, for an entire class of cameras, commonly called 'PTZ cameras', there is continuous operational control of motorised pan and tilt, as well as zoom. These settings motivate having a database of device management settings, as well as a media database, containing the actual recordings. The next common feature of modern VMSs is some provision for rules and events via which they are triggered. An in-built source of events might be motion detection within a video stream, so that the rule can trigger recording of the stream; in this way storage is not wasted on video in which no motion occurs. Some more sophisticated level of video analytics might also provide events that trigger rules: for instance, license plate recognition might trigger the recording of vehicles. External devices might also trigger events via integration plug-ins.</p><p>One of the most successful commercial VMS offerings is XProtect <ref type="bibr" target="#b6">[7]</ref>, produced by Milestone Systems. XProtect is an open platform, which makes available a number of APIs for extension. In the following we will use XProtect as an example, and concentrate on video analytics and access control integration.</p><p>XProtect has adopted the open source framework GStreamer <ref type="bibr" target="#b1">[2]</ref> to allow extension with video analytics. In this way, integrators can run inference on video streams using off-the-shelf models for deep learning-based object detection, such as YOLOv3 <ref type="bibr" target="#b5">[6]</ref>, and stream the results to object tracking solutions. Such a solution creates first a classification of objects -for instance detecting people and vehicles of different types -together with bounding boxes within video frames, but also tracks of the movement of objects across video frames.</p><p>One of the key device integrations in XProtect is with access control systems, which control physical access to areas of buildings. Figure <ref type="figure">2</ref> illustrates in more detail how an access control system may be used in a door. What might colloquially be called a 'lock', or more properly a 'strike', controls electronically when a door can be opened. A door controller unit contains the logic to control the strike, and this is connected to a reader, which may simply be an RFID card reader or PIN pad or, commonly, a combination thereof. When a card is used to identify a permitted person, the door controller can operate the strike to allow the door to be opened.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Lock Reader</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Door controller REX</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Fig. 2. Access Control System</head><p>In some configurations, a reader is used on both sides of the door. In others, a simple REX (request-exit) button is used, in which the operator does not need to identify themselves with a card or PIN, as exit is allowed for all. In more sophisticated set-ups the door might be equipped to automatically open, or 'speed gates' might be employed, which have both physical and digital means to prevent -or at least provide an alarm in the case of -'tailgating', that is a second unauthorised person gaining access by following closely behind an authorised user.</p><p>In this paper, we will sketch a combination of the above technologies in which access control on a simple door is combined with video analytics, specifically object detection and tracking, to provide a means for tailgating detection. Further, a knowledge graph that contains information on the layout of a hospital building and the devices deployed in it, based on a set of ontologies that also allow the representation of events based thereon in dynamic scenarios, will be shown to allow inference of the vulnerabilities when such situations occur. An integration with fire sensors will also be included, which show escalation of the scenario of attack.</p><p>These scenarios are defined by the collaborative project SAFECARE 1 , specifically by three hospital consortium partners, the Assistance Publique -Hôpitaux de Marseille (coordinator of the project), the Academisch Medisch Centrum in Amsterdam and ASLTO5 (Azienda Sanitaria Locale -Chieri -Carmagnola -Moncalieri -Nichelino) -hospitals in the Piedmont region of Italy. While trials of the project's results are planned with all three hospital partners, an interim test platform will be housed at the Instituto Superior de Engenharia do Porto, as illustrated in Figure <ref type="figure" target="#fig_0">3</ref>. This part of the test platform for the SAFECARE project is built in Unreal Engine <ref type="bibr" target="#b8">[9]</ref>; although this is primarily a game engine, it has a long history of use in building simulation <ref type="bibr" target="#b2">[3]</ref> and in machine learning <ref type="bibr" target="#b4">[5]</ref>. Within an off-theshelf hospital model, we have added models for virtual cameras, virtual fire detectors (smoke and heat type) and virtual access control, as shown in Figure <ref type="figure">4</ref>. Furthermore, we have written generic and reusable extensions to Unreal such that these device models appear to the XProtect VMS as real devices, as shown on the left-hand side of Figure <ref type="figure">5</ref>. In the case of cameras these provide live video feeds from the point of view of the model instances. In the case of access control and fire sensors these are true digital twins to hardware devices and respond, within the virtual world, to the events produced by the real world counterparts. The right-hand of Figure <ref type="figure">5</ref> shows the novel map-based interface built for demonstration of this work.</p><p>In the remainder of this paper we will first introduce the ontologies used to build this system, and then sketch the cloud-based architecture via which the system was created.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Ontologies</head><p>In order to locate devices within a building, simulated or real, it is natural that we introduce a building ontology, which is shown in Figure <ref type="figure" target="#fig_2">6</ref>. While this ontology introduces concepts of Building and Floor, further structure is left to the concept Location, which is defined in the Grid Ontology, shown in Figure <ref type="figure" target="#fig_3">7</ref>; this concept is subclassed to define Zones and Intersections. In a building context, Zones describe areas such as rooms and hallways, while Intersections are those junctures between Zones, which may be controlled for instance by physical access control.    It is worthy of note that the Grid Ontology was not defined for this buildingbased use case, but originated in the description of traffic networks, where Intersections are literal traffic intersections, and these are controlled by traffic lights.</p><p>In a similar way, the IoT Ontology shown in Figure <ref type="figure" target="#fig_4">8</ref> is intended to represent a whole array of sensor-type devices, which in another context might be traffic sensors like inductive loops. Two characteristics of the IoT ontology are of particular relevance. First, those subset of devices modelled by the Camera class have a FieldOfView property, which is illustrated by four yellow triangles on the map in Figure <ref type="figure">5</ref>, representing the field captured by the cameras in the XProtect Smart Client on the left. Second, while all devices have a locatedAt relationship with locations, AccessController s have a second relationship named controlsAccessTo; this is shown for select parts on the floor plan in Figure <ref type="figure" target="#fig_6">10</ref>. Finally, the Events Ontology, shown in Figure <ref type="figure" target="#fig_5">9</ref> is used to model the dynamics of this system, as follows:</p><p>-AccessControlEvent is used to represent the operation of the access control reader -this carries a property to convey whether the authorisation was successful; -AccessChangeEvent is used to represent the operation of the door sensor associated with the access controller, or of the gate in the case of speed gates; -DoorTransitionEvent is used to represent the event that a human actually transits through a door, and is produced using video analytics (though in the current prototype this is simulated by having an extension to Unreal Engine that produces this event when a person model passes through a door); -FireDetectionEvent is used to represent the operation of the fire detection sensors; -Alarms are produced by event processing logic, described in the following section, as relate the events that led to the alarm.</p><p>All instances of these event types carry a timestamp, and can be related to locations, sensors and actors.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Architecture</head><p>The software architecture used for this system in shown in Figure <ref type="figure" target="#fig_7">11</ref>. This is cloud-based, built on Amazon Web Services, and uses the following services in particular:</p><p>-AWS EKS -the Elastic Kubernetes Service -allows the orchestration of containers of custom code, for instance deployed using Docker containers; -AWS MSK -the Managed Streaming in Kafka service -allows horizontally scalable publish-subscribe messaging of payloads such as JSON messages, via Apache Kafka; -AWS AppSync -a managed service based on Apache Apollo that allows the formation of GraphQL-based APIs, including the ability to subscribe to receive notifications according to a graph pattern; -AWS Neptune -a managed graph database service, which supports the W3C RDF and SPARQL standards.</p><p>Using these technologies together with the ontologies described in the previous section, we can construct this system according to a uniform graph-based data model. In particular, JSON-LD payloads are used on Kafka via which the sensors, in the prototype proxied via the virtual hospital in Unreal Engine, transmit their changes. Clients can both subscribe to hear particular messages, for instance filtering by sensor or event type, using GraphQL, a combination of technologies that is explored for instance in <ref type="bibr" target="#b7">[8]</ref>, and on which the W3C has just initiated a working group 2 . The complex event processing involved in inferring tailgating from constituent events is illustrated in Figure <ref type="figure" target="#fig_8">12</ref>. In particular the sequence of a single authorisation in the form of an AccessControlEvent, followed by two DoorTransition-Events, without an interleaved AccessControlEvent leads to Events Processing to raise a TailgatingAlarm and publishing this back to the Kafka topic. By querying the floor plan graph, according to the dynamic information on state, we can consequently determine a reachability graph for the tailgater. Similarly, since the state of doors change in the event of a fire alarm, allowing free access due to the potential need to escape fires, this reachability result can be updated in the event of fire, as shown (reachability indicated in red) in Figure <ref type="figure" target="#fig_0">13</ref>. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>AWS MSK (Kafka)</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Conclusion and Further Work</head><p>We have shown how an ontology-based approach allows both static information on the situation of security devices within a hospital environment, and the dynamics of these devices, to be modelled. We have shown further that an architecture based on modern, horizontally-scalable cloud technologies can be used to realise a useful implementation. We have illustrated the use of digital twins for both access control devices and fire sensors for simulation within this framework.</p><p>Work is already underway in ontology-based representation of the full set of camera, and other device, configuration based on the XProtect Management Server. In future work we will make the virtual cameras true digital twins, where these can be used as proxies for real hardware cameras.</p><p>The approach here would be greatly aided by the convergence of GraphQL and RDF/SPARQL, and we aim to contribute to this effort. Similarly the use of Apache Kafka together with JSON-LD, we feel, is an important enabling approach for scaling the promising approach of digital twins in an IoT context where network connectivity is neither constant nor reliable. staff of Data Language for their collaboration on this project, and particularly their insights into the use of GraphQL and cloud architecture.</p><p>The virtual hospital made use of:</p><p>-'Modular Hospital', a 3D model developed by Aleksandr Zhdanov, and purchased via Unreal Marketplace. -3D models for cameras, fire sensors and access control panels purchased via SketchFab, with the following credits:</p><p>• https://sketchfab.com/Terizmeh • https://sketchfab.com/gleb tihon • https://sketchfab.com/michael.diaz029</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. SAFECARE Test Sites</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 4 .Fig. 5 .</head><label>45</label><figDesc>Fig. 4. Virtual Devices (Camera, Smoke / Heat Detector, Access Control Reader)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Building Ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Grid Ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. IoT Ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Events Ontology</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 10 .</head><label>10</label><figDesc>Fig. 10. Graph Representing Segment of Floor Plan</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 11 .</head><label>11</label><figDesc>Fig. 11. Architecture</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 12 .</head><label>12</label><figDesc>Fig. 12. Events Making Up a Tailgating Instance</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 13 .</head><label>13</label><figDesc>Fig. 13. Reachability Following Tailgaiting in the Event of Fire</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">https://www.safecare-project.eu/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2">https://www.w3.org/community/graphql-rdf/</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>The authors would like to acknowledge the work of Dennis Jørgensen at Milestone Systems in assembling the complete virtual hospital model and developing its virtual devices, as well as John Madsen and Tong Su at Milestone Systems for their work on ontologies and graph data. We would also like to thank the</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Note</head><p>The demonstration is available at https://youtu.be/UYH YI 31v4?t=906, but the intention is also to give this demonstration at ESWC2020, both during the workshop and at the demo session, for which a shorter paper has been submitted.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<ptr target="https://www.axis.com/about-axis/history" />
+		<title level="m">Communications AB: Moments that made us</title>
+				<imprint>
+			<date type="published" when="2020-02-26" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Programming multimedia applications in GStreamer</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">A F</forename><surname>Lima</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">C M</forename><surname>Santos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">G D A</forename><surname>Azevedo</surname></persName>
+		</author>
+		<editor>de Jesus Lima Gomes, F., de Andrade Lira Rabelo, R., de Salles Soares Neto, C., Willrich, R., Teixeira, C.A.C., de Almeida, J.M., de Carvalho, W.V.</editor>
+		<imprint>
+			<date type="published" when="2016" />
+			<publisher>ACM</publisher>
+			<biblScope unit="page" from="19" to="20" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Using a game engine for VR simulations in evacuation planning</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C A</forename><surname>Mól</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A F</forename><surname>Jorge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Couto</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Computer Graphics and Applications</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="6" to="12" />
+			<date type="published" when="2008" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Security systems in the healthcare sector</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Normann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Suciu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Mantzana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Gkotsis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Sachian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Petrescu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ijaz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Norton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Integrated Security of Critical Infrastructures</title>
+				<imprint>
+			<publisher>Now Publishers</publisher>
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+	<note>to appear</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Unrealcv: Connecting computer vision to unreal engine</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Qiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">L</forename><surname>Yuille</surname></persName>
+		</author>
+		<idno>abs/1609.01326</idno>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">YOLOv3: An incremental improvement</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Redmon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Farhadi</surname></persName>
+		</author>
+		<idno>abs/1804.02767</idno>
+		<ptr target="http://arxiv.org/abs/1804.02767" />
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<ptr target="https://www.securitysales.com/surveillance/milestone-systems-top-vms-provider" />
+		<title level="m">Security Sales &amp; Integration: Milestone systems ranked top global VMS provider for 10th straight year</title>
+				<imprint>
+			<date type="published" when="2020-02-26" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">GraphQL-LD: Linked Data querying with GraphQL</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Taelman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Vander Sande</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Verborgh</surname></persName>
+		</author>
+		<ptr target="https://comunica.github.io/Article-ISWC2018-Demo-GraphQlLD/" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 17th International Semantic Web Conference: Posters and Demos</title>
+				<meeting>the 17th International Semantic Web Conference: Posters and Demos</meeting>
+		<imprint>
+			<date type="published" when="2018-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Game Development and Simulation with Unreal Technology</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tavakkoli</surname></persName>
+		</author>
+		<editor>A. K. Peters, Ltd., USA</editor>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note>1st edn</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

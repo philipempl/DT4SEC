@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Cyber Digital Twin Simulator for Automatic Gathering and Prioritization of Security Controls’ Requirements</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>IEEE</publisher>
+				<availability status="unknown"><p>Copyright IEEE</p>
+				</availability>
+				<date type="published" when="2020-08">2020-08</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Ethan</forename><surname>Hadar</surname></persName>
+							<email>ethan.hadar@accenture.com</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Accenture Labs</orgName>
+								<address>
+									<addrLine>Cyber Fusion Center Tel Aviv</addrLine>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Dmitry</forename><surname>Kravchenko</surname></persName>
+							<email>dmitry.kravchenko@accenture.com</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Accenture Labs</orgName>
+								<address>
+									<addrLine>Cyber Fusion Center Tel Aviv</addrLine>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Alexander</forename><surname>Basovskiy</surname></persName>
+							<email>alexander.basovskiy@accenture.com</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Accenture Labs</orgName>
+								<address>
+									<addrLine>Cyber Fusion Center Tel Aviv</addrLine>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Cyber Digital Twin Simulator for Automatic Gathering and Prioritization of Security Controls’ Requirements</title>
+					</analytic>
+					<monogr>
+						<title level="m">2020 IEEE 28th International Requirements Engineering Conference (RE)</title>
+						<imprint>
+							<publisher>IEEE</publisher>
+							<date type="published" when="2020-08" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/re48521.2020.00035</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:37+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Security Controls</term>
+					<term>Cyber Digital Twin</term>
+					<term>Requirements Prioritization</term>
+					<term>Agile Security</term>
+					<term>Analytical Attack Graph</term>
+					<term>Attack Surface 250</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The scale and complexity of cyber threats in digital enterprises hamper operators' ability to gather, prioritize and rationalize which security controls requirements should be handled first to achieve rapid risk reduction. This paper presents a cyber digital twin, based on attack graph analytics, that automatically gathers and prioritizes security controls requirements at scale over active networks. The first-of-a-kind twin collects information about the computer network, associates it with attack tactics, measures the efficiency of implemented security controls requirements and automatically detects missing security controls. The twin also evaluates a cyber risk value using the attack graph and proposes prioritization of the detected requirements to rapidly reduce risk within existing system constraints. The cyber digital twin simulator offers several new risk reduction methods for automatically selecting security controls requirements. The necessary data for constructing a contextual cyber digital twin is defined, including the relationship between security controls and attack tactics. The paper illustrates the calculations used for ranking security controls' risk impact, the algorithm for security controls' requirements prioritization, and finally demonstrates successful results using a field experiment conducted via an active network.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>In the area of cybersecurity resiliency today, enterprise practitioners rely on the implementation of procedures, processes and automation tools, termed Security Controls (SCs). Executing efficient SCs means preventing and handling security issues and problems prior to the materialization of the subsequent cyber risk. Such security issues are introduced to the enterprise at an overwhelming rate, driving the need for the constant optimization and prioritization of requirements that are most critical to the business first, followed by automatic implementation to remediate imminent cyber risks. In addition, being able to trace the enterprise cyber posture to employed automation and practices of Security Controls' requirements (SCR) is not a direct indication of success in preventing hackers' attacks. As such, the goals of employing SCs are to reduce the attack surface over time, as suggested by compliance requirements, and focus less on the prevention of coordinated attacks and imminent risk reduction toward a company's targeted crown jewels.</p><p>Security Controls' investments materialize in tools and processes that are aimed at solving optimized and automated known security needs, while new investments in SCs are projected and planned according to new types of threats, or adjustments to new and more efficient security tools. The existing implementation of SCs should be evaluated by constantly tracing and correlating security requirements with the active attack surface of the network, such as discovering and analyzing pathways to specific targets. As the attack surface mutates-as new threat intelligence is introduced and the infrastructure settings and configuration evolve-implemented security tools can become invalid, while new tools may simply be inadequate. One option for evaluating the efficiency of implemented security tools or detecting a gap that highlights missing SCs, is to better understand how hackers may perform in the network. Hackers' exploitation of vulnerabilities in the network is through performing lateral movements between acquired IT assets. Such actions are possible as a result of the missed implementation of some SCs that could have prevented these actions in the first place. As such, the fact that modeled attack pathways exist is an indication of a lack of rigor around SCs requirements. Today, compliance demands, and standards implementations are key drivers for defining security requirements that are manifested in SCs. Such needs are adjusted to the type of the organization domain, the type of network, connected systems, and so on. As mentioned earlier, such definitions of requirements do not consider hackers' potential movements in the network, exploiting existing vulnerabilities within the context of targeted attack pathways. As a result, the network hackability state is missing from the considerations and definitions of these requirements.</p><p>In this paper we examine the connection between the ability to hack an active system and automatically discover security requirements in the context of potential cyberattacks. We propose a novel method and the technology to construct a contextual cyber digital twin that captures attack pathways as a means to discover SCRs. The next section presents related work and definitions of SCs and types of attack graphs, followed by our framework and methodology. The methodology details how to measure the impact of an attack in relation to the relevant SCs, as well as ways to prioritize SCRs to reduce the risk impact as quickly as possible. An additional section describes the simulation software used for performing the SCR analysis, including an incremental and iterative means to achieve a rapid decline of risk. Section IV that describes the system is followed by an experimental study and results using an active IT system with injected vulnerabilities. The paper concludes with a discussion section and future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. RELATED WORK</head><p>For the purpose of this paper, we define SC as a combination of policies, methods, and tools that are aimed at protecting an organization from cybersecurity attacks. SCs are classified into 14 groups according to ISO/IEC 27001 standards <ref type="bibr" target="#b18">[18]</ref>, while the United States Government's National Institute of Standards and Technology (NIST) provides 17 groups of security controls <ref type="bibr" target="#b19">[19]</ref>. To illustrate the implications of SCs in this paper, we employed part of the classifications listed in Table <ref type="table" target="#tab_0">I</ref>. In this paper, we present a unique mechanism and technology for detecting and tracking missing implementations of a specific subset of security requirements that are part of the generic SCs, yet specifically relevant in the context of an IT network under analysis. Consequently, the technology supports the evaluation of SCs' effectiveness and allocated capital, which is relevant to the network under investigation and tuned to defined business targets.</p><p>There is a plethora of methods that gather SCRs. Gergeleit et al. presented approaches that rely on detailed analysis of IT network assets and offered an implementation plan based on best practices <ref type="bibr" target="#b3">[4]</ref>. Atoum et al. presented a method for security requirements generation from an examined system using industry standards <ref type="bibr" target="#b1">[2]</ref>. Modern approaches to cybersecurity investment assessment rely on methods of game theory <ref type="bibr" target="#b2">[3]</ref>, multi-objective optimization <ref type="bibr" target="#b8">[9]</ref>, stochastic calculus <ref type="bibr" target="#b0">[1]</ref>, and other <ref type="bibr" target="#b10">[11,</ref><ref type="bibr" target="#b13">14,</ref><ref type="bibr" target="#b18">18]</ref>. Fielder et al. <ref type="bibr" target="#b2">[3]</ref> modeled the investment strategy as a game between a defender and an attacker. The defender's goal was to assemble a defense tool kit that would minimize potential attack damage given the constraint of a limited budget. The task is eventually reduced to an optimization problem and solved by known algorithms, such as the Knapsack problem <ref type="bibr" target="#b0">1</ref> . The underlying data used is the output of a network scanner, as well as information about vulnerabilities, published in a public catalog, such as the NVD database 2 . However, despite the validity and efficiency of this mathematical apparatus, the approach does not address how the vulnerabilities are exploited, in practice, during a targeted attack. If an attack is undertaken against a specific target, or a set of targets, within a computer network, a different location of identical vulnerabilities on the network has a different impact. Possible attacker actions and different pathways to the targets that generate a different impact must be included in any evaluation of SC effectiveness.</p><p>Attack pathways can be modeled as attack trees, Petri nets, and, used more frequently lately, as attack graphs <ref type="bibr" target="#b7">[8]</ref>. Modeling approaches that capture nodes as physical assets, for example, a workstation machine, and edges as potential lateral movements of a hacker between two assets <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b11">12]</ref>, are termed in our paper as Physical Attack Graphs (PAG). Modeling logical rules that define how an attacker advances within the network <ref type="bibr" target="#b9">[10]</ref> are termed in our paper as Analytical Attack Graphs (AAG). These logical rules are, in essence, a representation of security requirements, as enablers to adversarial lateral movement, which a defender is required to eliminate and nullify.</p><p>Lately, research in cybersecurity investment analysis relies on attack graphs <ref type="bibr" target="#b10">[11,</ref><ref type="bibr" target="#b16">16,</ref><ref type="bibr" target="#b17">17,</ref><ref type="bibr" target="#b11">12]</ref>. Khouzani et al. <ref type="bibr" target="#b8">[9]</ref> model the problem of SCRs as a multi-objective optimization problem with the goals of: (1) minimizing the cybersecurity risk on targets, (2) reducing direct costs of a security control deployment, and (3) reducing indirect costs of security control implementation. An example of indirect cost is employee's loss of time due to more sophisticated compliance procedures. Other research <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b16">16]</ref> offers to generate attack graphs based on network scanners' output, known published vulnerabilities, and network-related data sources; for example, firewall rule analyzers as a good approximation to some types of attacks. Probabilistic graphical models, such as Bayesian networks, are sometimes used to reflect difficulty differences in exploiting vulnerability <ref type="bibr" target="#b14">[15]</ref>. However, modern attacks are more sophisticated. To model a hacker's movement adequately during a complex attack, one should consider not only endpoint vulnerabilities and network firewall rules, but also, among other things, user access permissions and open sessions status. In previous work <ref type="bibr" target="#b5">[6]</ref> we offered a complete approach to address the complexity of a modern attack. We created AAG based on a wide range of facts about the network assets and their interaction. The data was fed from multiple sources and included features that are ignored by known methods, such as user account hierarchies, complete software installation compared to only those detected by port scanner, clear access authorization credentials, and more. The rules implemented in our approach are defined by MITRE ATT&amp;CK™ <ref type="bibr" target="#b12">[13]</ref> knowledgebase attack tactics. Our term for the system that generates such detailed attack graphs to multiple targets with multiple origins is a Cyber Digital Twin platform. Digital Twin stands for a software replica that captures an aspect of a physical system <ref type="bibr" target="#b4">[5]</ref>. The term Digital Twin originated in the world of manufacturing. It is used to describe a digital replica of a system in a manner that allows performing digital simulations. We apply this principle to the realm of cyber security. This Cyber Digital Twin is unique in the industry as it captures and models the aspect of the enterprise's cybersecurity posture from a hackers' perspective and models hackers' movements, rather than merely monitoring computer network state. It is a knowledge graph inferencing model of the network. The uniqueness of the approach is in its entirety. We collect data and encode hacker movement tactics that allow us to imitate and simulate virtually a real-world coordinated attack on target machines.</p><p>In this work we go beyond our previous work to provide a framework and methodology for how to use the cyber digital twin to automatically gather and prioritize SCRs within a large industrial setting, where scale and complexity hampers the ability to undertake manual analysis.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. METHODOLOGY</head><p>In this paper we describe a simulation software that tracks lack of SCRs' implementation within the context of business targets that are exposed to cybersecurity risks. The analysis of the attack graph for which set of SCRs should be implemented first is aimed at rapidly reducing the size of the attack surface. As such, the simulation examines how the implementation of a set of SCs can affect the organization's overall cyber risk exposure. This section details the methodology and the data types the simulation software requires, the attack graph in the form of AAG, the SCs Traceability Matrix (TM) and a set of configuration parameters detailed below as input. For illustrative purposes, we select the SCs to be policies and rules extracted from ISO/IEC 27001 standard <ref type="bibr" target="#b18">[18]</ref>. In some cases, an organization's goal is to comply with these policies. In other cases, the goal may be to prioritize budget proposals or to assess the effectiveness of a previous year's budget allocations for cybersecurity tools. In a realworld scenario, the SCs could be mapped to projects that represent cybersecurity budget proposals.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.Attack Graph</head><p>An attack graph is based on associating Rules and Impacts nodes according to Facts nodes that are based on evidence collected from Configuration Items (CI). CIs are network assets such as computers, user accounts, and so on. Some of the CIs can be target CIs which are highly valuable machines, applications, or business processes. Rules are attack tactics, such as the ones from MITRE ATT&amp;CK™ <ref type="bibr" target="#b12">[13]</ref>, that are derived from the collected Facts, forming associations and links in the graph.</p><p>Facts can be information on the CI such as identification, configuration, installed software and its version, open sessions, memory map, vulnerability, user group membership, or a network-share access permission, and so on. Rules represent the necessary SCRs to be implemented. Typical SCRs can be to isolate an application in a sandbox, to disable a program, segment a network, or to change user privileges. Consequently, a Rule may be to implement one of the former requirements to prevent the ability of an attack tactic to execute a code on a remote machine. Impact nodes are the outcomes of not implementing a Rule inference; for example, the ability to elevate user privileges on a given machine under a specific account. The information discovered is fed into a proprietary rule engine that uses the Facts, applies the Rules, and generates the Impacts, in an aggregated manner across all CIs toward all target CIs. The output of the process is the attack graph called AAG. The description of the method is detailed in <ref type="bibr" target="#b5">[6]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B.Graph Risk Value</head><p>To evaluate the success of risk reduction and to decide which of the SCRs is to be handled first, we define here a Graph Risk Value (GRV), as in Eq. 1, as a measure of the organization's cyber risk exposure. GRV is a single-valued scalar metric inspired by the exponential cost model by Hasan et al. <ref type="bibr" target="#b3">[4]</ref>.</p><p>(1)</p><p>where Ri , as in Eq. 2, is a risk measure of an individual target impact, M is a set of target impacts, and</p><p>where Hi is hardness of all paths to target i, α is damping constant (α = 8 for our empirical experiments), and Ci is a graph theory eigenvector centrality measure of target impact node in the modeled AAG. Hardness is a value defined by a cybersecurity expert for each Rule indicating how difficult it is to perform such an r action according to available tools, scripts, previous experience and such. Hardness value of a path is calculated as a sum of hardness values of the Rule nodes r that compose the path. Hi is calculated as an average over hardness values of all paths that lead to the target i.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Security Control Impact</head><p>The Rules that are used to generate AAG are defined by cybersecurity experts. For each Rule, the experts also define a set of SCs that can mitigate the effect of the Rule.</p><p>To illustrate this principle with an example, we will use MI-TRE ATT&amp;K tactic T1175 3 that defines a lateral movement of a hacker from one machine to another by utilizing MS Windows Distributed COM (DCOM) infrastructure. To use this tactic, an adversary must acquire a user account with certain privileges. Such an account should be from a member of the DCOM group on a host machine. Consequently, the hacker can perform a Remote Procedure Call (RPC) over the network to a target machine. In addition, the target machine must be listening on a predefined set of ports supported by DCOM infrastructure. To mitigate the exposure to this type of attack, MITRE offers several tactics that we map to SCs defined by ISO/IEC 27001 standard as depicted in Table <ref type="table" target="#tab_0">II</ref>. Namely, MITRE T1175 requirements are to implement three mitigations, in which a security expert may need to implement several SCs. In the case of T1175, the security expert may opt to implement an Access Control Policy (A911), an Access to Networks and Network Services Policy (A912), and a Segregation in Networks Policy (A1313). By implementing even one of these three SC requirements, a defender can eliminate these potential lateral movements. Accordingly, the conditional logic is an AND relation between the policies.</p><p>This Boolean condition is defined as a prolog rule used to generate the attack graph in the form presented in Fig. <ref type="figure" target="#fig_0">1</ref>.  The code snippet in Fig. <ref type="figure" target="#fig_0">1</ref> indicates that four conditions must be met for an adversary to be able to execute code on the Host under privileges of the User account. The syntax is an extension of prolog that is used in our proprietary logic inference engine. First, userInLocalGroup indicates that a User must be a member of specified local group including indirect membership, or effective membership as a result of other attack tactics defined as Rules. The second condition, canNetComm, requests a network communication between the source and destination hosts. Third, the User must already be able to execute code, execCode, on the source host machine. Finally, the host must have a service listening on either one of TCP ports 135, 1029 or on UDP port 135, using the request @ports. In our inference engine we divide the process to a logical rule inference and a firewall rule inference. The ports in the code snippet are described by a term "@ports" that is an extension of standard prolog syntax. The second cardinal data set needed for the simulation software is the mapping between SCs and lateral movement rules. This mapping is provided in the form of a sparse matrix that we term SCs traceability matrix (TM). Let TM = (tmij), where tmij ≠ 0 if security control i can be used to mitigate attack tactic j representing a rule node in AAG, otherwise tmij = 0. Possible values for tmij is a set of 3 symbols: {0, *, +}.</p><p>If tmij ≠ 0, then the relation between the SC and attack tactic is defined by a Boolean logic operator. It may either be a logical AND (*) or a logical OR (+). A Boolean OR operator instructs the implementation of one security control to eliminate the risk of the attack tactic. In this example it is enough to either redefine user permissions or to isolate the DCOM server by updating firewall rules. Each security control implementation will result in the elimination of attack-related risk. However, there could be a situation when only the implementation of all relevant security controls related to the attack tactic will lead to its elimination. In such a case, the relationship is defined by a Boolean AND operator.</p><p>Schematically, the TM with logical operators is depicted on Table <ref type="table" target="#tab_0">III</ref>. </p><formula xml:id="formula_1">SC1 SC2 SC3 SC4 SC5 SCN LR1 * 0 0 + 0 + LR2 0 + + 0 0 0 LR3 0 0 0 * + 0 LR4 + 0 + 0 + + LRM 0 0 + 0 + 0</formula><p>where SC1, SC2, ... SCN are security controls with a total count of the N evaluated SCs; LR1, LR2, …, LRM are Lateral movement Rules that are mapped to security requirements, with a total count of the M evaluated LRs. The matrix values indicate the relations between the requirements and SCs, and the exposure to a rule.</p><p>Traceability matrix (TM) is used to calculate impact influence scores on each SCi , i [1…N], as shown in Eq. 3.</p><p>(</p><formula xml:id="formula_2">)<label>3</label></formula><p>where SCi is the influence score of security control i, rcj is the total number of Rule node that correspond to tactic j (such that j [1..M]) in the AAG.</p><p>f (x) is shown in Eq. 4.</p><p>To visualize SCs contribution to an organization's overall cyber risk exposure, an influence score histogram can be used as depicted in Fig. <ref type="figure" target="#fig_1">2</ref>.</p><p>The SCs in the impact influence histogram are ordered by their influence score. The SCN are ordered according to the relative influence score. There may be immutable SCs and mutable ones. Immutable SCs, termed Mandatory SC, could not be eliminated due to restrictions that are not controlled by the security team, or that are not implemented at all. Namely, a gap in the organization's cyber resiliency. A list of immutable SCs, if there are any, is also defined as a configuration setting of the simulation software. Definition of TM along with a list of immutable SCs is performed within the context of a specific organization. Specifics of the process along with the specifics of attack tactic rule definition are not included in the scope of this paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Cyber Exposure Reduction Techniques</head><p>Implementation of SCRs is costly and time consuming. The simulator conducts sensitivity analysis based on different new risk reduction techniques aimed at proposing which SCs' set to handle first, conducted in an iterative and incremental manner. Each technique simulates the implementation of a set of SCs to consequently reduce the number of Rule types nodes in the corresponding AAG. For the comparison of the techniques see Fig. <ref type="figure">3</ref>, 4 and 5. Figure <ref type="figure">3</ref> depicts an influence score SC plotted as a histogram for a small number of SCs. However, a large organization may have thousands of different SCs. Figure <ref type="figure">4</ref> plots a histogram depicting a curve that contains 3,000 SCs. The histogram is ordered so that the top influencing SCs are on the left-as such, an obvious strategy is to start by implementing SCs that have the highest SC influence score, and by selecting a certain quantity of those SCs.</p><p>Gradient reduction technique depicted in Fig. <ref type="figure">4</ref> refers to the algorithm that continuously calculates the slope gradient between decaying SCs. The algorithm stops when the slope reaches a threshold value selected by the simulation user. This enables the user to select a point on the curve where the gradient, or the rate of change, slows down. This algorithm is useful for exponential drops. In practice, this means some SCRs are disproportionate to the overall organization's cybersecurity exposure to the specific network under investigation. An example can be to select SCs that are above a 0.6 slope angle.</p><p>Area Under Curve (AUC) technique depicted in Fig. <ref type="figure">5</ref> is suitable for a curve with monotonic influence reduction. This is the case when there is no clear winner, and the contribution of different SCs to the organization's overall cybersecurity risk is rather uniform. The algorithm receives the percentage of AUC to reduce as a configuration parameter and enumerates the SCs which contribute to such a segment. An example can be to select the area that contains 10 percent of the overall number of rules in the existing attack graph. Finally, the simulator provides the ability to feed a custom selection and de-selection of SCs for implementation due to business restrictions and constraints that are known to the users. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. THE SYSTEM</head><p>To solve the gathering and prioritization of SCRs, we extended the AgiSec system architecture from <ref type="bibr" target="#b0">[1]</ref> with a simulation module termed AgiSC (Agile Security Controls) as depicted in Fig. <ref type="figure" target="#fig_3">6</ref>.</p><p>AgiSC depends on two former modules of the system in <ref type="bibr" target="#b0">[1]</ref>: AgiDis and AgiHack. AgiDis is a module used for the discovery of assets and vulnerabilities using third-party tools. The extracted data is stored in a data lake for further analysis by other AgiSec modules. AgiHack module generates the Analytical Attack Graph (AAG) by extracting AgiDis data and employing attack rules created by cybersecurity experts. AgiHack explores attack paths an attacker can transverse upon and advance toward targets to identify possible impacts on these targets. AgiSC receives the AAG from AgiHack and maps AAG's attack tactics to security controls. For the purpose of this paper, the AAG received from AgiHack is termed inherited AAG.</p><p>As shown in Fig. <ref type="figure">7</ref> AgiSC configuration includes the Traceability Matrix (TM) and a list of constraints over SCs, indicating which SC cannot be handled due to real-systems restrictions, termed mandatory security controls. AgiSC also provides a graphical user interface (GUI) for manual selection of a reduction technique and a decay configuration parameter per iteration. AgiSC module GUI screen is depicted in Fig. <ref type="figure">8</ref>.</p><p>For each iteration, for a given input AAG, AgiSC selects which SCs are prioritized first, according to a selected reduction algorithm and corresponding parameters. Subsequently, AgiSC eliminates all nodes that represent rules and requirements in the input AAG associated with these selected SCs, producing a reduced version of the provided AAG, termed a residual AAG. The removed Rule nodes define the current iteration list of requirements to implement, in order of importance, according to the number of appearances of the Rules in the most critical SC.</p><p>Once the inherited AAG is created, AgiSC creates an influence histogram that reflects the residual rules that were not handled yet. If all rules related to a certain SC where handled previously, the SC is eliminated from the remaining backlog of requirements and will no longer be presented in subsequent histograms.</p><p>As the simulation progress, each former inherited AAG becomes an input AAG for the next iteration, and different methods of reductions can be employed. The residual AAG becomes sparser until the attack surface is eliminated. Subsequently, the produced list of security requirements is appended to the former batch of requirements.</p><p>The AgiSec system along with the AgiSC module is intellectual property of Accenture and its source code is not publicly available.  <ref type="figure">8</ref>. AgiSC GUI for selection of reduction method to reduce cyber risk on target asset X, depicting the attack surface complexity and graph value for target X</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. EXPERIMENTS AND RESULTS</head><p>The experiments were conducted on virtual network of four active servers. One of the servers had Internet access as a starting point for an attacker. Each server had a Microsoft Windows workstation connected to a Microsoft Active Directory. In these experiments, we contaminated the environment with a set of vulnerabilities that can be exploited by MITRE ATT&amp;K™ tactics for Active Directory environments. The attack target was defined as the Domain Controller (DC) server denoted as target X in this paper's figures. The inherited AAG provided is depicted in Fig. <ref type="figure" target="#fig_4">9</ref>.</p><p>For illustration purposes, this paper demonstrates a short simulation employing two iterations. The first iteration employed Area Under Curve (AUC) reduction method, and a Gradient reduction method was implemented during the second iteration. The sequence of reduction techniques was chosen according to the shape of the influence histograms, depicted in Fig. <ref type="figure" target="#fig_0">10</ref>. The overall reductions results are depicted in Fig. <ref type="figure" target="#fig_0">11</ref> to 14. In these experiments, we used the notations of SC1, SC2, ..., SC15 to identify different SCs. The specific mapping of attack tactics to corresponding SCs are considered intellectual property and, hence, are not depicted here.</p><p>The purpose of these demonstrated reduction steps is to minimize the number of possible pathways a hacker can transverse through a computer network, ideally with the goal of eliminating all paths to the DC server.</p><p>The original estimation of the SCs gap is captured in Fig. <ref type="figure" target="#fig_4">9</ref> and Fig. <ref type="figure" target="#fig_0">10</ref>, indicating 268 attack nodes of which 159 are Rule nodes representing SCRs, 324 edges, and an overall Graph Risk Value of 6.108. The starting condition of the inherited AAG histogram contained 15 SCs that need improvement or are missing. The histogram order of SCs from left to right indicates the prioritization order for which SC impacts the cyber posture more and therefore should be handled first.</p><p>The influence histogram in Fig. <ref type="figure" target="#fig_0">12</ref> represents the result of applying the first reduction method of AUC with configuration parameter 0.4 indicating 40 percent area selection. Accordingly, based on the measured data, three SCs with the highest distribution, enumerated as SC15, SC6, SC10, are removed from the inherited AAG. Subsequently, two additional SCs: SC1, SC14 were removed since the attack tactics nodes that were related to these controls appeared in the initial selected SCs as well. The 3D visualization depicted in Fig. <ref type="figure" target="#fig_0">11</ref> is the residual AAG with 10 SCs left. This attack graph is much smaller than the one depicted in Fig. <ref type="figure" target="#fig_4">9</ref>, containing now 146 nodes of which 60 are Rule nodes representing SCs requirements, and 168 edges, and with a Graph Risk Value of 1.624. As a result, an overall a decay ratio of 73 percent in Graph Risk Value, and 62 percent decay ratio of SCRs was achieved.</p><p>In the second iteration, the Gradient reduction method was applied with gradient value of 0.61, which eliminated SC2 and SC7. Since SCs SC9, SC3, SC4, SC8 include the same rules as SC2 and SC7, they were also removed from the inherited AAG containing four residual SCs. The resulting attack surface, depicted in Fig. <ref type="figure" target="#fig_0">13 and 14</ref>, remained with 90 attack nodes of which 34 are Rule nodes representing SCs requirements, 95 edges, and an overall Graph Risk Value of 1.02. As a result, an overall a decay ratio of 37 percent in Graph Risk Value, and 43 percent decay ratio of SCRs, was achieved.</p><p>The four SCs which remained can be identified as mandatory, namely SCs that cannot be implemented whether due to the limitations of real systems, or a lack of currently available resources. As such, the simulator highlights the order of SCs to be optimized at the moment, and ones that need to be implemented in the future.</p><p>In the presented simulation, we employed automatic reduction methods, while in the real system we introduced two additional manual selection of SCs. These were termed Top K and a separate manual selection was termed Custom due to process restrictions or implementation factors. The Gradient, Area Under Curve and Top K methods are targeted to remove most impactful SCs and the Custom selection method is aimed at performing manual adjustments.</p><p>The three-dimensional representation of inherited and residual Attack Graphs in Fig. <ref type="figure" target="#fig_4">9</ref>, 11 and 13. depicts different shapes and color for each type of node as follows:</p><p>Red spherical nodes representing Facts; Green pyramid nodes representing Rules; Blue cubical nodes representing Impacts. The decrease of Graph Risk Value over time is presented in Fig. <ref type="figure" target="#fig_0">15</ref>. The chart illustrates how AAG residual risk is diminished over time, and the level of hackability is reduced once the proposed SCs are implemented. As such, several different riskreduction method combinations can be explored, to find the best curve amongst various methods.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. CONCLUSION AND FUTURE WORKS</head><p>In this paper, we have described an approach to automatically gather SCRs based on an organization's current security exposure by analyzing a unique cyber digital twin. We also showed how to simulate the implementation of SCRs to assess their impact on the overall cyber risk reduction of the attack surface. The employed cyber digital twin of an active computer network was presented in the form of an attack graph. The attack graph combined detailed information about network assets, such as computers, user accounts, firewall rules, and such, with associated known attack tactics. The twin simulation software evaluates the proportion of the security controls contribution to the cyberattack pathways and offers four methods to simulate attack surface reduction via the potential implementation of SCRs. We employed the simulator on a real network, constructed with realworld vulnerabilities, that yielded multiple attack pathways and a combination of nodes. In our experiment, we provided visualizations of the original attack graph and different stages of the attack surface reductions and provided measures on the overall cybersecurity exposure for each step of the simulation.</p><p>As a result, our simulator can automatically gather requirements for SCs that aim to quickly reduce cyber impact and then prioritize requirements to optimize-as well as to identify constrained or missing security controls for future implementation. It also provides transparency for decision makers regarding the impact of separate SC. It can help to identify potential risk mitigation by selecting the order of SCRs and enabling a "what-if" simulation for evaluating the speed of risk reduction. The simulations may be used as a valuable tool for the existing cyber security evaluation by linking contribution of projects to elimination of prerequires for specific attacks. It can also be used to analyze future cybersecurity budget proposals by highlighting what needs to be fixed now with current security controls, and which security controls are missing.   One of the major issues in cyber security is dealing with the unknown. This may take form of newly discovered vulnerabilities, or yet undiscovered new attack tactics. The presented approach deals with known vulnerabilities and practices. Cyber Digital Twin's underlying structure is a knowledge graph. Therefore, it can be used to suggest links between entities that do not exist in the original data. Such interesting links are part of our current and future, yet to be published, research.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Original state</head><p>In future work we intend to explore further security controls' interdependence and scaling of massive networks in heterogenous platforms. Additionally, we intend to expand the landscape of vulnerabilities and types of attack tactics to domains such as the Internet of Things (IoT), application security in enterprise resource planning (ERP) systems, different operational technology (OT) devices, and embedded systems.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Example of a Boolean AND condition of MITRE T1175 rules: AND multiplication between existing user group, network access, and ability to remotely execute code, applied on an open port.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Influence histogram of security controls on cyber exposure impact</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .Fig. 4 .Fig. 5 .</head><label>345</label><figDesc>Fig. 3. Security Controls histogram that illustrates risk reduction simulation: Top Security Controls</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Expanded AgiSec system with AgiSC module</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. 3D Inherited AAG visualization. #nodes=268 of which 159 are requirements rules, #edges=324, Graph Risk Value=6.108.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 10 . 10 Fig. 11 .Fig. 12 . 12 Fig. 13 .Fig. 14 .</head><label>10101112121314</label><figDesc>Fig. 10. Stacked histogram, representing original state of security controls, before applying our algorithm of security controls' reduction.First Iteration. After applying Area Under Curve reduction algorithm on the data depicted in Fig.9and 10</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 15 .</head><label>15</label><figDesc>Fig. 15. Graph Risk Value decay as a result of the of two reduction iterations</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I .</head><label>I</label><figDesc>SECURITY CONTROLS GROUPS BY INDUSTRY STANDARDIZATION Each SC group, depicted within Table I, contains specific policies. Examples are the ISO/IEC 27001 A.8 asset management group, that contains policies #8.1.1 for asset inventory and policy #8.1.3 for assets acceptable usage.</figDesc><table><row><cell cols="2">AUTHORITIES [18, 19]</cell></row><row><cell>ISO/IEC 27001</cell><cell>US Government's NIST, 800-53, Revision 4</cell></row><row><cell>A.5: Information security policies</cell><cell>AC: Access control</cell></row><row><cell>A.6: How information security is</cell><cell>AT: Awareness and training</cell></row><row><cell>organized</cell><cell>AU: Audit and accountability</cell></row><row><cell>A.7: Human resources security</cell><cell>CA: Security assessment and</cell></row><row><cell>A.8: Asset management</cell><cell>authorization</cell></row><row><cell>A.9: Access controls and managing</cell><cell>CM: Configuration</cell></row><row><cell>user access</cell><cell>management</cell></row><row><cell>A.10: Cryptographic technology</cell><cell>CP: Contingency planning</cell></row><row><cell>A.11: Physical security and</cell><cell>IA: Identification and</cell></row><row><cell>equipment</cell><cell>authentication</cell></row><row><cell>A.12: Operational security</cell><cell>IR: Incident response</cell></row><row><cell>A.13: Secure communications and</cell><cell>MA: Maintenance</cell></row><row><cell>data transfer</cell><cell>MP: Media protection</cell></row><row><cell>A.14: Secure acquisition,</cell><cell>PE: Physical and environmental</cell></row><row><cell>development, and support of</cell><cell>protection</cell></row><row><cell>information systems</cell><cell>PL: Planning</cell></row><row><cell>A.15: Security for suppliers and third</cell><cell>PS: Personnel security</cell></row><row><cell>parties</cell><cell>RA: Risk assessment</cell></row><row><cell>A.16: Incident management</cell><cell>SA: System and services</cell></row><row><cell>A.17: Business continuity and</cell><cell>acquisition</cell></row><row><cell>disaster recovery</cell><cell>SC: System and</cell></row><row><cell>A.18: Security compliance</cell><cell>communications protection</cell></row><row><cell></cell><cell>SI: System and information</cell></row><row><cell></cell><cell>integrity</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>TABLE II .REQUIRED SECURITY CONTROLS MITRE ATT&amp;K proposed requirements for preventing tactic T1175 Security Controls (ISO/</head><label>II</label><figDesc>EXAMPLE OF REQUIREMENTS TRACEABILITY BETWEEN MITRE PROPOSED MITIGATIONS OF TACTIC T11175 AND</figDesc><table><row><cell></cell><cell>IEC</cell></row><row><cell></cell><cell>27001) that can implement</cell></row><row><cell></cell><cell>the requirements</cell></row><row><cell>1. Application isolation and</cell><cell>A.9.1.1 Access control</cell></row><row><cell>sandboxing</cell><cell>A.9.1.2 Access to networks</cell></row><row><cell>2. Disable or remove feature or</cell><cell>and network services</cell></row><row><cell>program 3. Network segmentation 4. Privileged account management</cell><cell>A.13.1.3 Segregation in networks</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>TABLE III .</head><label>III</label><figDesc>SECURITY CONTROL TO LATERAL MOVEMENT RULES</figDesc><table><row><cell>TRACEABILITY MATRIX WITH LOGICAL AND (*) AND LOGICAL OR (+)</cell></row><row><cell>OPERATORS, OR NOT ACTIVE (0) OPERATOR</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">https://en.wikipedia.org/wiki/Knapsack_problem 2 https://nvd.nist.gov/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Authorized licensed use limited to: University of New South Wales. Downloaded on November 01,2020 at 19:42:40 UTC from IEEE Xplore. Restrictions apply.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3">https://attack.mitre.org/techniques/T1175/</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Cyber Security Analytics: A Stochastic Model for Security Quantification Using Absorbing Markov Chains</title>
+		<author>
+			<persName><forename type="first">Subil</forename><surname>Abraham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Suku</forename><surname>Nair</surname></persName>
+		</author>
+		<idno type="DOI">10.12720/jcm.9.12.899-907</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Communications</title>
+		<title level="j" type="abbrev">JCM</title>
+		<idno type="ISSN">2374-4367</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="899" to="907" />
+			<date type="published" when="2014" />
+			<publisher>Engineering and Technology Publishing</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">A holistic cyber security implementation framework</title>
+		<author>
+			<persName><forename type="first">Issa</forename><surname>Atoum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Otoom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amer</forename><surname>Abu Ali</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/imcs-02-2013-0014</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Management &amp; Computer Security</title>
+		<idno type="ISSN">0968-5227</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="251" to="264" />
+			<date type="published" when="2014-07-08" />
+			<publisher>Emerald</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Decision support approaches for cyber security investment</title>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Fielder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Emmanouil</forename><surname>Panaousis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pasquale</forename><surname>Malacaria</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><surname>Hankin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fabrizio</forename><surname>Smeraldi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.dss.2016.02.012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Decision Support Systems</title>
+		<title level="j" type="abbrev">Decision Support Systems</title>
+		<idno type="ISSN">0167-9236</idno>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page" from="13" to="23" />
+			<date type="published" when="2016-06" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Modeling Security Requirements and Controls for an Automated Deployment of Industrial IT Systems</title>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Gergeleit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Henning</forename><surname>Trsek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Till</forename><surname>Eisert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marco</forename><surname>Ehrlich</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-662-59895-5_16</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Technologien für die intelligente Automation</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2020" />
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="217" to="231" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Virtually Intelligent Product Systems: Digital and Physical Twins</title>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">W</forename><surname>Grieves</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/5.9781624105654.0175.0200</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Complex Systems Engineering: Theory and Practice</title>
+				<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics, Inc.</publisher>
+			<date type="published" when="2019-01" />
+			<biblScope unit="page" from="175" to="200" />
+		</imprint>
+		<respStmt>
+			<orgName>book chapter from Complex Systems Engineering: Theory and Practice</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Big Data Analytics on Cyber Attack Graphs for Prioritizing Agile Security Requirements</title>
+		<author>
+			<persName><forename type="first">Ethan</forename><surname>Hadar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amin</forename><surname>Hassanzadeh</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/re.2019.00042</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE 27th International Requirements Engineering Conference (RE)</title>
+				<meeting><address><addrLine>Jeju Island, Korea</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-09" />
+			<biblScope unit="page" from="330" to="339" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Towards Optimal Cyber Defense Remediation in Energy Delivery Systems</title>
+		<author>
+			<persName><forename type="first">Kamrul</forename><surname>Hasan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sachin</forename><surname>Shetty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sharif</forename><surname>Ullah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amin</forename><surname>Hassanzadeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ethan</forename><surname>Hadar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/globecom38437.2019.9013517</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE Global Communications Conference (GLOBECOM)</title>
+				<meeting><address><addrLine>Hawaii, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Survey of Attack Projection, Prediction, and Forecasting in Cyber Security</title>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Husak</surname></persName>
+			<idno type="ORCID">0000-0001-7249-9881</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jana</forename><surname>Komarkova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elias</forename><surname>Bou-Harb</surname></persName>
+			<idno type="ORCID">0000-0001-8040-4635</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Pavel</forename><surname>Celeda</surname></persName>
+			<idno type="ORCID">0000-0002-3338-2856</idno>
+		</author>
+		<idno type="DOI">10.1109/comst.2018.2871866</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<title level="j" type="abbrev">IEEE Commun. Surv. Tutorials</title>
+		<idno type="ISSNe">2373-745X</idno>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="640" to="660" />
+			<date type="published" when="2019" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Scalable min-max multi-objective cyber-security optimization over probabilistic attack graphs</title>
+		<author>
+			<persName><surname>Mhr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Khouzani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Malacaria</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Operational Research</title>
+		<imprint>
+			<biblScope unit="volume">278</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="894" to="903" />
+			<date type="published" when="2019-11-01" />
+			<publisher>Elsevier</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Usenix Security Symposium advertisement</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Ou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Govindavajhala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">W</forename><surname>Appel</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/msp.2008.102</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security &amp; Privacy Magazine</title>
+		<title level="j" type="abbrev">IEEE Secur. Privacy Mag.</title>
+		<idno type="ISSN">1540-7993</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="c4" to="c4" />
+			<date type="published" when="2008-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Economic valuation for information security investment: a systematic literature review</title>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Schatz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rabih</forename><surname>Bashroush</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10796-016-9648-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Systems Frontiers</title>
+		<title level="j" type="abbrev">Inf Syst Front</title>
+		<idno type="ISSN">1387-3326</idno>
+		<idno type="ISSNe">1572-9419</idno>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1205" to="1228" />
+			<date type="published" when="2016-04-18" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Use of Attack Graphs in Security Systems</title>
+		<author>
+			<persName><forename type="first">Vivek</forename><surname>Shandilya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><forename type="middle">B</forename><surname>Simmons</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sajjan</forename><surname>Shiva</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2014/818957</idno>
+		<idno>ID 818957</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computer Networks and Communications</title>
+		<title level="j" type="abbrev">Journal of Computer Networks and Communications</title>
+		<idno type="ISSN">2090-7141</idno>
+		<idno type="ISSNe">2090-715X</idno>
+		<imprint>
+			<biblScope unit="volume">2014</biblScope>
+			<biblScope unit="page" from="1" to="13" />
+			<date type="published" when="2014" />
+			<publisher>Hindawi Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">E</forename><surname>Strom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Applebaum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">P</forename><surname>Miller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">C</forename><surname>Nickels</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">G</forename><surname>Pennington</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">B</forename><surname>Thomas</surname></persName>
+		</author>
+		<ptr target="https://www.mitre.org/publications/technical-papers/mitre-attack-design-and-philosophy" />
+		<title level="m">MITRE ATT&amp;CK™: design and philosophy</title>
+				<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A Review of Cyber Security Controls from An ICS Perspective</title>
+		<author>
+			<persName><forename type="first">Youngin</forename><surname>You</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juhyeon</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junhyoung</forename><surname>Oh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kyungho</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/platcon.2018.8472757</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 International Conference on Platform Technology and Service (PlatCon)</title>
+				<meeting><address><addrLine>Jeju, Korea</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-01" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Using Bayesian networks for cyber security analysis</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Ou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Levy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2010</title>
+				<meeting>the 2010</meeting>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">DSN 2010 organizers</title>
+		<idno type="DOI">10.1109/dsn.2010.5544407</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2010 IEEE/IFIP International Conference on Dependable Systems &amp; Networks (DSN)</title>
+				<meeting><address><addrLine>Chicago, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2010-06" />
+			<biblScope unit="page" from="211" to="220" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Survey of Attack Graph Analysis Methods from the Perspective of Data and Knowledge Processing</title>
+		<author>
+			<persName><forename type="first">Jianping</forename><surname>Zeng</surname></persName>
+			<idno type="ORCID">0000-0003-3686-1454</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Shuang</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yanyu</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Zeng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chengrong</forename><surname>Wu</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2019/2031063</idno>
+		<idno>ID 2031063</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Security and Communication Networks</title>
+		<title level="j" type="abbrev">Security and Communication Networks</title>
+		<idno type="ISSN">1939-0114</idno>
+		<idno type="ISSNe">1939-0122</idno>
+		<imprint>
+			<biblScope unit="volume">2019</biblScope>
+			<biblScope unit="page" from="1" to="16" />
+			<date type="published" when="2019-12-26" />
+			<publisher>Hindawi Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Optimal Decision-Making Approach for Cyber Security Defense Using Game Theory and Intelligent Learning</title>
+		<author>
+			<persName><forename type="first">Yuchen</forename><surname>Zhang</surname></persName>
+			<idno type="ORCID">0000-0002-7568-4959</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jing</forename><surname>Liu</surname></persName>
+			<idno type="ORCID">0000-0001-8405-1769</idno>
+		</author>
+		<idno type="DOI">10.1155/2019/3038586</idno>
+		<idno>ID 3038586</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Security and Communication Networks</title>
+		<title level="j" type="abbrev">Security and Communication Networks</title>
+		<idno type="ISSN">1939-0114</idno>
+		<idno type="ISSNe">1939-0122</idno>
+		<imprint>
+			<biblScope unit="volume">2019</biblScope>
+			<biblScope unit="page" from="1" to="16" />
+			<date type="published" when="2019-12-23" />
+			<publisher>Hindawi Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Appendix A</title>
+		<idno type="DOI">10.1201/b13922-9</idno>
+		<ptr target="https://www.iso.org/standard/54534.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Information Security Policy Development for Compliance</title>
+				<imprint>
+			<publisher>Auerbach Publications</publisher>
+			<date type="published" when="2013-03-22" />
+			<biblScope unit="page" from="29" to="56" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Summary of NIST SP 800-53 Revision 4, Security and Privacy Controls for Federal Information Systems and Organizations</title>
+		<author>
+			<persName><forename type="first">Kelley</forename><surname>Dempsey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Greg</forename><surname>Witte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Doug</forename><surname>Rike</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.cswp.02192014</idno>
+		<ptr target="https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final" />
+		<imprint>
+			<date type="published" when="2014-02" />
+			<publisher>National Institute of Standards and Technology</publisher>
+			<biblScope unit="page" from="800" to="853" />
+		</imprint>
+		<respStmt>
+			<orgName>National Institute of Standards and Technology</orgName>
+		</respStmt>
+	</monogr>
+	<note>Joint Task Force Transformation Initiative</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

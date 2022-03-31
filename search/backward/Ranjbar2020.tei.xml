@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Framework for a digital twin of the Canal of Calais</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Roza</forename><surname>Ranjbar</surname></persName>
+							<email>roza.ranjbar@imt-lille-douai.fr</email>
+							<affiliation key="aff0">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Eric</forename><surname>Duviella</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Lucien</forename><surname>Etienne</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="institution">IMT Lille Douai</orgName>
+								<address>
+									<postCode>F-59000</postCode>
+									<settlement>Lille</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">University of Lille</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jose-Maria</forename><surname>Maestre</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="institution">University of Seville</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="institution">University of Seville</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="institution">University of Seville</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="institution">University of Seville</orgName>
+								<address>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Framework for a digital twin of the Canal of Calais</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1016/j.procs.2020.11.004</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:48+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Hydrographical networks</term>
+					<term>Water system</term>
+					<term>Digital twin</term>
+					<term>Simulation Hydrographical networks</term>
+					<term>Water system</term>
+					<term>Digital twin</term>
+					<term>Simulation</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The management of hydrographical systems is still mainly based on the expertise of the managers. Although this expertise enables the efficient management of these networks under normal conditions, modifications due to human activities or climate change could lead them to manage situations that were not known until now. In addition, advances in Automation, Computing Science and Artificial Intelligence provide tools and methods to assist the managers. In particular, the use of tele-remote systems, as SCADA, allows the collection of data and the control of hydraulic devices. Today, by benefiting from the power of computers and servers, the digital twins of hydrographical networks can be designed. A digital twin aims to faithfully reproduce the dynamics of a canal. It is used to play-back past scenarios allowing feedback of applied management strategies and fast simulations with predictive and adaptive management strategies to determine their performances and giving decision aid criteria for the managers. The objective of the presented paper is to define the framework for a digital twin of the Canal of Calais.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>In this modern era, there are still a huge number of irrigation canals which are managed manually despite the large water losses. Thus, it is crucial to develop the way of the canals' management <ref type="bibr" target="#b17">[18]</ref>. In addition to the water losses, a disadvantage with the traditional irrigation systems is the uncertainty and lack of information with the farmers regarding the important environmental parameters like temperature, soil moisture, etc. By having these parameters appropriately monitored, water could plays a productive role for crops profitability. Due to these limitations of the old fashioned management of the water distribution systems, researchers are attempting to adopt some approaches for irrigation for both saving water resources and augmenting the overall productivity. Thus, it is now trying to replace the traditional methods of water distribution and supply with the modern advanced technologies such as wireless sensor</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>In this modern era, there are still a huge number of irrigation canals which are managed manually despite the large water losses. Thus, it is crucial to develop the way of the canals' management <ref type="bibr" target="#b17">[18]</ref>. In addition to the water losses, a disadvantage with the traditional irrigation systems is the uncertainty and lack of information with the farmers regarding the important environmental parameters like temperature, soil moisture, etc. By having these parameters appropriately monitored, water could plays a productive role for crops profitability. Due to these limitations of the old fashioned management of the water distribution systems, researchers are attempting to adopt some approaches for irrigation for both saving water resources and augmenting the overall productivity. Thus, it is now trying to replace the traditional methods of water distribution and supply with the modern advanced technologies such as wireless sensor networks accomplished with SCADA applications (Supervisory Control and Data Acquisition) <ref type="bibr" target="#b12">[13]</ref>. With SCADA systems, the managers are able to monitor the water levels and velocities from distance. They are also able to control the water flow via hydraulic structures which are fully automated. In this occasion, the operators are enabled to track the faults and take the necessary maintenance actions <ref type="bibr" target="#b2">[3]</ref>. As the benefits of this field is that, all the models can be adjusted and integrated in a computer as a (SCADA) system by employing a programming language such as MATLAB <ref type="bibr" target="#b1">[2]</ref> which makes it possible to form an instructional software for controlling the irrigation equipment <ref type="bibr" target="#b15">[16]</ref>. This method is economic and includes reliable data to be transferred, in case of necessity, to the other sections and is flexible and totally easy to be implemented. It obviously improves the efficiency of the water distribution system and the supply of water in the required domains. The sensor networks can gather the data from different fields and transfer them to a main operator of the control center, for a better decision making <ref type="bibr" target="#b12">[13]</ref>. The next advanced technology in the above-mentioned domain is the use of "digital twins", that provides dynamic operation of simulations. Nowadays, many water utilities are applying digital twins to enhance the design of the system as well as optimizing the operations. Utilities are going towards applying dynamic simulation models for integrating design and operations components like process flow diagrams and SCADA screens with the piping networks to improve the contact between project stakeholders, particularly a group of them who are professional and are from technical backgrounds. A complete Digital Twin (DT) would cover whole the procedure from the beginning of a raw water until it reaches the users such that, it observes the whole water cycle. The DT starts simulating the system performance under different scenarios or demands. It also allows enhancing the system performance and productivity via its ability to optimize the decisions and lesson the probable risks <ref type="bibr" target="#b5">[6]</ref>. Noticing the anomalies could enhance predictive analytics and errors including security threats. DT would be useful in recognizing the exact origin of anomaly and the associated issues (like humans involved in the loop) so that it could handle the physical security and systems cybersecurity. It is worth noting that, for developing "smart cities", DT operation provides a quite accurate information of scale-free networks in urban digital transformation. Supervising the digital duplicates of water valves to control or regulate the water waste and water pollution are included in the mentioned category. However, discovering the full potential of DT will require more research to improve the traditional data collection and the whole procedure and it is also necessary to apply the communication interface between real and physical twins <ref type="bibr" target="#b8">[9]</ref>. There are some researches done with the operation of a DT in water distribution systems (WDS). <ref type="bibr" target="#b13">[14]</ref> introduced a primary form of Cyber-Physical System (CPS) comprised of an Epanet hydraulic model with the mathematical Matlab software in order to construct an intelligent cyber WDS that could implement certain valves and allocate distributing the water equitably. The work is famous to be a basic example of an intelligent decision support system. Later on in 2015, <ref type="bibr" target="#b22">[22]</ref> worked in finding a definition of a CPS managing the quality of water. Based on this job, the CPS needs many components such as sensors and communication network, computing technologies for models, managing the set of data and its analysis and the predictive controllers. Additionally, the DT must work on a hydraulic model that includes cohesive and precise results of the simulation and is well calibrated. Finally, the DT has to simulate hypothetical scenarios while containing the data analysis and optimization tools. Machine Learning algorithms, like decision trees or artificial neural networks which provide modelling the complex sub-systems not hidden in the hydraulic mathematical model. DT could comprise the optimization algorithms, i.e. linear and non-linear. Figure <ref type="figure" target="#fig_0">1</ref> shows a complete function of an implementation of digital twins on WDS <ref type="bibr" target="#b4">[5]</ref>. In this paper, the framework for a DT of canals is discussed that are dedicated to navigation and evacuation of water in excess towards sea. To the best knowledge of the authors, no DT has been designed for this type of systems. The DT aims at being used to play-back past scenarios based on the data collected from SCADA. Then, the DT will be used to test and improve management strategies from fast simulations. This paper is organized as follows: Section 2 introduces the management objectives of the inland waterways, and the framework for a DT design. The case-study of the Calais canal located in the north of France is presented in Section 3 and is used to describe the functionalities of the DT. Finally, Section 4 summarizes the key findings and foreshadows the possible improvements in future researches.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Digital Twin framework for hydrographical networks management</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Hydrographical networks management</head><p>Hydrographical systems are great dimensional networks which are geographically distributed. They are usually comprised of dams, rivers, channels, etc. Hydraulic devices, e.g. gates or pumps could be assigned to route the water resource. Depending on the human's needs, several objectives for the hydrographical system management are defined. Water is used for drinking, irrigation, industry, navigation, recreational activities (fishing, swimming, etc.); defined as conflicting goals. The water resource has to be fairly shared between usages, following priorities that are defined in consultation with stakeholders. Moreover, for each objective, e.g. irrigation, the water has to be controlled with efficiency, avoiding lack and excess of resource over large time horizons that can be seasonal, or multi-annual in several parts of the world. The water resource management is usually performed based on the manager's knowledge. This knowledge can be synthesized by expert rules and then automatically reused to face some known events. Expert rules lead to an efficient management of hydrographical networks. In addition, the managers of hydrographical systems took the opportunity to introduce new control algorithms <ref type="bibr" target="#b23">[23]</ref> or optimization approaches <ref type="bibr" target="#b6">[7]</ref> that were designed in the past years. However in the context of climate change, population growing linked to the urbanization and the modification of usages; unexpected situations can occur showing the limits of expert rules, the designed control or the optimization algorithms. According to the nowadays deficiency in the water resources (drought periods) or the extreme rain events, the management of hydrographical systems are really important. The already proposed techniques that are dedicated to the management of hydrographical networks can benefit of advances in Automation, Computing Science and Artificial Intelligence. Based on the power of computers and servers, it could be possible to design Digital Twins of hydrographical networks with the aims i) to reproduce the dynamics of the real systems, ii) to identify unknown inputs/outputs, iii) to play-back past scenarios providing a feedback on the applied management strategies, iv) to test and optimize new predictive control strategies. The framework of a DT is described in the next subsection.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Digital Twin framework</head><p>The framework for the DT of a hydrographical networks is based on a WDS structure on which a hydrological model can be associated (see Figure <ref type="figure" target="#fig_0">1</ref>). The hydrological model aims at predicting the runoff according to the rain by considering several predictive horizons. This information is very useful to reduce uncertainties on inputs and for that of predictive control algorithms. In case that no hydrological model is available, the hydraulic model and collected data can be used to estimate the unknown input/output. It is ,however, necessary to have accurate models of the hydraulic devices and accurate measures (discharges, or levels). Inverse modelling approaches are used to estimate the unknown input/output of the past events. The DT is then connected to a software such as Matlab or to a computer code and programs that implement the expert rules or the predictive and adaptive control strategies. The objective is to offer a suitable environment for designing the new control techniques and management strategies that can be tuned and tested using the DT.</p><p>The design of the DT requires some steps: a) hydraulic model of the hydrographical systems, b) identification of the dynamics of the controlled devices and c) calibration of the hydraulic model. Hydraulic models of the open-flow channels are based on Saint Venant equations that accurately reproduce the generation and propagation of the waves with a variable delay and attenuation. There are some solutions, with a nonexhaustive list, SIC <ref type="bibr" target="#b21">21</ref> , Hydra 2 , Mike11 3 , SWMM <ref type="bibr" target="#b3">4</ref> , HEC RAS 5 . Among these solutions, HEC RAS presents the main advantage to be free and SIC 2 is dedicated to the control strategies design. Most of these solutions can be linked to GIS (Geographic Information System), e.g. QGIS <ref type="bibr" target="#b5">6</ref> is very interesting in case of the topography of the canals; so that it is directly accessible.</p><p>There is an exhaustive literature on hydraulic devices while they are characterized by the nonlinear dynamics. Some of the software solutions could integrate models of hydraulic devices (weir, gate, etc.), however, for hydraulic devices presenting more complex dynamics, Machine Learning techniques are available to identify black-box or grey-box models based on the measurement. These techniques, e.g. Support Vector Machine (SVM), are suitable for nonlinear and hybrid dynamics. Although, the techniques require a rich and exhaustive database. Finally, when it comes to the calibration of the hydraulic models, the friction coefficient is used in general. Here again, available data are required. All the above-mentioned steps aim at reproducing the dynamics of the hydrographical networks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Digital Twin usage</head><p>One of the four objectives of the DT listed above consists an accurate reproduce of the real systems' dynamics. As it has been explained in the previous subsection, once a calibrated model is available, it is possible to identify the unknown inputs/outputs of a hydrographical system. By considering real data, levels and controls that have been sent to the hydraulic devices during a period of time and a known initial condition, the water volume balance is computed. Thus, the missing flows (positive or negative) can be easily determined by the considered period of time (other techniques like Kalman filter <ref type="bibr" target="#b14">[15]</ref>, observer <ref type="bibr" target="#b0">[1]</ref> or Moving Horizon Estimation (MHE) <ref type="bibr" target="#b19">[19]</ref> approaches could also be investigated). Once the unknown inputs/outputs estimated, the past scenarios can be play-backed and a feedback on applied management strategies can be performed as it is proposed in <ref type="bibr" target="#b7">[8]</ref>. The performance of the applied strategies are determined providing useful information for the managers. Moreover, another control or optimization techniques can be applied using the same scenario, i.e. the same unknown inputs/outputs. In this case, the controls sent to the hydraulic devices should not be the same, and new states that would have had the hydraulic systems according to these new setpoints are computed thanks to the DT. The performance of the applied management strategies and other control/optimization techniques could be compared with each other. The control or optimization algorithms have to be designed before considering real past scenarios which the DT offers this possibility. The algorithms which are generally based on models gained from physics or assumption of the linearity of the canal dynamics <ref type="bibr" target="#b10">[11,</ref><ref type="bibr" target="#b9">10,</ref><ref type="bibr" target="#b3">4,</ref><ref type="bibr" target="#b11">12,</ref><ref type="bibr" target="#b21">21,</ref><ref type="bibr" target="#b20">20,</ref><ref type="bibr" target="#b16">17,</ref><ref type="bibr" target="#b19">19</ref>] could be tuned and tested. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">DT of the canal of Calais</head><p>The objective of this section is to illustrate the steps of the DT by considering the canal of Calais; located in the north of France. The particularity and the management objectives of the canal of Calais are firstly described. This canal is modelled with the software SIC 2 by considering average physical characteristics. Then, the method to obtain a dynamical model of the hydraulic devices is presented. Finally, the unknown inputs of the canal of Calais are estimated based on an identification technique.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Description</head><p>Located in the north of France, the Calais Canal is in a territory called Wateringues. The Wateringues is the extension of a polder called "Yser" and is on the way of three towns named Saint-Omer, Calais and Dunkerque. Actually, the territory builds a triangle area of 100000 hectares (see Figure <ref type="figure" target="#fig_1">2</ref>). It correlates with the Aa delta; that used to be a large wetland in the past. The territory is situated below the sea level (within the class of lowland) and there are different water systems such as levees, gates for sea and water pumps within the area. The water of the canal is stored by the watergangs, which are normally ditches or drainages to dehydrate the lowlands <ref type="bibr" target="#b7">[8]</ref>. The watergangs set up a giant meshed network which length is more than 1500 km. The surplus water inside the watergangs could be pumped to the navigation canals located along the Calais canal. On the other hand, in the northern part of the territory (far from the main territory), there is a zone called "Les Moëres", in which the water was leading to a screw higher than the sea level <ref type="bibr" target="#b6">7</ref> . There is a principal reach in the Calais canal that is supplied by three sub-canals named Audruicq canal, Ardres canal and Guines canal (see Figure <ref type="figure">3</ref>). The lock of Hennuin is located in the upstream which is basically used for the matter of navigation. In the downstream of the canal, there are sea outlet gates contributed by two pumps in Calais and two pumps in Batellerie. The own capacity of the pumps of Calais is 4m 3 /s and that of Batellerie is 2m 3 /s. There are two level-meters which make it possible to measure the level in Les Attaques and in Calais, defined Z attaq and Z calais , respectively.</p><p>The Calais canal is equipped with 18 Pumping Stations (PS), e.g. PS Mower or PS Canarderie , that are located along the reach. The PSs are operated by farmers within their own schedule. When the PS is off, the discharge is equal to zero and when it is on, the average discharge is known and is indicated in Figure <ref type="figure">3</ref> in brackets, e.g. PS Mower with a discharge equal to 0.35m 3 /s for pump is on. When all the PSs are operated, the incoming flow is equal to 8.46m 3 /s. The maximum flows of the three secondary canals are respectively Q Audruicq = 3m 3 /s, Q Ardres = 1m 3 /s and Q Guines = 0.2m 3 /s, even if the managers suspect much higher flows during extreme rainfall events. That means that the maximum input flow is equal to 13.06m 3 /s, from PS and from runoff. The two main objectives of the management of the Calais canal are navigation and flood avoiding. For the navigation purpose, the level in the canal has to be kept close to the Normal Navigation Level (NNL) and inside the navigation rectangle: an interval that is defined with two other levels; High Navigation Level (HNL) and Low Navigation Level (LNL). Usually, HNL = NNL + 30cm and LNL = NNL − 30cm. To avoid flooding, the management includes ejecting water in excess to sea thanks to the outlet gates and the pumps in Calais and Batellerie, according to the sea tide. The outlet gates can be opened only during the low tides. For economical reasons, the pumps have to be operated as little as possible so that the drawdown zone of the canal is used. The level can increase closely to the HNL during a high tide waiting for the next low tide when the outlet gates can be operated. During the low tide, the outlet gates are opened leading to a level of the canal close to the LNL, offering the biggest storage capacity for the next high tide. Then, the level can oscillate around the NNL, limiting the use of pumps. However when the uncontrolled input flows are too important, the pumps have to be operated with the aim of avoiding or at least limiting the flood. After modelling the Calais canal in SIC 2 , as a first study, an average profile of the Calais canal is considered. The length, width and depth of the canal are L = 26.72km, W = 20m and D = 2.2m, respectively. The average flow is Q 0 = 1m 3 /s and the Manning's roughness coefficient is n r = 0.035m 1/3 /s. The software SIC 2 is easily linked with Matlab <ref type="bibr" target="#b7">[8]</ref>. Some simulations are performed by using step at the upstream of the canal. The obtained delays and attenuation of the hydrographs are close to those observed on the real system. These tests aim at validating the performance of the selected software. It is then necessary to determine the model of the outlet gates dynamics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Estimation of the outlet gate dynamics</head><p>There are two outlet gates, G 1 and G 2 . They are in parallel, but the gate G 2 is only opened when the gate G 1 is completely opened. The average discharge of G 1 depends on the opening of the gate and on the cycle of tide that is composed of a spring tide and a dead tide. The type of tides depends on the tide's coefficient that can be easily forecasted; coefficients higher than 80 correspond to spring tides while coefficients smaller than 45 correspond to dead tides. Another type of tide has to be considered for coefficients between 45 and 80; the average tide. Discharges for few openings have been estimated by the manager (see Table <ref type="table" target="#tab_1">1</ref>) according to the type of tide. It was necessary to determine functions to estimate the average discharge for all the gate openings from 0dm to 25dm. These functions are identified according to the available data by considering the mathematical function of relation 1. The parameters a 1 , b 1 and c 1 have to be determined according to the available data for each type of tide. The nonlinear regression nlinfit of Matlab is used to determine the value of the parameters which are given in Table <ref type="table" target="#tab_2">2</ref> and the plot of the functions are shown in   </p><formula xml:id="formula_0">f (O G 1 ) = a 1 (1 − exp(−b 1 .O G 1 c 1 ))<label>(1)</label></formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Estimation of the unknown inputs</head><p>The proposed approach for estimating the unknown inputs is based on the simulated model and real data. This first approach aims at being simple and easy to use. It consists determining the difference of volume in the canal according to relation 2.</p><formula xml:id="formula_1">∆ V (k) = ∆ Z (k).S Calais (2)</formula><p>with S Calais the area of the canal such as S Calais = L.W and ∆ Z (k) = Z Calais (k) −Ẑ Calais (k), where Z Calais (k) is the level measured in Calais andẐ Calais (k) is the estimated level from the software SIC 2 . The difference of volume ∆ V (k) is averaged on a time window ∆ T leading to µ ∆ V |∆ T . The difference of discharges between two periods of time is given by relation 3. These values correspond to the unknown inputs on the Calais canal.  </p><formula xml:id="formula_2">∆ Q = µ ∆ T +1 ∆ V − µ ∆ T ∆ V ∆ T (3)</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">Event of November 2019</head><p>In the beginning of November 2019, an extreme rain led to four periods of flood (the 5 th and 6 th of November (see Figure <ref type="figure" target="#fig_7">8</ref>.c)). This period of 13 days is selected to illustrate the proposed step. The coefficients of the tide is given in Figure <ref type="figure" target="#fig_4">5</ref>, presenting periods of spring tide the 1 st , 11 th and 12 th , average tide for the 2 nd , 9 th and 10 th , dead tide otherwise. The activation of PSs is presented in Figure <ref type="figure" target="#fig_5">6</ref> for PSs that are located close to the PS 3 Cornets. Due to a lack of space, other PSs are not presented. The operations of the pumps in Calais are shown in Figure <ref type="figure" target="#fig_6">7</ref>. The pumps in Batellerie are continuously on from November 5 th to 9 th .</p><p>Based on the level in Calais and the simulated level from the software SIC 2 , on the functions that are used to estimate the average discharge at the outlet gates (see Figure <ref type="figure" target="#fig_7">8</ref>.a), the unknown input discharges are estimated by considering a period of time ∆ T = 6hours (see Figure <ref type="figure" target="#fig_7">8</ref>.b). These estimated unknown discharges allow to obtain a simulation of real scenario using the DT (see Figure <ref type="figure" target="#fig_7">8</ref>.c). The sea level is depicted in Figure <ref type="figure" target="#fig_7">8</ref>.d. It can be observed that the total discharge from the secondary canals is higher than what was expected and the level from the DT is close to the real one. However, some big differences could be observed at the end of the low tide the 3 rd , 8 th and 9 th of November. These differences originate from the constant average discharges of the outlet gates. In reality, the discharge is the most when the gates are open and afterwards, there would be a loss of discharge at the end of the low tide. This dynamics is not  well modelled and in future works, a more accurate dynamics of the outlet gates will be proposed. Once the unknown discharges are estimated, it would be possible to play-back the scenario and give a feedback on the management strategies. It seems that operating the two pumps in Calais could lead to a limitation of the flood periods.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Conclusion</head><p>In this paper, a framework of a digital twin is proposed to reproduce the dynamics of the Calais canal and to implement the advanced control on the hydraulic devices of the canal. The canal is simulated by the software SIC 2 . The strategy behind the new management of the canal followed the goals of navigation and prohibition/limitation of flood events. For achieving these two objectives, the water level and the outlet gates of the canal should have been controlled. Thus, the analysis have done on both the outlet gates dynamics and the unknown inputs. Afterwards, the simulated level of the water and the discharge at the outlet gates have been inspected. Although, there were some differences in the simulated figures due to the unknown discharges, it is still possible that after recognizing them, by doing a play-back of the scenarios, there would be an enhance in the management strategies. Additionally, operating the pumps showed a limitation in the flood periods. Future works will consist in improving the models of the outlet gates and thanks to the DT, it is now possible to test the advanced control and optimization algorithms such as model predictive controller. Also, new real data (in case of availability) could be used for the canal to develops its management.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. Framework for the DT of hydrographical networks.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. Map of the watersheds in north of France and of the Wateringues Territory (red triangle).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 4 .</head><label>4</label><figDesc>This Figure shows a good estimation of the discharge functions.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 .</head><label>4</label><figDesc>Figure 4. Estimated discharge Q G 1 [m 3 /s] function of gate opening O G 1 [dm] according to the type of tide, with the points given by managers (star), and the estimated points (dot).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 5 .</head><label>5</label><figDesc>Figure 5. Coefficients of the tide for November 2019.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 6 .</head><label>6</label><figDesc>Figure 6. State of PS located close to the PS 3 Cornets in November 2019.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 7 .</head><label>7</label><figDesc>Figure 7. State of the pumps in Calais in November 2019.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 8 .</head><label>8</label><figDesc>Figure 8. a. Discharge at the outlet gates G 1 and G 2 , b. estimated unknown inputs in Audruicq (blue line), Ardres (red line) and Guines (magenta line), c. real level in Calais Z Calais and level providing from SIC 2Ẑ Calais with the HNL (red line) and flooding threshold (red dashed line), d. the sea level.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 1 .</head><label>1</label><figDesc>Discharge Q G 1 [m 3 /s] vs gate O G 1 opening [dm].</figDesc><table><row><cell>O G 1 Q spring tide G 1 Q average tide G 1 Q dead tide G 1</cell><cell>0 0 0 0</cell><cell>1 1.9 1.7 1.4</cell><cell>2 2.7 2.4 2.2</cell><cell>4 5.2 4.8 4.3</cell><cell>6 7.6 7 6.3</cell><cell>8 9.4 8.7 7.9</cell><cell>1 0 11.1 10 8.9</cell><cell>1 2 12.3 11.1 9.8</cell><cell>1 5 13.9 12.5 11.1</cell><cell>1 7 14.3 12.9 11.5</cell><cell>2 0 14.7 13.4 12</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2 .</head><label>2</label><figDesc>Estimated parameters of the nonlinear function linked the discharge Q G 1 [m 3 /s] to the gate opening O G 1 [dm]. Considering the second gate G 2 , when O G 1 = 25dm and G 2 is open, the average discharges are equal to 15.25m 3 /s during spring tide, 13.9m 3 /s during average tide and 12.55m 3 /s during dead tide.</figDesc><table><row><cell>Parameters</cell><cell>a 1</cell><cell>b 1</cell><cell>c 1</cell></row><row><cell>Spring tide</cell><cell>16.7366</cell><cell>0.0854</cell><cell>1.0986</cell></row><row><cell>Average tide</cell><cell>14.3988</cell><cell>0.0907</cell><cell>1.1206</cell></row><row><cell>Dead tide</cell><cell>13.2299</cell><cell>0.0891</cell><cell>1.1025</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Roza Ranjbar et al. / Procedia Computer Science 178 (2020) 27-37</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">http://sic.g-eau.net/?lang=en 2 http://hydra-software.net/ 3 https://www.mikepoweredbydhi.com/products/mike-11<ref type="bibr" target="#b3">4</ref> https://www.epa.gov/water-research/storm-water-management-model-swmm 5 https://www.hec.usace.army.mil/software/hec-ras/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6">https://www.qgis.org/en/site/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">R. Ranjbar et al. / Procedia Computer Science 00 (2019) 000-000</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7">http://www.floodcom.eu/partners-sites/sites/france-st-omer/index.html</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>Authors want to thank the Institut Intercommunale des Wateringues for providing us data and information on the Calais canal.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Online fault diagnosis using recursive subspace identification: Application to a damgallery open channel system</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Akhenak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Duviella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bako</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lecoeuche</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Control Engineering Practice</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="797" to="806" />
+			<date type="published" when="2013" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Retracted: Implementation of on/off controller for automation of greenhouse using labview</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Alimardani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Javadikia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tabatabaeefar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Omid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fathi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Artificial Intelligence and Computational Intelligence</title>
+				<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009" />
+			<biblScope unit="page" from="251" to="259" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Stealthy deception attacks on water scada systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Amin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Litrico</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Sastry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Bayen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 13th ACM international conference on Hybrid systems: computation and control</title>
+				<meeting>the 13th ACM international conference on Hybrid systems: computation and control</meeting>
+		<imprint>
+			<date type="published" when="2010" />
+			<biblScope unit="page" from="161" to="170" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Gain-scheduling multivariable lpv control of an irrigation canal system</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Bolea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Puig</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ISA Transactions</title>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="page" from="274" to="280" />
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Building and exploiting a digital twin for the management of drinking water distribution networks</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Fuertes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Martínez Alzamora</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Hervás</forename><surname>Carot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Alonso</forename><surname>Campos</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Urban Water Journal</title>
+		<imprint>
+			<biblScope unit="page" from="1" to="10" />
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Digital twins: The next generation of water treatment technology</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Curl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Nading</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Hegger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Barhoumi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Smoczynski</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal-American Water Works Association</title>
+		<imprint>
+			<biblScope unit="volume">111</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="44" to="50" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A reactive control strategy for networked hydrographical system management</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Duviella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Chiron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Charbonnaud</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Control engineering practice</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="851" to="861" />
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Simulation tool of the calais canal implementing logic control based regulation. IFAC-PapersOnLine</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Duviella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hadid</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="page" from="23" to="28" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Digital twins: The convergence of multimedia technologies</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">El</forename><surname>Saddik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE multimedia</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="87" to="92" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Coalitional model predictive control of an irrigation canal</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Fele</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Maestre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Hashemy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>De La Peña</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">F</forename><surname>Camacho</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Process Control</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="314" to="325" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Comparison between robustness of two fractional-order pi controllers for irrigation canals</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Feliu-Batlle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Maione</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Calderón-Valdez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">6th IFAC Workshop on Fractional Differentiation and Its Applications</title>
+				<imprint>
+			<date type="published" when="2013" />
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="page" from="373" to="378" />
+		</imprint>
+	</monogr>
+	<note>IFAC Proceedings Volumes</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Enhancing Inland Navigation by Model Predictive Control of Water Levels: The Cuinchy-Fontinettes Case</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Horváth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rajaoarisoa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Duviella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Blesa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Petreczky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Chuquet</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015" />
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="211" to="234" />
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Wsn based smart control and remote field monitoring of pakistan&apos;s irrigation system using scada applications</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Katyara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zardari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">S</forename><surname>Chowdhry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Wireless Personal Communications</title>
+		<imprint>
+			<biblScope unit="volume">95</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="491" to="504" />
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A general framework for quantitative modeling of dependability in cyber-physical systems: a proposal for doctoral research</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sedigh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Miller</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">33rd Annual IEEE International Computer Software and Applications Conference</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2009" />
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="668" to="671" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">When does the state estimation error from a kalman filter converge towards zero? what are the conditions, why this is important? illustration on the rhône river</title>
+		<author>
+			<persName><forename type="first">P.-O</forename><surname>Malaterre</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Seminar -Fifty shades on uncertainty on water systems modelling and management -Experiences of three special guest-lecturers</title>
+				<meeting><address><addrLine>Netherlands</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2013" />
+		</imprint>
+		<respStmt>
+			<orgName>TU Delft</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Scada platform combined with a scale model of trickle irrigation system for agricultural engineering education</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Molina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ruiz-Canales</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jiménez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Soto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">G</forename><surname>Fernández-Pacheco</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Applications in Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="463" to="473" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Decentralized predictive control for 1D cascaded systems of conservation laws</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">T</forename><surname>Pham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lefèvre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Georges</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Besançon</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">IFAC Proceedings Volumes</title>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="5163" to="5168" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+	<note>19th IFAC World Congress</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Flatness-based control of open-channel flow in an irrigation canal using scada</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Rabbani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Munier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dorchies</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P.-O</forename><surname>Malaterre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bayen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Litrico</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>applications of control</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Control Systems Magazine</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="22" to="30" />
+			<date type="published" when="2009" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Model predictive control and moving horizon estimation for water level regulation in inland waterways</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Segovia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rajaoarisoa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Nejjari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Duviella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Puig</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Process Control</title>
+		<imprint>
+			<biblScope unit="volume">76</biblScope>
+			<biblScope unit="page" from="1" to="14" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Decentralized control of inland navigation networks with distributaries: application to navigation canals in the north of France</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Segovia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rajaoarisoa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Nejjari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Puig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Duviella</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">17</biblScope>
+			<pubPlace>Seattle, WA, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Model predictive control based on an integrator resonance model applied to an open water channel</title>
+		<author>
+			<persName><forename type="first">P.-J</forename><surname>Van Overloop</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Horvàth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">E</forename><surname>Aydin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Control Engineering Practice</title>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="page" from="54" to="60" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Cyber-physical systems for water sustainability: challenges and opportunities</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">W</forename><surname>Watkins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">G</forename><surname>Ong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Xue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Shi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Magazine</title>
+		<imprint>
+			<biblScope unit="volume">53</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="216" to="222" />
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Models and control methodologies in open water flow dynamics: A survey</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Xia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">AFRICON 2007</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2007" />
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

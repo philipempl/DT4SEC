@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A Game-Theoretic Approach to Secure Estimation and Control for Cyber-Physical Systems with a Digital Twin</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>IEEE</publisher>
+				<availability status="unknown"><p>Copyright IEEE</p>
+				</availability>
+				<date type="published" when="2021-02-04">4 Feb 2021</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Zhiheng</forename><surname>Xu</surname></persName>
+							<email>zhiheng.xu688@gmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electrical and Electronic Engineering</orgName>
+								<orgName type="institution">Nanyang Technological University</orgName>
+								<address>
+									<country key="SG">Singapore</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">nd Arvind Easwaran School of Computer Science and Engineering</orgName>
+								<orgName type="institution">Nanyang Technological University</orgName>
+								<address>
+									<country key="SG">Singapore</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Arvind</forename><surname>Easwaran</surname></persName>
+						</author>
+						<title level="a" type="main">A Game-Theoretic Approach to Secure Estimation and Control for Cyber-Physical Systems with a Digital Twin</title>
+					</analytic>
+					<monogr>
+						<title level="m">2020 ACM/IEEE 11th International Conference on Cyber-Physical Systems (ICCPS)</title>
+						<imprint>
+							<publisher>IEEE</publisher>
+							<date type="published" when="2021-02-04">4 Feb 2021</date>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/iccps48487.2020.00010</idno>
+					<idno type="arXiv">arXiv:2102.02428v1[eess.SY]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T13:05+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Cyber-Physical Systems</term>
+					<term>Data-Integrity Attack</term>
+					<term>Signaling Game with Evidence</term>
+					<term>Digital Twin</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Cyber-Physical Systems (CPSs) play an increasingly significant role in many critical applications. These valuable applications attract various sophisticated attacks. This paper considers a stealthy estimation attack, which aims to modify the state estimation of the CPSs. The intelligent attackers can learn defense strategies and use clandestine attack strategies to avoid detection. To address the issue, we design a Chi-square detector in a Digital Twin (DT), which is an online digital model of the physical system. We use a Signaling Game with Evidence (SGE) to find the optimal attack and defense strategies. Our analytical results show that the proposed defense strategies can mitigate the impact of the attack on the physical estimation and guarantee the stability of the CPSs. Finally, we use an illustrative application to evaluate the performance of the proposed framework.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Cyber-Physical Systems (CPS) integrate physical components (e.g., sensors, actuators, and controllers), computational resources, and networked communications <ref type="bibr" target="#b0">[1]</ref>. The integration with networked communications highly enhances the flexibility and scalability of CPSs in various applications, such as large-scale manufacturing systems <ref type="bibr" target="#b1">[2]</ref>, intelligent transport systems <ref type="bibr" target="#b2">[3]</ref>, and smart grid infrastructure <ref type="bibr" target="#b3">[4]</ref>. However, the valuable applications of CPSs attract many sophisticated attacks. A well-known example is the Stuxnet, a computer virus compromises Supervisory control and data acquisition (SCADA) of industrial systems <ref type="bibr" target="#b4">[5]</ref>. Besides, we have witnessed many other control-system-related attacks, such as Maroochy Water attack <ref type="bibr" target="#b5">[6]</ref>, Unmanned Aerial Vehicle's (UAV) GPS spoofing attack <ref type="bibr" target="#b6">[7]</ref>, and German Steel Mill cyber attack <ref type="bibr" target="#b7">[8]</ref>.</p><p>Due to the increasing number of security-related incidents in CPSs, many researchers have studied the features of these attacks and developed relevant defense strategies. Among many attack models, we focus on data-integrity attacks, where the attackers modify the original data used by the system or inject unauthorized data to the system <ref type="bibr" target="#b8">[9]</ref>. The data-integrity attacks can cause catastrophic consequences in CPSs. For instance, the fake data may deviate the system to a dangerous trajectory or make the system oscillate with a significant This work was supported by Delta-NTU Corporate Lab for Cyber-Physical Systems with funding support from Delta Electronics Inc. and the National Research Foundation (NRF) Singapore under the Corp Lab@University Scheme.</p><p>amplitude, destabilizing the system. Therefore, how to mitigate the impact of data-integrity attacks becomes a critical issue in the security design of CPSs.</p><p>One typical data-integrity attack for CPSs is the Sensor-and-Estimation (SE) attack, where the attackers tamper the sensing or estimated information of the CPSs <ref type="bibr" target="#b9">[10]</ref>. Given the SE attack, Fawzi et al. <ref type="bibr" target="#b10">[11]</ref> have studied a SE attack and proposed algorithms to reconstruct the system state when the attackers corrupt less than half of the sensors or actuators. Miroslav Pajic et al. <ref type="bibr" target="#b11">[12]</ref> have extended the attack-resilient state estimation for noisy dynamical systems. Based on Kalman filter, Chang et al. <ref type="bibr" target="#b12">[13]</ref> have extended the secure estimation of CPSs to a scenario in which the set of attacked nodes can change over time. However, to recover the estimation, the above work requires a certain number of uncorrupted sensors or a sufficiently long time. Those approach might introduce a non-negligible computational overhead, which is not suitable for time-critical CPSs, e.g., real-time systems. Besides, since all the senors do not have any protection, the attacker might easily compromise the a large number of sensors, violating the assumptions of the above work.</p><p>Instead of recovering the estimation from SE attacks, researchers and operators also focus on attack detection <ref type="bibr" target="#b13">[14]</ref>. However, detecting a SE attack could be challenging since the attackers' strategies become increasingly sophisticated. Pasqualetti et al. <ref type="bibr" target="#b14">[15]</ref> have identified the conditions of undetectable SE attacks for CPSs. Using the conventional statistic detection theory, e.g., Chi-square detection, may fail to discover an estimation attack if the attackers launch a stealthy attack <ref type="bibr" target="#b15">[16]</ref>. Yuan Chen et al. <ref type="bibr" target="#b16">[17]</ref> have developed optimal attack strategies, which can deviate the CPSs subject to detection constraints. Hence, the traditional detection theory may not sufficiently address the stealthy attacks in which the attackers can acquire the defense information. Besides, using classical cryptography to protect CPSs will introduce significant overhead, degrading the control performance of delay-sensitive CPSs <ref type="bibr" target="#b17">[18]</ref>.</p><p>The development of Digital Twin (DT) provides essential resources and environments for detecting sophisticated attacks. A DT could be a virtual prototype of a CPS, reflecting partial or entire physical processes <ref type="bibr" target="#b18">[19]</ref>. Based on the concept of DT, researchers have developed numerous applications for CPSs <ref type="bibr" target="#b19">[20]</ref>. The most relevant application to this paper is using a DT to achieve fault detection <ref type="bibr" target="#b20">[21]</ref>. Similarly, we use the DT to monitor the estimation process, mitigating the influence of the SE attack.</p><p>In this paper, we focus on a stealthy estimation attack, where the attackers know the defense strategies and aim to tamper the estimation results without being detected. Fig. <ref type="figure" target="#fig_0">1</ref> illustrates the underlying architecture of the proposed framework. To withstand the attack, we design a Chi-square detector, running in a DT. The DT connects to a group of protected sensing devices, collecting relevant evidence. We use cryptography (e.g., digital signature or message authentication code) to preserve the evidence from the attack. Hence, the DT can use the evidence to monitor the estimation of the physical systems. The cryptographic overhead will not affect physical performance since the execution of the real plant does not depend on the DT.</p><p>Different from the work <ref type="bibr" target="#b10">[11]</ref>- <ref type="bibr" target="#b12">[13]</ref>, we have designed two independent channels, i.e., one is protected by standard cryptography, and the other one is the general sensing channel. Fig. <ref type="figure" target="#fig_4">2</ref> illustrates the structure of the framework. The main advantage of this structure is the cryptographical overhead will affect the control performance of the physical system due to the independency between these two channels. Fig. <ref type="figure" target="#fig_4">2</ref>. The Architecture of the Framework: the Digital Twin has two channels to obtain the sensing information of the plant: one is secure, and the other is not secure. The secure channel provides less accurate data with a heavy computational overhead. DT only uses the secure channel to run the verification, and the computational overhead has negligible impact on the physical performance since these two channels are independent.</p><p>To analyze whether a stealthy attack can bypass DT's detector, we use game theory to find the optimal attack and defense strategies. Game theory has been an essential tool in designing security algorithms since we can use it to search for the optimal defense strategies against intelligent attackers <ref type="bibr" target="#b21">[22]</ref>. One related game model that can capture the detection issue is the Signaling Game (SG) <ref type="bibr" target="#b22">[23]</ref>. However, instead of using the SG, we use a Signaling Game with Evidence (SGE), presented in <ref type="bibr" target="#b23">[24]</ref>, to protect the system from the attack. In an SGE, the DT's detector will provide critical evidence to explore the stealthy attack. After integrating DT's detector with CPSs, we use an SGE to study the stealthy attack and develop optimal defense strategies based on the equilibria of the SGE. Our analytical results show that the stealthy attackers have to sacrifice the impact on the physical system to avoid detection.</p><p>We organize the rest of the paper as follows. Section II presents the problem formulation in which we identify the control problem, attack model, and a signaling game framework. Section III analyzes the equilibrium of the game framework and the stability of the CPSs. Section IV uses the experimental results to evaluate the performance of the proposed defense mechanism. Finally, Section V concludes the entire paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. SYSTEM MODELLING AND CHARACTERIZATION</head><p>In this section, we first introduce the dynamic model of a CPS. Secondly, we define a stealthy estimation attack model. Based on a Digital Twin (DT), we design a Chi-square detector to monitor the estimation process. Finally, we define a Signaling Game with Evidence (SGE) to characterize the features of the stealthy attack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. System Model and Control Problem of a CPS</head><p>Suppose that the physical layer of a CPS is a control system. We assume that the control system can be linearized as a linear discrete-time system, given by</p><formula xml:id="formula_0">x k+1 = Ax k + Bu k + w k ,<label>(1)</label></formula><formula xml:id="formula_1">y k = Cx k + v k ,<label>(2)</label></formula><p>where k ∈ Z + is the discrete-time instant; x k ∈ R nx is the system state with an initial condition x 0 ∼ N (0 nx , Σ x ), and Σ x ∈ R nx×nx is the covariance matrix; u k ∈ R nu is the control input; y k ∈ R ny is the sensor output; w k ∈ R nx and v k ∈ R ny are additive zero-mean Gaussian noises with covariance matrices Σ w and Σ v with proper dimensions; A, B, and C are constant matrices with proper dimensions. Given system model (1), we design a control policy µ : R nx → R nu by minimizing the following expected linear quadratic cost function, i.e.,</p><formula xml:id="formula_2">J LQG = lim N →∞ sup E 1 N N −1 k=0 x T k Qx k + u T k Ru k ,<label>(3)</label></formula><p>where Q ∈ R nx×nx and R ∈ R nu×nu are positive-definite matrices.</p><p>Note that the controller cannot use state x k directly, i.e., we need to design an observer to estimate x k . Hence, minimizing function (3) is a Linear Regulator Gaussian (LQG) problem.</p><p>According to the separation principle, we can design the controller and state estimator separately. The optimal control policy µ : R nx → R nu is given by</p><formula xml:id="formula_3">µ k (x k ) := K k x k , with K k := −(R + B T V k B)B T V k , (4)</formula><p>where V k ∈ R nx×nx is the solution to the linear discrete-time algebraic Riccati equation</p><formula xml:id="formula_4">V k+1 = Q + A T V k (A − BK k ), with V 0 = I nx ,<label>(5)</label></formula><p>and I nx ∈ R nx×nx is an identity matrix. We assume that (A, B) is stabilizable. Then, V k will converge to a constant matrix V when k goes to infinity, i.e.,</p><formula xml:id="formula_5">lim k→∞ V k = V, and lim k→∞ µ k (x) = µ(x) = Kx.</formula><p>In the next subsection, we will use a Kalman filter to estimate x k such that controller (4) uses this estimated value to control the physical system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Kalman Filter Problem</head><p>To use controller (4), we need to design an estimator. Let x k ∈ R nx be the estimation of x k andê k :=x k − x k be the error of the estimation. Given the observation Y k−1 := {y 0 , y 1 , . . . , y k−1 }, we aim to solve the following Kalman filtering problem, i.e.,</p><formula xml:id="formula_6">min x k ∈R nx ×nx E[(x k − x k ) T (x k − x k )|Y k−1 ].<label>(6)</label></formula><p>To solve (6), we need the following lemma, which characterizes a conditioned Gaussian distribution.</p><p>Lemma 1: <ref type="bibr" target="#b24">[25]</ref> If a ∈ R na , b ∈ R n b are jointly Gaussian with meansā,b and covariances Σ a , Σ b , and Σ ab = Σ T ba , then given b, distribution a is a Gaussian with</p><formula xml:id="formula_7">E[a|b] =ā + Σ ab Σ −1 b (b −b), Cov[a|b] = Σ a − Σ ab Σ −1 b Σ ba .</formula><p>To use Lemma 1, we define the covariance matrix ofê k aŝ</p><formula xml:id="formula_8">P k := E[ê kê T k |y k−1 ] = E[(x k − x k )(x k − x k ) T |y k−1 ], withP 0 = Σ x .</formula><p>Using the results of Lemma 1, we compute the optimal estimation iteratively, i.e.,</p><formula xml:id="formula_9">x k = A Kxk−1 +L k (y k−1 − Cx k−1 ),<label>(7)</label></formula><p>where A K := (A + BK). Gain matrixL k ∈ R nx×ny and covarianceP k ∈ R nx×nx are updated usinĝ</p><formula xml:id="formula_10">L k := A KPk C T (Σ v + CP k C T ) −1 , P k+1 := Σ w + (A K −L k C)P k A T K .</formula><p>Assuming that (A, C) is detectable, we can obtain that</p><formula xml:id="formula_11">lim k→∞P k =P * ,<label>(8)</label></formula><p>whereP * ∈ R nx×nx is a constant positive-definite matrix.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Stealthy Estimation Attack</head><p>CPSs face an increasing threat in recent years. Numerous attack models for CPSs or networked control systems (NCSs) have been introduced in <ref type="bibr" target="#b25">[26]</ref>. Among those attacks, one major attack is the data-integrity attack, where the attacker can modify or forge data used in the CPSs. For example, Liu et al. <ref type="bibr" target="#b26">[27]</ref> have studied a false-data-injection attack that can tamper the state estimation in electrical power grids. To mitigate the impact of a data-integrity attack on the state estimation, researchers have designed a Chi-square detector to monitor the estimation process. However, Yilin Mo et al. <ref type="bibr" target="#b15">[16]</ref> have analyzed stealthy integrity attack, which can pass the Chi-square detector by manipulating the perturbation of the injected data. Therefore, the main challenge is that the conventional fault detectors fail to protect the system from a stealthy attack. One real attack that can achieve the objective is the Advanced Persistent Threat (APT) <ref type="bibr" target="#b27">[28]</ref>, which can compromise a cyber system by executing a zero-day exploration to discover the vulnerabilities.</p><p>In our work, we consider an intelligent attacker who can launch a stealthy estimation attack to tamper the estimation results. Fig. <ref type="figure" target="#fig_1">3</ref> illustrates how the attacker achieves its objective. The attacker can either modify the data in the sensors or the data in the estimator. Besides tampering the estimation results, the attacker is also aware of the intrusion detector. The attacker can know the defense strategy and play a stealthy attack to remaind unknown.</p><p>In the next subsection, based on the Digital Twin (DT), we design a cyber defender to withstand the stealthy estimation attack and discuss the benefits introduced by the DT. After presenting the game model, we will discuss the optimal defense strategies explicitly in Section III.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Digital Twin for the CPS</head><p>As mentioned above, an intelligent attacker can learn the defense strategy and launch a stealthy estimation attack, which can modify the estimation results without being detected by the conventional detector, e.g., a Chi-square detector. To resolve the issue, we aim to design an advanced detector based on a Digital Twin (DT). After that, we use a game-theoretical approach to develop an optimal defense strategy. Given the system information, we design a DT with the following dynamics</p><formula xml:id="formula_12">x k = A Kxk−1 +L k (z k−1 − Dx k−1 ),<label>(9)</label></formula><formula xml:id="formula_13">z k = Dx k + d k , wherex k ∈ R nx is the DT's estimation of state x k ; z k ∈ R nz is the DT's observation; D ∈ R nz×nx is a constant matrix, d k is a Gaussian noise with a covariance matrix Σ d ∈ R nz .</formula><p>Similar to problem (6), we computeL k using the following iterations:L</p><formula xml:id="formula_14">k = A KPk D T (Σ d + DP k D T ) −1 , P k+1 = Σ w + (A K −L k D)P k A T</formula><p>F , whereP 0 = Σ x andP k is defined bŷ</p><formula xml:id="formula_15">P k := E[(x k − x k )(x k − x k ) T |z k−1 ] = E[ẽ kẽ T k |z k−1 ]. whereẽ k :=x k − x k is</formula><p>the DT's estimation error. We also assume that (A K , D) is detectable, i.e., we have</p><formula xml:id="formula_16">lim k→∞P k =P * .<label>(10)</label></formula><p>Fig. <ref type="figure" target="#fig_2">4</ref> illustrates the architecture of a CPS with a DT. We summarize the main differences between Kalman filter <ref type="bibr" target="#b6">(7)</ref> and the DT's estimator (9) as follows. Firstly, the Kalman filter will use all available sensing information y k to obtain estimation x k . While the DT's estimator just uses a minimum sensing information z k ∈ R nz to predict x k as long as (A, D) is detectable, i.e., n y ≥ n z . This feature reduces the dimension of z k , making it easier to protect z k . Secondly, we do not require a high accuracy for z k , since we only use z k for attack detection. Hence, in general,P * andP * satisfy the condition that tr(P * ) ≤ tr(P * ), where tr(P ) is the trace of matrix P .</p><p>Thirdly, we do not use any cryptography to protect y k since the overhead introduced by the encryption scheme will degrade the performance of the physical system. However, we can use cryptography, such as Message Authentication Code (MAC) <ref type="bibr" target="#b28">[29]</ref> or Digital Signature (DS) <ref type="bibr" target="#b29">[30]</ref>, to protect the integrity of z k . The overhead caused by the cryptography will not affect Fig. <ref type="figure">5</ref>. The DT's Monitoring Process: we can view the DT's monitoring process as a message-sending process, i.e., the estimator sends a message to the DT for verification.</p><p>the physical system, because it does depend on z k . Besides, we can put the DT into a supercomputer or a cloud to resolve the overhead issue.</p><p>To sum up, z k is an observation that is less accurate but more secure than y k . Given the distinct features of y k and z k , we use y k to estimate x k for the physical control and use z k for the detection in the DT.</p><p>Given DT's estimator, we construct a Chi-square detector to monitor estimation resultx k at each time k. As illustrated in Fig. <ref type="figure" target="#fig_2">4</ref>, we build the detector in the DT by comparingx k andx k . The Chi-square detector generates a detection result q k ∈ Q := {0, 1, 2} at time k, where q k = 0 means the result is qualified, q k = 1 means the result is unqualified, q k = 2 means the result is detrimental. When q k = 2, the DT should always reject the estimation and send an alarm to the operators.</p><p>To design the detector, we define φ k :=x k −x k . Sincẽ x k andx k are Gaussian distributions, φ k is a also Gaussian distribution with a zero-mean vector and a covariance matrix, i.e., φ ∼ N (0 nx , Σ φ ). Furthermore, we define that</p><formula xml:id="formula_17">χ 2 k := (x k −x k ) T Σ −1 φ (x k −x k ).<label>(11)</label></formula><p>Then, χ 2 k follows a Chi-square distribution. We define a Chisquare detector as the following:</p><formula xml:id="formula_18">q k = f q (m k ) :=      0, if χ 2 k ≤ ρ 1 ; 1, if χ 2 k ∈ (ρ 1 , ρ 2 ]; 2, if χ 2 k &gt; ρ 2 ;<label>(12)</label></formula><p>where ρ 1 , ρ 2 are two given thresholds, and they satisfy that ρ 2 &gt; ρ 1 &gt; 0; f q : R nx → Q is the detection function.</p><p>Using the above Chi-square detector, we can achieve fault detection. However, the work <ref type="bibr" target="#b15">[16]</ref> has shown that intelligent attackers can constrain the ability of the Chi-square detector by manipulating the amount of injected data. In the following subsection, we will introduce a stealthy sensor attack that aims to remain stealthy while modifying the estimation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. General Setup of Signaling Game with Evidence</head><p>Due to the existence of attacks, the DT's might not be able to monitor the actual value estimation directly. Instead, the DT's can read a message provided by the estimator. According to our attack model, the attacker can compromise the estimator. Hence, the estimator can have two identities, i.e., a benign estimator or a malicious estimator. The DT aims to verify the estimator's identity by monitoring the estimation results. As shown in Fig. <ref type="figure">5</ref>, we can view DT's monitoring process as a message-sending process, i.e., the estimator sends an estimation result to the DT for verification. To capture the interactions between the estimator and DT, we will formally define a Signaling Game with Evidence (SGE) as follows.</p><p>In an SGE, we have two players: one is the sender, and the other one is the receiver. The sender has a private identity, denoted by θ ∈ Θ := {θ 0 , θ 1 }, where θ 0 means the sender is benign, and θ 1 means the sender is malicious. According to its identity, the sender will choose a message m ∈ M and send it to the receiver. After observing the message, the receiver can choose an action a ∈ A. Action a = 1 means that the receiver accepts the message, while a = 0 means the receiver rejects the message. The sender and receiver have their own utility functions U i : Θ×M×A → R, for i ∈ {s, r}. Fig. <ref type="figure">6</ref> illustrates how the data and information transmit in the proposed cyberphysical SGE. Fig. <ref type="figure">6</ref>. The Architecture of the Proposed SGE for a CPS: the physical estimator sends the estimation to the DT, which uses its secure evidence to verify the identity of the estimator.</p><p>In this paper, given a message m ∈ M, we assume that both players are aware of the corresponding detection results, i.e., q = f q (m). Hence, both players' can select the optimal strategies based on detection result q. To this end, we let σ s (f q (m)|θ) ∈ Γ s and σ r (a|f q (m)) ∈ Γ r be the mixed strategies of the sender and receiver, respectively. The spaces Γ s and Γ r are defined by</p><formula xml:id="formula_19">Γ s := σ s m∈M σ s (f q (m)|θ) = 1, ∀m, σ s (f q (m)|θ) ≥ 0 , Γ r := σ r a∈A σ r (a|f q (m)) = 1, ∀a, σ r (a|f q (m)) ≥ 0 .</formula><p>Note that formation of strategy σ s (f q (m)|θ) does not mean the sender can choose detection results directly. Instead, the sender can only choose message m ∈ M, which leads to a detection result q based on function f q , given by <ref type="bibr" target="#b11">(12)</ref>.</p><p>Given mixed strategies σ s and σ r , we define players' expected utility functions as and the receiver updates the posterior belief using the Bayes' rule, i.e.,</p><formula xml:id="formula_20">π(θ) = f b (π (θ), f q (m)) := σ s (f q (m)|θ )π (θ) θ ∈Θ σ s (f q (m)|θ )π (θ ) . (<label>13</label></formula><formula xml:id="formula_21">)</formula><p>where f b : (0, 1) × Q → (0, 1) is the belief-update function, and π (θ) is a prior belief of θ. Remark 1: Definition 1 identifies the optimal mixed strategies of the sender and receiver. One important thing is that at any PBNE, the belief π(θ) should be consistent with the optimal strategies, i.e., at the PBNE, belief π(θ) is independent of time k. Instead, π(θ) should only depend on detection results q ∈ Q. Besides, we implement Bays's rule to deduce belief-update function <ref type="bibr" target="#b12">(13)</ref>.</p><p>In a SGE, there are different types of PBNE. We present three types of PBNE in the following definition. Remark 2: In the separated PBNE, the receiver can obtain the identity of the senders by observing a finite sequence of evidence and messages. However, in the other two PBNE, the receiver may not be able to distinguish the senders' identity.</p><p>Note that in real applications, the CPS will run the SGE repeatedly, and generate a sequence of detection results H k := {q 0 , q 1 , . . . , q k }. At time k, we define the posterior belief as π k (θ) := Pr(θ|H k−1 ).</p><p>Whenever there is a new detection result q k , we can update the belief using π k+1 (θ) = f b (π k (θ), q k ), where function f b is defined by <ref type="bibr" target="#b12">(13)</ref>. Belief π k+1 (θ) will become a prior belief at time k + 1.</p><p>To this end, we will use the SGE framework to capture the interactions between the physical layer and the DT. We will find the optimal defense strategy of the DT by finding the PBNE. In the next section, we define the utility functions explicitly and find the PBNE of the proposed SGE. Given the PBNE, we can identify the optimal defense strategies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. EQUILIBRIUM RESULTS OF THE CYBER SGE</head><p>In this section, we aim to find the optimal defense strategy against a stealthy sensor attack. To this end, we first define the utility functions, which capture the profit earned by the players. Secondly, we identify the best response of the players when they observe or anticipate the other player's strategy. Finally, we present a PBNE under the players' best response and obtain an optimal defense strategy for the DT. We analyze the stability of the system under the stealthy attack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. SGE Setup for the CPSs</head><p>In this work, we use an SGE to capture the interactions between the physical estimator and the DT. In our scenario, the message set is just the estimation set, i.e., M := R nx . The DT monitors the estimation m k and chooses an action a ∈ A := {0, 1}. Action a = 1 means the estimation passes the verification, while action a = 0 means the verification fails, and the DT will send an alarm to the operators.</p><p>In the next step, we define the utility functions of both players, explicitly. Firstly, we define sender's utility functions U s (θ, m, a). Since the sender has two identifies, we need to define two types of utility functions for the sender. The utility function with θ = 0 is defined by</p><formula xml:id="formula_22">U s (θ 0 , m k , a k ) := −E[(m k − x k ) T (m k − x k )],<label>(14)</label></formula><p>In ( <ref type="formula" target="#formula_22">14</ref>), we can see that U s (θ 0 , m k , a k ) is independent of action a k , and maximizing U s (θ 0 , m k , a k ) is equivalent to the estimation problem <ref type="bibr" target="#b5">(6)</ref>. Hence, given <ref type="bibr" target="#b13">(14)</ref>, the benign sender always sends the true estimation resultx k , defined by ( <ref type="formula" target="#formula_9">7</ref>), regardless of action a k . For the malicious estimator, we define its utility function as</p><formula xml:id="formula_23">U s (θ 1 , m k , a k ) := E[(m k − x k ) T (m k − x k )] • 1 {a k =1} ,(<label>15</label></formula><formula xml:id="formula_24">)</formula><p>where 1 {s} = 1 if statement s is true. In <ref type="bibr" target="#b14">(15)</ref>, we see that the motivation of the attacker is to deviate the system state as much as possible while remaining undiscovered. However, the attacker's utility will be zero if the DT detects the attack. Secondly, we define the DT's utility function. Note that the DT's utility function should depend on the identity of the sender. When the estimator is benign, i.e., θ = 0, the DT should choose a k = 1 to accept the estimation. When the estimator is malicious, i.e., (θ = 1), the DT should choose a k = 0 to reject the estimation and send an alarm to the operators. Given the motivations, we define U r (θ,x, a)</p><formula xml:id="formula_25">U r (θ 0 , m k , a k ) := −(x k − m k ) TQ 0 (x k − m k ) • 1 {a k =0} , U r (θ 1 , m k , a k ) := −(x k − m k ) TQ 1 (x k − m k ) • 1 {a k =1}</formula><p>. whereQ 0 ,Q 1 ∈ R nx×nx are positive-definite matrices. The weighting matrices will affect the receiver's defense strategy. A large value of tr(Q 1 ) will lead to a conservative strategy, while a large value of tr(Q 0 ) will lead a radical one. Readers can receive more details in Proposition 1.</p><p>In the next subsection, we analyze the behaviors of the players and obtain the best-response strategies. Note that function U r (θ, m k , a k ) is deterministic. The reason is that the DT can observex k andx k at time k, explicitly. However, the physical estimator cannot observe x k at time k.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Best Response of the Players and a PBNE of the SGE</head><p>We first analyze the best response of the DT. Given belief π k (θ), message m k , and detection result q k , we present the following theorem to identify DT's best response.</p><p>Proposition 1: (DT's Best Response) Given q k = f q (m k ), the DT will choose a k according to the following policy,</p><formula xml:id="formula_26">σ * r (a k = 1|q k ) =      1, if q k = 2, π k (θ 0 ) ≥ β; 0, if q k = 2, π k (θ 0 ) &lt; β; 0, if q k = 2; (<label>16</label></formula><formula xml:id="formula_27">)</formula><formula xml:id="formula_28">σ * r (a k = 0|q k ) = 1 − σ * r (a k = 1|q k ), (<label>17</label></formula><formula xml:id="formula_29">)</formula><p>where β is defined by</p><formula xml:id="formula_30">β := (x k − m k ) TQ 1 (x k − m k ) (x k − m k ) T (Q 0 +Q 1 )(x k − m k ) . (<label>18</label></formula><formula xml:id="formula_31">)</formula><p>Proof: Note that</p><formula xml:id="formula_32">E[U r (θ, m k , a k = 1)|q k ] ≥ E[U r (θ, m k , a k = 0)|q k ] ⇔ a k = 1 if π k (θ 0 ) ≥ β,</formula><p>where β is defined by <ref type="bibr" target="#b17">(18)</ref>. This completes the proof. Remark 3: Given Proposition 1, we note that the DT uses a pure strategy since it can make its decision after observing detection result q k and message m k .</p><p>In the next step, we consider the best response of the estimator. If the estimator is benign, i.e., θ = θ 0 , the optimal estimation should be <ref type="bibr" target="#b6">(7)</ref>. Therefore, the optimal utility of the benign estimator is given by</p><formula xml:id="formula_33">U s (θ 0 ,x k , a k ) = E[(x k − x k ) T (x k − x k )] = tr(P k ),</formula><p>where tr(P ) is the trace of matrix P . The following theorem shows the optimal mixed strategy of the benign estimator.</p><p>Proposition 2: (Best Response of the Benign Estimator) Given the DT's best response <ref type="bibr" target="#b15">(16)</ref>, the optimal mixed strategy of the benign estimator, i.e., θ = θ 0 , is given by</p><formula xml:id="formula_34">σ * s (f q (m k ) = 0|θ 0 ) = F χ (ρ 1 , n x ),<label>(19)</label></formula><formula xml:id="formula_35">σ * s (f q (m k ) = 1|θ 0 ) = F χ (ρ 2 , n x ) − F χ (ρ 1 , n x ), (20) σ * s (f q (m k ) = 2|θ 0 ) = 1 − F χ (ρ 2 , n x ), (<label>21</label></formula><formula xml:id="formula_36">)</formula><p>wherex k is defined by ( <ref type="formula" target="#formula_9">7</ref>), F χ (ρ, n) : R + → [0, 1] is the Cumulative Distribution Function (CDF) of the Chi-square distribution with n ∈ Z + degrees. Proof: Note that the benign estimator will choose m k = x k , defined by <ref type="bibr" target="#b6">(7)</ref>. According to definition (11), we know that (x k −x k ) follows a Chi-square distribution with n x degrees. Hence, we have</p><formula xml:id="formula_37">Pr(χ 2 k ≤ ρ 1 ) = F χ (ρ 1 , n x ), Pr(χ 2 k &gt; ρ 2 ]) = 1 − F χ (ρ 2 , n x ), Pr(χ 2 k ∈ (ρ 1 , ρ 2 ]) = F χ (ρ 2 , n x ) − F χ (ρ 1 , n x ).</formula><p>Combining the above equations with Chi-square detector (12) yields mixed strategies ( <ref type="formula" target="#formula_34">19</ref>)- <ref type="bibr" target="#b20">(21)</ref>.</p><p>Remark 4: Note that the benign estimator always choose the optimal estimation 7. However, from DT's perspective in this game, the real mixed strategies of the benign estimator are ( <ref type="formula" target="#formula_34">19</ref>)-( <ref type="formula" target="#formula_35">21</ref>) because of uncertainty introduced by the noises.</p><p>From the perspective of the malicious estimator, it needs to select σ s (f q (m k )|θ 1 ) such that π k (θ 0 ) ≥ β. Given the attackers' incentive, we obtain the following theorem.</p><p>Proposition 3: (Best Response of the Malicious Estimator)</p><formula xml:id="formula_38">σ * s (f q (ξ k,1 ) = 0|θ 1 ) = F χ (ρ 1 , n x ),<label>(22)</label></formula><formula xml:id="formula_39">σ * s (f q (ξ k,2 ) = 1|θ 1 ) = 1 − F χ (ρ 1 , n x ),<label>(23)</label></formula><p>where ξ k,1 , ξ k,2 are the solutions to the following problems:</p><formula xml:id="formula_40">ξ k,1 ∈ arg max m∈Mρ 1 (x k ) U s (θ 1 , m, a k = 1),<label>(24)</label></formula><formula xml:id="formula_41">ξ k,2 ∈ arg max m∈Mρ 2 (x k ) U s (θ 1 , m, a k = 1),<label>(25)</label></formula><p>with spaces M ρ1 (x k ) and M ρ2 (x k ) defined by</p><formula xml:id="formula_42">M ρ1 (x k ) := m ∈ R nx x k − m 2 Σ −1 φ ≤ ρ 1 , M ρ2 (x k ) := m ∈ R nx x k − m 2 Σ −1 φ ∈ (ρ 1 , ρ 2 ] .</formula><p>Proof: Firstly, the attacker has no incentive to choose</p><formula xml:id="formula_43">m k / ∈ M ρ1 (x k ) ∪ M ρ2 (x k )</formula><p>because its utility will be zero. Secondly, the attacker aims to choose the mixed strategy σ * s (q k = 1|θ 1 ) as large as possible since it can make a higher damage to the system. Then, we show that the optimal mixed strategy of the attacker is given by <ref type="bibr" target="#b21">(22)</ref> and <ref type="bibr" target="#b22">(23)</ref>. To do this, based on (13), we consider the following belief update:</p><formula xml:id="formula_44">π k+1 (θ 0 ) = σ * s (q k = 0|θ 0 )π k (θ 0 ) σ * s (q k = 0|θ 0 )π k (θ 0 ) + σ s (q k = 0|θ 1 )(1 − π k (θ 0 )) = σ * s (q k = 0|θ 0 )π k (θ 0 ) ∆σ s (q k = 0)π k (θ 0 ) + σ s (q k = 1|θ 1 ) ,<label>(26)</label></formula><p>where ∆σ s (q k = 0) is defined by</p><formula xml:id="formula_45">∆σ s (q k = 0) := σ * s (q k = 0|θ 0 ) − σ s (q k = 0|θ 1 ). Rearranging (26) yields that π k+1 (θ 0 ) π k (θ 0 ) = σ * s (q k = 0|θ 0 )π k (θ 0 ) ∆σ s (q k = 0)π k (θ 0 ) + σ s (q k = 0|θ 1 )</formula><p>.</p><p>Given that π k (θ 0 ) ∈ (0, 1], we have</p><formula xml:id="formula_46">         π k+1 (θ0) π k (θ0) &gt; 1, if ∆σ s (q k = 0) &gt; 0; π k+1 (θ0) π k (θ0) = 1, if ∆σ s (q k = 0) = 0; π k+1 (θ0) π k (θ0) &lt; 1, if ∆σ s (q k = 0) &lt; 0.</formula><p>When π k (θ 0 ) ∈ [β, 1), the attacker has to choose ∆σ s (q k = 0) = 0 to maintain the belief at a constant. Otherwise, the belief will decrease continuously. When the belief π k (θ 0 ) stays lower than β, the DT will send an alert to the operators. Hence, the optimal mixed strategies of the malicious estimator are given by ( <ref type="formula" target="#formula_38">22</ref>) and ( <ref type="formula" target="#formula_39">23</ref>).</p><p>Given the results of Propositions 1, 2, and 3, we present the following theorem to characterize a unique pooling PBNE.</p><p>Theorem 1: (The PBNE of the Proposed SGE) The proposed cyber SGE has a unique pooling PBNE. At the PBNE, the optimal mixed strategies of the benign and malicious sender are presented by ( <ref type="formula" target="#formula_34">19</ref>)-( <ref type="formula" target="#formula_35">21</ref>) and ( <ref type="formula" target="#formula_38">22</ref>)- <ref type="bibr" target="#b22">(23)</ref>. The DT has a pure strategy defined by <ref type="bibr" target="#b15">(16)</ref>. At the PBNE, belief</p><formula xml:id="formula_47">π * k (θ 0 ) ∈ [β, 1) is a fixed point of function f b , i.e., π * k (θ 0 ) = f b (π * k (θ 0 ), q k ), for q k ∈ Q. Proof:</formula><p>We first show the existence of the pooling PBNE. Suppose that both estimators use strategies ( <ref type="formula" target="#formula_34">19</ref>)-( <ref type="formula" target="#formula_35">21</ref>), ( <ref type="formula" target="#formula_38">22</ref>)-( <ref type="formula" target="#formula_39">23</ref>), respectively, and the DT uses <ref type="bibr" target="#b15">(16)</ref>. Then, no player has incentive to move since these are already the optimal strategies. Besides, for any θ ∈ Θ, q k ∈ Q, we note that</p><formula xml:id="formula_48">π k+1 (θ) = f b (π * k (θ), q k ) = π * k (θ)</formula><p>, where f b is defined by <ref type="bibr" target="#b12">(13)</ref>. Hence, π * k (θ) is a fixed point of function f b , and the belief remain at π * k (θ), which means the belief stays consistently with the optimal strategies of the sender and receiver. Hence, the proposed strategies pair (σ * s , σ * r ) is a PBNE. Secondly, we show that pooling PBNE is unique. We note that the DT and benign estimator have no incentive to move since they already choose their best strategies. In Proposition 3, we already show that the attacker cannot change its mixed strategies. Otherwise, the belief cannot remain constant. Hence, pooling PBNE is unique.</p><p>Remark 5: Theorem 1 shows that the SGE admits a unique pooling PBNE, which means that an intelligent attacker can use its stealthy strategies to avoid being detected by the DT.</p><p>In the next subsection, we will analyze the stability of the system under the stealthy attack. Besides, we will also evaluate the loss caused by the attack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Estimated Loss Under the Stealthy Attack</head><p>In the previous subsection, we have shown the PBNE in which the attacker can use a stealthy strategy to pass the verification of the DT. In this subsection, we will quantify the loss under the attack. Before presenting the results, we need the following lemma.</p><p>Lemma 2: Given ρ i and ξ k,i , for i ∈ {1, 2}, we have the following relationship:</p><formula xml:id="formula_49">ρ i λ max (Σ φ ) ≥ (x k − ξ k,i ) T (x k − ξ k,i ), for i = 1, 2,</formula><p>where λ max (Σ) is the greatest eigenvalue of matrix Σ.</p><p>Proof: Firstly, we note that U s is strictly convex in m k . The solution to problem <ref type="bibr" target="#b23">(24)</ref> and ( <ref type="formula" target="#formula_41">25</ref>) must stay at the boundary. Hence, we have</p><formula xml:id="formula_50">ρ i = (x k − ξ k,i ) T Σ −1 φ (x k − ξ k,i ) ≥ (x k − ξ k,i ) T (x k − ξ k,i ) λ max (Σ φ )<label>(27)</label></formula><p>Rearranging <ref type="bibr" target="#b26">(27)</ref> yields that</p><formula xml:id="formula_51">ρ i λ max (Σ φ ) ≥ (x k − ξ k,i ) T (x k − ξ k,i ).</formula><p>This completes the proof.</p><p>Considering different estimators, we define two physical cost functions J 0 and J 1 , i.e.,</p><formula xml:id="formula_52">J 0 := lim N →∞ E 1 N N −1 k=0 x T k Qx k + µ T (m k )Rµ(m k ) θ 0 , J 1 := lim N →∞ E 1 N N −1 k=0 x T k Qx k + µ T (m k )Rµ(m k ) θ 1 .</formula><p>We define a loss function ∆J := J 1 − J 0 to quantify the loss caused by the stealthy sensor attack. Given pooling PBNE defined by Theorem 1, we provide an upper-bound of ∆J in the following theorem. Theorem 2: (Bounded Loss) The proposed framework can guarantee stability of the CPSs, and the value of function ∆J is bounded by a constant, i.e.,</p><formula xml:id="formula_53">∆J = J 1 − J 0 ≤ α 1 tr(P * ) − α 0 tr(P * ) + α 1 ρ 1 λ max (Σ φ )F χ (ρ 1 , n x ) + α 1 ρ 2 λ max (Σ φ )(1 − F χ (ρ 1 , n x )),<label>(28)</label></formula><p>where α 0 and α 1 are defined by</p><formula xml:id="formula_54">α 0 := λ min (R K )(λ min (G) − λ min (R K )) λ min (G) , α 1 := λ max (R K )(λ max (R K ) + 2λ max (G)) λ max (G) ,</formula><p>and R K := K T RK, G := Q + R K ; λ max (W ) and λ min (W ) are the greatest and smallest eigenvalues of matrix W . Proof: Firstly, we note that</p><formula xml:id="formula_55">E x k 2 Q + Kx k 2 R = E x k 2 G + 2x T k R Kêk + ê k 2 R K ≥ E λ min (G)x k + λ min (R K ) λ min (G)ê k 2 + λ min (R K )(λ min (G) − λ min (R K )) λ min (G) ê k 2 ≥ α 0 tr(P k ),</formula><p>Using the above inequality, we observe that</p><formula xml:id="formula_56">J 0 = lim N →∞ 1 N N −1 k=0 E x k 2 Q + Kx k 2 R ≥ lim N →∞ 1 N N −1 k=0 α 0 tr(P k ) = α 0 tr(P * ),<label>(29)</label></formula><p>whereP * is defined by <ref type="bibr" target="#b7">(8)</ref>. Secondly, we also note that</p><formula xml:id="formula_57">E x T k Qx k + µ T (ξ k,i )Rµ(ξ k,i ) = E x k 2 Q + x k +ẽ k + ξ k,i −x k 2 R K ≤ E x k 2 G + 2x T k R Kẽk + 2x T k R K (ξ k,i −x k ) + 2ẽ T k R K (ξ k,i −x k ) + ξ k,i −x k 2 R K + ẽ k 2 R K ≤ E 3 x k 2 G + λ 2 max (R K ) λ max (G) ẽ k 2 + ξ k,i −x k 2 + 2λ max (R K ) ẽ k 2 + 2λ max (R k ) ξ k,i −x k 2 ≤ 3 x k 2 G + α 1 tr(P k ) + α 1 ρ i λ max (Σ φ ),<label>(30)</label></formula><p>We complete the squares to deduce the second inequality of (30) Similarly, we have</p><formula xml:id="formula_58">J 1 = lim N →∞ 1 N N −1 k=0 F χ (ρ 1 , n x )E x k 2 Q + ξ k,1 2 R K + 1 − F χ (ρ 1 , n x ) E x k 2 Q + ξ k,1 2 R K ≤ lim N →∞ 3 N N −1 k=0 x k 2 G =0 +α 1 ρ 1 λ max (Σ φ )F χ (ρ 1 , n x ) + α 1 ρ 2 λ max (Σ φ )(1 − F χ (ρ 1 , n x )) + α 1 tr(P * ), (<label>31</label></formula><formula xml:id="formula_59">)</formula><p>whereP * is defined by (10). Combining inequalities ( <ref type="formula" target="#formula_56">29</ref>) and (31) yields inequality <ref type="bibr" target="#b27">(28)</ref>. Hence, the system is stable, and the impact of the attack is bounded by a constant. Remark 6: Theorem 2 shows that the difference between J 0 and J 1 is bounded, i.e., the stealthy estimation attack cannot deviate the system to an arbitrary point even if the attacker has an infinite amount of time.</p><p>In the next subsection, we will use an application to evaluate the performance of the proposed defense strategies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. SIMULATION RESULTS</head><p>In this section, we use a two-link Robotic Manipulator (RM) to investigate the impact of the estimation attacks. In the experiments, we use different case studies to analyze the performance of the proposed defense framework.    </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Experimental Setup</head><p>Fig. <ref type="figure" target="#fig_5">7</ref> illustrates the physical structure of the two-link RM. Variables g 1 and g 2 are the angular positions of Links 1 and 2. We summarize the parameters of the RM in Table <ref type="table" target="#tab_0">II</ref>. Let g = [g 1 , g 2 ] T be the angular vector and τ = [τ 1 , τ 2 ] T be the torque input. According to the Euler-Lagrange Equation, we obtain the dynamics of the two-link RM as</p><formula xml:id="formula_60">M (g)g + S(g,ġ)ġ = τ,<label>(32)</label></formula><p>where matrices M (g) and S(g,ġ) are defined by</p><formula xml:id="formula_61">M (g) := a + b cos(g 2 ) δ + b cos(g 2 ) δ + cos(g 2 ) δ , S(g,ġ) := −b sin(g 2 )ġ 2 −b sin(g 2 )(ġ 1 +ġ 2 ) b sin(g 2 )ġ 1 0 , a := I 1 + I 2 + η 1 r 2 1 + η 2 (l 2 1 + r 2 2 ), b := η 2 l 1 r 2 , δ := I 2 + η 2 r 2 2 .</formula><p>To control the two-link RM, we let τ be τ := M (g)a g + S(g,ġ)ġ, where a q ∈ R 2 is the acceleration that we need to design. Note that M (g) is positive-definite, i.e., M (g) is invertible. Hence, substituting τ into (32) yields that M (g)g = M (g)a g ⇒g = a g . Let p ∈ R 2 be the position of RM's end-effector. We havë p = H(g)g +Ḣ(g)ġ = H(g)a g +Ḣ(g)ġ,</p><p>where H(g) is the Jacobian matrix.</p><p>Then, we substitute a g := H −1 (g)(u −Ḣ(g)) into (33), arriving atp = u. Let x = [p T ,ṗ T ] T be the continuous-time state. Then, we obtain a continuous-time linear systemẋ = A c x + B c u. Given a sampling time ∆T &gt; 0, we discretize the continuous-time system to obtain system model <ref type="bibr" target="#b0">(1)</ref>. We let y k and z k be</p><formula xml:id="formula_63">y k = x k + v k , z k = p(k∆T ) + d k (34)</formula><p>We assume that the DT uses security-protected cameras to identify the position of the end-effector.</p><p>In the experiments, we let the RM to draw a half circle on a two-dimensional space. The critical parameters are given by β = 0.65, n x = 4, ρ 1 = 9.49, ρ 2 = 18.47, F χ (ρ 1 , n x ) = 0.95, F χ (ρ 2 , n x ) = 0.999.</p><p>We have three case studies: a no-attack case, a normal-attack case, and a stealthy-attack case. In the normal-attack case, the attacker is not aware of the defense strategies and deviate the system from the trajectory, directly. In the last case, the attacker aims to tamper the estimation without being detected.</p><p>Figures <ref type="figure" target="#fig_6">8, 9</ref>, and 10 illustrate the simulation results of the case studies. In Fig. <ref type="figure" target="#fig_6">8</ref> (a), we can see that the RM can track the trajectory smoothly when there is no attack. However, we note that DT's estimation is worse than the physical estimation, which coincides with our expectation. Figures <ref type="figure" target="#fig_6">8 (b) and (c</ref>) show the value of the Chi-square and the belief of the DT. In the no-attack case, the Chi-square detector will remain silent with a low false alarm rate, and the belief stays at a high level.In Fig. <ref type="figure" target="#fig_7">9</ref> (a), the attackers deviate the system without considering the detection. Even though DT's estimation is not accurate, the attacker cannot tamper that. Therefore, the detector will rapidly locate the attack and send alarms to the operators. The belief of θ 0 will remain at the bottom line. In Fig. <ref type="figure" target="#fig_0">10</ref>, differently, the stealthy attackers know the defense strategies and try to maintain the Chi-square value below threshold ρ 1 . However, the behavior mitigates the impact of the attack, which also coincides with the result of Theorem 2.</p><p>Figure <ref type="figure" target="#fig_0">11</ref> illustrates the Mean Square Errors (MSE) of different cases. Figure <ref type="figure" target="#fig_0">11</ref> (a) presents that the MSE of the physical estimator is much smaller than the DT's estimator, i.e., the physical estimator can provide more accurate sensing information. However, in Figure <ref type="figure" target="#fig_0">11</ref> (b), we can see that the attacker can deviate the physical estimation to a significant MSE. Besides, under the DT's supervision, the stealthy attacker fails to generate a large MSE. The above results show that the proposed defense mechanism succeeds in mitigating the stealthy attacker's impact. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. CONCLUSIONS</head><p>In this paper, we have considered a stealthy estimation attack, where an attack can modify the estimation results to deviate the system without being detected. To mitigate the impact of the attack on physical performance, we have developed a Chi-square detector, running in a Digital Twin (DT). The Chi-square detector can collect DT's observations and the physical estimation to verify the identity of the estimator. We have used a Signaling Game with Evidence (SGE) to study the optimal attack and defense strategies. Our analytical results have shown that the proposed framework can constrain the attackers' ability and guarantee the stability.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. The Stealthy Estimation Attack and the Defense Mechanism based on a Digital Twin: the attacker aims to modify the estimation results in a CPS, while the Digital Twin protects the system by monitoring the results.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. The Stealthy Estimation Attack: intelligent attacker aims to deviate the state by modifying the estimation results.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 4 .</head><label>4</label><figDesc>Fig.4. The CPS with a DT: the DT uses a secure observation z k to obtain an estimationx k ; givenx k , we use a Chi-square detector monitor estimation resultx k .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>U</head><label></label><figDesc>s (θ, σ s , a) := q∈Q σ s (f q (m)|θ)U s (θ, m, a), U r (θ, m, σ r ) := a∈A σ r (a|f q (m))U r (θ, m, a).To find the optimal mixed strategies of both players, we identify a Perfect Bayesian Nash Equilibrium (PBNE) of the SGE in the following definition.Definition 1: A PBNE of a SGE is a strategy profile (σ * s , σ * r ) and a posterior belief π(θ) such that σ s (f q (m)|θ) ∈ arg max σs∈Γs a∈A σ r (a|f q (m))Ū s (θ, σ s , a), σ r (a|f q (m)) ∈ arg max σr∈Γr θ∈Θ π(θ)Ū r (θ, m, σ r ),</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Definition 2 :</head><label>2</label><figDesc>(Types of PBNE) An SGE, defined by Definition 1, has three types of PBNE: 1) Pooling PBNE: The senders with different identities use identical strategies. Hence, the receiver cannot distinguish the identities of the sender based on the available evidence and message, i.e., the receiver will use the same strategies with the different senders. 2) Separated PBNE: Different senders will use different strategies based on their identities, and the receiver can distinguish the senders and use different strategies for different senders. 3) Partially-Separated PBNE: different senders will choose different, but not completely opposite strategies, i.e., σ s (f q (m)|θ 0 ) = 1 − σ s (f q (m)|θ 1 ).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. The Dynamic Model of a Two-Link Robotic Manipulator (RM): the RM has two links and moves in a two-dimensional space.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. No-Attack Case: (a) the system trajectory, physical estimation and DT's estimation; (b) the Chi-square value; (c) DT's belief π(θ 0 ).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Normal-Attack Case: (a) the system trajectory, physical estimation and DT's estimation; (b) the Chi-square value; (c) DT's belief π(θ 0 ).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 10 .</head><label>10</label><figDesc>Fig. 10. Stealthy-Attack Case: (a) the system trajectory, physical estimation and DT's estimation; (b) the Chi-square value; (c) DT's belief π(θ 0 ).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 11 .</head><label>11</label><figDesc>Fig. 11. The Comparison of the Mean Square Error (MSE): (a) the comparison between the MSE of physical estimation and DT's estimation; (b) the MSE of different case studies.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I PARAMETERS</head><label>I</label><figDesc></figDesc><table><row><cell></cell><cell cols="2">OF THE ROBOTIC MANIPULATOR</cell></row><row><cell>Parameter</cell><cell>Description</cell><cell>Value</cell></row><row><cell>l 1</cell><cell>Length of Link 1</cell><cell>0.6 m</cell></row><row><cell>l 2</cell><cell>Length of Link 2</cell><cell>0.4 m</cell></row><row><cell>r 1</cell><cell>Half Length of Link 1</cell><cell>0.3 m</cell></row><row><cell>r 2</cell><cell>Half Length of Link 2</cell><cell>0.2 m</cell></row><row><cell>η 1</cell><cell>Mass of Link 1</cell><cell>6.0 kg</cell></row><row><cell>η 2</cell><cell>Mass of Link 2</cell><cell>4.0 kg</cell></row><row><cell>I 1</cell><cell cols="2">Inertia of Link 1 on z-axis 1 kg•m 2</cell></row><row><cell>I 2</cell><cell cols="2">Inertia of Link 2 on z-axis 1 kg•m 2</cell></row></table></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Cyber-physical systems: A perspective at the centennial</title>
+		<author>
+			<persName><forename type="first">K.-D</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">R</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="page" from="1287" to="1308" />
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+	<note>Special Centennial Issue</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Current status and advancement of cyber-physical systems in manufacturing</title>
+		<author>
+			<persName><forename type="first">Lihui</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Törngren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mauro</forename><surname>Onori</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jmsy.2015.04.008</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Manufacturing Systems</title>
+		<title level="j" type="abbrev">Journal of Manufacturing Systems</title>
+		<idno type="ISSN">0278-6125</idno>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="page" from="517" to="527" />
+			<date type="published" when="2015-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Cyber-physical-social system in intelligent transportation</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Xiong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Zhao</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jas.2015.7152667</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE/CAA Journal of Automatica Sinica</title>
+		<title level="j" type="abbrev">IEEE/CAA J. Autom. Sinica</title>
+		<idno type="ISSN">2329-9266</idno>
+		<idno type="ISSNe">2329-9274</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="320" to="333" />
+			<date type="published" when="2015-07-10" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Cyber-physical security of a smart grid infrastructure</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Mo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Brancik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dickinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Perrig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sinopoli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="195" to="209" />
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Stuxnet: Dissecting a Cyberwarfare Weapon</title>
+		<author>
+			<persName><forename type="first">Ralph</forename><surname>Langner</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/msp.2011.67</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security &amp; Privacy Magazine</title>
+		<title level="j" type="abbrev">IEEE Secur. Privacy Mag.</title>
+		<idno type="ISSN">1540-7993</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="49" to="51" />
+			<date type="published" when="2011-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Lessons Learned from the Maroochy Water Breach</title>
+		<author>
+			<persName><forename type="first">Jill</forename><surname>Slay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Miller</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-0-387-75462-8_6</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IFIP International Federation for Information Processing</title>
+				<imprint>
+			<publisher>Springer US</publisher>
+			<date>2007</date>
+			<biblScope unit="page" from="73" to="82" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Drone hack: Spoofing attack demonstration on a civilian unmanned aerial vehicle</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">P</forename><surname>Shepard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Bhatti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">E</forename><surname>Humphreys</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Optimal Denial-of-Service Attack Policy against Wireless Industrial Control Systems</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Assante</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Conway</surname></persName>
+		</author>
+		<idno type="DOI">10.1201/b19629-9</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Cyber Security for Industrial Control Systems</title>
+				<imprint>
+			<publisher>CRC Press</publisher>
+			<date type="published" when="2016-03-23" />
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page" from="107" to="128" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Integrity attacks on cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Yilin</forename><surname>Mo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruno</forename><surname>Sinopoli</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2185505.2185514</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 1st international conference on High Confidence Networked Systems - HiCoNS &apos;12</title>
+				<meeting>the 1st international conference on High Confidence Networked Systems - HiCoNS &apos;12</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2012" />
+			<biblScope unit="page" from="47" to="54" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Control-Theoretic Methods for Cyberphysical Security: Geometric Principles for Optimal Cross-Layer Resilient Control Systems</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Pasqualetti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Dorfler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bullo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mcs.2014.2364725</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Control Systems</title>
+		<title level="j" type="abbrev">IEEE Control Syst.</title>
+		<idno type="ISSN">1066-033X</idno>
+		<idno type="ISSNe">1941-000X</idno>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="110" to="127" />
+			<date type="published" when="2015-02" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Secure Estimation and Control for Cyber-Physical Systems Under Adversarial Attacks</title>
+		<author>
+			<persName><forename type="first">Hamza</forename><surname>Fawzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paulo</forename><surname>Tabuada</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Suhas</forename><surname>Diggavi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tac.2014.2303233</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<title level="j" type="abbrev">IEEE Trans. Automat. Contr.</title>
+		<idno type="ISSN">0018-9286</idno>
+		<idno type="ISSNe">1558-2523</idno>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1454" to="1467" />
+			<date type="published" when="2014-06" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Attack-Resilient State Estimation for Noisy Dynamical Systems</title>
+		<author>
+			<persName><forename type="first">Miroslav</forename><surname>Pajic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Insup</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><forename type="middle">J</forename><surname>Pappas</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tcns.2016.2607420</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Control of Network Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Control Netw. Syst.</title>
+		<idno type="ISSNe">2325-5870</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="82" to="92" />
+			<date type="published" when="2017-03" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Secure estimation based Kalman Filter for cyber–physical systems against sensor attacks</title>
+		<author>
+			<persName><forename type="first">Young</forename><forename type="middle">Hwan</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qie</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claire</forename><forename type="middle">J</forename><surname>Tomlin</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.automatica.2018.06.010</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<title level="j" type="abbrev">Automatica</title>
+		<idno type="ISSN">0005-1098</idno>
+		<imprint>
+			<biblScope unit="volume">95</biblScope>
+			<biblScope unit="page" from="399" to="412" />
+			<date type="published" when="2018-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A survey on security control and attack detection for industrial cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Derui</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qing-Long</forename><surname>Han</surname></persName>
+			<idno type="ORCID">0000-0002-7207-0716</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Yang</forename><surname>Xiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaohua</forename><surname>Ge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xian-Ming</forename><surname>Zhang</surname></persName>
+			<idno type="ORCID">0000-0003-0691-5386</idno>
+		</author>
+		<idno type="DOI">10.1016/j.neucom.2017.10.009</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neurocomputing</title>
+		<title level="j" type="abbrev">Neurocomputing</title>
+		<idno type="ISSN">0925-2312</idno>
+		<imprint>
+			<biblScope unit="volume">275</biblScope>
+			<biblScope unit="page" from="1674" to="1683" />
+			<date type="published" when="2018-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Attack Detection and Identification in Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">Fabio</forename><surname>Pasqualetti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Florian</forename><surname>Dorfler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francesco</forename><surname>Bullo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tac.2013.2266831</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<title level="j" type="abbrev">IEEE Trans. Automat. Contr.</title>
+		<idno type="ISSN">0018-9286</idno>
+		<idno type="ISSNe">1558-2523</idno>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="2715" to="2729" />
+			<date type="published" when="2013-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">On the Performance Degradation of Cyber-Physical Systems Under Stealthy Integrity Attacks</title>
+		<author>
+			<persName><forename type="first">Yilin</forename><surname>Mo</surname></persName>
+			<idno type="ORCID">0000-0001-7937-6737</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Bruno</forename><surname>Sinopoli</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tac.2015.2498708</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<title level="j" type="abbrev">IEEE Trans. Automat. Contr.</title>
+		<idno type="ISSN">0018-9286</idno>
+		<idno type="ISSNe">1558-2523</idno>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="2618" to="2624" />
+			<date type="published" when="2016-09" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Optimal Attack Strategies Subject to Detection Constraints Against Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">Yuan</forename><surname>Chen</surname></persName>
+			<idno type="ORCID">0000-0002-2301-4195</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Soummya</forename><surname>Kar</surname></persName>
+			<idno type="ORCID">0000-0002-8060-5581</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jose</forename><forename type="middle">M F</forename><surname>Moura</surname></persName>
+			<idno type="ORCID">0000-0002-9822-8294</idno>
+		</author>
+		<idno type="DOI">10.1109/tcns.2017.2690399</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Control of Network Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Control Netw. Syst.</title>
+		<idno type="ISSNe">2372-2533</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1157" to="1168" />
+			<date type="published" when="2018-09" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Cross-Layer Secure and Resilient Control of Delay-Sensitive Networked Robot Operating Systems</title>
+		<author>
+			<persName><forename type="first">Zhiheng</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quanyan</forename><surname>Zhu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ccta.2018.8511500</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE Conference on Control Technology and Applications (CCTA)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-08" />
+			<biblScope unit="page" from="1712" to="1717" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Digital twin for CNC machine tool: modeling and using strategy</title>
+		<author>
+			<persName><forename type="first">Weichao</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tianliang</forename><surname>Hu</surname></persName>
+			<idno type="ORCID">0000-0001-5844-661X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Chengrui</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yongli</forename><surname>Wei</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12652-018-0946-5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Ambient Intelligence and Humanized Computing</title>
+		<title level="j" type="abbrev">J Ambient Intell Human Comput</title>
+		<idno type="ISSN">1868-5137</idno>
+		<idno type="ISSNe">1868-5145</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1129" to="1140" />
+			<date type="published" when="2018-07-28" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Digital twin-driven product design, manufacturing and service with big data</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiangfeng</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qinglin</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">He</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fangyuan</forename><surname>Sui</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00170-017-0233-1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The International Journal of Advanced Manufacturing Technology</title>
+		<title level="j" type="abbrev">Int J Adv Manuf Technol</title>
+		<idno type="ISSN">0268-3768</idno>
+		<idno type="ISSNe">1433-3015</idno>
+		<imprint>
+			<biblScope unit="volume">94</biblScope>
+			<biblScope unit="issue">9-12</biblScope>
+			<biblScope unit="page" from="3563" to="3576" />
+			<date type="published" when="2017-03-16" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Computationally Efficient Analysis of SMA Sensory Particles Embedded in Complex Aerostructures Using a Substructure Approach</title>
+		<author>
+			<persName><forename type="first">Brent</forename><surname>Bielefeldt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jacob</forename><surname>Hochhalter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Darren</forename><surname>Hartl</surname></persName>
+		</author>
+		<idno type="DOI">10.1115/smasis2015-8975</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Volume 1: Development and Characterization of Multifunctional Materials; Mechanics and Behavior of Active Materials; Modeling, Simulation and Control of Adaptive Systems</title>
+				<imprint>
+			<publisher>American Society of Mechanical Engineers</publisher>
+			<date type="published" when="2015-09-21" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Game theory meets network security and privacy</title>
+		<author>
+			<persName><forename type="first">Mohammad</forename><forename type="middle">Hossein</forename><surname>Manshaei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quanyan</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tansu</forename><surname>Alpcan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tamer</forename><surname>Bacşar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jean-Pierre</forename><surname>Hubaux</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2480741.2480742</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Computing Surveys</title>
+		<title level="j" type="abbrev">ACM Comput. Surv.</title>
+		<idno type="ISSN">0360-0300</idno>
+		<idno type="ISSNe">1557-7341</idno>
+		<imprint>
+			<biblScope unit="volume">45</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1" to="39" />
+			<date type="published" when="2013-06" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Signaling game based strategy of intrusion detection in wireless sensor networks</title>
+		<author>
+			<persName><forename type="first">Shigen</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuanjie</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hongyun</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiying</forename><surname>Cao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.camwa.2011.07.027</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Mathematics with Applications</title>
+		<title level="j" type="abbrev">Computers &amp; Mathematics with Applications</title>
+		<idno type="ISSN">0898-1221</idno>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="2404" to="2416" />
+			<date type="published" when="2011-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Modeling and Analysis of Leaky Deception Using Signaling Games With Evidence</title>
+		<author>
+			<persName><forename type="first">Jeffrey</forename><surname>Pawlick</surname></persName>
+			<idno type="ORCID">0000-0002-3970-4756</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Edward</forename><surname>Colbert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quanyan</forename><surname>Zhu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tifs.2018.2886472</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Information Forensics and Security</title>
+		<title level="j" type="abbrev">IEEE Trans.Inform.Forensic Secur.</title>
+		<idno type="ISSN">1556-6013</idno>
+		<idno type="ISSNe">1556-6021</idno>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1871" to="1886" />
+			<date type="published" when="2019-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Review of Probability Theory and an Introduction to Stochas- tic Processes</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Papoulis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">U</forename><surname>Pillai</surname></persName>
+		</author>
+		<idno type="DOI">10.1201/b12537-7</idno>
+	</analytic>
+	<monogr>
+		<title level="m">An Introduction to Stochastic Processes with Applications to Biology</title>
+				<imprint>
+			<publisher>Chapman and Hall/CRC</publisher>
+			<date type="published" when="2010-12-02" />
+			<biblScope unit="page" from="25" to="68" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Attack models and scenarios for networked control systems</title>
+		<author>
+			<persName><forename type="first">André</forename><surname>Teixeira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Henrik</forename><surname>Sandberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karl</forename><forename type="middle">Henrik</forename><surname>Johansson</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2185505.2185515</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 1st international conference on High Confidence Networked Systems - HiCoNS &apos;12</title>
+				<meeting>the 1st international conference on High Confidence Networked Systems - HiCoNS &apos;12</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2012" />
+			<biblScope unit="page" from="55" to="64" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">False data injection attacks against state estimation in electric power grids</title>
+		<author>
+			<persName><forename type="first">Yao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peng</forename><surname>Ning</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">K</forename><surname>Reiter</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1952982.1952995</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Information and System Security</title>
+		<title level="j" type="abbrev">ACM Trans. Inf. Syst. Secur.</title>
+		<idno type="ISSN">1094-9224</idno>
+		<idno type="ISSNe">1557-7406</idno>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="33" />
+			<date type="published" when="2011-05" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Advanced Persistent threats and how to monitor and deter them</title>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Tankard</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s1353-4858(11)70086-1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Network Security</title>
+		<title level="j" type="abbrev">Network Security</title>
+		<idno type="ISSN">1353-4858</idno>
+		<imprint>
+			<biblScope unit="volume">2011</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="16" to="19" />
+			<date type="published" when="2011-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">The Security of the Cipher Block Chaining Message Authentication Code</title>
+		<author>
+			<persName><forename type="first">Mihir</forename><surname>Bellare</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joe</forename><surname>Kilian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Phillip</forename><surname>Rogaway</surname></persName>
+		</author>
+		<idno type="DOI">10.1006/jcss.1999.1694</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computer and System Sciences</title>
+		<title level="j" type="abbrev">Journal of Computer and System Sciences</title>
+		<idno type="ISSN">0022-0000</idno>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="362" to="399" />
+			<date type="published" when="2000-12" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">A Certified Digital Signature</title>
+		<author>
+			<persName><forename type="first">Ralph</forename><forename type="middle">C</forename><surname>Merkle</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/0-387-34805-0_21</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Cryptology — CRYPTO’ 89 Proceedings</title>
+				<imprint>
+			<publisher>Springer New York</publisher>
+			<date>1989</date>
+			<biblScope unit="page" from="218" to="238" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

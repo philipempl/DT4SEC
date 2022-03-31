@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Prototyping a Digital Twin for Real Time Remote Control Over Mobile Networks: Application of Remote Surgery</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Heikki</forename><surname>Laaki</surname></persName>
+							<email>heikki.laaki@aalto.fi</email>
+							<idno type="ORCID">0000-0003-4294-3499</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mechanical Engineering</orgName>
+								<orgName type="institution">Aalto University</orgName>
+								<address>
+									<postCode>02610</postCode>
+									<settlement>Espoo</settlement>
+									<country key="FI">Finland</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yoan</forename><surname>Miche</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="institution">Nokia Bell Labs</orgName>
+								<address>
+									<postCode>02610</postCode>
+									<settlement>Espoo</settlement>
+									<country key="FI">Finland</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kari</forename><surname>Tammi</surname></persName>
+							<idno type="ORCID">0000-0001-9376-2386</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mechanical Engineering</orgName>
+								<orgName type="institution">Aalto University</orgName>
+								<address>
+									<postCode>02610</postCode>
+									<settlement>Espoo</settlement>
+									<country key="FI">Finland</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Prototyping a Digital Twin for Real Time Remote Control Over Mobile Networks: Application of Remote Surgery</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/ACCESS.2019.2897018</idno>
+					<note type="submission">Received December 10, 2018, accepted January 11, 2019, date of publication February 1, 2019, date of current version February 22, 2019.</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:42+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The concept of digital twin (DT) has emerged to enable the benefits of future paradigms such as the industrial Internet of Things and Industry 4.0. The idea is to bring every data source and control interface description related to a product or process available through a single interface, for auto-discovery and automated communication establishment. However, designing the architecture of a DT to serve every future application is an ambitious task. Therefore, the prototyping systems for specific applications are required to design the DT incrementally. We developed a novel DT prototype to analyze the requirements of communication in a mission-critical application such as mobile networks supported remote surgery. Such operations require low latency and high levels of security and reliability and therefore are a perfect subject for analyzing DT communication and cybersecurity. The system comprised of a robotic arm and HTC vive virtual reality (VR) system connected over a 4G mobile network. More than 70 test users were employed to assess the system. To address the cybersecurity of the system, we incorporated a network manipulation module to test the effect of network outages and attacks; we studied state of the art practices and their utilization within DTs. The capability of the system for actual remote surgery is limited by capabilities of the VR system and insufficient feedback from the robot. However, simulations and research of remote surgeries could be conducted with the system. As a result, we propose ideas for communication establishment and necessary cybersecurity technologies that will help in developing the DT architecture. Furthermore, we concluded that developing the DT requires cross-disciplinary development in several different engineering fields. Each field makes use of its own tools and methods, which do not always fit together perfectly. This is a potentially major obstacle in the realization of Industry 4.0 and similar concepts.</p><p>INDEX TERMS Digital twin, virtual reality, robot control, mobile networks, network security.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Industrial Internet and Internet of Things (IoT) have brought up a capability to measure and observe various phenomena. Data available from those has in turn created an opportunity to develop system modelling capabilities such as Digital Twins (DT). The concept of DT has emerged to make the physical things and related data sources accessible for software and users on digital platforms <ref type="bibr" target="#b2">[2]</ref>. Terms used for similar or partially overlapping concepts include digital counterpart, virtual twin, virtual object, product agent, and avatar <ref type="bibr" target="#b3">[3]</ref>. DT is argued to consist of three parts: physical</p><p>The associate editor coordinating the review of this manuscript and approving it for publication was Okyay Kaynak. product, digital product and the linkage between the physical and digital products <ref type="bibr" target="#b4">[4]</ref>. DT enables real time communication with the physical twin in both directions. Interested entities, such as processes or systems, can read data from the physical product via a DT, analyze the data and execute simulations. Vice versa, actuation commands, control signals and other data can be sent to the physical twin with the help of a DT. The DT contains a structured description of available communication and control interfaces of the physical asset. These interfaces can be accessed and harnessed for application specific needs by analyzing the DT and without accessing and examining the physical twin at the site. Apart from the communication aspect, a DT will serve as container of all existing data about the physical twin. The actual data, such as CAD model files, sales documentation and measurement data, technically exist in several different software and systems. The role of DT is to bring these various data stores accessible via a single interface.</p><p>Furthermore, just like a physical object is always tied to specific location and time, a DT needs to incorporate location and time aspects despite of it's digital nature. These fundamental features are the core of a DT. The ultimate value proposition of a DT is to enable communication between devices and systems in real time and, more importantly, automatically. Without DT, setting up complex systems, such as our remote surgery system, would require specialists and experts for each product, device and software piece incorporated. By analyzing the DTs of the incorporated components, developers and engineers can determine, design and create the required interfaces, integrations and communication links without specific expertise of each component. Eventually, the devices might be able to discover and understand each other without any human engineer in between. This sort of auto-discovery and auto-established communication with the help of DTs could eventually make IoT more scalable for applications currently unimaginable. The underlying problems, beside the obvious technical one that such protocols and networking architecture are currently only under development <ref type="bibr" target="#b2">[2]</ref>, include authentication of each device and user, safety and security, data ownership issues, reliability, robustness and acceptable delays, among others. Solving these problems with DTs will enable the Industrial Internet and IoT to really add value to current systems and processes.</p><p>We developed a novel prototype system to investigate what kind of communication link is required in a mission critical application. As a case application, we chose the specific task of remote surgery. Such operations require near zero latency and high levels of security and reliability <ref type="bibr" target="#b5">[5]</ref> and therefore are a perfect subject for analysis in the context of DTs involved in achieving the required features and functionality. Defining proper DT architecture that has potential to succeed in every possible future application is an immensely ambitious task. This kind of analysis via specific prototype applications provides the necessary building blocks to eventually be able to determine the structure and architecture of DTs. Moreover, we could determine if mobile network supported medical operations are feasible. We collected experimental results about the functionality of the DT, different feedback technologies and usability of the system in test sessions with test users. Cybersecurity was studied with implementations regarding network security and user authentication and analyzing state of the art technologies and their consequences in development of DT concept. Based on the experiences gained during the development phase and experiments, we present ideas on how a DT should be designed to succeed in a mission critical application with special emphasis on the cybersecurity issues.</p><p>In many cases, the subject of a medical operation is in critical state and delays might result in further traumas. Additionally, it might be expensive, inconvenient or impossible for the patient and the medical personnel to travel to a mutual location. In these cases, remote operations could prove useful and might be possible with modern technologies such as Virtual Reality (VR), robotics and communication via a DT over mobile networks. VR supported applications provide great feedback and a significant improvement compared to more traditional video link and instruction passing. The first commercial VR applications, such as Forte Technology's VFX1, were launched in 1994 <ref type="bibr" target="#b6">[6]</ref>. Only recently have the required technologies advanced enough to bring the VR devices to really usable level <ref type="bibr" target="#b7">[7]</ref>. The best devices are able to generate virtual worlds that appear and feel almost like reality <ref type="bibr" target="#b8">[8]</ref>. Moreover, monitoring various data points in real time from the user has become possible with smart phones and without extensive purpose-built sensor setups. This data can be used in augmenting virtual realities with real life elements <ref type="bibr" target="#b9">[9]</ref>.</p><p>Current state of the art technology in robotic surgery includes Da Vinci system. It enables prostate cancer surgeries to be performed with a robot inside a patient. A VR controller device is situated close to the patient. A doctor has a VR view inside the patient and maneuvers a robot with special controller interface <ref type="bibr" target="#b10">[10]</ref>, <ref type="bibr" target="#b11">[11]</ref>. Furthermore, some surgeries have been performed remotely. One example is a cholecystectomy (surgical removal of gallbladder) performed over a distance of 6230 km between the surgeon and the patient in 2001 <ref type="bibr" target="#b12">[12]</ref>. However, the connection used was specially set up for the particular operation, which means that using similar technology requires these connections set up beforehand in order to perform operations quickly on demand. The problems in remote control of robots in surgical applications include sufficient feedback for the surgeon, timely co-operation and communication with the remote and local teams, calibration of the control system with the patient and reliability, latencies and cybersecurity of the connection, among others. Using digital technology (in contrast to analog technology) enables digital concepts such as DT and AI in solving these problems and utilizing existing digital networks such as Internet and mobile networks. Remote surgeries using mobile networks has not been attempted to date. Such operations require exceptionally safe and trusted hardware, software and communication systems. With the onset of 5G mobile network technology, robotic telesurgery over 5G has become a research hotspot to resolve the various issues such as required human-machine interfaces, security, privacy and reliability <ref type="bibr" target="#b13">[13]</ref>. In addition to contribution in development of DT concept, our prototype system brings remote surgeries over mobile networks closer to reality by providing solutions to the above mentioned problems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. TEST SETUP</head><p>While actual surgeries are complex and include several systems and personnel operating simultaneously, we simplified the problem into the bare essentials of using a set of instruments to operate a patient. By using a VR system to control an industrial robotic arm, we could achieve this core function. The simplified (physical) surgery environment is illustrated in figure <ref type="figure" target="#fig_0">1</ref>.</p><p>VR could refer to plenty of distinct concepts, such as the virtual world described in The Matrix film series <ref type="bibr" target="#b14">[14]</ref> or video games that are built around a virtual world in which the player can complete missions. With VR, we refer to a technology where the user is completely immersed into a virtual world with a head mounted display (HMD). The technology utilizes various sensors to create an immersive experience where the user is actually part of the VR and is able to explore and interact with the VR world. Similar sensors can be attached to other physical objects to bring them into the VR world as well. This sort of VR technology is used for variety of purposes such as game industry <ref type="bibr" target="#b15">[15]</ref>, architecture visualization <ref type="bibr" target="#b16">[16]</ref>, art creation <ref type="bibr" target="#b17">[17]</ref>, engineering <ref type="bibr">[18]</ref> and movie industry <ref type="bibr" target="#b18">[19]</ref>. These VR applications simulate real world or some real world elements depending on the requirements of each application.</p><p>The developed system required both the possibility to display and manipulate a virtual world. HTC Vive system [20] fulfilled these requirements plus had the highest rated reviews on the internet <ref type="bibr" target="#b19">[21]</ref>. Other possible options included Oculus Rift with its Oculus Touch controllers <ref type="bibr" target="#b20">[22]</ref>. The HTC Vive has a HMD unit and two handheld controllers. The controllers have an extensive interface for different actions to manipulate the virtual world and a haptic feedback function. The system utilizes an infrared laser grid to track the movement of the HMD and controllers. Inertial measurement units are used to improve the location tracking within the laser grid. The specification of the Vive system is presented in table <ref type="table" target="#tab_0">1</ref>.</p><p>Industrial robotic arms are generally used in mass manufacturing, which includes highly repetitive work and requires accuracy for extended periods of time. The shift from human workforce to robots requires substantial investment which can be more easily compensated in such manufacturing processes. Typical tasks for a robot are monotonous, difficult, dangerous or otherwise unpleasant for a human to complete. <ref type="bibr" target="#b22">[24]</ref> For example, applying an even layer of paint on a large area can be difficult and include harmful working conditions for a human. However, such a task can be programmed to a robot <ref type="bibr" target="#b23">[25]</ref>.</p><p>Recently, robotic arms have started to share the working space with human workers. Traditionally robots have been working in separate spaces, but with advanced safety measures the collaboration with humans has become feasible. These collaborative robots are specifically called cobots. Robots must comply with EN ISO 10218-1:2011 safety standard and ISO/TS 15066:2016 technical specification, which specify safety measures for cobots in industrial applications <ref type="bibr">[26]</ref>, <ref type="bibr" target="#b24">[27]</ref>. The safety requirements can be met for example with a collision detection system. However, each environment and application is unique and safety has to be evaluated case by case.</p><p>The typical advantages of industrial robotic arms were not especially utilized in this study. The most important feature utilized was the robotic arm's ability to replicate human hand movement, which requires six degrees of freedom. An industrial robotic arm with six joints fulfills this requirement <ref type="bibr" target="#b22">[24]</ref> and thus suits well as a remote replicator of the user's hand movements. As described, a robot operating in the same working space with humans requires special safety measures to avoid accidents. A prototype system is not an industrial application and does not necessarily require such measures. Nevertheless, the prototype system will be used for research and possibly for demonstrations with personnel unfamiliar with the system. Moreover, humans are definitely present in the same working space in medical tasks and hence the arm needed to be a cobot.</p><p>Universal Robots UR3 met the requirements specified above. Furthermore, the UR3 had an extensive scripting language for programming the robot, which was seen potentially helpful in building the prototype <ref type="bibr" target="#b25">[28]</ref>. Moreover, the UR3 has an interface for different end effectors which helps in modifying the prototype system for different applications. The reach of the arm was slightly limited, but sufficient for research purposes and demonstrations. The specification of the UR3 is presented in table 2. <ref type="bibr" target="#b26">[29]</ref> TABLE 2. Universal Robots UR3 specification <ref type="bibr" target="#b27">[30]</ref>. Collaboration operation refers to the concept of human workers and a robot working in the same working space simultaneously.</p><p>Comparing the specification of the HTC Vive system and the UR3 arm, as specified in the tables 1 and 2 above, the former seems to be the limiting factor in terms of accurately replicating the hand movements of the user. However, based on our tests with the system, the achieved accuracy is ultimately limited by the accuracy of the human hand. Consequently, we scaled the movements in VR down by a factor of 0.5 as described in section II-B, which reduces the human hand accuracy. Furthermore, this reduces the effect of HTC Vive inaccuracy in half, i.e. the resulting tracking error is 1mm (RMS) based on the measurements made by Kreylos <ref type="bibr" target="#b21">[23]</ref>. The robotic arm controller is running at a frequency of 125 Hz and needs to be given instructions once each run <ref type="bibr" target="#b25">[28]</ref>. As seen from the specification, the refresh rate of the HTC Vive system is considerably greater. Consequently, the achieved update rate of the system is limited to 125 Hz in optimal network conditions. Once the update rate drops below 125 Hz, the robot performs an emergency stop.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. VR SCENE AND ROBOT SITE</head><p>The VR hardware requires a software framework to create any VR experience. Unity is a platform for developing 3D games and it is widely used in creating VR experiences and games. Unity handles all background processes, graphics processing and provides a physics engine for creating realistic virtual worlds. The developer only needs to program the game logic and design the virtual world scene <ref type="bibr" target="#b28">[31]</ref>. The hardware manufacturer HTC and gaming software company Valve have collaborated to create a software development kit (SDK) called OpenVR, which provides software development tools for creating VR content. The SDK contains an interface for translating the tracking data from HTC Vive to a format that Unity is able to understand as well as using the haptic feedback and other controller functions <ref type="bibr" target="#b29">[32]</ref>.</p><p>Utilizing Unity and OpenVR, we created a VR scene that resembles loosely a medical setting for the prototype system. In the scene, a virtual dummy patient was located on top of a virtual table to mirror a physical dummy patient (stuffed bunny), which was on a table in real world. Their locations were calibrated to match. Moreover, the virtual dummy patient was scaled up, so that the VR movements could be scaled down for improved accuracy. A virtual representation of a medical instrument was floating above the patient. This instrument was used as the interface to control the robot intuitively. A user needs to pick up this virtual instrument and move it around however required and the robotic arm replicates that movement in real life. Three buttons were located close to the virtual operation table for the user to request different instruments. An illustration of the scene is shown in figure <ref type="figure" target="#fig_1">2</ref>.</p><p>For the UR3 arm to be able to pick up instruments, we attached a simple electric magnet to the end of the arm. Using the UR3's built-in end effector interface we were able to switch the magnet on and off as required automatically or under user command. A teaching sequence was created with which the user could teach the robot how and where to pick up required instruments, so that the instruments could be switched automatically without human intervention at the robot site.</p><p>The system was separated at two sites, the VR site and robot site. Both sites were running a server computer that handled the networking and most of the data processing. The VR site server computer was also running the VR scene. Furthermore, a robot controller handled the processes that were closely related to the robotic arm. The two sites were interconnected with a 4G mobile network connection. The connection was established through a OpenVPN server which was running on a cloud server in Helsinki, capital of Finland. A schematic of the network setup is shown in figure <ref type="figure" target="#fig_2">3</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. DIGITAL TWIN</head><p>Once the hardware and network were set up, we started building the communication within the system which finally completes the DT of the system. It includes physical products, digital products and the connectivity in between, as defined in e.g. <ref type="bibr" target="#b4">[4]</ref>.</p><p>When using the system, a user picked up the virtual instrument using a hand held controller. The VR hardware tracked the movement of the controller and delivered the location and rotation data to the VR scene. The data was interpreted in the OpenVR software layer and the result was location and rotation data relative to the VR scene. Using that data, the system was able to tell the robotic arm what pose it should reach for. However, the coordinate systems of the VR and the robotic arm were different and the VR software does not understand robot poses. Moreover, the system had other limitations that had to be addressed. Consequently, several translations and conversions had to be applied before the robotic arm could utilize the data.</p><p>The Unity based VR world has a left handed coordinate system with X-axis to the right, Y-axis up and Z-axis forward with the location data stored in a quaternion format. On the contrary, the UR3 controller uses a right handed coordinate system with X-axis to the right, Y-axis to forward and Z-axis upward with the data stored in an axis-angle vector <ref type="bibr" target="#b25">[28]</ref>. First, the rotation data had to be translated from quaternion format to an axis-angle vector format with equation where α is the angle in the axis-angle format. x vr , y vr and z vr are the rotation axis components in the VR scene coordinate system. qx, qy, qz and qw are the components of the rotation quaternion.</p><formula xml:id="formula_0">         α = 2 * acos(qw) x vr = qx/ √ 1 − qw * qw y vr = qy/ √ 1 − qw * qw z vr = qz/ √ 1 − qw * qw,<label>(1)</label></formula><p>The UR3 controller stores the angle component as the length of the axis vector <ref type="bibr" target="#b25">[28]</ref>. Thus, the resulting axis had to be normalized and multiplied by the angle α from equation 1, which is done in equations</p><formula xml:id="formula_1">l = x 2 vr + y 2 vr + z 2 vr (2) and      x vr ← x vr * α/l y vr ← y vr * α/l z vr ← z vr * α/l,<label>(3)</label></formula><p>where l is the length of the original vector.</p><p>Finally, to address the different coordinate systems, the basis had to be changed. Moreover, the robotic arm is located in the middle of its coordinate system and unable to operate close to that area because it would collide itself. Thus, the center of the coordinate system had to be offset. For actual usability, a favorable position for the robotic arm was behind the operation table. Thereby free operating space for assisting work and observing the work could be achieved. These requirements were fulfilled by adding an offset. The resulting equation is</p><formula xml:id="formula_2">     x r = −x vr y r = −z vr − s offset z r = −y vr ,<label>(4)</label></formula><p>where x r , y r and z r are the components of the axis-angle vector in the robot coordinate system with the angle as the length of the vector. s offset is the offset added.</p><p>The robotic arm had a reach of 0.5m measured from the middle of the robot base. The constraints can be formulated more specifically as follows.</p><p>• The robot cannot operate outside of the spherical reach area at all.</p><p>• The robot operation is limited close to the edge of the spherical reach area.</p><p>• The robot cannot operate close to the robot base.</p><p>• The robot cannot operate below the operation table. To address these constraints, a so called safety box was created. The system simply ignored any coordinates outside of the safety box and replaced them with values within the limits. The maximum usable dimensions with the UR3 robot were width 0.4m, depth 0.3m and height 0.25m. The movements in the VR scene were scaled down with a factor of 0.5, because the virtual dummy patient was scaled up. Combining the calculations and the safety box, a conversion between VR and robotic arm systems was achieved and a prototype DT was created.</p><p>Inside each site, the network connection setup utilized Transmission Control Protocol (TCP). The protocol incorporates means for ensuring reliable, ordered and error-checked delivery of packets <ref type="bibr" target="#b30">[33]</ref>. Such features were desirable to accomplish the reliability required for our mission critical application. However, between the sites it was more beneficial to reach rapid delivery of the packets over the mobile network connection. This was achieved by using User Datagram Protocol (UDP) <ref type="bibr" target="#b30">[33]</ref>. With UDP, we were able to broadcast an excess of packets, but we had to develop our own error-checking to ensure proper functionality. A simple order check proved to be sufficient.</p><p>Beginning from the VR scene program, the program first gets the location data from the VR scene. The safety box and conversions are applied before sending the data to a server software among with some other data. The VR site server software adds a running counter value to the message and broadcasts it to the robot site server over the 4G connection. The traffic is routed through the attack simulation module before reaching the robot site server software. The robot site server rejects messages that are received in wrong order and forwards the accepted data to the UR3 robot controller.</p><p>The UR3 programming language has built-in functions for moving the arm to a desired pose. A pose is a combination of exact position and orientation of the robot tool head. However, a dynamically updating goal pose is not allowed with these built-in functions. Using these functions resulted in a trembling movement as the robot stopped for a short moment every time it reached a pose and read the next desired pose. Ravn et al. had noticed that a dynamically updating desired pose can be achieved only by controlling the joint servo motors directly <ref type="bibr" target="#b32">[34]</ref>. This was accomplished with the built-in inverse kinematics function and implementing a PI controller for each joint, which made the arm follow the control signal smoothly. Moreover, the controller continuously evaluated if the robot behaved as expected based on a simulation model and produced a force signal as a result. The force estimation process is illustrated in figure <ref type="figure" target="#fig_3">4</ref>.</p><p>The force signal is returned to the robot server which is then forwarded back to the VR server and eventually to the VR scene. The signal is used to drive the haptic feedback device included in the handheld controllers of the HTC Vive. As a result, the system incorporates a force feedback for the user. Whenever the robotic arm experiences any force in any direction, the handheld controller provides a feedback through the haptic vibrator device. This force feedback proved to be somewhat insufficient, as noted in section III.</p><p>In addition to the robot location control, the DT program also delivers requests to initiate a tool change process, control the end effector or block the robot operation in case of compromised security. The control loop data flow is illustrated in figure <ref type="figure" target="#fig_4">5</ref>. A more detailed description of the control loop program, data delivery and medical applications can be found in a thesis which was written about the control system <ref type="bibr" target="#b33">[35]</ref>.</p><p>We wanted be able to test how the system behaves under sub-optimal network conditions, such as under an attack.</p><p>Hence, we added a network traffic manipulation module on the robot site server. With the module we simulated different network problems such as delays and attacks. Moreover, we wanted to test how certain mitigations work in our mission critical application context. We implemented the neural network based Denial of Service countermeasure which was developed by Kalliola et al. <ref type="bibr" target="#b34">[36]</ref>. This method monitors network traffic metadata (network flows features), creates clusters of similarly behaving nodes and subnetworks, and trains numerous fast neural networks to recognize the features of typical traffic for each of the established clusters. With this model, normal network traffic (i.e. the traffic that the model has trained to recognize) is then prioritized, while the non-normal, i.e. potentially malicious, traffic only uses the potentially remaining network bandwidth, without possibility for over saturation. We refer the reader to the original publication for more details on the approach, which also treats other types of network anomaly events. This sort of mitigation should work well in mission critical applications, such as remote surgery, against attacks that could not be classified and detected reliably in advance <ref type="bibr" target="#b34">[36]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. EXPERIMENTAL RESULTS</head><p>The robot was able to replicate human hand movement accurately with the developed control loop setup. In case of really fast movement, the arm lagged behind the desired pose. The required speed for each joint simply exceeded the maximum speed of some of the joints. Moreover, as each joint had different speed limitations, the resulting trajectory was slightly curved and some sharp changes in direction became rounded when moving rapidly. Nevertheless, the behavior was acceptable in most situations and a viable operation level was reached. A video demonstration of the control loop functionality is available at <ref type="bibr" target="#b35">[37]</ref>. The described features can be distinguished in the video.</p><p>We were able to maneuver the robot delicately enough to pet the stuffed bunny gently and potentially perform some actual medical task. To further test the usability and behavior of the system, we demonstrated the system with more than 70 test users in several (identical) settings. The robotic arm site and the VR site were located roughly 10km apart in one of the test sessions and a separate video stream was provided for the audience and us to see the happenings at the other location. Smooth remote operation of the system can be seen in a video created from this session. The video is available at <ref type="bibr" target="#b36">[38]</ref>. The robotic arm and VR site were located a few meters apart in rest of the test sessions, while the communication was still routed through the remote VPN server and the resulting network delays remained the same.</p><p>Based on the user test sessions, we divided the participants into three groups. Group 1) consisted of persons already familiar with VR technologies. The individuals within the group were able to control the robot easily when immersed in VR. When real life features, such as visual feedback, were mixed into the scene, it became harder to adapt, but the individuals quickly reached a similar level of accuracy to the system developers. Group 2) included persons testing this kind of VR technology for the first time. These individuals needed some time to familiarize with the VR system before they were able to effectively control the robot. Persons in group 3) were not able to adapt to the VR system at all, because they either failed to orient themselves in VR or Virtual Reality Induced Symptoms and Effects (VRISE), such as vertigo and loss of situational awareness. Root causes for VRISE include poor frame rate and sensory conflicts between the visual and the vestibular senses <ref type="bibr" target="#b37">[39]</ref>. VRISE were present especially while using the visual feedback. These individuals could not control the robot accurately at all, but these effects usually faded after using the system for a while. Approximately 15% of people belonged to group 1), 80% to group 2) and 5% to group 3).</p><p>Force feedback plays a significant role in robotic surgeries as concluded e.g. in <ref type="bibr" target="#b38">[40]</ref>. Consequently, we developed a force feedback loop into our system. The haptic device inside the hand held controller received a force feedback signal from the robot and vibrated if force was applied. The vibration intensified in relation to the magnitude of the force. The force feedback provided some help in sensing the contact between the instrument and the subject patient. However, we noted that the force signal is quite ambiguous with small forces. Significant improvement would be needed for actually usable force feedback.</p><p>To further improve the usability of the system and fully exploit the capabilities of VR technology, we developed a visual feedback system. VR is a concept where the user is immersed into a virtual world and real world elements are mostly removed. Augmented reality (AR) and mixed reality (MR) are similar concepts with the difference in real world elements included. We created a mixed reality experience by bringing a video feed from the real life into the VR scene. We equipped the robotic arm with a video camera. With this setup, the users were able to look around in the physical world.</p><p>Two different MR versions were tested. The first version made the camera follow the movement of the hand held controller. The video feed was displayed on a floating screen in the VR, which also followed the hand movement and felt like an imaging instrument. The second version followed the user's head, which let the user look around in the physical world in a natural way. In this case, the video feed was displayed directly in front of the user's eyes, which created a feeling of actually standing where the robotic arm stands. These visual feedback modes helped the users a lot more compared to the force feedback. However, the quality of the video feed was inadequate.</p><p>Under optimal network conditions and without experiencing any attacks, the system functioned and behaved smoothly and nearly without delays. Some tests have concluded that lag times between 30 to 150 ms are completely undetectable by surgeons <ref type="bibr" target="#b39">[41]</ref>. The delays of our system were not precisely measured, but remained undetectable and below 150ms. Furthermore, we wanted to see how the system behaves under sub-optimal network conditions and even while under attack. Hence, we used the network traffic manipulation module to simulate a Distributed Denial of Service (DDoS) attack. A DDoS attack floods the communication link with malicious traffic and consequently interferes with the delivery of normal traffic <ref type="bibr" target="#b40">[42]</ref>. Due to the attack, the system deteriorated to a completely unusable state, once the simulated attack reached a sufficient strength. The lag times increased and the arm movement was very ''shaky''. Moreover, the behavior changed continuously which prevented the user to learn how to counter these effects. Using the machine learning based detection and mitigation countermeasure described in section II-B, the system remained usable even under the attack, with undetectable lag times and all shakiness removed.</p><p>Regarding malicious agents, we identified unexpected possibilities in user authentication. Of course, we had implemented the traditional measures for user authentication such as password protection and physical securing of the facilities. However, VR technology provided us with unique data points with which we could implement more advanced authentication methods. We implemented a simple biometric authentication method by measuring the HMD user height. Much more advanced methods, such as detection of malicious physical interference, could be possible with the VR technology and these are discussed in more detail in the next section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. SECURITY CONSIDERATIONS</head><p>Security issues arising around the concept (and even more so, from the various possible implementations of it) are of several types, due to the nature of this idea. First, DTs, like any other proprietary digital content, require protection mechanisms in term of intellectual property: Anyone with sufficient access to the DT model can theoretically duplicate and distribute it as it might merely be a purely digital asset. Existing methods for securing digital content apply here, to a point. Watermarking <ref type="bibr" target="#b41">[43]</ref> and Digital Rights Management (DRM) techniques <ref type="bibr" target="#b42">[44]</ref> can protect the intellectual property that is the DT and thus all the company specific software and knowledge that are present in it, but it remains clear from the current state of affairs for audiovisual material, that these solutions can be still easily circumvented <ref type="bibr" target="#b43">[45]</ref>.</p><p>Due to the specific type of digital object that a DT is, one can devise further protection methods (which should be considered only as additions to the state of the art watermarking and DRM systems) for its protection: supposedly, a DT will run on dedicated hardware and a specific set of machines, as opposed to audiovisual material which should be available on as many platforms as possible. Given this restriction, one can imagine means of anchoring the DT to a specific set of hardware components (a server, a desktop computer, a cluster of machines) by the use of a Trusted Platform Module (TPM) <ref type="bibr" target="#b44">[46]</ref>, for example. By making certain that the software that represents the DT can only run if a successful and unique cryptographic exchange between the software and the hardware is made <ref type="bibr" target="#b45">[47]</ref>, the DT is bound to this hardware solely. There are numerous research tracks on how to perform this best <ref type="bibr" target="#b46">[48]</ref>, <ref type="bibr" target="#b47">[49]</ref>, but the key point is that this is currently achievable using existing technology, as most current machines have such a TPM that can be used. Obviously, the means of implementing this verification in the software/hardware that represents the DT is ad hoc and highly depends on the nature of the twin.</p><p>Second, as we have noted in this paper's implementation of a specific type of DT, the need for strong user authentication on all the concerned sites of operation is paramount. In a use case such as this one, state of the art strong authentication techniques, e.g. multi-factor authentication <ref type="bibr" target="#b48">[50]</ref>, <ref type="bibr" target="#b49">[51]</ref>, biometric authentication <ref type="bibr" target="#b50">[52]</ref>, <ref type="bibr" target="#b51">[53]</ref>, need to be made mandatory in addition to simple physical access restrictions to the facilities where the DT operations are carried out. One only has to consider what can happen in the simple case where a malicious agent gets physical access to the VR control area: it is so simple to disorient and take physical control of someone who is in a VR system, that anybody malicious getting this privileged physical access can wreak havoc with the system. This matter is not only local to the VR site, but becomes also relevant when the other sites, that are part of the operation of the DT, actually perform (physical) actions. In such cases, strong physical and digital authentication practices need to be enforced.</p><p>In specific DT use cases, there are some further considerations that need to be taken into account: for the case of remote surgery as in this paper, and furthermore for any kind of sensitive operation, it is important to verify that the operator (i.e. in this context, the human being performing actions within the DT system) is in full capacity. The obvious problematic use case being here that a medical surgeon that has a hand tremor and shaking, should probably not be authorized to perform. This idea makes the case for a ''capabilities check'' on top of the strong authentication. This verification can take various forms, depending on the use case, obviously, but in the case of human operators, they are likely to rely on biometric and physical features.</p><p>Finally, while the overall system can be fully hardened, security issues can arise due to the supporting network and infrastructure, for example. Again, in the use cases of DTs that help connect and operate two or more sites together, the backbone network supporting such systems can have a critical role. It has been widely reported that network equipment providers have had their equipment tampered with in transport, to embed malware or surveillance features <ref type="bibr" target="#b52">[54]</ref>. Without even considering the sort of reach that a malicious network operator would have on DT connection systems (intellectual property theft, impersonation, fake authentication, denial of service. . . ), the problem of having a backdoor inside a supporting network system is that there is a ''fox in a henhouse''. Any malicious operation becomes to some extent possible, or at least, facilitated: by performing man-in-themiddle attacks, it is possible to intercept and decrypt endto-end encrypted traffic (and depending on the reach of the attacker inside the network, such attacks might go unnoticed for very long periods); it is then possible to duplicate the traffic, including full payloads; it makes the attacker's work easier to plant malware in the network for later data exfiltration and intellectual property theft. . . In addition, the rise of wireless backbone support for Industry 4.0 and 5G in general, poses another set of potential issues: while most of the network transport in 5G industrial scenarios will be carried out by IP networks, for which vulnerabilities and weaknesses are known (to a point), the idea of local, private, mobile network operators supporting the industrial use case will carry its own set of security matters. The 5G radio access network will provide improved security measures <ref type="bibr" target="#b53">[55]</ref>, <ref type="bibr" target="#b54">[56]</ref> over 4G, but the problem remains that private mobile networks may decide to forego some of these security improvements -for the sake of convenience of implementation, as well as for cost savings reasons, possibly -, leaving the local mobile network open with some security breaches. In this sense, the mobile network part of the overall industrial network infrastructure adds an extra layer of potential vulnerability, if proper measures are not to be taken, when compared to purely wired networks.</p><p>These issues (for many of them) are not solely arising in the DT context, but really in most of the future Industry 4.0 paradigm, whereby industrial systems are partially or fully digitized and most systems interconnected via future mobile networks such as 5G. In this regard, many of the current concerns regarding Industry 4.0 security are being actively researched and the best practices that come out should be examined and implemented as much as possible.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. DISCUSSION</head><p>We created a prototype Digital Twin (DT) system which incorporates established internet communication protocols in achieving a reliable real-time remote control over 4G mobile network connection. However, we needed to implement several pieces of software that actually made the devices and software understand each other. Web APIs (Application Programming Interface) are the standard in developing web applications communicating with different systems. In this case, the nature of the system required establishing of real-time communication between the systems rather than requesting information and waiting for response. For this purpose, the concept of DT is introduced in the ongoing research within the field of Industrial Internet, Industry 4.0 and Internet of Things. The small pieces of software comprise the DT of our prototype system.</p><p>Remote replication of human hand operation with viable accuracy was achieved. Based on the test sessions, using the system and controlling a robot accurately is not obvious for most of the people but can be learned rather easily. Some people would need extensive learning, which might be a problem related to the VR technology and not necessarily related to our system implementation.</p><p>The behavior of the system was unacceptable with rapid movements. An optimized PI controller for each robot joint could reduce this behavior, but implementing this would need additional research. The major deficit of the system appeared to be the force feedback. A possible improvement for the feedback system would be to incorporate some sort of 3D force feedback device. For example, Mathiassen et al. <ref type="bibr" target="#b55">[57]</ref> used a UR5 robotic arm in creating a ultrasound imaging system. In their application, the robot was used to separate the physician from a ultrasound probe in order to prevent musculosceletal disorders and pain. They used a haptic controller device to control the arm. The device is essentially a pen attached to an arm, which measures the movements to be delivered for the controlled robot and simultaneously provides 3D force feedback. In our case, a similar device could be attached to the user to provide 3D force feedback without limiting the users capability to move around.</p><p>The feedback system could be further improved by combining visual feedback with the haptic force feedback. As noted, the visual feedback was of low quality and would need better camera equipment and a stereo view. Moreover, the visual feedback modes required the arm to hold the camera and blocked the arm from picking up any other instruments. Having dedicated arms for the camera and instrument would increase flexibility. Since our focus was in the communication part of the system and not in the feedback and usability of the system, we decided to implement only the basic version of feedback.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. CONCLUSION</head><p>In this study, we created the DT little by little and went through the struggle of verifying the functionality. A fundamental promise of DTs is that in the future, systems would be able to establish the communication between devices and verify the level of functionality automatically i.e. without any human writing a single line of code. Examining our prototype DT, the devices should agree that a rapid delivery of packets is required and establish the connection accordingly with UDP or some future protocol suitable for such purpose. Moreover, the systems should solve all the necessary data format, limitation and conversion problems and in the case of failure, should refuse to work and only then request human engineer assistance. After such an incident, similar problems occurring in the future would be automatically solved. This could potentially give birth to a market, which would deal such small pieces of software for specific problems from around the world. Artificial intelligence and machine learning capabilities could eventually be harnessed to tackle such needs. Ultimately, more and more systems would be able to establish communication, understand each other and co-operate for some task without hands on engineering.</p><p>In the future, the patient and the surgeon might also possess their own DTs which would enable the system to read historical and real time health and performance data. This leads us to a situation where several DTs are brought into one event for completing a task. Even before the surgeon enters the operation room, she could plan the operation and check the health records of the patient. She might even run some simulations on medication or different strategies for the actual operation. When someone (the patient, a doctor, an insurance company or a health monitoring AI in the patient's personal cloud service) is considering a forthcoming surgery, a digital twin of digital twins needs to be fired up to bring together all the required agents. This means that DTs will be born and terminated for occurring events all the time, which further magnifies the noted security issues.</p><p>Investigating mobile networks supported remote surgery bears an ultimate goal of developing a system, which could one day enable such operations to be performed as normal daily activity and not only as ambitious research projects. Our prototype system does not have the capabilities required for that as noticed in the experimental results section. Plenty of development and research in human-machine-interfaces, haptic and visual feedback and network security has to be conducted as those seem to be an crucial part in conducting telesurgery <ref type="bibr" target="#b38">[40]</ref>. Some minor medical operations, such as observation and diagnosis, could be conducted with the current capabilities of the system. Moreover, remote medical operations can be simulated and researched with the equipment. Future network technologies, such as 5G, will be required in implementing the high definition video feedback and other more demanding data flows that are necessary for actual remote surgeries.</p><p>The development of this prototype system made us painfully aware of the fact that this sort of combination of different engineering fields in novel applications provides plenty of complexity in the development work. Engineers and designers in the fields of robotics, mechatronics, computer sciences, network development and game development each exploit their own tools and methods that are built with their own demands. This is a major obstacle in the realization of the Industry 4.0 and similar concepts and requires research and consideration in our increasingly cross-disciplinary world.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>FIGURE 1 .</head><label>1</label><figDesc>FIGURE 1.A robotic arm was used to move a set of instruments to simulate a remote surgery of a dummy patient.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>FIGURE 2 .</head><label>2</label><figDesc>FIGURE 2. The Virtual Reality scene included a simplified surgery environment with a virtual dummy patient.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>FIGURE 3 .</head><label>3</label><figDesc>FIGURE 3. Network setup diagram of the prototype system.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>FIGURE 4 .</head><label>4</label><figDesc>FIGURE 4. Illustration of the robot controller force estimation process.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>FIGURE 5 .</head><label>5</label><figDesc>FIGURE 5. Illustration of the control loop data flow.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE 1 .</head><label>1</label><figDesc>HTC Vive specification according to Kreylos<ref type="bibr" target="#b21">[23]</ref> and HTC[20].</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20326">   VOLUME 7, 2019   </note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20328">   VOLUME 7, 2019   </note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20330">   VOLUME 7, 2019   </note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20332">   VOLUME 7, 2019   </note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="20334">   VOLUME 7, 2019   </note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENT</head><p>This work was a part of the DIMECC Cyber Trust Program <ref type="bibr" target="#b0">[1]</ref>.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>HEIKKI LAAKI was born in Toijala, Finland, in 1992. He received the B.S. and M.S. degrees in mechanical engineering from Aalto University, Espoo, Finland, in 2016 and 2018, respectively, where he is currently pursuing the Ph.D. degree.</p><p>In </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">DIMECC</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note type="report_type">DIMECC Cyber Trust Program</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Accessed</forename></persName>
+		</author>
+		<ptr target="https://cybertrust.fi/" />
+		<imprint>
+			<date type="published" when="2017-10-22" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Emergence of digital twins</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">P A</forename><surname>Datta</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/1610.06467" />
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Platform for industrial Internet and digital twin focused education, research, and innovation: Ilmatar the overhead crane</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Autiosalo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE 4th World Forum Internet Things (WF-IoT)</title>
+				<meeting>IEEE 4th World Forum Internet Things (WF-IoT)</meeting>
+		<imprint>
+			<date type="published" when="2018-02" />
+			<biblScope unit="page" from="241" to="244" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">The digital twin paradigm for future NASA and U.S. air force vehicles</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Glaessgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Stargel</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2012-1818</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Struct. Dyn. Mater. Conf</title>
+		<editor>Proc. 53rd AIAA/ASME/ASCE/AHS/ASC Struct.</editor>
+		<imprint>
+			<date type="published" when="2012-04" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Towards 5G enabled tactile robotic telesurgery</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Zhao</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/1803.03586" />
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Are we having virtual fun yet?</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">L</forename><surname>Mcdonald</surname></persName>
+		</author>
+		<ptr target="https://imgur.com/gallery/7G1h9/" />
+	</analytic>
+	<monogr>
+		<title level="j">PC Gamer US</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="44" to="49" />
+			<date type="published" when="1994-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Here&apos;s Why AR and VR are set to Take Off</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hollander</surname></persName>
+		</author>
+		<ptr target="http://www.businessinsider.com/ar-vr-2017-8?r=US&amp;IR=T" />
+		<imprint>
+			<date type="published" when="2017-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Assessing and improving the identification of computer-generated portraits</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Holmes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Banks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Farid</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2871714</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Trans. Appl. Percept</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Augmenting virtual worlds with real-life data from mobile devices</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Laaki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kaurila</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ots</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Nuckchady</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Belimpasakis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE Virtual Reality Conf. (VR)</title>
+				<meeting>IEEE Virtual Reality Conf. (VR)</meeting>
+		<imprint>
+			<date type="published" when="2010-03" />
+			<biblScope unit="page" from="281" to="282" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">There&apos;s a Patient Under There Somewhere: The Incredible Medical Robots That Have Saved a Record Number of Men From Deadly Prostate Cancer</title>
+		<author>
+			<persName><forename type="first">Alexandra</forename><surname>Thompson</surname></persName>
+		</author>
+		<ptr target="http://www.dailymail.co.uk/health/article-5114551/Robot-surgery-save-men-prostate-cancer.html" />
+		<imprint>
+			<date type="published" when="2018-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Benefits of Robotic Prostate Cancer Surgery</title>
+		<author>
+			<persName><surname>Roboticoncology</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Com</surname></persName>
+		</author>
+		<ptr target="http://www.roboticoncology.com/robotic-prostate-surgery/" />
+		<imprint>
+			<date type="published" when="2018-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Transatlantic robot-assisted telesurgery</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Marescaux</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">413</biblScope>
+			<biblScope unit="issue">6854</biblScope>
+			<biblScope unit="page" from="379" to="380" />
+			<date type="published" when="2001" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Telesurgery robot based on 5G tactile Internet</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Miao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Peng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Hossain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Muhammad</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s11036-018-1110-3</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Mobile Netw. Appl</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1645" to="1654" />
+			<date type="published" when="2018-12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m">The Matrix</title>
+				<meeting><address><addrLine>Wachowski Brothers, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1999" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Fallout 4 VR</title>
+		<ptr target="http://store.steampowered.com/app/611660/Fallout_4_VR/" />
+		<imprint>
+			<date type="published" when="2017-12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Enscape</forename><surname>Gmbh</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Enscape3d</surname></persName>
+		</author>
+		<ptr target="https://enscape3d.com/" />
+		<imprint>
+			<date type="published" when="2017-11-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title/>
+		<ptr target="https://www.tiltbrush.com/" />
+	</analytic>
+	<monogr>
+		<title level="j">Google Inc. Tilt Brush. Accessed</title>
+		<imprint>
+			<date type="published" when="2017-11-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Flesh and Sand (Spanish: Carne y arena),&apos;&apos; Legendary Pictures, USA</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">G</forename><surname>Iñárritu</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017-05" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Tech. Rep.</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Velasco</surname></persName>
+		</author>
+		<ptr target="https://vrsource.com/htc-vive-review-3443/" />
+		<title level="m">HTC Vive Review</title>
+				<imprint>
+			<date type="published" when="2016-09" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Accessed</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">R</forename><surname>Oculus</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Oculus Rift</surname></persName>
+		</author>
+		<ptr target="https://www.oculus.com/rift/" />
+		<imprint>
+			<date type="published" when="2018-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">Lighthouse Tracking Examined</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Kreylos</surname></persName>
+		</author>
+		<ptr target="http://doc-ok.org/?p=1478" />
+		<imprint>
+			<date type="published" when="2016-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Introduction to Robotics: Mechanics and Control</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Niku</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010" />
+			<publisher>Wiley</publisher>
+			<pubPlace>Hoboken, NJ, USA</pubPlace>
+		</imprint>
+	</monogr>
+	<note>2nd ed.</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Available: https://youtu.be/vXntSUtoEFc [26] Robots and Robotic Devices-Safety Requirements for Industrial Robots-Part 1: Robots</title>
+		<imprint>
+			<date type="published" when="2011" />
+			<pubPlace>Geneva, Switzerland</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>ISO</orgName>
+		</respStmt>
+	</monogr>
+	<note>Inside Tesla 06.12.12-Paint. Accessed</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">Robots and Robotic Devices-Collaborative Robots</title>
+		<idno>ISO/TS 15066:2016</idno>
+		<imprint>
+			<date type="published" when="2016" />
+			<pubPlace>Geneva, Switzerland</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>ISO</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">The URScript Programming Language</title>
+		<ptr target="https://www.universal-robots.com/download/?option=22197#section21968" />
+		<imprint>
+			<date type="published" when="2017-09-29" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m" type="main">User Manual UR3/CB3</title>
+		<imprint>
+			<date type="published" when="2017-09-29" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<title level="m" type="main">UR3 Robot</title>
+		<ptr target="https://www.universal-robots.com/products/ur3-robot/" />
+		<imprint>
+			<date type="published" when="2018-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title level="m" type="main">Unity</title>
+		<ptr target="https://unity3d.com/unity" />
+		<imprint>
+			<date type="published" when="2018-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">OpenVR</title>
+		<author>
+			<persName><surname>Valvesoftware</surname></persName>
+		</author>
+		<ptr target="https://github.com/ValveSoftware/openvr/wiki/API-Documentation" />
+		<imprint>
+			<date type="published" when="2018-01-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">Requirements for Internet Hosts-Communication Layers, document RFC 1122, Internet Engineering Task Force</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Braden</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1989-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<monogr>
+		<ptr target="http://tools.ietf.org/html/rfc1122" />
+		<title level="m">Available</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">UR10 Performance Analysis</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Ravn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Andersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Andersen</surname></persName>
+		</author>
+		<ptr target="http://orbit.dtu.dk/ws/files/105275650/ur10_performance_analysis.pdf" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<title level="m" type="main">Virtual reality control system for industrial robot</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Laaki</surname></persName>
+		</author>
+		<ptr target="http://urn.fi/URN:NBN:fi:aalto-201804031991" />
+		<imprint>
+			<date type="published" when="2018" />
+			<pubPlace>Helsinki, Finland</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Aalto Univ. School Eng.</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">M.S. thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<title level="m" type="main">Learning flow characteristics distributions with elm for distributed denial of service detection and mitigation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kalliola</surname></persName>
+		</author>
+		<editor>Proc. ELM, J. Cao, E. Cambria, A. Lendasse, Y. Miche, and C. M. Vong</editor>
+		<imprint>
+			<date type="published" when="2018" />
+			<publisher>Springer</publisher>
+			<biblScope unit="page" from="129" to="143" />
+			<pubPlace>Cham, Switzerland</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<monogr>
+		<title level="m" type="main">UR3 VR Remote Control: Tracking Demo</title>
+		<author>
+			<persName><forename type="first">Heikki</forename><surname>Laaki</surname></persName>
+		</author>
+		<ptr target="https://youtu.be/Sfv-Mot8cvo" />
+		<imprint>
+			<date type="published" when="2018-01-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">Cybertrust Seminar-Yoan Miche-Nokia Bell Labs</title>
+		<ptr target="https://youtu.be/k9bYKdxGVDA" />
+		<imprint>
+			<date type="published" when="2017-09" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Virtual reality induced symptoms and effects (VRISE): Comparison of head mounted display (HMD), desktop and projection display systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sharples</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Cobb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Moody</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Wilson</surname></persName>
+		</author>
+		<ptr target="http://www.sciencedirect.com/science/article/pii/S014193820700100X" />
+	</analytic>
+	<monogr>
+		<title level="j">Displays</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="58" to="69" />
+			<date type="published" when="2008" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Force feedback plays a significant role in minimally invasive surgery: Results and analysis</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Tholey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Desai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Castellanos</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. Surg</title>
+		<imprint>
+			<biblScope unit="volume">241</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="102" to="109" />
+			<date type="published" when="2005" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+		<title level="m" type="main">Hospital Tests Lag Time for Robotic Surgery 1,200 Miles Away From Doctor</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Mearian</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<monogr>
+		<title level="m" type="main">Security Tip (ST04-015)</title>
+		<ptr target="https://www.us-cert.gov/ncas/tips/ST04-015" />
+		<imprint>
+			<date type="published" when="2018-05" />
+		</imprint>
+		<respStmt>
+			<orgName>United States Computer Emergency Readiness Team.</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<title level="m" type="main">Information Hiding Techniques for Steganography and Digital Watermarking</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Katzenbeisser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">A P</forename><surname>Petitcolas</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2000" />
+			<publisher>Artech House</publisher>
+			<pubPlace>Norwood, MA, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Digital rights management</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Subramanya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">K</forename><surname>Yi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Potentials</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="31" to="34" />
+			<date type="published" when="2006-03" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<monogr>
+		<title level="m" type="main">DRM Getting You Down? Here&apos;s How to Strip Your Music and Movies of Restrictions</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Widder</surname></persName>
+		</author>
+		<ptr target="https://www.digitaltrends.com/home-theater/how-to-remove-drm-from-music-and-movie-files/" />
+		<imprint>
+			<date type="published" when="2015-02" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<monogr>
+		<title level="m" type="main">Trusted platform module,&apos;&apos; in Encyclopedia of Cryptography and Security</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Morris</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011" />
+			<publisher>Springer</publisher>
+			<biblScope unit="page" from="1332" to="1335" />
+			<pubPlace>Boston, MA, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">W</forename><surname>Arthur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Challener</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Goldman</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015" />
+			<publisher>Springer</publisher>
+			<biblScope unit="page" from="23" to="37" />
+			<pubPlace>Berkeley, CA, USA</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Quick tutorial on TPM 2.0,&apos;&apos; in A Practical Guide to TPM 2.0.</note>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<title level="m" type="main">Securing executable content using a trusted computing platform</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">S</forename><surname>Nachenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Mccorkendale</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010-04-06" />
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="694" to="139" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<monogr>
+		<title level="m" type="main">Method and apparatus for providing secure virtualization of a trusted platform module</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">R</forename><surname>Scarlata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">V</forename><surname>Rozas</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2009-09-15" />
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="590" to="867" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Multi factor user authentication</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Kirillin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zemlyanskiy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Baranov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Podoshvin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Patent</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page">464</biblScope>
+			<date type="published" when="2013-11-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Comparing passwords, tokens, and biometrics for user authentication</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>O'gorman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE</title>
+				<meeting>IEEE</meeting>
+		<imprint>
+			<date type="published" when="2003-12" />
+			<biblScope unit="volume">91</biblScope>
+			<biblScope unit="page" from="2021" to="2040" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<monogr>
+		<title level="m" type="main">An introduction to biometric authentication systems,&apos;&apos; in Biometric Systems</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Wayman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Maltoni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Maio</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005" />
+			<publisher>Springer</publisher>
+			<biblScope unit="page" from="1" to="20" />
+			<pubPlace>London, U.K.</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Practical biometric authentication with template protection</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Tuyls</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H M</forename><surname>Akkermans</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A M</forename><surname>Kevenaar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G.-J</forename><surname>Schrijen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Bazen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">N J</forename><surname>Veldhuis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Int. Conf. Audio-Video-Based Biometric Person Authentication</title>
+				<meeting>Int. Conf. Audio-Video-Based Biometric Person Authentication<address><addrLine>Berlin, Germany</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2005" />
+			<biblScope unit="page" from="436" to="446" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<monogr>
+		<title level="m" type="main">Photos of an NSA &apos;Upgrade&apos; Factory Show Cisco Router Getting Implant</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gallagher</surname></persName>
+		</author>
+		<ptr target="https://arstechnica.com/tech-policy/2014/05/photos-of-an-nsa-upgrade-factory-show-cisco-router-getting-implant/" />
+		<imprint>
+			<date type="published" when="2014-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Security for 5G mobile wireless networks</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Fang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Qian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">Q</forename><surname>Hu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="4850" to="4874" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>3gpp</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Security</surname></persName>
+		</author>
+		<ptr target="http://www.3gpp.org/news-events/3gpp-news/1975-sec_5g" />
+		<imprint>
+			<date type="published" when="2018-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">An ultrasound robotic system using the commercial robot ur5</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Mathiassen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Fjellin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Glette</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">K</forename><surname>Hol</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">J</forename><surname>Elle</surname></persName>
+		</author>
+		<idno type="DOI">10.3389/frobt.2016.00001</idno>
+		<ptr target="https://www.frontiersin.org/article/10.3389/frobt.2016.00001" />
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers Robot. AI</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2016-02" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

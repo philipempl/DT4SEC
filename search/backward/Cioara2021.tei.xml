@@ -1,0 +1,1746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Optimizing the power factor of data centers connected to the smart grid</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>ACM</publisher>
+				<availability status="unknown"><p>Copyright ACM</p>
+				</availability>
+				<date type="published" when="2016-06-21">2016-06-21</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Tudor</forename><surname>Cioara</surname></persName>
+							<email>tudor.cioara@cs.utcluj.ro</email>
+							<affiliation key="aff0">
+								<orgName type="department">Computer Science Department</orgName>
+								<orgName type="institution">Technical University of Cluj-Napoca Cluj-Napoca</orgName>
+								<address>
+									<country key="RO">Romania</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ionut</forename><surname>Anghel</surname></persName>
+							<email>ionut.anghel@cs.utcluj.ro</email>
+							<affiliation key="aff0">
+								<orgName type="department">Computer Science Department</orgName>
+								<orgName type="institution">Technical University of Cluj-Napoca Cluj-Napoca</orgName>
+								<address>
+									<country key="RO">Romania</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ioan</forename><surname>Salomie</surname></persName>
+							<email>ioan.salomie@cs.utcluj.ro</email>
+							<affiliation key="aff0">
+								<orgName type="department">Computer Science Department</orgName>
+								<orgName type="institution">Technical University of Cluj-Napoca Cluj-Napoca</orgName>
+								<address>
+									<country key="RO">Romania</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Marcel</forename><surname>Antal</surname></persName>
+							<email>marcel.antal@cs.utcluj.ro</email>
+							<affiliation key="aff0">
+								<orgName type="department">Computer Science Department</orgName>
+								<orgName type="institution">Technical University of Cluj-Napoca Cluj-Napoca</orgName>
+								<address>
+									<country key="RO">Romania</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Massimo</forename><surname>Bertoncini</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Diego</forename><surname>Arnone</surname></persName>
+						</author>
+						<title level="a" type="main">Optimizing the power factor of data centers connected to the smart grid</title>
+					</analytic>
+					<monogr>
+						<title level="m">Proceedings of the 5th International Workshop on Energy Efficient Data Centres</title>
+						<meeting>the 5th International Workshop on Energy Efficient Data Centres						</meeting>
+						<imprint>
+							<publisher>ACM</publisher>
+							<date type="published" when="2016-06-21" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1145/2940679.2940682</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:29+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Digital twins</term>
+					<term>energy</term>
+					<term>smart grid</term>
+					<term>review</term>
+					<term>energy assets modeling</term>
+					<term>business models</term>
+					<term>energy services</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The Digital Twins (DTs) offer promising solutions for smart grid challenges related to the optimal operation, management, and control of energy assets, for safe and reliable distribution of energy. These challenges are more pressing nowadays than ever due to the large-scale adoption of distributed renewable resources at the edge of the grid. The digital twins are leveraging on technologies such as Internet of Things, big data analytics, machine learning, and cloud computing, to analyze data from different energy sensors, view and verify the status of physical energy assets and extract useful information to predict and optimize the asset's performance. In this paper, we will provide an overview of the DTs application domains in the smart grid while analyzing existing the state-of-the-art literature. We have focused on the following application domains: energy asset modeling, fault and security diagnosis, operational optimization, and business models. Most of the relevant literature approaches found are published in the last 3 years showing that the domain of DTs application in smart grid is hot and gradually developing. Anyway, there is no unified view on the DTs implementation and integration with energy management processes, thus, much work still needs to be done to understand and automatize the smart grid management.</head></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>The increasing trend for intermittent Distributed Energy Resources (DER) adoption and deployment at the edge of the energy grid is posing serious challenges concerning the operation, management, and control for safe and reliable distribution of energy. Digital Twins (DT) offer promising solutions for these challenges, being one of the top technological trends according to Gartner <ref type="bibr" target="#b0">[1]</ref>. The concept of DT is used to designate the virtual model of a physical asset. It was becoming increasingly popular with the digital transformation of manufacturing and distribution brought by Industry 4.0. Having a virtual model, one can apply datadriven analytics, run simulations, and what-if analyses to determine the asset behavior in real or hypothetical situations or to decide on control and optimization actions. Then the lessons learned can be applied to the physical asset manually or using actuators.</p><p>Lately, the energy ecosystem digitalization has become an important driver for achieving the targeted goals for decarbonization, cleaner energy, and efficient and secured resource management. Innovative technologies such as blockchain, or digital twins are considered the key to the transition of energy and utilities towards Energy 4.0. transition process. In particular, DTs integrate and leverage on technologies such as IoT, big data analytics, machine learning, and cloud computing, to analyze data from different sensors, view and verify the status of the physical energy asset and extract information to predict and optimize the asset's performance. They are used to virtually represent DERs and other energy assets and can be used in smart energy grid scenarios to conduct various analyses and process simulations concerning energy production, distribution, or consumption behavior <ref type="bibr" target="#b1">[2]</ref>. Their adoption is driven by the transition process towards a sustainable and zero-carbon energy sector which aims for optimal integration and usage of renewables, lower carbon footprint, and improved energy efficiency.</p><p>In this context, the DTs allow the development of new energy services and more decentralized business models where citizens and energy resources are becoming key active players acting as prosumers and contributing to grid sustainability goals <ref type="bibr" target="#b2">[3]</ref>. DTs can be applied for digitalizing various grid management processes such as energy production/consumption monitoring, load prediction, decision-making for energy management, balancing the supply and demand, energy security, and operation optimization <ref type="bibr" target="#b2">[3]</ref><ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b5">[5]</ref>. All the above features make DTs one of the most promising emerging technology for fueling smart energy grid development and decentralization, while at the same time supporting the implementation of the next generation of energy services. Their implementation and uptake are facilitated by cloud computing which plays an important role in integrating the energy assets from electrical power systems with the data networks, offering potentially unlimited computational and storage capacity. Consequently, lately, several papers have been published on DTs applications in the smart energy grid.</p><p>In this paper, we will provide an overview of the application domains of digital twins in the smart grid while analyzing existing state-of-the-art literature. For organizing the review, we will focus on the most relevant application domains as defined by ETIP SNET [2]:</p><p>• Asset Model (DTs for energy and performance assessment and management),</p><p>• Fault Model (DTs for diagnosis of errors/faults and security issues),</p><p>• Operational Model (DTs for optimal energy distribution, energy efficiency, and cost reduction),</p><p>• Business Model (DTs for innovative energy services and new business models).</p><p>The rest of this paper is structured as follows. Section II describes a general architecture for integrating DTs in the smart grid and the technology enablers, Section III presents DTs application domains in the smart grid organized in four relevant ones, while Section IV presents the paper's conclusions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. ARCHITECTURE AND TECHNOLOGY ENABLERS</head><p>Figure <ref type="figure" target="#fig_0">1</ref> shows an architecture for integrating and using DTs in smart grid applications. Several steps need to be implemented by leveraging on state-of-the-art technologies.</p><p>The first step is the creation of the DT model based on the actual measurements done on the energy assets <ref type="bibr" target="#b6">[6]</ref>. Various characteristics can be of interest such as active of reactive power, frequency, current, energy flexibility, etc. The energy asset model is constructed by using physics or engineering models, statistics, etc. Augmented reality models can be used for improving the human understanding of the energy assets' operational states <ref type="bibr" target="#b7">[7]</ref>. The next step addresses the coupling and integration of the DT model with the physical assets using energy sensors and actuators. The IoT sensors will be used to acquire various information regarding the energy assets operation while the actuators are used to enforce actions for control and optimization. The data monitoring will provide the software infrastructure for processing and aggregating the data received from the energy sensors. The third step aims to provide the technological support for running data-driven analytics on the data collected about energy assets. The smart grid can generate huge amounts of heterogeneous data thus big data analytics and machine learning are usually employed to efficiently handle them <ref type="bibr" target="#b8">[8]</ref>, <ref type="bibr" target="#b9">[9]</ref>. Data generated by the electricity network, weather, or geographical data can be used to improve energy services delivery. The amount of data that is acquired may pose challenges regarding efficient storage and analysis using conventional approaches <ref type="bibr" target="#b10">[10]</ref>. Additional challenges are given by the velocity at which new data is generated and moved, the variety in terms of heterogeneity of data that can be integrated, and finally the potential noise and lack of reliability of the acquisition process.</p><p>By twining data with accurate DT models of energy assets, valuable insights or information can be extracted and integrated within many smart grids' applications like operation maintenance, energy prediction, security and protection, errors detection, etc. In this context, machine learning can offer a series of benefits such as efficient load forecasting, better support for decision making or pattern detection. This kind of algorithms may be integrated with all processes and components that assure the smartness of the grid and offers better reliability in guaranteeing the quality and efficiency in energy delivery and may support the implementation of advanced services such as demand response. Machine learning allows for real-time data analysis and prediction of prosumers' energy demand or energy generation by only looking at the energy profiles. To improve accuracy and reduce model uncertainty, the energy-related features, such as demand, generation, the baseline can be fused with non-energy related vectors and contextual features determined using simulations of energy assets DTs.</p><p>Finally, the gathered insights are used for optimizing and controlling the operation of the energy assets. Model-based predictive control can be employed on both linear and nonlinear systems <ref type="bibr" target="#b11">[11]</ref>, <ref type="bibr" target="#b12">[12]</ref>. The energy assets are measured and compared to the DT model built and can be used on what if decision making to optimize the future operational states. DT models and predictive control offer promising solutions for optimizing energy efficiency, improving the performance of the energy assets, and deciding on strategies to anticipate negative events that can affect the energy grid resilience.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. DTS APPLICATION DOMAINS</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Energy assets modeling</head><p>Energy assets modeling has an important role for smart grid operators since it allows assessing and evaluating the performance of the grid ecosystem and provides new ways for better managing the energy demand, generation, and distribution. Major industry players such as ABB <ref type="bibr">[20]</ref> or Honeywell <ref type="bibr">[19]</ref> have successfully approached the management of grid assets using DTs. DTs allow the implementation of complex performance assessment models and for virtually visualize the grid resources energy behavior <ref type="bibr" target="#b2">[3]</ref>. The development of real-time analysis of complex energy systems is proposed in <ref type="bibr" target="#b13">[13]</ref>. The authors define a framework for DT representation by virtually modeling the grid snapshot states using DTs and applying machine learning algorithms to conduct performance assessments. In <ref type="bibr" target="#b17">[17]</ref> the authors propose a platform for smart city energy management leveraging on DTs. Smart meters are used to gather assets data that is fed to DT virtual models of buildings with the final goal of benchmarking the building performance in terms of energy efficiency. In <ref type="bibr" target="#b23">[25]</ref> the authors propose the development of a DT-based framework for energy demand management. The real-time data gathered from buildings is virtualized through DTs while ML models are used to offer insights to grid operators. Simulations on the DT models allow to observe demand curves and to safely manage grid response.</p><p>In other domains such as manufacturing, DTs can help to virtualize resources for achieving fine-grained energy consumption management and evaluating the energy performance of specific equipment by conducting simulations <ref type="bibr" target="#b20">[22]</ref>. DTs are key technology enablers to build accurate models of the physical grid and carry out simulations to determine potential energy service interruptions <ref type="bibr" target="#b24">[26]</ref>. In this way, the running of tests directly on the grid is avoided and continuous assessment platforms can be developed.</p><p>In the case of renewable energy resources, the development of DTs poses challenges such as independent monitoring of their operation to reflect their real-time functionality, the different time and scale granularity, or the intermittence of generation <ref type="bibr" target="#b16">[16]</ref>. Mathematical models are defined to represent measurable parameters of photovoltaic systems and to further run simulations to evaluate their generation performance <ref type="bibr" target="#b14">[14]</ref>. Similarly, wind farms and wind turbine management can be optimized by representing these assets as DTs, estimating in real-time their performance, and managing their health <ref type="bibr" target="#b15">[15]</ref>. Characteristics and operational parameters of such assets are represented in virtual spaces and then further processed. DTs are used for representing energy storage systems virtually and assessing their performance to define operation scheduling plans before proper operation <ref type="bibr" target="#b3">[4]</ref>. They are built upon real operation parameters of energy storage systems and simulations are used to define charging/discharging schedules based on ML techniques and decision trees.</p><p>Electric Vehicles (EVs) are growing in numbers posing serious concerns for smart grid operators. Studies highlight the added value of DTs of EV assets especially for delivering intelligent charging management. Using complex simulations, the grid can understand different types of negative scenarios such as congestion management and can avoid them by better administrating the charging stations <ref type="bibr" target="#b22">[24]</ref>. In other approaches, DTs are used for modeling fleets of EVs and simulating their behavior to better manage their charging schedules <ref type="bibr" target="#b21">[23]</ref>. Parameters such as energy consumption, charging capacity, and charging frequency are used to create virtual models. Time-series simulations are used for evaluating the performance of a network of EV charging stations and to make decisions for design and architecture optimization in terms of density and location.</p><p>Finally, a rather common approach for DT modeling found in the state of the art is to use semantic web and ontologies. They allow building multilayer architectures for the specific configurations of the smart grids and for various energy assets <ref type="bibr" target="#b18">[18]</ref>. Consumers' load profiles, generation infrastructures, power supply systems can be all modeled using hierarchical structures provided by ontologies and fed as input to reasoning processes to assess their performance. Moreover, the usage of semantic web technologies for modeling energy assets allows for achieving a certain level of genericity for the modeling and simulation solutions being able to be easily adapted to different energy assets or types of smart grid architectures <ref type="bibr" target="#b19">[21]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Fault and security diagnosis</head><p>As the smart grid, operational complexity is increasing faults may occur in various components of the electrical infrastructure <ref type="bibr" target="#b36">[38]</ref>. The main challenges are to timely diagnose and eventually avoid them. Otherwise, they can cause instabilities, energy distribution problems, losses that may culminate with power outrage <ref type="bibr" target="#b35">[37]</ref>. At the same time, cyber-attacks or natural disasters can also lead to failures, privacy breaches, and even blackouts <ref type="bibr" target="#b37">[39]</ref>. For example, a coordinated attack on the energy grid of Ukraine has caused a power blackout that affected 225,000 households <ref type="bibr" target="#b38">[40]</ref>.</p><p>Even though DTs have promising features for addressing all these aspects for energy grids few relevant approaches can be found in the literature. In the case of dynamic systems like the smart grid, a balance should be kept between fault estimation and state estimation <ref type="bibr" target="#b6">[6]</ref>. DTs can be used to predict potential failures, detect security issues that may affect the safe operation of energy assets, and implement mitigation actions or predictive maintenance processes <ref type="bibr" target="#b34">[36]</ref>, <ref type="bibr" target="#b35">[37]</ref>, <ref type="bibr" target="#b36">[38]</ref>. Machine learning models and discrete-time models are proposed to detect potential warnings at the edge of the grid while transient state estimators may predict future operational faults <ref type="bibr" target="#b32">[34]</ref>. Digital twins of grid batteries are proposed by fusing the degradation modes with machine learning techniques. This approach enables the identification and diagnosis of battery faults as well as the more advanced control of battery usage prolonging their lifetime <ref type="bibr" target="#b33">[35]</ref>. A DT model for fault detection of drivetrains in offshore wind turbines is defined in <ref type="bibr" target="#b37">[39]</ref>. Besides fault detection, the DTs are used to diagnose the faults and for implementing a predictive maintenance process. Mathematical models and analyses are used for fault diagnosis in the case of different energy assets. In <ref type="bibr" target="#b14">[14]</ref> a digital twin of a Photovoltaic System energy conversion unit is described, while the fault is detected using error residual vectors, enabling real-time detection.</p><p>Even though DTs have great potential for managing more efficiently the energy assets security challenges need to be addressed <ref type="bibr" target="#b41">[42]</ref>. Digital twins are proposed and used as a solution for analyzing potential threats to the smart grid and to assess its resilience. The DT model the grid operation to detect and avoid energy services disruptions <ref type="bibr" target="#b39">[41]</ref>. The smart grid cybersecurity standards and potential threats are reviewed, and the authors propose the use of DTs to mitigate the lack of standardization. In <ref type="bibr" target="#b5">[5]</ref> DT is used as a solution to mitigate coordinated attacks onto a network of interconnected power grids. Concepts like the IoT shadow and cyber-physical DT of the micro-grids network are mathematically formalized while an agent-based resilient control algorithm is implemented to detect attacks. Software-defined networks and digital twins are successfully used in <ref type="bibr" target="#b39">[41]</ref> to improve the resilience of the smart grid in case of attacks such as distributed denial-ofservice or packet delay.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Grid operation and control</head><p>For optimizing energy consumption, reducing costs, and improving efficiency, DTs can act as an intermediary layer above the energy grid resources through which control decisions can be validated and enforced in real-time. Combined with trending technologies such as blockchain, they can be used to run predictions or simulations to estimate how a physical system acts in a specific situation and to improve its operational control <ref type="bibr" target="#b31">[33]</ref>. In the case of large-scale distributed energy grids with lots of interconnected energy assets joining DTs with the decentralized nature of blockchain technology and smart contracts can further improve the smart grid operation and control starting from twinning the resources and adding them to blockchain networks <ref type="bibr" target="#b50">[51]</ref>.</p><p>DTs can pave the way for building platforms that involve complex event processing, ML, and that are mainly used to digitize the grid dispatching rules and optimize the energy distribution. DTs for Net Zero Energy Buildings are considered a solution to optimize the renewable usage and efficiency in energy consumption <ref type="bibr" target="#b25">[27]</ref>. They deal with thermal models, energy usage, and cost analysis as DT components to optimize the energy efficiency of apartments. Simulation can be carried out also for the thermal design of a heating and cooling system of buildings using DTs <ref type="bibr" target="#b26">[28]</ref>. For optimal energy, distribution approaches propose modeling distribution transformers as DT and computing medium voltage (MV) waveforms for identifying problems that may arise and congestion points <ref type="bibr" target="#b27">[29]</ref>. In <ref type="bibr" target="#b28">[30]</ref> the authors combine distributed network concepts with DT to evaluate the performance of smart grid distribution network transformers operation to defects and fix them before real-world deployment. Similarly, in <ref type="bibr" target="#b29">[31]</ref> DTs are used to optimize energy resource usage and energy distribution paths. The model is combined with particle swarm optimization (PSO) algorithms optimization and times-series based simulations are carried out. To analyze the behavior under critical events in the power grid DT can be combined with decision-making techniques based on neural networks <ref type="bibr" target="#b30">[32]</ref>. Such rule-events approaches can be assessed on DTs of the real-world distribution system assets to detect the critical events and to enforce intelligent control.</p><p>The complexity of the energy system is addressed using a system of system engineering as a methodology in which each sub-system integration can be optimized using DTs <ref type="bibr" target="#b51">[52]</ref>. In <ref type="bibr" target="#b52">[53]</ref> the authors propose an integrated energy system for testing and evaluating the impact of demand-response equipment on energy distribution. The simulation environment is modeled using a system of systems approach while hardware in the loop is used to run and control the simulation. Finally, in <ref type="bibr" target="#b53">[54]</ref> an optimization process is implemented on top of a thermal and electrical system of system model of a DC. System-level flexibility and nonlinear optimization processes are used to grid the DC energy demand towards a target goal.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Business models</head><p>Traditionally a business model should define how an enterprise will deliver value to customers, how customers will pay for the value, and how the enterprise will convert those payments to profit <ref type="bibr" target="#b42">[43]</ref>. In this context, DTs have been proposed for managing customer profiles, expectations and raise their awareness about the new energy services that are made available <ref type="bibr" target="#b2">[3]</ref>. Data regarding customer preferences, satisfaction, and behavior are used to construct DTs and fed to train and run big data analytics to generate reports for customer awareness. Indeed, DTs are currently seen as a key asset for customer engagement. Using historical customer data, a DT profile can be constructed and used as a baseline for creating energy customer-targeted service offers. This kind of digital twins enabled process is applied in various domains such as transportation, online shopping, and energy grid <ref type="bibr" target="#b43">[44]</ref>, <ref type="bibr" target="#b22">[24]</ref>, <ref type="bibr" target="#b23">[25]</ref>.</p><p>In the energy domain the flexibility profiles of non-gridowned energy assets, devices such as heat pumps, EVs, hot water boilers, are not coupled with information relating to the user's wishes in terms of comfort, convenience, and wellbeing <ref type="bibr" target="#b38">[40]</ref>. A user's DT profile seamlessly incorporates their flexibility profiles representing the selected flexibility assets can increase the "smartness level" of buildings which will lead to increased participation in energy flexibility services <ref type="bibr" target="#b44">[45]</ref>, <ref type="bibr" target="#b17">[17]</ref>. In this way, the small-scale energy prosumer is enabled to trade their energy flexibility and participate in flexibilitydriven demand response (DR) programs. Moreover, the DTs may drive the design and implementation of cross-value chain DR business models, which enable increased consumers' DR participation and hence enable better grid management, while contributing to electricity grid reinforcement and obtaining lower energy prices for consumers <ref type="bibr" target="#b46">[47]</ref>.</p><p>In this context, the business models are based on open horizontal integration across the entire socio-economic ecosystem of the smart grid. All interested energy stakeholders will be enabled to cooperate at the digital level taking advantage of prosumers-owned energy flexibility assets. The business models will exploit digital global awareness of both energy demand and supply at the edge of the grid level facilitated by the DTs integration to define and deliver new customized energy services leveraging on increased levels of energy flexibility.</p><p>DTs facilitate the design and the development of customized energy services to appropriate clusters of prosumers organized in communities and the investigation of novel virtual aggregation business models <ref type="bibr" target="#b47">[48]</ref>, <ref type="bibr" target="#b48">[49]</ref>. New sharing economy models can be validated in smart grid scenarios by leveraging on DTs of flexibility assets <ref type="bibr" target="#b45">[46]</ref>. In this case, the consumers, the owners of flexible assets, and energy stakeholders will cooperate to achieve communitylevel welfare or energy grid sustainability objectives <ref type="bibr" target="#b46">[47]</ref>. In that respect monetary and non-monetary incentives are split among the different local energy stakeholders, consumers and grid operators will be motivating energy consumers' participation in such energy communities. Also, the incentives can be used for additional investments in community levels energy assets for unlocking even more flexibility or for increasing the levels of renewable energy locally used <ref type="bibr" target="#b16">[16]</ref>. In that respect, the DTs of energy assets will allow the investigation of business innovation using various configurations of shared asset ownership at the local community level.</p><p>DTs can be used for accurately estimating communitylevel flexibility and to find local synergies using simulations with other energy carriers such as gas, water, and heat for increasing the levels of flexibility committed <ref type="bibr" target="#b2">[3]</ref>. Shared assets like energy storage systems lack solutions for digital integration which prevents fine-grained asset monitoring and cost-effective and efficient and reliable operation <ref type="bibr" target="#b3">[4]</ref>. These can be facilitated by the usage of DTs and data-driven analytics to analyze the performance of the individual assets concerning performance degradation and utilization rate <ref type="bibr" target="#b20">[22]</ref>. On top value stacking energy services, offers can be defined at the interplay among energy, mobility, health, or ambient assistive living.</p><p>Finally, the DTs can facilitate the implementation of virtual energy aggregation business models. In this case, prosumers may join in virtual coalitions such as Virtual Power Plants to deliver energy services to grid operators or to trade energy on different markets <ref type="bibr" target="#b46">[47]</ref>, <ref type="bibr" target="#b47">[48]</ref>. The main drivers, in this case, are the increasing need to optimize the output from multiple local generation assets (i.e. wind turbines, small hydro, photovoltaic, back-up generators, etc.) and the increase of constituents' prosumers profit. The DTs can be used for analyzing and predicting the energy profiles <ref type="bibr" target="#b10">[10]</ref> of such coalitions that mix different energy generation assets which have different energy generation models and scale with a view of reducing the associated uncertainty and optimally deliver energy services.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. CONCLUSIONS</head><p>In this paper, we presented an overview of the most relevant application domains of DTs in the energy field by conducting literature analysis, describing classifying the approaches found. After searching several databases, 52 papers on DT and energy have been selected and classified according to four application domains: energy asset modeling, fault and security diagnosis, grid operation optimization, and control and business models.</p><p>Even though DTs offer promising features in managing several aspects of the smart energy grid a relatively low number of papers can be found in the literature addressing the DTs applications in the energy domain. There is no consensus or unified modeling and implementation process for DTs integration with smart grid management processes. Each reviewed paper is focused on the development of specific aspects of features of DTs tailored for different energy assets, smart grid configurations, or energy services.</p><p>Anyway, since most of the literature approaches identified are from the last two or three years (over 81%) we can conclude that DTs applications in the energy grid are gradually developing the researchers starting to explore indepth critical aspects of their implementation. But the ultimate goal of understanding and replicating completely the behavior of the physical energy asset and automating smart grid management is still far away.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. DTs in smart grid applications</figDesc></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENT</head><p>This work has been conducted within the BRIGHT project grant number 957816 funded by the European Commission as part of the H2020 Framework Programme and it was partially supported by a grant of the Romanian Ministry of Education and Research, CNCS/CCCDI-UEFISCDI, project number PN-III-P3-3.6-H2020-2020-0031.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Digital Enterprises</title>
+		<idno type="DOI">10.1142/9789811200748_0002</idno>
+		<ptr target="https://www.gartner.com/en/newsroom/press-releases/2019-02-20-gartner-survey-reveals-digital-twins-are-entering-mai" />
+	</analytic>
+	<monogr>
+		<title level="m">Handbook of Digital Enterprise Systems</title>
+				<imprint>
+			<publisher>WORLD SCIENTIFIC</publisher>
+			<date type="published" when="2019-06" />
+			<biblScope unit="page" from="20" to="63" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">ETIP :</title>
+		<author>
+			<persName><forename type="first">Jordan</forename><forename type="middle">D</forename><surname>Lewis</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nbs.ir.75-778</idno>
+		<ptr target="https://www.etip-snet.eu/wp-content/uploads/2018/10/ETIP-SNET-Position-Paper-on-Digitalisation-FINAL-1.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Digitalization of the Energy System and Customer Participation</title>
+		<imprint>
+			<date type="published" when="1975" />
+			<publisher>National Bureau of Standards</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>ETIP SNET</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Uses of the digital twins concept for energy services, intelligent recommendation systems, and demand side management: A review</title>
+		<author>
+			<persName><forename type="first">Abiodun</forename><forename type="middle">E</forename><surname>Onile</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ram</forename><surname>Machlev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eduard</forename><surname>Petlenkov</surname></persName>
+			<idno type="ORCID">0000-0003-2167-6280</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Yoash</forename><surname>Levron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juri</forename><surname>Belikov</surname></persName>
+			<idno type="ORCID">0000-0002-8243-7374</idno>
+		</author>
+		<idno type="DOI">10.1016/j.egyr.2021.01.090</idno>
+		<ptr target="https://doi.org/10.1016/j.egyr.2021.01.090" />
+	</analytic>
+	<monogr>
+		<title level="j">Energy Reports</title>
+		<title level="j" type="abbrev">Energy Reports</title>
+		<idno type="ISSN">2352-4847</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="997" to="1015" />
+			<date type="published" when="2021-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">MP-03.04</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Park</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H.-A</forename><surname>Park</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Park</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.urology.2006.08.197</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Urology</title>
+		<title level="j" type="abbrev">Urology</title>
+		<idno type="ISSN">0090-4295</idno>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="page">62</biblScope>
+			<date type="published" when="2006-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Digital Twin for Operation of Microgrid: Optimal Scheduling in Virtual Space of Digital Twin</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Byeon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Son</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H.-C</forename><surname>Jo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kim</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/en13205504</idno>
+		<ptr target="https://doi.org/10.3390/en13205504" />
+		<imprint>
+			<biblScope unit="volume">2020</biblScope>
+			<biblScope unit="page">5504</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">On the Implementation of IoT-Based Digital Twin for Networked Microgrids Resiliency Against Cyber Attacks</title>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Saad</surname></persName>
+			<idno type="ORCID">0000-0001-9726-7411</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Samy</forename><surname>Faddel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tarek</forename><surname>Youssef</surname></persName>
+			<idno type="ORCID">0000-0001-9047-9163</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Osama</forename><forename type="middle">A</forename><surname>Mohammed</surname></persName>
+			<idno type="ORCID">0000-0002-2586-4046</idno>
+		</author>
+		<idno type="DOI">10.1109/tsg.2020.3000958</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="5138" to="5150" />
+			<date type="published" when="2020-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Recent advances on industrial data-driven energy savings: Digital twins and infrastructures, Renewable and Sustainable Energy Reviews</title>
+		<author>
+			<persName><forename type="first">Yong</forename><surname>Sin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michal</forename><surname>Teng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><forename type="middle">Dong</forename><surname>Touš</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bing</forename><forename type="middle">Shen</forename><surname>Leong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hon</forename><surname>How</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vítězslav</forename><surname>Loong Lam</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Máša</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.rser.2020.110208</idno>
+		<ptr target="https://doi.org/10.1016/j.rser.2020.110208" />
+		<imprint>
+			<date type="published" when="2021" />
+			<biblScope unit="volume">135</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Digital assembly technology based on augmented reality and digital twins: a review</title>
+		<author>
+			<persName><forename type="first">Chan</forename><surname>Qiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shien</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhenyu</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qi</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianrong</forename><surname>Tan</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.vrih.2019.10.002</idno>
+		<ptr target="https://doi.org/10.1016/j.vrih.2019.10.002" />
+	</analytic>
+	<monogr>
+		<title level="j">Virtual Reality &amp; Intelligent Hardware</title>
+		<title level="j" type="abbrev">Virtual Reality &amp; Intelligent Hardware</title>
+		<idno type="ISSN">2096-5796</idno>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="597" to="610" />
+			<date type="published" when="2019-12" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+	<note>Pages 597-610</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Digital Twin and Big Data Towards Smart Manufacturing and Industry 4.0: 360 Degree Comparison</title>
+		<author>
+			<persName><forename type="first">Qinglin</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+			<idno type="ORCID">0000-0002-9020-0633</idno>
+		</author>
+		<idno type="DOI">10.1109/access.2018.2793265</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="3585" to="3593" />
+			<date type="published" when="2018" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Machine Learning for Digital Twins to Predict Responsiveness of Cyber-Physical Energy Systems</title>
+		<author>
+			<persName><forename type="first">Ron</forename><surname>Snijders</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paolo</forename><surname>Pileggi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeroen</forename><surname>Broekhuijsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jacques</forename><surname>Verriet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marco</forename><surname>Wiering</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Koen</forename><surname>Kok</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mscpes49613.2020.9133695</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2020 8th Workshop on Modeling and Simulation of Cyber-Physical Energy Systems</title>
+				<meeting><address><addrLine>Sydney, NSW, Australia</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2020-04" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Application of Big Data in Smart Grids: Energy Analytics</title>
+		<author>
+			<persName><forename type="first">Azamat</forename><surname>Marlen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Askar</forename><surname>Maxim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ikechi</forename><forename type="middle">A</forename><surname>Ukaegbu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">S V S</forename><surname>Kumar Nunna</surname></persName>
+		</author>
+		<idno type="DOI">10.23919/icact.2019.8701973</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 21st International Conference on Advanced Communication Technology (ICACT)</title>
+				<meeting><address><addrLine>PyeongChang, Korea</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-02" />
+			<biblScope unit="page" from="402" to="407" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Embedded Implementation of Deep Learning-based Linear Model Predictive Control</title>
+		<author>
+			<persName><forename type="first">Saket</forename><surname>Adhau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sayli</forename><surname>Patil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Deepak</forename><surname>Ingole</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dayaram</forename><surname>Sonawane</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icc47138.2019.9123159</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 Sixth Indian Control Conference (ICC)</title>
+				<meeting><address><addrLine>Hyderabad, India</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-12" />
+			<biblScope unit="page" from="200" to="205" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Optimal nonlinear model predictive control based on Bernstein polynomial approach</title>
+		<author>
+			<persName><forename type="first">Bhagyesh</forename><forename type="middle">V</forename><surname>Patil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">V</forename><surname>Ling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Maciejowski</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cdc.2017.8264303</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE 56th Annual Conference on Decision and Control (CDC)</title>
+				<meeting><address><addrLine>Melbourne, VIC, Australia</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-12" />
+			<biblScope unit="page" from="4363" to="4369" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Digital twin and its application to power grid online analysis</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Feng</surname></persName>
+		</author>
+		<idno type="DOI">10.17775/cseejpes.2018.01460</idno>
+	</analytic>
+	<monogr>
+		<title level="j">CSEE Journal of Power and Energy Systems</title>
+		<title level="j" type="abbrev">CSEE JPES</title>
+		<idno type="ISSN">2096-0042</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="391" to="398" />
+			<date type="published" when="2019-08-01" />
+			<publisher>Power System Technology Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">A Digital Twin Approach for Fault Diagnosis in Distributed Photovoltaic Systems</title>
+		<author>
+			<persName><forename type="first">Palak</forename><surname>Jain</surname></persName>
+			<idno type="ORCID">0000-0002-7759-501X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jason</forename><surname>Poon</surname></persName>
+			<idno type="ORCID">0000-0001-6197-697X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jai</forename><forename type="middle">Prakash</forename><surname>Singh</surname></persName>
+			<idno type="ORCID">0000-0002-4866-9040</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Costas</forename><surname>Spanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Seth</forename><forename type="middle">R</forename><surname>Sanders</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sanjib</forename><forename type="middle">Kumar</forename><surname>Panda</surname></persName>
+			<idno type="ORCID">0000-0002-9476-9755</idno>
+		</author>
+		<idno type="DOI">10.1109/tpel.2019.2911594</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Power Electronics</title>
+		<title level="j" type="abbrev">IEEE Trans. Power Electron.</title>
+		<idno type="ISSN">0885-8993</idno>
+		<idno type="ISSNe">1941-0107</idno>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="940" to="956" />
+			<date type="published" when="2020-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">A Review and Methodology Development for Remaining Useful Life Prediction of Offshore Fixed and Floating Wind turbine Power Converter with Digital Twin Technology Perspective</title>
+		<author>
+			<persName><forename type="first">Krishnamoorthi</forename><surname>Sivalingam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marco</forename><surname>Sepulveda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Spring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Davies</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icgea.2018.8356292</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 2nd International Conference on Green Energy and Applications (ICGEA)</title>
+				<meeting><address><addrLine>Singapore</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-03" />
+			<biblScope unit="page" from="197" to="204" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Challenges of developing a digital twin model of renewable energy generators</title>
+		<author>
+			<persName><forename type="first">Amir</forename><surname>Ebrahimi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/isie.2019.8781529</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE 28th International Symposium on Industrial Electronics (ISIE)</title>
+				<meeting><address><addrLine>Vancouver, BC, Canada</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-06" />
+			<biblScope unit="page" from="1059" to="1066" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Smart City Digital Twin–Enabled Energy Management: Toward Real-Time Urban Building Energy Benchmarking</title>
+		<author>
+			<persName><forename type="first">Abigail</forename><surname>Francisco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Neda</forename><surname>Mohammadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">E</forename><surname>Taylor</surname></persName>
+			<idno type="ORCID">0000-0002-8949-3248</idno>
+		</author>
+		<idno type="DOI">10.1061/(asce)me.1943-5479.0000741</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Management in Engineering</title>
+		<title level="j" type="abbrev">J. Manage. Eng.</title>
+		<idno type="ISSN">0742-597X</idno>
+		<idno type="ISSNe">1943-5479</idno>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">04019045</biblScope>
+			<date type="published" when="2020-03" />
+			<publisher>American Society of Civil Engineers (ASCE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Composition and Application of Power System Digital Twins Based on Ontological Modeling</title>
+		<author>
+			<persName><forename type="first">Sergey</forename><forename type="middle">K</forename><surname>Andryushkevich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Serge</forename><forename type="middle">P</forename><surname>Kovalyov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Evgeny</forename><surname>Nefedov</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/indin41052.2019.8972267</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE 17th International Conference on Industrial Informatics (INDIN)</title>
+				<meeting><address><addrLine>Helsinki, Finland</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-07" />
+			<biblScope unit="page" from="1536" to="1542" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Generic Digital Twin Architecture for Industrial Energy Systems</title>
+		<author>
+			<persName><forename type="first">Gernot</forename><surname>Steindl</surname></persName>
+			<idno type="ORCID">0000-0002-9035-9206</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Stagl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lukas</forename><surname>Kasper</surname></persName>
+			<idno type="ORCID">0000-0001-9474-3021</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Wolfgang</forename><surname>Kastner</surname></persName>
+			<idno type="ORCID">0000-0001-5420-404X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Rene</forename><surname>Hofmann</surname></persName>
+			<idno type="ORCID">0000-0001-6580-4913</idno>
+		</author>
+		<idno type="DOI">10.3390/app10248903</idno>
+		<ptr target="https://doi.org/10.3390/app10248903" />
+	</analytic>
+	<monogr>
+		<title level="j">Applied Sciences</title>
+		<title level="j" type="abbrev">Applied Sciences</title>
+		<idno type="ISSNe">2076-3417</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">24</biblScope>
+			<biblScope unit="page">8903</biblScope>
+			<date type="published" when="2020-12-13" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Equipment energy consumption management in digital twin shop-floor: A framework and potential applications</title>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ying</forename><surname>Zuo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icnsc.2018.8361272</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE 15th International Conference on Networking, Sensing and Control (ICNSC)</title>
+				<meeting><address><addrLine>Zhuhai, China</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-03" />
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Time series behavior modeling with digital twin for Internet of Vehicles</title>
+		<author>
+			<persName><forename type="first">Tianle</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiangtao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zongwei</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fuqiang</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu</forename><surname>Jiang</surname></persName>
+			<idno type="ORCID">0000-0002-6949-4876</idno>
+		</author>
+		<idno type="DOI">10.1186/s13638-019-1589-8</idno>
+		<ptr target="https://doi.org/10.1186/s13638-019-1589-8" />
+	</analytic>
+	<monogr>
+		<title level="j">EURASIP Journal on Wireless Communications and Networking</title>
+		<title level="j" type="abbrev">J Wireless Com Network</title>
+		<idno type="ISSNe">1687-1499</idno>
+		<imprint>
+			<biblScope unit="volume">2019</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">271</biblScope>
+			<date type="published" when="2019-12" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Towards the future of smart electric vehicles: Digital twin technology</title>
+		<author>
+			<persName><forename type="first">Ghanishtha</forename><surname>Bhatti</surname></persName>
+			<idno type="ORCID">0000-0002-6577-3261</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Harshit</forename><surname>Mohan</surname></persName>
+			<idno type="ORCID">0000-0002-5947-8629</idno>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Raja Singh</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.rser.2021.110801</idno>
+		<ptr target="https://doi.org/10.1016/j.rser.2021.110801" />
+	</analytic>
+	<monogr>
+		<title level="j">Renewable and Sustainable Energy Reviews</title>
+		<title level="j" type="abbrev">Renewable and Sustainable Energy Reviews</title>
+		<idno type="ISSN">1364-0321</idno>
+		<imprint>
+			<biblScope unit="volume">141</biblScope>
+			<biblScope unit="page">110801</biblScope>
+			<date type="published" when="2021-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Urban Building Energy CPS (UBE-CPS): Real-Time Demand Response Using Digital Twin</title>
+		<author>
+			<persName><forename type="first">Ravi</forename><forename type="middle">S</forename><surname>Srinivasan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Baalaganapathy</forename><surname>Manohar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Raja</forename><forename type="middle">R A</forename><surname>Issa</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-41560-0_17</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Cyber-Physical Systems in the Built Environment</title>
+				<editor>
+			<persName><forename type="first">C</forename><surname>Anumba</surname></persName>
+			<persName><forename type="first">N</forename><surname>Roofigari-Esfahan</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2020" />
+			<biblScope unit="page" from="309" to="322" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">A Digital Twins Approach to Smart Grid Security Testing and Standardization</title>
+		<author>
+			<persName><forename type="first">Manolya</forename><surname>Atalay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pelin</forename><surname>Angin</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/metroind4.0iot48571.2020.9138264</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2020 IEEE International Workshop on Metrology for Industry 4.0 &amp; IoT</title>
+				<meeting><address><addrLine>Roma, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2020-06" />
+			<biblScope unit="page" from="435" to="440" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">A Digital-Twin Evaluation of Net Zero Energy Building for Existing Buildings</title>
+		<author>
+			<persName><forename type="first">Sakdirat</forename><surname>Kaewunruen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Panrawee</forename><surname>Rungskunroch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joshua</forename><surname>Welsh</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/su11010159</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sustainability</title>
+		<title level="j" type="abbrev">Sustainability</title>
+		<idno type="ISSNe">2071-1050</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">159</biblScope>
+			<date type="published" when="2018-12-29" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Coupled simulation of thermally active building systems to support a digital twin</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">P</forename><surname>Lydon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Caranovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Hischier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Schlueter</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.enbuild.2019.07.015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Energy and Buildings</title>
+		<title level="j" type="abbrev">Energy and Buildings</title>
+		<idno type="ISSN">0378-7788</idno>
+		<imprint>
+			<biblScope unit="volume">202</biblScope>
+			<biblScope unit="page">109298</biblScope>
+			<date type="published" when="2019-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Digital Twin of Distribution Power Transformer for Real-Time Monitoring of Medium Voltage from Low Voltage Measurements</title>
+		<author>
+			<persName><forename type="first">Panayiotis</forename><surname>Moutis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Omid</forename><surname>Mousavi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tpwrd.2020.3017355</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Power Delivery</title>
+		<title level="j" type="abbrev">IEEE Trans. Power Delivery</title>
+		<idno type="ISSN">0885-8977</idno>
+		<idno type="ISSNe">1937-4208</idno>
+		<imprint>
+			<biblScope unit="page" from="1" to="1" />
+			<date type="published" when="2020" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">An Architecture Based on Digital Twins for Smart Power Distribution System</title>
+		<author>
+			<persName><forename type="first">Ganghong</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chao</forename><surname>Huo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Libin</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xinjun</forename><surname>Li</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icaibd49809.2020.9137461</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2020 3rd International Conference on Artificial Intelligence and Big Data (ICAIBD)</title>
+				<meeting><address><addrLine>Chengdu, China</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2020-05" />
+			<biblScope unit="page" from="29" to="33" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">State Estimation-Based Distributed Energy Resource Optimization for Distribution Voltage Regulation in Telemetry-Sparse Environments Using a Real-Time Digital Twin</title>
+		<author>
+			<persName><forename type="first">Rachid</forename><surname>Darbali-Zamora</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jay</forename><surname>Johnson</surname></persName>
+			<idno type="ORCID">0000-0001-9326-8011</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Summers</surname></persName>
+			<idno type="ORCID">0000-0002-5092-555X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Birk</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Clifford</forename><surname>Hansen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chad</forename><surname>Showalter</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/en14030774</idno>
+		<ptr target="https://doi.org/10.3390/en14030774" />
+	</analytic>
+	<monogr>
+		<title level="j">Energies</title>
+		<title level="j" type="abbrev">Energies</title>
+		<idno type="ISSNe">1996-1073</idno>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">774</biblScope>
+			<date type="published" when="2021-02-02" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Digital twin for smart electricity distribution networks</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Podvalny</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">M</forename><surname>Vasiljev</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/1757-899x/1035/1/012047</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IOP Conference Series: Materials Science and Engineering</title>
+		<title level="j" type="abbrev">IOP Conf. Ser.: Mater. Sci. Eng.</title>
+		<idno type="ISSN">1757-8981</idno>
+		<idno type="ISSNe">1757-899X</idno>
+		<imprint>
+			<biblScope unit="volume">1035</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">012047</biblScope>
+			<date type="published" when="2021-01-01" />
+			<publisher>IOP Publishing</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Empowering digital twins with blockchain</title>
+		<author>
+			<persName><forename type="first">Pethuru</forename><surname>Raj</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/bs.adcom.2020.08.013</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Computers</title>
+				<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2021" />
+			<biblScope unit="volume">121</biblScope>
+			<biblScope unit="page" from="267" to="283" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">A Hybrid Cyber Physical Digital Twin Approach for Smart Grid Fault Prediction</title>
+		<author>
+			<persName><forename type="first">Nikolaos</forename><surname>Tzanis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nikolaos</forename><surname>Andriopoulos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aris</forename><surname>Magklaras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eleftherios</forename><surname>Mylonas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Birbas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexios</forename><surname>Birbas</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icps48405.2020.9274723</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2020 IEEE Conference on Industrial Cyberphysical Systems (ICPS)</title>
+				<meeting><address><addrLine>Tampere, Finland</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2020-06-10" />
+			<biblScope unit="page" from="393" to="397" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Battery digital twins: Perspectives on the fusion of models, data and artificial intelligence for smart battery management systems</title>
+		<author>
+			<persName><forename type="first">Billy</forename><surname>Wu</surname></persName>
+			<idno type="ORCID">0000-0003-3963-4900</idno>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">Dhammika</forename><surname>Widanage</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shichun</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xinhua</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.egyai.2020.100016</idno>
+		<ptr target="https://doi.org/10.1016/j.egyai.2020.100016" />
+	</analytic>
+	<monogr>
+		<title level="j">Energy and AI</title>
+		<title level="j" type="abbrev">Energy and AI</title>
+		<idno type="ISSN">2666-5468</idno>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page">100016</biblScope>
+			<date type="published" when="2020-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">ANGEL: An Intelligent Digital Twin Framework for Microgrid Security</title>
+		<author>
+			<persName><forename type="first">William</forename><surname>Danilczyk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yan</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haibo</forename><surname>He</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/naps46351.2019.9000371</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 North American Power Symposium (NAPS)</title>
+				<meeting><address><addrLine>Wichita, KS, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-10" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Faults Classification and Identification on Smart Grid: Part-A Status Review</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">S</forename><surname>Hlalele</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2019.05.085</idno>
+		<ptr target="https://doi.org/10.1016/j.promfg.2019.05.085" />
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Manufacturing</title>
+		<title level="j" type="abbrev">Procedia Manufacturing</title>
+		<idno type="ISSN">2351-9789</idno>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="601" to="606" />
+			<date type="published" when="2019" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Fault diagnostics in smart micro-grids: A survey</title>
+		<author>
+			<persName><forename type="first">James</forename><surname>Hare</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaofang</forename><surname>Shi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shalabh</forename><surname>Gupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Bazzi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.rser.2016.01.122</idno>
+		<ptr target="https://doi.org/10.1016/j.rser.2016.01.122" />
+	</analytic>
+	<monogr>
+		<title level="j">Renewable and Sustainable Energy Reviews</title>
+		<title level="j" type="abbrev">Renewable and Sustainable Energy Reviews</title>
+		<idno type="ISSN">1364-0321</idno>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="page" from="1114" to="1124" />
+			<date type="published" when="2016-07" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Smart grids security challenges: Classification by sources of threats</title>
+		<author>
+			<persName><forename type="first">Mohd Wazir</forename><surname>Abdulrahaman Okino Otuoze</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Raja Masood</forename><surname>Mustafa</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Larik</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jesit.2018.01.001</idno>
+		<ptr target="https://doi.org/10.1016/j.jesit.2018.01.001" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Electrical Systems and Information Technology</title>
+		<idno type="ISSN">2314-7172</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="468" to="483" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Digital Twins for Cyber-Physical Systems Security: State of the Art and Outlook</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-25312-7_14</idno>
+		<ptr target="https://doi.org/10.1007/978-3-030-25312-7_14" />
+	</analytic>
+	<monogr>
+		<title level="m">Security and Quality in Cyber-Physical Systems Engineering</title>
+				<editor>
+			<persName><forename type="first">S</forename><surname>Biffl</surname></persName>
+			<persName><forename type="first">M</forename><surname>Eckhart</surname></persName>
+			<persName><forename type="first">A</forename><surname>Lüder</surname></persName>
+			<persName><forename type="first">E</forename><surname>Weippl</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="383" to="412" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Software-Defined Networking for Smart Grid Resilience</title>
+		<author>
+			<persName><forename type="first">Xinshu</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hui</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ravishankar</forename><forename type="middle">K</forename><surname>Iyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zbigniew</forename><surname>Kalbarczyk</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2732198.2732203</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 1st ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 1st ACM Workshop on Cyber-Physical System Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2015-04-14" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Software-Defined Networking for Smart Grid Resilience</title>
+		<author>
+			<persName><forename type="first">Xinshu</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hui</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ravishankar</forename><forename type="middle">K</forename><surname>Iyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zbigniew</forename><surname>Kalbarczyk</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2732198.2732203</idno>
+		<ptr target="https://doi.org/10.1145/2732198.2732203" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 1st ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 1st ACM Workshop on Cyber-Physical System Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2015-04-14" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Cyber-security in smart grid: Survey and challenges</title>
+		<author>
+			<persName><forename type="first">Zakaria</forename><forename type="middle">El</forename><surname>Mrabet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Naima</forename><surname>Kaabouch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hassan</forename><forename type="middle">El</forename><surname>Ghazi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hamid</forename><forename type="middle">El</forename><surname>Ghazi</surname></persName>
+			<idno type="ORCID">0000-0002-2790-4419</idno>
+		</author>
+		<idno type="DOI">10.1016/j.compeleceng.2018.01.015</idno>
+		<ptr target="https://doi.org/10.1016/j.compeleceng.2018.01.015" />
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Electrical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Electrical Engineering</title>
+		<idno type="ISSN">0045-7906</idno>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="page" from="469" to="482" />
+			<date type="published" when="2018-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Designing innovative business models: Five emerging meta-models</title>
+		<author>
+			<persName><forename type="first">Dean</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cara</forename><surname>Wrigley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karla</forename><surname>Straker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sam</forename><surname>Bucolo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tidms.2013.6981218</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2013 IEEE Tsinghua International Design Management Symposium</title>
+				<meeting><address><addrLine>Shenzhen, China</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013-12" />
+			<biblScope unit="page" from="70" to="77" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">A Survey on Digital Twin: Definitions, Characteristics, Applications, and Design Implications</title>
+		<author>
+			<persName><forename type="first">Barbara</forename><forename type="middle">Rita</forename><surname>Barricelli</surname></persName>
+			<idno type="ORCID">0000-0001-9575-5542</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Elena</forename><surname>Casiraghi</surname></persName>
+			<idno type="ORCID">0000-0003-2024-7572</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Daniela</forename><surname>Fogli</surname></persName>
+			<idno type="ORCID">0000-0003-1479-2240</idno>
+		</author>
+		<idno type="DOI">10.1109/access.2019.2953499</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="167653" to="167671" />
+			<date type="published" when="2019" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Ionut Anghel, Ioan Salomie, A Stacking Multi-Learning Ensemble Model for Predicting Near Real Time Energy Consumption Demand of Residential Buildings</title>
+		<author>
+			<persName><forename type="first">Andreea</forename><surname>Valeria Vesa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nicoleta</forename><surname>Ghitescu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Pop</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcel</forename><surname>Antal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tudor</forename><surname>Cioara</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE ICCP2019</title>
+		<imprint>
+			<date type="published" when="2019-09" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Exploiting data centres energy flexibility in smart cities: Business scenarios</title>
+		<author>
+			<persName><forename type="first">Tudor</forename><surname>Cioara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ionut</forename><surname>Anghel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ioan</forename><surname>Salomie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcel</forename><surname>Antal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Pop</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Massimo</forename><surname>Bertoncini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Diego</forename><surname>Arnone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Florin</forename><surname>Pop</surname></persName>
+			<idno type="ORCID">0000-0002-4566-1545</idno>
+		</author>
+		<idno type="DOI">10.1016/j.ins.2018.07.010</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Sciences</title>
+		<title level="j" type="abbrev">Information Sciences</title>
+		<idno type="ISSN">0020-0255</idno>
+		<imprint>
+			<biblScope unit="volume">476</biblScope>
+			<biblScope unit="page" from="392" to="412" />
+			<date type="published" when="2019-02" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Dynamic Coalitions of Prosumers in Virtual Power Plants for Energy Trading and Profit Optimization</title>
+		<author>
+			<persName><forename type="first">Giuseppe</forename><surname>Raveduto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vincenzo</forename><surname>Croce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcel</forename><surname>Antal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Pop</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ionut</forename><surname>Anghel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tudor</forename><surname>Cioara</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/melecon48756.2020.9140601</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2020 IEEE 20th Mediterranean Electrotechnical Conference ( MELECON)</title>
+				<meeting><address><addrLine>Palermo, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2020-06" />
+			<biblScope unit="page" from="16" to="18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">A Fog Computing enabled Virtual Power Plant Model for Delivery of Frequency Restoration Reserve Services</title>
+		<author>
+			<persName><surname>Pop</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Antal</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Cioara</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Anghel</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Salomie</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Bertoncini</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/s19214688</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<title level="j" type="abbrev">Sensors</title>
+		<idno type="ISSNe">1424-8220</idno>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">21</biblScope>
+			<biblScope unit="page">4688</biblScope>
+			<date type="published" when="2019-10-28" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Urban Digital Twins for Smart Cities and Citizens: The Case Study of Herrenberg, Germany</title>
+		<author>
+			<persName><forename type="first">Fabian</forename><surname>Dembski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Uwe</forename><surname>Wössner</surname></persName>
+			<idno type="ORCID">0000-0002-0389-4527</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Mike</forename><surname>Letzgus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Ruddat</surname></persName>
+			<idno type="ORCID">0000-0002-9625-9062</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Yamu</surname></persName>
+			<idno type="ORCID">0000-0002-2847-4975</idno>
+		</author>
+		<idno type="DOI">10.3390/su12062307</idno>
+		<ptr target="https://doi.org/10.3390/su12062307" />
+	</analytic>
+	<monogr>
+		<title level="j">Sustainability</title>
+		<title level="j" type="abbrev">Sustainability</title>
+		<idno type="ISSNe">2071-1050</idno>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page">2307</biblScope>
+			<date type="published" when="2020-03-16" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">A state-of-the-art survey of Digital Twin: techniques, engineering product lifecycle management and business innovation perspectives</title>
+		<author>
+			<persName><forename type="first">Kendrik</forename><forename type="middle">Yan Hong</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pai</forename><surname>Zheng</surname></persName>
+			<idno type="ORCID">0000-0002-2329-8634</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Chun-Hsien</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10845-019-01512-w</idno>
+		<ptr target="https://doi.org/10.1007/s10845-019-01512-w" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Intelligent Manufacturing</title>
+		<title level="j" type="abbrev">J Intell Manuf</title>
+		<idno type="ISSN">0956-5515</idno>
+		<idno type="ISSNe">1572-8145</idno>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1313" to="1337" />
+			<date type="published" when="2019-11-18" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Blockchain for Digital Twins: Recent Advances and Future Research Challenges</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Yaqoob</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Salah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Uddin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Jayaraman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Omar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Imran</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/MNET.001.1900661</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Network</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="290" to="298" />
+			<date type="published" when="2020-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Florin Pop, A System of Systems approach for data centers optimization and integration into smart energy grids, Future Generation Computer Systems</title>
+		<author>
+			<persName><forename type="first">Marcel</forename><surname>Antal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Pop</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tudor</forename><surname>Cioara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ionut</forename><surname>Anghel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ioan</forename><surname>Salomie</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.future.2017.05.021</idno>
+		<ptr target="https://doi.org/10.1016/j.future.2017.05.021" />
+	</analytic>
+	<monogr>
+		<title level="m">Pages 948-963</title>
+				<imprint>
+			<date type="published" when="2020" />
+			<biblScope unit="volume">105</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">A system-of-systems approach for integrated energy systems modeling and simulation</title>
+		<author>
+			<persName><forename type="first">Saurabh</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Ruth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Annabelle</forename><surname>Pratt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Monte</forename><surname>Lunacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dheepak</forename><surname>Krishnamurthy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wesley</forename><surname>Jones</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Conference on Summer Computer Simulation (SummerSim &apos;15). Society for Computer Simulation International</title>
+				<meeting>the Conference on Summer Computer Simulation (SummerSim &apos;15). Society for Computer Simulation International<address><addrLine>San Diego, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="1" to="10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Ionut Anghel, Ioan Salomie, Ewa Niewiadomska-Szynkiewicz, MoSiCS: Modeling, simulation and optimization of complex systems-A case study on energy efficient datacenters</title>
+		<author>
+			<persName><forename type="first">Marcel</forename><surname>Antal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Pop</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Teodor</forename><surname>Petrican</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreea</forename><forename type="middle">Valeria</forename><surname>Vesa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tudor</forename><surname>Cioara</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.simpat.2018.12.004</idno>
+		<ptr target="https://doi.org/10.1016/j.simpat.2018.12.004" />
+	</analytic>
+	<monogr>
+		<title level="m">Simulation Modelling Practice and Theory</title>
+				<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page" from="21" to="41" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

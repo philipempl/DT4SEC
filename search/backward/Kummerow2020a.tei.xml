@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Cyber-physical data stream assessment incorporating Digital Twins in future power systems</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Andre</forename><surname>Kummerow</surname></persName>
+							<email>andre.kummerow@iosb-ast.fraunhofer.de</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Energy department Fraunhofer IOSB</orgName>
+								<orgName type="department" key="dep2">IOSB-AST Ilmenau</orgName>
+								<orgName type="department" key="dep3">System Technologies and Image Exploitation Ilmenau</orgName>
+								<orgName type="institution">Fraunhofer Institute of Optronics</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Cristian</forename><surname>Monsalve</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Energy department Fraunhofer IOSB</orgName>
+								<orgName type="department" key="dep2">IOSB-AST Ilmenau</orgName>
+								<orgName type="department" key="dep3">System Technologies and Image Exploitation Ilmenau</orgName>
+								<orgName type="institution">Fraunhofer Institute of Optronics</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Dennis</forename><surname>Rösch</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Energy department Fraunhofer IOSB</orgName>
+								<orgName type="department" key="dep2">IOSB-AST Ilmenau</orgName>
+								<orgName type="department" key="dep3">System Technologies and Image Exploitation Ilmenau</orgName>
+								<orgName type="institution">Fraunhofer Institute of Optronics</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kevin</forename><surname>Schäfer</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Energy department Fraunhofer IOSB</orgName>
+								<orgName type="department" key="dep2">IOSB-AST Ilmenau</orgName>
+								<orgName type="department" key="dep3">System Technologies and Image Exploitation Ilmenau</orgName>
+								<orgName type="institution">Fraunhofer Institute of Optronics</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Steffen</forename><surname>Nicolai</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Energy department Fraunhofer IOSB</orgName>
+								<orgName type="department" key="dep2">IOSB-AST Ilmenau</orgName>
+								<orgName type="department" key="dep3">System Technologies and Image Exploitation Ilmenau</orgName>
+								<orgName type="institution">Fraunhofer Institute of Optronics</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Cyber-physical data stream assessment incorporating Digital Twins in future power systems</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:42+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Cyber-physical systems</term>
+					<term>anomaly detection</term>
+					<term>Digital Twins</term>
+					<term>data stream analysis</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Reliable and secure grid operations become more and more challenging in context of increasing IT/OT convergence and decreasing dynamic margins in today's power systems. To ensure the correct operation of monitoring and control functions in control centres, an intelligent assessment of the different information sources is necessary to provide a robust data source in case of critical physical events as well as cyber-attacks. Within this paper, a holistic data stream assessment methodology is proposed using an expert knowledge based cyber-physical situational awareness for different steady and transient system states. This approach goes beyond existing techniques by combining high-resolution PMU data with SCADA information as well as Digital Twin and AI based anomaly detection functionalities.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Motivation and background</head><p>As a consequence of the increasing IT/OT convergence in todays and future power systems, new information sources can enable more sophisticated monitoring and control applications. Especially Digital Twins are a key technology to enhance modelling, analysis and prediction capabilities. On the downside, the increased utilization of IP-based communications to incorporate new sensor (e.g. PMUs) and actor (e.g. FACTS) technologies introduces new challenges in cyber-security. An intelligent online assessment of the different information sources is necessary to reduce the systems vulnerability against possible cyber-attacks and to ensure a high reliability of data based monitoring and control functions. This requires an automated confidence estimation of the heterogeneous process data in presence of different cyber-physical contingencies like false data injection, system faults or malfunctions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. State of the art analysis</head><p>In general, the assessment of data streams by calculating confidence scores can be assigned to data quality (DQ) problems. According to <ref type="bibr" target="#b0">[1]</ref>, DQ improves monitoring and control applications and comprises of different dimensions including e.g. accuracy, consistency or availability of data.</p><p>Authors in <ref type="bibr" target="#b0">[1]</ref><ref type="bibr" target="#b1">[2]</ref><ref type="bibr" target="#b2">[3]</ref> propose appropriate techniques to calculate simple data quality indexes in the smart grid domain (e.g. number of missing entries). Advanced considerations on cyber-security were carried out in <ref type="bibr" target="#b3">[4]</ref>. The calculation of confidence scores requires more sophisticated detection methods to assess data streams in context of cyber-attacks and different, transient system events. For this, several approaches exist to process and analyse homogenous and heterogeneous data streams (e.g. SCADA and PMU measurements, power quality monitoring, disturbance recorders) in power systems. High-resolution sensor data is analysed to detect abnormal or disturbed system states <ref type="bibr" target="#b4">[5]</ref><ref type="bibr" target="#b5">[6]</ref><ref type="bibr" target="#b6">[7]</ref><ref type="bibr" target="#b7">[8]</ref><ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref><ref type="bibr" target="#b10">[11]</ref> and suspicious system behaviour considering different cyber-attack scenarios <ref type="bibr" target="#b11">[12]</ref><ref type="bibr" target="#b12">[13]</ref><ref type="bibr" target="#b13">[14]</ref><ref type="bibr" target="#b14">[15]</ref>. These algorithms provide valuable information to recognize different cyber-physical contingencies and to assess data streams. Some researchers suggest the incorporation of network information into the state estimation (SE) by computing a trust index <ref type="bibr" target="#b15">[16]</ref>, a network impact factor matrix <ref type="bibr" target="#b16">[17]</ref> or attack probabilities <ref type="bibr" target="#b17">[18]</ref>. This can increase the robustness of monitoring and control applications in control centres against cyber-attacks but is limited to SE and related applications. In addition, no confidence or risk information are made available for subsequent applications and detected physical anomalies or disturbances are not incorporated which actually limits the recognitions capabilities.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Main contributions and paper organization</head><p>This paper presents a methodology for a cyber-physical assessment of heterogeneous PMU and SCADA data streams. In contrast to existing approaches, detailed information about detected anomalies and cyber-attacks are fused and aggregated to calculate confidence scores for transmitted measurement and control signals. In consideration of recent trends <ref type="bibr" target="#b18">[19]</ref> for utilizing Digital Twins in control rooms, additional virtual sensor data are integrated into the assessment procedure providing detailed insights into the dynamic system behaviour. While the majority of research focus on steady state conditions, this work enables a reliable situational awareness for different cyber-physical contingencies at transient system states by utilizing highresolution PMU measurements.</p><p>The paper is organized as follows. Section III introduces the system architecture and section IV follows with a detailed description of the different modules of the dynamic system monitor, data recovery and replacement management as well as the data stream management. Section V includes considerations of the test bench and implementation aspects. The summary and a conclusion is given in section VI.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. SYSTEM ARCHITECTURE</head><p>The data stream assessment includes a four-stage methodology using a statistically based weighting model to fuse the different information sources and to create a multicriteria data status including probability estimates for the confidence of the measurement and control signals. Fig. <ref type="figure">1</ref> shows the general 2-layer system architecture. The data stream management is coupled with a dynamic system monitor, which evaluates SCADA measurement and control signals, PMU measurements as well as DT based virtual sensor data to detect cyber-physical anomalies. Both applications run at the control center level and are directly connected to the SCADA and PMU clients as well as a common process database for EMS applications. Therefore, the data stream assessment acts as a middleware between the control center components. Section V gives corresponding implementation details. Due of the current focus on the transient system behavior, other information sources such as EMS data (e.g. weather forecasts), power quality data or smart meter data are neglected in this study. Further investigations are necessary to check possible extensions of the proposed system architecture.</p><p>The cyber-attack monitor (CA-Monitor) processes and analysis telegram packets from all OSI layers of the PMU and SCADA data streams to detect false data injections, data spoofing or other network anomalies. Supplementing this, the grid disturbance and operations monitor (DO-Monitor) uses artificial intelligence based classification techniques to identify and locate short circuits, outages or other critical physical events by the utilization of PMU measurements. The DT accuracy monitor (DA-Monitor) compares virtual and real phasor measurements to detect suspicious system behaviour and to compute a prediction error from both signal types. For this, a Digital Dynamic Mirror (DDM) is used to continuously monitor and predict the dynamic system behaviour -see also <ref type="bibr" target="#b18">[19]</ref>. The subsequent data stream management consists of the data stream assessment as well as the data recovery and replacement management (DRR-Management) modules. The DRR-Management utilizes statistical models to estimate replacement values in case of corrupted signals and can be integrated as additional information source in the decision-making process.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. DATA STREAM MANAGEMENT MODULES</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Dynamic system monitor</head><p>The dynamic system monitor with its three sub-modules provides the essential information to assess the cyber-physical system condition and to estimate confidence values for the exchanged monitoring and control data. This is done by estimating probabilities for the occurrence of cyber-physical events by analysing the network traffic and payloads of PMU and SCADA telegrams. Some preliminary work has been done in <ref type="bibr" target="#b6">[7]</ref>. The general system architecture is given in Fig. <ref type="figure">2</ref>.</p><p>The CA-Monitor decodes the SCADA and PMU packets to extract valuable field information from the different OSI layers. A hybrid network intrusion detection system (NIDS) will be developed as a combination of specification-based and anomaly-based intrusion detection algorithms. Corresponding preliminary work has been done in <ref type="bibr" target="#b19">[20]</ref>. Stateless and stateful packet analysis will be performed incorporating specific protocol and domain expert knowledge as well as statistical or machine learning based methods to detect data manipulations. Possible solutions could include one-class support vector machines, decision tree based models or artificial neural network based autoencoders. The DO-Monitor utilizes PMU measurements to identify and locate known physical events in the grid using time-series classification methods. For this, dynamic grid simulations are used to create a representative training database for selected grid situations. Different classification techniques including support vector machines, decision trees and artificial neural networks were investigated in <ref type="bibr" target="#b10">[11]</ref> to detect generator and line outages considering performance and run time capabilities. The last module DA-Monitor compares simulated and measured phasor and frequency data from the grid to evaluate the prediction error of the DDM model. The deviations between simulation and measurement data enables the detection of abnormal signal behaviour of specific PMU sensors. In contrast to the DO-Monitor, no identification of concrete events is possible but the detection of unknown events (e.g. malfunctions), which are not part of the training database. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Workflow of the data recovery and replacement management</head><p>Based on this, the dynamic system monitor will be able to detect and distinguish different cyber-physical events including:</p><p>• physical disturbances: short circuits, line trips, outages of conventional or renewable sources</p><p>• physical operations: tap change and switching events</p><p>• virtual (cyber) events: network intrusions (e.g. unknown IP addresses / ports or protocols), packet manipulations, packet losses</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Data recovery and replacement management</head><p>As a counter-measure against corrupted or faulty measurement values, the DRR-Management module is proposed, as shown in Fig. <ref type="figure" target="#fig_2">3</ref>, and consists of the two submodules data replacement management (DRepM) and data recovery management (DRecM).</p><p>A contaminated measurement matrix X * is assumed as input where some values are marked as non-valid as a result of detected cyber-physical anomalies. The goal of the DRR-Management module is to estimate a non-contaminated measurement matrix X using statistical or learning based methods (e.g. short-term forecasting, matrix completion optimization). The prediction model has to take into account collective defaults (complete measurement channels over long time periods) or isolated defaults (single values for short time periods), which impedes the training process by varying predictor sizes. The input measurement matrix is split into a non-corrupted dense part XD and a corrupted sparse part X * S to estimate the replacement values by the DRepM module to build X S. The DRecM module reconstructs the full measurement matrix X from the non-corrupted measurements XD and the estimated measurements X S. For a predefined training dataset including different signal manipulations, the deviations e between true and estimated non-contaminated measurement matrix are used to optimize the parameters θ of the prediction model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Data stream assessment</head><p>The data stream assessment module is subdivided into four data processing and analysis stages to estimate confidence values for each sensor or signal type and to create a multicriteria data status. An expert system compares and weights the outcomes of the different information sources to access the cyber-physical situation of the power system. The principle workflow is shown in Fig. <ref type="figure">4</ref>.</p><p>In the first stage, the results from the CA-Monitor, DO-Monitor and DA-Monitor are collected and aggregated for each sensor and actuator signal. This allows breaking down the information according to the cause of the possible cyberphysical event.</p><p>The second stage includes the situational assessment of the cyber-physical system by comparing the aggregated results and their corresponding probabilities of occurrence for cyberphysical anomalies. In this stage, expert knowledge has to be integrated to correctly interpret and classify the results. In some cases, no results or information from the DO-Monitor and DA-Monitor are available due to severe packet manipulations or denial-of-service attacks, which enables a clear differentiation between cyber event and physical event.</p><p>No physical anomalies mainly result from sole steady state operation and can be superimposed by different cyber events In the third stage, weighting factors are estimated for each information source according to the most likely cyberphysical situation of the system. For this, expert knowledge is used to calculate a system-wide trust-index similar to <ref type="bibr" target="#b15">[16]</ref> and to roughly categorize the different information sources according to their prediction outcomes. Thereby, it is assumed that the CA-Monitor, DO-Monitor and DA-Monitor provide probabilistic predictions allowing a more robust determination of the most-likely physical event and cyber event. Based on this, the weighting factors and the overall trust-index can be selected for each sensor and actuator signal. Fig. <ref type="figure" target="#fig_5">6</ref> shows a simplified weighting scheme differentiating between low, medium and height weights. In case of no physical anomalies and known physical anomalies, high importance weights are assigned to the information sources, which results in a high trust index. In these situations, cyber-attacks are very unlikely. If there are non-conformities between the DO-Monitor and the DA-Monitor, medium weights are selected because of a high risk for undetected or marginal false data injections or sensor malfunctions. In the presence of detected false data injections, data replay attacks or denial-of-service attacks, low weights are associated to the DO-Monitor and DA-Monitor as well as a low overall trust-index. In case of a reconnaissance attack or </p><p>The trust index can be computed by statistical methods using the weighted probability estimates (e.g. Bayesian model). Per definition, a high trust index corresponds to a high confidence score and vice versa. These confidence scores should be well calibrated and easy to interpret for subsequent processing and analysis modules. A possible solution could provide confidence estimates from 0% (no trust) to 100% (full trust) with additional labelling of the most-likely cyber-physical situation. Afterwards, a multi-criteria data status is created including confidence estimate, original value, replacement value and additional meta information -as shown in Fig. <ref type="figure">1</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. TEST BENCH AND IMPLEMENTATION CONCEPT</head><p>A message-broker system based on Apache Kafka ® is used for efficient and robust processing and analysis of the heterogeneous data streams. The functional modules of the data stream assessment as well as dynamic system monitor are implemented using the Apache Kafka ® Stream API as well as additional JAVA ® libraries. Compared to other technologies, Apache Kafka ® enables high scalability (e.g. for subsequent integration of additional information sources or analysis modules) as well as reliable data stream processing and real-time analysis for flexible consumer/producer arrangements. Existing IEEE C37.118 and IEC 61850-8-1 (MMS) protocol clients are integrated as Kafka producer applications for realtime monitoring and control of power systems. Auxiliary systems include a relational database for data archiving and a web-based visualization frontend for monitoring the Kafka stream records amongst others. For the evaluation of the cyber-physical data stream assessment a real-time grid simulation system based on OPAL-RT ® HYPERSIM is used to generate different physical contingencies (e.g. outages, short-circuits).</p><p>An excerpt of the modelled grid structure is given in Fig. <ref type="figure" target="#fig_6">7</ref>. The grid simulator is coupled with the data stream assessment system using the industrial protocols IEEE C37.118 and a SCADA gateway for IEC 60870-5-104 to IEC 61850-8-1 mapping. The network traffic between PMU and SCADA client and servers are analysed in real-time by the hybrid NIDS. An example IEC 61850 MMS telegram is given in Fig. <ref type="figure">8</ref>. In parallel, a cyber-attack simulator launches a MITM attack to manipulate the network packets and disturb the network traffic <ref type="bibr" target="#b20">[21]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. SUMMARY AND OUTLOOK</head><p>Within this paper a novel methodology is presented for the cyber-physical assessment of data streams for the dynamic monitoring and control of power systems. A 2-layer system architecture is proposed incorporating heterogeneous SCADA and PMU payloads and network traffic as well as high resolution virtual sensor data from a continuously running Digital Twin model. Different monitoring applications are proposed for the detection of cyber-physical anomalies as well as the online identification and localization of grid disturbances enabling a comprehensive situational awareness. However, a correct assessment and interpretation of the information sources is necessary to deal with different cyber-physical events including known and unknown physical anomalies, data manipulations or false alarms. For this, a four-stage based data stream assessment methodology is introduced to estimate confidence values for each sensor and actuator signal. These confidence values result from an expert system based weighting scheme calculating a trust index. A comprehensive cyber-physical testbed including real-time grid as well as cyber-attack simulations enables the modelling of different cyber-physical contingencies.</p><p>Future work comprises the execution of simulation studies for a defined transmission power system topology to evaluate the performance of the dynamic system monitor and data stream assessment components. For multiple cyber-physical contingencies a correct discrimination between different physical events (e.g. outages, short-circuits) and cyber events (e.g. false data injections) as well as a correct assessment of the cyber-physical situation should be achieved.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>set point value yCA -prediction of cyber-attack monitor yDA -prediction of DDM accuracy monitor yDO prediction of grid disturbance and operations monitor wCA -weight of cyber-attack monitor wDA -weight of DDM accuracy monitor wDO -weight of grid disturbance and operations monitor II. INTRODUCTION</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 1 .Fig. 2 .</head><label>12</label><figDesc>Fig. 1.General architecture of cyber-physical data stream management</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>Fig. 5 contrasts possible probability outcomes (simplified as binary decisions) with the most-likely cyber-physical event. Known physical anomalies include different outages or short-circuits, which are known from contingency analysis and used for training of the DO-Monitor and DT model. In this case, the DO-Monitor detects a deviation from steady state as well as the type and location of the disturbance. The DA-Monitor detects no deviation from DT model. In contrast to that, unknown physical anomalies correspond to disturbances, which are not simulated beforehand (e.g. malfunctions) but lead to deviations from steady state conditions. The DO-Monitor cannot detect the type and/or location of the event and the DA-Monitor might detect deviations from DT model. An inaccurate DT model is present, if both the DO-Monitor detects and identifies the disturbance type and location and a deviation between measurements and DT-model occurs. So far, no cyber anomalies are considered. Unlikely physical anomalies can have several different reasons. In case that no network intrusion or packet manipulation can be detected, most likely reasons are sensor defects or malfunctions leading to deviations from steady state and the DT model. Also false fata injections may be present but are undetected by the CA-Monitor. In the other case, false data injections or data replay attacks can falsely trigger the DO-Monitor or DA-Monitor. In this context, false data injections may results in deviations from steady state and the DT model but not necessarily in the identification of a concrete disturbance type and location. Data replay attacks would most likely show the opposite behaviour.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 4 .Fig. 5 .</head><label>45</label><figDesc>Fig. 4. Workflow of the data stream assessment module</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Principle weighting factors and trust index of information sources false alarm of the CA-Monitor, a medium trust index is selected because no severe manipulations of measurements or set points are to be expected. In the fourth stage, the trust index TI is used to estimate the confidence score c for each field sensor or actuator signal x depending on the weights w and predictions y of the DO-Monitor, DA-Monitor and CA-Monitor. A general equation is given in (1):</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 7</head><label>7</label><figDesc>Fig.7Grid model architecture excerpt in HYPERSIM</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Authorized licensed use limited to: Auckland University of Technology. Downloaded on November 02,2020 at 20:29:17 UTC from IEEE Xplore. Restrictions apply.</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGEMENT</head><p>This publication is a partly result of the project HyLITE (0350034) funded by the German Federal Ministry for Economic Affairs and Energy (BMWi).</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Quality Assessment of Smart Grid Data</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Radhakrishnan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Das</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2018 20th National Power Systems Conference (NPSC)</title>
+				<meeting><address><addrLine>Tiruchirappalli, India</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Data Quality in Wide Area Monitoring and Control Systems: PMU Data Latency, Completeness, and Design of Wide-Area Damping Systems</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Kun</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">KTH Royal Institute of Technology in Stockholm</title>
+		<imprint>
+			<date type="published" when="2013" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Data quality assessment for on-line monitoring and measuring system of power quality based on big data and data provenance theory</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hongxun</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2018 the 3rd IEEE International Conference on Cloud Computing and Big Data Analysis</title>
+				<meeting><address><addrLine>Chengdu, China, Chengdu</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="248" to="252" />
+		</imprint>
+	</monogr>
+	<note>ICCCBDA 2018</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Survey on synchrophasor data quality and cybersecurity challenges, and evaluation of their interdependencies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sundararajan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Moghadasi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">I</forename><surname>Sarwat</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s40565-018-0473-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Mod. Power Syst. Clean Energy</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="449" to="467" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A Survey of Physics-Based Attack Detection in Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Giraldo</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3203245</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM computing surveys</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Analyzing flow-based anomaly intrusion detection using Replicator Neural Networks</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Garcia</forename><surname>Cordero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Hauke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Muhlhauser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fischer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2016 14th Annual Conference on Privacy, Security and Trust</title>
+				<meeting><address><addrLine>Auckland, New Zealand</addrLine></address></meeting>
+		<imprint>
+			<publisher>PST</publisher>
+			<date type="published" when="2016-12" />
+			<biblScope unit="page" from="317" to="324" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Challenges and opportunities for phasor data based event detection in transmission control centers under cyber security constraints</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kummerow</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE Milan PowerTech</title>
+				<meeting><address><addrLine>Milan, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-06" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Supervisory Framework for Event Detection and Classification using Wavelet Transform</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fozdar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Institute of Electrical and Electronics Engineers, Power &amp; Energy Society et al. 2017 -IEEE PES General Meeting</title>
+				<imprint>
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Feature Based Grid Event Classification from Synchrophasor Data</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A R</forename><surname>Konakalla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">A</forename><surname>De Callafon</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procs.2017.05.046</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">108</biblScope>
+			<biblScope unit="page" from="1582" to="1591" />
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Real-Time Identification of Dynamic Events in Power Systems Using PMU Data, and Potential Applications-Models, Promises, and Challenges</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Brahma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kavasseri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">R</forename><surname>Chaudhuri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Alexopoulos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Cui</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TPWRD.2016.2590961</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Power Delivery</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="294" to="301" />
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Simultaneous online identification and localization of disturbances in power transmission systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kummerow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Monsalve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nicolai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bretschneider</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE PES Innovative Smart Grid Technologies Europe</title>
+				<meeting><address><addrLine>Bucharest, Romania</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-09" />
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+		<respStmt>
+			<orgName>ISGT-Europe</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Cyber Physical Security Analytics for Anomalies in Transmission Protection Systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ahmed</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE Industry Applications Society Annual Meeting (IAS)</title>
+				<meeting><address><addrLine>Portland, OR</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018-09" />
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">A Novel Hybrid Method for Network Anomaly Detection Based on Traffic Prediction and Change Point Detection</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Alkasassbeh</surname></persName>
+		</author>
+		<idno type="DOI">10.3844/jcssp.2018.153.162</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="153" to="162" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Cyber-Physical Attack-Resilient Wide-Area Monitoring, Protection, and Control for the Power Grid</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ashok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Govindarasu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/JPROC.2017.2686394</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE</title>
+				<meeting>IEEE</meeting>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page" from="1389" to="1407" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Survey of intrusion detection systems: techniques, datasets and challenges</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khraisat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Gondal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Vamplew</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kamruzzaman</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/s42400-019-0038-7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cybersecur</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">384</biblScope>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">A Framework for the Integration of ICTrelevant Data in Power System Applications</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Brand</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Abnormal traffic-indexed state estimation: A cyberphysical fusion approach for Smart Grid attack detection</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.future.2014.10.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Future Generation Computer Systems</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="page" from="94" to="103" />
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">SCPSE: Security-Oriented Cyber-Physical State Estimation for Power Grid Critical Infrastructures</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zonouz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Rogers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Berthier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">B</forename><surname>Bobba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">H</forename><surname>Sanders</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">J</forename><surname>Overbye</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TSG.2012.2217762</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Smart Grid</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1790" to="1799" />
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Digital Twin -Concept of a Continuously Adaptive Power System Mirror</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Brosinsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Westermann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ETG-Fachbericht, Internationaler ETG-Kongress 2019: Das Gesamtsystem im Fokus der Energiewende : 8.-9</title>
+				<meeting><address><addrLine>Neckar Forum, Esslingen am Neckar</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Local anomaly detection analysis in distribution grid based on IEC 61850-9-2 LE SV voltage signals</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rösch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ruhe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Schäfer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nicolai</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2019 International Conference on Smart Energy Systems and Technologies (SEST)</title>
+				<meeting><address><addrLine>Porto, Portugal</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-09" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Design of a cyber-physical energy laboratory</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ruhe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rösch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of International ETG Congress 2019: 08. -09.05.2019 in Esslingen am Neckar: VDE VERLAG GMBH</title>
+				<meeting>International ETG Congress 2019: 08. -09.05.2019 in Esslingen am Neckar: VDE VERLAG GMBH<address><addrLine>Berlin Offenbach</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="153" to="158" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -9,50 +9,50 @@ the potential to possess more validity/credibility and to manifest improved repr
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 ## Research Questions
-In order to demisty the digital twin paradigm, we aim to answer the following research questions (RQ):
+To demystify the digital twin paradigm, we aim to answer the following research questions (RQ):
 - **RQ1**: What are digital twins from a cybersecurity perspective?
 - **RQ2**: How do digital twins contribute to cybersecurity?
 - **RQ3**: How to implement digital twins for security operations?
-- **RQ4**: What are current challenges and future research areas of cybersecurity enhancing digital twins?
+- **RQ4**: What are current challenges and future cybersecurity research areas enhancing digital twins?
 
 ## Contribution
 By answering the research questions, we contribute to the following:
-1. We demistify the security-related digital twin paradigm.
+1. We demystify the security-related digital twin paradigm.
 2. We illustrate the state-of-the-art in applying digital twins for cybersecurity.
 3. We provide a collection of best practices and implementation details for digital twins.
 4. We call attention to challenges and derive future research actions.
 
 ## 1. Search
-You can find all the iterative and systematic search details in the [/search](https://github.com/philipempl/DT4SEC/tree/master/search) directory. This directory consists of single BibTex files containing bibliograpic entries. We searched a total of ten IS databases ([dblp](https://dblp.org/), [arXiv](https://arxiv.org/), [AISeL](https://aisel.aisnet.org/), [WoS](https://www.webofscience.com), [IEEE Xplore](https://ieeexplore.ieee.org), [ACM](https://dl.acm.org/), [CSDL](https://www.computer.org/csdl/home), [Wiley](https://onlinelibrary.wiley.com/), [Springer Link](https://link.springer.com/), [ScienceDirect](https://www.sciencedirect.com/)) and performed subsequent backward and forward searches. We merged all entries into the BibTex file [references.bib](https://github.com/philipempl/DT4SEC/blob/master/references.bib).
+You can find all the iterative and systematic search details in the [/search](https://github.com/philipempl/DT4SEC/tree/master/search) directory. This directory consists of single BibTex files containing bibliograpic entries. We searched a total of ten IS databases ([dblp](https://dblp.org/), [arXiv](https://arxiv.org/), [AISeL](https://aisel.aisnet.org/), [WoS](https://www.webofscience.com), [IEEE Xplore](https://ieeexplore.ieee.org), [ACM](https://dl.acm.org/), [CSDL](https://www.computer.org/csdl/home), [Wiley](https://onlinelibrary.wiley.com/), [Springer Link](https://link.springer.com/), [ScienceDirect](https://www.sciencedirect.com/)) and performed subsequent backward and forward searches. We merged all unique entries into the BibTex file [references.bib](https://github.com/philipempl/DT4SEC/blob/master/references.bib).
 
 ## 2. Screen
-Based on obtained results, we screened the literature. You find the details in the file [screen.csv](https://github.com/philipempl/DT4SEC/blob/master/screen.csv) and the included entries in [/screen/included_references_count=114.bib](https://github.com/philipempl/DT4SEC/blob/master/screen/included_references_count=114.bib). We conducted the first screen based on the title. The second screen involves the availability of the full text applying different exclusion criteria: quality, availability, digital twins applied for non-security use cases, digital twins are not mentioned, digital twins applied in a scenario other than IoT or CPS, security enhancements for digital twins, or a complete book instead of single chapters. This leads to the following results:
+Based on obtained results, we screened the literature. You find the details in the file [screen.csv](https://github.com/philipempl/DT4SEC/blob/master/screen.csv) and the included entries in [/screen/included_references_count=114.bib](https://github.com/philipempl/DT4SEC/blob/master/screen/included_references_count=114.bib). We conducted the first screen based on the title. The second screen involves the availability of the full text applying different exclusion criteria: quality, availability, digital twins applied for non-security use cases, digital twins are not mentioned, digital twins involved in a scenario other than IoT or CPS, security enhancements for digital twins, or a complete book instead of single chapters. The application of the quality and exclusion criteria leads to the following results:
 
 
 ```
- ┌ Search
- |  - total:              4898
- |  - merged:             4397
- |
- ├ Screen 1
- |  - total:              4397
- |  - included:            659
- |  - excluded:           3738
- |
- ├ Screen 2
- |  - total:               659
- |  - included:            114
- |  - excluded:            468
- |  - TODO:                 77
- |
- └ Result:                 114
+┌ Search
+| - total: 4898
+| - merged: 4397
+|
+├ Screen 1
+| - total: 4397
+| - included: 659
+| - excluded: 3738
+|
+├ Screen 2
+| - total: 659
+| - included: 114
+| - excluded: 468
+| - TODO: 77
+|
+└ Result: 114
 ```
 
 ## 3. Extraction
-In the next step, we extracted relevant information out of the yielded literature set. The coding is documented in [/extraction/coding.xlsx](https://github.com/philipempl/DT4SEC/blob/master/extraction/coding.xlsx). Thereby we defined fields of interest satisfying our pre-defined research questions.
+We extracted relevant information from the yielded literature set in the next step. The coding is documented in [/extraction/coding.xlsx](https://github.com/philipempl/DT4SEC/blob/master/extraction/coding.xlsx). Thereby we defined fields of interest satisfying our pre-defined research questions.
 
 ## 4. Analysis
-Last but not least, we analyze, interpret, and synthesize the extracted data using [Jupyter Notebook](https://jupyter.org/). We also include some details on bibliometric data. Our full working notebook loading the  [/extraction/coding.xlsx](https://github.com/philipempl/DT4SEC/blob/master/extraction/coding.xlsx) file can be found under [/analysis](https://github.com/philipempl/DT4SEC/blob/master/analysis). You can reveal the results by executing or clicking on the notebook.
+Last but not least, we analyze, interpret, and synthesize the extracted data using [Jupyter Notebook](https://jupyter.org/). We also include some details on bibliometric data. Our entire working notebook loading the [/extraction/coding.xlsx](https://github.com/philipempl/DT4SEC/blob/master/extraction/coding.xlsx) file can be found under [/analysis](https://github.com/philipempl/DT4SEC/blob/master/analysis). You can reveal the results by executing or clicking on the notebook.
 
 ## 5. Conclusions
 We summarized all the insights and concluding remarks in our paper. The manuscript can be found under [/conclusion](https://github.com/philipempl/DT4SEC/blob/master/conclusion).
@@ -60,20 +60,20 @@ We summarized all the insights and concluding remarks in our paper. The manuscri
 ## Reference
 ```
 @article{Empl2022,
-  author    = {Philip Empl and G{\"u}nther Pernul,
-  title     = {DT4SEC: A Systematic Review on Digital Twins in the Cybersecurity Domain},
-  journal   = {{ACM} Computing Surveys},
-  volume    = {XX},
-  number    = {X},
-  pages     = {XX:1--XX:36},
-  year      = {2022},
-  url       = {https://doi.org/10.11XX/XXXXX},
-  doi       = {10.11XX/XXXXX}
+author = {Philip Empl and G{\"u}nther Pernul,
+title = {DT4SEC: A Systematic Review on Digital Twins in the Cybersecurity Domain},
+journal = {{ACM} Computing Surveys},
+volume = {XX},
+number = {X},
+pages = {XX:1--XX:36},
+year = {2022},
+url = {https://doi.org/10.11XX/XXXXX},
+doi = {10.11XX/XXXXX}
 }
 ```
 ## Authors
 
--   ****Philip Empl**** - [Department of Information Systems](https://www.uni-regensburg.de/wirtschaftswissenschaften/wi-pernul/team/philip-empl/index.html)  **@ University of Regensburg**
+- ****Philip Empl**** - [Department of Information Systems](https://www.uni-regensburg.de/wirtschaftswissenschaften/wi-pernul/team/philip-empl/index.html) **@ University of Regensburg**
 
 
 

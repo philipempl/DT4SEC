@@ -3,7 +3,7 @@
 > **"Like many others, we posit that more systematic and transparent reviews hold
 the potential to possess more validity/credibility and to manifest improved reproducibility of methods."**
 >
-> -- Guy Paré, Mary Tate, David Johnstone, Spyros Kitsiou: Contextualizing the twin concepts of systematicity and transparency in information systems literature reviews. Eur. J. Inf. Syst. 25(6): 493-508 (2016)
+> - _Guy Paré, Mary Tate, David Johnstone, Spyros Kitsiou: Contextualizing the twin concepts of systematicity and transparency in information systems literature reviews. Eur. J. Inf. Syst. 25(6): 493-508 (2016)_
 
 ## Abstract
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.

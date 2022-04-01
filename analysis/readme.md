@@ -2,7 +2,7 @@
 
 ## Bibliometric Analysis
 
-![](/charts/chart.png?raw=true)
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/chart.png?raw=true)
 
 ## RQ1: Digital Twin Paradigm
 

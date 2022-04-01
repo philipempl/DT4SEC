@@ -3,7 +3,7 @@
 > *"Like many others, we posit that more systematic and transparent reviews hold
 the potential to possess more validity/credibility and to manifest improved reproducibility of methods."*
 >
-> --- Guy Paré, Mary Tate, David Johnstone, Spyros Kitsiou: Contextualizing the twin concepts of systematicity and transparency in information systems literature reviews. Eur. J. Inf. Syst. 25(6): 493-508 (2016)
+> -- Guy Paré, Mary Tate, David Johnstone, Spyros Kitsiou: Contextualizing the twin concepts of systematicity and transparency in information systems literature reviews. Eur. J. Inf. Syst. 25(6): 493-508 (2016)
 
 ## Abstract
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -21,7 +21,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 - What are current challenges and future research areas of cybersecurity enhancing Digital Twins?
 
 ## 1. Search
-You can find all the iterative and systematic search details in the [/search](https://github.com/philipempl/DT4SEC/tree/master/search) directory: . We searched a total of ten IS databases ([dblp](https://dblp.org/), [arXiv](https://arxiv.org/), [AISeL](https://aisel.aisnet.org/), [WoS](https://www.webofscience.com), [IEEE Xplore](https://ieeexplore.ieee.org), [ACM](https://dl.acm.org/), [CSDL](https://www.computer.org/csdl/home), [Wiley](https://onlinelibrary.wiley.com/), [Springer Link](https://link.springer.com/), [ScienceDirect](https://www.sciencedirect.com/)) were searched and performed subsequent backward and forward searches. 
+You can find all the iterative and systematic search details in the [/search](https://github.com/philipempl/DT4SEC/tree/master/search) directory. We searched a total of ten IS databases ([dblp](https://dblp.org/), [arXiv](https://arxiv.org/), [AISeL](https://aisel.aisnet.org/), [WoS](https://www.webofscience.com), [IEEE Xplore](https://ieeexplore.ieee.org), [ACM](https://dl.acm.org/), [CSDL](https://www.computer.org/csdl/home), [Wiley](https://onlinelibrary.wiley.com/), [Springer Link](https://link.springer.com/), [ScienceDirect](https://www.sciencedirect.com/)) were searched and performed subsequent backward and forward searches. 
 
 ## 2. Screen
 Based on obtained results, we screened the literature. You find the details in the file [screen.csv](https://github.com/philipempl/DT4SEC/blob/master/screen.csv). We conducted the first screen based on the title. The second screen involves the availability of the full text applying different exclusion criteria: quality, availability, digital twins applied for non-security use cases, digital twins are not mentioned, digital twins applied in a scenario other than IoT or CPS, security enhancements for digital twins, or a complete book instead of single chapters. This leads to the following results:
@@ -53,7 +53,7 @@ In the next step, we extracted relevant information out of the yielded literatur
 Last but not least, we analyze, interpret, and synthesize the extracted data using [Jupyter Notebook](https://jupyter.org/). We also include some details on bibliometric data. Our full working notebook loading the  [/extraction/coding.xlsx](https://github.com/philipempl/DT4SEC/blob/master/extraction/coding.xlsx) file can be found under [/analysis](https://github.com/philipempl/DT4SEC/blob/master/analysis). You can reveal the results by executing or clicking on the notebook.
 
 ## 5. Conclusions
-We summarized all the insights and concluding remarks in our paper. The manuscript can be found under [/conclusion](https://github.com/philipempl/DT4SEC/blob/master/conclusion)
+We summarized all the insights and concluding remarks in our paper. The manuscript can be found under [/conclusion](https://github.com/philipempl/DT4SEC/blob/master/conclusion).
 
 ## Reference
 ```

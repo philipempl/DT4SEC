@@ -9,7 +9,7 @@ the potential to possess more validity/credibility and to manifest improved repr
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 ## Contribution
-- We envision the security-related Digital Twin paradigm.
+- We demistify the security-related Digital Twin paradigm.
 - We illustrate the state-of-the-art in applying digital twins for cybersecurity.
 - We provide a collection of best practices and implementation details for Digital Twins.
 - We call attention to challenges and derive future research actions.
@@ -24,7 +24,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 You can find all the iterative and systematic search details in the [/search](https://github.com/philipempl/DT4SEC/tree/master/search) directory. We searched a total of ten IS databases ([dblp](https://dblp.org/), [arXiv](https://arxiv.org/), [AISeL](https://aisel.aisnet.org/), [WoS](https://www.webofscience.com), [IEEE Xplore](https://ieeexplore.ieee.org), [ACM](https://dl.acm.org/), [CSDL](https://www.computer.org/csdl/home), [Wiley](https://onlinelibrary.wiley.com/), [Springer Link](https://link.springer.com/), [ScienceDirect](https://www.sciencedirect.com/)) were searched and performed subsequent backward and forward searches. 
 
 ## 2. Screen
-Based on obtained results, we screened the literature. You find the details in the file [screen.csv](https://github.com/philipempl/DT4SEC/blob/master/screen.csv). We conducted the first screen based on the title. The second screen involves the availability of the full text applying different exclusion criteria: quality, availability, digital twins applied for non-security use cases, digital twins are not mentioned, digital twins applied in a scenario other than IoT or CPS, security enhancements for digital twins, or a complete book instead of single chapters. This leads to the following results:
+Based on obtained results, we screened the literature. You find the details in the file [screen.csv](https://github.com/philipempl/DT4SEC/blob/master/screen.csv) and the included entries in [/screen/included_references_count=114.bib](https://github.com/philipempl/DT4SEC/blob/master/screen/included_references_count=114.bib). We conducted the first screen based on the title. The second screen involves the availability of the full text applying different exclusion criteria: quality, availability, digital twins applied for non-security use cases, digital twins are not mentioned, digital twins applied in a scenario other than IoT or CPS, security enhancements for digital twins, or a complete book instead of single chapters. This leads to the following results:
 
 
 ```

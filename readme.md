@@ -54,8 +54,8 @@ We extracted relevant information from the yielded literature set in the next st
 ## 4. Analysis
 Last but not least, we analyze, interpret, and synthesize the extracted data using [Jupyter Notebook](https://jupyter.org). We also include some details on bibliometric data. Our entire working notebook loading the [/extraction/coding.csv](/extraction/coding.csv) file and the [/screen/included_references_count=114.bib](/screen/included_references_count=114.bib) file can be found under [/analysis](/analysis). The BibTex file is used for bibliometric analysis and the CSV file for in depth thematic analysis. The results can be reproduced by executing or clicking the notebook.
 
-## 5. Conclusions
-We summarized all the insights and concluding remarks in our paper. The manuscript can be found under [/conclusion](/conclusion).
+## 5. Insights
+We summarized all the insights and concluding remarks in our paper. The manuscript can be found under [/insights](/insights).
 
 ## Reference
 ```

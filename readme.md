@@ -31,8 +31,8 @@ Based on obtained results, we screened the literature. You find the details in t
 
 ```
  ┌ Search
- |  - total:              1285
- |  - merged:             1000
+ |  - total:              4898
+ |  - merged:             4397
  |
  ├ Screen 1
  |  - total:              4397
@@ -44,8 +44,8 @@ Based on obtained results, we screened the literature. You find the details in t
  |  - included:            114
  |  - excluded:            468
  |  - TODO:                 77
-
-Final set size: 114
+ |
+ └ Total:                  114
 ```
 
 ## 3. Extraction

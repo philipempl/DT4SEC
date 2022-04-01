@@ -8,17 +8,19 @@ the potential to possess more validity/credibility and to manifest improved repr
 ## Abstract
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-## Contribution
-- We demistify the security-related Digital Twin paradigm.
-- We illustrate the state-of-the-art in applying digital twins for cybersecurity.
-- We provide a collection of best practices and implementation details for Digital Twins.
-- We call attention to challenges and derive future research actions.
-
 ## Research Questions
-- What are Digital Twins from a cybersecurity perspective?
-- How do Digital Twins contribute to cybersecurity?
-- How to implement Digital Twins for security operations?
-- What are current challenges and future research areas of cybersecurity enhancing Digital Twins?
+In order to demisty the digital twin paradigm, we aim to answer the following research questions (RQ):
+- *RQ1*: What are digital twins from a cybersecurity perspective?
+- *RQ2*: How do digital twins contribute to cybersecurity?
+- *RQ3*: How to implement digital twins for security operations?
+- *RQ4*: What are current challenges and future research areas of cybersecurity enhancing digital twins?
+
+## Contribution
+By answering the research questions, we contribute to the following:
+1. We demistify the security-related digital twin paradigm.
+2. We illustrate the state-of-the-art in applying digital twins for cybersecurity.
+3. We provide a collection of best practices and implementation details for digital twins.
+4. We call attention to challenges and derive future research actions.
 
 ## 1. Search
 You can find all the iterative and systematic search details in the [/search](https://github.com/philipempl/DT4SEC/tree/master/search) directory. We searched a total of ten IS databases ([dblp](https://dblp.org/), [arXiv](https://arxiv.org/), [AISeL](https://aisel.aisnet.org/), [WoS](https://www.webofscience.com), [IEEE Xplore](https://ieeexplore.ieee.org), [ACM](https://dl.acm.org/), [CSDL](https://www.computer.org/csdl/home), [Wiley](https://onlinelibrary.wiley.com/), [Springer Link](https://link.springer.com/), [ScienceDirect](https://www.sciencedirect.com/)) were searched and performed subsequent backward and forward searches. 
@@ -58,8 +60,8 @@ We summarized all the insights and concluding remarks in our paper. The manuscri
 ## Reference
 ```
 @article{Empl2022,
-  author    = {Philip Empl and Günther Pernul,
-  title     = {DT4SEC: A Systematic Review on  Digital Twins in the Cybersecurity Domain},
+  author    = {Philip Empl and G{\"u}nther Pernul,
+  title     = {DT4SEC: A Systematic Review on Digital Twins in the Cybersecurity Domain},
   journal   = {{ACM} Computing Surveys},
   volume    = {XX},
   number    = {X},

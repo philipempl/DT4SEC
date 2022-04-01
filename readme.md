@@ -1,7 +1,7 @@
 # DT4SEC: A Systematic Literature Review
 
-> *"Like many others, we posit that more systematic and transparent reviews hold
-the potential to possess more validity/credibility and to manifest improved reproducibility of methods."*
+> **"Like many others, we posit that more systematic and transparent reviews hold
+the potential to possess more validity/credibility and to manifest improved reproducibility of methods."**
 >
 > -- Guy Paré, Mary Tate, David Johnstone, Spyros Kitsiou: Contextualizing the twin concepts of systematicity and transparency in information systems literature reviews. Eur. J. Inf. Syst. 25(6): 493-508 (2016)
 
@@ -10,10 +10,10 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 ## Research Questions
 In order to demisty the digital twin paradigm, we aim to answer the following research questions (RQ):
-- *RQ1*: What are digital twins from a cybersecurity perspective?
-- *RQ2*: How do digital twins contribute to cybersecurity?
-- *RQ3*: How to implement digital twins for security operations?
-- *RQ4*: What are current challenges and future research areas of cybersecurity enhancing digital twins?
+- **RQ1**: What are digital twins from a cybersecurity perspective?
+- **RQ2**: How do digital twins contribute to cybersecurity?
+- **RQ3**: How to implement digital twins for security operations?
+- **RQ4**: What are current challenges and future research areas of cybersecurity enhancing digital twins?
 
 ## Contribution
 By answering the research questions, we contribute to the following:
@@ -73,7 +73,7 @@ We summarized all the insights and concluding remarks in our paper. The manuscri
 ```
 ## Authors
 
--   **Philip Empl** - [Department of Information Systems](https://www.uni-regensburg.de/wirtschaftswissenschaften/wi-pernul/team/philip-empl/index.html)  *@ University of Regensburg*
+-   ****Philip Empl**** - [Department of Information Systems](https://www.uni-regensburg.de/wirtschaftswissenschaften/wi-pernul/team/philip-empl/index.html)  **@ University of Regensburg**
 
 
 

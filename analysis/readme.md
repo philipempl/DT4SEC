@@ -6,17 +6,16 @@
 
 ## RQ1: Digital Twin Paradigm
 
-![](/charts/chart.png)
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/chart.png?raw=true)
 
 ## RQ2: Digital Twin Application
 
-![](/charts/chart.png)
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/chart.png?raw=true)
 
 ## RQ3: Digital Twin Implementation
 
-![](/charts/chart.png)
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/chart.png?raw=true)
 
 ## RQ4: Challenges & Future Research
 
-![](/charts/chart.png)
-
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/chart.png?raw=true)

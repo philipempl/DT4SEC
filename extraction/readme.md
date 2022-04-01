@@ -21,7 +21,7 @@
 | _RQ2_Application_Domain_   | Extract in which Industry the Digital Twin is used.             |
 | _RQ2_Application_Scenario_ | Extract the concret cybersecurity scenario of the Digital Twin. |
 
-## RQ3: Digital Twin Implement,ation
+## RQ3: Digital Twin Implementation
 
 | **Key**                    | **Description**                                                                                                                          |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|

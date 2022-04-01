@@ -2,7 +2,7 @@
 
 ## Bibliometric Analysis
 
-![](/charts/chart.png)
+![](/charts/chart.png?raw=true)
 
 ## RQ1: Digital Twin Paradigm
 

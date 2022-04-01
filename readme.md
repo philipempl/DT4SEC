@@ -23,10 +23,10 @@ By answering the research questions, we contribute to the following:
 4. We call attention to challenges and derive future research actions.
 
 ## 1. Search
-You can find all the iterative and systematic search details in the [/search](https://github.com/philipempl/DT4SEC/tree/master/search) directory. This directory consists of single BibTex files containing bibliograpic entries. We searched a total of ten IS databases ([dblp](https://dblp.org/), [arXiv](https://arxiv.org/), [AISeL](https://aisel.aisnet.org/), [WoS](https://www.webofscience.com), [IEEE Xplore](https://ieeexplore.ieee.org), [ACM](https://dl.acm.org/), [CSDL](https://www.computer.org/csdl/home), [Wiley](https://onlinelibrary.wiley.com/), [Springer Link](https://link.springer.com/), [ScienceDirect](https://www.sciencedirect.com/)) and performed subsequent backward and forward searches. We merged all unique entries into the BibTex file [references.bib](https://github.com/philipempl/DT4SEC/blob/master/references.bib).
+You can find all the iterative and systematic search details in the [/search](/search) directory. This directory consists of single BibTex files containing bibliograpic entries. We searched a total of ten IS databases ([dblp](https://dblp.org/), [arXiv](https://arxiv.org/), [AISeL](https://aisel.aisnet.org/), [WoS](https://www.webofscience.com), [IEEE Xplore](https://ieeexplore.ieee.org), [ACM](https://dl.acm.org/), [CSDL](https://www.computer.org/csdl/home), [Wiley](https://onlinelibrary.wiley.com/), [Springer Link](https://link.springer.com/), [ScienceDirect](https://www.sciencedirect.com/)) and performed subsequent backward and forward searches. We merged all unique entries into the BibTex file [references.bib](references.bib).
 
 ## 2. Screen
-Based on obtained results, we screened the literature. You find the details in the file [screen.csv](https://github.com/philipempl/DT4SEC/blob/master/screen.csv) and the included entries in [/screen/included_references_count=114.bib](https://github.com/philipempl/DT4SEC/blob/master/screen/included_references_count=114.bib). We conducted the first screen based on the title. The second screen involves the availability of the full text applying different exclusion criteria: quality, availability, digital twins applied for non-security use cases, digital twins are not mentioned, digital twins involved in a scenario other than IoT or CPS, security enhancements for digital twins, or a complete book instead of single chapters. The application of the quality and exclusion criteria leads to the following results:
+Based on obtained results, we screened the literature. You find the details in the file [screen.csv](screen.csv) and the included entries in [/screen/included_references_count=114.bib](/screen/included_references_count=114.bib). We conducted the first screen based on the title. The second screen involves the availability of the full text applying different exclusion criteria: quality, availability, digital twins applied for non-security use cases, digital twins are not mentioned, digital twins involved in a scenario other than IoT or CPS, security enhancements for digital twins, or a complete book instead of single chapters. The application of the quality and exclusion criteria leads to the following results:
 
 
 ```
@@ -49,13 +49,13 @@ Based on obtained results, we screened the literature. You find the details in t
 ```
 
 ## 3. Extraction
-We extracted relevant information from the yielded literature set in the next step. The coding is documented in [/extraction/coding.xlsx](https://github.com/philipempl/DT4SEC/blob/master/extraction/coding.xlsx). Thereby we defined fields of interest satisfying our pre-defined research questions.
+We extracted relevant information from the yielded literature set in the next step. The coding is documented in [/extraction/coding.xlsx](/extraction/coding.xlsx). Thereby we defined fields of interest satisfying our pre-defined research questions.
 
 ## 4. Analysis
-Last but not least, we analyze, interpret, and synthesize the extracted data using [Jupyter Notebook](https://jupyter.org/). We also include some details on bibliometric data. Our entire working notebook loading the [/extraction/coding.xlsx](https://github.com/philipempl/DT4SEC/blob/master/extraction/coding.xlsx) file can be found under [/analysis](https://github.com/philipempl/DT4SEC/blob/master/analysis). You can reveal the results by executing or clicking on the notebook.
+Last but not least, we analyze, interpret, and synthesize the extracted data using [Jupyter Notebook](https://jupyter.org). We also include some details on bibliometric data. Our entire working notebook loading the [/extraction/coding.xlsx](/extraction/coding.xlsx) file can be found under [/analysis](/analysis). You can reveal the results by executing or clicking on the notebook.
 
 ## 5. Conclusions
-We summarized all the insights and concluding remarks in our paper. The manuscript can be found under [/conclusion](https://github.com/philipempl/DT4SEC/blob/master/conclusion).
+We summarized all the insights and concluding remarks in our paper. The manuscript can be found under [/conclusion](/conclusion).
 
 ## Reference
 ```

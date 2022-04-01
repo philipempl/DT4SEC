@@ -45,7 +45,7 @@ Based on obtained results, we screened the literature. You find the details in t
  |  - excluded:            468
  |  - TODO:                 77
  |
- └ Result:                  114
+ └ Result:                 114
 ```
 
 ## 3. Extraction

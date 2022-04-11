@@ -41,11 +41,11 @@ Based on obtained results, we screened the literature. You find the details in t
 |
 ├ Screen 2
 | - total: 659
-| - included: 114
-| - excluded: 468
-| - TODO: 77
+| - included: 139
+| - excluded: 520
+| - 
 |
-└ Result: 114
+└ Result: 139
 ```
 
 ## 3. Extraction

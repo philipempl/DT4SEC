@@ -1,16 +1,16 @@
-Citation Key/ Filename,GENERAL,,RQ1-DEFINITION,RQ2-DIGITAL TWIN ADVANTAGES,RQ2-APPLICATION DOMAINS,RQ2-APPLICATION SCENARIO,RQ3-PHYSICAL TWINS,,,RQ3-COMMUNICATION MANAGEMENT,,,RQ3-VIRTUAL TWIN AND APPLICATION,,,,RQ4-CHALLENGES & FUTURE RESEARCH,
-,"Assess the overall relevance. HIGH=the paper is only about DTs for Security, MEDIUM=the Paper describes the DT4Sec in a few paragraphs and LOW=the paper shortly desribes DT4sec","Extract the main contribution of the paper (e.g., abstract)",Extract Definitions of the Digital Twin,Extract the reason why the autors use the Digital Twin,Extract in which Industry the Digital Twin is used,Extract the concret cybersecurity scenario of the Digital Twin,"Extract the location of the Digital Twin (Cloud, embedded, edge..)","Which object or asset is relevant for the Digital Twin? (e.g,, Machine, Network, Car) ",What kind of data is used?,"Extract the type of communication. Does the Digital Twin communicate with an Expert, with a physical Object or with other Twins?","Extract the Digital Twin Level of Integration (Digital Twin, Digital Shadow, or Digital Model)","Extract all protocols (MQTT) or data formats (AML, XML, JSON) that are used in the Paper","Which tools are used with the Digital Twin (e.g, Wireshark, Elasticsearch, CPS Twinning..)","Which operation mode/algorithms are used (simulation, replication, analysis, model, Kalman Filter)",How to create or generate  the Digital Twin?,Does the paper provide a framework/ architecture?,Extract the challenges and future research (often in the conclusion),   
-Akbarian2020,HIGH,"In this paper, we propose implementing digital twins that have been equipped with an intrusion detection algorithm. Our novel algorithm is able to detect attacks in a timely manner and aslo diagnose the type of attack by classficiation of different types of attacks. ","""mirror the internal behaviour of physical systems""",So using this virtual environment for security tests instead of the real system prevents any interference with the live systems,Industry,Intrusion Detection,Cloud,ICS Network,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,Simulink,"Kalman Filter (detection), Particle Swarm Optimization (noise), SVM (classification)",Simulation model of the real system that has been obtained easily by system identification algorithms,YES,N/A,   
+Citation Key/ Filename,GENERAL,Column1,RQ1-DEFINITION,RQ2-DIGITAL TWIN ADVANTAGES,RQ2-APPLICATION DOMAINS,RQ2-APPLICATION SCENARIO,RQ3-PHYSICAL TWINS,Column2,Column3,RQ3-COMMUNICATION MANAGEMENT,Column4,Column5,RQ3-VIRTUAL TWIN AND APPLICATION,Column6,Column7,Column8,RQ4-CHALLENGES & FUTURE RESEARCH
+,"Assess the overall relevance. HIGH=the paper is only about DTs for Security, MEDIUM=the Paper describes the DT4Sec in a few paragraphs and LOW=the paper shortly desribes DT4sec","Extract the main contribution of the paper (e.g., abstract)",Extract Definitions of the Digital Twin,Extract the reason why the autors use the Digital Twin,Extract in which Industry the Digital Twin is used,Extract the concret cybersecurity scenario of the Digital Twin,"Extract the location of the Digital Twin (Cloud, embedded, edge..)","Which object or asset is relevant for the Digital Twin? (e.g,, Machine, Network, Car) ",What kind of data is used?,"Extract the type of communication. Does the Digital Twin communicate with an Expert, with a physical Object or with other Twins?","Extract the Digital Twin Level of Integration (Digital Twin, Digital Shadow, or Digital Model)","Extract all protocols (MQTT) or data formats (AML, XML, JSON) that are used in the Paper","Which tools are used with the Digital Twin (e.g, Wireshark, Elasticsearch, CPS Twinning..)","Which operation mode/algorithms are used (simulation, replication, analysis, model, Kalman Filter)",How to create or generate  the Digital Twin?,Does the paper provide a framework/ architecture?,Extract the challenges and future research (often in the conclusion)
+Akbarian2020,HIGH,"In this paper, we propose implementing digital twins that have been equipped with an intrusion detection algorithm. Our novel algorithm is able to detect attacks in a timely manner and aslo diagnose the type of attack by classficiation of different types of attacks. ","""mirror the internal behaviour of physical systems""",So using this virtual environment for security tests instead of the real system prevents any interference with the live systems,Industry,Intrusion Detection,Cloud,ICS Network,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,Simulink,"Kalman Filter (detection), Particle Swarm Optimization (noise), SVM (classification)",Simulation model of the real system that has been obtained easily by system identification algorithms,YES,N/A
 Almeaibed2021,MEDIUM,"This article aims to identify a standard framework for vehicular digital twins that facilitate data collection, data processing, and analytics phases. To demonstrate the effectiveness of the proposed approach, a case study for vehicle follower model is analyzed when radar sensor measurements are manipulated in an attempt to cause a collision.","""In the perspective of autonomous vehicles, a digital twin
 refers to the efforts placed in the design and implementation
 of processes needed to enhance the safety, security, and
-privacy of driverless cars ""","Monitoring, reduces complexity, data analytics, connection",Mobility (Car),Security Testing & Generation of Knowledge,Cloud,Car Data,"Sensor data, weather data, GPS",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,Simulation,N/A,YES,more security and privacy of car data,   
+privacy of driverless cars ""","Monitoring, reduces complexity, data analytics, connection",Mobility (Car),Security Testing & Generation of Knowledge,Cloud,Car Data,"Sensor data, weather data, GPS",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,Simulation,N/A,YES,more security and privacy of car data
 Anthony2020,LOW,This paper aims to present the development of a digital twin of the commercial greenhouse production process as a part of the recently launched EUDP funded project Greenhouse Industry 4.0 in Denmark. This digital twin allows using big data and the Internet of Things to optimise the greenhouse production process and communicate with other digital twins representing essential areas in the greenhouse (climate and energy).,"""DTs have been proved usefully in 
 optimising systems based on collected data and how a 
 system responds to changes in setting. This can help 
 stakeholders realise unexploited potentials and improve 
-operational security"" ","Deploying the DT concept support co-optimization of the production schedule, energy  consumption, and labour cost, by considering influential factors including production deadlines, quality grading, heating, artificial lighting, energy prices (gas electricity), and weather forecasts",Industry,N/A,Cloud,"Production, Climate, Energy",Sensor data,"DIGITAL_DIGITAL, DIGITAL_PHYSICAl",DIGITAL_TWIN,N/A,Anylogic,Simulation,generic multi-agent simulation model of the greenhouse production flow that includes all production steps from the delivery of initial seedlings until the shipment of the final plants,NO,N/A,   
-Assenza2020,LOW,This paper collects the contributions to the industry dis-semination session within the 14th International Conference on Critical Information Infrastructures Security (CRITIS 2019),"""The simulations can also be “fast-forwarded” to foresee the e?ects of updates, repairs, preventive maintenance, and even future threats.""","Simulation, not interrupting system",CRITIS,Intrusion Detection,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,NO,N/A,   
+operational security"" ","Deploying the DT concept support co-optimization of the production schedule, energy  consumption, and labour cost, by considering influential factors including production deadlines, quality grading, heating, artificial lighting, energy prices (gas electricity), and weather forecasts",Industry,N/A,Cloud,"Production, Climate, Energy",Sensor data,"DIGITAL_DIGITAL, DIGITAL_PHYSICAl",DIGITAL_TWIN,N/A,Anylogic,Simulation,generic multi-agent simulation model of the greenhouse production flow that includes all production steps from the delivery of initial seedlings until the shipment of the final plants,NO,N/A
+Assenza2020,LOW,This paper collects the contributions to the industry dis-semination session within the 14th International Conference on Critical Information Infrastructures Security (CRITIS 2019),"""The simulations can also be “fast-forwarded” to foresee the e?ects of updates, repairs, preventive maintenance, and even future threats.""","Simulation, not interrupting system",CRITIS,Intrusion Detection,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,NO,N/A
 Atalay2020,HIGH,"In this paper, we provide an overview of smart grid cybersecurity standards, and review major threats to smart grid environments at the physical, network and application layers. In order to overcome the current lack of standards for security evaluation of smart grids, we propose a digital twins based approach for the complete lifecycle of a smart grid, which accurately models the functioning of the physical grid and avoids service disruptions caused by running security tests on the actual grid.","At a high level, a digital twin can be de?ned as a virtual replica of an object from the physical world [7]","Generic penetration testing tools are incompetent for this task, as they are generally designed for smaller and more homogeneous networks.",Smart Grid,"Penetration Test, Intrusion Detection",Cloud,"Smart Meter, Actuator, Network traffic","Physical information devices identi?ers,
 model, version, storage, input and output size, and location
 are kept as physical models. On the other hand, the devices
@@ -23,22 +23,22 @@ and represents the pro?le of the ecosystem the cloudlet resides
 in. The database can be organized to store the energy trend
 information for different times and tasks. Physical models or behavioural models",DIGITAL_PHYSICAL,DIGITAL_TWIN,"TCP/IP, MQTT",N/A,"Simulation, Optimization, Machine Learning, Pattern, Outlier, Data Clustering",N/A,YES,"Our ongoing work includes the modeling and
 implementation of the proposed security evaluation framework
-for real-world smart grid infrastructures.",   
-Ayodeji2020,MEDIUM,"This paper examines recent advances in intrusion detection algorithms, their limitations, challenges and the status of their application in critical infrastructures.",N/A,without interrupting the real process.,Industry,"Evaluation & Security Testing, Intrustion Detection",N/A,Process,N/A,N/A,DIGITAL_TWIN,N/A,"Nmap, Nessus",Simulation model,Design driven or data-driven,NO,N/A,   
+for real-world smart grid infrastructures."
+Ayodeji2020,MEDIUM,"This paper examines recent advances in intrusion detection algorithms, their limitations, challenges and the status of their application in critical infrastructures.",N/A,without interrupting the real process.,Industry,"Evaluation & Security Testing, Intrustion Detection",N/A,Process,N/A,N/A,DIGITAL_TWIN,N/A,"Nmap, Nessus",Simulation model,Design driven or data-driven,NO,N/A
 Bajaj2020,LOW,N/A,N/A,N/A,Industry,Intrusion Detection,N/A,"Network, Machine",N/A,N/A,N/A,N/A,N/A,N/A,N/A,NO,"Automated vulnerability assessment and detection tools. Many tools currently
 exist but are not tuned for manufacturing or the operational requirements of a
 production setting.
 • Analytics-based detection—networks or machines—and use of digital twins.
 • Tools to audit the extent of attacks.
 • Automated, robust part validation technology, including automated distributed
-ledger technologies such as blockchain, for trusted parts and data validation.",   
-Bayanifar2017,LOW,"This study targets these concerns by proposing a generic model for intelligent distributed dependability and security supervision and control mechanisms to enable components to autonomously meet their own security and dependability objectives through real-time distributed improvement cycles, using multi-agent systems approach to enable full exploitation of the model’s evolution capabilities.",N/A,N/A,Industry,Intrusion Detection,N/A,"CPS environment, collobritations, functions, modules objectives, tasks",N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Decison making agents via two levels, Filter out redundancies and monitor only useful data",N/A,NO,N/A,   
+ledger technologies such as blockchain, for trusted parts and data validation."
+Bayanifar2017,LOW,"This study targets these concerns by proposing a generic model for intelligent distributed dependability and security supervision and control mechanisms to enable components to autonomously meet their own security and dependability objectives through real-time distributed improvement cycles, using multi-agent systems approach to enable full exploitation of the model’s evolution capabilities.",N/A,N/A,Industry,Intrusion Detection,N/A,"CPS environment, collobritations, functions, modules objectives, tasks",N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Decison making agents via two levels, Filter out redundancies and monitor only useful data",N/A,NO,N/A
 Becue2018,HIGH,"The CyberFactory#1 project (ITEA nr 17032) aims at solving this dilemma between productivity and security through the design, development and demonstration of a System of Systems that embraces the  technical, economical, human and the societal dimensions of future factories. It relies on innovative simulation, optimization and resilience capabilities.","A digital twin can be defined as an evolving digital profile of the historical and current behavior of a  physical object or process. The digital twin is based on massive, cumulative, real-time, real-world data measurements across an array of dimensions.","Cyber-physical modelling and digital twins: to support 
 design, testing training and validation of secure by design 
-FoF technologies. ",Industry,"Design, Testing Traning and Validation of FoF technologies",Cloud,"Indusrial Robots, PLC","collected machine, product and environment data, CTI, Operator Feedback",DIGITAL_EXPERT,DIGITAL_SHADOW,N/A,CyberFactory#1,Ad-hoc algorithms,"The digital twin is based on massive, cumulative, real-time, real-world data measurements across an array of dimensions.",YES,N/A,   
-Becue2020,HIGH,"In this paper, we address those limitations and propose innovations for cognitive modeling and co-simulation which may unleash novel uses of Digital Twins in Factories of the Future. We introduce a holistic Digital Twin approach, in which the factory is not represented by a set of separated Digital Twins but by a comprehensive modeling and simulation capacity embracing the full manufacturing process including external network dependencies.","“a DT is a formal digital representation of some asset, process or system that captures attributes and behaviors of that entity suitable for communication, storage, interpretation or processing within a certain context.”","In this paper, we intend to examine the potential for involvement of DTs beyond the limits of their state-of-the-art functionalities. In particular, we address two limitations of existing technology which relate with: (i) the lack of applicable techniques to model human behavior and their interaction with machines; and (ii) the closed-system nature of existing DTs which limits their ability to provide holistic process optimization paths. With consideration for the above-mentioned cybersecurity challenges, we also examine the potential for DTs contribution to cyber-resilience objectives and propose a path for convergence with simulation tools currently in use in security business, called Cyber-Ranges (CRs).",Industry,"Beyond its usefulness for design optimization, such DT can also support system con?guration management, upgrade validation, software update testing before deployment or assessment of resilience towards new threats. M",Cloud,Human,"Keyboard, Mouse, Camera, Microphone, Eye-tracking, Emotions, Congitive Behaviour, tacit knowledge","DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,"CPS Twinning, Wrld3d, Mago3d, i-Maintenance, Eclipse Ditto, imodel.js, Twin-Control, Elasticsearch, Kibana ","Model training, GANN, VR, Feature extraction & Profiling , e.g. fatigue, stress, suspicious behaviour","GANN, VR",YES,N/A,   
-Biffl2019,LOW,This chapter summarizes and reflects on the material presented in this book regarding challenges and solutions for Security and Quality of Complex Cyber-Physical Systems (C-CPS) Engineering.,N/A,"The chapter shows that the following security-related digital twin use cases, which can be applied in engineering activities, are already discussed in the literature: (1) supporting the design of more secure CPSs, (2) detecting hardware and software misconfigurations, (3) conducting security testing, and (4) monitoring security and legal compliance.",Industry,"supporting the design of more secure CPSs, (2) detecting hardware and software misconfigurations, (3) conducting security testing, and (4) monitoring security and legal compliance.",N/A,N/A,N/A,N/A,DIGITAL_TWIN,N/A,N/A,N/A,N/A,NO,N/A,   
-Biffl2019a,LOW,"This chapter overviews the engineering process of C-CPSs, typically longrunning technical systems, such as industrial manufacturing systems and continuous processing systems.",N/A,The chapter aims to demonstrate that digital twins can holistically improve the security of CPSs by applying security measures in various phases of their lifecycle.,Industry,"the simulation aspects of digital twins can be used to conduct security tests in the design, testing, and commissioning phases, while the replication of states to digital twins, so that they follow the states of their physical counterparts, may reveal intrusions. The chapter completes with an extensive analysis of challenges and open questions that are worth studying in future work.",N/A,N/A,N/A,N/A,N/A,N/A,N/A,"Simulation, Replication",N/A,NO,N/A,   
+FoF technologies. ",Industry,"Design, Testing Traning and Validation of FoF technologies",Cloud,"Indusrial Robots, PLC","collected machine, product and environment data, CTI, Operator Feedback",DIGITAL_EXPERT,DIGITAL_SHADOW,N/A,CyberFactory#1,Ad-hoc algorithms,"The digital twin is based on massive, cumulative, real-time, real-world data measurements across an array of dimensions.",YES,N/A
+Becue2020,HIGH,"In this paper, we address those limitations and propose innovations for cognitive modeling and co-simulation which may unleash novel uses of Digital Twins in Factories of the Future. We introduce a holistic Digital Twin approach, in which the factory is not represented by a set of separated Digital Twins but by a comprehensive modeling and simulation capacity embracing the full manufacturing process including external network dependencies.","“a DT is a formal digital representation of some asset, process or system that captures attributes and behaviors of that entity suitable for communication, storage, interpretation or processing within a certain context.”","In this paper, we intend to examine the potential for involvement of DTs beyond the limits of their state-of-the-art functionalities. In particular, we address two limitations of existing technology which relate with: (i) the lack of applicable techniques to model human behavior and their interaction with machines; and (ii) the closed-system nature of existing DTs which limits their ability to provide holistic process optimization paths. With consideration for the above-mentioned cybersecurity challenges, we also examine the potential for DTs contribution to cyber-resilience objectives and propose a path for convergence with simulation tools currently in use in security business, called Cyber-Ranges (CRs).",Industry,"Beyond its usefulness for design optimization, such DT can also support system con?guration management, upgrade validation, software update testing before deployment or assessment of resilience towards new threats. M",Cloud,Human,"Keyboard, Mouse, Camera, Microphone, Eye-tracking, Emotions, Congitive Behaviour, tacit knowledge","DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,"CPS Twinning, Wrld3d, Mago3d, i-Maintenance, Eclipse Ditto, imodel.js, Twin-Control, Elasticsearch, Kibana ","Model training, GANN, VR, Feature extraction & Profiling , e.g. fatigue, stress, suspicious behaviour","GANN, VR",YES,N/A
+Biffl2019,LOW,This chapter summarizes and reflects on the material presented in this book regarding challenges and solutions for Security and Quality of Complex Cyber-Physical Systems (C-CPS) Engineering.,N/A,"The chapter shows that the following security-related digital twin use cases, which can be applied in engineering activities, are already discussed in the literature: (1) supporting the design of more secure CPSs, (2) detecting hardware and software misconfigurations, (3) conducting security testing, and (4) monitoring security and legal compliance.",Industry,"supporting the design of more secure CPSs, (2) detecting hardware and software misconfigurations, (3) conducting security testing, and (4) monitoring security and legal compliance.",N/A,N/A,N/A,N/A,DIGITAL_TWIN,N/A,N/A,N/A,N/A,NO,N/A
+Biffl2019a,LOW,"This chapter overviews the engineering process of C-CPSs, typically longrunning technical systems, such as industrial manufacturing systems and continuous processing systems.",N/A,The chapter aims to demonstrate that digital twins can holistically improve the security of CPSs by applying security measures in various phases of their lifecycle.,Industry,"the simulation aspects of digital twins can be used to conduct security tests in the design, testing, and commissioning phases, while the replication of states to digital twins, so that they follow the states of their physical counterparts, may reveal intrusions. The chapter completes with an extensive analysis of challenges and open questions that are worth studying in future work.",N/A,N/A,N/A,N/A,N/A,N/A,N/A,"Simulation, Replication",N/A,NO,N/A
 Bitton2018,HIGH,"In this paper we suggest a method for creating a digital twin that is network-specific, cost-efficient, highly reliable, and security test-oriented.",N/A,"In contrast to testbeds, which are generic, a digital twin is a replica of a specific ICS; i.e., a model that consists of all of the components from the original industrial environment",Industry,"Security Evaluatio, Pen Test",N/A,"SCADA, ICS, network",network traffic,DIGITAL_EXPERT,DIGITAL_TWIN,"Modbus, DNP3","GRASSMARLIN, OpenVAS, Zeus Scanner, Nmap",Simulation,Formalization on how to derivce cost-efficient twins for ICS,NO,"In future work we plan to evaluate the method on more realistic environments
 from a diverse range of industries and propose a heuristic algorithm for finding a near-optimal solution (digital twin setup) with sub-exponential time complexity.
 In addition, we plan to extend the solution to support different pricing strategies
@@ -50,8 +50,8 @@ consider implementations of multiple elements as virtual or simulations on the
 same machine; and (3) handle identical setups in an industrial environment
 (e.g., if two similar production lines are implemented, there is no need to test
 both of them). Finally, a general knowledge base of possible tests and their test
-dependencies should be researched and established.",   
-Bore2020,MEDIUM,"This chapter discusses the threat arising from within the organisation, whether from negligence, malice, or exploitation by an external party. The trusted insider is one of the greatest challenges facing organisations today.","A synthetic behavioural model of a person or other entity used to predict behaviour, whether predicting drug interactions in medical research or purchasing patterns in online shopping.",Providing behaviour profiles for individuals in the form of a digital twin which can be subjected to much more thorough analysis than the individual otherwise would does have significant potential for improving the prediction of insider threat,Enterprise/ Organization,Insider Threat Detection,N/A,Human,Behavoural profiles for individuals (Social Networks etc.),N/A,N/A,N/A,N/A,Prediction,N/A,NO,N/A,   
+dependencies should be researched and established."
+Bore2020,MEDIUM,"This chapter discusses the threat arising from within the organisation, whether from negligence, malice, or exploitation by an external party. The trusted insider is one of the greatest challenges facing organisations today.","A synthetic behavioural model of a person or other entity used to predict behaviour, whether predicting drug interactions in medical research or purchasing patterns in online shopping.",Providing behaviour profiles for individuals in the form of a digital twin which can be subjected to much more thorough analysis than the individual otherwise would does have significant potential for improving the prediction of insider threat,Enterprise/ Organization,Insider Threat Detection,N/A,Human,Behavoural profiles for individuals (Social Networks etc.),N/A,N/A,N/A,N/A,Prediction,N/A,NO,N/A
 Calo2018,LOW,"In this paper, we discuss a set of scenarios for access control needed in current and future systems and use that to argue that an approach for resources to generate and manage their access control policies dynamically on their own is needed.",N/A,The devices can use such a model to determine whether or not they should allow access to any resource or service that is being requested of them.,Enterprise/ Organization,Device Model Control Approach,Embedded,IoT Device,States depending on sensor data (unsafe/safe),DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,Simulation,device state model,NO,"Defining the right “high-level guidance”:Access control policies
 were introduced as the general approach for simplifying
 the application of access control mechanisms to a divergent
@@ -137,16 +137,16 @@ design should incorporate mechanisms that take into account
 the limitations on a resource, which usually manifests
 itself as limited amount of battery power, computational
 capacity or the ability to communicate at high bandwidth
-rates.",   
+rates."
 Campolo2020,LOW,"In such a context, in this paper we elaborate on the role of technologies like multi-access edge computing (MEC), Internet of Things (IoT) messaging protocols, such as Constrained Application Protocol (CoAP) and Message Queue Telemetry Transport (MQTT), and virtualization (i.e., digital twins) in the design of a framework enabling the collection and processing of data about the mobility of commuters and public transport vehicles.","As a result, the digital twin enables data to be seamlessly transmitted between the physical and virtual worlds, hence ensuring real-time monitoring of systems, helpful for their maintenance and for future upgrades.",Digital Twin as Replication and provide sensitive views to stakeholders dependent on their right of PT vehicles,Mobility of commuters and public transport vehicles,Access Control Views,Mobile Edge,MaaS vehicles,"e.g., smartphones of commuters, On Board Systems (OBSs) of PT vehicles",DIGITAL_PHYSICAL,DIGITAL_SHADOW,"MQTT, COAP, LwM2m (Leshan), TCP, GPS","User Equipmment App, Mosquitto, Wireshark, DT applications hosted in MEC facilities can further access additional (context) information and provide accurate positioning via data fusion from multiple available sources, also improved by the ME LS.",Replication ,Data from ME (replication),YES,"Hence, as a future work we plan the deployment of the DT
 application as a Docker container, as well as the evaluation
 of its memory and CPU footprint when varying the available
 processing resources and the number of commuters for a given
 ME host to figure out potential scalability issues for the actual
-deployment.",   
+deployment."
 Castellani2021,HIGH,"In this paper, we present novel weakly-supervised approaches to anomaly detection for industrial settings. The approaches make use of a Digital Twin to generate a training dataset which simulates the normal operation of the machinery, along with a small set of labeled anomalous measurement from the real machinery.","It is even possible to incorporate input data from actual measurements and to mirror the operational history of individual machines, which is known as Digital Twin systems first introduced in 2003 [9] (see also [10]). Depending on the effort spent to create the Digital Twin, it can be realistic simulation which captures the qualitatively correct behavior of the machinery, or an almost perfect digital copy whose output can be directly compared to the real-world machinery",or an almost perfect digital copy whose output can be directly compared to the real-world machinery. The former can be at least used to create a large dataset containing data samples of normal operation conditions which can be utilized in machine learning approaches.,Industry 4.0,Anomaly Detection,N/A,"Heating, Ventilation and Air Conditioning (HVAC), Combined Heat and Power (CHP)","Ambient Temperature (Ta), Produced Thermal Power (PTh), Produced Thermal Energy (ETh), Produced Electrical Power (PEl), Produced Electrical Energy (EEl), Water flux (Flux), Water flow temperature (TFlow), Water return temperature (TReturn), Flow/return temperature difference (TDiff)",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"PyOD, Keras, Tensorflow, SimulatinX, Modelica","a Partial Grid Search,Cluster Center (KNN), Siamese Autoencoder, Simuation",Green City Library ,NO,"The proposed algorithms are designed to easily incorporate
 the expert-feedback therein. However, their evaluation is intentionally
-left for future work.",   
+left for future work."
 Catarci2019,MEDIUM,"We envision an architecture where humans can instead specify a goal and take advantage of technologies such as digital twins to automatically compose the corresponding physical processes, sharing some analogies with the notion of Web service composition.","A crucial difference between traditional software artifacts used in composition techniques and DTs is that DTs may not share the same view of the world. Clearly, a DT itself consists of an information
 model to describe its physical twin [11]. Specifically,
 a DT can consist of different models and data, that take
@@ -155,10 +155,10 @@ models, 3D geometric models, multiphysics models,
 manufacturing models, and usage models.","Eclipse Ditto, GE Predix, Bosch IoT Things, Microsoft Azure IoT, IBM Watson IoT, AWS IoT, Experimentable DTs in virtuel testbeds,",Simulation,N/A,N/A,"How this confidence must be computed,
 according to the quality of machine learning tasks
 involved in DTs and in the mediator for entity resolution, is
-a challenging ongoing research task.",   
+a challenging ongoing research task."
 Chhetri2018,MEDIUM,"In this paper, we will present the various trends and advances in the security of the supply chain and  product lifecycle of the manufacturing system while highlighting the roles played by the major enabling components of Industry 4.0.",Digital twin is a virtual/digital representation of a physical entity or system.,"Digital twin allows the analysis of data and monitoring of systems to forecast problems even before they occur [148], thus preventing downtime and providing better efficiency.",Indutry 4.0,"various vulnerabilities may be predicted along the product lifecycle and the supply chain. It helps to understand how a projected change
 to a manufacturing process might impact the whole supply
-chain of the product including the cost and time to delivery",N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
+chain of the product including the cost and time to delivery",N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 Choi2020,MEDIUM,"In this paper, we introduce a vendor-agnostic analytics framework which allows security researchers to analyse attacks againstICS systems, even if the researchers have zero control automation domain knowledge or are faced with a myriad of heterogenous ICS systems.",N/A,digital twin’ systems mimicking real-world scenarios.,Industry 4.0,Security Testing and Evaluation,N/A,ICS ,"The test digital twin system comprises of an HMI, two PLCs, two network switches, and a firewall – representativecomponents in most ICS scenarios.",DIGITAL_EXPERT,DIGITAL_SHADOW,N/A,"InTouch software from Schneider Electric, An Allen-Bradley CompactLogix 5370-L3 simulates a conveyor belt and a Schneider Electric Modicon M580 is used as a wind farm digital twin providing electricity to the conveyor belt, To simulate the firewall, pfSense, an open-source firewall, was ported onto a commercial system board., ettercap, wireshark, kdiff3, Kali Linux",Simulation,N/A,N/A,"For future work, we will continue to conduct further research
 on the countermeasures proposed earlier in this paper.
 Based on the data produced by our framework, future research
@@ -166,7 +166,7 @@ on preventative measures would be feasible and aligns well
 to the ultimate goal of our framework. As an extension of
 our approach, we will conduct further experiments of our
 framework on an ICS with a fake PLC or add meaningless
-data fields to experiment control data integrity and resiliency.",   
+data fields to experiment control data integrity and resiliency."
 Chukkapalli2021,MEDIUM,"Therefore in this paper, we present a smart fisheries ecosystem
 where the architecture describes various interactions that happen
 between internet connected devices. We develop a smart fisheries
@@ -179,8 +179,8 @@ of data can be avoided with the help of digital twin whenever
 a temporary worker tries to access previous data of the sensors
 present in the fish farm.",Fish Farm,"Detection of unauthorized transmission (Access Control Context)
 of data",Cloud,Fish Farm,"sensors present in the fish
-farm via Internet.",DIGITAL_PHYSICAL,DIGITAL_SHADOW,N/A,N/A,Replication ,N/A,YES,N/A,   
-Cioara2021,MEDIUM,"In this paper, we will provide an overview of the DTs application domains in the smart grid while analyzing existing the state-of-the-art literature. We have focused on the following application domains: energy asset modeling, fault and security diagnosis, operational optimization, and business models.",N/A,"By twining data with accurate DT models of energy assets, valuable insights or information can be extracted and integrated within many smart grids’ applications like operation maintenance, energy prediction, security and protection, errors detection, etc.",Smart Energy/ Grid,"Fault Model (DTs for diagnosis of errors/faults and security issues), Predict potential failures, detect security issues, implement migiation actions, naalyzing potential threats",N/A,Smart Grid with GER,Model of the whole Grid,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Having a virtual model, one can apply data-driven analytics, run simulations, and what-if analyses to determine the asset behavior in real or hypothetical situations or to decide on control and optimization actions. CONCRETE: DT Model Simulation and Big Data Analytics and Machine Learning","The first step is the creation of the DT model based on the actual measurements done on the energy assets. The energy asset model is constructed by using physics or engineering models, statistics, etc. Augmented reality models can be used for improving the human understanding of the energy assets' operational states",YES,N/A,   
+farm via Internet.",DIGITAL_PHYSICAL,DIGITAL_SHADOW,N/A,N/A,Replication ,N/A,YES,N/A
+Cioara2021,MEDIUM,"In this paper, we will provide an overview of the DTs application domains in the smart grid while analyzing existing the state-of-the-art literature. We have focused on the following application domains: energy asset modeling, fault and security diagnosis, operational optimization, and business models.",N/A,"By twining data with accurate DT models of energy assets, valuable insights or information can be extracted and integrated within many smart grids’ applications like operation maintenance, energy prediction, security and protection, errors detection, etc.",Smart Energy/ Grid,"Fault Model (DTs for diagnosis of errors/faults and security issues), Predict potential failures, detect security issues, implement migiation actions, naalyzing potential threats",N/A,Smart Grid with GER,Model of the whole Grid,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Having a virtual model, one can apply data-driven analytics, run simulations, and what-if analyses to determine the asset behavior in real or hypothetical situations or to decide on control and optimization actions. CONCRETE: DT Model Simulation and Big Data Analytics and Machine Learning","The first step is the creation of the DT model based on the actual measurements done on the energy assets. The energy asset model is constructed by using physics or engineering models, statistics, etc. Augmented reality models can be used for improving the human understanding of the energy assets' operational states",YES,N/A
 Cioroaica2019,LOW,"In this paper, we introduce a method and a test platform
 that support virtual evaluation of decisions at runtime, thereby
 supporting trust building within SES. The key idea behind the
@@ -198,7 +198,7 @@ control algorithm in all situations",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,linke
 description of the algorithm that can be controlled in
 a simulated environment.",N/A,"As future work, we would like to extend the monitoring
 components so as to address not only the input/output communications
-but also intermediate states.",   
+but also intermediate states."
 CristinaFrancodaSilva2021,HIGH,"In this article, we
 introduce a novel concept called Cyber Digital Twin (CDT), which transfers the idea of the DT to
 automotive software for the purpose of security analysis. In our approach, the ECU software (i.e.,
@@ -238,8 +238,8 @@ control and data flow analyses on the binaries
 can be used for fuzzing. Fourth, we could build a
 database of popular libraries, their interfaces and
 interesting attach surfaces to fuzz corresponding
-tests.",   
-Damjanovicbehrendt2018ab,HIGH,"Here, the Digital Twin demopnstroat is presented as a method for the design and implementaion of privacy enhancement mechanisms, and is used to detect privacy concerns and mimmize breaches and associated risks to which smart car drivers cvan vbe exposed ","The term digital twin was originally defined as a virtual represeentaion of what has been manufactured through various lifecycle phases. The Digital Twin is a virtual counterpart to actual physical devices (entities) that combines many Artifical Intelligence (AI)-based rtechnologoies and methods, real-time predictive analysis and forecastign algorithms preforming on top of Big Data redived from the IoT Sensors and acquired historical data","it allos visibility in the manufacturing operations, it can be used to simulate various conditions, it can be used t o connect with the backend business apllications to support suply chain etc.",Automotive,Privacy Assessment,Cloud,"Cars, Stakeholders","vehivle model,. Ob board sensor data, steering wheel feedback tuningg data, data require for tyre, driver skills, perceptio etc.",DIGITAL_EXPERT (Driver),DIGITAL_TWIN,N/A,N/A,"security & privacy data analysis, safety and operational analysis, prediction & analytics based decisions for security, location based bevavioural analysis, tempral behavioural analsis of time series, behaviour and performance modelling ",N/A,N/A,Implementation of previous mentioned concept,   
+tests."
+Damjanovicbehrendt2018ab,HIGH,"Here, the Digital Twin demopnstroat is presented as a method for the design and implementaion of privacy enhancement mechanisms, and is used to detect privacy concerns and mimmize breaches and associated risks to which smart car drivers cvan vbe exposed ","The term digital twin was originally defined as a virtual represeentaion of what has been manufactured through various lifecycle phases. The Digital Twin is a virtual counterpart to actual physical devices (entities) that combines many Artifical Intelligence (AI)-based rtechnologoies and methods, real-time predictive analysis and forecastign algorithms preforming on top of Big Data redived from the IoT Sensors and acquired historical data","it allos visibility in the manufacturing operations, it can be used to simulate various conditions, it can be used t o connect with the backend business apllications to support suply chain etc.",Automotive,Privacy Assessment,Cloud,"Cars, Stakeholders","vehivle model,. Ob board sensor data, steering wheel feedback tuningg data, data require for tyre, driver skills, perceptio etc.",DIGITAL_EXPERT (Driver),DIGITAL_TWIN,N/A,N/A,"security & privacy data analysis, safety and operational analysis, prediction & analytics based decisions for security, location based bevavioural analysis, tempral behavioural analsis of time series, behaviour and performance modelling ",N/A,N/A,Implementation of previous mentioned concept
 Damjanovicbehrendt2018abc,HIGH,"We have designed a digital twin prototype for detecting security, privacy and safety critical
 issues for the smart automotive sector, based on work done in the ongoing IoT4CPS project
 (Trustworthy IoT for cyber-physical Systems. that employs machine learning
@@ -282,7 +282,7 @@ optimisation) and representational
 models (static, structural models
 including semantic data models,
 NoSQL, relational data models, rule
-engines)",YES,N/A,   
+engines)",YES,N/A
 Damjanovicbehrendt2019a,HIGH,"We have designed a digital twin prototype for detecting security, privacy and safety critical
 issues for the smart automotive sector, based on work done in the ongoing IoT4CPS project
 (Trustworthy IoT for cyber-physical Systems. that employs machine learning
@@ -325,7 +325,7 @@ optimisation) and representational
 models (static, structural models
 including semantic data models,
 NoSQL, relational data models, rule
-engines)",YES,N/A,   
+engines)",YES,N/A
 Danilczyk2019,HIGH,"In this paper, we present a framework for
 adapting the Digital Twin to the application of microgrid security.
 The Digital Twin is a real-time, physics-based simulation that
@@ -343,7 +343,7 @@ exploit",Cloud (Smart Grid),"Microfrid, Grid Communication Network","real-time d
 about the physical system and provide guidance in real-time.",DIGITAL_PHYSICAL,DIGITAL_TWIN,SCADA,"Matlab App Designer, Mathworks Simulink, SimpowerSystems","Simulation, Machine Learning, Data Analysis, User Interface, Visualization",IEEE 39 Bus,NO,"Creating digital twins of individual devices or components
 to determine maintenance cycles and service life is valuable;
 however, the ability to leverage the digital twin to not only
-model the full physical system but also to control, adapt an",   
+model the full physical system but also to control, adapt an"
 Dietz2020,HIGH,"To close this research gap, this work develops a process-based
 security framework to incorporate digital twin security simulations
 in the SOC.","Generally, a digital representation of any real-world counterpart
@@ -353,7 +353,7 @@ comprises asset-specific data and typically adds context to the data
 by semantic technologies. Based on the semantically linked data,
 analyses such as predictive maintenance can be conducted [5].",Allowing Simulations,Industry 4.0,"Pentesting, System security testing, attack simulation. Moreover,
 digital twins can assist enterprise security by simulating attacks
-and analyzing the effect on the virtual counterpart.",Cloud,Industrial filing plant,PLC data with actuators,DIGITAL_EXPERT,DIGITAL_TWIN,JSON,"Mininet, Ettercap, Filebeat, Logstash, Elasticsearch, Kibana, Dsiem",Simulation,Manually with MiniCPS,YES,"Differences DT concept in domains, misleading ersults when parameters are falsified, Security testing, How to connect DTs? Data Access??",   
+and analyzing the effect on the virtual counterpart.",Cloud,Industrial filing plant,PLC data with actuators,DIGITAL_EXPERT,DIGITAL_TWIN,JSON,"Mininet, Ettercap, Filebeat, Logstash, Elasticsearch, Kibana, Dsiem",Simulation,Manually with MiniCPS,YES,"Differences DT concept in domains, misleading ersults when parameters are falsified, Security testing, How to connect DTs? Data Access??"
 Dietz2020a,HIGH,N/A,"In general, a DT refers to a digital representation
 of any real-world counterpart during its whole lifecycle.
 At most times, however, it represents an industrial
@@ -367,7 +367,7 @@ providing comprehensive information about the asset’s
 status, history, and maintenance needs. Some DTs even
 provide direct interaction with the asset.",Industry 4.0,"Alerts (Detection), Digital tracing of real world stimuli, security by design, future prediction, repdoucibility, repeatability, time independence, Broad user base throough the prominance of the teqchniques, DT for Forensics, ICS Lifecycle Security, Security by Design",N/A,ICS,PLC,DIGITAL_PHYSICAL,DIGITAL_TWIN,"SCADA, AML",N/A,"Simulation, Replication, Analysis","There are works that aim for the automated
 creation of DTs by building a software-defined network
-(SDN) from the AML description of CPSs",YES,"Domain difference DT, expert knowledge, lack of data, security testing APT, dependencies between different twins, training",   
+(SDN) from the AML description of CPSs",YES,"Domain difference DT, expert knowledge, lack of data, security testing APT, dependencies between different twins, training"
 Dietz2020abc,HIGH,N/A,"The Digital Twin (DT) is
 an asset’s virtual counterpart that enables enterprises to
 digitally mirror and manage an asset along its lifecycle.
@@ -392,7 +392,7 @@ DTs for firms and its position in digital transformation, not
 only from the perspectives of companies owning the DTs
 but also from third parties contributing to the resources.
 Nevertheless, first evidence indicates that DTs can give a
-cutting edge for next-generation virtual asset management.",   
+cutting edge for next-generation virtual asset management."
 Eckhart2018,HIGH,"In this work, we present a framework that allows users
 to create and execute digital twins, closely matching their physical
 counterparts.We focus on a novel approach to automatically generate
@@ -407,7 +407,7 @@ the framework, i.e., mirroring the state of physical systems to their
 corresponding digital twins. To validate our approach, we plan to
 launch a MITM attack in the real environment for the purpose of
 detecting deviations in the behavior of digital twins to spot attacks
-as early as possible",   
+as early as possible"
 Eckhart2018a,HIGH,"In this paper, we propose a
 novel state replication approach that first identifies stimuli based
 on the system’s specification and then replicates them in a virtual
@@ -431,7 +431,7 @@ signals is lacking. Thus, analog values that constitute stimuli must
 be converted to a binary representation, before they can be replicated
 in the virtual environment. However, considering that CPSs
 typically consist of analog-intensive components, further research
-in this area is worth pursuing.",   
+in this area is worth pursuing."
 Eckhart2018ab,HIGH,N/A,"While the
 term “digital twin” typically refers to a
 data-driven or physical model of a
@@ -460,7 +460,7 @@ allow users to recover historical states
 of digital twins and replay their execution.
 In this way, certain scenarios can
 be repeated for further analysis, e.g., to
-understand the propagation of malware",   
+understand the propagation of malware"
 Eckhart2019,HIGH,"In this chapter, we will discuss how digital
 twins can accompany their physical counterparts throughout the entire lifecycle and
 thereby strengthen the security of CPSs.","""virtual replica of a system that accompanies its physical counterpart
@@ -468,12 +468,12 @@ during phases of its lifecycle, consumes real-time and historical data if requir
 has sufficient fidelity to allow the implementation of the desired security measure.""","Digital twins refer to virtual replicas of physical objects that, inter alia,
 enable to monitor, visualize, and predict states of cyber-physical systems (CPSs).",Industry,"Secure Defisn, Intrusion Detection, Secure Commissioning, Detecting Harware & Software Misconfigurations, Security Testing, Privacy, System Testing & Training, Security & Legal Compliance",Cloud,"CPS environment, collobritations, functions, modules objectives, tasks",data availabe (everythng),"DIGITAL_PHYSICAL, DIGITAL_EXPERT",DIGITAL_TWIN,"OPC UA , Aml","CPS Twinning, Mininet","Repolication, Simulation, Analysis",AML files (domain knowledge + engineer knowledge) manually,NO,"In the future,more research is
 definitely required to investigate the practicality of the concept for security-enhancing
-use cases.",   
+use cases."
 Eckhart2019ab,MEDIUM,"This survey article reviews the state of the art concerning quantitative security risk assessments
 for ICSs and identifies promising opportunities for future research and associated challenges.","digital twin virtually replicates its physical counterpart, such as an
 ICS, and can be employed for security-improving use cases","Addressing
 this issue requires innovative methods concerning the development of simulation platforms that
-lend themselves well for assessing security risks",Industry,"Digital Twins to Support Quantitative Security Risk Assessments, Inutrsion Detection",N/A,"CPS environment, collobritations, functions, modules objectives, tasks",data availabe (everythng),DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Simulation, Replication",engineering related data (specification files),NO,N/A,   
+lend themselves well for assessing security risks",Industry,"Digital Twins to Support Quantitative Security Risk Assessments, Inutrsion Detection",N/A,"CPS environment, collobritations, functions, modules objectives, tasks",data availabe (everythng),DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Simulation, Replication",engineering related data (specification files),NO,N/A
 Eckhart2019abcde,HIGH,"This paper reports our work in progress to develop a
 cyber situational awareness framework based on digital twins
 that provides a profound, holistic, and current view on the
@@ -489,7 +489,7 @@ to completion. Ideally, in the future, the introduced concept
 could be taken even one step further: instead of providing only
 decision support, the digital-twin framework could automate
 the detection and mitigation of vulnerabilities, similar to a
-cyber reasoning system.",   
+cyber reasoning system."
 Empl2021,LOW,"this paper conceptualizes
 a security analytics service used as a security add-on
 to these reference architectures. Thus, this paper conceptualizes a
@@ -526,7 +526,7 @@ predictive module (stream data) and the descriptive module (batch
 data). The different analytical techniques can be tagged inside the
 security analytics repository (e.g. for detective module) and ranked
 by other users. These mechanisms are resulting in transparency as
-to which methods are successfully contributing to the cybersecurity",   
+to which methods are successfully contributing to the cybersecurity"
 Erol2020,LOW,"In this study, considering the
 impressive potential of the Digital Twin technology in the field
 of health, qualified studies that will guide future studies are
@@ -551,7 +551,7 @@ studies can be carried out on Digital Twin technology from
 different perspectives such as aerospace, military, education,
 security systems. Besides, studies can be conducted for more
 specific application areas that have not been done yet in the
-field of health.",   
+field of health."
 Fournaris2019,HIGH,"In this chapter, we explore the
 various CPS cybersecurity threats and discuss how adding security as a parameter
 at the CPS design phase can provide a well-structured and efficient approach on
@@ -571,13 +571,13 @@ methods and tools in order to create security monitor(s) from a distributed syst
 specification.Then, there is the quest for the consolidation, or even more, the standardization
 of basic run-time frameworks, component libraries, and subsystem interfaces that
 will ease the deployment of interoperable customized components into generic,
-domain-specific solutions and architectural frameworks",   
+domain-specific solutions and architectural frameworks"
 Furness2019,MEDIUM,N/A,"A digital twin is a “virtual representation of a physical object or system across
 its life?cycle. It uses real?time data and other sources to enable learning, reasoning,
 and dynamically recalibrating for improved decision making” (Mikell and
 Clark 2018)","Having access to a digital
 “twin” of a CPS would provide the ability to investigate responses of the system to
-threats while not taking these systems offline.",CPS,"investigate responses of the system to threats; monitoring; application of security controls, evaluation of vulnerabilities, and understanding of response of a CPS; performing risk assessment",N/A,CPS,real?time data and other sources,"DIGITAL_PHYSICAL, DIGITAL_EXPERT",DIGITAL_SHADOW,N/A,N/A,"replication, monitoring",N/A,NO,N/A,   
+threats while not taking these systems offline.",CPS,"investigate responses of the system to threats; monitoring; application of security controls, evaluation of vulnerabilities, and understanding of response of a CPS; performing risk assessment",N/A,CPS,real?time data and other sources,"DIGITAL_PHYSICAL, DIGITAL_EXPERT",DIGITAL_SHADOW,N/A,N/A,"replication, monitoring",N/A,NO,N/A
 Gajek2020,MEDIUM,"Hence, to adequately
 manage these risks in the emerging digital world, there is a vital necessity to raise awareness, establish, maintain, and further
 develop cyber-security measures to ensure an appropriate level of protection along the entire value chain and supply chain.","A digital twin is a digital representation of a physical object,
@@ -601,14 +601,14 @@ certificate attesting the objects attributes is
 stored in the blockchain.",NO,"Further
 research is recommended to demonstrate the technical feasibility
 of implementation (for USB device management) in
-a factory environment.",   
+a factory environment."
 GamezDiaz2020,MEDIUM,"This article aims to provide a survey on the field of Digital Twin
 technology focusing on machine learning and coaching techniques as they have not been explored
 yet. We also define what Digital Twin Coaching is and categorize the work done so far in terms of the
 objective of the physical activity.","Digital Twins are defined as “digital replications of living as well as non-living entities that enable
 data to be seamlessly transmitted between the physical and virtual worlds” [8].","The use of the Digital Twin technology can help bring a highly customizable solution to individuals.
 Digital Twin (DT) technology enables the collection and analysis of data about the real twin and provides
-them with personalized feedback to improve their quality of life and wellbeing [8,9].",smart coaching/Sports,data security,"edge, cloud","Player, trainee (athletes)",real-time and historical data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"MATLAB, C++, scikit-learn, CAFFE and Kinect Software Development Kit","machine learning, analysis, replication, ",N/A,NO,N/A,   
+them with personalized feedback to improve their quality of life and wellbeing [8,9].",smart coaching/Sports,data security,"edge, cloud","Player, trainee (athletes)",real-time and historical data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"MATLAB, C++, scikit-learn, CAFFE and Kinect Software Development Kit","machine learning, analysis, replication, ",N/A,NO,N/A
 Garcia2020,HIGH,"We present potential approaches for implementing secure embedded intelligence (SEI) and integrated
 state awareness (ISA) in advanced nuclear energy (NE) systems.","A DT is a computational model of a physical SSC. Being a virtual replica of it,
 a DT can act like the real SSC and assist in the interpretation of signatures
@@ -632,7 +632,7 @@ advanced representation constructs and contents that can
 be accessed and manipulated to support explanations generated
 by embedded intelligent agents, including larger-scale
 structures for recording states, plans, actions, and execution
-traces.",YES,N/A,   
+traces.",YES,N/A
 Gehrmann2020,HIGH,"In
 this paper, we discuss how a digital twin replication model and
 corresponding security architecture can be used to allow data
@@ -680,9 +680,9 @@ security analysis services may be supported as virtual
 components as we showed in our architecture design. This
 include services such as virus scan, DoS prevention etc.
 The design and evaluation of such services is left to future
-research as well.",   
-Glawe2020,LOW,The CyberFactory#1 project addresses these needs by providing a framework of possible capabilities for resilient FoF environments.,N/A,"the digital-twin which simulates the architecture, the anomaly detection to detect failures of the architecture and the reconfiguration/optimization to select new strategies.",Industry,"simulates the architecture, the anomaly detection to detect failures of the architecture and the reconfiguration/optimization to select new strategies, testing strategies",N/A,manufacturing-execution-system (transportation system and the robots),real-time data and the historical data,"DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,N/A,simulation,TODO,YES,N/A,   
-Grabis2021,MEDIUM,This paper proposes to ex-tend CDD to address security and resilience concerns in organizational networks. A method extension defining modeling concepts and development procedure is elaborated,N/A,"patterns. The method also considers using a data-driven digital twin for continuous exploration and prediction of newly arising threats. The digital twin uses live data to evaluate the current situation and to appraise suitable response mechanisms. In order to explore network behavior depending on contextual changes and adjustments used, its virtual representation or digital twin is used [12]. It uses live data to diagnose potential problems and to plan capability delivery.",Industry (digital service),"diagnose security incidents and suggest a suitable resilience response, continuous exploration and prediction of newly arising threats, security analysis,",DIGITAL_PHYSICAL,"CAN, aspects of the capability delivery",lice data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,DOE,simulation,"The digital twin is based on a model rep-resenting the network. Various types of models including simulation, statistical, and machine learning could be used. The Design-of-experiments (DOE) module is used to specify scenarios to be explored to identify weaknesses and potential threats.",YES,"The digital twin component is introduced in the paper. However, the digital twin development process is still highly case specific. Formalization of the digital twin de-velopment and exploration processes in an area for future research. It should also be considered in relation to knowledge reuse in the form of patterns as suggested by the CDD methodology.",   
+research as well."
+Glawe2020,LOW,The CyberFactory#1 project addresses these needs by providing a framework of possible capabilities for resilient FoF environments.,N/A,"the digital-twin which simulates the architecture, the anomaly detection to detect failures of the architecture and the reconfiguration/optimization to select new strategies.",Industry,"simulates the architecture, the anomaly detection to detect failures of the architecture and the reconfiguration/optimization to select new strategies, testing strategies",N/A,manufacturing-execution-system (transportation system and the robots),real-time data and the historical data,"DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,N/A,simulation,TODO,YES,N/A
+Grabis2021,MEDIUM,This paper proposes to ex-tend CDD to address security and resilience concerns in organizational networks. A method extension defining modeling concepts and development procedure is elaborated,N/A,"patterns. The method also considers using a data-driven digital twin for continuous exploration and prediction of newly arising threats. The digital twin uses live data to evaluate the current situation and to appraise suitable response mechanisms. In order to explore network behavior depending on contextual changes and adjustments used, its virtual representation or digital twin is used [12]. It uses live data to diagnose potential problems and to plan capability delivery.",Industry (digital service),"diagnose security incidents and suggest a suitable resilience response, continuous exploration and prediction of newly arising threats, security analysis,",DIGITAL_PHYSICAL,"CAN, aspects of the capability delivery",lice data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,DOE,simulation,"The digital twin is based on a model rep-resenting the network. Various types of models including simulation, statistical, and machine learning could be used. The Design-of-experiments (DOE) module is used to specify scenarios to be explored to identify weaknesses and potential threats.",YES,"The digital twin component is introduced in the paper. However, the digital twin development process is still highly case specific. Formalization of the digital twin de-velopment and exploration processes in an area for future research. It should also be considered in relation to knowledge reuse in the form of patterns as suggested by the CDD methodology."
 Guo2020,MEDIUM,"In the paper, we analyze the cyber security risks from
 elements of threats and vulnerability that are faced by ICS during the construction phase from the perspective of the business
 owner of NPPs.","DT is a
@@ -691,7 +691,7 @@ digital tools, not only to replicate, but to digitize physical objects in virtua
 characteristics of physical objects in real environment.","The three biggest advantages to use DT to construct a
 platform for testing and verifying the defense architecture consist in: design phase of ICS, operation, ",Energy industry (Nuclear Power Plants)/ICS,"testing defense architecture (Cyber security test platform), cybersecurity analysis",N/A,"ICS,","geometrical data, kinematic functionality and logical behavior",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Simualtion, analysis",N/A,NO,"proposes to explore an ICS test platform based on DT technology, which allows us to monitor the running state
 of ICS and to verify any security measures before it is deployed in the real environment.
-However, this paper also notes that although TC technology has been applied in the",   
+However, this paper also notes that although TC technology has been applied in the"
 Hadar2020,HIGH,"This paper presents a cyber
 digital twin, based on attack graph analytics, that automatically
 gathers and prioritizes security controls requirements at scale over
@@ -707,12 +707,12 @@ platforms. Additionally, we intend to expand the landscape
 of vulnerabilities and types of attack tactics to domains
 such as the Internet of Things (IoT), application security in enterprise
 resource planning (ERP) systems, different operational
-technology (OT) devices, and embedded systems.",   
+technology (OT) devices, and embedded systems."
 Hammoudeh2020,MEDIUM,"This key note discussion outlines how to implement blockchain
 as a fundamental theory for trustless security for connected CNI",N/A,"A digital twin provides a platform to solve major
 IoT related CNI cybersecurity challenges in tomorrow’s secure infrastructure,
 energy distribution, smart cities, smart manufacturing
-(Industrial IoT and Industry4.0) and autonomous transit systems.","secure infrastructure, energy distribution, smart cities, smart manufacturing and autonomous transit systems",???,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
+(Industrial IoT and Industry4.0) and autonomous transit systems.","secure infrastructure, energy distribution, smart cities, smart manufacturing and autonomous transit systems",???,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 Hau2020,LOW,"A design-centric modeling approach was proposed to model the
 behaviour of the physical processes controlled by Industrial Control
 Systems (ICS) and study the cascading impact of data-oriented
@@ -736,7 +736,7 @@ effects of attacks within a system, however, CPSs are usually
 not independent systems but are connected systems-of-systems
 (i.e. water treatment plant is connected to a water distribution network).
 Future research could focus on evaluating cascading effects
-of attacks on inter-connected systems.",   
+of attacks on inter-connected systems."
 He2019,MEDIUM,"Given the importance of security in process systems, this paper presents a data-driven digital
 twin system for automatic process applications by integrating virtual modeling, process monitoring,
 diagnosis, and optimized control into a cooperative architecture","Digital twins
@@ -756,7 +756,7 @@ designed based on the offline adaptive tuning and online iterative
 training to improve the security under faulty conditions.",YES,"Concerning the future research, more accurate fault
 diagnosis method would be focused, as well as an efficient distributed
 digital twin approach should be developed to improve
-the practical application performance of systems.",   
+the practical application performance of systems."
 Karlsson2020,MEDIUM,"This thesis describes the implementation of a Digital Twin tied to Virtual Reality environment that
 could, by easy means be expanded to Augmented Reality-solution.","A Digital Twin is a digital-system that is connected to a physical counterpart that is meant to mimic
 reality in greatest possible fashion and is meant to expand upon human-machine interaction. Integration
@@ -768,20 +768,20 @@ this has been the second most important part since we wanted to focus on the res
 of concept, which we argue that we have achieved as discussed in Chapter 8 and Chapter 9 . But below
 follow some important and interesting steps to further the research and develop the software and by
 that achieve an even better and more complete representation compared to our extended definition of a
-digital twin.",   
+digital twin."
 Kind2021,LOW,N/A,"These models may be part
 of a digital representation of a physical device (so-called Digital
 Twin),","mistake. These models may be part
 of a digital representation of a physical device (so-called Digital
 Twin), which can be analyzed for anomalies simultaneously with
-traditional direct monitoring approaches.",Industry,analyzed for anomalies simultaneously with traditional direct monitoring approaches,N/A,physical device,N/A,N/A,N/A,N/A,N/A,simulation,N/A,N/A,N/A,   
-Kruger2021,MEDIUM,"This paper aims to provide perspectives on past and future Digital Twin research within the SOHOMA context. The paper describes the evolution of the Digital Twin concept over the past decade of SOHOMA workshops and reviews the contributions in terms of functions, architectures and implementation technologies.",A DT instance (DTI) mirrors its physical twin during its entire lifespan. A,remote monitoring; predic-tive analytics; simulating future behavior; optimization and validation; documentation and communication; and connection of disparate systems,Industry 4.0,"fault detection and diagnosis, detect and prevent attacks, monitoring, simulation, Predictive maintenance",cloud,physical assest,historical data,DIGITAL_PHYSICAL,"DIGITAL_TWIN, DIGITAL_SHADOW (mentioned diffrent types but mopstley it's about a real DT)","mqtt, json, sql","SLADT, DPWS, REST","simulation, replication, analysis",N/A,N/A,"A key challenge exists in the development of DT software. DTs are globally meant to become middleware interfacing all sorts of applications with the manufacturing system.Further challenges relate to achieving real-world impact through industrial applica-tions of DTs. In addition to a lack of benchmarks and standards, there is currently still a shortage of real-world, industrial case studies and applications.",   
+traditional direct monitoring approaches.",Industry,analyzed for anomalies simultaneously with traditional direct monitoring approaches,N/A,physical device,N/A,N/A,N/A,N/A,N/A,simulation,N/A,N/A,N/A
+Kruger2021,MEDIUM,"This paper aims to provide perspectives on past and future Digital Twin research within the SOHOMA context. The paper describes the evolution of the Digital Twin concept over the past decade of SOHOMA workshops and reviews the contributions in terms of functions, architectures and implementation technologies.",A DT instance (DTI) mirrors its physical twin during its entire lifespan. A,remote monitoring; predic-tive analytics; simulating future behavior; optimization and validation; documentation and communication; and connection of disparate systems,Industry 4.0,"fault detection and diagnosis, detect and prevent attacks, monitoring, simulation, Predictive maintenance",cloud,physical assest,historical data,DIGITAL_PHYSICAL,"DIGITAL_TWIN, DIGITAL_SHADOW (mentioned diffrent types but mopstley it's about a real DT)","mqtt, json, sql","SLADT, DPWS, REST","simulation, replication, analysis",N/A,N/A,"A key challenge exists in the development of DT software. DTs are globally meant to become middleware interfacing all sorts of applications with the manufacturing system.Further challenges relate to achieving real-world impact through industrial applica-tions of DTs. In addition to a lack of benchmarks and standards, there is currently still a shortage of real-world, industrial case studies and applications."
 Krundyshev2020,LOW,"To solve the problems of detecting cyber
 threats, it is proposed to use generative adversarial neural networks. Algorithms for learning and testing
 a neural network were presented. The results of the experiments have demonstrated that the proposed
 solution is highly accurate in detecting cyberattacks.",N/A,"allows creating a digital twin of the enterprise network infrastructure. The developed simulation model
 was run many times, each time in a new experiment the location of the nodes, their speed and transmitter
-power changed.",Industry,detecting cyberattacks,N/A,enterprise network infrastructure,N/A,N/A,N/A,N/A,N/A,simulation,N/A,N/A,N/A,   
+power changed.",Industry,detecting cyberattacks,N/A,enterprise network infrastructure,N/A,N/A,N/A,N/A,N/A,simulation,N/A,N/A,N/A
 KumarKandasamy2021,HIGH,"To overcome these shortcomings, we built a digital power twin for a physical test-bed that is used for cyber security studies on
 smart grids. On the developed twin, the users can deploy real world attacks and countermeasures, to test and study its effectiveness",N/A,"Hence, there is a practical need for Digital
 Twins (DTs) that can offer sufficient fidelity of the physical system
@@ -793,7 +793,7 @@ trainees.",CPS/smartgrid,"testign attacks, testing system for vulnerabilities, t
 components in Figure. 1 are simulated on SPEEDGOAT and
 the physical signals are transferred using a data-bus to the IEDs/
 AMIs which act as the interface between physical and network
-components",YES,N/A,   
+components",YES,N/A
 Kummerow2020,MEDIUM,"This paper describes how
 centralized and decentralized DTs can help to monitor and control
 future power systems with special consideration of their interaction
@@ -811,7 +811,7 @@ contingencies and test scenarios, based on commonly
 known IEEE and Cigré benchmark models. Finally, results
 have to be analyzed regarding the performance benefits by the
 utilization of DDMs in power systems. Respective methods, results and conclusions regarding DT tuning algorithms, DT interaction
-and performance tests are planned for further publication.",   
+and performance tests are planned for further publication."
 Kummerow2020a,MEDIUM,"Within this paper, a holistic data stream
 assessment methodology is proposed using an expert knowledge
 based cyber-physical situational awareness for different steady
@@ -827,7 +827,7 @@ stream assessment components. For multiple cyber-physical
 contingencies a correct discrimination between different
 physical events (e.g. outages, short-circuits) and cyber events
 (e.g. false data injections) as well as a correct assessment of
-the cyber-physical situation should be achieved.",   
+the cyber-physical situation should be achieved."
 Laaki2019,MEDIUM,"We developed a novel DT prototype to analyze the requirements
 of communication in a mission-critical application such as mobile networks supported remote surgery.","DT is argued to consist of three parts: physical
 The associate editor coordinating the review of this manuscript and
@@ -853,7 +853,7 @@ sciences, network development and game development each
 exploit their own tools and methods that are built with their
 own demands. This is a major obstacle in the realization of
 the Industry 4.0 and similar concepts and requires research and consideration in our increasingly cross-disciplinary
-world.",   
+world."
 Lei2021,MEDIUM,"This
 paper introduces the methodologies and techniques towards a
 web-based digital twin thermal power plant.","As an exact cyber copy of
@@ -878,12 +878,12 @@ power plants, which can potentially be addressed using approaches
 introduced in networked control systems.
 In the future, for such a huge and complicated system, multidiscipline
 and inter-discipline collaboration is required for a
-fully functional digital twin thermal power plant.",   
+fully functional digital twin thermal power plant."
 Liu2021,MEDIUM,"This
 paper conducts a comprehensive and in-depth review of these literatures to analyze digital twin from the perspective
 of concepts, technologies, and industrial applications.",“digital equivalent to a physical product”,"With the development of new-generation information and digitalization
 technologies, more data can be collected (during system run-time), and it is time to find a way for the deep application of all these data. As
-a result, the concept of digital twin has aroused much concern and is developing rapidly",Industry,"Predictive maintenance, Fault detection & diagnosis, monitoring",N/A,"smart factory, rocket motor, human-robot, manufacturing assets, product","real time data, historical data, sensor data",DIGITAL_PHYSICAL,"DIGITAL_TWIN, DIGITAL_SHADOW (mentioned diffrent types but mopstley it's about a real DT)",N/A,N/A,"simulation, replication, monitoring, analysis",N/A,NO,N/A,   
+a result, the concept of digital twin has aroused much concern and is developing rapidly",Industry,"Predictive maintenance, Fault detection & diagnosis, monitoring",N/A,"smart factory, rocket motor, human-robot, manufacturing assets, product","real time data, historical data, sensor data",DIGITAL_PHYSICAL,"DIGITAL_TWIN, DIGITAL_SHADOW (mentioned diffrent types but mopstley it's about a real DT)",N/A,N/A,"simulation, replication, monitoring, analysis",N/A,NO,N/A
 LlopisSanchez2020,LOW,"The focus of this article is to describe the rapid changing nature of space systems
 where the electromagnetic spectrum and cybersecurity aspects coexist, leading to
 a “change of course” to ensure secure space communications. The authors provide an analysis of the functional
@@ -893,7 +893,7 @@ environmental parameters that were acquired on the real-world system so that it
 can be used to accurately simulate the real-world system’s behavior","Finally, the ultimate goal is to create a digital twin
 of the systems that the trainees are being trained for.",space force,"DT simulates a system for training cyber incident identification
 ",N/A,system (Space operation center),"real-world inputs and
-environmental parameters",DIGITAL_PHYSICAL,N/A,N/A,N/A,"simulation, replication",N/A,N/A,N/A,   
+environmental parameters",DIGITAL_PHYSICAL,N/A,N/A,N/A,"simulation, replication",N/A,N/A,N/A
 Locklin2020,MEDIUM,"This paper presents the results of the literature review of approaches that use Digital
 Twins for verification and validation purposes","Digital Twin is a digital replica of a physical system
 and able to mirror its static and dynamic characteristics.","Central, asset-individual storage of up-to-date models
@@ -902,7 +902,7 @@ the increasing availability of simulations with Digital Twins
 opens up new possibilities for checking assumptions in
 parallel to operation. Therefore, Digital Twins are a promising
 new technology for designing and operating reliable systems",Aerospace engineering,"scanning the process data and configuration data for patterns indicating normal or abnormal states; provide a safe virtual test environment for design, testing training and validate of secure
-by design technologies",N/A,"3D printer, ship, parts/ a whole system",data of scenarios ,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation, analysis",N/A,NO,N/A,   
+by design technologies",N/A,"3D printer, ship, parts/ a whole system",data of scenarios ,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation, analysis",N/A,NO,N/A
 Lopez2021,MEDIUM,"This articlestudies how digital twins can evolve their context
 awareness capabilities and simulation technologies
 to anticipate faults or to detect cyber-security
@@ -916,7 +916,7 @@ and autonomous manner.",Smart Grid,"anticipate faults or to detect cyber-securit
 an arduous path that involves various efforts in
 terms of standardization and information security,
 in conjunction with deep research into machine learning specifically applied to critical infrastructures
-and smart cities.",   
+and smart cities."
 Luan2021,LOW,"In this article, we describe the basic DT
 communication models and present the open research issues. By
 combining wireless communications, artificial intelligence (AI)
@@ -925,7 +925,7 @@ provides a novel framework for futuristic mobile agent systems.","The DT builds 
 multi-physics of the physical system in the digital space.","DT can utilize the rich computing power and
 AI at the cloud to operate on the mirror physical system, and
 accordingly provides feedbacks to help the real-world physical
-system in their practical task completion.",Industry,"Simulation, Prediction and Defense of Attacks (in context of Intra-twin Communications)","cloud, edge",physical entity,real-time data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation, replication, ",N/A,NO,N/A,   
+system in their practical task completion.",Industry,"Simulation, Prediction and Defense of Attacks (in context of Intra-twin Communications)","cloud, edge",physical entity,real-time data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation, replication, ",N/A,NO,N/A
 Madni2021,LOW,"This paper introduces the concept of a MBSE testbed to organize and manage MBSE artifacts, support
 MBSE experimentation with different models, algorithms, and data, and catalogue the case
 studies and lessons learned.",N/A,digital twins can enhance system verification and validation activities,Industry,system verification and validation,N/A,physical systems,N/A,N/A,DIGITAL_TWIN,N/A,MBSE testbed,"simulation, replication","Just as importantly, the MBSE testbed
@@ -935,7 +935,7 @@ guide systems integration, human–systems integration [26,27], adversarial modeli
 of digital twins at the system, and subsystem levels [5], reinforcement learning
 techniques to cope with partial observability and uncertainty [17], support for distributed
 simulation standards (i.e., IEEE 1278.2-2015), and ontology-enabled reuse [28,29] and
-interoperability [30].",   
+interoperability [30]."
 MailletContoz2020,MEDIUM,"This paper presents an approach to
 facilitate the integration, verification and then the functional
 validation of the security into devices based on modeling and
@@ -943,19 +943,19 @@ simulation.",N/A,"reduce design and validation times,
 increase the quality of design, ensure better performances of
 the overall system and finally facilitate the scale up of the
 number of end-devices, by using the digital twin concept",Industry,"Therefore, using digital twins of devices allows quick integration, tests and validation
-of the security layers.",N/A,IoT devices,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,N/A,N/A,N/A,N/A,   
+of the security layers.",N/A,IoT devices,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,N/A,N/A,N/A,N/A
 Martins2020,LOW,This article focus on dealing with Cybersecurity from an ontological perspective.,N/A,"provide statistical methods, data analytics by using machine learning
 techniques over a simulation environment",Industry 4.0,"provide statistical methods, data analytics by using machine learning techniques over a simulation environment",N/A,N/A,N/A,N/A,N/A,N/A,N/A,Machin learing alg.,N/A,N/A,"We are aware that the search string is very limited,
 but it is enough to look for the particularities of ontologies, like those presented
 by Leslie Sikos [44]. Therefore, we know the necessity of new further steps on
-refining the used terminology",   
+refining the used terminology"
 Mills2021,LOW,"In this paper, we conduct an investigation of anti-evasion malware
 triggers for uncovering malware that may attempt to conceal itself when deployed in a traditional
 sandbox environment.",N/A,"With a digital twin, one could model the system characteristics that they wish to protect, rather than
 speculating on the system characteristics that the malware will execute against.",Industry,Simulation for attack testing (malware detection and analysis),N/A,procduction system,N/A,N/A,N/A,N/A,N/A,replication,N/A,N/A,"Future work will extend MORRIGU and our curated dataset to explore further evasion
 strategies, including how bespoke simulated networking access (e.g., INetSim) could be incorporate for
 anti-evasion detection beyond “catch-all” and “block-all” rules, and also studying patterns and trends in
-malware evasive characteristics over time in conjunction with static analysis techniques.",   
+malware evasive characteristics over time in conjunction with static analysis techniques."
 Minerva2020,MEDIUM,"To fully determine the expected properties of
 the Digital Twin, this paper surveys the state of the art starting
 from the original definition within the manufacturing industry. One of the goals of this paper is to identify and emphasize
@@ -975,18 +975,18 @@ expected properties.",YES,"It is difficult to predict the future of the Digital 
 however, it is a concept that is already having a significant
 impact in the manufacturing industry and in IoT, and it has the
 possibility to have a very large impact on the lives of many
-people in the future.",   
+people in the future."
 Mittal2019,MEDIUM,"This paper will present a digital twin engineering methodology as applicable to IoT device
 T&E and cyber experimentation.",A digital twin is a digital replica of a living or non-living physical entity that co-evolves with the entity.,"DT utilize systems engineering artifacts and enrich them to make
 them executable digital twins that can represent the systems in a valid representation of their operational
-environment, allowing for the dynamic evaluation of system behavior in the context of its portfolio.",CPS,Testing and evalutating cyber attacks,N/A,IoT device,N/A,"DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,"MQTT, ",N/A,"simulation, replication, ",N/A,NO,N/A,   
+environment, allowing for the dynamic evaluation of system behavior in the context of its portfolio.",CPS,Testing and evalutating cyber attacks,N/A,IoT device,N/A,"DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,"MQTT, ",N/A,"simulation, replication, ",N/A,NO,N/A
 Morales2020,LOW,"This work presents lessons learned from a multi-year support effort
 of a large and well-funded software development project.",Digital Twin is traditionally thought of as a digital representation or virtualized prototype of a physical system,"the Digital Twin concept is also
 useful for testing large software systems",Software Industry,"Testing Software (Lack of testing in a production-like
 environment can introduce security issues in a number of ways)",N/A,physical system,N/A,N/A,N/A,N/A,N/A,replication,N/A,N/A,"Future work will focus on
 extending and detailing sub-optimal implementations of DSO and
-their realized and potential impacts of software development.",   
-Moro2021,MEDIUM,"This paper describes the Constrained Devices Management Platform, a BT research system designed to enhance the security of IoT systems, with an especial focus on data provenance, immutability, and integrity.",Digital Twinning can be described as a method for turning physical devices into digital services,"DTs provide four main advantages to support cybersecurity applications at a networking level: Simulation environment, Data sharing across siloes, Real-time operations management, Availability and reliability",Industry 4.0/Telecommunications,N/A (combination of DT and blockchain to provide data integrity and data provenance for battery and network-constrained IoT devices),cloud,physical assets,real-time data (sensor data),DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"Constrained Devices Management Platform (CDMP), Eclipse Ditto, ",simulation,N/A,NO,"The next steps for the CDMP development include customer trials scheduled to start in May 2021. The DMP will incorporate the systems of the ongoing project i-Trace2, and Innovate UK project with Costain, C?sco, the University of Warwick, and Senseon. i-Trace is an end-to-end cybersecurity solution using DT, blockchain, and artificial intelligence to provide a resilient security framework to IoT devices.",   
+their realized and potential impacts of software development."
+Moro2021,MEDIUM,"This paper describes the Constrained Devices Management Platform, a BT research system designed to enhance the security of IoT systems, with an especial focus on data provenance, immutability, and integrity.",Digital Twinning can be described as a method for turning physical devices into digital services,"DTs provide four main advantages to support cybersecurity applications at a networking level: Simulation environment, Data sharing across siloes, Real-time operations management, Availability and reliability",Industry 4.0/Telecommunications,N/A (combination of DT and blockchain to provide data integrity and data provenance for battery and network-constrained IoT devices),cloud,physical assets,real-time data (sensor data),DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"Constrained Devices Management Platform (CDMP), Eclipse Ditto, ",simulation,N/A,NO,"The next steps for the CDMP development include customer trials scheduled to start in May 2021. The DMP will incorporate the systems of the ongoing project i-Trace2, and Innovate UK project with Costain, C?sco, the University of Warwick, and Senseon. i-Trace is an end-to-end cybersecurity solution using DT, blockchain, and artificial intelligence to provide a resilient security framework to IoT devices."
 Mullet2021,MEDIUM,"This paper introduces step-by-step the concepts and practical aspects of an Industry 4.0 manufacturing
 factory that are related to cybersecurity.","The standard denition of digital twins is that they are virtual
 replicas of physical objects which make it possible to
@@ -1002,7 +1002,7 @@ securing manufacturing systemsV
  Secure decommissioning;
  Security and legal compliance;",cloud,CPS,real-time and historical data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulation replication, ","To design more secure CPS, the idea is to use digital
 twins in combination with a virtual environment in order
-to analyze how the system behaves under attacks.",NO,N/A,   
+to analyze how the system behaves under attacks.",NO,N/A
 Murillo2020a,HIGH,"In thiswork,we propose the Digital HydrAuLic SIMulator (DHALSIM),
 a Digital Twin for water distribution systems that simulates
 physical, control, and network processes. DHALSIM builds on the
@@ -1027,14 +1027,14 @@ adapt DHALSIM to be used as a Digital Twin that replicates the
 system state of existing physical testbeds, such as WADI, iTrust’s
 water distribution testbed [1]. This would include developing functionalities
 for acquiring data and controlling the testbed in real
-time.",   
+time."
 Neethirajan2021,LOW,"Our goal in this review is to assess the progress toward the use of digital twin
 technology in livestock farming, with the goal of revolutionizing animal husbandry in the future.",digital twins are realistic virtual representations of a physical entity,"The application of digital twins within the
 livestock farming sector is the next frontier and has the potential to be used to improve large-scale
 precision livestock farming practices, machinery and equipment usage, and the health and well-being
 of a wide variety of farm animals.",Agriculture (Lifestock farming),"Improves maintenance decisions, Improves security, Improves safety and reliability",N/A,"pigsty, animals (e.g. cows)","real-time data, sensor data","DIGITAL_EXPERT, DIGITAL_PHYSICAL",DIGITAL_TWIN,N/A,N/A,"simulation, replication, analysis, decision making",N/A,NO,"There is a need for more evidence,
 facts, and case studies of this digital twin technology to encourage widespread adoption
-among livestock farmers.",   
+among livestock farmers."
 OlivaresRojas2021,MEDIUM,"This work shows a small implementation of a digital twin system for smart metering systems in a smart home
 environment for testing cybersecurity issues","Digital Twins (DT) has emerged that allows the interaction between physical
 and virtual objects, considering a virtual object as a
@@ -1045,14 +1045,14 @@ processes.",Energy 4.0 / Smart Grid,Cybersecurity testing & evaluation,N/A,devic
 a DT Controller. ",YES,"As future works, it is intended to build a DT
 display and controller system with a Graphical User
 Interface (GUI) as well as expand the catalog of
-physical objects within SH.",   
+physical objects within SH."
 Pokhrel2020,HIGH,"In this paper, we summarize the definition of digital twin and state-of-the-art on the
 development of digital twin including reported work on the
 usability of a digital twin for cybersecurity.","A digital twin is a replica model residing in a virtual environment that includes
 everything that is known about an object.",N/A,Industry 4.0,"Intrusion/anomaly detection, Fault detection, Monitoring, Simulation","cloud, embedded","system, process ","sensor data, historical data, real-time data",DIGITAL_PHYSICAL,"DIGITAL_TWIN, DIGITAL_SHADOW (mentioned diffrent types but mopstley it's about a real DT)",N/A,N/A,"simulation, analysis, replication, monitoring, predection",N/A,NO,"Our future work will focus on the development of
 digital twin approaches for cybersecurity incident prediction. We
 will build our approach based on the existing methods and tools
-identified through the MLR.",   
+identified through the MLR."
 Pushpa2020,LOW,"In this chapter, Methodologies for leveraging the Digital Twin using Fog/Edge computing
 will be discussed with the suitable use case such as Wind Turbine, Product
 Management, Healthcare center and so on","Digital Twin can be defined as virtual device or monitoring device of physical entity which
@@ -1063,15 +1063,15 @@ and services, the role and responsibility of having and using digital twins
 for all the participating physical twins are bound to go up in the days to
 come. Further on, the analytical capabilities of both physical and digital
 twins come handy in making edge/fog devices (physical twins) adaptive,
-adjustive and autonomous.",   
+adjustive and autonomous."
 Raj2021a,LOW,"This chapter is to explain how they integrate and initiate newer opportunities to be grabbed and
 gained for a better tomorrow.",digital twins are the digital versions of physical objects.,"Digital twins collect value-adding data from their
 corresponding physical twins continuously and crunch them in order to
 emit out useable insights out of data heaps.",Industry,"to offer insights (performance, health condition, security, failure prediction, etc.)",N/A,"different assests/objects (machines, an aerosol drug, Cambridge, a product, patient’s heart)","various real-world data, sensor data, historical data","DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,N/A,N/A,"simulation, replication, ",N/A,NO,"Thus, with the cool synchronization with
-blockchain, the digital twin domain is to flourish in the years to come.",   
+blockchain, the digital twin domain is to flourish in the years to come."
 Ranjbar2020,LOW,The objective of the presented paper is to define the framework for a digital twin of the Canal of Calais.,A digital Twin aims to faithfully reproduce the dynamics of a canal,"A complete Digital Twin (DT) would cover whole the procedure from the beginning of a raw
 water until it reaches the users such that, it observes the whole water cycle",Water system / Hydrographical networks,Anomaly Detection,N/A,hydrographical network,data collected from SCADA,"DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,N/A,"SCADA, Matlab",simulation,"ThedesignoftheDTrequiressomesteps:a)hydraulicmodelofthehydrographicalsystems,b)identificationofthedynamicsofthecontrolleddevicesandc)calibrationofthehydraulicmodel.",YES,"Futureworkswillconsistinimprovingthemodelsoftheoutletgates and thanks to the DT, it is now possible to test the advanced control and optimization algorithms such as
-model predictive controller.",   
+model predictive controller."
 Rasheed2020a,LOW,"In this work, we review the recent status of methodologies and techniques related to the construction of digital twins
 mostly from a modeling perspective. Our aim is to provide a detailed coverage of the current challenges and
 enabling technologies along with recommendations and reections for various stakeholders.","Digital twin can be dened as a virtual representation of a physical asset enabled through
@@ -1080,7 +1080,7 @@ making.",Digital twinning is now an important and emerging trend in many applica
 what is not a digital twin is a difcult question to answer.
 There is a need to quantify the degree to which a digital twin
 resembles its physical counterpart both in terms of appearance
-and behaviour.",   
+and behaviour."
 Rathore2021,MEDIUM,"Therefore, this article emphasizes the role of big data and AI-ML in the creation of digital
 twins (DTs) or DT-based systems for various industrial applications, by highlighting the current state-ofthe-
 art deployments.","Digital twinning is a process that involves the creation of a
@@ -1095,7 +1095,7 @@ and probabilistic approaches, or mathematical models are
 employed to create the DT-based system or the digital twin itself.",NO,"The rapidly increasing DT popularity and scope, as well as the
 involvement of IoT, big data, and AI technologies, broaden
 the research challenges of digital twinning. These challenges
-are categorized in the following five areas: data collection, big data challenges, data analysis, dt standardization challenges, security and privacy issues",   
+are categorized in the following five areas: data collection, big data challenges, data analysis, dt standardization challenges, security and privacy issues"
 Raybourn2018,HIGH,"The present chapter describes how improved modeling and simulation will increase situational awareness
 by blurring the lines among the use of tools for analysis, rehearsal, and
 training—especially when coupled with immersive interaction experiences offered
@@ -1114,18 +1114,18 @@ security systems, it may also present significant challenges for physical securi
 systems and personnel.
 For example, a survey of different-sized companies found that many organizations
 are not prepared for modern technical challenges. Digital twins present unique
-modern, socio-technical challenges; ",   
+modern, socio-technical challenges; "
 Reis2020,LOW,"This work proposes a hybrid approach that
 orchestrates unsupervised and incremental learning methods to detect threats
 that impact the control loops in a plant. We use online data processing to identify
-new attack vectors.",N/A,N/A,CPS,"DT mentioned once in ""RELATED WORK"": As the honeypot is publicly available, all the new attacks tend to be run first on the honeypot that is a digital twin of the protected CPS. (i am unsure if the honeypot mentioned/used in the previous chapters is also to be considered as DT)", ,, , ,, , ,,, , ,   
+new attack vectors.",N/A,N/A,CPS,"DT mentioned once in ""RELATED WORK"": As the honeypot is publicly available, all the new attacks tend to be run first on the honeypot that is a digital twin of the protected CPS. (i am unsure if the honeypot mentioned/used in the previous chapters is also to be considered as DT)", ,, , ,, , ,,, , 
 Riegler2021,LOW,"In this paper, we propose the design of resilient systems based on multi-modal architectures with several operational modes.",N/A,"Other than the use of different modes in digital twins [3] to detect, simulate and analyze attacks, as of our knowledge, there is no application of different modes in
 the security context of IACSs.",Industry 4.0,"detect, simulate and analyse attacks",N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"Our future
 work includes systematic analysis and evaluation of mode switching protocols and an investigation of how to apply
 them to security, especially in the context of IACSs. First findings of a systematic literature review on mode switching
 from a security perspective are presented in [20]. In addition, we plan a prototypical implementation for further
-evaluation and to demonstrate the effectiveness of mode switching for increased security.",   
-Rubio2019,LOW,"this article will firstly study the spectrum of attack vectors that APTs can use against existing and novel elements of an industrial ecosystem. Afterwards, this article will provide an analysis of the evolu- tion and applicability of Intrusion Detection Systems (IDS) that have been proposed in both the industry and academia.",twins”(virtual representations of subsystems,N/A,Industry 4.0,detection of anomalies through analysis of simulations,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"There are still various areas that need of further research, such as the applica- bility and integration of proactive defense mechanisms, the inte- gration of defense mechanisms into IIoT and cloud computing de- ployments, and the advent of the Industry 4.0. Moreover, regarding APTs, it is imperative to (i) incorporate the knowledge of existing APTs and APT stages into the validation of defense mechanisms, and (ii) facilitate the integrability and usability of these defense mechanisms, so they can be easily included in more critical infras- tructures.",   
+evaluation and to demonstrate the effectiveness of mode switching for increased security."
+Rubio2019,LOW,"this article will firstly study the spectrum of attack vectors that APTs can use against existing and novel elements of an industrial ecosystem. Afterwards, this article will provide an analysis of the evolu- tion and applicability of Intrusion Detection Systems (IDS) that have been proposed in both the industry and academia.",twins”(virtual representations of subsystems,N/A,Industry 4.0,detection of anomalies through analysis of simulations,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"There are still various areas that need of further research, such as the applica- bility and integration of proactive defense mechanisms, the inte- gration of defense mechanisms into IIoT and cloud computing de- ployments, and the advent of the Industry 4.0. Moreover, regarding APTs, it is imperative to (i) incorporate the knowledge of existing APTs and APT stages into the validation of defense mechanisms, and (ii) facilitate the integrability and usability of these defense mechanisms, so they can be easily included in more critical infras- tructures."
 Saad2020,HIGH,"This paper provides an IoT-based digital twin (DT) of the cyberphysical
 system that interacts with the control system to ensure
 its proper operation.","The DT is defined as digital replica/model that includes the
@@ -1139,7 +1139,7 @@ the IoT shadow. The proposed DT covers the digital replica
 for both the physical layer, cyber layers and their hybrid
 interactions.",YES,"Future research of this work will
 consider the fusion of deep learning and LO to enhance the
-speed, accuracy and predictability of the attacks.",   
+speed, accuracy and predictability of the attacks."
 Saad2020ab,LOW,"This paper provides a methodology for the modelling of the
 implementation of energy cyber-physical systems (ECPSs) that can be used for multiple applications.
 Two DT types are introduced to cover the high-bandwidth and the low-bandwidth applications
@@ -1149,7 +1149,7 @@ with the physical components to ensure their optimal operation. The digital twin
 as a promising solution that can provide such a framework and unleash many opportunities and gains
 that are associated with the flow of data and real-time interaction.",industrial internet of things / ECPS,"monitoring of the system and actual control and interaction with the physical system to attack detection
 on the communication layer",cloud,physical and cyber layers of the networked microgrids,"historical and real-time data, sensor data",DIGITAL_PHYSICAL,DIGITAL_TWIN,"JSON, MQTT","Amazon Web Services, MATLAB/SIMULINK","monitoring, analysis",N/A,YES,"The authors are currently developing a combination of deep learning and the DT to implement a wide-area situational awareness system by considering
-the stability, reliability and resiliency of the globally interconnected power system.",   
+the stability, reliability and resiliency of the globally interconnected power system."
 Sahal2021,LOW,"This paper presents a conceptual framework for digital twins collaboration
 to provide an auto-detection of erratic operational data by utilizing operational data intelligence
 in the manufacturing systems.","Based on literature research, we adopt the definition that the DT is an exact digital replica of
@@ -1162,13 +1162,13 @@ heterogeneous multi-source data to construct the live representation of a physic
 between the DTs models using model-to-model, e.g., OOP, RDF, and OWL in the complex DT systems heterogeneous DTs types; For flexibility 
 and productivity, DTs should be used to balance and increase processing during work; Furthermore, blockchain technology could be combined with DTs collaboration to
 guarantee transparency, decentralized data storage, data sharing, peer-to-peer communication,
-secure and trusted traceability, and scalability.",   
+secure and trusted traceability, and scalability."
 Semenkov2020,LOW,The paper deals with the problem of the design of digital twins of cyberphysical systems of an Industry 4.0 concept.,"A digital twin is an exact virtual copy of a
 cyberphysical system.","One of the promising functions of digital twins is the development of methods of cyberdefense and verification of the
 system’s resistance to cyber threats",Industry 4.0,"prevention, detection, and reaction to malicious actions toward
 the system.",cloud,CPS,"real-time data
 about the physical system and provide guidance in real-time.",DIGITAL_PHYSICAL,DIGITAL_SHADOW,NTP,ULCS,simulation,"The design and deployment of digital twins of cyberphysical
-systems is an essential and expanding technology",NO,N/A,   
+systems is an essential and expanding technology",NO,N/A
 Semenkov2021 ,LOW,"The work reviews and summarizes properties of models concerning the digital
 and physical components of a cyberphysical system (CPS).","“A digital twin is a virtual representation of a device
 or a group of devices that resides on a cloud or edge node. It can be used to represent
@@ -1180,7 +1180,7 @@ with the digital twin at other stages of the ULCS lifecycle. The main focus will
 the synchronization mechanisms of the digital twin and the real system, increasing
 the accuracy of the models, first of all, in dynamical and temporal characteristics, and the
 development of techniques that allow diagnostics and prognostics of the behavior of a real
-system on a digital twin.",   
+system on a digital twin."
 Shah2021,LOW,"The primary goal of this paper is to arrive at a suit-
 able framework to construct DTs using open-source soft-
 ware programs.",N/A,"A DT framework effortlessly allows for data communication and
@@ -1206,20 +1206,20 @@ system while the Physical model was designed on a
 Linux based system. This increases the overall com-
 putation cost of the system as certain additional steps
 are required to establish prompt communication be-
-tween the digital and physical systems.",   
+tween the digital and physical systems."
 Shalaginov2019,LOW,"The motivation of this contribution is to demonstrate how
 Smart Applications change the conventional understanding
 of Computer Forensics",N/A,"The number of surrounding IoT devices and computing nodes is growing
 to bring a concept of ""digital twin"" of homes, companies and
 environments into life. By utilizing all available data, one will
 be able to reconstruct exact sequence of events attributed to a
-crime involving any kind of Smart Applications.",Smart Cities,insight into how the crime was committed,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,   
-Shoumen2017,LOW,N/A,"In its simplest form, the concept of DIGITAL TWIN posits that the flow of data, process and decision (as outlined above in this hypothetical scenario) is captured in a software avatar 34 that mimics the operation.",The blockchain-like digital ledgers in the backbone of the digital twins may be useful in identifying the exact point of anomaly and the associated objects (including humans in the loop).,Digital Economy,Detection of anomalies,edge,CPS,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,avatar,"analysis, monitoring",the process of creating (building) digital twins and the adoption of digital twins may be restricted to an industrial oligopoly. The vast majority of users cannot deploy an army of engineers to create custom digital twins for their exclusive experiments.,NO,N/A,   
-Stirna,LOW,This paper argues that the digital services provisioning network as a whole as well as individual nodes should possess security and resilience capabilities to ensure safe and sustainable delivery of the services.,Virtual representation of real life objects for monitoring and control purposes,to ensure that the adjustments (decisions and actions) are propagated to the service delivery including advanced visualization of the service ecosystem.,Digital services,continuous monitoring of resilience and security as well as to control the service and capability delivery,N/A,network and its services,"live data, ARTSS model, Historical data for simulation modeling purposes",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"ARTSS modeling tool, Digital twin target development environment","monitoring, Simulation",The method component defines design of a digital twin according to the capability model.,YES,N/A,   
+crime involving any kind of Smart Applications.",Smart Cities,insight into how the crime was committed,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+Shoumen2017,LOW,N/A,"In its simplest form, the concept of DIGITAL TWIN posits that the flow of data, process and decision (as outlined above in this hypothetical scenario) is captured in a software avatar 34 that mimics the operation.",The blockchain-like digital ledgers in the backbone of the digital twins may be useful in identifying the exact point of anomaly and the associated objects (including humans in the loop).,Digital Economy,Detection of anomalies,edge,CPS,N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,avatar,"analysis, monitoring",the process of creating (building) digital twins and the adoption of digital twins may be restricted to an industrial oligopoly. The vast majority of users cannot deploy an army of engineers to create custom digital twins for their exclusive experiments.,NO,N/A
+Stirna,LOW,This paper argues that the digital services provisioning network as a whole as well as individual nodes should possess security and resilience capabilities to ensure safe and sustainable delivery of the services.,Virtual representation of real life objects for monitoring and control purposes,to ensure that the adjustments (decisions and actions) are propagated to the service delivery including advanced visualization of the service ecosystem.,Digital services,continuous monitoring of resilience and security as well as to control the service and capability delivery,N/A,network and its services,"live data, ARTSS model, Historical data for simulation modeling purposes",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,"ARTSS modeling tool, Digital twin target development environment","monitoring, Simulation",The method component defines design of a digital twin according to the capability model.,YES,N/A
 Sugumar2019,LOW,"The work presented here was to explore how a network of Timed Automata, integrated with those of
 noise and cyber-attacks, could be used to test the effectiveness of an attack detection mechanism in a CPS.",N/A,To investigate an approach based on timed automata models of a critical infrastructure,CPS,Anomaly detection,N/A,6- stage water treatment plant,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"As part of future work, we plan to develop a methodology
 to automate and scale this process to larger installations than
-SWaT.",   
+SWaT."
 Suhail2021,HIGH,"This article focuses on
 securing CPSs by integrating Artificial Intelligence (AI) and
 blockchain for intelligent and trusted DTs.","DTs are virtual replicas of physical systems that mirror every facet of a
@@ -1249,7 +1249,7 @@ rate in the ML model. Attackers may begin with AI
 reconnaissance (i.e., observe the model’s behavior and
 learn the decision logic or knowledge bases to morph the
 malicious payloads) and, without being detected, can feed
-their adversarial data to launch data exfiltration attacks.",   
+their adversarial data to launch data exfiltration attacks."
 Suhail2021ab,LOW,"In this survey, while highlighting the key benefits of using
 blockchain-based DTs, we present a comprehensive review of the state-of-the-art research results for blockchain-based DTs.
 Based on the current research trends, we discuss in detail a framework for trustworthy blockchain-based DTs.","formalized the definition of DTs as an integrated multi-physics, multi-scale, probabilistic simulation mirroring the physical system based
@@ -1261,14 +1261,14 @@ mechanisms at the DT design phase can help to lower security and incident-respon
 lifecycle phases less prone to errors and incidents [15]. Whereas, S&S rules must be stored and retrieved from the
 ledger to ensure their reliability. This further strengthens the rationale for integrating blockchain with DTs)",YES,"challenges: Need for Explainable AI, Data Scarcity, Bias Problem, Model Errors, Social and Juristic Challenges of AI; These challenges open new avenues for future research in these directions. Fig. 9 presents the detailed taxonomy
 of the current and future research and deployment challenges for blockchain-driven DTs. We summarize the
-challenges along with causes and possible solutions in Table 3.",   
+challenges along with causes and possible solutions in Table 3."
 Sundaram2020,LOW,"Thus, this manuscript explores the use of active defenses under the assumption that the attacker has privileged access to
 the system, including access to the system’s model and sensors data. Specifically, this manuscript assesses the
 ability of active defenses to remain invisible to the attackers, and discusses the associated challenges that must be
 addressed to ensure their resiliency against APT actors.",artificial intelligence (AI) and the system models often referred to as digital twin,"The passive defense approach relies on artificial intelligence (AI)
 and the system models -- often referred to as digital twin [6] -- to monitor the process variables in search for
 correlations that can be used to detect falsification of the process variables",Industry,Monitoring to detect falsification,N/A,N/A,N/A,N/A,N/A,N/A,N/A,monitor,N/A,N/A,"Future work will focus on development of strategies to insert the noise in a manner that do
-not impact system behavior, and hence produce no variations in its optimal control behavior.",   
+not impact system behavior, and hence produce no variations in its optimal control behavior."
 Tange2020,LOW,"This paper consists of two contributions: our primary contribution is a systematic
 review of the literature over the period 2011-2019 on IIoT Security, focusing in particular on the security requirements of
 the IIoT. Our secondary contribution is a reflection on how the
@@ -1278,7 +1278,7 @@ and red/blue teams perform attack and response scenarios,
 that help the digital twin learn about how to protect and
 respond to attacks by itself. Once a digital twin is deemed
 sufficiently secure it can be used in production settings.",Industrial Internet of Things,protect and respond to attacks,N/A,physical devices,N/A,N/A,DIGITAL_TWIN,N/A,N/A,simulation,N/A,N/A,"Open challenges include practical federation
-frameworks, resource offloading, and resilience",   
+frameworks, resource offloading, and resilience"
 Tao2019,LOW,"This chapter summarizes the existing applications of the DT from two perspectives. First, scientific
 literature about DT applications in different stages of a product’s lifecycle
 is collected and investigated. Second, industrial applications/potential
@@ -1289,7 +1289,7 @@ the domain to achieve lower cost and better performance.",Enterprise/ Organizati
 information through computing",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,replication,N/A,N/A,"However, as the DT is an emerging technology, there
 remain many challenges on technologies, tools, infrastructures, standards,
 etc. Hence, substantial development is still required for the adoption and
-application of the DT.",   
+application of the DT."
 Tauber2018,HIGH,"We have investigated the modelling of such dependencies in use cases related
 to transparency as well as to self-adaptability. Based on our experience we propose further
 extensions of domains like reliability. This also has the potential to provide legal support to Industry
@@ -1298,12 +1298,12 @@ representation of a real system, with the
 history of all changes and developments.","Digital twins can help to organise and
 handle all the data that is generated by
 IoT elements.",Industry 4.0,Security and Safety Evaluation,cloud,a system,"existing information but also an up-to-date
-picture of the current status",DIGITAL_PHYSICAL,DIGITAL_SHADOW,N/A,N/A,"monitor, analysis, model",N/A,NO,N/A,   
+picture of the current status",DIGITAL_PHYSICAL,DIGITAL_SHADOW,N/A,N/A,"monitor, analysis, model",N/A,NO,N/A
 Terziyan2021,LOW,"In this paper, we suggest an opposite, bottom-up (computational intelligence) AI approach to
 digital immunity and smart vaccination, which can be obtained as a result of adversarial GAN-driven learning.",N/A,N/A,Industry 4.0,GAN-driven digital twins may essentially improve security and productivity of industrial processes,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,"Therefore, as the immediate goals
 for the future research would be constructing and testing GAN architectures with multiple human and AI
 components, i.e., with the embedded collective intelligence and checking the potential impact of such digitalized
-collaborative intelligence for a variety of industrial problems",   
+collaborative intelligence for a variety of industrial problems"
 Trneberg2021,HIGH,"In this paper, we propose and prototype a cloud-native digital twin proof of concept
 for evaluating the viability of the concept.","In the Industry 4.0 context, a Digital Twin (DT) can be
 a virtual representation of anything from a component in a
@@ -1314,7 +1314,7 @@ Relegating that functionality to the DT will allow us to minimize what is at the
 of software, practices, and policies on scalable cloud-native platforms.",Industry 4.0,Intrusion detection,Cloud,"CPS (representation of anything from a component in a
 production plant, to a product being assembled/manufactured,
 to the entire production system)",N/A,DIGITAL_PHYSICAL,DIGITAL_TWIN,"Protocol Buffers (Protobuf), ",N/A,"Detection, model, analysis",we implement and evaluate a cloud-native DT Proof of concept (PoC) platform.,YES,"In the future, we will extend our threat model to also cover alternative
-attacks, but here we limit our analysis to attacks on a.",   
+attacks, but here we limit our analysis to attacks on a."
 U.Khan2021,LOW,"we present the key design requirements for enabling 6G through
 the use of a digital twin. Next, the architectural components
 and trends such as edge-based twins, cloud-based-twins, and
@@ -1325,7 +1325,7 @@ and dynamics of a physical system","Meanwhile, an operational twin enables syste
 system and perform different actions in addition to analysis and system design; to efficiently operate 6G, the digital twin will use machine
 learning and optimization algorithms for communication and computing resource optimization.",6G,"analyze the system dynamics, simulation","cloud, edge",6G physical system,data generated by IoE devices,"DIGITAL_PHYSICAL, DIGITAL_TWIN",DIGITAL_TWIN,N/A,N/A,"ML, analysis, simulation","the digital twin will use a virtual representation of the 6G physical system
 along with communication, computing, security, and privacy
-technologies to enable 6G-based IoE applications.",YES,"FUTURE DIRECTIONS: Isolation Between Twins-Based Services, Mobility Management for Edge-Based Twins, Digital Twin Forensics",   
+technologies to enable 6G-based IoE applications.",YES,"FUTURE DIRECTIONS: Isolation Between Twins-Based Services, Mobility Management for Edge-Based Twins, Digital Twin Forensics"
 Ugarte2020,LOW,"This paper analyses the use of the digital
 twin to enable a DevOps approach of cyber physical production systems
 (CPPS) in order to create a fully integrated and automated production
@@ -1335,14 +1335,14 @@ asset where both counterparts are connected to each other and are dynamically
 updating through the whole product life cycle","The digital twin technology enables DevOps to develop and test the product simultaneously, reducing development costs and time to market. Moreover, the bridge between development and operations guarantees the continuous
 improvement in an agile environment.",CPPS,Simulation and Testing,N/A,CPPS,"real-time data
 about the physical system and provide guidance in real-time.",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulate, model, ","introduce the digital twin as a DevOps accelerator where it stages a DevOps approach throughout the whole
-product life cycle.",NO,One of the main challenges is the lack of standards for digital representation.,   
+product life cycle.",NO,One of the main challenges is the lack of standards for digital representation.
 Veledar2019,MEDIUM,"IoT4CPS, a flagship Austrian project, contributes to improvements in required dependability. This paper considers IoT4CPSs core use case: AD. It demonstrates main concepts of resilient IoT solutions integrated with CPSs, in-
 cluding Digital Twin technology that is directly associated with cybersecurity
 and privacy capabilities of automotive ecosystem.",The Digital Twin is a virtual counterpart to actual physical devices (entities),"The Digital Twin-based penetration tests could enable relevant tests virtually (instead of on real system), during both the operation phase and during engineering phase to fix vulnerabilities early in
 the CPS lifecycle; opens new paths to enhance IoT and CPS security and safety",Automotive,"Security and Safety Validation, Monitoring","Cloud, edge",smart car,"real-time sensor data measurements and collections, historical data and ML analytics models)",DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"simulate, prediction, monitoring, ML, analysis","Digital Twin demands technologies and methods
 to be effectively combined e.g. Artificial Intelligence (AI), real-time predictive
 analyses, and forecasting algorithms using Big Data derived from the IoT sensors
-and historical data.",NO,N/A,   
+and historical data.",NO,N/A
 Wu2020,LOW,The aim of this study is to carry out a systematic literature review (SLR) to analyze the current research activities on CPPSs according to their contributions to the engineering life cycle of such production system.,N/A,"Digital twins cover all life cycle activities and processes from
 design, production, utilization to service [121]. Therefore, a
 specific digital twin application can be assigned to multiple
@@ -1362,20 +1362,20 @@ Concerning the branch of decision making in the concept
 map, one future direction of the organizational integration is
 to figure out how to decentralize part of the decisions that are
 currently made in the EISs field to CPPSs’ components (such
-as smart machines and smart products).",   
+as smart machines and smart products)."
 Xinxin2019,HIGH,"Whereas in this paper, we propose to do a functionality and
 cybersecurity analysis based on the digital twin of an ICS (Industrial Control System).","Digital Twin (DT) is a technology to model assets with all their geometrical data, kinematic functionality and logical behaviour using digital tools [Fr18]. All the useful information that relates with the physical system will be virtualized in the DT model.","predication of potential hazards or security vulnerabilities can be somehow
 automated and easier ported.",Industry 4.0,safety and cybersecurity analysis,N/A,"power plants, ICS","current data, the historical data and events&alarms",DIGITAL_PHYSICAL,N/A,"AML (CAEX), PLCopen XML, COLLADA, OPC UA",Refueling Machine,"simulation, analysis,  ","model the system based on a FS, as it able to selectively abstract key
 parts of the functionality of a real world system. AML will be used to model the system with high detail",NO,"The AML and the OPC UA are proposed to create the highly detailed model. The reason we
 use the AML and OPC UA, and the feasibility are represented. As for the specific
-modeling tool, this will be investigated in future.",   
+modeling tool, this will be investigated in future."
 Xu2020ab,HIGH,"This paper considers a stealthy estimation attack, which aims to modify the
 state estimation of the CPSs. The intelligent attackers can learn
 defense strategies and use clandestine attack strategies to avoid
 detection. To address the issue, we design a Chi-square detector
 in a Digital Twin (DT), which is an online digital model of the physical system.","a Digital Twin (DT), which is an online digital model of the
 physical system.",Provides essential resources and environments for detecting sophisticated attacks,CPS,Secure Estimation and Control for Cyber-Physical Systems,"cloud, supercomputer",CPS,sensor data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Monitoring, Simulation, Detection","we aim to design an advanced detector based on
-a Digital Twin",YES,N/A,   
+a Digital Twin",YES,N/A
 Xu2021,HIGH,"We present a novel approach called Anomaly deTection with digiTAl twIN (ATTAIN), which continuously and
 automatically builds a digital twin with live data obtained from a CPS for anomaly detection.","a digital replica of a living or non-living physical entity / a digital twin consists of two parts,
 i.e., digital twin model and digital twin capability. The digital
@@ -1395,7 +1395,7 @@ attacks targeting multiple CPS at the same time, which requires
 developing an integrated digital twin model. We also want
 to investigate how digital twins can be extended to provide
 additional advanced analyses during the operation of CPS such
-as predicting uncertainties and non-functional properties.",   
+as predicting uncertainties and non-functional properties."
 Zhu2020a,MEDIUM,"This book presents control and game-theoretic tools to design secure and resilient
 cyber-physical systems, including cloud-enabled control systems, 3D printers,
 robotic systems, and communication-based train control (CBTC) systems.","A DT could be a virtual prototype of a
@@ -1403,187 +1403,187 @@ CPS, reflecting partial or entire physical processes","The development of Digita
 for detecting sophisticated attacks. A DT could be a virtual prototype of a
 CPS, reflecting partial or entire physical processes",Smart Cities / CPS,"Fault detection, detecting sophisticated attacks, monitor","cloud, supercomputer",CPS,sensor data,DIGITAL_PHYSICAL,DIGITAL_TWIN,N/A,N/A,"Simulation, Monitoring, Detection, Kalman Filter, Analysis","we design a Chi-square detector, running in a
 DT. The DT connects to a group of protected sensing devices, collecting relevant
-evidence.",YES,N/A,   
-Akbarian2021,,,,,,,,,,,,,,,,,,   
-Cathey2021,,,,,,,,,,,,,,,,,,   
-Choi2021,,,,,,,,,,,,,,,,,,   
-Chukkapalli2021a,,,,,,,,,,,,,,,,,,   
-Colabianchi2021,,,,,,,,,,,,,,,,,,   
-Danilczyk2021,,,,,,,,,,,,,,,,,,   
-Dietz2021a,,,,,,,,,,,,,,,,,,   
-Farnell2021,,,,,,,,,,,,,,,,,,   
-Fraser2021,,,,,,,,,,,,,,,,,,   
-Gupta2021b,,,,,,,,,,,,,,,,,,   
-Hatzivasilis2021,,,,,,,,,,,,,,,,,,   
-Holmes2021,,,,,,,,,,,,,,,,,,   
-Hossen2021,,,,,,,,,,,,,,,,,,   
-Jakovlev2021,,,,,,,,,,,,,,,,,,   
-Krishnan2021,,,,,,,,,,,,,,,,,,   
-Kutzler2021,,,,,,,,,,,,,,,,,,   
-Maher2018,,,,,,,,,,,,,,,,,,   
-Marksteiner2021,,,,,,,,,,,,,,,,,,   
-Patel2021,,,,,,,,,,,,,,,,,,   
-Sabeur2021,,,,,,,,,,,,,,,,,,   
-Semenkov2021,,,,,,,,,,,,,,,,,,   
-Sousa2021,,,,,,,,,,,,,,,,,,   
-Suhail2021b,,,,,,,,,,,,,,,,,,   
-Vakaruk2021,,,,,,,,,,,,,,,,,,   
-Vielberth2021a,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
-,,,,,,,,,,,,,,,,,,   
+evidence.",YES,N/A
+Akbarian2021,,,,,,,,,,,,,,,,,
+Cathey2021,,,,,,,,,,,,,,,,,
+Choi2021,,,,,,,,,,,,,,,,,
+Chukkapalli2021a,,,,,,,,,,,,,,,,,
+Colabianchi2021,,,,,,,,,,,,,,,,,
+Danilczyk2021,,,,,,,,,,,,,,,,,
+Dietz2021a,,,,,,,,,,,,,,,,,
+Farnell2021,,,,,,,,,,,,,,,,,
+Fraser2021,,,,,,,,,,,,,,,,,
+Gupta2021b,,,,,,,,,,,,,,,,,
+Hatzivasilis2021,,,,,,,,,,,,,,,,,
+Holmes2021,,,,,,,,,,,,,,,,,
+Hossen2021,,,,,,,,,,,,,,,,,
+Jakovlev2021,,,,,,,,,,,,,,,,,
+Krishnan2021,,,,,,,,,,,,,,,,,
+Kutzler2021,,,,,,,,,,,,,,,,,
+Maher2018,,,,,,,,,,,,,,,,,
+Marksteiner2021,,,,,,,,,,,,,,,,,
+Patel2021,,,,,,,,,,,,,,,,,
+Sabeur2021,,,,,,,,,,,,,,,,,
+Semenkov2021,,,,,,,,,,,,,,,,,
+Sousa2021,,,,,,,,,,,,,,,,,
+Suhail2021b,,,,,,,,,,,,,,,,,
+Vakaruk2021,,,,,,,,,,,,,,,,,
+Vielberth2021a,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,

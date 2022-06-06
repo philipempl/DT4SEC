@@ -2,7 +2,7 @@
 
 ## Bibliometric Analysis
 
-![][https://raw.githubusercontent.com/philipempl/DT4SEC/master/analysis/charts/BA_barchart_publications_year.png?token=GHSAT0AAAAAABT6RHWY6FWFRBTTQJIJ3BV2YU6LWJA)
+![](https://raw.githubusercontent.com/philipempl/DT4SEC/master/analysis/charts/BA_barchart_publications_year.png?token=GHSAT0AAAAAABT6RHWY6FWFRBTTQJIJ3BV2YU6LWJA)
 
 ![](https://raw.githubusercontent.com/philipempl/DT4SEC/master/analysis/charts/BA_piechart_publication_type.png?token=GHSAT0AAAAAABT6RHWYBZDPQGVPAL3PPWQUYU6L5SQ)
 

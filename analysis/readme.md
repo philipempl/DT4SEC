@@ -2,11 +2,11 @@
 
 ## Bibliometric Analysis
 
-![](https://raw.githubusercontent.com/philipempl/DT4SEC/master/analysis/charts/BA_barchart_publications_year.png?token=GHSAT0AAAAAABT6RHWZTLA3DAB47NOHXMJWYU6L6VQ)
+![](https://raw.githubusercontent.com/philipempl/DT4SEC/master/analysis/charts/BA_barchart_publications_year.png?raw=true)
 
-![](https://raw.githubusercontent.com/philipempl/DT4SEC/master/analysis/charts/BA_piechart_publication_type.png?token=GHSAT0AAAAAABT6RHWYBZDPQGVPAL3PPWQUYU6L5SQ)
+![](https://raw.githubusercontent.com/philipempl/DT4SEC/master/analysis/charts/BA_piechart_publication_type.png?raw=true)
 
-![](https://raw.githubusercontent.com/philipempl/DT4SEC/master/analysis/charts/BA_treemap_author_frequency.png?token=GHSAT0AAAAAABT6RHWYAYTO7W5B6SBBMNGEYU6L6AQ)
+![](https://raw.githubusercontent.com/philipempl/DT4SEC/master/analysis/charts/BA_treemap_author_frequency.png?raw=true)
 
 ## RQ1: Digital Twin Paradigm
 

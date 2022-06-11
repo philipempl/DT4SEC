@@ -2,7 +2,8 @@
 
 ## Bibliometric Analysis
 
-![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/BA_barchart_publications_year.png?raw=true)
+<p align="center"> <img src="[https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/BA_barchart_publications_year.png?raw=true]" />
+</p>
 
 ![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/BA_piechart_publication_type.png?raw=true)
 

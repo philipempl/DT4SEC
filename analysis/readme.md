@@ -31,10 +31,25 @@
 
 ### Table 'Digital Twin Advantages'
 
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ1_DTD_table_definition_word_frequency.png?raw=true)
+
+### Line diagram 'Digital Twin Advantages'
+
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ1_DTD_linediagram_definition_word_frequency.png?raw=true)
 
 ## RQ2: Digital Twin Application
 
-![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/chart.png?raw=true)
+### Pie chart 'Application domain'
+
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ2_DTA_piechart_application_domain.png?raw=true)
+
+### Line diagram 'application scenarios'
+
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ2_DTA_linediagram_application_domain.png?raw=true)
+
+### Bubble chart 'appplication scenarios'
+
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ2_DTI_bubblechart_application_scenario.png?raw=true)
 
 ## RQ3: Digital Twin Implementation
 

@@ -43,17 +43,20 @@
 
 ![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ2_DTA_piechart_application_domain.png?raw=true)
 
-### Line diagram 'application scenarios'
+### Line diagram 'Application scenarios'
 
 ![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ2_DTA_linediagram_application_domain.png?raw=true)
 
-### Bubble chart 'appplication scenarios'
+### Bubble chart 'Application scenarios'
 
 ![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ2_DTI_bubblechart_application_scenario.png?raw=true)
 
 ## RQ3: Digital Twin Implementation
 
+### Doughtnut chart 'Location'
 ![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/chart.png?raw=true)
+
+### Word cloud 'Relevant assets'
 
 ## RQ4: Challenges & Future Research
 

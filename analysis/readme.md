@@ -41,7 +41,7 @@
 
 ### Line diagram 'Digital Twin Advantages'
 
-![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ1_DTD_linediagram_definition_word_frequency.png?raw=true)
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ2_DTA_linediagram_definition_word_frequency.png?raw=true)
 
 ### Pie chart 'Application domain'
 
@@ -70,7 +70,7 @@
 ![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ3_RC_piechart_integration_level.png?raw=true)
 
 ### Bar chart 'Used protocols'
-![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ4_RC_stacked_barchart_used_protocols.png?raw=true)
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ3_RC_barchart_data_type.png?raw=true)
 
 ## RQ4: Challenges & Future Research
 

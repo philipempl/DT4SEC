@@ -54,9 +54,19 @@
 ## RQ3: Digital Twin Implementation
 
 ### Doughtnut chart 'Location'
-![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/chart.png?raw=true)
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ3_RC_doughnutchart_location.png?raw=true)
 
 ### Word cloud 'Relevant assets'
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ3_RC_wordcloud_relevant_asset.png?raw=true)
+
+### Bubble chart 'Communication type'
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ3_RC_bubblechart_communication_type.png?raw=true)
+
+### Pie chart 'Level of integration'
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ3_RC_piechart_integration_level.png?raw=true)
+
+### Bar chart 'Used protocols'
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ4_RC_stacked_barchart_used_protocols.png?raw=true)
 
 ## RQ4: Challenges & Future Research
 

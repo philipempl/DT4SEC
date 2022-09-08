@@ -29,15 +29,19 @@
 
 ![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ1_DTD_wordcloud_definition.png?raw=true)
 
-### Table 'Digital Twin Advantages'
+### Table 'Digital Twin Components'
 
 ![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ1_DTD_table_definition_word_frequency.png?raw=true)
+
+## RQ2: Digital Twin Application
+
+### Table 'Digital Twin Advantages'
+
+![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ2_DTA_table_advantages.png?raw=true)
 
 ### Line diagram 'Digital Twin Advantages'
 
 ![](https://github.com/philipempl/DT4SEC/blob/master/analysis/charts/RQ1_DTD_linediagram_definition_word_frequency.png?raw=true)
-
-## RQ2: Digital Twin Application
 
 ### Pie chart 'Application domain'
 

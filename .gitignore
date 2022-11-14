@@ -1,10 +1,5 @@
 ## specific files and dirs
-/pdfs
-/search/bib_details.csv
-/search/search_details.csv
 
-missing_pdf_files.csv
-references_pre_screen_quality_check.csv
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

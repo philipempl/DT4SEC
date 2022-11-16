@@ -1,0 +1,2596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Applications of Digital Twin</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier</publisher>
+				<availability status="unknown"><p>Copyright Elsevier</p>
+				</availability>
+				<date type="published" when="2019">2019</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+						</author>
+						<title level="a" type="main">Applications of Digital Twin</title>
+					</analytic>
+					<monogr>
+						<title level="m">Digital Twin Driven Smart Manufacturing</title>
+						<imprint>
+							<publisher>Elsevier</publisher>
+							<biblScope unit="page" from="29" to="62"/>
+							<date type="published" when="2019" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1016/b978-0-12-817630-6.00002-3</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T13:01+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>As digital twin (DT) is considered as an efficient way to realize the fusion between physical and virtual spaces, both academic researchers and industrial practitioners have applied it in various fields. This chapter summarizes the existing applications of the DT from two perspectives. First, scientific literature about DT applications in different stages of a product's lifecycle is collected and investigated. Second, industrial applications/potential applications of the DT are explored, which are grouped into 11 domains: aerospace, electric power generation, automotive, oil and gas, healthcare and medicine, maritime/shipping, etc. Some of the important exemplary applications are discussed to offer deeper understanding of the DT in industry. As the DT holds great promise to promote the industry development, the future market for the DT is predicted and challenges for DT applications are discussed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">DIGITAL TWIN IN PRODUCT LIFECYCLE</head><p>As shown in Fig. <ref type="figure">2</ref>.1, the entire product lifecycle can be divided into three stages: design stage, production stage, and service stage. Each stage can be subdivided into more detailed phases. Accordingly, to explore the academic research of the digital twin (DT) in product lifecycle thoroughly, the related works can be classified into the following categories: (1) DT in design stage, (2) DT in production stage, (3) DT in service stage, and (4) DT across multiple stages <ref type="bibr" target="#b103">[104]</ref>. Functions and advantages of the DT in each category are explored separately. Based on analysis and statistics of the existing research and published papers, two conclusions are obtained: first, production and prognostics and health management (PHM) are the most popular fields for application of the DT; and second, the DT has attracted the greatest attention in the United States, China, and Europe.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.1">Digital Twin in Design Stage</head><p>As the design stage can determine the overall structures and specifications of a product or a system and thereby determine the subsequent stages, it has an important meaning in the entire product lifecycle. A good design not only can show advantages in planning, but also has good manufacturability. To improve the traditional design method, current research introduces the DT in the design stage. Some related works are reviewed in this section.</p><p>Tao et al. <ref type="bibr" target="#b0">[1]</ref> believed the emergence of the DT would change the entire current product design paradigm, including conceptual design, detailed design, and virtual verification. At present, there exist some weaknesses in big data-driven product design processes, cloud manufacturing-based processes, and some other design processes. The DT is expected to overcome these weaknesses, because it can reflect asdesigned and as-built products at the same time and eliminate their differences.</p><p>Liu et al. <ref type="bibr" target="#b1">[2]</ref> proposed a DT-driven methodology for rapid individualized design of an automated flow-shop manufacturing system, which applies physics-based system modeling and distributed semiphysical simulation to generate a digital design of the system at preproduction stage. The authors also proposed an iterative design framework based on the DT for the iterative optimization between static design and dynamic execution, and explored key enabling technologies for the framework <ref type="bibr" target="#b2">[3]</ref>. Based on this work, how the production would perform in the real world could be simulated in advance and optimization guides for the design could be provided.</p><p>Ferguson et al. <ref type="bibr" target="#b3">[4]</ref> demonstrated how the US-based Mechanical Solutions, Inc. (MSI) used a simulation package from Siemens Product Lifecycle Management (PLM) Software (i.e., STAR-CCM 1 software) to build DT models for water pumps and to address design challenges. Via this software's powerful simulation capabilities, designers could easily and efficiently predict the performance of the pumps and avoid damaging effects.</p><p>Stark et al. <ref type="bibr" target="#b4">[5]</ref> introduced a new architecture based on the DT for modularized design of cyberÀphysical production systems (CPPS). Through integrating existing production resources in a construction kit, an evaluation method for new manufacturing processes was developed to help identify needs for new machines and cyberÀphysical system (CPS) units. Furthermore, with a virtual prototype, the architecture of the CPPS was validated and optimized.</p><p>Damiani et al. <ref type="bibr" target="#b5">[6]</ref> applied DT-based simulation to design a real plant that produces anchoring plates for electric motor brake discs. AnyLogic software, which describes layouts, products, operators, machines, and packaging workings, was used to construct the plant and to simulate the operation process. It aims at achieving the lowest level of work in process (WIP), thus reducing the cost of storing.</p><p>Mavris et al. <ref type="bibr" target="#b6">[7]</ref> explored a design method for an aircraft based on the DT and digital thread, which could efficiently deal with challenges in traditional design methods, including lacking physical data, uncertainty, integrating of multiple disciplines, and data and knowledge management.</p><p>With high-fidelity simulation provided by the DT, the design for a product or a production system can be validated to eliminate the potential failures before actual execution. What is more, as the DT can reflect asdesigned and as-built products synchronously, it can eliminate differences between the two.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.2">Digital Twin in Production Stage</head><p>Production is a complex process, during which material, energy, and information flow exist synchronously and interact with each other. At this stage, researchers have made a lot of efforts, including increasing flexibility of production processes, reducing energy consumption, improving product quality, etc. Recently, some related research has combined the DT with production and obtained performance improvement.</p><p>Rosen et al. <ref type="bibr" target="#b7">[8]</ref> discussed how the DT could be applied in supporting autonomous production systems. As the DT integrates all available data and knowledge seamlessly, it could combine related data to perform accurate simulation-based forecasting for the production, which allows high-level flexibility and automaticity.</p><p>Tao et al. <ref type="bibr" target="#b8">[9]</ref> proposed the concept of digital twin shop-floor (DTS), and explored the conceptual model, interaction mechanism, characteristics, and key technologies for the DTS. Moreover, they discussed the operation mechanism and fusion method for each composition of the DTS to give more insights <ref type="bibr" target="#b9">[10,</ref><ref type="bibr" target="#b10">11]</ref>. Based on the above work, an application on equipment energy consumption management in the DTS was presented and potential advantages were analyzed <ref type="bibr" target="#b11">[12]</ref>.</p><p>Coronado et al. <ref type="bibr" target="#b12">[13]</ref> designed a framework of a shop-floor DT for production control and optimization. In the framework, raw data collection for physical assets is enabled using MTConnect, a mobile device application, and hypertext transfer protocol. Based on the collected data, the shop-floor DT in virtual space was created to serve the managers, providers, and clients, who take actions that affect the factory. The proposed framework was finally validated in a manufacturing research center, achieving good performance.</p><p>Sun et al. <ref type="bibr" target="#b13">[14]</ref> proposed two DT models for an assembly line to improve its throughput. A throughput improvement DT model was designed to analyze real-time status of the line and provide optimized schemes for improving the line throughput, while a throughput prediction DT model was developed to predict the future throughput with low model simplicity and high accuracy.</p><p>Uhlemann et al. <ref type="bibr" target="#b14">[15]</ref> explored the modeling method of the DT for a CPPS, mainly focusing on the concept. Collection and integration of multimodal data were discussed, and a concept for the realization of the CPPS by the DT was presented. Furthermore, they compared the traditional value stream mapping using manual data with the DT combining real-time data to illustrate the advantages of the DT in production <ref type="bibr" target="#b15">[16]</ref>.</p><p>Zhang et al. <ref type="bibr" target="#b16">[17]</ref> discussed an architecture of DT-driven smart shopfloor, which included a physical shop-floor layer, network layer, data layer, cyber layer, and application layer. Then in the architecture, a dynamic resource allocation optimization method was designed to reduce the task completion time.</p><p>Senington et al. <ref type="bibr" target="#b17">[18]</ref> proposed a linked data approach to link raw data from machines to simulation models of the DT for the purposes of analysis and optimization of the manufacturing process. The authors believed that the proposed approach would play an important role in Industry 4.0, as it could support decentralized data storage and processing, modularity of software for smart factories, interoperability of heterogeneous data sources, and virtualization of factories.</p><p>Leng et al. <ref type="bibr" target="#b18">[19]</ref> presented a DT-driven manufacturing cyberÀphysical system (MCPS) for parallel control of shop-floors. By establishing cyberÀphysical connection via decentralized DT models, various manufacturing resources could be formed as a dynamic autonomous system to create personalized products. The framework, key technologies, and implementation of the MCPS were discussed, respectively.</p><p>Vachálek et al. <ref type="bibr" target="#b19">[20]</ref> optimized a physical production line based on the DT. As the DT collected real-time data from the actual production process, it could evaluate the production in real-time and satisfy the real-time requirements to simulation parameters. In addition, it has the ability to keep the actual process working as expected.</p><p>Banerjee and coworkers <ref type="bibr" target="#b20">[21]</ref> described a mechanism to extract and infer knowledge from large-scale production line data based on the DT, which enhances manufacturing process management with reasoning capabilities. As the DT integrates data from manufacturing, maintenance, operations, and operating environments, it could reflect the key behaviors of each asset, system, or process, thus providing intelligence for the mechanism.</p><p>Weyer et al. <ref type="bibr" target="#b21">[22]</ref> predicted that the DT would represent the next generation simulation, and it would play a critical role in developing CPPS. As the DT was characterized by the synchronization between physical and virtual spaces, it enables human operators to monitor the production process and to make timely adjustments. The methods about how to work with the DT were also discussed.</p><p>Parrott and Warshaw <ref type="bibr" target="#b22">[23]</ref> discussed the DT model of a manufacturing process from an integrated and holistic aspect and described the DTenabled closed loop from physical space to virtual space and back to the physical space again. Ameri and Sabbagh <ref type="bibr" target="#b23">[24]</ref> considered the DT as a digital factory that could represent the technological capabilities of manufacturing facilities. The authors described the creation method for the digital factory, including capability extraction, supply chain configuration, and factory digitalization, and applied it to a machine shop.</p><p>Brenner and Hummel <ref type="bibr" target="#b24">[25]</ref> reported that the DT would lead to a new paradigm of creating a digital shop-floor. They analyzed the hardware and software requirements for implementing the DT in the European School of Business (ESB) Logistics Learning Factory to realize smooth interactions among person, machine, and product. Zhuang et al. <ref type="bibr" target="#b25">[26]</ref> explored a DT-based smart production management and control framework for the complex product assembly shopfloor and discussed the related technologies. The proposed framework was applied to a satellite assembly shop-floor.</p><p>Knapp et al. <ref type="bibr" target="#b26">[27]</ref> developed a DT for the additive manufacturing process to predict cooling rate, temperature gradient, microhardness, velocity distribution, and solidification parameters. It was shown that the usage of the DT has led to more accurate predictions of cooling and melting rate than the level set method, volume of fluid, and heat conduction models on the basis of the finite element method (FEM).</p><p>From these studies, it can be seen that as the DT offers a bridge to link the physical and virtual spaces together, it can make the virtual space mirror the physical practical situations in a timely manner and control behaviors of the physical objects in real-time. Based on these findings, the DT has the abilities to optimize and elevate the production process to a higher level of effectiveness and flexibility.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.3">Digital Twin in Service Stage</head><p>In the service stage, PHM is a crucial step that is used to monitor the health of a product, perform diagnosis and prognosis, and provide design rules for maintenance strategies. However, traditional works on the PHM are primarily driven by the physical product and its data, with little connection to its virtual model, which affects the efficiency of the PHM. To change this situation, some researchers have introduced the DT into this field.</p><p>Glaessgen and Stargel <ref type="bibr" target="#b27">[28]</ref> introduced a DT-based prognosis method for future National Aeronautics and Space Administration (NASA) and U. S. Air Force vehicles, which could tightly combine historical data, fleet data, and sensor data to generate insights for fault prediction. It has the ability to improve conventional methods that are inadequate to meet the increasing needs for real-time monitoring and accurate prediction.</p><p>Tuegel et al. <ref type="bibr" target="#b28">[29]</ref> applied the DT to predicting the remaining structural life of an aircraft considering multiphysics modeling, multiscale damage modeling, integration of structural FEM and damage models, uncertainty quantification, big database manipulation, and high-resolution structural analysis. They claimed that the DT could enable better management of the aircraft service life.</p><p>Zakrajsek and Mall <ref type="bibr" target="#b29">[30]</ref> built a DT model to predict the touchdown wear and the probability of failure for aircraft tires. It was shown that the DT model could demonstrate certain superiorities over the traditional models in predicting the probability of failure for the varying sink rate, yaw angle, and speed.</p><p>Li et al. <ref type="bibr" target="#b30">[31,</ref><ref type="bibr" target="#b31">32]</ref> built a DT model based on a dynamic Bayesian network for the diagnosis and prognosis of an aircraft wing fatigue crack growth. The method integrates physics models and various aleatory and epistemic uncertainty sources in crack growth prediction, and has produced accurate prediction results.</p><p>Gockel et al. <ref type="bibr" target="#b32">[33]</ref> discussed challenges for implementing an ultrarealistic and cradle-to-grave DT model for an airframe to forecast its structural life. They concluded seven technology gaps that need to be addressed in the future for realizing this envisioned process.</p><p>Reifsnider and Majumdar <ref type="bibr" target="#b33">[34]</ref> introduced a method to build highfidelity DT models for fleet management. The method was superior to the traditional methods because it no longer requires damage initiations to perform the fault diagnosis and shows a high sensitivity to fracture development.</p><p>Seshadri and Krishnamurthy <ref type="bibr" target="#b34">[35]</ref> developed a damage characterization structural health management method for damage diagnostics and prognostics for aircraft structures. The method uses a genetic algorithm-based optimization procedure to predict damage location, size, and orientation and shows high efficiency and accuracy.</p><p>Kraft and Kuntzagk <ref type="bibr" target="#b35">[36]</ref> built DT models with three layers to support deterioration and failure analysis for engines, and to predict remaining life for their critical parts. The authors validated the method in CFM56-5C, a mature commercial two-spool high bypass engine installed on the Airbus A340-300 and the experiment results presented major improvements.</p><p>Lee et al. <ref type="bibr" target="#b36">[37,</ref><ref type="bibr" target="#b37">38]</ref> built twin models for manufacturing machines to integrate sensory data, record historical data, and manage hundreds of similar physical machines, to further assess machine conditions, identify the failure mode, and provide selfawareness and selfprediction through simulation.</p><p>Tao et al. <ref type="bibr" target="#b38">[39]</ref> explored a DT-driven PHM method for complex equipment. A five-dimension modeling method for the DT of the equipment was constructed, and then based on the model, a three-stage workflow was developed to guide the PHM activities. The method was finally validated on a wind turbine.</p><p>Bitterwolf et al. <ref type="bibr" target="#b39">[40]</ref> trained and evaluated a supervised machine learning method based on the DT for the automated fault detection. The method was validated with a motor control model and could reduce costs associated with unnecessary maintenance or premature breakdowns.</p><p>Motivated by the DT concept, Cerrone et al. <ref type="bibr" target="#b40">[41]</ref> presented the asmanufactured geometry to predict crack paths on a material test specimen. A specimen DT was modeled and simulated in a commercial finite element software package to deal with the ambiguity problem of the crack paths.</p><p>Magargle et al. <ref type="bibr" target="#b41">[42]</ref> used a simulation-based DT combining with physics-based modeling techniques for heat monitoring and predictive maintenance for an automotive braking system. The method displayed immense superiority in collecting sensor information to train learning algorithms, which could contribute to accurate diagnosis of the controller in the system and failure detection of the tone ring, a speed sensor for wheel speed measurement.</p><p>Liu et al. <ref type="bibr" target="#b42">[43]</ref> proposed a system architecture of DT ecosystem, in which the DT fused multisource data, including historical information, technical data, maintenance report, manufacturing report, asset features, etc. to generate knowledge for the proactive maintenance, thus reducing costs and downtimes.</p><p>Cai et al. <ref type="bibr" target="#b43">[44]</ref> constructed a DT virtual machine based on sensor data integration and information fusion to help engineers conduct diagnosis and prognosis through checking the DT model when a machine breaks down.</p><p>Hochhalter et al. <ref type="bibr" target="#b44">[45]</ref> combined the DT with sensory materials to overcome shortcomings of traditional methods, which are overly dependent on the empirical data and hence could not respond to uncertainties in a timely manner. Using a nonstandard test specimen as an example, it was proven that the new approach could result in more accurate predictions of repair, inspection, and replacement.</p><p>Gabor et al. <ref type="bibr" target="#b45">[46]</ref> developed a DT-based architecture that includes four tiers: physical necessity, machineÀenvironment interface, immediate reaction, and planned reaction, to predict the behaviors of CPS during its operation.</p><p>Yun et al. <ref type="bibr" target="#b46">[47]</ref> proposed a novel architecture of large-scale DT platform including distributed DT cooperation framework, flexible datacentric communication middleware, and a platform-based DT application to develop a reliable advanced driver assistance system. For these works, on one hand, the DT-based simulation can provide more insights for diagnosis and prognosis. On the other hand, abundant models and simulated data can be obtained and integrated with physical data to generate more comprehensive and valuable information for health condition detection and analysis. Therefore, combined with the DT, the PHM has the potential to be improved to achieve higher efficiency and accuracy.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.4">Digital Twin Across Multiple Stages</head><p>In the PLM, due to different processes and characteristics, data from different stages are always isolated, fragmented, and stagnant, which hinders the efficient management of the entire lifecycle. As the DT can integrate data from the lifetime of a product seamlessly, it has been applied into the PLM by some researchers.</p><p>Tuegel <ref type="bibr" target="#b47">[48]</ref> proposed an airframe DT concept for airframe designing and maintenance, which can reduce model uncertainty with increasing service experience. As modeling of the DT is a core step in the method, some technical challenges in developing the DT model were discussed in detail.</p><p>Tao et al. <ref type="bibr" target="#b48">[49]</ref> put forward a DT-driven product design, manufacturing, and service method to support the product across its lifetime. The frameworks for the DT applications in the three stages were presented and further validated in bicycle design, drive shaft manufacturing, and power transformer service, respectively. Tao et al. <ref type="bibr" target="#b49">[50]</ref> also explored potential applications of the DT in different stages across the product lifetime.</p><p>Liau et al. <ref type="bibr" target="#b50">[51]</ref> introduced the DT into stages of the injection molding industry, including mold design, mold making, and the injection molding process. The DT helped the entire injection molding process move toward real-time process optimization, process monitoring, and prediction of quality defects through building a closed loop between physical and virtual spaces.</p><p>Söderberg et al. <ref type="bibr" target="#b51">[52]</ref> developed a DT to secure good geometrical quality in final products. The DT supported locating scheme optimization and statistical variation simulation in the design stage, inspection preparation in preproduction stage, as well as virtual trimming, joining sequence optimization, root cause analysis, etc. in the production stage. They further specified the related strategies in another paper <ref type="bibr" target="#b52">[53]</ref>.</p><p>Talkhestani et al. <ref type="bibr" target="#b53">[54]</ref> developed an anchor point method to synchronize cross-domain mechatronic data models of mechatronic components in the DT during the lifecycle of existing production systems, which could detect changes in the production systems to reduce the occurrence of expensive errors.</p><p>Boschert et al. <ref type="bibr" target="#b54">[55]</ref> believed that the DT could provide continuous values across the lifecycle of the physical entity and bridge the gaps between different stages. It could shorten the design period by using historical lifecycle experience in design, make accurate simulations in various conditions and analyze root causes of failures in production, and detect faults and give solutions for maintenance in service.</p><p>Grieves and Vickers <ref type="bibr" target="#b55">[56]</ref> showed how the DT worked across the product lifecycle, including the creation, production, operation, and disposal stages. They deemed that the DT was helpful for transforming clients' thoughts, knowing systems deeply, checking accuracy of predictions, etc. Obstacles and opportunities of the DT were discussed as well.</p><p>Schleich et al. <ref type="bibr" target="#b56">[57]</ref> proposed a comprehensive reference model based on "skin model shapes" as the DT of a physical product in design and manufacturing stages. The model abstraction, representation, and operations were presented and applied to the geometrical variations management for the product.</p><p>Gregory et al. <ref type="bibr" target="#b57">[58]</ref> believed that the DT has great significance for selfaware vehicles, as it could provide information on structure states and vehicle dynamics to assess vehicle states and generate both real-time and offline diagnosis and prognosis for structural health to improve maintenance efficiency.</p><p>Bohlin et al. <ref type="bibr" target="#b58">[59]</ref> launched a study on necessary infrastructure, components, and data flows in the DT for geometry assurance for parts. A closed loop was described with the DT to explain what the parts experienced and relevant methods were also introduced.</p><p>Konstantinov et al. <ref type="bibr" target="#b59">[60]</ref> believed that the DT was consistent with CPS to some extent and developed a set of virtual engineering tools to support the manufacturing system lifecycle description. The authors used an electric machine assembly station as a case study to verify the efficiency of the presented tools.</p><p>Zhuang et al. <ref type="bibr" target="#b60">[61]</ref> established an architecture for a product DT; discussed implementation methods for the DT in design, production, and service stages, respectively; presented its potential functions; and finally pointed out the future development trends.</p><p>Yu et al. <ref type="bibr" target="#b61">[62]</ref> proposed that a product DT could continuously integrate and perfect data and knowledge from the product lifecycle, and hence realize data management, tracking, and maintaining for product configuration management and improve visualization and transparency during management.</p><p>Tao et al. <ref type="bibr" target="#b62">[63]</ref> introduced methods of modeling and simulation, dynamic prediction, and evaluation for a complex product during its lifecycle based on the digital thread and the DT. The methods realized the dual mapping between physical and virtual spaces and implemented a closed loop of the product lifecycle.</p><p>With the DT, data generated from the product lifecycle can be recorded and integrated into a high-fidelity digital model with a unified encapsulation. Via powerful computing and analysis abilities of the DT, valuable information and knowledge can be mined continuously, forming continuous value streams to support activities in the PLM.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.5">Observations</head><p>Based on the above papers, the following observations are obtained:  First, for PHM, as it was the earliest field in which the DT was applied, related works and technologies have been developed over a longer period of time and some exciting results have been obtained, which has inspired more researchers to work in the field. Besides, as NASA and the U.S. Air Force have introduced the DT into the PHM for future aircrafts, the DT is considered as one of the most promising technologies in the field, and thereby has attracted a lot of attention. However, current research on the PHM still has some limitations. For example, the application areas mainly focus on high-value equipment because of the DT's high costs. There will be broader applications as DT technology matures.</p><p>Second, for production, as the era of smart manufacturing is coming, many researchers are concentrating on how to realize smart operations in the production process. As the DT has the ability to bridge physical and virtual spaces seamlessly and maintain the two spaces consistently and synchronously, it shows a great potential in real-time process control and optimization, as well as accurate prediction. Hence, researchers focusing on production feel excited about the DT and have been making efforts to deploy it in their research. In the future, with the advancement of technologies and infrastructures in factories, the DT will be further popularized and adopted in production. The United States, China, and Europe are the world powerhouses in manufacturing. They have proposed strategies at their respective national levels, including Industrial Internet, CPS or CyberManufacturing, Made in China 2025, and Industry 4.0, to encourage and support related researchers and practitioners to explore implementation ways of smart manufacturing. As the DT appears as a pragmatic technology for seamless cyberÀphysical fusion, which is the core of future manufacturing, researchers in the United States, China, and Europe have enthusiastically placed great emphasis on DT-related studies ahead of other countries. They are currently in the leading position in DT literature.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">DIGITAL TWIN IN INDUSTRIAL APPLICATIONS</head><p>DT has been widely applied in industry <ref type="bibr" target="#b103">[104]</ref>. In Table <ref type="table">2</ref>.1, major industrial applications/potential applications of the DT in 11 domains are listed for easy review. In the following sections, some important examples in each domain are discussed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.1">Digital Twin in Aerospace</head><p>Aerospace is the earliest industrial domain adopting the DT, which was initially launched by NASA and the U.S. Air Force. Subsequently, many large companies, for example, Northrop Grumman, Airbus, Boeing, and General Electric Company (GE), also combined DT technology with their related businesses, including the aircraft maintenance, production, assembly, safety and security management, etc. Some examples are presented as follows.</p><p>To predict malfunctions and design maintenance strategies for an aircraft in space, NASA <ref type="bibr" target="#b63">[64]</ref> has built a DT to mirror the actual conditions of the aircraft. Through feeding the DT with real-time data, it can optimize performance of the aircraft, predict potential faults in advance, and help engineers on Earth better understand the faults and provide efficient solutions. At present, NASA also attempts to use the DT to ensure crews' safety when the aircraft is out of order.</p><p>The U.S. Air Force Research Laboratory (AFRL) <ref type="bibr" target="#b64">[65]</ref> has released a plan, that is, Spiral 1, for the development of the DT in aerospace. AFRL  has signed a $20 million commercial contract with GE and Northrop Grumman to carry out related research that integrates the most advanced technologies and aims at identifying the differences between entities and models accurately.</p><p>Northrop Grumman <ref type="bibr" target="#b65">[66]</ref> has applied the DT to the final assembly line for the F-35 fighter to improve manufacturing efficiency and reduce cost. It set up a digital thread-based infrastructure to support decision making on unsatisfactory products, and has improved multiple engineering processes. For example, based on the infrastructure, the decision-making time for processing machining defects of air inlets for F-35 was shortened by 33%, which contributed to Northrop Grumman winning the Defense Manufacturing Technology Achievement Award from the U.S. Department of Defense in 2016.</p><p>In 2011, Airbus [66À67] adopted an intelligent location solution from Ubisense (UBI) that connects entities in the A350XWB final assembly line in real-time, makes industrial processes and equipment applications transparent, and grasps distributions of equipment in the plant. Since then, UBI's solutions have continuously been introduced into the assembly lines and aircraft projects in the Airbus, involving the A330, A380, and A400M. Based on this, the Airbus has further deployed RFID on key tools, materials, and parts and finally established a DT for the assembly line that could predict bottlenecks based on models and optimize operation performance.</p><p>In terms of DT applications, aerospace is a relatively mature domain and a good amount of research has been conducted. The DT plays a significant role in this domain, as it can perform real-time prediction and high-fidelity validation in the virtual space, which improves the reliability of the aircraft, reduces accidents, and conserves resources.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.2">Digital Twin in Electric Power Generation</head><p>The electric power industry is closely related to industrial development and people's daily lives, covering the generation, transmission, distribution, and sale of electric power. It is a basic industry for a country and the DT has been introduced to this industry by some companies.</p><p>GE <ref type="bibr" target="#b67">[68,</ref><ref type="bibr" target="#b68">69]</ref> has built a digital wind farm to redefine the future of wind power. Through collecting real-time data (e.g., weather, component messages, service reports) continuously, a DT can be built for each wind turbine to optimize equipment maintenance strategy, improve reliability, and increase annual energy production. A 20% gain in efficiency is expected to be achieved based on the application of the DT. To help customers realize it, GE provides an integrated hardware and software solution comprising wind turbine products and a set of software applications built on the Predix software platform.</p><p>Siemens <ref type="bibr" target="#b69">[70]</ref> provided a solution for the Finnish power system, which attempted to create a DT for the power grid to be used for planning, operating, and maintaining the facilities. The key benefits brought by the digital grid include: (1) transforming most manual works on simulation to automated works, (2) improving the utilization of data, (3) standardizing interfaces for data, and (4) providing huge possibilities for improving decision making based on big data that are linked to the digital grid.</p><p>Beijing BKC Technology Co., Ltd. (BKC) <ref type="bibr" target="#b70">[71]</ref>, a solution provider for health management of electric power plants in China, has applied DT technology to its businesses. It developed a set of smart solutions, including the visual management for the entire electric power plant, threedimension online monitoring system for steam turbines, interactive virtual simulation for training, underground pipe network visualization, etc. Through providing visualization information and analysis tools, BKC is helping customers to improve plant operation efficiency, reduce costs, and save energy consumption.</p><p>It is clear that the DT has the ability to keep the power grid, electrical power plant, and essential equipment running with higher reliability, which is important for ensuring smooth operations of factories and enterprises, and ensuring normal daily life for people.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.3">Digital Twin in Automotive</head><p>The automotive industry involves different stages across the entire lifetime of a motor vehicle, such as design, production, and maintenance. At present, as car structures become more complex, requirements for high-precision testing and maintenance are increasingly higher. Some companies, such as Bsquare, PACCAR, ANSYS, have made efforts on DT applications in the automotive industry.</p><p>An Internet of Things (IoT) software company, Bsquare <ref type="bibr" target="#b71">[72,</ref><ref type="bibr" target="#b72">73]</ref>, established DT models for truck engines or other parts to create repair scenarios for the truck maker PACCAR. Through making full use of real-time data collected using sensors and information in the DataV system, an engine model under specific conditions can be created to support truck maintenance. Based on this, gains in reducing maintenance time can be obtained in a short time, and a 20% reduction of maintenance time can be achieved.</p><p>GE <ref type="bibr" target="#b73">[74]</ref> deems that the digital thread and the DT can be used to track a locomotive throughout its lifecycle in the future. With the digital thread and the DT, how a locomotive is designed, configured, built, operated, and serviced can be digitally tracked. Particularly, as health conditions of each component and changes in related variables can be obtained in realtime, engineers can optimize operations of the locomotive from fuel efficiency to unplanned downtime.</p><p>International Business Machines Corporation (IBM) <ref type="bibr" target="#b74">[75]</ref> believes that the DT will bring huge value for vehicles within a few years. Engineers can construct a DT before building the real vehicle to simulate how it will perform under different conditions, how it will interact with different drivers, what its will be vulnerabilities, etc. They can also see what is happening at any given time, and find out when, why, and how breakdowns occur to reduce the costs and risks of unplanned downtime.</p><p>As the DT shows obvious superiority in conditions monitoring, operation optimization, and fault prediction in the automotive industry, it can be considered as a promising technology for the domain.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.4">Digital Twin in Oil and Gas</head><p>As oil and gas are usually mined from remote areas with severe environmental conditions, there are many issues in process management. Hence, some companies have introduced the DT into this domain and expect to improve management efficiency.</p><p>ARC Advisory Group <ref type="bibr" target="#b75">[76]</ref> estimated the unplanned downtime could lead to the loss of process industry revenue and profitability up to $1 trillion per year. Fortunately, it also pointed out that the emergence of the DT would bring a tremendous opportunity to improve oil and gas maintenance and operations, which would change this situation thoroughly. Benefits from the DT mainly include: (1) helping operating teams better understand risks, (2) helping the creation of an executable plan and work schedule, and (3) helping to identify and manage changes in design.</p><p>CIMS RAFFLES <ref type="bibr" target="#b76">[77]</ref> integrated the China International Marine Containers (CIMC) Blue Whale #1, a semisubmersible drilling platform, with advanced technologies such as augmented reality (AR)/virtual reality (VR), IoT, virtualization, and data integration to form the DT for the platform and to establish related management systems. It has realized the visualization display, research and development process display, operation and maintenance management, and has provided an efficient remote means for data collection and state monitoring.</p><p>British Petroleum (BP) <ref type="bibr" target="#b77">[78,</ref><ref type="bibr" target="#b78">79]</ref> has used the DT to model physical projects, such as new oil fields and associated infrastructure, which is helpful for maintenance planning, equipment identification for decommissioning, equipment installation planning, as well as asset management. The BP has applied the DT-based technologies to a facility in Alaska.</p><p>The emergence of the DT provides an efficient way to realize remote monitoring and control, downtime prediction, and risk reduction for related infrastructure, equipment, and process in the oil and gas industry, which can greatly improve the management efficiency.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.5">Digital Twin in Healthcare and Medicine</head><p>In the healthcare industry, related companies and organizations provide medical services, fabricate medical equipment, and develop pharmaceuticals to maintain and improve health conditions of people. It is one of the world's largest industries and is closely related to everyone. The DT can be applied to the healthcare industry to accelerate its digitization course.</p><p>GE Healthcare Camden Group <ref type="bibr" target="#b79">[80]</ref> has turned the DT of a hospital into reality. Through advanced data monitoring and processing, the DT can contribute to bed planning, staff scheduling, operating room allocation, etc., which can maximize care for patients.</p><p>Dassault <ref type="bibr" target="#b80">[81,</ref><ref type="bibr" target="#b81">82]</ref> conducted the Living Heart Project (LHP) to build a DT for the human heart via biotech sensors and scanning technology. The DT is a personalized full-dimensional model of a heart with electrical and muscular properties, which can mimic the behavior of the real heart. It can support not only various manipulations, such as inserting pacemakers, reversing chambers, cutting any cross-section, and running hypotheticals, but also provide virtual analysis of the heart to deliver care to a cardiac patient before the sickness starts.</p><p>Researchers at the University of Amsterdam <ref type="bibr" target="#b82">[83]</ref> attempted to build a DT as a digital clone of a human, which can mimic human behaviors accurately, such as breathing, walking, even the fracture of a leg and disease development. The digital copy will contribute significantly to personalized medicine, which thereby will change traditional treatments based on what is best on average for a large group of patients. It also leads to faster and more efficient introduction of new medication and reduces the use of animals in medical research.</p><p>In the healthcare industry, the DT has a bright prospect in health management for human beings, in that it can improve existing medical services and infrastructure to create better patient care on one hand, and develop innovative ways to deal with difficult illness cases on the other hand.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.6">Digital Twin in Maritime/Shipping</head><p>The maritime industry has a history over hundreds of years. It involves sea transportation, ocean exploitation, and national defense construction, and has a strong driving effect on the import and export trade. At present, some companies in the industry plan to improve related businesses through advanced technologies. Accordingly, the DT has attracted substantial attention.</p><p>GE <ref type="bibr" target="#b83">[84]</ref> attempts to work with Military Sealift Command (MSC), a leading provider of ocean transportation for the U.S. Navy and the Department of Defense, to improve performance and mission readiness. To do this, GE will enable high-speed data sampling for critical marine equipment and build a DT for the equipment. Enabled by the Predix platform, real-time data from the physical equipment can be compared with simulated data from the virtual model to detect the difference, which may represent a performance degradation leading to a potential failure. Based on the difference, operators can identify and solve the corresponding problem before it occurs, thus increasing equipment reliability and availability, and reducing maintenance cost.</p><p>DNV GL <ref type="bibr" target="#b84">[85]</ref> attempts to establish a "virtual sister ship" for the physical one to reduce costs, improve efficiency, and boost safety during the vessel's lifecycle through enabling collaboration among designers, builders, operators, and others. It has analyzed values brought by the DT from the perspectives of different stakeholders in the maritime industry <ref type="bibr" target="#b85">[86]</ref>: 1. For ship owners: supporting visualization of ships and subsystems, data qualification and analytics, optimization of performance, internal and external communication, autonomous operations, and decommissioning. 2. For equipment manufacturers: providing tools for system integration, performance demonstration, system quality assurance, and additional services.</p><p>3. For authorities: offering a systematic framework to automatically produce information and high-quality reports. 4. Universities: supporting related research and education. 5. Maritime academies: training future and existing maritime personnel. 6. Consultancies: providing business opportunities.</p><p>With the DT, the traditional marine industry will benefit from advanced digital technologies, and predictive analytics for the critical marine equipment and PLM for the entire ship will be application spots in the future.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.7">Digital Twin in City Management</head><p>Cities are areas of human settlement, with high population density, complete infrastructure, and buildings. To improve the urban environment and people's quality of life, the DT has been applied to this domain.</p><p>The government of Singapore <ref type="bibr" target="#b86">[87]</ref> has partnered with Dassault to build a DT to describe everything in the city, from bus stops to buildings, for testing bold new ideas. With the digital copy, massive benefits can be obtained, including: (1) providing a bird's eye view of the city, (2) enabling virtual experiments to optimize related measures, (3) optimizing long-term planning and decision making, and (4) supporting large-scale simulations.</p><p>IBM Watson <ref type="bibr" target="#b87">[88]</ref> has shown how the DT can be used in a cognitive building to control the heating, ventilation, and air conditioning (HVAC) systems and monitor indoor climate conditions. In the building, there are 600 room sensors (e.g., temperature readings, light sensors, and occupancy monitoring), 250 smart meters, and 169 HVAC machines. Based on the collected data, the DT of the building can be created to help engineers regulate energy consumptions and detect potential use cases, and to provide technicians with guided services, maintenance procedures, and knowledge of climate control.</p><p>Cityzenith <ref type="bibr" target="#b88">[89]</ref> built a "5D smart world platform" for city management. It integrated digital images with available data sets and overlaid IoT networks with contextual data schema to create a virtual representation for an entire city. With the platform, the infrastructure development process can be digitized and a more integrated digital lifecycle of the city can be enabled. At present, the platform has been used in over 100 cities, including Chicago, London, Doha, etc.</p><p>It is obvious that the DT is a valuable technology in city management. With high-fidelity virtualization and simulation provided by the DT, urban management can be optimized, and more smart cities with intelligence in operation, analysis, and prediction will be built.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.8">Digital Twin in Agriculture</head><p>Agriculture is a crucial sector in a country that produces food, fiber, medicinal plants, and other products to sustain and enhance life, through cultivating animals and plants. At present, this sector is under intense pressure due to the growing population in the world. Fortunately, the emergence of the DT may help change the current situation.</p><p>Verdouw and Kruize <ref type="bibr" target="#b89">[90]</ref> from Wageningen University and Research believe that the DT can act as a central means to manage farms and has the ability to revolutionize agriculture. They have explored potential DT applications in agriculture with different topics, which provides guidelines for related companies. The potential applications mainly include: (1) remotely monitoring dairy cattle to detect their health conditions, (2) recording and identifying plant pests and diseases, (3) monitoring feed silos of livestock farms and optimizing replenishment, (4) tracking machinery fleet in real-time and monitoring energy consumption of crops, (5) monitoring olive fly occurrence and spread, and (6) monitoring apiaries to identify diseases, pest infection, pesticide exposure, and toxicity.</p><p>Microsoft <ref type="bibr" target="#b90">[91]</ref> also deems that the DT has the power to accelerate agriculture-related businesses, including farm supply, production, harvest, packaging and distribution, and sales and marketing. It will provide solutions for customers to seize the vast opportunities ahead and support sustainability of the agriculture industry.</p><p>At present, practical cases showing DT's use in the agricultural sector are relatively few. However, as the DT shows a great potential in remote monitoring, virtualization, predictive analytics, etc., it will be an indispensable technology for the agriculture industry in the future.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.9">Digital Twin in Construction</head><p>Construction is the process of erecting buildings or infrastructure facilities, including the stages of design, building, decorating, and management. It provides people with spaces for accommodation and entertainment, and greatly relates to economy, culture, and life. Some companies have tried to introduce the DT into this domain to build cheaper, greener, and more durable buildings.</p><p>VEERUM <ref type="bibr" target="#b91">[92]</ref> provides DT solutions for large construction sites to predict and resolve issues in virtual space before they impact costs and schedules in reality. Steve Fisher, VEERUM CEO, says, "creating a digital duplicate of a physical construction site enables project teams to be more certain in their decision-making and deliver projects more efficiently, from design to construction". For example, as the DT provides ongoing progress monitoring of soil type and quantities moved, project teams can be aware of the project progress and surroundings, and make timely necessary changes.</p><p>Intellectsoft <ref type="bibr" target="#b92">[93]</ref> is exploring the DT applications on construction sites. For the construction, using the DT means people can work with as-built and as-designed models synchronously, which allows detection of the difference between the two parts daily and hourly, to find out the potential problems early in the project. As the DT provides automatic resource allocation monitoring and waste tracking, it also enables a predictive and lean approach for resource management. It can help managers know inappropriate behaviors of workers early to prevent the occurrence of hazards.</p><p>PricewaterhouseCoopers (PWC) <ref type="bibr" target="#b93">[94]</ref> discussed the digital transformation in the construction industry. It pointed out that the DT could be applied in all kinds of buildings. For example, in an office building setting, the DT can show the number and position of people at any time, which may feed the management system with valuable data for predictive analytics and optimization.</p><p>In construction, using the DT can help combine the physical and virtual spaces together to build cheaper, greener, and more durable buildings and to provide more efficient property management for a completed building.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.10">Digital Twin in Environmental Protection</head><p>Protecting the natural environment can benefit both the environment and human beings. However, due to the pressures of overconsumption, population, and technology, the environment is deteriorating gradually, which has been impacting social progress and human survival. Nowadays, works from some companies indicate that the DT can play an important role in environmental protection.</p><p>Metsä Group, Tieto, and CTRL Reality <ref type="bibr" target="#b94">[95]</ref> have developed a "virtual forest," which can be considered as a part of the concept "digital forest twin." The virtual forest can run on VR headsets, mobile devices, and web browsers. With it, users can visit the forest in virtual space to see impacts of different forest management activities, estimate income and cost of each activity, examine properties of a single tree, and predict performances of the forest in the future, which helps to develop sustainable forest management.</p><p>Powered by Predix, GE <ref type="bibr" target="#b95">[96]</ref> can provide software solutions for water management. It combines disparate data sets with algorithms to identify potential failures on pipelines, enables faster reactive maintenance and increases proactive maintenance to reduce overflow frequency in storm and sewer management, and uses the DT technology to create a powerful digital replica of a customer's plant to improve the water plant efficiency.</p><p>Siemens <ref type="bibr" target="#b96">[97]</ref> will focus on the digitalization of water and waste water plants. It provides solutions to cover the entire lifecycle of plants, from planning to operation and maintenance based on the DT, to support water pipes monitoring, comprehensive energy management, and early detection of potential vulnerability and threats, etc.</p><p>In environmental protection, the DT has massive value to virtualize related resources (such as water and forests) and improve management efficiencies, thus reducing waste of resources and supporting sustainability of the environment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.11">Digital Twin in Security and Emergency</head><p>Security and emergency measures, which are critical to the protection of assets, infrastructure, and private information against malicious attacks, are commonly involved in various industries. The DT can be introduced to the domain to achieve lower cost and better performance.</p><p>VIAKOO <ref type="bibr" target="#b97">[98]</ref> has discussed how the DT can protect the security of a company. In the traditional situation, when a company's devices or machines fail, the company has to provide a maintenance team with an access to its internal system to collect private data for failure identification. This is often a security risk. As the DT has the ability to integrate a large amount of data from the lifecycle of a physical asset and generate valuable information through computing, it can automatically inform the company of potential failures and related maintenance strategies. Therefore, the DT allows the company to keep maintenance in-house without enlisting a permanent team, and thus can avoid the potential security risk. System Applications and Products (SAP) <ref type="bibr" target="#b98">[99]</ref> deems that the DT can prevent disasters through providing PHM services to equipment in harsh environments, such as subsea equipment. On one hand, the DT can replace or complement complex and costly physical inspections with more cost-efficient digital inspections. On the other hand, it can simulate the conditions of the equipment accurately to mimic what is exactly happening and what will happen, to optimize decision making. With the DT, the security of the equipment and related staff can be guaranteed.</p><p>In the future, with the DT, the security of physical assets, information, and even human beings will be further enhanced, and the emergency measures will also be optimized.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.12">Observations</head><p>At present, the DT has been introduced to various industries. Among them, applications of the DT in aerospace are relatively mature. The reasons mainly include three aspects. 1. Aerospace employs and integrates the most advanced technologies in industry (e.g., high-fidelity modeling and simulation, lifecycle data integration and fusion, and connection and interconnection), which makes it a good candidate for the introduction of DT. 2. As DT applications in aerospace have been developed over a longer period of time than other industries, more researchers and practitioners have dedicated their efforts to the domain, leading to substantial improvements and progress. 3. Aerospace engineering is a special sector. As it is closely related to national defense, it has a high requirement for security and confidentiality, but a relatively low requirement for services. Hence, the initial three-dimension DT concept can exactly satisfy the requirements of this sector. However, for other sectors, it is a crucial step to encapsulate functions provided by the DT into standard services for easy and convenient use, as well as for a more enjoyable user experience. For the new demand, the initial DT concept shows shortcomings that could hinder its acceptance. As the DT is an emerging technology, developments on related models, technologies, tools, infrastructures, and standards are still lacking. In the future, with the continuous improvement and perfection of the DT, more mature applications can be realized in different industries.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">FUTURE MARKET FOR DIGITAL TWIN</head><p>As DT represents the next surge of digitalization and can be considered as the bridge between physical and virtual spaces in Industry 4.0, it has promising commercial prospects in the future. Some organizations have conducted market research for it and provided related data support. Gartner predicted that "by 2021, half of the large industrial companies would use DTs which would result in a 10% improvement in effectiveness for those organizations" <ref type="bibr" target="#b99">[100]</ref>. "Markets and Markets" reported that "the DT market was valued at USD1.82 billion in 2016 and is expected to reach USD15.66 billion by 2023, at a compound annual growth rate (CAGR) of 37.87% during the forecast period" <ref type="bibr" target="#b100">[101]</ref>. International Data Corporation (IDC) predicted that "by 2020, 30% of G2000 companies would be using data from DTs of IoT-connected products and assets to improve product innovation success rates and organizational productivity, achieving gains of up to 25%" <ref type="bibr" target="#b101">[102]</ref>. "Global market insights" pointed out that "as the DT can offer a virtual outlook of any product, at any stage of lifetime, it is expected to be adopted at a significant rate over the forecast period" <ref type="bibr" target="#b102">[103]</ref>.</p><p>The DT market will cover increasingly more fields in the future and penetrate every aspect of society, involving education, transportation, environment, healthcare, food, etc. Hence, companies in various domains have chances to gain benefits from the DT. They can combine the DT with their products to complete product upgrading, and provide better services for customers. The DT can also be applied to company management for better operation through optimizing businesses, conserving energy, reducing time to market, sparking innovation, etc. In each respect, the DT can bring huge economic benefits for the companies and further raise their competition capability.</p><p>From the above analysis and data, the authors believe that the DT market will be promising in the coming years and companies that follow the DT trend in a timely fashion can seize the opportunity for rapid development in their fields and reach a favorable position in the market.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">CHALLENGES OF DIGITAL TWIN APPLICATIONS</head><p>Challenges of DT applications are summarized in the following seven aspects.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.1">Cognitive and Technical Level of People</head><p>First, as the DT is an emerging technology, most people lack a comprehensive understanding and cannot identify its values clearly, which leads to an oversight of the DT. Second, due to psychological and cultural boundaries, people may be limited by old stereotypes and prefer to stay in comfort zones with familiar ways than to be challenged by new approaches. Third, considering the differences in technical levels of operators, some of them do not have sufficient skills (e.g., modeling, simulation and data fusion) to work with the DT.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.2">Technology and Infrastructure</head><p>To realize DT applications, many technologies will be involved, such as high-fidelity modeling and simulation, real-time data collection and fusion, flexible data architecture construction, continuous two-way interaction, etc. Some of the technologies have not yet been fully developed and related commercial products are lacking, which has put up barriers to the popularization and application of the DT. In addition, infrastructure (e.g., Internet connectivity, broadband speed, and sensor performance) also need to be improved to serve the corresponding technologies efficiently.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.3">Support Tools</head><p>Although many researchers and practitioners feel excited about the DT, when it comes to DT applications, they are not clear about related support tools. Although some big companies (e.g., Siemens, PTC and GE, Microsoft) have launched their respective software and hardware to support the DT applications, these tools are still fragmented and isolated, and have not been adopted widely. Hence, for users, a set of integrated and universal tools are urgently needed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.4">Standards and Specifications</head><p>For DT applications, there is a lack of standard specifications, which should be jointly developed by related researchers, suppliers, and users and should formally describe the standards for models, interfaces, protocols, data, etc. For example, heterogeneous data from different sources need to be involved and processed, but as a standardized format for the data is lacking, it is difficult to complete the data exchange, integration, and fusion to further feed the DT with valuable information.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.5">Cost Control and Management</head><p>At present, constructing a complete DT is a costly project. On the one side, building high-fidelity models to precisely and thoroughly simulate entities or processes will be a time-consuming and labor-intensive process. On the other side, realizing real-time collection and processing for a large amount of data needs the support of high-performance hardware and software. Therefore, in most situations, the DT will play an important role in the management of high-value, major products, equipment, or processes. For users, before deploying the DT, taking full consideration of the balance between costs and benefits brought by the DT is necessary but challenging.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.6">Cyber Security and Intellectual Property Rights</head><p>Assets and businesses of enterprises can be digitalized and virtualized via the DT. Hence, cyber security is important to protect sensitive information and ensure the success of DT applications. Ample measures must be taken to ensure security, including improving security systems to deal with emerging threats, protecting networked systems in production and office space, and resisting malicious attacks on sensory devices. In addition, with developments of the DT, a set of innovative invention patents will be generated predictably. To establish a fair and orderly investment environment and market for the DT, protecting intellectual property rights efficiently is mandatory but challenging.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.7">Insufficient Development of Digital Twin</head><p>As the DT is an emerging technology with a short history, it is still in the infant stage and has many issues, such as confusion in concepts, insufficiency in tools and technologies, and shortage of talents, which bring difficulties to the DT applications. In addition, as a new technology, the DT has uncertainties in its future development and may bring risks in multiple aspects, such as products, markets, businesses, investments, etc. The insufficient development of DT has thus far hindered its progress to some extent.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5">SUMMARY</head><p>This chapter reviews the DT applications from both academic and industrial perspectives. The conclusion can be drawn easily that the DT can be used in the entire product lifecycle and various industries, showing highly promising values in monitoring, control, optimization, and prediction of any operations. However, as the DT is an emerging technology, there remain many challenges on technologies, tools, infrastructures, standards, etc. Hence, substantial development is still required for the adoption and application of the DT.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 . 1</head><label>21</label><figDesc>Figure 2.1 Product lifecycle.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>2. 1 . 5 . 1</head><label>151</label><figDesc>Production and PHM Are the Most Popular Applied Fields for the DT As shown in Fig. 2.2, papers on the production and service (mainly referring to PHM) stages account for the largest proportion, while papers on the design stage are relatively few. It is clear that production and PHM are the most popular applied fields for the DT. There are two reasons to explain the phenomenon.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 . 2</head><label>22</label><figDesc>Figure 2.2 Distribution of papers in different stages of PLM.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>2. 1</head><label>1</label><figDesc>.5.2 DT Has Attracted the Most Attention in the United States, China, and Europe In Fig. 2.3, the first authors of DT related papers from different countries are cited. It can be seen that authors from the United States, China, and Europe represent the largest proportion. This observation can be explained as follows.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 2 . 3</head><label>23</label><figDesc>Figure 2.3 Distribution of papers published in different countries.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 2 . 1</head><label>21</label><figDesc>Major industrial applications/potential applications of DT</figDesc><table><row><cell>Domains</cell><cell>Applications/potential applications</cell></row><row><cell>Aerospace</cell><cell>Prognosis and maintenance for spacecraft</cell></row><row><cell></cell><cell>Catastrophic malfunction analysis for spacecraft</cell></row><row><cell></cell><cell>Assembly line monitoring</cell></row><row><cell></cell><cell>Decision optimization for assembly line</cell></row><row><cell></cell><cell>Safety and security management</cell></row><row><cell>Electric power</cell><cell>Prognosis and maintenance for wind turbines</cell></row><row><cell>generation</cell><cell>Health management for electric power plants</cell></row><row><cell></cell><cell>Power grid planning, operation, and maintenance</cell></row><row><cell>Automotive</cell><cell>Design validation</cell></row><row><cell></cell><cell>Downtime prediction and maintenance</cell></row><row><cell></cell><cell>Fuel efficiency optimization</cell></row><row><cell></cell><cell>Car performance test under various conditions</cell></row><row><cell>Oil and gas</cell><cell>Remote monitoring and control</cell></row><row><cell></cell><cell>Asset management</cell></row><row><cell></cell><cell>Production optimization</cell></row><row><cell></cell><cell>Equipment failure detection</cell></row><row><cell></cell><cell>Maintenance planning</cell></row><row><cell>Healthcare and</cell><cell>Health monitoring</cell></row><row><cell>medicine</cell><cell>Cardiac research</cell></row><row><cell></cell><cell>Personalized medicine</cell></row><row><cell></cell><cell>Medical resource assignment</cell></row><row><cell></cell><cell>Staff scheduling</cell></row><row><cell>Maritime/shipping</cell><cell>Lifecycle management for a ship</cell></row><row><cell></cell><cell>Choosing best solution for ship building</cell></row><row><cell></cell><cell>Reducing fuel consumption</cell></row><row><cell></cell><cell>Fault prediction and maintenance</cell></row><row><cell>City management</cell><cell>Real-time monitoring</cell></row><row><cell></cell><cell>Planning and decision making optimization</cell></row><row><cell></cell><cell>Support formulation of policy</cell></row><row><cell></cell><cell>Heating, ventilation, and air conditioning (HVAC)</cell></row><row><cell></cell><cell>system control</cell></row><row><cell>Agriculture</cell><cell>Monitoring olive fly occurrence and spread</cell></row><row><cell></cell><cell>Identifying diseases, pests, and pesticides for crops</cell></row><row><cell></cell><cell>Health monitoring of domestic animals</cell></row><row><cell></cell><cell>Tracking movements of animals</cell></row><row><cell></cell><cell>Tracking farm machines</cell></row><row><cell>Construction</cell><cell>Progress monitoring</cell></row><row><cell></cell><cell>Work schedule and budget adjustment</cell></row><row><cell></cell><cell>Resource allocation and waste tracking</cell></row><row><cell></cell><cell>Safety monitoring for workers</cell></row><row><cell></cell><cell>Quality assessment for constructions</cell></row><row><cell></cell><cell>Improving usage rate for equipment</cell></row><row><cell>Environmental</cell><cell>Water resource management</cell></row><row><cell>protection</cell><cell>Optimization of forest use and management</cell></row><row><cell>Security and</cell><cell>Mitigating existing risks or hazards</cell></row><row><cell>emergency</cell><cell>Security network protection</cell></row><row><cell></cell><cell>Catastrophic disaster prevention</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Digital Twin Driven Smart Manufacturing</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Applications of Digital Twin</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="52">Digital Twin Driven Smart Manufacturing</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Digital twin-driven product design framework</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fangyuan</forename><surname>Sui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qinglin</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Boyang</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zirong</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Null-</forename><forename type="middle">Y</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00207543.2018.1443229</idno>
+		<ptr target="https://doi.org/10.1080/00207543.2018.1443229" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Production Research</title>
+		<title level="j" type="abbrev">International Journal of Production Research</title>
+		<idno type="ISSN">0020-7543</idno>
+		<idno type="ISSNe">1366-588X</idno>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="3935" to="3953" />
+			<date type="published" when="2018-02-25" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Digital twin-driven rapid individualised designing of automated flow-shop manufacturing system</title>
+		<author>
+			<persName><forename type="first">Qiang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiewu</forename><surname>Leng</surname></persName>
+			<idno type="ORCID">0000-0003-4068-3910</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00207543.2018.1471243</idno>
+		<ptr target="https://doi.org/10.1080/00207543.2018.1471243" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Production Research</title>
+		<title level="j" type="abbrev">International Journal of Production Research</title>
+		<idno type="ISSN">0020-7543</idno>
+		<idno type="ISSNe">1366-588X</idno>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="3903" to="3919" />
+			<date type="published" when="2018-05-08" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">A Digital Twin-Based Approach for Designing and Multi-Objective Optimization of Hollow Glass Production Line</title>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Chen</surname></persName>
+			<idno type="ORCID">0000-0002-9531-068X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ding</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiewu</forename><surname>Leng</surname></persName>
+			<idno type="ORCID">0000-0003-4068-3910</idno>
+		</author>
+		<idno type="DOI">10.1109/access.2017.2766453</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="26901" to="26911" />
+			<date type="published" when="2017" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Digital twin tackles design challenges</title>
+		<author>
+			<persName><forename type="first">Stephen</forename><surname>Ferguson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edward</forename><surname>Bennett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Artem</forename><surname>Ivashchenko</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0262-1762(17)30139-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">World Pumps</title>
+		<title level="j" type="abbrev">World Pumps</title>
+		<idno type="ISSN">0262-1762</idno>
+		<imprint>
+			<biblScope unit="volume">2017</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="26" to="28" />
+			<date type="published" when="2017-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Innovations in digital modelling for next generation manufacturing system design</title>
+		<author>
+			<persName><forename type="first">Rainer</forename><surname>Stark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Simon</forename><surname>Kind</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sebastian</forename><surname>Neumeyer</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cirp.2017.04.045</idno>
+	</analytic>
+	<monogr>
+		<title level="j">CIRP Annals</title>
+		<title level="j" type="abbrev">CIRP Annals</title>
+		<idno type="ISSN">0007-8506</idno>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="169" to="172" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Simulation and digital twin based design of a production line: a case study</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Damiani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Demartini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Giribone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Maggiani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Revetria</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Tonelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International MultiConference of Engineers and Computer Scientists</title>
+				<meeting>the International MultiConference of Engineers and Computer Scientists<address><addrLine>Hong Kong</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">2</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Towards a Digital Thread-enabled Framework for the Analysis and Design of Intelligent Systems</title>
+		<author>
+			<persName><forename type="first">Dimitri</forename><forename type="middle">N</forename><surname>Mavris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">G</forename><surname>Balchanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Olivia</forename><forename type="middle">J</forename><surname>Pinon-Fischer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Woong</forename><forename type="middle">Je</forename><surname>Sung</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2018-1367</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 AIAA Information Systems-AIAA Infotech @ Aerospace</title>
+				<meeting><address><addrLine>Kissimmee, Florida</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2018-01-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">About The Importance of Autonomy and Digital Twins for the Future of Manufacturing</title>
+		<author>
+			<persName><forename type="first">Roland</forename><surname>Rosen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Georg</forename><surname>Von Wichert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kurt</forename><forename type="middle">D</forename><surname>Bettenhausen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2015.06.141</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="567" to="572" />
+			<date type="published" when="2015" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Digital Twin Shop-Floor: A New Shop-Floor Paradigm Towards Smart Manufacturing</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+			<idno type="ORCID">0000-0002-9020-0633</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/access.2017.2756069</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="20418" to="20427" />
+			<date type="published" when="2017" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Digital Twin Shop-Floor: A New Shop-Floor Paradigm Towards Smart Manufacturing</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+			<idno type="ORCID">0000-0002-9020-0633</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/access.2017.2756069</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="20418" to="20427" />
+			<date type="published" when="2017" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Theory and technologies for cyberÀphysical fusion in digital twin shop-floor</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Qi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Integr. Manuf. Syst</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1603" to="1611" />
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Equipment energy consumption management in digital twin shop-floor: A framework and potential applications</title>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ying</forename><surname>Zuo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icnsc.2018.8361272</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE 15th International Conference on Networking, Sensing and Control (ICNSC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-03" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Part data integration in the shop floor digital twin: mobile and cloud technologies to enable a manufacturing execution system</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">D U</forename><surname>Coronado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lynn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Louhichi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Parto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Wescoat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kurfess</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jmsy.2018.02.002</idno>
+		<ptr target="https://doi.org/10.1016/j.jmsy.2018.02.002" />
+	</analytic>
+	<monogr>
+		<title level="j">J. Manuf. Syst</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Optimized throughput improvement of assembly flow line with digital twin online analytics</title>
+		<author>
+			<persName><forename type="first">Heqing</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheng</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xinyu</forename><surname>Fang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Gu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/robio.2017.8324685</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE International Conference on Robotics and Biomimetics (ROBIO)</title>
+				<meeting><address><addrLine>Macau</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-12" />
+			<biblScope unit="page" from="1833" to="1837" />
+		</imprint>
+	</monogr>
+	<note>2017 IEEE International Conference on Robotics and Biomimetics (ROBIO)</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">The Digital Twin: Realizing the Cyber-Physical Production System for Industry 4.0</title>
+		<author>
+			<persName><forename type="first">Null-</forename><forename type="middle">J</forename><surname>Uhlemann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Lehmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rolf</forename><surname>Steinhilper</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2016.11.152</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<title level="j" type="abbrev">Procedia CIRP</title>
+		<idno type="ISSN">2212-8271</idno>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page" from="335" to="340" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">The Digital Twin: Demonstrating the Potential of Real Time Data Acquisition in Production Systems</title>
+		<author>
+			<persName><forename type="first">Null-</forename><forename type="middle">J</forename><surname>Uhlemann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christoph</forename><surname>Schock</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Lehmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Freiberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rolf</forename><surname>Steinhilper</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2017.04.043</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Manufacturing</title>
+		<title level="j" type="abbrev">Procedia Manufacturing</title>
+		<idno type="ISSN">2351-9789</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="113" to="120" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Dynamic resource allocation optimization for digital twin-driven smart shopfloor</title>
+		<author>
+			<persName><forename type="first">Haijun</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guohui</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiong</forename><surname>Yan</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icnsc.2018.8361283</idno>
+		<idno>doi:10.1109/ ICNSC.2018.8361283</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE 15th International Conference on Networking, Sensing and Control (ICNSC)</title>
+				<meeting><address><addrLine>Zhuhai</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-03" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">A linked data approach for the connection of manufacturing processes with production simulation models</title>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Senington</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fabian</forename><surname>Baumeister</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amos</forename><surname>Ng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jan</forename><surname>Oscarsson</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2018.03.243</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<title level="j" type="abbrev">Procedia CIRP</title>
+		<idno type="ISSN">2212-8271</idno>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="440" to="445" />
+			<date type="published" when="2018" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Digital twin-driven manufacturing cyber-physical system for parallel controlling of smart workshop</title>
+		<author>
+			<persName><forename type="first">Jiewu</forename><surname>Leng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Douxi</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ding</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12652-018-0881-5</idno>
+		<ptr target="https://doi.org/10.1007/s12652-018-0881-5" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Ambient Intelligence and Humanized Computing</title>
+		<title level="j" type="abbrev">J Ambient Intell Human Comput</title>
+		<idno type="ISSN">1868-5137</idno>
+		<idno type="ISSNe">1868-5145</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1155" to="1166" />
+			<date type="published" when="2018-06-02" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">The digital twin of an industrial production line within the industry 4.0 concept</title>
+		<author>
+			<persName><forename type="first">Jan</forename><surname>Vachalek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lukas</forename><surname>Bartalsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oliver</forename><surname>Rovny</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dana</forename><surname>Sismisova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Morhac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Milan</forename><surname>Loksik</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/pc.2017.7976223</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 21st International Conference on Process Control (PC)</title>
+				<meeting><address><addrLine>Slovakia</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-06" />
+			<biblScope unit="page" from="258" to="262" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Generating digital twin models using knowledge graphs for industrial production lines</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">P</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Banerjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshop on Industrial Knowledge Graphs, Colocated With the 9th International ACM Web Science Conference</title>
+				<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Future Modeling and Simulation of CPS-based Factories: an Example from the Automotive Industry</title>
+		<author>
+			<persName><forename type="first">Stephan</forename><surname>Weyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Torben</forename><surname>Meyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Moritz</forename><surname>Ohmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dominic</forename><surname>Gorecky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Detlef</forename><surname>Zühlke</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2016.12.168</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">31</biblScope>
+			<biblScope unit="page" from="97" to="102" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Parrott</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Warshaw</surname></persName>
+		</author>
+		<title level="m">Industry 4.0 and the Digital Twin Manufacturing Meets its Match</title>
+				<imprint>
+			<publisher>Deloitte University Press</publisher>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Digital Factories for Capability Modeling and Visualization</title>
+		<author>
+			<persName><forename type="first">Farhad</forename><surname>Ameri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ramin</forename><surname>Sabbagh</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-51133-7_9</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IFIP Advances in Information and Communication Technology</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="69" to="78" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Digital Twin as Enabler for an Innovative Digital Shopfloor Management System in the ESB Logistics Learning Factory at Reutlingen - University</title>
+		<author>
+			<persName><forename type="first">Beate</forename><surname>Brenner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vera</forename><surname>Hummel</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2017.04.039</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Manufacturing</title>
+		<title level="j" type="abbrev">Procedia Manufacturing</title>
+		<idno type="ISSN">2351-9789</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="198" to="205" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Digital twin-based smart production management and control framework for the complex product assembly shop-floor</title>
+		<author>
+			<persName><forename type="first">Cunbo</forename><surname>Zhuang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianhua</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hui</forename><surname>Xiong</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00170-018-1617-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The International Journal of Advanced Manufacturing Technology</title>
+		<title level="j" type="abbrev">Int J Adv Manuf Technol</title>
+		<idno type="ISSN">0268-3768</idno>
+		<idno type="ISSNe">1433-3015</idno>
+		<imprint>
+			<biblScope unit="volume">96</biblScope>
+			<biblScope unit="issue">1-4</biblScope>
+			<biblScope unit="page" from="1149" to="1163" />
+			<date type="published" when="2018-02-07" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Building blocks for a digital twin of additive manufacturing</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">L</forename><surname>Knapp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Mukherjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Zuback</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">L</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Palmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>De</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Debroy</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.actamat.2017.06.039</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Acta Materialia</title>
+		<title level="j" type="abbrev">Acta Materialia</title>
+		<idno type="ISSN">1359-6454</idno>
+		<imprint>
+			<biblScope unit="volume">135</biblScope>
+			<biblScope unit="page" from="390" to="399" />
+			<date type="published" when="2017-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">The Digital Twin Paradigm for Future NASA and U.S. Air Force Vehicles</title>
+		<author>
+			<persName><forename type="first">Edward</forename><surname>Glaessgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Stargel</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2012-1818</idno>
+	</analytic>
+	<monogr>
+		<title level="m">53rd AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics and Materials Conference&lt;BR&gt;20th AIAA/ASME/AHS Adaptive Structures Conference&lt;BR&gt;14th AIAA</title>
+				<meeting><address><addrLine>Hawaii</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2012-04-23" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Reengineering Aircraft Structural Life Prediction Using a Digital Twin</title>
+		<author>
+			<persName><forename type="first">Eric</forename><forename type="middle">J</forename><surname>Tuegel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anthony</forename><forename type="middle">R</forename><surname>Ingraffea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">G</forename><surname>Eason</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">Michael</forename><surname>Spottswood</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2011/154798</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Aerospace Engineering</title>
+		<title level="j" type="abbrev">International Journal of Aerospace Engineering</title>
+		<idno type="ISSN">1687-5966</idno>
+		<idno type="ISSNe">1687-5974</idno>
+		<imprint>
+			<biblScope unit="volume">2011</biblScope>
+			<biblScope unit="page" from="1" to="14" />
+			<date type="published" when="2011" />
+			<publisher>Hindawi Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">The Development and use of a Digital Twin Model for Tire Touchdown Health Monitoring</title>
+		<author>
+			<persName><forename type="first">Andrew</forename><forename type="middle">J</forename><surname>Zakrajsek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shankar</forename><surname>Mall</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2017-0863</idno>
+	</analytic>
+	<monogr>
+		<title level="m">58th AIAA/ASCE/AHS/ASC Structures, Structural Dynamics, and Materials Conference</title>
+				<meeting><address><addrLine>Texas</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2017-01-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Dynamic Bayesian Network for Aircraft Wing Health Monitoring Digital Twin</title>
+		<author>
+			<persName><forename type="first">Chenzhao</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sankaran</forename><surname>Mahadevan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">You</forename><surname>Ling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sergio</forename><surname>Choze</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Liping</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/1.j055201</idno>
+	</analytic>
+	<monogr>
+		<title level="j">AIAA Journal</title>
+		<title level="j" type="abbrev">AIAA Journal</title>
+		<idno type="ISSN">0001-1452</idno>
+		<idno type="ISSNe">1533-385X</idno>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="930" to="941" />
+			<date type="published" when="2017-03" />
+			<publisher>American Institute of Aeronautics and Astronautics (AIAA)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">A dynamic Bayesian network approach for digital twin</title>
+		<author>
+			<persName><forename type="first">Chenzhao</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sankaran</forename><surname>Mahadevan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">You</forename><surname>Ling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Liping</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sergio</forename><surname>Choze</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2017-1566</idno>
+	</analytic>
+	<monogr>
+		<title level="m">19th AIAA Non-Deterministic Approaches Conference</title>
+				<meeting><address><addrLine>Texas</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2017-01-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Challenges with Structural Life Forecasting Using Realistic Mission Profiles</title>
+		<author>
+			<persName><forename type="first">Brian</forename><surname>Gockel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Tudor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Brandyberry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ravi</forename><surname>Penmetsa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eric</forename><surname>Tuegel</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2012-1813</idno>
+	</analytic>
+	<monogr>
+		<title level="m">53rd AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics and Materials Conference&lt;BR&gt;20th AIAA/ASME/AHS Adaptive Structures Conference&lt;BR&gt;14th AIAA</title>
+				<meeting><address><addrLine>Hawaii</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2012-04-23" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Multiphysics Stimulated Simulation Digital Twin Methods for Fleet Management</title>
+		<author>
+			<persName><forename type="first">Kenneth</forename><surname>Reifsnider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Prasun</forename><surname>Majumdar</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2013-1578</idno>
+	</analytic>
+	<monogr>
+		<title level="m">54th AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics, and Materials Conference</title>
+				<meeting><address><addrLine>Boston</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2013-04-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Structural Health Management of Damaged Aircraft Structures Using Digital Twin Concept</title>
+		<author>
+			<persName><forename type="first">Banavara</forename><forename type="middle">R</forename><surname>Seshadri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thiagarajan</forename><surname>Krishnamurthy</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2017-1675</idno>
+	</analytic>
+	<monogr>
+		<title level="m">25th AIAA/AHS Adaptive Structures Conference</title>
+				<meeting><address><addrLine>Texas, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2017-01-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Engine Fleet-Management: The Use of Digital Twins From a MRO Perspective</title>
+		<author>
+			<persName><forename type="first">Joern</forename><surname>Kraft</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Kuntzagk</surname></persName>
+		</author>
+		<idno type="DOI">10.1115/gt2017-63336</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Volume 1: Aircraft Engine; Fans and Blowers; Marine; Honors and Awards</title>
+				<meeting><address><addrLine>USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Society of Mechanical Engineers</publisher>
+			<date type="published" when="2017-06-26" />
+			<biblScope unit="page" from="V001T" to="1A" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Service Innovation and Smart Analytics for Industry 4.0 and Big Data Environment</title>
+		<author>
+			<persName><forename type="first">Jay</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hung-An</forename><surname>Kao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shanhu</forename><surname>Yang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2014.02.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<title level="j" type="abbrev">Procedia CIRP</title>
+		<idno type="ISSN">2212-8271</idno>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="3" to="8" />
+			<date type="published" when="2014" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">A Cyber-Physical Systems architecture for Industry 4.0-based manufacturing systems</title>
+		<author>
+			<persName><forename type="first">Jay</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Behrad</forename><surname>Bagheri</surname></persName>
+			<idno type="ORCID">0000-0003-2175-0946</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Hung-An</forename><surname>Kao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.mfglet.2014.12.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Manufacturing Letters</title>
+		<title level="j" type="abbrev">Manufacturing Letters</title>
+		<idno type="ISSN">2213-8463</idno>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="18" to="23" />
+			<date type="published" when="2015-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Digital twin driven prognostics and health management for complex equipment</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yushan</forename><surname>Liu</surname></persName>
+			<idno type="ORCID">0000-0002-2799-9542</idno>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+			<idno type="ORCID">0000-0002-1029-9988</idno>
+		</author>
+		<idno type="DOI">10.1016/j.cirp.2018.04.055</idno>
+	</analytic>
+	<monogr>
+		<title level="j">CIRP Annals</title>
+		<title level="j" type="abbrev">CIRP Annals</title>
+		<idno type="ISSN">0007-8506</idno>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="169" to="172" />
+			<date type="published" when="2018" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">An artificial neural network for automated fault detection</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bitterwolf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Rusak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Reiter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Viehl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Bringmann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">All-Russian Conference on Information Technologies for Intelligent Decision Making Support</title>
+				<meeting><address><addrLine>Ufa-Stavropol, Russia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">On the Effects of Modeling As-Manufactured Geometry: Toward Digital Twin</title>
+		<author>
+			<persName><forename type="first">Albert</forename><surname>Cerrone</surname></persName>
+			<idno type="ORCID">0000-0003-2905-1410</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jacob</forename><surname>Hochhalter</surname></persName>
+			<idno type="ORCID">0000-0003-3607-4573</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Gerd</forename><surname>Heber</surname></persName>
+			<idno type="ORCID">0000-0002-7577-6140</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Anthony</forename><surname>Ingraffea</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2014/439278</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Aerospace Engineering</title>
+		<title level="j" type="abbrev">International Journal of Aerospace Engineering</title>
+		<idno type="ISSN">1687-5966</idno>
+		<idno type="ISSNe">1687-5974</idno>
+		<imprint>
+			<biblScope unit="volume">2014</biblScope>
+			<biblScope unit="page" from="1" to="10" />
+			<date type="published" when="2014" />
+			<publisher>Hindawi Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">A Simulation-Based Digital Twin for Model-Driven Health Monitoring and Predictive Maintenance of an Automotive Braking System</title>
+		<author>
+			<persName><forename type="first">Ryan</forename><surname>Magargle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lee</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Padmesh</forename><surname>Mandloi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peyman</forename><surname>Davoudabadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Omkar</forename><surname>Kesarkar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sivasubramani</forename><surname>Krishnaswamy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Batteh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anand</forename><surname>Pitchaikani</surname></persName>
+		</author>
+		<idno type="DOI">10.3384/ecp1713235</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 12th International Modelica Conference, Prague, Czech Republic, May 15-17, 2017</title>
+				<meeting>the 12th International Modelica Conference, Prague, Czech Republic, May 15-17, 2017<address><addrLine>Prague, Czech Republic</addrLine></address></meeting>
+		<imprint>
+			<publisher>Linköping University Electronic Press</publisher>
+			<date type="published" when="2017-07-04" />
+			<biblScope unit="page" from="35" to="46" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">The role of data fusion in predictive maintenance using digital twin</title>
+		<author>
+			<persName><forename type="first">Zheng</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Norbert</forename><surname>Meyendorf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nezih</forename><surname>Mrad</surname></persName>
+		</author>
+		<idno type="DOI">10.1063/1.5031520</idno>
+		<ptr target="http://doi.org/10.1063/1.5031520" />
+	</analytic>
+	<monogr>
+		<title level="j">AIP Conference Proceedings</title>
+		<imprint>
+			<date type="published" when="2018" />
+			<publisher>Author(s)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Sensor Data and Information Fusion to Construct Digital-twins Virtual Machine Tools for Cyber-physical Manufacturing</title>
+		<author>
+			<persName><forename type="first">Yi</forename><surname>Cai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Binil</forename><surname>Starly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Cohen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuan-Shin</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2017.07.094</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Manufacturing</title>
+		<title level="j" type="abbrev">Procedia Manufacturing</title>
+		<idno type="ISSN">2351-9789</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="1031" to="1042" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<monogr>
+		<title level="m" type="main">Coupling Damage-Sensing Particles to the Digital Twin Concept, National Aeronautics and Space Administration</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hochhalter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">P</forename><surname>Leser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Newman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">H</forename><surname>Glaessgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">K</forename><surname>Gupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Yamakov</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014" />
+			<biblScope unit="page" from="F1676L" to="18764" />
+			<pubPlace>Langley Research Center, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">A Simulation-Based Architecture for Smart Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Gabor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lenz</forename><surname>Belzner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marie</forename><surname>Kiermeier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">Till</forename><surname>Beck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Neitz</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icac.2016.29</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 IEEE International Conference on Autonomic Computing (ICAC)</title>
+				<meeting><address><addrLine>Wurzburg</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-07" />
+			<biblScope unit="page" from="374" to="379" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Data-centric middleware based digital twin platform for dependable cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Seongjin</forename><surname>Yun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun-Hong</forename><surname>Park</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Won-Tae</forename><surname>Kim</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icufn.2017.7993933</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 Ninth International Conference on Ubiquitous and Future Networks (ICUFN)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-07" />
+			<biblScope unit="page" from="922" to="926" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">The Airframe Digital Twin: Some Challenges to Realization</title>
+		<author>
+			<persName><forename type="first">Eric</forename><forename type="middle">J</forename><surname>Tuegel</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2012-1812</idno>
+	</analytic>
+	<monogr>
+		<title level="m">53rd AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics and Materials Conference&lt;BR&gt;20th AIAA/ASME/AHS Adaptive Structures Conference&lt;BR&gt;14th AIAA</title>
+				<meeting><address><addrLine>Hawaii</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2012-04-23" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Digital twin-driven product design, manufacturing and service with big data</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiangfeng</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qinglin</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">He</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fangyuan</forename><surname>Sui</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00170-017-0233-1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The International Journal of Advanced Manufacturing Technology</title>
+		<title level="j" type="abbrev">Int J Adv Manuf Technol</title>
+		<idno type="ISSN">0268-3768</idno>
+		<idno type="ISSNe">1433-3015</idno>
+		<imprint>
+			<biblScope unit="volume">94</biblScope>
+			<biblScope unit="issue">9-12</biblScope>
+			<biblScope unit="page" from="3563" to="3576" />
+			<date type="published" when="2017-03-16" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Digital twin and its potential application exploration</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Integr. Manuf. Syst</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="18" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Digital Twin concept for smart injection molding</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ryu</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/1757-899x/324/1/012077</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IOP Conference Series: Materials Science and Engineering</title>
+		<title level="j" type="abbrev">IOP Conf. Ser.: Mater. Sci. Eng.</title>
+		<idno type="ISSN">1757-8981</idno>
+		<idno type="ISSNe">1757-899X</idno>
+		<imprint>
+			<biblScope unit="volume">324</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">012077</biblScope>
+			<date type="published" when="2018-03" />
+			<publisher>IOP Publishing</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Toward a Digital Twin for real-time geometry assurance in individualized production</title>
+		<author>
+			<persName><forename type="first">Rikard</forename><surname>Söderberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kristina</forename><surname>Wärmefjord</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Johan</forename><forename type="middle">S</forename><surname>Carlson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lars</forename><surname>Lindkvist</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cirp.2017.04.038</idno>
+	</analytic>
+	<monogr>
+		<title level="j">CIRP Annals</title>
+		<title level="j" type="abbrev">CIRP Annals</title>
+		<idno type="ISSN">0007-8506</idno>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="137" to="140" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Inspection Data to Support a Digital Twin for Geometry Assurance</title>
+		<author>
+			<persName><forename type="first">Kristina</forename><surname>Wärmefjord</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rikard</forename><surname>Söderberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lars</forename><surname>Lindkvist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Björn</forename><surname>Lindau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Johan</forename><forename type="middle">S</forename><surname>Carlson</surname></persName>
+		</author>
+		<idno type="DOI">10.1115/imece2017-70398</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Volume 2: Advanced Manufacturing</title>
+				<imprint>
+			<publisher>American Society of Mechanical Engineers</publisher>
+			<date type="published" when="2017-11-03" />
+			<biblScope unit="page" from="V002T" to="2A" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">A concept in synchronization of virtual production system with real factory based on anchor-point method</title>
+		<author>
+			<persName><forename type="first">Behrang</forename><forename type="middle">Ashtari</forename><surname>Talkhestani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nasser</forename><surname>Jazdi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wolfgang</forename><surname>Schlögl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Weyrich</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2017.12.168</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<title level="j" type="abbrev">Procedia CIRP</title>
+		<idno type="ISSN">2212-8271</idno>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="page" from="13" to="17" />
+			<date type="published" when="2018" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Next generation digital twin</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Boschert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Heinrich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Rosen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of TMCE 2018</title>
+				<meeting>TMCE 2018<address><addrLine>Spain</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Digital Twin: Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Grieves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Vickers</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-38756-7_4</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Transdisciplinary Perspectives on Complex Systems</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016-08-17" />
+			<biblScope unit="page" from="85" to="113" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Shaping the digital twin for design and production engineering</title>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Schleich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nabil</forename><surname>Anwer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Mathieu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sandro</forename><surname>Wartzack</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cirp.2017.04.040</idno>
+	</analytic>
+	<monogr>
+		<title level="j">CIRP Annals</title>
+		<title level="j" type="abbrev">CIRP Annals</title>
+		<idno type="ISSN">0007-8506</idno>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="141" to="144" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Self-Aware Vehicles: Mission and Performance Adaptation to System Health Degradation</title>
+		<author>
+			<persName><forename type="first">Irene</forename><forename type="middle">M</forename><surname>Gregory</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Leonard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Scotti</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2016-3165</idno>
+	</analytic>
+	<monogr>
+		<title level="m">16th AIAA Aviation Technology, Integration, and Operations Conference</title>
+				<meeting><address><addrLine>Washington, D.C</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2016-06-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Data Flow and Communication Framework Supporting Digital Twin for Geometry Assurance</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Bohlin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonas</forename><surname>Hagmar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kristofer</forename><surname>Bengtsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lars</forename><surname>Lindkvist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Johan</forename><forename type="middle">S</forename><surname>Carlson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rikard</forename><surname>Söderberg</surname></persName>
+		</author>
+		<idno type="DOI">10.1115/imece2017-71405</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Volume 2: Advanced Manufacturing</title>
+				<imprint>
+			<publisher>American Society of Mechanical Engineers</publisher>
+			<date type="published" when="2017-11-03" />
+			<biblScope unit="page" from="V002T" to="2A" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">The Cyber-physical E-machine Manufacturing System: Virtual Engineering for Complete Lifecycle Support</title>
+		<author>
+			<persName><forename type="first">Sergey</forename><surname>Konstantinov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mussawar</forename><surname>Ahmad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karthik</forename><surname>Ananthanarayan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Harrison</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2017.02.035</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<title level="j" type="abbrev">Procedia CIRP</title>
+		<idno type="ISSN">2212-8271</idno>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="page" from="119" to="124" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">The connotation of digital twin, and the construction and application method of shop-floor digital twin</title>
+		<author>
+			<persName><forename type="first">Cunbo</forename><surname>Zhuang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tian</forename><surname>Miao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianhua</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hui</forename><surname>Xiong</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.rcim.2020.102075</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Robotics and Computer-Integrated Manufacturing</title>
+		<title level="j" type="abbrev">Robotics and Computer-Integrated Manufacturing</title>
+		<idno type="ISSN">0736-5845</idno>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">102075</biblScope>
+			<date type="published" when="2021-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Study on application of digital twin model in product configuration management</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Fan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Peng</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Aeronaut. Manuf. Technol</title>
+		<imprint>
+			<biblScope unit="volume">526</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="41" to="45" />
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">Digital Twin Shop-Floor</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/b978-0-12-817630-6.00004-7</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Digital Twin Driven Smart Manufacturing</title>
+				<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page" from="85" to="110" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<monogr>
+		<title level="m" type="main">What is digital twin technology? 3 ways it&apos;s changing the world</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Alleman</surname></persName>
+		</author>
+		<ptr target="https://jive.com/resources/blog/what-is-digital-twin-technology/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">http://www.avensonline.org/fulltextarticles/JFI-2330-0396-05-0040.html</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.13188/2330-0396.1000040</idno>
+		<ptr target="http://news.hexun.com/" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Forensic Investigation</title>
+		<title level="j" type="abbrev">J Forensic investig</title>
+		<idno type="ISSNe">2330-0396</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1" to="2" />
+			<date type="published" when="2017-12-14" />
+			<publisher>Avens Publishing Group</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<monogr>
+		<title level="m" type="main">Lockheed martin space systems company makes use of digital twins speed F-35 fighter production</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<ptr target="http://www.sohu.com/a/212980157_613206" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">A system designer&apos;s lament: give us better digital ICs</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gutierrez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khizhniak</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/0026-2714(72)90631-2</idno>
+		<ptr target="https://www.altoros.com/blog/digital-twins-for-aero-space-better-fleet-reliability-and-performance/" />
+	</analytic>
+	<monogr>
+		<title level="j">Microelectronics Reliability</title>
+		<title level="j" type="abbrev">Microelectronics Reliability</title>
+		<idno type="ISSN">0026-2714</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">116</biblScope>
+			<date type="published" when="1972-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<monogr>
+		<title level="m" type="main">Digital wind farm-the next evolution of wind energy</title>
+		<author>
+			<persName><surname>Ge Renewable Energy</surname></persName>
+		</author>
+		<ptr target="https://www.ge.com/content/dam/gepower-renewables/global/en_US/downloads/brochures/digital-wind-farm-solutions-gea31821b-r2.pdf" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">A digital twin approach for rotorcraft flight parameter optimization to enhance component life</title>
+		<idno type="DOI">10.2514/6.2021-0899.vid</idno>
+		<ptr target="http://gelookahead.economist.com/the-digital-twin/" />
+	</analytic>
+	<monogr>
+		<title level="m">GE Look ahead</title>
+				<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics (AIAA)</publisher>
+			<date type="published" when="2020-01-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Keynote Ray Siemens</title>
+		<author>
+			<persName><surname>Siemens</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jcdl.2017.7990629</idno>
+		<ptr target="https://www.siemens.com/press/pool/de/events/2017/corporate/2017-12-innovation/inno2017-digitaltwin-e.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">2017 ACM/IEEE Joint Conference on Digital Libraries (JCDL)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<monogr>
+		<title level="m" type="main">Prognostics and solutions</title>
+		<author>
+			<persName><forename type="first">Bkc Technology</forename><surname>Beijing</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Co</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ltd</surname></persName>
+		</author>
+		<ptr target="http://www.bkctech.com/index.php/show?catid" />
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">13</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><surname>Swedberg</surname></persName>
+		</author>
+		<ptr target="http://www.rfidjournal.com/articles/view?17421" />
+		<title level="m">Digital twins bring value to big RFID and IoT data</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<monogr>
+		<title level="m" type="main">Craddock, Colonel Alexander Bainbridge, (1893–22 Dec. 1962), retd pay</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Raynovich</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/ww/9780199540884.013.u50465</idno>
+		<ptr target="https://www.bsquare.com/blog/who-will-pay-for-industrial-iot/" />
+		<imprint>
+			<date type="published" when="2007-12-01" />
+			<publisher>Oxford University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Consideration and Future Trends</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Miller</surname></persName>
+		</author>
+		<idno type="DOI">10.1142/9789811200748_0006</idno>
+		<ptr target="https://www.ge.com/digital/blog/why-digital-threads-and-twins-are-future-trains" />
+	</analytic>
+	<monogr>
+		<title level="m">Handbook of Digital Enterprise Systems</title>
+				<imprint>
+			<publisher>WORLD SCIENTIFIC</publisher>
+			<date type="published" when="2019-06" />
+			<biblScope unit="page" from="184" to="208" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">Digital Twin, Cyber–Physical System, and Internet of Things</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/b978-0-12-817630-6.00012-6</idno>
+		<ptr target="https://www.ibm.com/blogs/internet-of-things/iot-digital-twin-enablers/" />
+	</analytic>
+	<monogr>
+		<title level="m">Digital Twin Driven Smart Manufacturing</title>
+				<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="243" to="256" />
+		</imprint>
+		<respStmt>
+			<orgName>Wired Brand Lab</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<monogr>
+		<title level="m" type="main">3 ways digital twins are going to help improve oil and gas maintenance and operations</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Menard</surname></persName>
+		</author>
+		<ptr target="https://www.linkedin.com/pulse/3-ways-digital-twins-going-help-improve-oil-gas-sophie-menard" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<monogr>
+		<title level="m" type="main">Blue Whale #1 digital twin helps CIMC group write a new chapter in smart manufacturing</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Z</forename><surname>Zhang</surname></persName>
+		</author>
+		<ptr target="http://articles.e-works.net.cn/plmoverview/article139354.htm" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<monogr>
+		<title level="m" type="main">What is a digital twin</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Mccannel</surname></persName>
+		</author>
+		<ptr target="https://www.llamazoo.com/what-is-a-digital-twin/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">The digital world: Industries transformed</title>
+		<author>
+			<persName><forename type="first">Henry</forename><surname>Kressel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">V</forename><surname>Lento</surname></persName>
+		</author>
+		<idno type="DOI">10.1017/cbo9780511611094.009</idno>
+		<ptr target="http://news.aucotec.com/3-industries-transformed-digital-twins/" />
+	</analytic>
+	<monogr>
+		<title level="m">Competing for the future</title>
+				<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date>null</date>
+			<biblScope unit="page" from="290" to="331" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<monogr>
+		<title level="m" type="main">Hempel Digital Health Network, Healthcare solution testing for future|digital twins in healthcare</title>
+		<author>
+			<persName><surname>Dr</surname></persName>
+		</author>
+		<ptr target="https://www.dr-hempel-network.com/digital-health-technolgy/digital-twins-in-healthcare/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">Sealevel</title>
+		<author>
+			<persName><surname>Sealevel</surname></persName>
+		</author>
+		<idno type="DOI">10.2307/j.ctt20q22tk.5</idno>
+		<ptr target="http://www.sealevel.com/community/blog/sealevels-sliced-bread-of-tech-digital-twins-in-2018/" />
+	</analytic>
+	<monogr>
+		<title level="m">Tremulous Hinge</title>
+				<imprint>
+			<publisher>University of Iowa Press</publisher>
+			<date>2018</date>
+			<biblScope unit="page" from="7" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">Digital Governance</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Scoles</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/9781119421900.ch14</idno>
+		<ptr target="http://www.slate.com/articles/technology/future_tense/2016/02/dassault_s_living_heart_project_and_the_future_of_digital_twins_in_health.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Breaking Digital Gridlock</title>
+				<imprint>
+			<publisher>John Wiley &amp; Sons, Inc.</publisher>
+			<date type="published" when="2018-02-09" />
+			<biblScope unit="page" from="225" to="241" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<monogr>
+		<title level="m" type="main">How much do your peers’ diets impact your weight loss? More than you think!</title>
+		<idno type="DOI">10.1287/orms.2020.04.31p</idno>
+		<ptr target="http://ivi.uva.nl/content/news/2018/04/your-digital-twin.html" />
+		<imprint>
+			<date type="published" when="2020-08-13" />
+			<publisher>Institute for Operations Research and the Management Sciences (INFORMS)</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>University of Amsterdam</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<analytic>
+		<title level="a" type="main">The U.S. Navy&apos;s Military Sealift Command 2008 in Review</title>
+		<author>
+			<persName><surname>Military Sealift Command Washington Dc</surname></persName>
+		</author>
+		<idno type="DOI">10.21236/ada519444</idno>
+		<ptr target="https://www.businesswire.com/news/home/20180205005801/en/GE" />
+	</analytic>
+	<monogr>
+		<title level="m">GE Aviation</title>
+		<title level="s">-Signs-Digital-Contract-Military-Sealift-Command</title>
+		<imprint>
+			<publisher>Defense Technical Information Center</publisher>
+			<date type="published" when="2008-01-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<monogr>
+		<author>
+			<persName><surname>Dnv Gl</surname></persName>
+		</author>
+		<ptr target="https://www.dnvgl.com/feature/digital-twins.html" />
+		<title level="m">Digital twin at work</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<monogr>
+		<title level="m" type="main">http://ljournal.ru/wp-content/uploads/2017/03/a-2017-023.pdf</title>
+		<author>
+			<persName><surname>Dnv Gl</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Twins For Blue</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Denmark</surname></persName>
+		</author>
+		<idno type="DOI">10.18411/a-2017-023</idno>
+		<ptr target="http://www.safety4sea.com/wp-content/uploads/2018/03/DMA-Digital-Twins-for-Blue-Denmark-2018_03.pdf" />
+		<imprint>
+			<date type="published" when="2017" />
+			<publisher>LJournal</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<monogr>
+		<title level="m" type="main">Designing a Virtual Iron Bird as a Digital Twin</title>
+		<author>
+			<persName><forename type="first">Dassault</forename><surname>Systèmes</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2021-0239.vid</idno>
+		<ptr target="https://govinsider.asia/digital-gov/meet-virtual-singapore-citys-3d-digital-twin/" />
+		<imprint>
+			<date type="published" when="2020-01-11" />
+			<publisher>American Institute of Aeronautics and Astronautics (AIAA)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<analytic>
+		<title level="a" type="main">Breaking Down the Mysteries</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gonzalez</surname></persName>
+		</author>
+		<idno type="DOI">10.4324/9780080879093-6</idno>
+		<ptr target="http://www.machinedesign.com/mechanical/breaking-down-digital-twin-ibm" />
+	</analytic>
+	<monogr>
+		<title level="m">Sony A300/A350</title>
+				<imprint>
+			<publisher>Routledge</publisher>
+			<date type="published" when="2012-11-12" />
+			<biblScope unit="page" from="9" to="10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<monogr>
+		<title level="m" type="main">Smart cities, participatory governance and digital platforms</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Chatha</surname></persName>
+		</author>
+		<idno type="DOI">10.4337/9781789907056.00018</idno>
+		<ptr target="https://industrial-iot.com/2017/05/smart-cities-digital-twin-visuali-zation-platforms/" />
+		<imprint>
+			<date type="published" when="2019" />
+			<publisher>Edward Elgar Publishing</publisher>
+			<biblScope unit="page" from="216" to="216" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">N</forename><surname>Verdouw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Kruize</surname></persName>
+		</author>
+		<ptr target="https://www.researchgate.net/profile/Cor_Verdouw/publication/322886729_Digital_twins_in_farm_management_illustrations_from_the_FIWARE_accelerators_SmartAgriF-ood_and_Fractals/links/5b2cf5eaaca2720785d7c121/Digital-twins-in-farm-man-agement-illustrations-from-the-FIWARE-accelerators-SmartAgriFood-and-Fractals.pdf" />
+		<title level="m">Digital twins in farm management: illustrations from the FIWARE accelerators SmartAgriFood and Fractals</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<monogr>
+		<title level="m" type="main">The promise of a digital twin strategy</title>
+		<author>
+			<persName><forename type="first">Microsoft</forename><surname>Services</surname></persName>
+		</author>
+		<ptr target="https://info.microsoft.com/rs/157-GQE-382/images/Microsoft%27s%20Digital%20Twin%20%27How-To%27%20Whitepaper.pdf" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<monogr>
+		<title level="m" type="main">VEERUM&apos;s digital twin technology puts construction sites at managers&apos; fingertips</title>
+		<author>
+			<persName><forename type="first">Canada</forename><surname>Government Of</surname></persName>
+		</author>
+		<ptr target="https://concierge.innovation.gc.ca/en/about-us/success-stories/veerums-digital-twin-technology-puts-construction-sites-managers-fingertips" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<monogr>
+		<title level="m" type="main">Advanced imaging algorithms in digital twin reconstruction of construction sites</title>
+		<author>
+			<persName><surname>Intellectsoft</surname></persName>
+		</author>
+		<ptr target="https://www.intellectsoft.net/blog/advanced-imag-ing-algorithms-for-digital-twin-reconstruction" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<monogr>
+		<title level="m" type="main">Digital transformation in the construction and engineering industrypart two</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gagliardi</surname></persName>
+		</author>
+		<ptr target="http://pwc.blogs.com/industry_perspectives/2017/05/digital-transformation-in-the-construction-and-engineering-industry-part-two.html" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b94">
+	<monogr>
+		<title level="m" type="main">Nearly 2,000 forest owners have already tested Metsä Group and Tieto&apos;s virtual forest</title>
+		<author>
+			<persName><forename type="first">Midland</forename><surname>Paperclips</surname></persName>
+		</author>
+		<ptr target="https://www.midlandpaper.com/nearly-2000-forest-owners-already-tested-metsa-group-tietos-virtual-forest/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b95">
+	<analytic>
+		<title level="a" type="main">GE releases white paper on digital water solutions policy</title>
+		<idno type="DOI">10.1016/s1359-6128(17)30131-3</idno>
+		<ptr target="https://www.genewsroom.com/press-releases/ge-expands-its-digital-water-capabilities-launch-new-software-solutions-and-announces" />
+	</analytic>
+	<monogr>
+		<title level="j">Pump Industry Analyst</title>
+		<title level="j" type="abbrev">Pump Industry Analyst</title>
+		<idno type="ISSN">1359-6128</idno>
+		<imprint>
+			<biblScope unit="volume">2017</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2017-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b96">
+	<monogr>
+		<title level="m" type="main">Siemens expands digitalization solutions for the process industries</title>
+		<author>
+			<persName><surname>Siemens</surname></persName>
+		</author>
+		<ptr target="https://www.siemens.com/press/en/pressrelease/?press5/en/press-release/2018/processindustries-drives/pr2018030215pden.htm" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b97">
+	<monogr>
+		<title level="m" type="main">How a digital twin protects your security network</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gallagher</surname></persName>
+		</author>
+		<ptr target="http://blog.viakoo.com/how-a-digital-twin-protects-your-security-network" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b98">
+	<monogr>
+		<title level="m" type="main">PREVENTING, PREPARING FOR, RESPONDING TO AND RECOVERING FROM DISASTERS</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Govindarajan</surname></persName>
+		</author>
+		<idno type="DOI">10.4337/9781784717407.00022</idno>
+		<ptr target="http://www.digitalistmag.com/iot/2017/11/01/preventing-disasters-with-digital-twin-05486723" />
+		<imprint>
+			<date>null</date>
+			<publisher>Edward Elgar Publishing</publisher>
+			<biblScope unit="page" from="249" to="250" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b99">
+	<monogr>
+		<title level="m" type="main">Prepare for the impact of digital twins</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Pettey</surname></persName>
+		</author>
+		<ptr target="https://www.gartner.com/smarterwithgartner/prepare-for-the-impact-of-digital-twins/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b100">
+	<analytic>
+		<title level="a" type="main">MarketsandMarkets analyzes automotive paints market</title>
+		<author>
+			<persName><surname>Marketsandmarkets</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s1364-5439(13)70249-1</idno>
+		<ptr target="https://www.marketsandmarkets.com/Market-Reports/digital-twin-market-225269522.html" />
+	</analytic>
+	<monogr>
+		<title level="j">Focus on Powder Coatings</title>
+		<title level="j" type="abbrev">Focus on Powder Coatings</title>
+		<idno type="ISSN">1364-5439</idno>
+		<imprint>
+			<biblScope unit="volume">2013</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2013-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b101">
+	<analytic>
+		<title level="a" type="main">Hartley, General Sir Alan Fleming, (1882–7 Sept. 1954), idc; psc</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Turner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Macgillivray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ashton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Crook</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fleming</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hojlo</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/ww/9780199540884.013.u238322</idno>
+		<ptr target="https://www.idc.com/research/viewtoc.jsp?containerId" />
+	</analytic>
+	<monogr>
+		<title level="m">IDC futurescape: worldwide IoT</title>
+				<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="2007-12-01" />
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">S43161517</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b102">
+	<analytic>
+		<title level="a" type="main">Healthcare IT market size, market growth and competitive analysis, industry forecasts to 2026</title>
+		<author>
+			<persName><forename type="first">Chris</forename><surname>Smith</surname></persName>
+		</author>
+		<idno type="DOI">10.4172/2329-6631-c1-027</idno>
+		<ptr target="https://www.gminsights.com/industry-analysis/digital-twin-market" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Developing Drugs</title>
+		<title level="j" type="abbrev">J Dev Drugs</title>
+		<idno type="ISSNe">2329-6631</idno>
+		<imprint>
+			<biblScope unit="volume">07</biblScope>
+			<date type="published" when="2018" />
+			<publisher>OMICS Publishing Group</publisher>
+		</imprint>
+	</monogr>
+	<note>growth potential, competitive market share &amp; forecast</note>
+</biblStruct>
+
+<biblStruct xml:id="b103">
+	<analytic>
+		<title level="a" type="main">Digital Twin in Industry: State-of-the-Art</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+			<idno type="ORCID">0000-0002-9020-0633</idno>
+		</author>
+		<author>
+			<persName><forename type="first">He</forename><surname>Zhang</surname></persName>
+			<idno type="ORCID">0000-0002-7630-2211</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tii.2018.2873186</idno>
+		<ptr target="http://dx.doi.org/10.1109/TII.2018.2873186" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+		<idno type="ISSN">1551-3203</idno>
+		<idno type="ISSNe">1941-0050</idno>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2405" to="2415" />
+			<date type="published" when="2019-04" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

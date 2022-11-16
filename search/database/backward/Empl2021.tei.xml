@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A Flexible Security Analytics Service for the Industrial IoT</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>ACM</publisher>
+				<availability status="unknown"><p>Copyright ACM</p>
+				</availability>
+				<date type="published" when="2021-04-26">2021-04-26</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Philip</forename><surname>Empl</surname></persName>
+							<email>philip.empl@ur.de</email>
+							<affiliation key="aff0">
+								<orgName type="department">Chair of Information Systems</orgName>
+								<orgName type="institution">University of Regensburg</orgName>
+								<address>
+									<settlement>Regensburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+							<email>guenther.pernul@ur.de</email>
+							<affiliation key="aff0">
+								<orgName type="department">Chair of Information Systems</orgName>
+								<orgName type="institution">University of Regensburg</orgName>
+								<address>
+									<settlement>Regensburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A Flexible Security Analytics Service for the Industrial IoT</title>
+					</analytic>
+					<monogr>
+						<title level="m">Proceedings of the 2021 ACM Workshop on Secure and Trustworthy Cyber-Physical Systems</title>
+						<meeting>the 2021 ACM Workshop on Secure and Trustworthy Cyber-Physical Systems						</meeting>
+						<imprint>
+							<publisher>ACM</publisher>
+							<date type="published" when="2021-04-26" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1145/3445969.3450427</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:34+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>• Security and privacy → Security services</term>
+					<term>Domain-specific security and privacy architectures</term>
+					<term>• Applied computing → IT architectures</term>
+					<term>Reference models</term>
+					<term>Service-oriented architectures</term>
+					<term>• Information systems</term>
+					<term>Industrial IoT, Security as a Service, Security Analytics</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In Cloud Computing, the cloud serves as a central data hub for the Industrial Internet of Things' (IIoT) data and is deployed in diverse application fields, e.g., Smart Grid or Smart Manufacturing. Therefore, the aggregated and contextualized data is bundled in a central data hub, bringing tremendous cybersecurity advantages. Given the threat landscape in IIoT systems, especially SMEs (small and medium-sized enterprises) need to be prepared regarding their cybersecurity, react quickly, and strengthen their overall cybersecurity. For instance, with the application of machine learning algorithms, security-related data can be analyzed predictively in order to be able to ward off a potential attack at an early stage. Since modern reference architectures for IIoT systems, such as RAMI 4.0 or IIRA, consider cybersecurity approaches on a high level and SMEs lack financial funds and knowledge, this paper conceptualizes a security analytics service used as a security add-on to these reference architectures. Thus, this paper conceptualizes a flexible security analytics service that implements security capabilities with flexible analytical techniques that fit specific SMEs' needs. The security analytics service is also evaluated with a real-world use case.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>The emerging technologies around the Industrial Internet of Things (IIoT) provide considerable advantages in many application fields. For instance, distributed sensors can be utilized in IIoT systems to optimize processes and escort the industry to Smart Manufacturing's vision by applying machine learning algorithms. Through the coincide of domains, new insights can be generated, such as optimizing a machine's production parameters. The alignment of information technology (IT) and operations technology (OT) requires explicit knowledge in both domains and extensive cybersecurity knowledge. While IT systems are processing tons of OT systems data (e.g., from Industrial Control Systems) in decentralized architectures, new security threats arise, e.g., Sybil attacks <ref type="bibr" target="#b27">[27]</ref>, Wormhole attacks <ref type="bibr" target="#b10">[10]</ref> or Distributed Denial of Service attacks <ref type="bibr" target="#b21">[21]</ref>. Small and medium-sized enterprises (SME) are not up to the current state of the art regarding cybersecurity, making them vulnerable to new attack vectors. They often exhibit outstanding knowledge around their supply chain and production processes but cannot compete with the steadily evolving attack vectors. This gap can be traced back to a lack of financial, technical, or even personnel resources for innovation <ref type="bibr" target="#b19">[19]</ref> and the necessary knowledge about information security and vulnerabilities <ref type="bibr" target="#b8">[8]</ref>. Knowledge is powerful and essential to be resilient against novel attack vectors, such as the Distributed Denial of Service attack. To what extent data and wisdom are related is illustrated in the Data-Information-Knowledge-Wisdom (DIKW) hierarchy by Ackoff <ref type="bibr" target="#b0">[1]</ref>. In it, data generates information, information creates knowledge, and knowledge makes wisdom. It might not always be necessary to climb the hierarchy latter to the top, but a response to an incident should be triggered quickly concerning cybersecurity. Thereby, quick reactions build upon wisdom. For example, merely collecting security-related data would not benefit the industry, such as network traffic capture. Only those who process this network data, recognize this information's context and make predictions can become game-changers. In the best case, the systems are sealed off at an early stage to prevent severe damage or ward off the attack altogether. Therefore, security analytics must be established in the industrial sector to tackle the current threat landscape. Security analytics must necessarily be embedded in an industrial architecture that allows OT to be linked to IT and vice versa. SMEs represent the German industry's backbone and do not view cybersecurity as an integral part of IIoT systems but rather as an add-on. As most of their production systems exist over decades, security by design considerations have changed, especially in this interconnection of IT and OT. Therefore, SMEs offer a vulnerable target for attack. Thus, system functionality is prioritized over cybersecurity in SMEs, which is partly because many SMEs lack the financial resources and the necessary knowledge. Nevertheless, SMEs can thereby implement different architectures, e.g., Reference Architectural Model Industry 4.0 (RAMI 4.0) <ref type="bibr" target="#b24">[24]</ref> or Industrial Internet Reference Architecture (IIRA) <ref type="bibr" target="#b14">[14]</ref>. Due to the lack of standardization, SMEs run the risk of betting on the wrong horse when selecting them or implement their versions. Nonetheless, all of these architectures rely on the application of the cloud. The cloud established itself as a data hub that enables manufacturing enterprises of all sizes to quickly connect their OT systems to cloud-dependent IT systems. The IIoT architectures use middleware layers in general, which can be built on service-oriented architectures <ref type="bibr" target="#b1">[2]</ref>, enabling the communication between individual heterogeneous systems. A system offers numerous services made available by the cloud service provider (CSP) to the cloud service consumer (CSC) and billed to the CSC via subscriptions. Many SMEs align their systems in the cloud because embedded services yield tremendous advantages of compatibility and interoperability. Thus, integrating new services into an existing IT architecture is made comfortable. This paper conceptualizes a security analytics service that is compatible with well-known reference architectures. As those reference architectures take the right step into standardization, they represent a further obstacle for SMEs as they do not offer concrete recommendations in terms of security analytics. Our security analytics service follows those security principles but offers concrete security capabilities (see DIKW) that can be instantiated as flexible analytical techniques. That means that every security capability might encompass several analytical techniques (e.g., detective security capability is instantiated by Complex Event Processing) that can be bundled or standalone. This flexibility of analytical techniques is significant because IoT architectures differ in their respective industry regarding their application, middleware, and protocols <ref type="bibr" target="#b26">[26]</ref>, which results in different requirements. In this way, the security analytics service is flexible and generic, which is accomplished by providing analytical capabilities. Thus, flexibility is leading to a straightforward application in the respective industry.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1">Contribution</head><p>As this paper is addressing cross-domain knowledge to accomplish knowledge gaps of SMEs in cybersecurity, the contribution of our paper is threefold:</p><p>• We are introducing a novel and flexible security analytics service, which fits the needs of industries and their use cases.</p><p>The security analytics service exhibits security capabilities, which can yield a set of analytical techniques. • We disclose how to generate wisdom from data to bridge the knowledge gap. Thereby, the security analytics service assists in complying with all capabilities in the DIKW hierarchy. • We are providing multi-disciplinary research that transfers knowledge in different domains and knits cybersecurity to IIoT.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">Structure</head><p>This paper is structured as follows. Section 2 provides the necessary background knowledge in reference architectures, Security as a Service (SECaaS), and security analytics. Section 3 determines the preliminaries towards a conceptual service model. Section 4 provides the conceptual model for the security analytics service and defined relevant service characteristics. Section 5 shows the architectural module, which knit the security analytics service to the IoT architecture (IoT system) and vice versa. Section 6 evaluates the architectural module with a real-world use case, and Section 7 provides the conclusion, limitations, and further research.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">BACKGROUND AND RELATED WORK</head><p>This section presents well-known reference architectures for the IIoT and describes SECaaS and security analytics. Besides, the related work section provides knowledge to which this paper links. These fundamentals are essential as a flexible security analytics service for IIoT systems is being developed that operates according to the principles of SECaaS.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">IIoT Reference Architectures</head><p>Reference architectures are utilized in the IIoT to provide an architectural construct that builds on existing standards and norms. Therefore, they are the first step towards standardization, as these reference architectures explicitly refer to gaps or problems in current standards. In the industrial context, these include RAMI 4.0 <ref type="bibr" target="#b24">[24]</ref> and IIRA <ref type="bibr" target="#b14">[14]</ref>.  <ref type="bibr" target="#b1">[2]</ref>, the relevant layer for this paper's consideration is the information layer. This layer also defines relevant services and ensures the technical functionality of an IIoT architecture. Additionally, the information layer also provides reactions to specific events, such as an actionable to an empty machine magazine.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Security as a Service (SECaaS)</head><p>In Cloud Computing, there exist four main deployment models (public, private, hybrid, community) and three service delivery models (Infrastructure as a service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS)) <ref type="bibr" target="#b18">[18]</ref>. In general, security can be delivered in three alternate models, so-called security service delivery models. These security service delivery models involve 1) on-premises security, 2) managed security, and 3) SECaaS <ref type="bibr" target="#b25">[25]</ref>. While on-premise security is deployed on the client-side, managed security involves a CSP via service level agreements and is set up for the enterprise. Both models cannot be aligned with typical Cloud Computing advantages <ref type="bibr" target="#b25">[25]</ref>, such as elasticity, broad network access, or pay-as-you-go subscriptions <ref type="bibr" target="#b18">[18]</ref>. Besides the service delivery models, there exist plenty of different services. In the SECaaS, the overarching goal is to provide consumers with security services. Security services are wide-ranged and can be categorized as identity and access management, data loss prevention, web security, email security, security assessment, intrusion management, security information and event management (SIEM), encryption, network security and business continuity, disaster recovery, and continuous monitoring <ref type="bibr" target="#b4">[5]</ref>. SECaaS benefits from the broad application of Cloud Computing and thus receives extraordinary encouragement from the scientific community <ref type="bibr" target="#b25">[25]</ref>. A meta-model is also proposed by Furfaro et al. <ref type="bibr" target="#b9">[9]</ref> to support the modelling of SECaaS in cloud environments. In this meta-model, a distinction is made about whether a service acts in support of another service's security or whether it offers security features. This methodological approach is detailed and allows different perspectives to SECaaS. We will come back to the meta-model when discussing our flexible security analytics service in Section 3 of this paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Security Analytics</head><p>As the amount of structured and unstructured security-related data is grown, traditional SIEM systems reach their limits <ref type="bibr" target="#b3">[4]</ref>. In the era of Big Data, new technologies arise which can support efficient real-time data processing and analysis, leading to the paradigm of Big Data analytics <ref type="bibr" target="#b31">[31]</ref>. Big data processing technologies are nothing new in the IoT because of the vast amount of data generated by heterogeneous IoT devices. The application of Big Data processing technologies, e.g., Apache Spark <ref type="bibr" target="#b33">[33]</ref>, is therefore not far distant to support security. In this context, (Big Data) security analytics is used to analyze contextual data in cybersecurity <ref type="bibr" target="#b16">[16]</ref>. In general, analytical techniques exist that fulfil single steps of the DIKW hierarchy by Ackoff <ref type="bibr" target="#b0">[1]</ref> in the context of IoT <ref type="bibr" target="#b28">[28]</ref>. Therefore, these analytical techniques can be classified as descriptive, diagnostic, detective, predictive, and prescriptive. In this paper, we refer to those categories as security capabilities. While descriptive and diagnostic capabilities are strictly retrospective, a detective capability reflects interactions in real-time, and predictive and prescriptive capabilities are prospective.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Related Work</head><p>The provisioning of security services in on-premise solutions (SE-CaaS) was already carefully elaborated in past research, e.g. Zarca et al. <ref type="bibr" target="#b20">[20]</ref> focuses on appropriate methods for enhancing security in IIoT by centrally orchestrating security mechanisms and controllers. Therein, modules interact with each other to satisfy a quick reaction and ease of control in the IoT landscape. However, these approaches omit an integral component of cybersecurity: the generation and exchange of knowledge. Ackoff <ref type="bibr" target="#b0">[1]</ref> defined the first approach to gather wisdom from data by providing the DIKW-hierarchy. Decades later, the IoT evolves, and authors rethink the existing DIKW by defining new layers appropriate for the IoT <ref type="bibr" target="#b11">[11]</ref>. With the rise of Big Data, new opportunities regarding data analytics appeared, and analytical methods are categorized along with their outcome, e.g. predictive analytics <ref type="bibr" target="#b28">[28]</ref>. Based on those methods, the cybersecurity state of a system or architecture can be evaluated, e.g., cybersecurity dynamics provides a metric-based approach used to compare several security states of a system <ref type="bibr" target="#b32">[32]</ref>. Furthermore, cybersecurity dynamics' objectives provide valuable insights into the interaction between descriptive, predictive and prescriptive capabilities. Necessarily, assessing the current cybersecurity state requires the judgment of a security expert. Likewise, also for the implementation of security solutions. Thus, the exchange of knowledge between experts and novices os crucial. The creation and exchange of knowledge result from collaborations between security experts and novices and must be necessarily supported by novel technological approaches. <ref type="bibr" target="#b2">[3]</ref>. Past research focused on the assessment of security analytics methods, the exchange and creation of knowledge in security analytics and concrete instances of security analytics components, e.g. incident response. This research is knitting past research together by meaningfully aggregating and assembling their findings.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">PRELIMINARIES</head><p>This paper approaches a flexible security analytics service concerning the meta-model described by Furfaro et al. <ref type="bibr" target="#b9">[9]</ref>. This meta-model involves three phases, which are namely security services identification (SSI), design solutions definition (DSD), and design solutions analysis (DSA). The SSI-phase needs a definition of the security delivery model and the security requirements, which leads to security service conceptual models (SSCMs). With the exploitation of those SSCM, security service design solutions (SSDSs) are approached in the DSD-phase, evaluated, and selected in the DSA-phase, leading to an evaluated selected design solution (SDS). As this security analytics service offers security capabilities with flexible analytical techniques, the delivery scenario is considered a standalone service, which does not provide security services to existing services. The next step towards SSCMs is to define appropriate security requirements. Those requirements are described in the following few paragraphs by determining the involved entities and defining the threat model. Afterwards, the necessary security requirements are derived.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Involved Entities</head><p>The security analytics service should be applied within IIoT systems. Therefore, we define a standard technological setup. According to IIRA or RAMI 4.0, we instantiate an architecture based on a middleware, which yields machines and their edge nodes in an Industrial Control System (ICS) and a cloud to process and analyze the gathered data. Therefore, we derive the following entities that are involved within the architecture, i.e., life cycle parties of machines <ref type="bibr" target="#b6">[7]</ref> and Cloud Computing entities: CSP, CSC, network service provider (NSP), internal IT department, manufacturer, distributor, owner, and maintainer.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Threat Model</head><p>Threat modelling methods like Octave, Coras, Mehari, or attack trees lack a holistic methodology as detailed threat lists tend to be incomplete or subjective. In contrast, STRIDE (Spoofing, Tampering, repudiation, information disclosure, denial of service, and elevation of privileges) modelling by Microsoft leads to a classification of threats given constant attack patterns. In contrast, LINDDUN is another threat modelling language that attempts privacy modelling. Since we address a service that is not designed to incorporate privacy-sensitive data, we do not consider privacy leakage and exclude, therefore, LINDDUN. STRIDE ensures a mapping of elements (external entity, processing node, data store, and data flow) to a particular category <ref type="bibr" target="#b22">[22]</ref>. Depending on those categories, threats can be identified. For the STRIDE model, a context diagram and a data flow model are required, shown in Fig. <ref type="figure" target="#fig_1">2</ref>. Level-0 defines the context diagram for our threat model, in which all previously described entities are included. These entities interact with a so-called IIoT system, which represents the combination of IT and OT. If we complement this IIoT system with a data flow model (level-1), three central components of the generic IIoT system are defined: machine, edge, and cloud. This data flow diagram could now be abstracted into further levels, e.g., the cloud may contain various information systems in level-2 that communicate with each other.</p><p>We assume that the internal IT department of an SME is using resources of a CSP and is therefore partly considered as CSC. Consequently, we assume that the internal IT department is developing somewhat cloud applications for the IIoT system. We consider the cloud instance trustworthy as the cloud provides robust authentication mechanisms for the edge nodes and the internal IT department. Furthermore, we assume the data, which is transferred from the edge node to the cloud, to be encrypted. Given the assumption, we derive the following threat landscape:</p><p>• Spoofing attacks are realistic at the edge node and the machine, as unauthorized entities might have physical access to interact with them. • Tampering attacks are changing the integrity of data or machine commands. Every entity in the IIoT system can manipulate data flows independent of physical or virtual access. • Non-repudiation is reached by a false logging-mechanism or missing signature of data streams. • The elevation of privileges is possible at the machine, the edge node, or the cloud. • Furthermore, all data streams need to be encrypted and authorized to not reveal sensitive data to possible attackers (entities) and therefore, disclosure sensitive information. • Denial of Service (DoS) attacks are assumed to be located at the edge node as the cloud provides mechanisms to balance immense loads, e.g., load balancing or horizontal or vertical scalability.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Security Requirements</head><p>In ISO/IEC-27000, there exist several security requirements for an architecture: confidentiality, integrity, and availability, which other requirements like non-repudiation or authenticity can complement.</p><p>In the threat model mentioned above, various threats are apparent to an IIoT system. This variety of threats can be traced back to the amount of participating entities.</p><p>As the operational technology aims instead at a high availability than confidentiality, we consider the availability as the security requirement with the highest priority. The availability must be reached for the OT (e.g., ICS) and the IT, as both components are interconnected. Second, data need to be encrypted regarding confidentiality as the machine's data is classified as confidential. Last, considering the data quality of machines' data, data need to exhibit integrity. When data feature integrity, this also leads to a better quality of security analytics. Security analytics in IIoT systems should aim to preserve a high availability, integrity in its data streams and encrypt the data efficiently. In order to achieve these security requirements, we include the security capabilities mentioned above.</p><p>In this paper, these capabilities are used for security analytics and referenced as security capabilities. We consider these security capabilities to cover three temporal dimensions (hindsight, insight, and foresight) and allow a holistic view of data. While descriptive and diagnostic capabilities are aimed at hindsight, detective capabilities are for insight and predictive plus prescriptive capabilities for foresight. Thus, the security capabilities are follows: (i) descriptive, (ii) diagnostic, (iii) detective, (iv) predictive, and (v) prescriptive. We refer  to them as service requirements in the service context and security capabilities in security analytics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">Framing the Problem</head><p>The threat model has shown the threat landscape in IIoT systems on level-0 and level 1. The threat landscape's complexity rises by abstracting more detailed threat model levels (e.g., level-2 or level-3). The higher the threat model's level, the more detailed the threat landscape is described, i.e., the more knowledge is required to describe the relationships and dependencies between systems. Based on the arising complexity, extensive cybersecurity knowledge is required to set up even more detailed threat models. Concerning SMEs, they need to accomplish this threat landscape with appropriate knowledge. As knowledge is generated from data and information, SMEs need appropriate security analytics methods to generate wisdom from data. Common reference architectures like IIRA or RAMI 4.0 provide dedicated security frameworks, e.g., the Industrial Internet Security framework <ref type="bibr" target="#b17">[17]</ref>. As can be inferred from frameworks, those security frameworks provide generically functional breakdowns for security components in IIoT systems. For instance, the security component "security monitoring and analysis" is described as three constituents: monitor, analyze, and react. Those components are described with their shared attributes but are not specified in depth nor within the context of a cloud. This research paper builds upon this gap and describes a security analytics service that follows those security framework proposals and offers relevant security capabilities to provide SMEs with the necessary knowledge. Moreover, these security capabilities may yield different analytical techniques that can be applied flexibly, which means SMEs can swap or bundle them depending on their desired outcome (e.g., proactive reaction or forensics). In summary, the security analytics service offers five security capabilities, and each of them can flexibly yield different analytical techniques, e.g., SMEs can implement Complex Event Processing as one instance of a detective security capability. Thus, this service is generically applicable to different industries. Regarding a particular industry, analytical techniques lead to wisdom, i.e., a better comprehension of potential threats in the IIoT system and, therefore, to a more efficient incident response.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">SERVICE MODELING</head><p>After specifying the service requirements and the security analytics service delivery model, this section approaches the SSCM, possible design solutions, and the selection of an appropriate conceptual model.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Conceptual Model</head><p>First, the meta-model's main attributes are specified, including the description, security concerns, security level, the category, and relevant service attributes. These entries are shown in Tab. 1.To satisfy the security requirements, we have defined security capabilities as service requirements. Thus, all dimensions of security analytics are addressed and included in the security analytics service. Although the security analytics service addresses all security capabilities, the efficacy depends heavily on the implemented analytical techniques as humans need to implement analytical techniques first. Additionally, the security analytics service faces a broad threat landscape and thus, we conclude the efficacy of detecting possible threats as a possible security concern. Furthermore, the abuse of the rights of a user is another security concern. SIEM and intrusion management are considered the main categories for the security analytics service because security analytics is a combination of both categories <ref type="bibr" target="#b30">[30]</ref>. The security analytics service is applied as an IaaS to simplify analytical techniques to a user or group. Thus, the deployment is straightforward and can be conducted without much effort since most SMEs have outsourced their computing resources to the cloud. Furthermore, the service should be independent of any service providers and is targeting a minimum of service costs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Design Solution</head><p>The considered SSCM provides five distinct service requirements, which need to be involved within the design solution, i.e., SSDS. A This problem can be minimized with the usage of a peer-reviewed repository. Repositories have established themselves in many areas as they offer peer-reviewed functional patterns, which can be adapted by the community and tailored to one's needs. Thus, we consider, similar to <ref type="bibr" target="#b13">[13]</ref>, a repository that yields analytical techniques. Of course, repositories can also be managed internally (private), but we explicitly refer to public repositories. Public repositories' usage fills the knowledge gap between SMEs and larger companies and leads to high-quality analytical techniques. Moreover, this fosters the exchange of knowledge and enables a thorough elaboration of a system's current cybersecurity state.</p><p>The security analytics service is secured by a username and password authentication schema. A user or the user group needs to sign in to configure and adapt the analytical techniques stored within a public repository. As we have only derived one design solution, this design solution is also our selected solution for further considerations. In the next section, we are sketching this solution with appropriate architectural modules.</p><p>Table <ref type="table">2</ref>: Design solution of the security analytics service.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Meta model concept Description Policy</head><p>Identifier</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Id-01 Description</head><p>The security analytics service binds a public repository, i.e. security analytics repository, which yields descriptive information about specific analytical techniques to satisfy a security requirement.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Statement Action</head><p>The user can select or define analytical techniques, which are dependent on the desired security capability. These analytical techniques are stored in a public repository and can be accessed by other SMEs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Effect</head><p>The selected analytical technique can quickly be adopted and adjusted to fit the security requirements of the IIoT system. User Group/ single</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SM</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Authentication time Disable Authentication location Disable</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Credential based</head><p>Username and strong password</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">ARCHITECTURAL MODULES</head><p>A design solution is selected in the previous section that addresses the service requirements for security analytics service. Based on this design, the anchoring in IIoT systems and the relevant modules are presented in this section. In general, security analytics should be included in OT and IT concerning reference architectures. Zarca et al. <ref type="bibr" target="#b20">[20]</ref> provide, therefore, a security orchestration plane that enables a holistic orchestration of security task over the IIoT system. This conception is also underlining that security analytics is often perceived as a monitor in such architectures <ref type="bibr" target="#b29">[29]</ref>. Thus, we align our security analytics service holistically over the IIoT system and expand the monitoring functionality to respective security modules and analytical techniques. The result is presented by Fig. <ref type="figure" target="#fig_2">3</ref> and the modules are described in the following beginning at the bottom.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">IIoT System</head><p>The IIoT system in Fig. <ref type="figure" target="#fig_2">3</ref> reflects all IT and OT domains and their interplays. Based on the IIRA, we derived the five functional domains and their interplays. The control domain is located at the edge, the information and operation domain in the cloud, and the in-house server's business and application domain. We explain the single domains shortly as they have been described in the background </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>section.</head><p>The control domain is aggregating sensor and machine data and sends the data to the information domain. The information domain is transforming and cleaning the data and accelerates the information based on the lambda architecture by Kiran et al. <ref type="bibr" target="#b12">[12]</ref> in a speed layer. The business domain visualizes the data and connects it to various databases, e.g., Manufacturing Executive System (MES) or Enterprise Resource Planning (ERP). Depending on the business logic, the application domain is providing feedback to the control domain. The operation domain is responsible for the monitoring, optimization, and forecasting of machines' states. The operation domain also provides feedback to the control domain to adjust the machines' parameter. Data and information are fed into the information domain to log the communication between domains and analyze their behaviour.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Security Analytics Service</head><p>As also can be inferred from Fig. <ref type="figure" target="#fig_2">3</ref>, the security analytics service is connected to the information domain and thus, connected to the databases and the streaming data. This security analytics service needs strong authentication regarding the streaming data and the databases. We omitted the interconnections between the security analytics service and the control domain, as this is not the main focus of this paper. The previously defined service requirements SR1-SR5 are applied as security modules (with security capabilities) in the security analytics service. Those security modules are arranged according to the DIKW hierarchy, i.e., they are nearly ordered from the data (right) to the wisdom (left). In the following, the single parts of the security analytics service are described. Security orchestrator. The security orchestrator is the bridge to the IIoT system and orchestrates and automates the response to a possible threat. The data is partly forwarded to the monitor (not depicted), but it should also be achievable to control networks from the control domain with the aid of higher-level software-defined network controllers. The security orchestrator logically receives feedback from the predictive, detective, and prescriptive security modules to derive actions. We provided only one connection (prescriptive module to security orchestrator) to enhance clarity.</p><p>Monitor. The monitor is also proposed in the recommendations for improving cybersecurity in the Industrial Internet Security Framework, among others. The monitor aggregates data from all sources and captures incoming data in real-time. The amount of data makes it possible to monitor systems and pass them to the individual security modules. The data sources are not limited to the information domain; e.g., databases from the business domain can also be connected to gather information about ERP or MES. Descriptive module. The descriptive analytics module provides possibilities for finding out what happened in a system, thereby providing hindsight. Mostly data is summarized or presented in raw data format. Security policy repository. Various policies can be defined in the security policy repository, classified according to different security levels (e.g., low, medium, or high). The security policy repository offers two interfaces: one to the user and another to the detective, predictive and prescriptive modules. By applying these security policies, decisions are derived for the incident response. Security analytics repository. One main part of the security analytics service is the security analytics repository. Instances of security modules (analytical techniques) are stored in this repository and shared within and across a companies' borders. This information sharing enables a knowledge transfer and peer review of the instantiated analytical techniques.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Security Expert</head><p>As described in the last section, a user needs to communicate with the security analytics service. As this interaction dives deep into the subject, the user needs to exhibit outstanding domain knowledge. Therefore, we are considering the user as a security expert. We manifest a user interface that enables interaction with the security analytics repository and the security policy repository (see Fig. <ref type="figure" target="#fig_2">3</ref>). A security expert first needs to sign in via a password-based authentication schema. In the next steps, the security expert can define or edit security policies for the IIoT system or create new analytical techniques for a particular security module. The definition of security policies presents itself as a manageable task for a security expert. However, the implementation and application of analytical techniques in terms of cybersecurity is a mammoth task. Here, the security expert must have in-depth knowledge from various domains, namely cybersecurity, software development, and statistics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">EVALUATION</head><p>As this paper does not implement the concept, technical experiments can be excluded. However, this paper is dedicated to SMEs, and we will evaluate the concept with a real-world use case. We refer to SISSeC 1 , an ongoing German research project. SISSeC aims to securely link a printed circuit board (PCB) manufacturer's machine and sensor data via an edge gateway to a so-called sensor cloud. Within the edge gateway, intrusion detection mechanisms are applied, and access controls mechanisms authenticate machines and sensors. The sensor cloud collects and aggregates this data to determine the potential security state with security analytics (e.g., via a digital twin). The PCB manufacturer's overall objective is to collect relevant data and identify likely future states. In addition to the cybersecurity focus, such events are also production-related, e.g., the potential wear of a drill bit on the drilling and milling machine and the time remaining until its change.</p><p>Since the project itself is attempting a particular architecture, no </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7">CONCLUSION</head><p>As the threat landscape continues to grow and the gap between larger companies and SMEs in terms of cybersecurity knowledge widens, this paper takes a step towards improving knowledge transfer. The knowledge transfer is provisioned by a conceptualization of a general-purpose flexible security analytics service for the IIoT suited for SME environments. Although this knowledge transfer has been tailored to SMEs, larger companies can also benefit from a shared knowledge base. In general, the shared knowledge basis is necessary because companies are also encountering nonstandardized reference architectures in the IIoT and encounter advantages regarding their financial and personnel resources. We presented a security analytics service that enables security capabilities through security modules. These security modules can be instantiated by diverse analytical techniques to address a particular industry's needs flexibly. Furthermore, we disclosed how to generate data to wisdom and included this knowledge into our security analytics service. Thus, we bridge the knowledge gap within SMEs and contribute to the multi-disciplinary research area concerning the IIoT. Moreover, we presented the security analytics repository, which transfers knowledge between SMEs and established peerreviewed implementations of analytical techniques.</p><p>Besides the contribution, this paper exhibits two limitations. First, we do not specify any access control roles to our security analytics service, as we have only covered a single entity (security expert). Second, we excluded parts of the incident response. As the response opportunities to a detected or predicted threat increase with the complexity of IIoT systems, e.g., with software-defined networks for the ICS, a holistic sketch of interconnections within the architectural module is almost impossible.</p><p>In the future, we will work on implementing a prototype of this security analytics service. The design of a specific implementation can be structured in several ways. We recommend a design based on virtual machines, dockerized applications, and specific connectors for a straightforward adoption and application of the capability modules. As we admit in the introduction, data is vital to generate wisdom. By bundling the data sources and types of data (stream vs batch) required to fulfil a particular capability module (e.g., the descriptive module takes batch data), analytical techniques can be instantiated. Thus, each capability module should be represented by one virtual machine. The virtual machines can be interconnected with dedicated bridges to accomplish the dependencies between the capability modules. Each of the virtual machines is running on Docker to establish containerized and modular applications.</p><p>There are many open-source software and tools for security analytics applications that need to be categorized depending on their functionality, e.g., Suricata is an intrusion detection tool and is, therefore, available in the detective module. In this context, the security analytics repository is considered a collection of dockerized applications. Besides provisioning dockerized applications, the security analytics repositories need to yield connectors for each application to bind multiple applications' sinks and sources. Additionally, machine learning models can be shared across the security analytics repository and integrated into the desired capability module. Those machine learning models might be integrated into the predictive module (stream data) and the descriptive module (batch data). The different analytical techniques can be tagged inside the security analytics repository (e.g. for detective module) and ranked by other users. These mechanisms are resulting in transparency as to which methods are successfully contributing to the cybersecurity.</p><p>Based on this prototype, an evaluation is planned, which measures the effectiveness and efficiency of the service. Quasi-experiments evaluate latter for each of the modules, e.g. the descriptive module is used by one group, which is working out an incident with security analytics service, while the other group does not have the security analytics service available. In summary, we expect that this paper will contribute to the current state of research, as security capabilities have not been included in security analytics so far. Furthermore, this paper will also transfer knowledge to industry and, in the case of a successful prototype, will also contribute to the exchange and creation of knowledge.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Mapping of functional aspects in both reference architectures.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: context diagram on level-0 (a) and data flow model on level-1 (b).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: Architectural modules for the security analytics service in IIoT systems.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 1 :</head><label>1</label><figDesc>Conceptual model of the security analytics service.</figDesc><table><row><cell cols="2">Meta model concept</cell><cell>Description</cell></row><row><cell></cell><cell></cell><cell>SR1: descriptive security capability</cell></row><row><cell></cell><cell></cell><cell>SR2: diagnostic security capability</cell></row><row><cell></cell><cell>Service requirements</cell><cell>SR3: detective security capability</cell></row><row><cell></cell><cell></cell><cell>SR4: predictive security capability</cell></row><row><cell>SECaaS</cell><cell>Security service</cell><cell>SR5: prescriptive security capability This paper is facing a flexible secu-rity analytics service for IIoT sys-</cell></row><row><cell></cell><cell></cell><cell>tems by satisfying the service re-</cell></row><row><cell></cell><cell></cell><cell>quirements SR1-SR5.</cell></row><row><cell></cell><cell>Security concern</cell><cell>Efficacy, misuse of rights</cell></row><row><cell></cell><cell>Security level</cell><cell>This service's primary focus is the</cell></row><row><cell></cell><cell></cell><cell>generic application to instantiate</cell></row><row><cell></cell><cell></cell><cell>analytical techniques dependent on</cell></row><row><cell></cell><cell></cell><cell>the desired outcome.</cell></row><row><cell>Category</cell><cell></cell><cell>The security analytics service is cat-egorized as Security Information and Event Management &amp; Intrusion Management.</cell></row><row><cell></cell><cell>Delivery modality</cell><cell>Infrastructure as a Service</cell></row><row><cell>Service</cell><cell cols="2">Deployment modality Public, private Service provider Any Cost of service Target: minimal/ zero additional in-frastructure</cell></row><row><cell></cell><cell>Period of validity</cell><cell>Not specified</cell></row><row><cell cols="3">possible design solution needs to integrate these service require-</cell></row><row><cell cols="3">ments and thus, needs an opportunity to allow multiple analytical</cell></row><row><cell cols="3">techniques as instances of one security capability. As these service</cell></row><row><cell cols="3">requirements are holistically addressed, the security requirements</cell></row><row><cell cols="3">are satisfied. Based on these findings, we instantiate one design</cell></row><row><cell cols="3">solution. The design solution is represented by policies and security</cell></row><row><cell cols="3">mechanisms (SM) that fulfil the SSCM (see Tab. 2).</cell></row><row><cell cols="3">The SSCM under design faces strong security concerns regarding</cell></row><row><cell cols="3">its efficacy as SMEs lack knowledge in analytical techniques, and</cell></row><row><cell cols="3">the given threat landscape is increasing. Security novices cannot</cell></row><row><cell cols="3">implement an analytical technique without any knowledge about</cell></row><row><cell cols="3">the desired outcome. Thus the efficacy of the analytical technique</cell></row><row><cell cols="2">is questionable.</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head></head><label></label><figDesc>Common techniques are visual analytics or business analytics, where the data or information is presented graphically. In the predictive module, future system states are predicted based on the real-time data received. If irregularities are discovered in the data, potential incidents might be averted at an early stage. This module includes analytical techniques such as regressions or fuzzy logic. Prescriptive module. The prescriptive module, in comparison to the predictive module, also predicts states of a system. Nevertheless, the prescriptive module goes one step further and, unlike pure forecasting, also derives recommendations for actions. Thus, possible actions can be determined for the incident response process, such as the systems' encapsulation. Furthermore, recommender systems or Monte Carlo simulations are considered analytical techniques. Analytical technique. An analytical technique is understood as an instance of a particular security module (security capability). As mentioned in the individual security modules, concrete algorithms or techniques are applied that are loose or coupled. Moreover, analytical pipelines can be created by bundling multiple analytical techniques together. The analytical techniques are considered security modules and are originally located in the security analytics repository.</figDesc><table><row><cell>Diagnostic module. The diagnostic module also creates hindsight</cell></row><row><cell>but goes beyond descriptive analysis and investigates the cause of</cell></row><row><cell>a particular discrepancy or anomaly. For instance, within digital</cell></row><row><cell>forensics, security experts can investigate data sources and causali-</cell></row><row><cell>ties.</cell></row><row><cell>Detective module. The detective module provides a statement</cell></row><row><cell>about what is currently going on in the systems, and thus, it pro-</cell></row><row><cell>vides insights. Therefore, the analyses are only related to the current</cell></row><row><cell>systems state and are performed based on the monitor's data. De-</cell></row><row><cell>tection mechanisms are rule-based, time-based, or anomaly-based</cell></row><row><cell>to detect incidents in real-time and support decision-making. How-</cell></row><row><cell>ever, correlations or clustering of information can also be utilized</cell></row><row><cell>to detect inconsistencies.</cell></row><row><cell>Predictive module.</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head></head><label></label><figDesc>Secure Industrial Semantic SEnsor Cloud reference architectures are utilized. The main architectural building blocks of SISSeC (machine, edge, and cloud) can nevertheless be categorically classified in the architectural modules identified above. The control domain thus represents the machines, sensors, and the edge gateway. The sensor cloud in SISSeC is perceived as the operations domain and the information domain. The traditional IT systems (e.g., ERP) of the PCB manufacturer are understood as the business and application domains. In summary, the IIoT system is fully covered by the architectural modules. The information domain is realized using various Big Data technologies (e.g., Apache Kafka) and equipped with two data pipelines (batch and stream). This bidirectional data processing enables the connection to the security orchestrator and the monitor, which create the link between these Big Data technologies and the security analytics service. All the relevant prerequisites for the security analytics service are given. As one of the SISSeC goals is to conduct security analytics with a digital twin, we evaluate if our architectural module permits this instance of security analytics. Dietz &amp; Pernul<ref type="bibr" target="#b5">[6]</ref> state that digital twins can run in three different operation modes that benefit cybersecurity: simulations, replications, and analytics. The latter is relevant for generating foresight by applying statistical analyses or machine learning. Concerning the security analytics service's security modules, a digital twin represents the link from real-time data to feasible simulation or forecast scenarios. In this context, the digital twin is, therefore, regarded as a foresight security module. Since the digital twin can also derive recommendations for actions and forecasts, the digital twin is considered the prescriptive module. Our security analytics service stores digital twin models (e.g., Au-tomationML<ref type="bibr" target="#b23">[23]</ref>) for the PCB manufacturer in the security analytics repository. Concerning this digital twin model, a security expert instantiates it as an analytical technique for the prescriptive module, enabling future system states' simulations. The PCB manufacturer must not necessarily create the digital twin itself but can also purchase it under certain circumstances from a machine's manufacturer. This use case addresses only the prescriptive module but can be extended vertically regarding the remaining security modules. This use case demonstrates the general applicability of the security analytics service and the potential benefits for SMEs and research.</figDesc><table /><note><ref type="bibr" target="#b0">1</ref> </note></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENTS</head><p>We want to acknowledge all project partners involved in the Secure Industrial Semantic Sensor Cloud (SISSeC) project funded by the German Federal Ministry of Economics and Energy (BMWi) as part of its central innovation program for small and medium-sized businesses.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Dangerous dichotomies</title>
+		<author>
+			<persName><forename type="first">Russell</forename><forename type="middle">L</forename><surname>Ackoff</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/bf01059496</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Systems Practice</title>
+		<title level="j" type="abbrev">Systems Practice</title>
+		<idno type="ISSN">0894-9859</idno>
+		<idno type="ISSNe">1573-9295</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="155" to="157" />
+			<date type="published" when="1989-06" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Internet of Things: A Survey on Enabling Technologies, Protocols, and Applications</title>
+		<author>
+			<persName><forename type="first">Ala</forename><surname>Al-Fuqaha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohsen</forename><surname>Guizani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mehdi</forename><surname>Mohammadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohammed</forename><surname>Aledhari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Moussa</forename><surname>Ayyash</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/comst.2015.2444095</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<title level="j" type="abbrev">IEEE Commun. Surv. Tutorials</title>
+		<idno type="ISSNe">2373-745X</idno>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2347" to="2376" />
+			<date type="published" when="2015" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Bridging Knowledge Gaps in Security Analytics</title>
+		<author>
+			<persName><forename type="first">Fabian</forename><surname>Böhm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Manfred</forename><surname>Vielberth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.5220/0010225400980108</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 7th International Conference on Information Systems Security and Privacy</title>
+				<meeting>the 7th International Conference on Information Systems Security and Privacy</meeting>
+		<imprint>
+			<publisher>SCITEPRESS - Science and Technology Publications</publisher>
+			<date type="published" when="2021" />
+			<biblScope unit="page" from="98" to="108" />
+		</imprint>
+	</monogr>
+	<note>ICISSP 2021</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Big Data Analytics for Security</title>
+		<author>
+			<persName><forename type="first">Alvaro</forename><forename type="middle">A</forename><surname>Cardenas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pratyusa</forename><forename type="middle">K</forename><surname>Manadhata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sreeranga</forename><forename type="middle">P</forename><surname>Rajan</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/msp.2013.138</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security &amp; Privacy</title>
+		<title level="j" type="abbrev">IEEE Secur. Privacy</title>
+		<idno type="ISSN">1540-7993</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="74" to="76" />
+			<date type="published" when="2013-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Analysis of recommended cloud security controls to validate OpenPMF “policy as a service”</title>
+		<author>
+			<persName><forename type="first">Ulrich</forename><surname>Lang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rudolf</forename><surname>Schreiner</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.istr.2011.08.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Security Technical Report</title>
+		<title level="j" type="abbrev">Information Security Technical Report</title>
+		<idno type="ISSN">1363-4127</idno>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">3-4</biblScope>
+			<biblScope unit="page" from="131" to="141" />
+			<date type="published" when="2011-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Cloud Security Alliance</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Unleashing the Digital Twin&apos;s Potential for ICS Security</title>
+		<author>
+			<persName><forename type="first">Marietheres</forename><surname>Dietz</surname></persName>
+			<idno type="ORCID">0000-0002-6885-4622</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Gunther</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/msec.2019.2961650</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security &amp; Privacy</title>
+		<title level="j" type="abbrev">IEEE Secur. Privacy</title>
+		<idno type="ISSN">1540-7993</idno>
+		<idno type="ISSNe">1558-4046</idno>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="20" to="27" />
+			<date type="published" when="2020-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A Distributed Ledger Approach to Digital Twin Secure Data Sharing</title>
+		<author>
+			<persName><forename type="first">Marietheres</forename><surname>Dietz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benedikt</forename><surname>Putz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-22479-0_15</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Data and Applications Security and Privacy XXXIII</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="281" to="300" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Data and Applications Security and Privacy XXXIII</title>
+		<idno type="DOI">10.1007/978-3-030-22479-0</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Conference on Data and Applications Security and Privacy XXXIII</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">PERFORMANCE MEASUREMENT SYSTEMS IMPLEMENTATION IN SMALL AND MEDIUM-SIZED ENTERPRISES</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dojkovski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lichtenstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Warren</surname></persName>
+		</author>
+		<idno type="DOI">10.5220/0002367005250528</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Ninth International Conference on Enterprise Information Systems</title>
+				<meeting>the Ninth International Conference on Enterprise Information Systems</meeting>
+		<imprint>
+			<publisher>SciTePress - Science and and Technology Publications</publisher>
+			<date type="published" when="2007" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Towards Security as a Service (SecaaS): On the modeling of Security Services for Cloud Computing</title>
+		<author>
+			<persName><forename type="first">Angelo</forename><surname>Furfaro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alfredo</forename><surname>Garro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrea</forename><surname>Tundis</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ccst.2014.6986995</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2014 International Carnahan Conference on Security Technology (ICCST)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014-10" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+	<note>ICCST 2014</note>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Intrusion Detection of Wormhole Attack in IoT: A Review</title>
+		<author>
+			<persName><forename type="first">Minalini</forename><surname>Goyal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maitreyee</forename><surname>Dutta</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/iccsdet.2018.8821160</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 International Conference on Circuits and Systems in Digital Enterprise Technology (ICCSDET)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-12" />
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Re-Visiting the Knowledge Pyramid</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">E</forename><surname>Jennex</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/hicss.2009.361</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2009 42nd Hawaii International Conference on System Sciences</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2009" />
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Lambda architecture for cost-effective batch and speed big data processing</title>
+		<author>
+			<persName><forename type="first">Mariam</forename><surname>Kiran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Murphy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Inder</forename><surname>Monga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jon</forename><surname>Dugan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sartaj</forename><forename type="middle">Singh</forename><surname>Baveja</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/bigdata.2015.7364082</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2015 IEEE International Conference on Big Data (Big Data)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-10" />
+			<biblScope unit="page" from="2785" to="2792" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Data Repository for Security Information and Event Management in Service Infrastructures</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kotenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Polubelova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Saenko</surname></persName>
+		</author>
+		<idno type="DOI">10.5220/0004075303080313</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference on Security and Cryptography</title>
+				<meeting>the International Conference on Security and Cryptography</meeting>
+		<imprint>
+			<publisher>SciTePress - Science and and Technology Publications</publisher>
+			<date type="published" when="2012" />
+			<biblScope unit="page" from="308" to="313" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">Internet of Things (IoT) - Reference architecture</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">W</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Miller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Durand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Didier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Chigani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Torenbeek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Duggal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Bleakley</surname></persName>
+		</author>
+		<idno type="DOI">10.3403/30320686</idno>
+		<imprint>
+			<date>2015</date>
+			<publisher>BSI British Standards</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Architecture Alignment and Interoperability: An industrial Internet Consortium and Plattform Industrie 4.0 joint whitepaper</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">W</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Murphy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Clauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Loewen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Neubert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Bachmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hankel</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Security Analytics: Big Data Analytics for cybersecurity: A review of trends, techniques and tools</title>
+		<author>
+			<persName><forename type="first">Tariq</forename><surname>Mahmood</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Uzma</forename><surname>Afzal</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ncia.2013.6725337</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2013 2nd National Conference on Information Assurance (NCIA)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013-12" />
+			<biblScope unit="page" from="129" to="134" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Industrial Internet Security Framework</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Schrecker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Soroush</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Molina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Leblanc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Hirsch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Buchheit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ginter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Banavara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Eswarahally</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Raman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>King</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Mackay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Witten</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">The NIST definition of cloud computing</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Mell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Grance</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.800-145</idno>
+		<imprint>
+			<date type="published" when="2011" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">A critical review of smart manufacturing &amp; Industry 4.0 maturity models: Implications for small and medium-sized enterprises (SMEs)</title>
+		<author>
+			<persName><forename type="first">Sameer</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Muztoba</forename><forename type="middle">Ahmad</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Romero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thorsten</forename><surname>Wuest</surname></persName>
+			<idno type="ORCID">0000-0001-7457-7927</idno>
+		</author>
+		<idno type="DOI">10.1016/j.jmsy.2018.10.005</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Manufacturing Systems</title>
+		<title level="j" type="abbrev">Journal of Manufacturing Systems</title>
+		<idno type="ISSN">0278-6125</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="page" from="194" to="214" />
+			<date type="published" when="2018-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Enhancing IoT security through network softwarization and virtual security appliances</title>
+		<author>
+			<persName><forename type="first">Alejandro</forename><surname>Molina Zarca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jorge</forename><surname>Bernal Bernabe</surname></persName>
+			<idno type="ORCID">0000-0002-7538-4788</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ivan</forename><surname>Farris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yacine</forename><surname>Khettab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tarik</forename><surname>Taleb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Skarmeta</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/nem.2038</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Network Management</title>
+		<title level="j" type="abbrev">Int J Network Mgmt</title>
+		<idno type="ISSN">1055-7148</idno>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page">e2038</biblScope>
+			<date type="published" when="2018-07-16" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Distributed denial of service attacks and its defenses in IoT: a survey</title>
+		<author>
+			<persName><forename type="first">Mikail</forename><forename type="middle">Mohammed</forename><surname>Salim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shailendra</forename><surname>Rathore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jong</forename><forename type="middle">Hyuk</forename><surname>Park</surname></persName>
+			<idno type="ORCID">0000-0003-1831-0309</idno>
+		</author>
+		<idno type="DOI">10.1007/s11227-019-02945-z</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The Journal of Supercomputing</title>
+		<title level="j" type="abbrev">J Supercomput</title>
+		<idno type="ISSN">0920-8542</idno>
+		<idno type="ISSNe">1573-0484</idno>
+		<imprint>
+			<biblScope unit="volume">76</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="5320" to="5363" />
+			<date type="published" when="2019-07-10" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A descriptive study of Microsoft’s threat modeling technique</title>
+		<author>
+			<persName><forename type="first">Riccardo</forename><surname>Scandariato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kim</forename><surname>Wuyts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wouter</forename><surname>Joosen</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00766-013-0195-2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Requirements Engineering</title>
+		<title level="j" type="abbrev">Requirements Eng</title>
+		<idno type="ISSN">0947-3602</idno>
+		<idno type="ISSNe">1432-010X</idno>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="163" to="180" />
+			<date type="published" when="2013-12-03" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Digital Twin Data Modeling with AutomationML and a Communication Methodology for Data Exchange</title>
+		<author>
+			<persName><forename type="first">Greyce</forename><forename type="middle">N</forename><surname>Schroeder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Charles</forename><surname>Steinmetz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlos</forename><forename type="middle">E</forename><surname>Pereira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Danubia</forename><forename type="middle">B</forename><surname>Espindola</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2016.11.115</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">30</biblScope>
+			<biblScope unit="page" from="12" to="17" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">Information technology. Open distributed processing. Reference model</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Schweichhart</surname></persName>
+		</author>
+		<idno type="DOI">10.3403/01873978u</idno>
+		<imprint>
+			<date>2016</date>
+			<publisher>BSI British Standards</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Adoption of security as a service</title>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Senk</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/1869-0238-4-11</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Internet Services and Applications</title>
+		<title level="j" type="abbrev">J Internet Serv Appl</title>
+		<idno type="ISSN">1869-0238</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">11</biblScope>
+			<date type="published" when="2013" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Internet of Things: Architectures, Protocols, and Applications</title>
+		<author>
+			<persName><forename type="first">Pallavi</forename><surname>Sethi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Smruti</forename><forename type="middle">R</forename><surname>Sarangi</surname></persName>
+			<idno type="ORCID">0000-0002-1657-8523</idno>
+		</author>
+		<idno type="DOI">10.1155/2017/9324035</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Electrical and Computer Engineering</title>
+		<title level="j" type="abbrev">Journal of Electrical and Computer Engineering</title>
+		<idno type="ISSN">2090-0147</idno>
+		<idno type="ISSNe">2090-0155</idno>
+		<imprint>
+			<biblScope unit="volume">2017</biblScope>
+			<biblScope unit="page" from="1" to="25" />
+			<date type="published" when="2017" />
+			<publisher>Hindawi Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Detection and mitigation of sinkhole attacks in wireless sensor networks</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Shafiei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khonsari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Derakhshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Mousavi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jcss.2013.06.016</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computer and System Sciences</title>
+		<title level="j" type="abbrev">Journal of Computer and System Sciences</title>
+		<idno type="ISSN">0022-0000</idno>
+		<imprint>
+			<biblScope unit="volume">80</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="644" to="653" />
+			<date type="published" when="2014-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Analytics for the Internet of Things</title>
+		<author>
+			<persName><forename type="first">Eugene</forename><surname>Siow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thanassis</forename><surname>Tiropanis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wendy</forename><surname>Hall</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3204947</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Computing Surveys</title>
+		<title level="j" type="abbrev">ACM Comput. Surv.</title>
+		<idno type="ISSN">0360-0300</idno>
+		<idno type="ISSNe">1557-7341</idno>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1" to="36" />
+			<date type="published" when="2018-09-06" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Leveraging Cloud Native Design Patterns for Security-as-a-Service Applications</title>
+		<author>
+			<persName><forename type="first">Kennedy</forename><forename type="middle">A</forename><surname>Torkura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Muhammad</forename><forename type="middle">I H</forename><surname>Sukmana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Feng</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christoph</forename><surname>Meinel</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/smartcloud.2017.21</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE International Conference on Smart Cloud (SmartCloud)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-11" />
+			<biblScope unit="page" from="90" to="97" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">A Survey on Security as a Service</title>
+		<author>
+			<persName><forename type="first">Wenyuan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sira</forename><surname>Yongchareon</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-68786-5_24</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="303" to="310" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Big Data Based Security Analytics for Protecting Virtualized Infrastructures in Cloud Computing</title>
+		<author>
+			<persName><forename type="first">Thu</forename><forename type="middle">Yein</forename><surname>Win</surname></persName>
+			<idno type="ORCID">0000-0002-4977-0511</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Huaglory</forename><surname>Tianfield</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quentin</forename><surname>Mair</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tbdata.2017.2715335</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Big Data</title>
+		<title level="j" type="abbrev">IEEE Trans. Big Data</title>
+		<idno type="ISSNe">2332-7790</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="11" to="25" />
+			<date type="published" when="2018-03-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Cybersecurity Dynamics: A Foundation for the Science of Cybersecurity</title>
+		<author>
+			<persName><forename type="first">Shouhuai</forename><surname>Xu</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-10597-6_1</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proactive and Dynamic Network Defense</title>
+				<editor>
+			<persName><forename type="first">Dynamic</forename><surname>Proactive</surname></persName>
+			<persName><forename type="first">C</forename><surname>Network Defense</surname></persName>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+			<persName><surname>Lu</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="1" to="31" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Apache Spark</title>
+		<author>
+			<persName><forename type="first">Matei</forename><surname>Zaharia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Reynold</forename><forename type="middle">S</forename><surname>Xin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Patrick</forename><surname>Wendell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tathagata</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Armbrust</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ankur</forename><surname>Dave</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiangrui</forename><surname>Meng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Josh</forename><surname>Rosen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shivaram</forename><surname>Venkataraman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">J</forename><surname>Franklin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Ghodsi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joseph</forename><surname>Gonzalez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Scott</forename><surname>Shenker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ion</forename><surname>Stoica</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2934664</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<title level="j" type="abbrev">Commun. ACM</title>
+		<idno type="ISSN">0001-0782</idno>
+		<idno type="ISSNe">1557-7317</idno>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="56" to="65" />
+			<date type="published" when="2016-10-28" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

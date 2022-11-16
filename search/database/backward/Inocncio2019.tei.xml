@@ -1,0 +1,1836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Emergent Behavior in System-of-Systems</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>ACM</publisher>
+				<availability status="unknown"><p>Copyright ACM</p>
+				</availability>
+				<date type="published" when="2019-09-23">2019-09-23</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Thiago</forename><forename type="middle">J</forename><surname>Inocêncio</surname></persName>
+							<email>thiago.inocencio@ufabc.edu.br</email>
+						</author>
+						<author>
+							<persName><forename type="first">Gustavo</forename><forename type="middle">R</forename><surname>Gonzales</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Everton</forename><surname>Cavalcante</surname></persName>
+							<email>everton@dimap.ufrn.br</email>
+						</author>
+						<author>
+							<persName><forename type="first">Flávio</forename><forename type="middle">E A</forename><surname>Horita</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">Federal University of ABC Santo André</orgName>
+								<address>
+									<country key="BR">Brazil</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution">Federal University of ABC</orgName>
+								<address>
+									<settlement>Santo André</settlement>
+									<country key="BR">Brazil</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">Federal University of Rio Grande do Norte Natal</orgName>
+								<address>
+									<country key="BR">Brazil</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<orgName type="institution">Federal University of ABC</orgName>
+								<address>
+									<settlement>Santo André</settlement>
+									<country key="BR">Brazil</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Emergent Behavior in System-of-Systems</title>
+					</analytic>
+					<monogr>
+						<title level="m">Proceedings of the XXXIII Brazilian Symposium on Software Engineering</title>
+						<meeting>the XXXIII Brazilian Symposium on Software Engineering						</meeting>
+						<imprint>
+							<publisher>ACM</publisher>
+							<date type="published" when="2019-09-23" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1145/3350768.3350779</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:39+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Systems-of-Systems</term>
+					<term>emergent behavior</term>
+					<term>Systematic mapping study</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>A systems-of-systems (SoS) is a class of systems characterized by the collaboration among independent constituent systems, each one with its own purposes and functionalities and interacting with the others aiming to meet common global missions. An essential characteristic of any SoS is the so-called emergent behavior, which stands for the ability of an SoS of providing new functionalities resulted from the runtime collaboration among the constituent systems and that are not performed by any of them in isolation. Despite the importance of this subject, it is possible to notice that there are some lacks related to understanding emergent behavior in SoS, how it manifests, and which challenges it imposes to the development of this class of systems. This paper presents a systematic mapping study aimed to elicit and analyze the state-of-the-art on emergent behavior in SoS. By following a systematic procedure of search and selection of primary studies, a set of 37 existing studies was analyzed with respect to contributions related to emergent behavior in SoS. Obtained results show that the studies do not deeply investigate emergent behavior even though they mention this characteristic. Grounded on such a discussion, this work also presents a research agenda with directions for further work on the topic.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CCS CONCEPTS</head><p>• Software and its engineering → Software system structures; • Information systems → Information systems applications.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUÇÃO</head><p>A literatura existente tem evidenciado o crescente interesse pelo estudo e análise de uma classe de sistemas complexos conhecida como sistema de sistemas (SoS, do Inglês System-of-Systems 1 . Em essência, esses sistemas são compostos por outros sistemas individuais (chamados de sistemas constituintes) que são por si só complexos <ref type="bibr" target="#b27">[26]</ref>. Embora estudados e inicialmente utilizados no contexto de sistemas militares do Departamento de Defesa Americano (DoD) nos anos 1990, o interesse por esses sistemas cresceu em paralelo aos avanços na Web 2.0, aplicativos móveis, sistemas de geolocalização, Internet das Coisas (IoT) e, em seguida, pela necessidade de tornar todos esses novos sistemas interoperavéis entre si. Nesses cenários, eles têm sido aplicados e analisados em diversos domínios de aplicação, tais como militar <ref type="bibr" target="#b10">[10,</ref><ref type="bibr" target="#b21">20,</ref><ref type="bibr" target="#b32">31,</ref><ref type="bibr" target="#b38">37]</ref>, saúde <ref type="bibr" target="#b7">[7,</ref><ref type="bibr" target="#b60">57]</ref>, Internet <ref type="bibr" target="#b31">[30,</ref><ref type="bibr" target="#b32">31]</ref>, energia <ref type="bibr" target="#b45">[44,</ref><ref type="bibr" target="#b47">46]</ref>, transporte <ref type="bibr" target="#b1">2</ref>  <ref type="bibr" target="#b32">[31,</ref><ref type="bibr" target="#b36">35,</ref><ref type="bibr" target="#b56">54]</ref> e gestão de desastres <ref type="bibr" target="#b2">[3,</ref><ref type="bibr" target="#b17">17,</ref><ref type="bibr" target="#b22">21,</ref><ref type="bibr" target="#b24">23,</ref><ref type="bibr" target="#b39">38,</ref><ref type="bibr" target="#b42">41,</ref><ref type="bibr" target="#b44">43]</ref>.</p><p>Apesar de os avanços na área de SoS terem se dado pela necessidade de tornar sistemas heterogêneos interoperáveis para algum cenário de aplicação, existe uma grande atenção direcionada às novas funcionalidades criadas pelas interações destes sistemas, os chamados comportamentos emergentes dos SoS <ref type="bibr" target="#b25">[24,</ref><ref type="bibr" target="#b27">26,</ref><ref type="bibr" target="#b32">31]</ref>. Este comportamento é caracterizado pela capacidade de um SoS fornecer novas funcionalidades resultantes da cooperação entre os sistemas constituintes. Entender e responder aos comportamentos emergentes de um SoS é um aspecto importante da Engenharia de SoS (SoSE, do Inglês System-of-Systems Engineering) <ref type="bibr" target="#b26">[25]</ref>, pois abordagens presentes na Engenharia de Sistemas tradicional são muitas vezes inadequadas ou insuficientes para lidar com esses comportamentos <ref type="bibr" target="#b25">[24]</ref>. Isso se deve principalmente à falta de compreensão acerca do que é comportamento emergente ou a não incorporação desse tipo de análise em seus métodos, modelos e processos. Dessa forma, o desafio atual consiste em compreender como detalhar comportamentos emergentes e entender quais suas características e como eles influenciam no projeto e/ou implementação de SoS. Essa questão é relevante, pois, por um lado, a literatura ainda carece de estudos aprofundados sobre estas questões; por outro lado, fazendo uso desse conhecimento, engenheiros de sistemas podem desenvolver métodos para analisar e definir os comportamentos emergentes esperados, com vistas a prever consequências favoráveis ou não desses comportamentos para os sistemas e seus objetivos de negócio <ref type="bibr" target="#b45">[44]</ref>.</p><p>Diante deste desafio, este artigo tem por objetivo levantar e analisar as pesquisas existentes na literatura que têm lidado com o comportamento emergente em SoS. Um mapeamento sistemático envolvendo busca, seleção e análise de estudos primários foi adotado como procedimento metodológico na condução deste estudo. Em especial, os princípios e atividades-guia propostos por Kitchenham e Charters <ref type="bibr" target="#b29">[28]</ref> e Petersen et al. <ref type="bibr" target="#b48">[47]</ref> foram seguidos. Nessa perspectiva, os resultados deste trabalho servirão como base para oferecer direcionamentos de trabalhos futuros na área.</p><p>O restante deste artigo está estruturado da seguinte forma. A Seção 2 apresenta uma conceituação sobre SoS e comportamentos emergentes, bem como discorre brevemente acerca de trabalhos relacionados. Em seguida, a Seção 3 detalha a abordagem metodológica empregada neste trabalho. Os resultados obtidos são apresentados na Seção 4 e, em seguida, discutidos na Seção 5. Por fim, a Seção 6 apresenta as conclusões deste trabalho.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">FUNDAMENTAÇÃO TEÓRICA</head><p>Esta seção apresenta inicialmente conceitos e definições acerca de SoS e comportamento emergente. Em seguida, os estudos existentes na literatura e relacionados com este trabalho são discutidos.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Sistemas de Sistemas (SoS)</head><p>Nos últimos anos, a pesquisa e o desenvolvimento de sistemas convergiu de sistemas isolados e monolíticos para sistemas complexos compostos por múltiplos outros sistemas heterogêneos e independentes formando um sistema de sistemas (SoS). Embora ainda não exista uma definição consensual, pode-se entender um SoS como um sistema capaz de combinar sistemas constituintes, heterogêneos e independentes para atingir um objetivo comum <ref type="bibr" target="#b27">[26,</ref><ref type="bibr" target="#b32">31,</ref><ref type="bibr" target="#b39">38]</ref>. Esse entendimento pode ser complementado e sumarizado por cinco características que tornam os SoS diferentes dos sistemas tradicionais <ref type="bibr" target="#b32">[31]</ref>:</p><p>(i) independência operacional: diz respeito ao fato de os sistemas constituintes de um SoS desempenharem suas funcionalidades quando não estão em conjunto com outros constituintes; (ii) independência gerencial: diz respeito ao fato de cada sistema constituinte de um SoS poder manter sua própria esfera gerencial, ou seja, ser gerenciado de forma independente muitas vezes por entidades que não fazem parte do contexto do SoS; (iii) desenvolvimento evolucionário: está relacionado com a evolução, em tempo de execução, das funções e propósitos do SoS, tendo em vista que novos constituintes podem ser agregados para realizar novas tarefas;</p><p>(iv) comportamento emergente: característica essencial de todo e qualquer SoS, representa as novas funcionalidades providas pelo SoS como resultado do trabalho conjunto dos sistemas constituintes constituintes, e; (v) distribuição geográfica, em que os sistemas constituintes de um SoS podem estar distribuídos geograficamente.</p><p>Além dessas características, a MITRE Corporation <ref type="bibr" target="#b34">[33]</ref> classifica SoS em quatro categorias 3 : (i) virtual SoS: nessa categoria, os sistemas constituintes podem não se conhecer e descobrem de forma autônoma possíveis serviços que podem ser compartilhados; (ii) collaborative SoS: nessa categoria, os sistemas constituintes trabalham de forma voluntária com intuito de atingir objetivos comuns ou até mesmo individuais através de mecanismos avançados de comunicação; (iii) acknowledged SoS: nessa categoria, o SoS é construído para desempenhar atividades específicas, porém os constituintes mantém seu próprio gerenciamento, financiamento e autoridade em paralelo; (iv) directed SoS: nesta categoria, o SoS é construído para exercer atividades bem específicas cuja autoridade é exercida por uma única entidade responsável pelo gerenciamento dos sistemas constituintes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Comportamento Emergente</head><p>Como anteriormente mencionado, um SoS é formado por um conjunto de sistemas constituintes em que cada um tem sua independência gerencial e operacional e, uma vez em interação, criam novos comportamentos, os chamados comportamentos emergentes <ref type="bibr" target="#b26">[25]</ref>. Uma vez que esses comportamentos compreendem uma característica inerente a todo e qualquer SoS <ref type="bibr" target="#b33">[32]</ref>, eles se caracterizam como uma das principais motivações para a pesquisa e engenharia desta classe de sistemas <ref type="bibr" target="#b27">[26,</ref><ref type="bibr" target="#b32">31]</ref>. A razão disso é que não é possível reproduzir tal comportamento em sistemas com outra natureza.</p><p>Maier <ref type="bibr" target="#b33">[32]</ref> classificou os comportamentos emergentes em SoS em quatro tipos 3 : (i) simple emergence: o comportamento emergente pode ser previsto utilizando modelos simplificados dos componentes do sistemas; (ii) weak emergence: o comportamento emergente pode ser reproduzido em simulações do sistema, mas não em modelos complexos reduzidos do sistema sem o uso de simulação, de modo que não é possível prever tal comportamento de forma consistente de modo antecipado, mas sim apenas após observação; (iii) strong emergence: o comportamento emergente é consistente com as propriedades conhecidas do sistema, entretanto, não é possível prever quando tal comportamento ocorrerá e, quando simulado, apenas pode ser reproduzido de forma inconsistente e com baixo padrão; (iv) spooky emergence: o comportamento emergente não é consistente com as propriedades conhecidas do sistema, sendo impossível de ser reproduzido por meio de simulações, mesmo que elas reproduzam cenários semelhantes aos do sistema real.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Trabalhos Relacionados</head><p>Algumas revisões e mapeamentos sistemáticos da literatura em SoS podem ser encontrados atualmente. Dentre eles, Axelsson et al. <ref type="bibr" target="#b4">[4]</ref> realizaram um mapeamento sistemático sobre a área de SoS analisando mais de três mil trabalhos nos mais variados tópicos de pesquisa em SoS, tais como arquitetura, modelagem e simulação, integração e interoperabilidade, comunicação e sustentabilidade. De maneira similar, o mapeamento sistematico conduzido por Fernandes et al. <ref type="bibr" target="#b13">[13]</ref> caracteriza soluções de interoperabilidade entre sistemas levando em consideração os aspectos técnicos, organizacionais e humanos que afetam a interoperabilidade entre constituintes em sistemas de sistemas de informação. Por sua vez, Gatica et al. <ref type="bibr" target="#b14">[14]</ref> realizaram um mapeamento de pesquisas com propostas para avaliação arquitetural em SoS com base em atributos de qualidade.</p><p>Alem dos trabalhos apresentados, o estudo de Silva et al. <ref type="bibr" target="#b54">[52]</ref> detalham os resultados obtidos com um mapeamento sistemático sobre como missões em sistemas podem ser definidas, especificadas, representadas e implementadas com vistas a identificar elementos que pudessem ser utilizados em SoS. Maia et al. <ref type="bibr" target="#b31">[30]</ref> realizaram um mapeamento sistemático em SoS com vistas a discutir diversos cenários e abordagens para o desenvolvimento de SoS baseados em IoT. Por fim, Abdalla et al. <ref type="bibr" target="#b0">[1]</ref> conduziram uma revisão sistemática da literatura sobre abordagens utilizadas em representação de conhecimento para SoS e concluíram que as abordagens mais utilizadas são ontologias formais e interoperabilidade.</p><p>Apesar de os trabalhos mencionados trazerem importantes contribuições para o entendimento e avanço da pesquisa em SoS, a literatura ainda carece um esforço direcionado para identificar e investigar comportamento emergentes em SoS. Foi no intuito de preencher essa lacuna que este estudo foi realizado.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">METODOLOGIA</head><p>O objetivo deste trabalho é revisar o estado da arte das pesquisas que tratam de comportamento emergente em SoS. Para isso, este trabalho conduziu um mapeamento sistemático norteado pelos princípios estabelecidos por Kitchenham e Charters <ref type="bibr" target="#b29">[28]</ref> e Petersen et al. <ref type="bibr" target="#b48">[47]</ref>. Mapeamentos sistemáticos são desenvolvidos para apresentar o panorama de uma área de pesquisa através da classificação e quantificação das contribuições entre as classificações estabelecidas <ref type="bibr" target="#b48">[47]</ref>. Todos os elementos que orientaram o mapeamento sistemático foram estabelecidos em um protocolo de execução, o qual foi definido após três sessões de discussões entre os autores. Esses elementos são apresentados nas próximas seções.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Objetivo</head><p>Um dos elementos mais importantes na condução de um mapeamento sistemático é o estabelecimento do objetivo da pesquisa. Isto deve incluir não apenas a descrição do objetivo, mas também o escopo da pesquisa, bem como as razões pelas quais o mapeamento sistemático é relevante e para que público é considerado importante. Adotous-se assim o modelo de definição de objetivo proposto por Basili <ref type="bibr" target="#b6">[6]</ref>, resultando no detalhamento sumarizado na Tabela 1. O escopo da pesquisa foi delimitado para englobar estudos primários publicados entre 1998 e 2018 e escritos em Inglês. O ano de inicio foi definido principalmente com base no estudo publicado por Maier <ref type="bibr" target="#b32">[31]</ref>, que foi o primeiro a tratar das diferentes categorias de SoS. Com base nessas definições, foram estabelecidas as seguintes questões de pesquisa (QPs) que este trabalho pretende responder: QP1: Que tipos de SoS são endereçados pelos estudos? QP2: Que domínios de aplicação são abordados pelos estudos? QP3: Que níveis de comportamento emergente são tratados nos estudos? QP4: Que metodologias são empregadas para a definição do comportamento emergente nos estudos?</p><p>Considerando o objetivo e escopo deste mapeamento sistemático, as questões QP1 e QP2 buscam, respectivamente, identificar os tipos de SoS e os principais domínios de aplicação nos trabalhos existentes com foco em comportamento emergente. Embora abrangentes, essas duas perguntas são importantes, pois permitem determinar os tipos de SoS e as áreas que demandam mais estudos. As questões QP3 e QP4 analisam os níveis de comportamento emergente com base na classificação de Maier <ref type="bibr" target="#b33">[32]</ref> e quais as metodologias empregadas na definição dos comportamentos.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Estratégia de Busca</head><p>A estratégia de busca foi composta por quatro elementos principais: (i) a seleção de fontes para a obtenção dos estudos primários; (ii) a definição dos critérios de inclusão e exclusão; (iii) a elaboração da string de busca, e; (iv) a determinação do procedimento de busca. Estas fases são descritas em maiores detalhes a seguir.</p><p>Seleção das fontes. As seguintes fontes de busca foram selecionadas para este mapeamento: ACM Digital Library 4 , IEEEXplore <ref type="bibr" target="#b5">5</ref> , Springer Link 6 e Wiley <ref type="bibr" target="#b7">7</ref> . Os critérios definidos para esta seleção foram os seguintes: (i) número de artigos indexados e publicados; (ii) os temas dos artigos publicados, e; (iii) a disponibilidade das publicações. Vale mencionar ainda que essas fontes de busca são relevantes e eficientes para revisões sistemáticas na área de Engenharia de Software, conforme recomendações de Dybå et al. <ref type="bibr" target="#b11">[11]</ref>.</p><p>Critérios de inclusão e exclusão. A seleção dos estudos primários foi realizada com base em critérios de inclusão e exclusão. Nesse sentido o estudo primário é incluído se (i) implicitamente ou explicitamente propõe abordagens para manipular comportamento emergente de SoS ou (ii) propõe discussões para investigar comportamento emergente em SoS. Em contraste, um estudo é excluído nas seguintes situações: (i) não define implícita ou explicitamente SoS como um conjunto de sistemas constituintes onde cada um deles é gerenciado de forma independente e cuja operacionalidade também é independente em relação aos demais constituintes; (ii) é um editorial, artigo de opinião, tutorial, pôster ou painel; (iii) é uma versão anterior de um estudo mais completo a respeito do mesmo tema de pesquisa; (iv) é um estudo secundário ou terciário, e.g., revisões e mapeamentos da literatura; (v) não está relacionado com SoS; (vi) está relacionado com SoS com foco em aspecto(s) que não seja(m) comportamento emergente; (vii) aborda comportamento emergente e diz respeito a temas não relacionados, a exemplo de artigos focados apenas em estruturas físicas de arquitetura ou modelagem de sistemas sociais, políticos, econômicos etc. Os dois primeiros autores deste trabalho foram responsáveis por estabelecer e definir esses critérios.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">String de Busca</head><p>Uma vez que este artigo tem como objetivo analisar a literatura existente em comportamento emergente em SoS, foram selecionadas duas palavras-chave principais, sistemas de sistemas e comportamento emergente em conjunto com seus sinônimos e variações. A string de busca final, a qual incluiu a tradução para o Inglês dessas palavras-chave, foi: (łsystem of systemsž OR łsystems of systemsž OR łsystem-of-systemsž OR łsystem of systemsž) AND łemergent behaviorž</p><p>Possíveis variações na string de busca foram tratadas pelos autores de forma a se adequar às especificidades técnicas de cada base digital utilizada.</p><p>Um estudo piloto foi conduzido por dois dos autores deste artigo para avaliar e refinar a string de busca e os critérios de inclusão e exclusão utilizando a fonte de estudos ACM Digital Library. Um total de 22 artigos foi retornados e seus títulos, resumos e palavras-chave foram analisados. Após o estudo piloto, ambos os autores chegaram à conclusão que os critérios estavam insuficientes e alguns estudos não se encaixavam em nenhum dos critérios estabelecidos. Assim, para corrigir essa lacuna, o critério de inclusão "o estudo primário implicitamente propõe abordagens para manipulação de comportamento emergente em SoS" foi acrescentado, uma vez que alguns estudos encontrados no piloto não abordavam de forma direta comportamento emergente em SoS. Além disso, foram incluidos dois novos critérios de exclusão, de que "o estudo primário não está relacionado com SoS" e "o estudo primário está relacionado com SoS, mas não com comportamento emergente". Isso aconteceu por dois motivos: (i) alguns estudos selecionados no piloto, após análise de título, resumo e palavras-chave, não tinham relação com o tema, e; (ii) outros estudos, embora relacionados com SoS, não focavam no estudo de comportamento emergente, mas sim em outros aspectos, e.g., segurança, análise de custo, avaliação de risco, complexidade, etc. Estes foram os únicos ajustes realizados a partir do piloto antes da realização das buscas pelos estudos primários.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">Extração de Dados</head><p>Com o intuito de responder às questões de pesquisa propostas neste trabalho, um conjunto de itens a serem extraídos a partir dos estudos primários foi definido. A Tabela 2 apresenta esses itens.  <ref type="bibr" target="#b34">[33]</ref>, adaptadas a partir das categorias de Maier <ref type="bibr" target="#b33">[32]</ref>. Todos os demais itens foram campos de texto aberto.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5">Procedimento de Busca</head><p>Um procedimento de busca foi definido para selecionar os estudos primários e, posteriormente, responder às questões de pesquisa. Este procedimento compreendeu três fases sequenciais: (i) Fase 1 -busca de estudos nas bases selecionadas; (ii) Fase 2 -seleção de estudos com base nos critérios de inclusão e exclusão, e; (iii) Fase 3 -análisar e extração de informações relevantes de estudos selecionados.</p><p>Na Fase 1, a string de busca foi aplicada em cada uma das fontes selecionadas para este mapeamento, pesquisando-se as palavraschave e seus sinônimos no título, resumo e palavras-chave dos estudos primários. Todos os estudos primários retornados pelo processo de busca foram baixados e importados no Parsifal <ref type="bibr" target="#b8">8</ref> , uma ferramenta Web para auxiliar na condução de mapeamentos da literatura.</p><p>Durante a Fase 2, o conjunto de estudos importados foi analisado tomando como base os critérios de inclusão e exclusão. Inicialmente, os estudos duplicados foram removidos e, em seguida, verificouse apenas o título, resumo e palavras-chave dos estudos. Quando necessário, a introdução e conclusão de um estudo também foram lidas e analisadas. Como resultado, uma lista contendo apenas os estudos considerados potencialmente relevantes foi gerada.</p><p>Por fim, na Fase 3, todos os estudos selecionados na Fase 2 foram lidos de forma completa e analisados com base nos critérios de inclusão e exclusão. Essa análise foi importante, pois, embora o título e o resumo estivessem aderente ao escopo do mapeamento, o trabalho desenvolvido não estava de acordo; nesses casos, o estudo era excluído. Além disso, esta fase incluiu a extração de todos os dados relevantes para responder às questões de pesquisa propostas.</p><p>A Figura 1 mostra o procedimento de busca com um número de estudos includídos e excluídos por fase.</p><p>Um total de 584 estudos foi coletado na Fase 1. Em seguida, após a aplicação dos critérios de exclusão e inclusão, 509 (87.15% do total de estudos) foram removidos e 75 (12.84% do total) incluídos. Durante a fase de leitura completa dos estudos e extração dos dados, outros 38 estudos (6.5% do total) foram excluídos. A listagem final foi composta por 37 estudos relevantes (6.33% do total de estudos) que foram utilizados para responder às questões de pesquisa deste mapeamento sistemático.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">RESULTADOS</head><p>Esta seção apresenta os resultados produzidos pela condução deste mapeamento sistemático de acordo com a metodologia descrita na Seção 3. Os dados brutos podem ser obtidos por meio da seguinte URL: https://github.com/feahorita/Datasets.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Caracterização dos Estudos</head><p>A Figura 2 mostra a frequência dos artigos selecionados por fonte no decorrer das três fases do mapeamento. Na Fase 1, de um total de 584 artigos a base Springer Link teve 312 artigos buscados (53% do total), seguido pela base Wiley com 209 (36% do total), IEEEXplore com 41 (7% do total) e ACM Digital Library com 22 (4% do total). Já na Fase 2, de um total de 75 artigos, a base Springer Link teve 30 artigos buscados (40% do total), seguido pela base Wiley com 22 (29% do total), IEEEXplore com 18 (24% do total) e ACM Digital Library com 5 (7% do total). Finalmente, na Fase 3, de um total de 39 estudos, a base IEEEXplore teve a maior quantidade de estudos (13 estudos, 33% do total), seguido pelas bases Springer Link e Wiley (ambas com 11 estudos, 28% do total) e ACM Digital Library com 4 estudos (10% do total).</p><p>A Figura 3 apresenta de maneira cronologica a evolução anual dos estudos relevantes, publicados na área de estudo. Pode-se observar que ocorreu um crescimento no número de artigos publicados nos últimos cinco anos, representando 89% dos 37 total de estudos primários selecionados.</p><p>Conforme observado na Figura 4, os estudos primários relevantes foram conduzidos predominantemente nos EUA (18 estudos, 46% do total), seguido pela França (6 estudos, 15% do total), Brasil e Áustria (3 estudos, 8% do total).</p><p>Os estudos analisados foram publicados em 22 veículos diferentes, no entanto, quatro deles concentram 51% dos estudos, como pode ser visto na Tabela 3. Nota-se que a conferência IEEE System of Systems Engineering Conference (SoSE) possui o maior número de estudos (10, correspondendo a 76,92% do total de estudos selecionados. O restante dos estudos foi publicados em outros 19 diferentes veiculos.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Análise das Questões de Pesquisa</head><p>Esta seção apresenta em detalhes a análise dos estudos para responder as questões de pesquisa propostas neste mapeamento sistemático.  <ref type="bibr" target="#b5">[5,</ref><ref type="bibr" target="#b7">7,</ref><ref type="bibr" target="#b16">16,</ref><ref type="bibr" target="#b21">20,</ref><ref type="bibr" target="#b22">21,</ref><ref type="bibr" target="#b30">29,</ref><ref type="bibr" target="#b33">32,</ref><ref type="bibr" target="#b40">39,</ref><ref type="bibr" target="#b41">40,</ref><ref type="bibr" target="#b43">42,</ref><ref type="bibr" target="#b53">51,</ref><ref type="bibr" target="#b58">56]</ref>. Dentre eles, o trabalho de Silva e Batista <ref type="bibr" target="#b51">[50]</ref> foca na definição de comportamentos emergentes desejáveis, obtidos a partir da definição de Figura 1: Procedimento de busca e seleção dos estudos primários.</p><p>Figura 2: Frequência de estudos selecionados nas três fases do trabalho por fonte de estudos.</p><p>Figura 3: Evolução dos estudos relevantes por ano.</p><p>um modelo da interação dos constituintes. Além disso, Oquendo <ref type="bibr" target="#b42">[41]</ref> utiliza uma linguagem de descrição arquitetural para declarar mediadores em arquiteturas de SoS que produzem comportamentos desejados em escala global no sistema. O mesmo autor, em outro trabalho, <ref type="bibr" target="#b44">[43]</ref> apresenta uma abordagem arquitetural baseada em linguagem formal mais direcionada para as referências de Maier <ref type="bibr" target="#b32">[31]</ref>. Szabo e Birdsey <ref type="bibr" target="#b55">[53]</ref> propõem a aplicação de um processo Figura 4: Distribuição dos estudos por países de afiliação dos autores.</p><p>Figura 5: Tipos de SoS dos estudos relevantes.</p><p>de validação de comportamento emergente em duas etapas que consiste na identificação do comportamento emergente e na comparação do comportamento emergente do sistema sob validação Figura 6: Domínios de aplicação dos estudos relevantes.</p><p>Figura 7: Nível de comportamento emergente dos estudos relevantes.</p><p>com um modelo de referência, i.e., um SoS com um comportamento emergente já identificado e mapeado. Giammarco <ref type="bibr" target="#b15">[15]</ref> descreve os comportamentos utilizando diagramas de modelagem de negócio com as percepções do usuário e seus estados, bem como o sistema e seus estados. Na mesma linha, Motus et al. <ref type="bibr" target="#b37">[36]</ref> mostram que, com uma linguagem formal, é possível aperfeiçoar o comportamento do sistema substituindo partes das interações dos constituintes por interações mediadas de forma inteligente. Outro grupo de trabalhos foca no uso de algoritmos e abordagens advindas das áreas de Inteligência Artifical e Aprendizado de Máquina (e.g., redes neurais) para analisar o comportamento emergente em SoS <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b35">34,</ref><ref type="bibr" target="#b46">45]</ref>. Kilicay-Ergin e Dagli <ref type="bibr" target="#b28">[27]</ref> utilizam abordagens de vida artificial como forma de entender os comportamentos emergentes em SoS. Na mesma linha, Hsu e Butterfield <ref type="bibr" target="#b25">[24]</ref> propõem o uso de redes neurais para fornecer capacidades de auto aprendizagem aos sistemas de forma a capturar os mecanismos que inicializam os comportamentos do sistema. Alexander et al. <ref type="bibr" target="#b2">[3]</ref> utilizam técnicas de Aprendizagem de Máquina combinando simulação baseada em agentes para realizar análises de desastres com o intuito de identificar configurações de SoS que podem lidar com os desastres analisados.</p><p>A modelagem baseada em agentes também é o foco de outro grupo de trabalhos existentes na literatura <ref type="bibr" target="#b26">[25]</ref>. Dentre eles, Mour et al. <ref type="bibr" target="#b38">[37]</ref> apresentam uma ferramenta de simulação baseada em agentes para gerar e avaliar diversas arquiteturas por meio de funcionalidades e comportamento dos sistemas constituintes. Além disso, Yang et al. <ref type="bibr" target="#b61">[58]</ref> propõem um método para analisar os comportamentos emergentes com intuito de estudar a evolução de SoS. Baseado na simulação por agentes semiautônomos, o método mapeia a interação, comunicação e cooperação dos sistemas constituintes no contexto de SoS com vistas a detectar os comportamentos que podem surgir a partir dessas interações.</p><p>Além da modelagem baseada em agentes, outros três grupos de estudos atuam com algum aspecto no uso da modelagem de comportamento emergente em SoS. O primeiro deles diz respeito à modelagem informal de sistemas <ref type="bibr" target="#b45">[44]</ref>, em que Peréz et al. <ref type="bibr" target="#b47">[46]</ref> apresentam uma arquitetura que decompõe o SoS na dimensão do sistema, composta pelos constituintes, e na dimensão funcional, composta pelas funcionalidades em comum que os constituintes devem realizar. O segundo grupo foca na modelagem de máquina de estados <ref type="bibr" target="#b9">[9]</ref>. Por exemplo, Biran et al. <ref type="bibr" target="#b8">[8]</ref> utilizam máquinas de estados em conjunto com a simulação de sistemas para identificar os principais comportamentos emergentes de um SoS, em particular aqueles comportamentos inesperados. Já o terceiro grupo trabalha com a modelagem baseada em modelos <ref type="bibr" target="#b12">[12]</ref>. Graciano Neto <ref type="bibr" target="#b17">[17]</ref> apresenta resultados preliminares de uma abordagem baseada em modelos para modelar as propriedades dinâmicas do SoS.</p><p>Poucos estudos são direcionados para iniciativas ainda emergentes na área de estudo. Wachholder e Stary <ref type="bibr" target="#b57">[55]</ref> mostram que grafos bipartidos surgem como uma tentativa inicial de modelar o comportamento emergente, de modo que esses grafos são introduzidos e depois conceitualmente relacionados ao contexto de SoS. Os mesmos autores estendem o trabalho anterior propondo o uso de grafos bipartidos como representações capazes de garantir a interoperabilidade entre os constituintes <ref type="bibr" target="#b56">[54]</ref>. Em contraste, Saglietti et al. <ref type="bibr" target="#b50">[49]</ref> propõem uma abordagem sistemática para realização de testes estatísticos com base em modelos de comportamento cooperativos de redes de Petri coloridas, enquanto que Reid et al. <ref type="bibr" target="#b49">[48]</ref> apresentam um uso de padrões de projeto de software para descrever e identificar comportamentos emergentes em SoS.</p><p>A Tabela 4 apresenta as metodologias empregadas e os estudos associados. Pode-se perceber uma concentração de trabalhos com foco no uso de linguagens formais e modelos matemáticos e de Aprendizado de Máquina e Inteligência artificial (89% do total). De fato, esse resultado era esperado por conta da crescente atenção dada pela comunidade científica mundial aos modelos de Inteligência Computacional, enquanto que o uso de linguagem formal e modelagem matemática pode ser explicado pelo grau de complexidade inerente aos comportamento emergente.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">DISCUSSÕES</head><p>Com vistas a sumarizar os resultados encontrados, esta seção apresenta sete direcionamentos de pesquisa futura (DPs) categorizados em duas fluxos de trabalho, a saber, (i) novos aspectos e (ii) novas metodologias e técnicas para comportamento emergente em SoS. Tabela 4: Metodologias empregadas nos estudos selecionados.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Metodologia(s)</head><p>Estudo(s)</p><p>Linguagens formais e modelagem matemática Baldwin et al. <ref type="bibr" target="#b5">[5]</ref>, Benabidallah et al. <ref type="bibr" target="#b7">[7]</ref>, Giammarco <ref type="bibr" target="#b15">[15]</ref>, Gillespie <ref type="bibr" target="#b16">[16]</ref>, Guariniello e DeLaurentis <ref type="bibr" target="#b21">[20]</ref>, Guessi et al. <ref type="bibr" target="#b22">[21]</ref>, Kopetz et al. <ref type="bibr" target="#b30">[29]</ref>, Maier <ref type="bibr" target="#b33">[32]</ref>, Motus et al. <ref type="bibr" target="#b37">[36]</ref>, Nicola et al. <ref type="bibr" target="#b40">[39]</ref>, Oquendo <ref type="bibr" target="#b41">[40]</ref><ref type="bibr" target="#b42">[41]</ref><ref type="bibr" target="#b43">[42]</ref><ref type="bibr" target="#b44">[43]</ref> </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Estudo e Análise de Comportamento Emergente em SoS</head><p>A ciência de projeto por meio da Design Science Research pode ser um meio sistemático e metodológico para apoiar novos estudos na área. Muito comum na área de sistemas de informação, esse método facilita a elaboração de artefatos de Tecnologia da Informação para solucionar e estudar problemas existentes na prática, sendo estes artefatos compreendidos como "alguma 'coisa' que inclui perspectivas além da tecnologica no estudo de um problema. Além disso, estes artefatos também devem direcionar a transformação em algo material (e.g., modelo) ou processo (e.g., método)" <ref type="bibr" target="#b23">[22]</ref>. Dessa forma, a combinação desse método com abordagens existentes na literatura para a descrição de comportamentos emergentes, tais como as linguagens formais <ref type="bibr" target="#b5">[5,</ref><ref type="bibr" target="#b58">56]</ref> e modelagem baseada em agentes <ref type="bibr" target="#b26">[25]</ref>, pode facilitar o refinamento, bem como o alinhamento destes comportamentos aos reais objetivos de negócio dos sistemas <ref type="bibr" target="#b18">[18]</ref>. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">CONCLUSÕES</head><p>Um SoS é formado por um conjunto de sistemas constituintes que juntos são capazes de oferecer novas funcionalidades das quais nenhum dos sistemas individualmente é capaz de realizar. Sendo o comportamento emergente uma das características principais de um SoS, este artigo reporta os resultados de um mapeamento sistemático para identificar trabalhos existentes da literatura com foco no estudo desse comportamento em SoS. Os resultados obtidos trazem evidências quanto ao crescimento, nos últimos cinco anos, do interesse nesse tema, o que mostra uma possível tendência no aumento de trabalhos, embora ainda incipiente. Além disso, o mapeamento também apontou os domínios de aplicação com maior frequência, tais como a área militar e a de gestão de desastres. Dentre os tipos de SoS, existe uma uniformidade de estudos conduzidos nos quatro tipos definidos por Maier <ref type="bibr" target="#b32">[31]</ref>. Contudo, pode-se notar que a maioria dos trabalhos ainda não determina claramente qual tipo de SoS é de fato estudado no trabalho. Isso é importante para direcionar tanto o desenvolvimento quanto os estudos em comportamento emergente seguindo as caraceterísticas e variáveis relacionadas a SoS. Por fim, os tipos de comportamento emergente ainda são pouco explorados na literatura, sendo que quase 39% dos estudos não definem ou determinam o comportamento que está sendo abordado. Isto também acaba por dificultar o entendimento das características do comportamento, bem como a eficácia das soluções propostas.</p><p>Dentre as ameaças a validade deste estudo, pode-se destacar o risco de falta de completude do estudo, considerando que foram analisadas apenas quatro bases digitais de publicação. Além disso, o processo de seleção e análise dos estudos foi de certa forma subjetivo o que pode trazer ambiguidades. Contudo, é importante mencionar que outro pesquisador avaliou interativamente os estudos selecionados e o processo de extração dos dados de maneira a garantir a criticidade e qualidade dos resultados. Ainda em relação as ameaças potenciais limitações do trabalho, destaca-se a ausência do termo behavio(u)r na string de busca durante a seleção inicial. Esta ameaça foi sanada e migitada durante a fase de extração dos dados, quando a string de busca e não se identificou alterações nos resultados.</p><p>Como trabalhos futuros, recomenda-se que sejam incluídas novas bases de dados, bem como executadas uma busca manual e snowballing a partir dos estudos relevantes. Conforme mostrado nos resultados do estudo desenvolvido, o interesse pela pesquisa em comportamento emergente de SoS aumentou nos últimos cinco anos (ver Figura 3) e, por conta disso, revisões e mapeamentos sistemáticos futuros devem ir além das categorizações realizadas neste trabalho. Por exemplo, tais estudos futuros podem extrapolar as classificações de comportamento emergente definidas por Maier <ref type="bibr" target="#b32">[31]</ref> e compreender as propriedades destes comportamento em sistemas complexos (e.g., reducionismo e causalidade) <ref type="bibr" target="#b19">[19]</ref>. Por fim, outra possível extensão do trabalho poderia conduzir um estudo mais aprofundado sobre as classificações de comportamentos emergentes de forma que se estabeleça uma associação entre tipos de comportamentos emergentes e os requisitos coletados na construção do SoS, para uma classificação formal.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>AGRADECIMENTOS</head><p>Os autores agradecem ao apoio financeiro realizado pelo Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq), Processo 437937/2018-6.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Tabela 1 :</head><label>1</label><figDesc>Definição do objetivo do mapeamento sistemático. Analisar a literatura existente que trata de comportamento emergente em SoS Com o propósito de caracterizar o estado da arte atual Em relação a trabalhos existentes na área de SoS com foco especial em comportamento emergente Do ponto de vista de pesquisadores e profissionais Dentro do contexto de Engenharia de Software e Engenharia de SoS (SoSE)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>Tabela 2: Itens de extração de dados. dos dados, cada estudo selecionado foi lido integralmente por dois pesquisadores, que também foram responsáveis por identificar e extrair os dados. Apenas os itens I2 e I5 tinham alternativas pré-determinadas à seleção: as alternativas disponíveis no item I5 foram baseadas na classificação proposta por Maier<ref type="bibr" target="#b32">[31]</ref>, enquanto que as alternativas para o item I2 foram baseadas nas categorias propostas pela MITRE Corporation</figDesc><table><row><cell cols="2">Item Descrição</cell></row><row><cell>I1</cell><cell>Afiliação dos autores do estudo</cell></row><row><cell>I2</cell><cell>Tipo de SoS</cell></row><row><cell>I3</cell><cell>Domínio(s) de aplicação</cell></row><row><cell>I4</cell><cell>Metodologias empregadas para a definição de</cell></row><row><cell></cell><cell>comportamento emergente</cell></row><row><cell>I5</cell><cell>Nível de comportamento emergente</cell></row><row><cell cols="2">Para a extração</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>4.2.1 Que tipos de SoS são endereçados pelos estudos? A Figura 5 mostra que parte dos estudos identificados na seleção final (38%) não definiu o tipo de SoS associado ao trabalho. Quando indicado o tipo de SoS, os directed SoS tiveram mais referências (22%). Uma Tabela 3: Locais com maior número de publicações.</figDesc><table><row><cell>Local</cell><cell>Tipo</cell><cell>Número de</cell></row><row><cell></cell><cell></cell><cell>estudos</cell></row><row><cell>IEEE System of Systems</cell><cell cols="2">Conferência 10</cell></row><row><cell>Engineering Conference (SoSE)</cell><cell></cell><cell></cell></row><row><cell>INCOSE International</cell><cell>Simpósio</cell><cell>6</cell></row><row><cell>Symposium</cell><cell></cell><cell></cell></row><row><cell>Modeling and Simulation</cell><cell>Livro</cell><cell>2</cell></row><row><cell>Support for System of Systems</cell><cell></cell><cell></cell></row><row><cell>Engineering Applications</cell><cell></cell><cell></cell></row><row><cell cols="3">possível justificativa é que um dos domínios mais discutidos foi</cell></row><row><cell cols="3">o militar (ver Figura 6), majoritariamente formado por este tipo</cell></row><row><cell cols="3">de SoS. Em seguida, as duas categorias mais referenciadas foram</cell></row><row><cell cols="3">acknowledged SoS e collaborative SoS, cada um deles com seis estudos</cell></row><row><cell cols="3">(32% do total de estudos incluidos). Por fim, a categorial virtual SoS</cell></row><row><cell cols="3">aparece com apenas três estudos (8%), o que evidencia a falta de</cell></row><row><cell cols="3">trabalhos focados nesse tipo de SoS, possivelmente pela sua natureza</cell></row><row><cell>altamente complexa.</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>os sistemas</cell></row><row><cell cols="3">militares (4 estudos), gestão ambiental (4 estudos) ou múltiplos</cell></row><row><cell cols="3">domínios (4 estudos). Estes foram seguidos pelos domínios da In-</cell></row><row><cell cols="3">ternet e gestão de desastres, cada um com três estudos, energia e</cell></row><row><cell cols="3">transporte, cada um com dois estudos, e, por fim, georreferenia-</cell></row><row><cell cols="3">mento, marketing e serviços de saúde, com um estudo cada.</cell></row><row><cell cols="3">4.2.3 Que níveis de comportamento emergente são tratados nos</cell></row><row><cell cols="3">estudos? A Figura 7 torna evidente que, em grande parte dos estu-</cell></row><row><cell cols="3">dos (35%) não foi definido o nível de comportamento emergente,</cell></row><row><cell cols="3">cenário semelhante aos estudos que não definiram os tipos de SoS</cell></row><row><cell cols="3">(ver Figura 5). Além disso, pouca variação pode ser observada nos</cell></row><row><cell cols="3">tipos, quando definidos; o mais frequente foi weak emergence com</cell></row><row><cell cols="3">7 estudos (19% do total), seguido por strong e spooky emergence,</cell></row><row><cell cols="3">com 6 estudos (16% do total) e, por fim, simple emergence, com 5</cell></row><row><cell cols="3">estudos (14% do total). Esses dados proporcionam uma análise in-</cell></row><row><cell cols="3">teressante sobre o entendimento dos comportamentos emergentes.</cell></row><row><cell cols="3">Um dos desafios enfrentados para o desenvolvimento dos estudos</cell></row><row><cell cols="3">em comportamentos emergentes é justamente sua definição. Dessa</cell></row><row><cell cols="3">forma, é possível imaginar que algumas classificações entre os tipos</cell></row><row><cell cols="3">de comportamentos podem variar conforme o desenvolvimento e</cell></row><row><cell>aprofundamento de estudos na área.</cell><cell></cell><cell></cell></row><row><cell cols="3">4.2.4 Que metodologias são empregadas para a definição do com-</cell></row><row><cell cols="3">portamento emergente nos estudos? Em relação às metodologias em-</cell></row><row><cell cols="3">pregadas para a definição e análise do comportamento emergente,</cell></row><row><cell cols="3">há trabalhos na literatura que empregam linguagem formal e mode-</cell></row><row><cell>lagem matemática</cell><cell></cell><cell></cell></row></table><note>4.2.2 Que domínios de aplicação são abordados pelos estudos? Em relação ao domínio de aplicação, a maioria dos estudos relevantes acabou não realizando esta definição (i.e., 12 trabalhos), conforme a Figura 6. Os estudos focam mais nas definições e conceitos associados a SoS, sem mostrar exemplos de aplicação ou apresentar um direcionamento explícito para algum domínio específico. Dentre os que trataram algum domínio, a maioria foi focada para</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head></head><label></label><figDesc>De igual maneira, tanto a Engenharia de Sistemas quanto a Engenharia de Software ainda carecem de mais esforços para definir padrões e estilos arquiteturais de software que considerem comportamento emergente em SoS. Trabalhos nesta linha de estudo podem estender os resultados obtidos por Reid et al.<ref type="bibr" target="#b49">[48]</ref>. Por fim, essa análise dos comportamentos emergentes pode se beneficiar dos algortimos existentes de Aprendizado de Máquina e/ou</figDesc><table><row><cell>Inteligência Artificial para, por exemplo, identificar comportamen-</cell></row><row><cell>tos entre sistemas contituentes utilizando modelos de otimização</cell></row><row><cell>ou clusterização. Trabalhos futuros podem refinar e/ou estender os</cell></row><row><cell>esforços conduzidos por Kilicay-Ergin e Dagli [27] e Hsu e Butter-</cell></row><row><cell>field [24]. Esta linha de pesquisa pode ser sumarizada nos seguintes</cell></row><row><cell>direcionamentos de pesquisa:</cell></row><row><cell>DP5: Padrões e estilos arquiteturais de software que englobem com-</cell></row><row><cell>portamentos emergentes</cell></row><row><cell>DP6: Utilização de Design Science Research para estudar comporta-</cell></row><row><cell>mento emergente atrelados a casos práticos</cell></row><row><cell>DP7: Refinamento e elaboração de técnicas baseadas em Inteligên-</cell></row><row><cell>cia Artificial e/ou Aprendizado de Máquina para analisar os</cell></row><row><cell>comportamentos emergentes em SoS</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">Para fins de simplificação, este artigo usa o acrônimo SoS para descrever tanto o singular como o plural.<ref type="bibr" target="#b1">2</ref> Refere-se aos SoS que utilizam meios de transporte como principal fim. Nesta lista estão incluídos os sistemas de mobilidade urbana e transporte de cargas considerados nas modalidades aéreas, terrestres e marítimas.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3">Este artigo decidiu por manter os termos em Inglês dado que não existe um consenso estabelecido quanto a tradução adequada para o Português.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4">http://portal.acm.org/ 5 http://ieeexplore.ieee.org/ 6 http://link.springer.com/ 7 http://onlinelibrary.wiley.com</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8">https://parsif.al/</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">A Systematic Literature Review on Knowledge Representation Approaches for Systems-of-Systems</title>
+		<author>
+			<persName><forename type="first">Gabriel</forename><surname>Abdalla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlos</forename><forename type="middle">Diego N</forename><surname>Damasceno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Milena</forename><surname>Guessi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Flavio</forename><surname>Oquendo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elisa</forename><forename type="middle">Yumi</forename><surname>Nakagawa</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sbcars.2015.18</idno>
+		<ptr target="https://doi.org/10.1109/SBCARS.2015.18" />
+	</analytic>
+	<monogr>
+		<title level="m">2015 IX Brazilian Symposium on Components, Architectures and Reuse Software</title>
+				<meeting><address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-09" />
+			<biblScope unit="page" from="70" to="79" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Computational Intelligence Based Complex Adaptive System-of-System Architecture Evolution Strategy</title>
+		<author>
+			<persName><forename type="first">Siddhartha</forename><surname>Agarwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cihan</forename><forename type="middle">H</forename><surname>Dagli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Louis</forename><forename type="middle">E</forename><surname>Pape</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-26109-6_9</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-26109-6_9" />
+	</analytic>
+	<monogr>
+		<title level="m">Complex Systems Design &amp; Management</title>
+				<editor>
+			<persName><forename type="first">Complex</forename><surname>Systems</surname></persName>
+			<persName><forename type="first">G</forename><surname>Management</surname></persName>
+			<persName><forename type="first">J.-C</forename><surname>Auvray</surname></persName>
+			<persName><forename type="first">E</forename><surname>Bocquet</surname></persName>
+			<persName><forename type="first">D</forename><surname>Bonjour</surname></persName>
+			<persName><surname>Krob</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2015-10-31" />
+			<biblScope unit="page" from="119" to="132" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">System of Systems Hazard Analysis Using Simulation and Machine Learning</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Alexander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dimitar</forename><surname>Kazakov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tim</forename><surname>Kelly</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/11875567_1</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<editor>
+			<persName><forename type="first">J</forename><surname>Górski</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2006" />
+			<biblScope unit="page" from="1" to="14" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">System of Systems Hazard Analysis Using Simulation and Machine Learning</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Alexander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dimitar</forename><surname>Kazakov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tim</forename><surname>Kelly</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/11875567_1</idno>
+		<ptr target="https://doi.org/10.1007/11875567_1" />
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<meeting><address><addrLine>Berlin Heidelberg, Germany</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2006" />
+			<biblScope unit="volume">4166</biblScope>
+			<biblScope unit="page" from="1" to="14" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A systematic mapping of the research literature on system-of-systems engineering</title>
+		<author>
+			<persName><forename type="first">Jakob</forename><surname>Axelsson</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sysose.2015.7151918</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2015.7151918" />
+	</analytic>
+	<monogr>
+		<title level="m">2015 10th System of Systems Engineering Conference (SoSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-05" />
+			<biblScope unit="page" from="18" to="23" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">10.2.2 Mathematical Models of Emergence in Complex Systems-of-systems</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">Clifton</forename><surname>Baldwin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephanie</forename><surname>Hostetler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wilson</forename><forename type="middle">N</forename><surname>Felder</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/j.2334-5837.2013.tb03061.x</idno>
+		<ptr target="https://doi.org/10.1002/j.2334-5837.2013.tb03061.x" />
+	</analytic>
+	<monogr>
+		<title level="j">INCOSE International Symposium</title>
+		<title level="j" type="abbrev">INCOSE International Symposium</title>
+		<idno type="ISSN">2334-5837</idno>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="889" to="903" />
+			<date type="published" when="2013-06" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Software process evolution at the SEL</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Basili</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Green</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/52.300090</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Software</title>
+		<title level="j" type="abbrev">IEEE Softw.</title>
+		<idno type="ISSN">0740-7459</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="58" to="66" />
+			<date type="published" when="1994-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Simulating systems of systems using situation/reaction paradigm</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Benabidallah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sadou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Esnault</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Nacer</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/cpe.4921tobepub-lished</idno>
+		<ptr target="https://doi.org/10.1002/cpe.4921tobepub-lished" />
+	</analytic>
+	<monogr>
+		<title level="j">Concurrency and Computation: Practice and Experience</title>
+		<imprint>
+			<biblScope unit="volume">0</biblScope>
+			<biblScope unit="page">0</biblScope>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Federated Cloud computing as System of Systems</title>
+		<author>
+			<persName><forename type="first">Yahav</forename><surname>Biran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><surname>Collins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Syed</forename><surname>Azam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joel</forename><surname>Dubow</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/iccnc.2017.7876217</idno>
+		<ptr target="https://doi.org/10.1109/ICCNC.2017.7876217" />
+	</analytic>
+	<monogr>
+		<title level="m">2017 International Conference on Computing, Networking and Communications (ICNC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-01" />
+			<biblScope unit="page" from="711" to="718" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">2.2.2 Maintaining Emergence in Systems of Systems Integration: a Contractual Approach using SysML</title>
+		<author>
+			<persName><forename type="first">Jeremy</forename><surname>Bryans</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Fitzgerald</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Payne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Klaus</forename><surname>Kristensen</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/j.2334-5837.2014.tb03142.x</idno>
+		<ptr target="https://doi.org/10.1002/j.2334-5837.2014.tb03142.x" />
+	</analytic>
+	<monogr>
+		<title level="j">INCOSE International Symposium</title>
+		<title level="j" type="abbrev">INCOSE International Symposium</title>
+		<idno type="ISSN">2334-5837</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="166" to="181" />
+			<date type="published" when="2014-07" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Conceptualization of a System-of-Systems in the Defense Domain: An Experience Report in the Brazilian Scenario</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>De Barros</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">V</forename><surname>Paes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Neto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">Y</forename><surname>Moreira</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Nakagawa</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/JSYST.2018.2876836</idno>
+		<ptr target="https://doi.org/10.1109/JSYST.2018.2876836" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Systems Journal</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="1" to="10" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Applying Systematic Reviews to Diverse Study Types: An Experience Report</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Dybå</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Dingsùyr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">K</forename><surname>Hanssen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ESEM.2007.59</idno>
+		<ptr target="https://doi.org/10.1109/ESEM.2007.59" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 1st International Symposium on Empirical Software Engineering and Measurement. IEEE, USA</title>
+				<meeting>the 1st International Symposium on Empirical Software Engineering and Measurement. IEEE, USA</meeting>
+		<imprint>
+			<date type="published" when="2007" />
+			<biblScope unit="page" from="225" to="234" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Model-driven performance prediction of systems of systems</title>
+		<author>
+			<persName><forename type="first">Katrina</forename><surname>Falkner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Szabo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vanea</forename><surname>Chiprianov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gavin</forename><surname>Puddy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marianne</forename><surname>Rieckmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dan</forename><surname>Fraser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cathlyn</forename><surname>Aston</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10270-016-0547-8</idno>
+		<ptr target="https://doi.org/10.1007/s10270-016-0547-8" />
+	</analytic>
+	<monogr>
+		<title level="j">Software &amp; Systems Modeling</title>
+		<title level="j" type="abbrev">Softw Syst Model</title>
+		<idno type="ISSN">1619-1366</idno>
+		<idno type="ISSNe">1619-1374</idno>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="415" to="441" />
+			<date type="published" when="2016-07-20" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Interoperability in Systems-of-Information Systems</title>
+		<author>
+			<persName><forename type="first">Juliana</forename><forename type="middle">Costa</forename><surname>Fernandes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Valdemar</forename><forename type="middle">V Graciano</forename><surname>Neto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rodrigo</forename><forename type="middle">Pereira Dos</forename><surname>Santos</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3275245.3275259</idno>
+		<ptr target="https://doi.org/10.1145/3275245.3275259" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 17th Brazilian Symposium on Software Quality</title>
+				<meeting>the 17th Brazilian Symposium on Software Quality<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-10-17" />
+			<biblScope unit="page" from="131" to="140" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Characterizing Architectural Evaluations and Identifying Quality Attributes addressed in Systems-of-Systems: A Systematic Mapping Study</title>
+		<author>
+			<persName><forename type="first">Diego</forename><surname>Gatica</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francisco</forename><surname>Ponce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rene</forename><surname>Noel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hernan</forename><surname>Astudillo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sccc.2018.8705229</idno>
+		<ptr target="https://doi.org/10.1109/SCCC.2018.8705229" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 37th International Conference of the Chilean Computer Science Society (SCCC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-11" />
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Practical modeling concepts for engineering emergence in systems of systems</title>
+		<author>
+			<persName><forename type="first">Kristin</forename><surname>Giammarco</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sysose.2017.7994977</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2017.7994977" />
+	</analytic>
+	<monogr>
+		<title level="m">2017 12th System of Systems Engineering Conference (SoSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">System of systems architecture feasibility analysis to support tradespace exploration</title>
+		<author>
+			<persName><forename type="first">Stephen</forename><forename type="middle">E</forename><surname>Gillespie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ronald</forename><forename type="middle">E</forename><surname>Giachetti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alejandro</forename><surname>Hernandez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><forename type="middle">T</forename><surname>Beery</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eugene</forename><forename type="middle">P</forename><surname>Paulo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sysose.2017.7994944</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2017.7994944" />
+	</analytic>
+	<monogr>
+		<title level="m">2017 12th System of Systems Engineering Conference (SoSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">A Model-Based Approach Towards the Building of Trustworthy Software-Intensive Systems-of-Systems</title>
+		<author>
+			<persName><forename type="first">Valdemar</forename><forename type="middle">V</forename><surname>Neto</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icse-c.2017.28</idno>
+		<ptr target="https://doi.org/10.1109/ICSE-C.2017.28" />
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE/ACM 39th International Conference on Software Engineering Companion (ICSE-C)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-05" />
+			<biblScope unit="page" from="425" to="428" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">A Study on Goals Specification for Systems-of-Information Systems</title>
+		<author>
+			<persName><forename type="first">Valdemar</forename><forename type="middle">V Graciano</forename><surname>Neto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Flavio</forename><surname>Horita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Everton</forename><surname>Cavalcante</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adair</forename><surname>Rohling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jamal</forename><surname>El-Hachem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Santos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elisa</forename><forename type="middle">Y</forename><surname>Nakagawa</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3229345.3229369</idno>
+		<ptr target="https://doi.org/10.1145/3229345.3229369" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the XIV Brazilian Symposium on Information Systems - SBSI&apos;18</title>
+				<meeting>the XIV Brazilian Symposium on Information Systems - SBSI&apos;18<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="1" to="10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Digital Twin: Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Grieves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Vickers</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-38756-7_4</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Transdisciplinary Perspectives on Complex Systems</title>
+				<editor>
+			<persName><forename type="first">F</forename><forename type="middle">J</forename><surname>Kahlen</surname></persName>
+			<persName><forename type="first">S</forename><surname>Flumerfelt</surname></persName>
+			<persName><forename type="first">Alves</forename><forename type="middle">A</forename></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016-08-17" />
+			<biblScope unit="page" from="85" to="113" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Digital Twin: Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Grieves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Vickers</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-38756-7_4</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Transdisciplinary Perspectives on Complex Systems</title>
+				<meeting><address><addrLine>Cham, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016-08-17" />
+			<biblScope unit="page" from="85" to="113" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Supporting design via the System Operational Dependency Analysis methodology</title>
+		<author>
+			<persName><forename type="first">Cesare</forename><surname>Guariniello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Delaurentis</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00163-016-0229-0</idno>
+		<ptr target="https://doi.org/10.1007/s00163-016-0229-0" />
+	</analytic>
+	<monogr>
+		<title level="j">Research in Engineering Design</title>
+		<title level="j" type="abbrev">Res Eng Design</title>
+		<idno type="ISSN">0934-9839</idno>
+		<idno type="ISSNe">1435-6066</idno>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="53" to="69" />
+			<date type="published" when="2016-04-22" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Checking the architectural feasibility of Systems-of-Systems using formal descriptions</title>
+		<author>
+			<persName><forename type="first">Milena</forename><surname>Guessi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Flavio</forename><surname>Oquendo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elisa</forename><forename type="middle">Yumi</forename><surname>Nakagawa</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sysose.2016.7542939</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2016.7542939" />
+	</analytic>
+	<monogr>
+		<title level="m">2016 11th System of Systems Engineering Conference (SoSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Design Science in Information Systems Research</title>
+		<author>
+			<persName><surname>Hevner</surname></persName>
+		</author>
+		<author>
+			<persName><surname>March</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Park</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ram</surname></persName>
+		</author>
+		<idno type="DOI">10.2307/25148625</idno>
+		<ptr target="https://doi.org/10.2307/25148625" />
+	</analytic>
+	<monogr>
+		<title level="j">MIS Quarterly</title>
+		<title level="j" type="abbrev">MIS Quarterly</title>
+		<idno type="ISSN">0276-7783</idno>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">75</biblScope>
+			<date type="published" when="2004" />
+			<publisher>JSTOR</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Building a conceptual architecture and stakeholder map of a system-of-systems for disaster monitoring and early-warning</title>
+		<author>
+			<persName><forename type="first">Flávio</forename><forename type="middle">E A</forename><surname>Horita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Donna</forename><forename type="middle">H</forename><surname>Rhodes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thiago</forename><forename type="middle">J</forename><surname>Inocêncio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gustavo</forename><forename type="middle">R</forename><surname>Gonzales</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3330204.3330215</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the XV Brazilian Symposium on Information Systems</title>
+				<meeting>the XV Brazilian Symposium on Information Systems<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2019-05-20" />
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Modeling Emergent Behavior for Systems-of-Systems</title>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">C</forename><surname>Hsu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marion</forename><surname>Butterfield</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/j.2334-5837.2007.tb02985.x</idno>
+		<ptr target="https://doi.org/10.1002/j.2334-5837.2007.tb02985.x" />
+	</analytic>
+	<monogr>
+		<title level="j">INCOSE International Symposium</title>
+		<title level="j" type="abbrev">INCOSE International Symposium</title>
+		<idno type="ISSN">2334-5837</idno>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1811" to="1821" />
+			<date type="published" when="2007-06" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Agent-Based Modeling the Emergent Behavior of A System-of-Systems</title>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">C</forename><surname>Hsu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">R</forename><surname>Clymer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jose</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Efrain</forename><surname>Gonzalez</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/j.2334-5837.2009.tb01036.x</idno>
+		<ptr target="https://doi.org/10.1002/j.2334-5837.2009.tb01036.x" />
+	</analytic>
+	<monogr>
+		<title level="j">INCOSE International Symposium</title>
+		<title level="j" type="abbrev">INCOSE International Symposium</title>
+		<idno type="ISSN">2334-5837</idno>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1581" to="1590" />
+			<date type="published" when="2009-07" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Analysis of Pavement Structures. By Animesh Das. CRC Press: Boca Raton, FL, USA, 2014; 194p; ISBN 978-1466558557</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jamshidi</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/su13116098</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sustainability</title>
+		<title level="j" type="abbrev">Sustainability</title>
+		<idno type="ISSNe">2071-1050</idno>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page">6098</biblScope>
+			<date type="published" when="2021-05-28" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Executable Modeling for System of Systems Architecting: An Artificial Life Framework</title>
+		<author>
+			<persName><forename type="first">Nil</forename><surname>Kilicay-Ergin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cihan</forename><surname>Dagli</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/systems.2008.4518983</idno>
+		<ptr target="https://doi.org/10.1109/SYSTEMS.2008.4518983" />
+	</analytic>
+	<monogr>
+		<title level="m">2008 2nd Annual IEEE Systems Conference</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2008-04" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">Evidence-Based Software Engineering and Systematic Reviews</title>
+		<author>
+			<persName><forename type="first">Barbara</forename><forename type="middle">Ann</forename><surname>Kitchenham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Budgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pearl</forename><surname>Brereton</surname></persName>
+		</author>
+		<idno type="DOI">10.1201/b19467</idno>
+		<imprint>
+			<date type="published" when="2015-11-04" />
+			<publisher>Chapman and Hall/CRC</publisher>
+			<pubPlace>United Kingdom</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Keele University/Durham University</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Towards an understanding of emergence in systems-of-systems</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kopetz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Hoftberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Fromel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Brancati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bondavalli</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sysose.2015.7151925</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2015.7151925" />
+	</analytic>
+	<monogr>
+		<title level="m">2015 10th System of Systems Engineering Conference (SoSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-05" />
+			<biblScope unit="page" from="214" to="219" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">On the Development of Systems-of-Systems based on the Internet of Things</title>
+		<author>
+			<persName><forename type="first">Pedro</forename><surname>Maia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Everton</forename><surname>Cavalcante</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Porfírio</forename><surname>Gomes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thais</forename><surname>Batista</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Flavia</forename><forename type="middle">C</forename><surname>Delicato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paulo</forename><forename type="middle">F</forename><surname>Pires</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2642803.2642828</idno>
+		<ptr target="https://doi.org/10.1145/2642803.2642828" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2014 European Conference on Software Architecture Workshops - ECSAW &apos;14</title>
+				<meeting>the 2014 European Conference on Software Architecture Workshops - ECSAW &apos;14<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2007" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Architecting principles for systems-of-systems</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">W</forename><surname>Maier</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/(SICI)1520-6858(1998)1:4&lt;267</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Systems Engineering</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="267" to="284" />
+			<date type="published" when="1998-02" />
+		</imprint>
+	</monogr>
+	<note>AID-SYS3&gt;3.0.CO;2-D</note>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">The Role of Modeling and Simulation in System of Systems Development</title>
+		<author>
+			<persName><forename type="first">Mark</forename><forename type="middle">W</forename><surname>Maier</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/9781118501757.ch2</idno>
+		<ptr target="https://doi.org/10.1002/9781118501757.ch2" />
+	</analytic>
+	<monogr>
+		<title level="m">Modeling and Simulation Support for System of Systems Engineering Applications</title>
+				<editor>
+			<persName><forename type="first">B</forename><surname>Larry</surname></persName>
+			<persName><forename type="first">Andreas</forename><surname>Rainey</surname></persName>
+			<persName><surname>Tolk</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Ltd, Hoboken, NJ, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Wiley</publisher>
+			<date type="published" when="2014-12-12" />
+			<biblScope unit="page" from="11" to="41" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Choosing an SAT with SAnTA: A Recommender System for Informal Workplace Learning</title>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Linton</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MITRE Corporation</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Brown</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MITRE Corporation</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">Casey</forename><surname>Falk</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MITRE Corporation</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Zimmermann</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MITRE Corporation</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">Sarah</forename><surname>Beebe</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MITRE Corporation</orgName>
+			</affiliation>
+		</author>
+		<idno type="DOI">10.5038/1944-0472.8.3s.1477</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Strategic Security</title>
+		<title level="j" type="abbrev">JSS</title>
+		<idno type="ISSN">1944-0464</idno>
+		<idno type="ISSNe">1944-0472</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3Suppl</biblScope>
+			<biblScope unit="page" from="80" to="84" />
+			<date type="published" when="2015-10" />
+			<publisher>University of South Florida Libraries</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Session CA: Computer architecture</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rainey</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icces.2015.7393029</idno>
+		<ptr target="http://dl.acm.org/citation.cfm?id=2874916.2874979" />
+	</analytic>
+	<monogr>
+		<title level="m">2015 Tenth International Conference on Computer Engineering &amp; Systems (ICCES)</title>
+				<meeting><address><addrLine>San Diego, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-12" />
+			<biblScope unit="page" from="1" to="10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">A System-of-Systems Approach for Integrated Resilience Assessment in Highway Transportation Infrastructure Investment</title>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Mostafavi</surname></persName>
+			<idno type="ORCID">0000-0002-9076-9408</idno>
+		</author>
+		<idno type="DOI">10.3390/infrastructures2040022</idno>
+		<ptr target="https://doi.org/10.3390/infrastructures2040022" />
+	</analytic>
+	<monogr>
+		<title level="j">Infrastructures</title>
+		<title level="j" type="abbrev">Infrastructures</title>
+		<idno type="ISSNe">2412-3811</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">22</biblScope>
+			<date type="published" when="2017-12-10" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Self-aware architecture to support partial control of emergent behavior</title>
+		<author>
+			<persName><forename type="first">Leo</forename><surname>Motus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jurgo-Soren</forename><surname>Preden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Merik</forename><surname>Meriste</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Raido</forename><surname>Pahtma</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sysose.2012.6384148</idno>
+		<ptr target="https://doi.org/10.1109/SYSoSE.2012.6384148" />
+	</analytic>
+	<monogr>
+		<title level="m">2012 7th International Conference on System of Systems Engineering (SoSE)</title>
+				<meeting><address><addrLine>USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2012-07" />
+			<biblScope unit="page" from="422" to="427" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Agent-Based Modeling for Systems of Systems</title>
+		<author>
+			<persName><forename type="first">Ankur</forename><surname>Mour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Robert</forename><surname>Kenley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Navindran</forename><surname>Davendralingam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Delaurentis</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/j.2334-5837.2013.tb03067.x</idno>
+		<ptr target="https://doi.org/10.1002/j.2334-5837.2013.tb03067.x" />
+	</analytic>
+	<monogr>
+		<title level="j">INCOSE International Symposium</title>
+		<title level="j" type="abbrev">INCOSE International Symposium</title>
+		<idno type="ISSN">2334-5837</idno>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="973" to="987" />
+			<date type="published" when="2013-06" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">The state of the art and future perspectives in systems of systems software architectures</title>
+		<author>
+			<persName><forename type="first">Elisa</forename><forename type="middle">Y</forename><surname>Nakagawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcelo</forename><surname>Gonçalves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Milena</forename><surname>Guessi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lucas</forename><forename type="middle">B R</forename><surname>Oliveira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Flavio</forename><surname>Oquendo</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2489850.2489853</idno>
+		<ptr target="https://doi.org/10.1145/2489850.2489853" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the First International Workshop on Software Engineering for Systems-of-Systems - SESoS &apos;13</title>
+				<meeting>the First International Workshop on Software Engineering for Systems-of-Systems - SESoS &apos;13<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2013" />
+			<biblScope unit="page" from="13" to="20" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">A Formal Approach to Autonomic Systems Programming</title>
+		<author>
+			<persName><forename type="first">Rocco</forename><forename type="middle">De</forename><surname>Nicola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michele</forename><surname>Loreti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rosario</forename><surname>Pugliese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francesco</forename><surname>Tiezzi</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2619998</idno>
+		<ptr target="https://doi.org/10.1145/2619998" />
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Autonomous and Adaptive Systems</title>
+		<title level="j" type="abbrev">ACM Trans. Auton. Adapt. Syst.</title>
+		<idno type="ISSN">1556-4665</idno>
+		<idno type="ISSNe">1556-4703</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1" to="29" />
+			<date type="published" when="2014-07" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Software architecture of self-organizing systems-of-systems for the Internet-of-Things with SosADL</title>
+		<author>
+			<persName><forename type="first">Flavio</forename><surname>Oquendo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sysose.2017.7994959</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2017.7994959" />
+	</analytic>
+	<monogr>
+		<title level="m">2017 12th System of Systems Engineering Conference (SoSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Exogenously Describing Architectural Emergent Behaviors of Systems-of-Systems with SosADL</title>
+		<author>
+			<persName><forename type="first">Flavio</forename><surname>Oquendo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sysose.2018.8428715</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2018.8428715" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 13th Annual Conference on System of Systems Engineering (SoSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-06" />
+			<biblScope unit="page" from="268" to="275" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Formally Describing Self-organizing Architectures for Systems-of-Systems on the Internet-of-Things</title>
+		<author>
+			<persName><forename type="first">Flavio</forename><surname>Oquendo</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-00761-4_2</idno>
+		<ptr target="https://doi.org/" />
+	</analytic>
+	<monogr>
+		<title level="m">Software Architecture</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<editor>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Cuesta</surname></persName>
+			<persName><forename type="first">D</forename><surname>Garlan</surname></persName>
+			<persName><forename type="first">J</forename><surname>Pérez</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">11048</biblScope>
+			<biblScope unit="page" from="20" to="36" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">On the Emergent Behavior Oxymoron of System-of-Systems Architecture Description</title>
+		<author>
+			<persName><forename type="first">Flavio</forename><surname>Oquendo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sysose.2018.8428727</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2018.8428727" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 13th Annual Conference on System of Systems Engineering (SoSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-06" />
+			<biblScope unit="page" from="417" to="424" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">KR14 Emergent Behavior in Systems of Systems</title>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">S</forename><surname>Osmundson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">V</forename><surname>Huynh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gary</forename><forename type="middle">O</forename><surname>Langford</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/j.2334-5837.2008.tb00900.x</idno>
+		<ptr target="https://doi.org/10.1002/j.2334-5837.2008.tb00900.x" />
+	</analytic>
+	<monogr>
+		<title level="j">INCOSE International Symposium</title>
+		<title level="j" type="abbrev">INCOSE International Symposium</title>
+		<idno type="ISSN">2334-5837</idno>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1557" to="1568" />
+			<date type="published" when="2008-06" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Synchronisation and Emergent Behaviour in Networks of Heterogeneous Systems: A Control Theory Perspective</title>
+		<author>
+			<persName><forename type="first">Elena</forename><surname>Panteley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Loría</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-30357-4_4</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-30357-4_4" />
+	</analytic>
+	<monogr>
+		<title level="m">Nonlinear Systems</title>
+		<title level="s">Lecture Notes in Control and Information Sciences</title>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Van De Wouw</surname></persName>
+			<persName><forename type="first">E</forename><surname>Lefeber</surname></persName>
+			<persName><forename type="first">I. Lopez</forename><surname>Arteaga</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016-07-08" />
+			<biblScope unit="volume">470</biblScope>
+			<biblScope unit="page" from="81" to="102" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Towards a Reference Architecture for Large-Scale Smart Grids System of Systems</title>
+		<author>
+			<persName><forename type="first">Jennifer</forename><surname>Perez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jessica</forename><surname>Diaz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juan</forename><surname>Garbajosa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Agustin</forename><surname>Yague</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eloy</forename><surname>Gonzalez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mercedes</forename><surname>Lopez-Perea</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sesos.2015.9</idno>
+		<ptr target="https://doi.org/10.1109/SESoS.2015.9" />
+	</analytic>
+	<monogr>
+		<title level="m">2015 IEEE/ACM 3rd International Workshop on Software Engineering for Systems-of-Systems</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-05" />
+			<biblScope unit="page" from="5" to="11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Systematic Mapping Studies in Software Engineering</title>
+		<author>
+			<persName><forename type="first">Kai</forename><surname>Petersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Feldt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shahid</forename><surname>Mujtaba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Mattsson</surname></persName>
+		</author>
+		<idno type="DOI">10.14236/ewic/ease2008.8</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 12th International Conference on Evaluation and Assessment in Software Engineering</title>
+				<meeting>the 12th International Conference on Evaluation and Assessment in Software Engineering<address><addrLine>Swindon, United Kingdom</addrLine></address></meeting>
+		<imprint>
+			<publisher>BCS Learning &amp; Development</publisher>
+			<date type="published" when="2008-06-01" />
+			<biblScope unit="page" from="68" to="77" />
+		</imprint>
+		<respStmt>
+			<orgName>BCS Learning &amp; Development Ltd</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Classifying Emergent Behavior to Reveal Design Patterns</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Jack</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Donna</forename><forename type="middle">H</forename><surname>Reid</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rhodes</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-62217-0_50</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-62217-0_50" />
+	</analytic>
+	<monogr>
+		<title level="m">Disciplinary Convergence in Systems Engineering Research</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Madni</surname></persName>
+			<persName><forename type="first">B</forename><surname>Boehm</surname></persName>
+			<persName><forename type="first">R</forename><surname>Ghanem</surname></persName>
+			<persName><forename type="first">D</forename><surname>Erwin</surname></persName>
+			<persName><forename type="first">M</forename><surname>Wheaton</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Switzerland</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing AG</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="727" to="740" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Quantitative Reliability Assessment for Mobile Cooperative Systems</title>
+		<author>
+			<persName><forename type="first">Francesca</forename><surname>Saglietti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ralf</forename><surname>Spengler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Meitner</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-45480-1_10</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-45480-1_10" />
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Security</surname></persName>
+			<persName><forename type="first">J</forename><surname>Skavhaug</surname></persName>
+			<persName><forename type="first">E</forename><surname>Guiochet</surname></persName>
+			<persName><forename type="first">F</forename><surname>Schoitsch</surname></persName>
+			<persName><surname>Bitsch</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="volume">9923</biblScope>
+			<biblScope unit="page" from="118" to="129" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Formal Modeling Systems-of-systems Missions with mKAOS</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Silva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Batista</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 33rd Annual ACM Symposium on Applied Computing</title>
+				<meeting>the 33rd Annual ACM Symposium on Applied Computing</meeting>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.1145/3167132.3167311</idno>
+		<ptr target="https://doi.org/10.1145/3167132.3167311" />
+		<imprint>
+			<publisher>ACM</publisher>
+			<biblScope unit="page" from="1674" to="1679" />
+			<pubPlace>New York, NY, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Refining Missions to Architectures in Software-Intensive Systems-of-Systems</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Silva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Cavalcante</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Batista</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/JSOS.2017.12</idno>
+		<ptr target="https://doi.org/10.1109/JSOS.2017.12" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Joint 5th IEEE/ACM Joint International Workshop on Software Engineering for Systems-of-Systems and 11th Workshop on Distributed Software Development, Software Ecosystems and Systems-of-Systems. IEEE, USA</title>
+				<meeting>the Joint 5th IEEE/ACM Joint International Workshop on Software Engineering for Systems-of-Systems and 11th Workshop on Distributed Software Development, Software Ecosystems and Systems-of-Systems. IEEE, USA</meeting>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="2" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">On the Characterization of Missions of Systems-of-Systems</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Silva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Cavalcante</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Batista</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Oquendo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">C</forename><surname>Delicato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">F</forename><surname>Pires</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2642803.2642829</idno>
+		<ptr target="https://doi.org/10.1145/2642803.2642829" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2014 European Conference on Software Architecture Workshops</title>
+				<meeting>the 2014 European Conference on Software Architecture Workshops<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Validating Emergent Behavior in Complex Systems</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Szabo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Birdsey</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-64182-9_4</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-64182-9_4" />
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Modeling and Simulation: Seminal Research from 50 Years of Winter Simulation Conferences</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+			<persName><forename type="first">J</forename><surname>Fowler</surname></persName>
+			<persName><forename type="first">G</forename><surname>Shao</surname></persName>
+			<persName><forename type="first">E</forename><surname>Yücesan</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham, Switzerland</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing AG</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="47" to="62" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Bigraph-Ensured Interoperability for System(-of-Systems) Emergence</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wachholder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Stary</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-662-45550-0_25</idno>
+		<ptr target="https://doi.org/10.1007/978-3-662-45550-0_25" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the On the Move to Meaningful Internet Systems: OTM 2014 Workshops</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Meersman</surname></persName>
+		</editor>
+		<meeting>the On the Move to Meaningful Internet Systems: OTM 2014 Workshops<address><addrLine>Berlin Heidelberg, Germany</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer-Verlag</publisher>
+			<date type="published" when="2014" />
+			<biblScope unit="volume">8842</biblScope>
+			<biblScope unit="page" from="241" to="254" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Enabling emergent behavior in systems-ofsystems through bigraph-based modeling</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wachholder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Stary</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/SYSOSE.2015.7151954</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2015.7151954" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 10th System of Systems Engineering Conference. IEEE, USA</title>
+				<meeting>the 10th System of Systems Engineering Conference. IEEE, USA</meeting>
+		<imprint>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="334" to="339" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Composition of Behavior Models for Systems Architecture</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Whitcomb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Auguston</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Giammarco</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Modeling and Simulation Support for System of Systems Engineering Applications</title>
+				<editor>
+			<persName><forename type="first">B</forename><surname>Larry</surname></persName>
+			<persName><forename type="first">Andreas</forename><surname>Rainey</surname></persName>
+			<persName><surname>Tolk</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.1002/9781118501757.ch14</idno>
+		<ptr target="https://doi.org/10.1002/9781118501757.ch14" />
+		<imprint>
+			<publisher>John Wiley &amp; Sons</publisher>
+			<biblScope unit="page" from="361" to="391" />
+			<pubPlace>Ltd, Hoboken, NJ, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">Healthcare System of Systems</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Wickramasinghe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chalasani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">V</forename><surname>Boppana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Madni</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/SYSOSE.2007.4304283</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2007.4304283" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE International Conference on System of Systems Engineering</title>
+				<meeting>the IEEE International Conference on System of Systems Engineering</meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2007" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">The study of guided emergent behavior in system of systems requirement analysis</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Zhao</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/SYSOSE.2010.5544033</idno>
+		<ptr target="https://doi.org/10.1109/SYSOSE.2010.5544033" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 5th International Conference on System of Systems Engineering</title>
+				<meeting>the 5th International Conference on System of Systems Engineering</meeting>
+		<imprint>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

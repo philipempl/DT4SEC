@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Understanding the Need for Cybersecurity in Manufacturing Environment</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Springer Singapore</publisher>
+				<availability status="unknown"><p>Copyright Springer Singapore</p>
+				</availability>
+				<date type="published" when="2019-08-28">2019-08-28</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Mohit</forename><surname>Bajaj</surname></persName>
+							<email>mohitbajaj21@gmail.com</email>
+						</author>
+						<author>
+							<persName><forename type="first">K</forename><forename type="middle">B</forename><surname>Akhilesh</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Citi Group</orgName>
+								<address>
+									<settlement>Bangalore</settlement>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="department" key="dep1">Department of Management Studies</orgName>
+								<orgName type="department" key="dep2">Indian Institute of Science</orgName>
+								<address>
+									<settlement>Bengaluru</settlement>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Understanding the Need for Cybersecurity in Manufacturing Environment</title>
+					</analytic>
+					<monogr>
+						<title level="m">Smart Technologies</title>
+						<imprint>
+							<publisher>Springer Singapore</publisher>
+							<biblScope unit="page" from="147" to="157"/>
+							<date type="published" when="2019-08-28" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1007/978-981-13-7139-4_11</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:18+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Connected devices help us in many ways. They have made our lives easy and safe. With the introduction of Internet of Things (IoT), a lot of innovation has been driven in the manufacturing sector. However, it brings along with itself serious challenges too. The increase in the penetration of IoT has opened the doors for attackers with now even more surface area prone to attacks. The more machines connected the more the data is exchanged which implies more exposure of information which could be confidential and sensitive. Manufacturing units are the first line of defense in safeguarding a country's capabilities. The information leaked through these channels is not only economically disastrous but also a serious concern for the security of a nation. There is a growing need to keep a check on the information that could be leaked. Cybersecurity plays an important role in preventing the misuse of the data collected through millions of devices nowadays. First, there is a need to spread awareness about the implications of data theft in the manufacturing environment and then understanding the need for cybersecurity in this environment.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.1">Introduction</head><p>Cybersecurity is now becoming an important part of a company's strategy. With the advent of intellectual property, there is an increasing need to protect critical assets in a highly competitive manufacturing environment. With increasingly complex supply chains, there is a lot of information exchanged and data security becomes even more important.</p><p>According to the National Association of Manufacturers, in the past ten years about USD 240 less expensive for a rival company to hack into the system of the competitor and leverage the information to gain competitive advantage. As per Verizon's Data Breach Investigations Report 2016, manufacturing industry is also victimized by hackers. Information is being leaked through many channels be it in a refinery or a factory. In a manufacturing environment, one of the primary sources of cyber-attack is industrial control systems (ICS). ICS helps in managing the shop floor and is designed in such a manner to implement networking capabilities. Companies are becoming aware of the threats gradually and have started taking steps to secure their ICS. Linking factory production data with enterprise information infrastructure has helped in an increased productivity but has also led to an increase in ICS targeting for espionage purpose. As of now, these attacks are low not because of the security in place but because of lack of motivation for the hackers and nations. Hackers have not yet found out a way to monetize ICS attacks and not many nations have started foraying into this area. But neither of the two situations is permanent. Once the hackers find out a way to benefit out of this situation, it will be very difficult to control the situation. There is a need to proactively secure the networks.</p><p>IoT devices have very less processing power and are available at cheap prices everywhere. They lack capability for securing the data with the help of encryption. Manufacturers are not motivated enough and do not consider it economical to use IoT devices with the power of encryption. Also, devices are just one part of the IoT infrastructure. The databases that keep a record of all the information are also susceptible to attacks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2">Understanding Architecture of CPS for Manufacturing</head><p>The five-level CPS architecture consists of guidelines and methodologies to stepby-step design and deploys CPS for manufacturing from data acquisition stage to analysis and final value creation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2.1">Smart Connections</head><p>The foremost step in any CPS application is gathering precise and dependable data from the machines and their components. The data is collected with the help of sensors. There has to be a seamless method to manage data acquisition procedure considering different types of data availability. Another important factor is to select proper sensors with respect to type and specification. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2.2">Extracting Insights from Data</head><p>The data collected needs to be processed and analyzed to generate meaningful insights. There are a number of tools available today to process the data to convert it into useful information. New algorithms are being designed every day to cater to the business requirements of manufacturing companies. Structural health analysis focuses on estimating the useful life of a part and predicting a failure which would help in reducing the plant shutdown time.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2.3">Cyber</head><p>The central piece in this design is controlled by Cyber. Information is collected from connected machines, and a machine network is formed. Post the data collection, specific analytics-related tasks are performed to extract insights from the data. The insights generated from the data are useful to compare the performance of a machine with all the other machines.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2.4">Cognition</head><p>Leveraging the insights and knowledge gathered through CPS to support decisions taken in a manufacturing environment. Infographics are used at this level to transfer the knowledge gained from the data to the end user of that information.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2.5">Configuration</head><p>Correct actions are taken after the information is passed on to the machines to make them self-adaptive. This level acts as resilience control system which helps the machines to take the correct decisions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.3">Manufacturing Industry Scenario</head><p>There are a lot of changes happening in the manufacturing industry. Internet of Things is bringing about a revolution in terms of the working in a manufacturing environment. Intelligent networks are being created with machines connected and real-time decisions taken by machines after consulting among themselves. It is estimated that in the next five years, about 85% of the companies would have implemented Industry 4.0. In the case of manufacturing industry, the CPS includes storage systems, smart machines, and production facilities.</p><p>In case of smart factories, products are identified, located, and moved by routes identified by the system. The systems work in tandem with the business processes in real time along with the external networks, across the value chain. This impacts the entire supply chain from design, ordering and sales to service and maintenance. It involves integration of business units that were working independently. Operational technology is now working along with the general office IT. This implies there would be more suppliers that would have higher transport times along with more manufacturing steps. With the implementation of IoT, productivity and resource efficiency are expected to increase by 18% in the coming five years owing to lean and flexible manufacturing. Inventory costs are also expected to decrease by about 2.6% annually. Even though the implementation of IoT helps manufacturing in many ways, it also carries with itself certain risks to security. The processes which were working independently are now more prone to information leakage due to this increased vulnerability.</p><p>Manufacturers are increasingly using IoT with millions of connected devices present in the manufacturing units and on the shop floor. This technology is helping the manufacturers in reaping a lot of benefits and is driving a transformative change. Nowadays, customer interaction is real-time performance monitoring and usage patterns identification to enable the customer with the best option. This helps in creating a positive supply chain wherein it is the intelligence which is being exchanged among the manufacturers and the customers. Today, a manufacturer of tires would not only sell a tire but will also incorporate certain sensors in the tire which will not only help the customer know more about the tire pressure and fuel consumption, but it will also help the manufacturer in analyzing the data and then making recommendations in product manufacturing. This will also help in providing services such as predictive maintenance which will enable the productivity increase by about 30%. As per McKinsey &amp; Company, the economic impact of Industrial IoT could be about USD 3.7 trillion by 2025.</p><p>One of the interesting applications in today's manufacturing environment is 3D printing. Though most of the manufacturing companies are yet to implement 3D printing for high-volume production, it is poised to disrupt manufacturing. More and more manufacturing companies believe that they plan to use 3D printing in the manufacturing processes. This transformation may increase the risk to intellectual property and trade secrets. It is because the 3D printers carry with them the intellectual property encoded as part of the printing instruction. With the increase in theft of intellectual property increases, many manufacturing companies are taking the threats seriously and are in the process of evaluating risks associated with incorporating trade secrets in 3D printing digital files. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.4">Assessing the Risks</head><p>The first step in assessing the risks associated with the implementation of technologies such as IoT involves tracking four different entity types through the production process. Intersection maps are used to identify each entity as it advances through the production process generating a string of related entities. This first step helps in highlighting the intersections where cyber-physical weaknesses most likely occur.</p><p>The four entities are cyber, physical, cyber-physical, and human.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.4.1">Cyber</head><p>This entity is useful for pre-processing, transferring, managing, saving, or postprocessing of digital information. Examples include: material requirements planning systems, enterprise resource planning systems, product lifecycle management platforms, CAE tools, data-mining software, data management systems, and quality control reporting systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.4.2">Physical</head><p>This entity is tangible in nature and its role in the manufacturing system is not completely governed by automated systems. Examples include: raw materials, manufactured parts, manually operated machines, and manually operated inspection equipment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.4.3">Cyber-Physical</head><p>This entity is traced through the production process and is defined as any entity comprised of cyber and physical elements that autonomously interact together, with or without human supervision. Examples include: computer numerical control machines, data acquisition systems, and coordinate measurement machines.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.4.4">Human</head><p>Human here is defined as any person who has an opportunity to interact with other entities within the manufacturing system. Examples include: information technology (IT) support staff, designers, manufacturing engineers, machinists, quality engineers, maintenance crew members, shipping and handling personnel, and visitors.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.5">Impact Assessment of Cyber-Physical Vulnerability</head><p>Vulnerabilities are evaluated for each node within an intersection, its characteristics are then assessed. The characteristics are used as metrics to determine the impact of exploiting the vulnerability. Examples of such intersections include:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.5.1">Loss of Information</head><p>The information that is lost in the process of completion of a node. All of the information of a CAD design for a manufactured part is not accounted for in the validation of the CAD file. Some information is lost or modified when transitioning away from the node with the intersection of the CAD file and the human.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.5.2">Inconsistency</head><p>The level of variability that can occur due to operator changes, retooling, machine setups, etc. For example, a task can be performed in multiple ways using different machine and operators configurations leading to a large range in the variation of that certain intersection.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.5.3">Relative Frequency</head><p>The number of times an intersection is repeated during the production process. It refers to the recurring specific intersection with identical details.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.5.4">Lack of Maturity</head><p>Lack of experience in a particular skill might lead to differences in the product. For example, a novice machinist is expected to be less mature as compared to the one who has been machining parts for ten years. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.5.5">Time Until Detection</head><p>The amount of time passed between a node perturbation and its possible detection. It could be in terms of time or with reference to the distance in the process.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.6">Challenges Faced by the Manufacturing Environment</head><p>The rate at which IoT is increasing in the manufacturing world is faster than what cybersecurity can keep. The security threats looming over the manufacturing industry is the result of the following opportunities for the hackers to exploit:</p><p>• Use of IoT devices with minimal or no capability of encryption and data security.</p><p>• Gap between the information technology and operations technology teas. There are vulnerabilities if the architecture is not well built. • Lack of awareness on the topic. There are no guidelines in most of the manufacturing companies regarding the steps to be taken in case of a hack. • Reluctance to carry out a risk assessment and including cybersecurity as a risk.</p><p>• The threats could vary depending on the purpose of the attack and on the attacker.</p><p>A few examples of how security can be compromised are mentioned below: • Employee passing on confidential information to a competitor using physical storage devices such as a hard drive. • Switching to a new system or a machine which already has a built-in vulnerability to cause security threats. • Ransomware leaking data that is not stored properly.</p><p>• Stealing customer's personal information and leveraging that to tarnish the company's image. • Foreign entities trying to interfere in industrial agreements between two nations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.7">Consequences of Using Connected Products</head><p>In an advanced manufacturing business environment, there is a need to use the state of the art technology to remain competitive. As per a survey taken by US and European manufacturing executives, smart and connected products are the second most important advanced manufacturing technology for creating and maintaining competitiveness. Along with this technology comes risk associated with them and as a result, manufacturers should be careful to use this technology without putting the organization at risk.</p><p>To understand the risks associated with these connected products, manufacturers should do the following:</p><p>• Segment the risks associated with connected product data collection and that with remote control • Set up a cyber-talent team and engage them in key innovation initiatives to build the capabilities helpful in cyber risk management • Involve the legal team into the making certain policies in case of data breach incidents • Evaluate all the technologies that are in place if they are able to detect the anomalies in the system.</p><p>As the manufacturing environment is driven by market forces, the pursuit for competitive advantage, and the persistent quest of emerging digital technologies, they need to consider the implications and risks of connectivity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.8">Hackers Use End Points to Target the Manufacturers</head><p>One of the ways to hack a manufacturer's network is through e-mails. Employees might end up clicking a phishing e-mail and download attachments which might be malicious or in some cases the credentials might be compromised. The system should be prepared for these malicious activities and should be able to detect any anomalies.</p><p>Nearly 80% of the security can be handled proactively by following certain best practices in the organization. These can be ensuring passwords are safe by changing the passwords frequently and setting them in a not easy-to-guess pattern. Customer information has to be encrypted and stored safely. Access to subcontractors should be limited to avoid any compromise on data on their end.</p><p>There should be trainings and mock drills in the area of cybersecurity as well. A disaster recovery workshop would help in understanding the processes that would be undertaken in case of a data breach or a cyber-attack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.9">The Business Impact of Implementing Cybersecurity Infrastructure</head><p>Cybersecurity is increasingly becoming a business concern for most of the companies now. Mentioned below are a few examples wherein the manufacturers can benefit from implementing the cybersecurity infrastructure:</p><p>• Changing regulations such as data protection regulations mandates the companies to comply with these regulations which are coming into force in 2018. This will make the companies responsible for ensuring security for customer data and would be fined heavily in case of a data breach. • In order to serve the government such as Ministry of Defence, all the companies need to be compliant the government's cybersecurity guidelines. This is poised to be true for other sectors as well such as for supply chain requirements for other government sectors such as automotive and aerospace. • Cybersecurity audits will soon become a norm in the manufacturing industry, and there will be a need for cybersecurity certification. • In case of merger and acquisition discussions, companies that do not have a strong cybersecurity are valued low.</p><p>Steps to reduce cybersecurity risks</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>• Identify</head><p>Identifying the data sharing points and checking on who all have access to business information. Creating guidelines for data sharing and setting processes in case of a data breach.</p><p>• Protect</p><p>Limiting the access to data only to employees those actually require the data for work.</p><p>Installing and setting up firewalls on business network. Securing the wireless access points and using encryption for business information. It also includes disposing of old hard drives and computer safely.</p><p>• Detect Keep a track of the anomalies with the help of anti-virus, anti-malware, and other software programs.</p><p>•</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Respond</head><p>Prepare a plan to handle data breach situations.</p><p>• Recover</p><p>Taking timely backups of important business information and data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.10">Recommendations on Cybersecurity</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.10.1">Public-Private Partnership Focused on Manufacturing Supply Chain Cybersecurity</head><p>Owing to the unique characteristics of manufacturing operations, cybersecurity in manufacturing cannot be addressed as the aggregated outcome of independent efforts. The aim of implementing cybersecurity will be met through effective coordination of a decentralized national effort. In areas such as Defense, cybersecurity requirements pose particular challenges such as ensuring validation and part integrity, tracking production in a supply chain network, maintaining reliable design and production data. An effective mechanism such as a public-private partnership focused on manufacturing supply chain cybersecurity is required for many stakeholders to work in partnership. Some of key points in such a partnership include: • Prepare a national strategy for strengthening manufacturing cybersecurity that would coordinate and identify existing public and private efforts. Also, identify additional resources adequate to address the diverse testing, training, and R&amp;D needed to meet the challenges in manufacturing cybersecurity. • Implement the practices of existing cybersecurity to manufacturing immediately to reduce the risks associated with cyber-attacks. • Coordinate among various facilities and mechanisms to address R&amp;D challenges.</p><p>• Collaborate at industry-wide level through mechanisms such as sector-specific Information Sharing and Analysis Centers/Information Sharing and Analysis Organizations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.10.2">Setting up a Federal Research Initiative to Address Issues Related to Cybersecurity in Manufacturing</head><p>Setting up teams for fundamental research in the area of cybersecurity should address the issues related to security for cyber-physical systems. Some of the activities that could be included:</p><p>• Create security architectures for manufacturing that define the OT and IT functions, standards, and integration requirements. The architectures should be applicable to a diverse range of manufacturing devices, operations, and enterprises, and different vendor control, modeling, and automation platforms. • Establish software and hardware trust anchor frameworks for securely connecting and managing many devices, systems, and data in manufacturing systems without central management.</p><p>• Develop systems-of-systems architecture design and analysis that integrate with cloud services.</p><p>R&amp;D activities that would contribute to critical near-term objectives include:</p><p>• Automated vulnerability assessment and detection tools. Many tools currently exist but are not tuned for manufacturing or the operational requirements of a production setting. • Analytics-based detection-networks or machines-and use of digital twins.</p><p>• Tools to audit the extent of attacks.</p><p>• Automated, robust part validation technology, including automated distributed ledger technologies such as blockchain, for trusted parts and data validation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.11">Conclusion</head><p>A manufacturing company should develop a cybersecurity plan to sustain in an industrial ecosystem. This becomes even more important when we consider the digital transformation that is happening in the manufacturing sector, the increasing use of sensors in the manufacturing processes and in the products that are developed. Innovation and risk do go hand in hand especially in the case of manufacturing. The risks associated with cyber-attacks increase multiple times with each addition of a data sharing point as the threat can arise from a wide variety of points across the company's value chain. In today's manufacturing environment, security is being compromised. Businesses are not only responsible for the risk associated with their internal cyber risk but are also responsible for the risk associated with their suppliers, customers, partners, and vendors. To capture the business value associated with the increase in efficiency due to technology, a manufacturing company should address the issue of cyber risk and should be prepared to handle a situation wherein there is a data breach. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>Need for Cybersecurity in Manufacturing … 151</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Cyber-physical Systems Architecture for Self-Aware Machines in Industry 4.0 Environment</title>
+		<author>
+			<persName><forename type="first">Behrad</forename><surname>Bagheri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shanhu</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hung-An</forename><surname>Kao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jay</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2015.06.318</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1622" to="1627" />
+			<date type="published" when="2015" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Cyber-physical Vulnerability Assessment in Manufacturing Systems</title>
+		<author>
+			<persName><forename type="first">Zach</forename><surname>Desmit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmad</forename><forename type="middle">E</forename><surname>Elhabashy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lee</forename><forename type="middle">J</forename><surname>Wells</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jaime</forename><forename type="middle">A</forename><surname>Camelio</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2016.08.075</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Manufacturing</title>
+		<title level="j" type="abbrev">Procedia Manufacturing</title>
+		<idno type="ISSN">2351-9789</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="1060" to="1074" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Introduction to cyber manufacturing</title>
+		<author>
+			<persName><forename type="first">Jay</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Behrad</forename><surname>Bagheri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chao</forename><surname>Jin</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.mfglet.2016.05.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Manufacturing Letters</title>
+		<title level="j" type="abbrev">Manufacturing Letters</title>
+		<idno type="ISSN">2213-8463</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="11" to="15" />
+			<date type="published" when="2016-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Why manufacturers should be mindful of cybersecurity</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Polyakov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Forbes</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">The Canadian Prime Minister expresses his dis- pleasure with the aid which the Canadian Manu- facturers&apos; Association has given him, 1932</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Raymond</surname></persName>
+		</author>
+		<idno type="DOI">10.4324/9781315020037-33</idno>
+	</analytic>
+	<monogr>
+		<title level="m">British Economic Policy and Empire, 1919-1939</title>
+				<imprint>
+			<publisher>Routledge</publisher>
+			<date type="published" when="2013-11-05" />
+			<biblScope unit="page" from="197" to="198" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

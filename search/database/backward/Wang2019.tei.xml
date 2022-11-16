@@ -1,0 +1,1512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Sensor Control in Anti-Submarine Warfare—A Digital Twin and Random Finite Sets Based Approach</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>MDPI AG</publisher>
+				<availability status="unknown"><p>Copyright MDPI AG</p>
+				</availability>
+				<date type="published" when="2019-08-06">6 August 2019</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Peng</forename><surname>Wang</surname></persName>
+							<idno type="ORCID">0000-0003-0871-5214</idno>
+							<affiliation key="aff0">
+								<orgName type="department">College of Systems Engineering</orgName>
+								<orgName type="institution">National University of Defense Technology</orgName>
+								<address>
+									<postCode>410073</postCode>
+									<settlement>Changsha</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Mei</forename><surname>Yang</surname></persName>
+							<idno type="ORCID">0000-0003-0871-5214</idno>
+							<affiliation key="aff0">
+								<orgName type="department">College of Systems Engineering</orgName>
+								<orgName type="institution">National University of Defense Technology</orgName>
+								<address>
+									<postCode>410073</postCode>
+									<settlement>Changsha</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yong</forename><surname>Peng</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">College of Systems Engineering</orgName>
+								<orgName type="institution">National University of Defense Technology</orgName>
+								<address>
+									<postCode>410073</postCode>
+									<settlement>Changsha</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jiancheng</forename><surname>Zhu</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">College of Systems Engineering</orgName>
+								<orgName type="institution">National University of Defense Technology</orgName>
+								<address>
+									<postCode>410073</postCode>
+									<settlement>Changsha</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Rusheng</forename><surname>Ju</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">College of Systems Engineering</orgName>
+								<orgName type="institution">National University of Defense Technology</orgName>
+								<address>
+									<postCode>410073</postCode>
+									<settlement>Changsha</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Quanjun</forename><surname>Yin</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">College of Systems Engineering</orgName>
+								<orgName type="institution">National University of Defense Technology</orgName>
+								<address>
+									<postCode>410073</postCode>
+									<settlement>Changsha</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Sensor Control in Anti-Submarine Warfare—A Digital Twin and Random Finite Sets Based Approach</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Entropy</title>
+						<title level="j" type="abbrev">Entropy</title>
+						<idno type="eISSN">1099-4300</idno>
+						<imprint>
+							<publisher>MDPI AG</publisher>
+							<biblScope unit="volume">21</biblScope>
+							<biblScope unit="issue">8</biblScope>
+							<biblScope unit="page">767</biblScope>
+							<date type="published" when="2019-08-06">6 August 2019</date>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.3390/e21080767</idno>
+					<note type="submission">Received: 12 June 2019; Accepted: 2 August 2019;</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T13:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>digital twin</term>
+					<term>anti-submarine warfare (ASW)</term>
+					<term>data assimilation</term>
+					<term>online sensor control</term>
+					<term>random finite set (RFS)</term>
+					<term>sequential Monte Carlo (SMC)</term>
+					<term>Bayesian inference</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Since the submarine has become the major threat to maritime security, there is an urgent need to find a more efficient method of anti-submarine warfare (ASW). The digital twin theory is one of the most outstanding information technologies, and has been quite popular in recent years. The most influential change produced by digital twin is the ability to enable real-time dynamic interactions between the simulation world and the real world. Digital twin can be regarded as a paradigm by means of which selected online measurements are dynamically assimilated into the simulation world, with the running simulation model guiding the real world adaptively in reverse. By combining digital twin theory and random finite sets (RFSs) closely, a new framework of sensor control in ASW is proposed. Two key algorithms are proposed for supporting the digital twin-based framework. First, the RFS-based data-assimilation algorithm is proposed for online assimilating the sequence of real-time measurements with detection uncertainty, data association uncertainty, noise, and clutters. Second, the computation of the reward function by using the results of the proposed data-assimilation algorithm is introduced to find the optimal control action. The results of three groups of experiments successfully verify the feasibility and effectiveness of the proposed approach.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Submarines are the main combat forces of modern maritime warfare, and the major threats to maritime security. Anti-submarine warfare (ASW) is a type of warfare that depends on surface warships, aircraft, or submarines to fight against enemy submarines. The key of ASW is to quickly identify and localize as many enemy submarines as possible. Sensor control is the key technology for the victory in ASW, so we focus on the innovation of the online sensor control method. Many works have been done to apply simulation-based approaches in naval warfare research, but there are quite a few effective methods for combining simulation technologies with the real ASW in real time. In this paper, we study how to control the sensor of anti-submarine ships in ASW by employing simulation theory, random finite set (RFS) theory, and digital twin theory.</p><p>The sensor control problem is also known as sensor management problem. The sensor equipped on the anti-submarine ship can perform many different actions including moving to designated areas, searching in certain directions, etc. In real ASW, the anti-submarine ship usually takes tactical actions to estimate the accurate distance and guarantee the observability <ref type="bibr" target="#b0">[1]</ref><ref type="bibr" target="#b1">[2]</ref><ref type="bibr" target="#b2">[3]</ref>. Different actions have different effectiveness; some actions will be effective for sensing the submarine, while some others not. Here the goal of sensor control is to ensure maximum efficiency of sensors and provide more accurate measurements to the simulation system. Finding the optimal control action is an urgent need in practical application. In this paper, the objective of sensor control in ASW is choosing control actions online so that the utility of sensors is maximized. Here, sensor control means sequential decision making, where each control decision improves the utility of sensors and helps to win the victory in ASW.</p><p>In <ref type="bibr" target="#b3">[4]</ref>, a practical implementation of sensor control based on Kullback-Leibler divergence is proposed for the first time. In <ref type="bibr" target="#b4">[5]</ref>, the Rényi divergence is used for deriving the reward function. In <ref type="bibr" target="#b5">[6]</ref>, Kullback-Leibler discrimination is used as the reward function for sensor control, but the authors did not provide the implementation method. In <ref type="bibr" target="#b6">[7]</ref>, the posterior expected number of targets (PENT)-based reward function is given. PENT has been successfully applied in some applications <ref type="bibr" target="#b8">[8,</ref><ref type="bibr" target="#b9">9]</ref>. In <ref type="bibr" target="#b10">[10]</ref>, the Cauchy-Schwarz divergence is used, and the analytical solution is also derived. These works all depend on the expected divergence or information gain between the predicted and posterior densities for choosing the optional control action. Their major limitations are the problems of significant computational cost, and too little use of simulation methods. The simulation methods are the key for taking more complex dynamic application scenarios into consideration. It is worth mentioning that some divergences usually fail to be analytically computed.</p><p>RFS-based Bayesian inference has an advantage in dealing with situations where the number of targets and received detections are random, and the targets' states and detections are also random. The RFS-based Bayesian inference can successfully overcome the limitations of the conventional vector-based Bayesian inference, and is gradually applied to the sensor control problem. In <ref type="bibr" target="#b11">[11]</ref>, the Rényi divergence and RFS-based reward function is derived, and the probability hypothesis density-based filter is adopted for implementing the sensor control method. In <ref type="bibr" target="#b12">[12]</ref>, the RFS and Rényi divergence-based reward function is derived, and the CB-MemBer filter-based implementation of the sensor control method is proposed. In <ref type="bibr" target="#b13">[13]</ref>, the RFS-based analytical solution for Cauchy-Schwarz divergence is derived. In <ref type="bibr" target="#b14">[14]</ref>, the Cauchy-Schwarz divergence and generalized labeled multi-Bernoulli filter-based sensor control method is derived. In <ref type="bibr" target="#b15">[15]</ref>, a labeled multi-Bernoulli filter and Cauchy-Schwarz divergence-based constrained sensor control method is proposed. In <ref type="bibr" target="#b16">[16]</ref>, the authors control the sensors by using the expected risk reduction between the multi-target predicted and updated densities.</p><p>The framework of partially observed Markov decision process (POMDP) is used to study the problem of making the next decision by using the past decisions and past observations <ref type="bibr" target="#b17">[17]</ref>. The current information state, a set of admissible sensor actions and the reward function associated with each action are the main elements of POMDP. The above-mentioned works all adopt the framework of POMDP. POMDP is widely used in robot control, moving target searching, object identification, and so on. POMDP depends on the assumption that the states of the studied system are determined by the Markov process. POMDP is lack of use of the prediction and evaluation ability of simulation theory, so it fails to take many complex simulation scenarios into consideration. Since it focuses on the basic mathematical theory, its ability to apply new information technologies is also weak. POMDP depends on the connection of the virtual space and the physical space, but it fails to tell us how to connect these different spaces. In this paper, we propose to use a more promising framework to solve the problem of sensor control in ASW.</p><p>Recently, digital twin is seen as the best way to enable the interoperability and integration between the real and simulated worlds <ref type="bibr" target="#b18">[18]</ref>. At present, there is no formal and consistent definition of digital twin, and there are many different versions of definitions of digital twin. Different industries and application fields have different definition perspectives and methods. However, the core ideas of all definitions are similar. Grieves defines the digital twin as "a set of virtual information constructs that fully describes a potential or actual physical manufactured product from the micro atomic level to the macro geometrical level" <ref type="bibr" target="#b19">[19]</ref><ref type="bibr" target="#b20">[20]</ref><ref type="bibr" target="#b21">[21]</ref>. Shafto et al. define the digital twin as "an integrated multiphysics, multiscale simulation of a vehicle or system that uses the best available physical models, sensor updates, fleet history, etc., to mirror the life of its corresponding flying twin" <ref type="bibr" target="#b22">[22,</ref><ref type="bibr" target="#b23">23]</ref>. These definitions are the most cited, but for the research of sensor control in ASW, they seem to be unsuitable. In this paper, digital twin depends on creating the simulation models for related real entities in the digital way to simulate their behaviors, serving as a bridge between the real and the simulated systems <ref type="bibr" target="#b24">[24,</ref><ref type="bibr" target="#b25">25]</ref>. The adaptability of the digital twin-based framework to ASW is reflected in the following aspects:</p><p>1. Digital twin breaks the barriers between the real ASW and the simulated ASW, and enables real-time communication in both directions. 2. Digital twin can make full use of the prediction, evaluation, and analysis ability of simulation system to evaluate available courses of actions for sensor control. 3. Digital twin paves a way for the cyber-physical integration of ASW, which is an important bottleneck to enable intelligent and adaptive decision making. 4. Digital twin can enable the integrated application of new-generation information technologies, such as internet of things (IoT), 5G, AI, cloud, edge computing, and so on. 5. Digital twin can take full advantage of POMDP and the simulation-based approach to support more complex application scenarios.</p><p>The backbone technology of digital twin is simulation for prediction, evaluation and analysis <ref type="bibr" target="#b24">[24]</ref>. The simulation-based prediction with high confidence is the fundamental function of digital twin. The vision of the digital twin itself refers to a comprehensive functional description, evaluation, and prediction together with all available operational data of an entity, target, or system, which includes more or less all information which could be useful in all the current and subsequent phases <ref type="bibr" target="#b26">[26]</ref>. The digital twin in ASW is not only used to describe and predict the behaviors of the submarine in the real ASW, but also to derive and evaluate solutions and course of actions (COAs) relevant to the real ASW.</p><p>The digital twin theory has been quite popular in recent years, but most of the research related to it only focuses on the theoretical research and requirement analysis. The practical application and implementation of digital twin has rarely been mentioned. This paper is the first attempt to apply and implement the digital twin theory. Simulation models for ASW are very complicated now, but still fail to describe the real ASW accurately. The main reason is the separation of simulation system and the real system, and the second reason is the failure to simultaneously integrate online measurements into the running simulation models.</p><p>In the proposed digital twin-based framework of sensor control in ASW, the online measurements are dynamically assimilated into the running simulation models, and the running simulation models guide the real ASW process in reverse. The intuitive application of digital twin for ASW is to obtain estimated states or parameters of the real ASW system by combining the real-time measurements with a simulation model <ref type="bibr" target="#b28">[27]</ref>. Since real-time measurements can indicate the latest updated states of the real system, we focus on the problem of effectively assimilating continuous streams of data into running simulation models. At the same time, we have also studied the computation of reward function by using the results of the proposed data-assimilation algorithm.</p><p>The rest of the paper is structured as follows. We give the digital twin and RFS-based framework of sensor control in ASW in Section 2. The proposed RFS-based models for digital twin are introduced in Section 3. The RFS-based data-assimilation algorithm is detailed in Section 4. Section 5 describes the computation of the reward function by using the results of the proposed data-assimilation algorithm. Experimental results are detailed in Section 6, and the conclusions are given in Section 7.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Digital Twin and RFS-Based Framework of Online Sensor Control</head><p>As it is shown in Figure <ref type="figure">1</ref>, the digital twin in ASW is mainly used for decision making. The digital twin can be regarded as a virtual equivalent or dynamic digital representation of the real ASW <ref type="bibr" target="#b29">[28]</ref>. The simulated ASW in this framework is used to predict the emergent behaviors in the real ASW, evaluate the COAs and choose the best one for the operator. The simulated ASW evolves with the real ASW along the whole life cycle and integrates the currently available and commonly required data and knowledge. We can get the prediction, evaluation, and analysis of an enemy submarine by means of precise simulations. Digital twin can assist in ensuring information continuity throughout the whole operation, sensor control, and system behavior predictions in ASW based on simulations. To improve the coordination between the simulation system and the real system for sensor control in ASW, we propose the digital twin-based framework of online sensor control by incorporating RFS theory. The technical view of the proposed framework is given in Figure <ref type="figure" target="#fig_0">2</ref>. Since there are two constituent objects (simulated space and physical space) in digital twin, in this paper, we propose two corresponding technologies to support the implementation of the digital twin-based framework: one is the RFS-based data-assimilation algorithm for assimilating real-time measurements into the running simulation model, and the other one is the computation of the reward function by using the results of the proposed data-assimilation algorithm for finding the optimal control action.</p><p>Just as it is shown in Figure <ref type="figure" target="#fig_0">2</ref>, the proposed feed-back control loop incorporates real-time measurements into the running simulation model while dynamically managing the physical sensors to refine measurements. The physical ASW space provides the simulation inputs to the simulation model, and it also provides the real states to the physical sensors.</p><p>The RFS-based simulation model provides the predicted states to the RFS-based measurement model. The simulation model helps to analyze potential alternative solutions for the anti-submarine ship, and evaluate the impact of possible control actions for the online sensor control method. The RFS-based measurement model characterizes the behaviors of the physical sensor on the anti-submarine ship. It uses the predicted states outputted by the RFS-based simulation model to generate the predicted measurements and provides them to the data-assimilation process. The RFS-based simulation model and measurement model are the main elements of the simulated ASW space.</p><p>The digital twin is supported by data-assimilation algorithm which can incorporate real-time measurements into the running simulation models for more accurate prediction of the physical ASW system, and it can also evaluate the COAs <ref type="bibr" target="#b30">[29]</ref>. RFS-based data-assimilation process is the foundation of digital twin and is in charge of fusing real-time measurements to estimate the states of the physical ASW space <ref type="bibr" target="#b31">[30]</ref>. There are two tasks for the data-assimilation process, the first is to dynamically update the current simulation states of the physical ASW space and provide the updated states to the simulation model for subsequent simulation running; the second is to provide the updated states and corresponding weights to the reward function computation module for computing the reward function.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RFS based Data Assimilation (Simulation based Prediction and Evaluation)</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RFS based Simulation Model</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RFS based Measurement Model</head><p>Reward Function Computation  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">RFS-Based Modeling of the Simulated ASW</head><p>The simulated ASW in digital twin depends on two kinds of models to describe the physical ASW: one is the Markov transition density-based simulation model; the other one is the measurement likelihood-based measurement model. Here we use the RFS-based simulation model to model the state transition of the enemy submarine, and the RFS-based measurement model to model the physical sensor of anti-submarine ship.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">RFS-Based Data Model</head><p>Conventional estimation techniques fail to support digital twin for ASW, because many sophisticated simulation models of ASW cannot provide the analytical mathematical structures for deriving the functional forms of probability distribution. The sequential Monte Carlo (SMC) method which is also named as particle filter (PF), is the most widely used data-assimilation algorithm in recent years <ref type="bibr" target="#b30">[29]</ref>. PF-based data-assimilation algorithm in traffic simulation is presented by Xu in <ref type="bibr" target="#b32">[31]</ref> and Wu in <ref type="bibr" target="#b33">[32]</ref>. PF-based data-assimilation algorithm in wildfire simulation is presented by Hu in <ref type="bibr" target="#b34">[33,</ref><ref type="bibr" target="#b35">34]</ref>. They all use the same non-parametric statistic inference method based on PF, because PF has no assumptions on the distribution and linearity of the simulation model.</p><p>The conventional PF-based data-assimilation algorithm depends on the vector-based representation of data including states and measurements. The vector-based representation makes the vector-based data-assimilation algorithm have the following essential disadvantages:</p><p>1. It is based on the assumption that the studied system is a single dynamic system that is permanently active. It cannot be used for the dynamic system that switches on and off randomly. Switching is quite common for submarine activity, for example, a submarine may enter and leave a battle area at random instance. 2. It is based on the assumption that the detection is perfect with no false detections and no missed detections, and it also needs the number and ordering of measurements to be previously designated. Furthermore, it cannot jointly estimate the number of submarines and the states of each submarine.</p><p>Being different from the conventional vector-based representation, the RFS-based representation can take the more complex situations into consideration. The RFS-based representation of states can support the transition of submarines from one mode to another. RFS-based representation of states enables the submarine number to be constantly varying. For example, completely new submarines can enter a scene randomly. Submarines can likewise leave a scene, as when disappearing behind some other occlusion, or they can be damaged or destroyed. The RFS-based representation of measurements enables us to take the imperfection of the sensors into consideration. The sensors on the anti-submarine ship can fail to generate a measurement of the submarine state, or pick up false measurements. Since there is no information on which state generates the measurement, and the number of measurements is a random variable, RFS rather than vector-based representation can be more useful.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">RFS-Based Measurement Model</head><p>The measurement model is in charge of mapping the simulation states to the measurements collected by the sensor. The sensor on the anti-submarine ship provides measurements with imperfect enemy submarine detection including noises, clutters, and missed detections. Detection uncertainty and clutters in the measurements can be described by the union of Bernoulli RFS and Poisson RFS as introduced in <ref type="bibr" target="#b36">[35,</ref><ref type="bibr" target="#b37">36]</ref>. The sensor sequentially gives an unordered finite set of measurements Z k ⊂ Z, and never indicates which of these measurements is generated from the enemy submarine.</p><p>The measurements produced by the sensor can be mathematically modeled as an RFS Z = {z 1 , z 2 , . . . , z m }. Its major advantage is that both the measurements' number m = |Z| and the value of the constituent vector z ∈ Z in the measurement space Z ⊆ R n z are random. It makes no assumptions on the order of detections in the RFS Z. The measurements for ASW can be represented as Z = C ∪ W, here C is the Poisson random finite subset of false detections and W is the Bernoulli random finite subset corresponding to the enemy submarine.</p><p>The behavior of the sensor can be described by the conventional likelihood function g(z|x) which characterizes the probability that measurement z is generated by the submarine state x.</p><p>Here we can have g(z|x k ) = N (z; h(x k ), ω k ). If a measurement z ∈ Z k is generated from an enemy submarine, then the relationship between z ∈ Z k and the submarine state x k can be described by following equation:</p><formula xml:id="formula_0">z = h(x k ) + ω k (1)</formula><p>where ω k is a zero-mean independent Gaussian noise with variance σ 2 θ , and h(x k ) is in charge of modeling the true submarine bearing or range at time k. In the following part of this section, we will derive the specific mathematical form for the measurement model denoted by ϕ(Z|X), where X is the Bernoulli RFS of simulation states. The measurement model ϕ(Z|X) can be written in two specific forms, one for X = ∅ and the other for X = {x}.</p><p>Firstly, if the enemy submarine does not exist in the real operational area, the measurement set will only consist of clutters. It means that X = ∅ and Z = C ∪ ∅ = C. Here we model the number of clutters in the measurement set by the following Poisson distribution:</p><formula xml:id="formula_1">P{|C| = s} = e −λ λ s s! , s = 0, 1, 2, . . . (<label>2</label></formula><formula xml:id="formula_2">)</formula><p>here λ is the average number of clutters. Clutters are modeled as independent identically distributed random vectors conditioned on |C|. The values of these random vectors are taken from the measurement space Z with probability density function (PDF) c(z). Here c(z) = (2π) −1 is the time invariant spatial distribution of clutters. The measurement model can be modeled as follows:</p><formula xml:id="formula_3">ϕ(Z|∅) = κ(Z) = e −λ ∏ z∈Z λc(z) (3)</formula><p>Secondly, if the enemy submarine exists in the real operational area with state X = {x}. The measurement RFS W corresponding to the enemy submarine can be modeled as a Bernoulli RFS conditioned on X = {x}. If the submarine fails to be detected, we have W = ∅. If the submarine is detected and causes a measurement z, we have W = {z}. To derive the measurement model ϕ(Z|{x}), we should specify the PDF of the RFS W conditioned on {x}. This PDF can be modeled as follows:</p><formula xml:id="formula_4">η(W|{x}) =        1 − p D (x) if W = ∅ p D (x) • g(z|x), if W = {z} 0, otherwise<label>(4)</label></formula><p>where p D (x) is the probability of detecting the submarine state x.</p><p>The measurement model ϕ(Z|{x}) can be represented as ϕ(Z|{x}) = ∑ W⊆Z η(W|{x})κ(Z \ W), here \ is the set-difference operation and κ was defined by (3). Since the RFS W is a Bernoulli RFS, and the summation is computable, we can get the measurement model for the case X = {x} as follows:</p><formula xml:id="formula_5">ϕ(Z|{x}) = η(∅|{x}) • κ(Z) + ∑ z∈Z η({z}|{x}) • κ(Z \ {z}) (5) = κ(Z) 1 − p D (x) + p D (x) ∑ z∈Z g(z|x) κ(Z \ {z}) κ(Z) (6)</formula><p>In summary, the RFS-based measurement model for ASW can be represented as follows:</p><formula xml:id="formula_6">ϕ(Z|X) =        κ(Z), if X = ∅ κ(Z) 1 − p D (x) + p D (x) ∑ z∈Z g(z|x) κ(Z\{z}) κ(Z) , if X = {x} 0, otherwise<label>(7)</label></formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">RFS-Based Simulation Model</head><p>Digital twin requires a simulation model that can predict possible future states. To give a unified description of the enemy submarine presence/absence in the operational area and its kinematic state, we employ the Bernoulli RFS-based simulation model to describe the dynamics of enemy submarine at discrete time k. The state space is ∅ ∪ S(X ), where S(X ) is a set of all singleton {x} and x ∈ X . Here we use PDF to denote the uncertainty of the submarine's states which are evolving according to the state space model in discrete time as follows:</p><formula xml:id="formula_7">X k = f k|k−1 (X k−1 ) + v k (8)</formula><p>here f k|k−1 denotes the deterministic part of the true evolution equation which is in charge of mapping the state to the next time step, and v is the stochastic part of the true evolution that we fail to capture deterministically, and it makes assimilating online measurements necessary.</p><p>If the enemy submarine is existing in the real operational area, the state X k will be a singleton, and can be modeled by the Markov process whose Markov transition density is denoted by</p><formula xml:id="formula_8">π k|k−1 (x k |x k−1 ) during the simulation interval T k = t k − t k−1 .</formula><p>The submarine state vector is adopted as follows:</p><formula xml:id="formula_9">x t k = x t kẋ t k y t kẏ t k T<label>(9)</label></formula><p>where (x t k , y t k ) and (ẋ t k ,ẏ t k ) is respectively the enemy submarine position and velocity in Cartesian coordinate. The state vector of the anti-submarine ship x o k is similarly represented by</p><formula xml:id="formula_10">x o k = x o kẋ o k y o kẏ o k T . Here π k|k−1 (x k |x k−1 )</formula><p>is the nearly constant velocity (NCV) model and relies on the relative state vector which is defined as follows:</p><formula xml:id="formula_11">x k = [x kẋk y kẏk ] T = x t k − x o kẋ t k −ẋ o k y t k − y o kẏ t k −ẏ o k T . (<label>10</label></formula><formula xml:id="formula_12">)</formula><p>The specific mathematical form of π k|k−1 (x k |x k−1 ) is described by the state space model as follows:</p><formula xml:id="formula_13">x k+1 = F k x k − S k+1,k + ε k (11)</formula><p>here F k is the deterministic part of the true evolution equation, S k+1,k is a deterministic matrix related to the effect of anti-submarine ship acceleration, and ε k ∼ N (0, Q k ) is stochastic part of the true evolution equation. Here we have</p><formula xml:id="formula_14">π k|k−1 (x k |x k−1 ) = N (x; F k x k−1 − S k+1,k , Q k ).</formula><p>Their specific forms are as follows:</p><formula xml:id="formula_15">F k = I 2 ⊗ 1 T k 0 1 , Q k = I 2 ⊗   T 3 k 3 T 2 k 2 T 2 k 2 T k   , S k+1,k =      x o k+1 − x o k − T kẋ o k x o k+1 −ẋ o k y o k+1 − y o k − T kẏ o k y o k+1 −ẏ o k      (<label>12</label></formula><formula xml:id="formula_16">)</formula><p>where ⊗ is the Kronecker product, and is the intensity of process noise. Here we assume T k = T = const, so we can get F k = F and Q k = Q.</p><p>To characterize the enemy submarine's appearance and disappearance during the simulation interval, we use a binary random variable ξ k ∈ {0, 1} to denote its existence. Here ξ k = 1 indicates that the enemy submarine exists at time k, and ξ k = 0 indicates that it does not exist at time k. The dynamics of ξ k is described by the first-order 2-state Markov chain with a transitional probability matrix Ξ as it is shown in Figure <ref type="figure" target="#fig_1">3</ref>. The elements of Ξ are defined as <ref type="bibr">[Ξ]</ref> </p><formula xml:id="formula_17">ij = P{ξ k = j − 1|ξ k−1 = i − 1} for i, j ∈ {1, 2}.</formula><p>Ξ is defined as follows:</p><formula xml:id="formula_18">Ξ = (1 − p b ) p b (1 − p s ) p s<label>(13)</label></formula><p>where p b = P{ξ k+1 = 1|ξ k = 0} is the probability that the submarine appears in the operational area during the simulation interval, and p s = P{ξ k+1 = 1|ξ k = 1} is the probability that the submarine is still in the operational area during the simulation interval. Here p b and p s are assumed to be known.</p><p>If the submarine appears during the simulation interval T k , PDF b k|k−1 (x) can be used to denote its PDF. Firstly, if the enemy submarine does not exist in the real operational area at time k, we can get X k = ∅. In addition, the submarine can appear in the operational area with probability p b,k and have kinematic state x k with PDF b k|k−1 (x k ), or remain absent from the operational area with probability 1 − p b,k . The simulation model f k|k−1 (X k |∅) for state X k is specified as follows:</p><formula xml:id="formula_19">f k|k−1 (X k |∅) =        1 − p b,k , if X k = ∅ p b,k • b k|k−1 (x k ), if X k = {x k } 0, otherwise<label>(14)</label></formula><p>Secondly, if the enemy submarine is existing in the real operational area at time k − 1, which means X k−1 = {x k−1 }, it can come through to the next time step with probability p s,k (x k−1 ) and transit to x k with PDF π k|k−1 (x k |x k−1 ), or disappear with probability 1 − p s,k (x k−1 ). Thus, the simulation model for state X k at time step k is characterized by</p><formula xml:id="formula_20">f k|k−1 (X k |{x k−1 }) =        1 − p s,k (x k−1 ), if X k = ∅ p s,k (x k−1 ) • π k|k−1 (x k |x k−1 ), if X k = {x k } 0, otherwise<label>(15)</label></formula><p>From ( <ref type="formula" target="#formula_19">14</ref>) and ( <ref type="formula" target="#formula_20">15</ref>), we can know that the Bernoulli RFS can either be an empty set or a nonempty set with one element only. In addition, the probabilities of these two cases can be modeled respectively as 1 − q and q. If it has one element, the element will be spatially distributed over S(X ) ⊆ R n x according to the standard PDF s(x). So, the simulation model for the simulation state denoted by the Bernoulli RFS X k at time k can be given by:</p><formula xml:id="formula_21">f (X k ) =        1 − q k|k , if X k = ∅ q k|k • s k|k (x k ), if X k = {x k } 0, otherwise<label>(16)</label></formula><p>where q k|k = p{|X k | = 1|Z 1:k } is the probability of submarine's existence in the real operational area,</p><formula xml:id="formula_22">s k|k (x k ) = p(x k |Z 1:k )</formula><p>is the spatial PDF of the submarine.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">RFS-Based Data-Assimilation Algorithm</head><p>Unforeseen operational entities can enter the designated real operational area and critical assets can be destroyed, thereby invalidating the current simulation setting <ref type="bibr" target="#b38">[37]</ref>. It is possible that the simulation execution may not proceed as expected because of the dynamic and changing environment. Since assimilating real-time measurements into the running simulation models can significantly improve the accuracy of the simulation results, the implementation of digital twin theory depends on the simulation system's use of the information from the real world.</p><p>Here an RFS-based data-assimilation algorithm is proposed for online assimilating the sequence of measurement sets in the present of noise, false alarms, data association uncertainty, and detection uncertainty. The proposed RFS-based data-assimilation algorithm can overcome the limitations of the standard vector-based data-assimilation algorithms very well.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Data Assimilation with RFS-Based Models</head><p>Since data assimilation usually updates the posterior distribution of simulation states by using the simulation model and measurement model, it can be regarded as a Bayesian inference procedure from a probabilistic point of view <ref type="bibr" target="#b39">[38]</ref>. Here we also use the RFS-based models and Bayesian inference for data assimilation.</p><p>The RFS-based data assimilation estimates recursively the posterior PDF of submarine's states by using the RFS-based simulation model, measurement model, and online measurements. It usually consists of two stages, the prediction stage and the update stage. Since we have got a Bernoulli RFS-based simulation model ( <ref type="formula" target="#formula_21">16</ref>), the posterior PDF at time k, denoted by f k|k (X k |Z 1:k ) is completely specified by two terms:</p><formula xml:id="formula_23">• the posterior submarine's existence probability q k|k = p{|X k | = 1|Z 1:k }; • the posterior spatial PDF of X k = {x} denoted by s k|k (x k ) = p(x k |Z 1:k ).</formula><p>Denote the posterior PDF of simulation states at time k − 1 as f k−1|k−1 (X k−1 |Z 1:k−1 ). The RFS-based prediction equation of the data-assimilation process is:</p><formula xml:id="formula_24">f k|k−1 (X k |Z 1:k−1 ) = f k|k−1 (X k |X ) f k−1|k−1 (X |Z 1:k−1 )δX (17) = f k|k−1 (X k |∅) f k−1|k−1 (∅|Z 1:k−1 ) + f k−1|k−1 ({x }|Z 1:k−1 )dx . (<label>18</label></formula><formula xml:id="formula_25">)</formula><p>At time k − 1, the posterior PDF is characterized by the pair (q k−1|k−1 , s k−1|k−1 (x)), the prediction equation of data assimilation can be derived from <ref type="bibr" target="#b18">(18)</ref> as:</p><formula xml:id="formula_26">q k|k−1 = p b (1 − q k−1|k−1 ) + p s q k−1|k−1 (<label>19</label></formula><formula xml:id="formula_27">)</formula><formula xml:id="formula_28">s k|k−1 (x) = p b (1 − q k−1|k−1 )b k|k−1 (x) + p s q k−1|k−1 π k|k−1 (x|x )s k−1|k−1 (x )dx p b (1 − q k−1|k−1 ) + p s q k−1|k−1<label>(20)</label></formula><p>In Bayesian theory, the updated PDF is calculated by:</p><formula xml:id="formula_29">f k|k (X k |Z 1:k ) = ϕ k (Z k |X k ) f k|k−1 (X k |Z 1:k−1 ) ϕ k (Z k |X) f k|k−1 (X|Z 1:k−1 )δX = ϕ k (Z k |X k ) f k|k−1 (X k |Z 1:k−1 ) f k (Z k |Z 1:k−1 )<label>(21)</label></formula><p>Given the measurement model ( <ref type="formula" target="#formula_6">7</ref>) and the prediction Equations ( <ref type="formula" target="#formula_26">19</ref>) and ( <ref type="formula" target="#formula_28">20</ref>), the update equation can be derived from (21) as:</p><formula xml:id="formula_30">q k|k = 1 − δ k 1 − δ k • q k|k−1 • q k|k−1 (<label>22</label></formula><formula xml:id="formula_31">)</formula><formula xml:id="formula_32">s k|k (x) = 1 − p D + p D ∑ z∈Z k g k (z|x) λc(z) 1 − δ k • s k|k−1 (x)<label>(23)</label></formula><p>where</p><formula xml:id="formula_33">δ k = p D 1 − ∑ z∈Z k g k (z|x)s k|k−1 (x)dx λc(z) . (<label>24</label></formula><formula xml:id="formula_34">)</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">SMC-Based Calculation</head><p>In the general cases, the RFS-based prediction equation and update equation cannot be solved analytically <ref type="bibr" target="#b41">[39]</ref>. Here we propose a SMC-based calculation. We use the particle system {w</p><formula xml:id="formula_35">(i) k , x (i) k } N i=1</formula><p>to approximate the spatial PDF s k|k (x). Here</p><formula xml:id="formula_36">x (i)</formula><p>k is the state of particle i and w</p><formula xml:id="formula_37">(i)</formula><p>k is its weight. As s k|k (x) is a conventional PDF, the corresponding weights of the particles should be normalized, i.e., ∑ N i=1 w</p><formula xml:id="formula_38">(i) k = 1.</formula><p>As it is shown in Figure <ref type="figure" target="#fig_2">4</ref>, the RFS-based simulation model firstly runs to the next time point and generates the predicted states of ASW. Weight updating relies on the difference between the online measurements and the predicted measurements generated from the predicted states. Suppose at time k − 1, the submarine's existence probability is q k−1|k−1 , and the spatial PDF is approximated by</p><formula xml:id="formula_39">s k−1|k−1 (x) = N ∑ i=1 w (i) k−1 δ x (i) k−1 (x). (<label>25</label></formula><formula xml:id="formula_40">)</formula><p>here δ c (x) is the Dirac delta function concentrated at state c. The predicted submarine's existence probability q k|k−1 can be computed by <ref type="bibr" target="#b19">(19)</ref>. According to <ref type="bibr" target="#b20">(20)</ref> and <ref type="bibr" target="#b25">(25)</ref>, the predicted spatial PDF depends on the sum of two terms. Consequently s k|k−1 (x) can be approximated by the particle system as a weighted point mass representation:</p><formula xml:id="formula_41">s k|k−1 (x) = N+B k ∑ i=1 w (i) k|k−1 δ x (i) k|k−1 (x).<label>(26)</label></formula><p>here the particles are drawn from two importance densities, ρ k for persisting particles and β k for birth particles :</p><formula xml:id="formula_42">x (i) k|k−1 ∼ ρ k (x|x (i) k−1 , Z k ) i = 1, • • • , N β k (x|Z k ) i = N + 1, • • • , N + B k (<label>27</label></formula><formula xml:id="formula_43">)</formula><p>with weights</p><formula xml:id="formula_44">w (i) k|k−1 =          p s •q k−1|k−1 q k|k−1 π k|k−1 (x (i) k |x (i) k−1 ) ρ k x (i) k|k−1 |x (i) k−1 ,Z k w (i) k−1 , i = 1, • • • , N p b •(1−q k−1|k−1 ) q k|k−1 b k|k−1 (x (i) k|k−1 ) β k (x (i) k|k−1 |Z k ) 1 B k , i = N + 1, • • • , N + B k . (<label>28</label></formula><formula xml:id="formula_45">)</formula><p>where B k is the number of submarine-birth particles drawn from the importance density β k . ...</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Predicted States</head><formula xml:id="formula_46">( ) 1 1 N i k k i X RFS based Measurement Model Poisson RFS based Clutter Model Bernoulli RFS based Measurement Model 1 , k u Z 1 , k u Z x C Clutter Set W Submarine Detection Set</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RFS based Simulation Model</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Time</head><p>Compute Ik (z) and by Using Eq.(29) and Eq.(30) ...</p><formula xml:id="formula_47">Resampling 1 ( ) ( ) 1 k N B i i k k k k i w , X ( ) 1 1 N i k k i w 1 ( ) 1 1 k B i k k i w Predicted</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Input Probability of Submarine Existence</head><p>Input Spatial PDF of Submarine </p><formula xml:id="formula_48">( ) ( ) 1| 1 1 1 1 1 N i i k k k k k i s w ,X x ( ) ( ) | 1 N i i k k k k k i s w , X x Output Probability of Submarine Existence Output Spatial PDF of Submarine 1| 1 k k q | k k q | 1 k k q | 1 k k s x 1 ( ) 1 1 k B i k k i X Bernoulli RFS based Survival and Death Model 1 1 1 , k k k k k u X x</formula><formula xml:id="formula_49">(x|x k−1 , Z k ) is the transitional density π k|k−1 (x k |x k−1 ).</formula><p>If there is little prior knowledge of the action plan of enemy submarine, we should assume that the enemy submarine can appear anywhere in the state space S(X ). So, we model b k|k−1 (x) by using the uniform distribution over S(X ). The birth importance density β k in <ref type="bibr" target="#b28">(27)</ref> needs to have the same support as b k|k−1 (x) (i.e., the entire S(X )) <ref type="bibr" target="#b42">[40]</ref>.</p><p>The update step of the data-assimilation algorithm is implemented according to ( <ref type="formula" target="#formula_30">22</ref>)- <ref type="bibr" target="#b24">(24)</ref>. First, for every z ∈ Z k , the integral I k (z) = g k (z|x)s k|k−1 (x)dx, which appears in <ref type="bibr" target="#b24">(24)</ref>, is approximately calculated as follows:</p><formula xml:id="formula_50">I k (z) ≈ N+B k ∑ i=1 w (i) k|k−1 • g k (z|x (i) k|k−1 )<label>(29)</label></formula><p>Then based on <ref type="bibr" target="#b24">(24)</ref>, δ k can be calculated by</p><formula xml:id="formula_51">δ k ≈ p D 1 − ∑ z∈Z k I k (z) λc(z) . (<label>30</label></formula><formula xml:id="formula_52">)</formula><p>The submarine's existence probability is updated by using <ref type="bibr" target="#b22">(22)</ref>, and the corresponding weights are updated according to (23):</p><formula xml:id="formula_53">w (i) k|k ≈   1 − p D + p D ∑ z∈Z k g k (z|x (i) k|k−1 ) λc(z)   • w (i) k|k−1 (31)</formula><p>These weights should be normalized to get the normalized importance weights:</p><formula xml:id="formula_54">w (i) k|k =w (i) k|k ∑ N+B k j=1w (j) k|k (<label>32</label></formula><formula xml:id="formula_55">) for i = 1, • • • , N + B k . At last, we resample N times from {w (i) k|k , x (i) k|k−1 } N+B k i=1</formula><p>to avoid sample degeneracy.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Computation of Reward Function</head><p>We propose an online sensor control method by using the predicted states, updated states, and their corresponding weights generated by the proposed data-assimilation algorithm. Online sensor control is mainly used for finding the optimal control action from a set of admissible control actions. Thus, it means sequential decision making, where each decision generates measurements that provide an additional information for data assimilation. In the digital twin for ASW, the control action is determined in the present of uncertainty both in the measurement space and the state space. Here an information theoretic approach is proposed for online sensor control. In this approach, the posterior PDF is used to represent the uncertain states, and the reward function is regarded as a measure of the information gain related to each action.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.">Derivation of Reward Function</head><p>In this paper, the online sensor control means the online selection of headings for individual anti-submarine ship, to maximize the use efficiency of its measurement system. Here control actions are ranked by using the quantity of information predicted to be gained from their execution. The data-assimilation enhanced simulation model is used to rapidly predict the possible output information of alternative control actions.</p><p>Reward function is used to measure the reduction in the information gain, in comparison with the current information state. The information gain can be characterized by using various information measures <ref type="bibr" target="#b43">[41]</ref>. The Fisher information is typically used as a criterion for optimization in the absence of detection uncertainty <ref type="bibr" target="#b44">[42]</ref><ref type="bibr" target="#b45">[43]</ref><ref type="bibr" target="#b46">[44]</ref>. Here we use the Rényi divergence-based reward function. The Rényi information divergence provides a way to measure the dissimilarity between two probability densities <ref type="bibr" target="#b47">[45]</ref>. The Rényi divergence between any two probability densities p 0 (x) and p 1 (x) is described as:</p><formula xml:id="formula_56">I α (p 1 , p 0 ) = 1 α − 1 log p α 1 (x)p 1−α 0 (x)dx (33)</formula><p>where α ≥ 0 is the factor that reflects how much we emphasize the tails of two probability distributions. Let u k ∈ U k denote the control action chosen for controlling the sensor at time t k in order to collect the future measurements at t k+1 . Here U k denotes the set of admissible control actions at time t k . In general, both the simulation model f k+1|k and the measurement model ϕ k+1 depend on the control action u k ∈ U k . Then the prediction Equation <ref type="bibr" target="#b18">(18)</ref> and update Equation ( <ref type="formula" target="#formula_29">21</ref>) for RFS-based data assimilation can be rewritten as follows:</p><formula xml:id="formula_57">f k+1|k (X k+1 |Z 1:k , u 0:k ) = f k+1|k (X|X , u k ) f k|k (X |Z 1:k , u 0:k−1 )δX (34) f k+1|k+1 (X k+1 |Z 1:k+1 , u 0:k ) = ϕ k+1 (Z k+1 |X k+1 , u k ) f k+1|k (X k+1 |Z 1:k , u 0:k ) ϕ k (Z k+1 |X, u k ) f k+1|k (X|Z 1:k , u 0:k )δX<label>(35)</label></formula><p>The optimal control action to be applied at time k is defined by maximizing the expected Rényi information divergence according to equation</p><formula xml:id="formula_58">u k = arg max v∈U k E φ(v, p(X k+1 |Z 1:k , u 1:k−1 ), Z k+1 (v))<label>(36)</label></formula><p>where φ(v, p, Z) is the real-valued reward function associated with the control action v. <ref type="bibr" target="#b37">(36)</ref> results in the predicted PDF p and the future measurement set Z. Online sensor control via <ref type="bibr" target="#b37">(36)</ref> tries to obtain the maximum reward based on a single future step. This is done by anticipating possible future measurements. To find the optimal control action for the anti-submarine ship to take next, we should predict the system states if the control action u k has been chosen by using the RFS-based simulation model. In addition, we should generate the predicted measurement set before actually receiving the measurement set Z k+1 . Hence the calculation of the expected value of the Rényi divergence for each possible control action is closely related to the data-assimilation process.</p><p>The future measurement set Z k+1 (v) supports the computation of the reward function φ. Since Z k+1 (v) is obtained after the control action has been executed, this will create uncertainty. To overcome the impact of uncertainty, (36) employs the expectation operator E. The reward function φ(u k , p, Z) in ( <ref type="formula" target="#formula_58">36</ref>) is adopted as the Rényi divergence between:</p><p>• the predicted PDF f k+1|k (X k+1 |Z 1:k , u 0:k ) given by <ref type="bibr" target="#b35">(34)</ref> which is based on action u k , and • the predicted future posterior f k+1|k+1 (X k+1 |Z 1:k+1 , u 0:k ) given by <ref type="bibr" target="#b36">(35)</ref>, obtained by using the new measurement set Z k+1 collected after the sensor has been controlled to take action u k .</p><p>We simplify the reward function φ by suppressing its second and third argument. Depending on <ref type="bibr" target="#b34">(33)</ref>, the reward function φ can be represented by:</p><formula xml:id="formula_59">φ(u k ) = 1 α − 1 log f k+1|k+1 (X k+1 |Z 1:k+1 , u 0:k ) α f k+1|k (X k+1 |Z 1:k , u 0:k ) 1−α δX k+1<label>(37)</label></formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.">Data-Assimilation-Based Computation</head><p>The expected reward function E[φ(u k )] does not have the closed-form analytic solution. Thus, we employ numerical approximate method and data-assimilation-based solution for it. This makes the SMC-based implementation of data assimilation become valuable. By adopting the SMC-based implementation, the optimal control action selection can be implemented quickly. Furthermore, this makes the data-assimilation process and online sensor control to be interdependent and interoperable.</p><p>Since the predicted PDF and the updated PDF in the RFS-based data-assimilation process are Bernoulli PDFs, let f k+1|k (X k+1 |Z 1:k , u 0:k ) and f k+1|k+1 (X k+1 |Z 1:k+1 , u 0:k ), which feature in (37), be specified by the pairs (q k+1|k , s k+1|k (x)) and (q k+1|k+1 , s k+1|k+1 (x)) respectively. So, the predicted PDF and the updated PDF can be written as follows:</p><formula xml:id="formula_60">f k+1|k (X k+1 |Z 1:k , u 0:k ) =        1 − q k+1|k if X k+1 = ∅, q k+1|k • s k+1|k (x) if X k+1 = {x}, 0 otherwise. (<label>38</label></formula><formula xml:id="formula_61">)</formula><formula xml:id="formula_62">f k+1|k+1 (X k+1 |Z 1:k+1 , u 0:k ) =        1 − q k+1|k+1 if X k+1 = ∅, q k+1|k+1 • s k+1|k+1 (x) if X k+1 = {x}, 0 otherwise. (<label>39</label></formula><formula xml:id="formula_63">)</formula><p>According to the rules of set integral, the reward function defined in (37) can be simplified to:</p><formula xml:id="formula_64">φ(u k ) = 1 α − 1 log [1 − q k+1|k ] 1−α [1 − q k+1|k+1 ] α + [q k+1|k ] 1−α [q k+1|k+1 ] α [s k+1|k (x)] 1−α • [s k+1|k+1 (x)] α dx<label>(40)</label></formula><p>According to <ref type="bibr" target="#b37">(36)</ref>, the optimal control action can be selected as the expected value:</p><formula xml:id="formula_65">u k = arg max v∈U k E{φ(v)}<label>(41)</label></formula><p>Now we use SMC to obtain the numerical implementation of <ref type="bibr" target="#b43">(41)</ref>. First, we obtain the values of the reward functions for the predicted future measurement set sequence Z k+1 (v). Then we compute the expected value of φ(v) by calculating the sample mean of the obtained values. Here Z k+1 (v) is obtained after taking control action v ∈ U k . Each realization of Z k+1 (v) is generated from the predicted PDF represented by q k+1|k , s k+1|k (x) by using the RFS-based measurement model.</p><p>Basing on the SMC-based implementation of the proposed data-assimilation algorithm, we select M predicted submarine states from w</p><formula xml:id="formula_66">(i) k+1|k , x (i) k+1|k N+B k i=1</formula><p>with probability w</p><formula xml:id="formula_67">(i)</formula><p>k+1|k . So, we can get M predict ideal measurements for the computation of the reward function. The key of computing <ref type="bibr" target="#b42">(40)</ref> is the computation of the following integral</p><formula xml:id="formula_68">Q = s k+1|k (x) 1−α • s k+1|k+1 (x) α dx (<label>42</label></formula><formula xml:id="formula_69">)</formula><p>Depending on the SMC-based implementation of the proposed data assimilation, it can be computed as follows. Let s k+1|k (x) be approximated by {w</p><formula xml:id="formula_70">(i) k+1|k , x (i) k+1|k } N+B k i=1</formula><p>. By taking control action v, we can obtain a sample of the future measurement set {Z</p><formula xml:id="formula_71">(i) k+1 (v)} M</formula><p>i=1 with M submarine originated noiseless measurement set. According to the proposed RFS-based data-assimilation algorithm, s k+1|k+1 (x) can be approximated by the particle system {w</p><formula xml:id="formula_72">(i) k+1|k+1 , x (i) k+1|k+1 } N+B k i=1 , where w (i) k+1|k+1</formula><p>is computed according to (31)- <ref type="bibr" target="#b33">(32)</ref>. Equation ( <ref type="formula" target="#formula_68">42</ref>) relies on the measurement set {Z</p><formula xml:id="formula_73">(i) k+1 (v)} M i=1 and w (i)</formula><p>k+1|k+1 , and is approximated by:</p><formula xml:id="formula_74">Q ≈ N+B k ∑ i=1 w (i) k+1|k 1−α • w (i) k+1|k+1 α (43)</formula><p>In conclusion, the computation of the reward function assigned to every control action v ∈ U k for the RFS-based online sensor control method is as follows:</p><formula xml:id="formula_75">φ(v) = 1 α − 1 log 1 − q k+1|k 1−α 1 − q k+1|k+1 α + q k+1|k 1−α q k+1|k+1 α N+B k ∑ i=1 (w (i) k+1|k ) 1−α • (w (i) k+1|k+1 ) α (<label>44</label></formula><formula xml:id="formula_76">)</formula><p>followed by the application of (41).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Simulation Experiments</head><p>To verify the effectiveness of the proposed digital twin and RFS-based approach for sensor control in ASW, we have carried out three groups of experiments: the first one is related to the data-assimilation algorithm, the second one is related to the online sensor control with single submarine, the last one is related for the online sensor control with multiple submarines. The data-assimilation experiment is used to verify the correctness and effectiveness of the proposed RFS-based data-assimilation algorithm for assimilating the online measurements to the simulation system. The following two groups of online sensor control experiments are-based the data-assimilation experiment, and used to verify the proposed sensor control method for ASW. They use the prediction results of the data-assimilation experiment to control the real sensor of the anti-submarine ship.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1.">Data-Assimilation Experiment</head><p>As it is shown in Figure <ref type="figure" target="#fig_3">5</ref>, we adopt the identical-twin experiment to evaluate the proposed data-assimilation algorithm <ref type="bibr" target="#b35">[34,</ref><ref type="bibr" target="#b48">46]</ref>. In this experiment, the RFS-based simulation model of enemy submarine with designated initial setting is first running, and the measurements corresponding to the simulation results are recorded. These simulation results are regarded as the real states of the physical ASW. And the measurements recorded here are regarded as the real-time measurements generated by the real sensor. We assimilate the measurements by using the proposed data-assimilation algorithm, and then compare the assimilated simulation states with the obtained real states. As it is shown in Figure <ref type="figure" target="#fig_3">5</ref>, we use three terms in the experiment: the real submarine state, the assimilated one, and the simulated one, to present the experimental result. A real submarine state is the simulated one from which the measurements are recorded. To reflect the fact that the submarine simulation execution usually depends on the biased initial parameters as compared with the real submarine in ASW, here the simulated submarine state is the simulation result based on some biased initial parameters, for example, imprecise process noise intensity. Here "biased" means in the sense that the parameters are different from those used in the real submarine state. Finally, an assimilated submarine state is the data-assimilation enhanced simulation result based on the same biased initial parameters as in the simulated one. The goal of this experiment is to prove that the assimilated submarine state is more accurate than the simulated one by assimilating measurements.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1.1.">Experimental Setup</head><p>In the real ASW, the submarine moves at a speed of approximately 5 knots. The scan repetition time of the sensor on the anti-submarine ship is 30 s. The probability of detection is assumed to be Gaussian distributed with mean 0 and covariance σ D = 5000. The number of clutters per scan is assumed to be Poisson distributed with the mean value λ = 1. The parameters of the data-assimilation process are as follows: particle number N = 5000, birth probability p b = 0.01. The initial parameters for the enemy submarine and the anti-submarine ship are presented in Table <ref type="table" target="#tab_4">1</ref>.</p><p>The performance measure of experimental results is the positional root mean square (RMS) error defined as follows:</p><formula xml:id="formula_77">ε k = 1 P P ∑ p=1 (x (p) k|k − x k ) 2 + (ŷ (p) k|k − y k ) 2 (<label>45</label></formula><formula xml:id="formula_78">)</formula><p>where P is the total number of Monte Carlo runs, (x</p><formula xml:id="formula_79">(p) k|k ,ŷ (p)</formula><p>k|k ) is the assimilated (or simulated) submarine state at time k in the pth run, and (x k , y k ) is the ground truth. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1.2.">Experimental Results</head><p>Figure <ref type="figure" target="#fig_4">6a</ref> displays the real submarine trajectory, simulated one, and assimilated one by averaging over 500 Monte Carlo runs. Figure <ref type="figure" target="#fig_4">6b</ref> displays the RMS error curves by averaging 500 Monte Carlo runs. This experiment tests the effectiveness of the proposed data-assimilation algorithm when the process noise intensity, initial speed, heading, and position are biased. From Figure <ref type="figure" target="#fig_4">6</ref> we can see that the simulated one has large deviations from the real submarine state because of the erroneous initial parameters. However, the assimilated submarine state is much closer to the real one. By using the proposed data-assimilation algorithm, the assimilated submarine state overcomes the problem of erroneous initial parameters, and matches the real submarine state with much smaller errors. Figure <ref type="figure" target="#fig_5">7a</ref> illustrates a typical result of a single run of the submarine's existence probability obtained by the data-assimilation algorithm with = 0.2. The red dotted line q k|k = 1 is the ground truth of the submarine's existence probability which means that the enemy submarine exists in the real ASW all the way. The submarine's existence probability shown in Figure <ref type="figure" target="#fig_5">7a</ref> grows to 1 after some time steps and remains high throughout the simulation execution. If the detection of the submarine is missing, it drops but is still bigger than 0.8. Figure <ref type="figure" target="#fig_5">7b</ref> shows the submarine's existence probability averaged over 500 Monte Carlo simulations. We can find that as time involves, the assimilated submarine's existence probability gradually approaches to 1. The occasional missed detections and false detections could not affect markedly the performance of the data-assimilation algorithm for this application. The results of data-assimilation experiment prove that the proposed data-assimilation algorithm can successfully assimilate the online measurements to the running simulation model of ASW. In the following section, we will analyze the sensitivity of the proposed data-assimilation algorithm.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1.3.">Sensitivity Analysis</head><p>The influence of particle number N on the overall performance of the proposed data-assimilation algorithm is studied by using different particle numbers. Figure <ref type="figure">8a</ref> shows the RMS position errors averaged over 500 Monte Carlo simulations for different particle number N. From Figure <ref type="figure">8a</ref> we can find that if the particle number N increases, the RMS position error will decrease. However, if the particle number N is larger than a certain degree, the influence of the particle number N on the RMS position error will be every small. This is consistent with standard particle filter theory. Figure <ref type="figure">8b</ref> shows the influence of the particle number N on the estimated probability of submarine existence q k|k for k = 1, 2, • • • , 80. From Figure <ref type="figure">8b</ref> we can find that the influence of particle number N on the estimated probability of submarine existence is very limited for this application.</p><p>To estimate the influence of the mean value λ of clutters on the performance of the data-assimilation algorithm, Figure <ref type="figure">9a</ref>,b shows the RMS position errors and assimilated probability of submarine existence curves obtained from different λ. From Figure <ref type="figure">9a</ref> we can find that if λ is small than a certain value, its influence on RMS position error is very limited. However, if λ increases, the RMS position error will gradually increase, too. Figure <ref type="figure">9b</ref> shows that if the mean value λ of clutters increases, the error of estimated probability of submarine existence will also increase. In addition, it will take more time for assimilated probability of submarine existence to approach the ground truth. The results agree with Equation ( <ref type="formula" target="#formula_30">22</ref>), ( <ref type="formula" target="#formula_32">23</ref>) and <ref type="bibr" target="#b32">(31)</ref>. When λ increases, the updated weight w for the particles representing the true submarine states will decrease, this leads to the increasing of RMS position error. We also compare the performance of the data-assimilation algorithm for the different settings of max detection probability p D,Max . The results are as shown in Figure <ref type="figure">10a,b</ref>. From these figures, we can find that the bigger p D,Max is, the smaller the errors of RMS position and probability of submarine existence are. If p D,Max increases, according to <ref type="bibr" target="#b32">(31)</ref>, the updated weights for the submarine generated measurements will increase. This also makes the accuracy of data-assimilation increase.</p><p>The influence of p s on the performance of the data-assimilation algorithm is shown in Figure <ref type="figure">11a</ref>,b. From Figure <ref type="figure">11a</ref>,b we can find that the increase of p s will improve the accuracy of estimated submarine states and probability of submarine existence. From Equation <ref type="bibr" target="#b19">(19)</ref>, we know that if p s increases, the predicted existence probability q will also increase. From Equation (28), we know that if p s increases, the predicted weights for the survival particles will increase, and this leads to the decreasing of the RMS position error. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2.">Online Sensor Control Experiment with Single Submarine</head><p>To verify the effectiveness of the proposed online sensor control method, we use a scenario where the anti-submarine ship trajectory consists of only two constant velocity motion legs. The online sensor control is conducted at the end of the first leg, when the choice is between different turns at different headings. In this experiment, there is only one enemy submarine in the operational area.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2.1.">Experimental Setup</head><p>During the first leg, the speed of the anti-submarine ship is 4 knots and the course during this leg is −50 • . As it is shown in Figure <ref type="figure" target="#fig_0">12</ref>, at the end of the first leg (k = 50), the anti-submarine ship needs to choose a new course for the second leg. We verify the performance of the proposed online sensor control method by using detection parameters p D,Max = 0.98, σ D = 5000 and λ = 5. To find the best option for the anti-submarine ship heading among the 24 second leg options, we need to obtain the RMS position error at time step k = 51 for each admissible course θ = −170 • , 100 • , • • • , 175 • . We obtained these RMS position errors by fixing the value of θ and conducting 500 Monte Carlo runs for each θ to compute the averaged RMS position errors.</p><p>The set of admissible control actions U k is determined as follows. If the current position of the anti-submarine ship is u k = [χ k ψ k ] T , its future admissible locations are:</p><formula xml:id="formula_80">U k = (χ k + V ship • cos(l θ + θ 0 ), ψ k + V ship • sin(l θ + θ 0 )); l = 1, • • • , N θ (<label>46</label></formula><formula xml:id="formula_81">)</formula><p>where θ = 2π/N θ is a selected course step size, θ 0 = −50 • is the initial course of the anti-submarine ship, N θ = 24, and V ship = 4 knots. The anti-submarine ship can move in its current course (case l = 24) or move in other courses. 24 control actions are considered at the end of the first motion leg. We first get the RMS position errors for all the courses at the time step at which the control actions are executed. Then we test the online sensor control method by comparing the number of times out of 500 Monte Carlo runs that it has chosen for each particular course. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2.2.">Experimental Results</head><p>The RMS position errors for different courses are plotted in Figure <ref type="figure" target="#fig_1">13</ref>. It indicates that the second leg course decisions of 70 • and 85 • are preferred in this experiment. After finding out the best control actions for the anti-submarine ship's second leg heading, we let the anti-submarine ship make its own decision by using the proposed online sensor control method. Figure <ref type="figure" target="#fig_2">14</ref> shows the number of times out of 500 Monte Carlo runs the online sensor control method has chosen for each particular course. From Figures <ref type="figure" target="#fig_1">13 and 14</ref>, we can know that the proposed online sensor control method can give a suitable control decision by using the digital twin-based framework of sensor control in ASW. The results successfully verify the correctness and effectiveness of the proposed digital twin and RFS-based framework. In the following section, we will study the influence of the number M of prediction measurements on the results.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2.3.">Sensitivity Analysis</head><p>We analyze the influence of the number M of prediction measurements on the proposed online sensor control method. Table <ref type="table">2</ref> shows the results for different values of M. From Table <ref type="table">2</ref>, we know that when M increases, the number of times for the good control actions (including courses 70 • and 85 • ) increases, and the number of times for the bad control actions decreases. However, the influence extent is very limited, since M increases quickly and the performance of the method is slightly improved.  </p><formula xml:id="formula_82">0 0 0 0 0 0 0 0 130 • 5 1 0 0 0 0 0 0 0 0 0 0 0 0 145 • 1 0 0 0 0 0 0 0 0 0 0 0 0 0 160 • 0 0 0 0 0 0 0 0 0 0 0 0 0 0 175 • 1 0 0 0 0 0 0 0 0 0 0 0 0 0</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.">Online Sensor Control Experiment with Multiple Submarines</head><p>In this experiment, we verify the effectiveness of the proposed online sensor control method by a scenario where the anti-submarine ship tracks multiple submarines. Here we control the range-only sensor of the anti-submarine ship by using the proposed digital twin and RFS-based method.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.1.">Experimental Setup</head><p>The state of single submarine at time step k is represented by </p><formula xml:id="formula_83">x k = [p T k v T k ] T , here p k = [x k y k ] T is the position, v k = [v k,x v k,</formula><formula xml:id="formula_84">p D (p k ) = 1, if p k − u o k ≤ R 0 max{0, 1 − ( p k − u o k − R 0 )h}, if p k − u o k &gt; R 0 (47) here p k − u o k = (x k − x o k ) 2 + (y k − y o k ) 2</formula><p>is the distance between the sensor and the submarine at p k . In this experiment, the operational area is a square of sides s = 1200 m, R 0 = 300 and h = 0.0002 m −1 . The measurement is generated by In this experiment, there are 5 moving enemy submarines in the operational area. As it is shown in <ref type="bibr" target="#b48">(46)</ref>, we control the sensor by finding the optional course. To prove the validity of the proposed method, we compare the proposed control method with the other method that the control vector is randomly selected from the set U k . Each method runs 10 times, and the averaged OSPA errors (order parameter p = 2 and cutoff c = 100 m) are compared.</p><formula xml:id="formula_85">z = h(x k ) = p k − u o k + ω,</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.2.">Experimental Results</head><p>In this experiment, the anti-submarine ship controls the sensor and runs the sensor control method every T c = 5 time steps. We compare the performance by using the OSPA error at every time step. The mean OSPA errors of two methods are given in Figure <ref type="figure" target="#fig_3">15</ref>. We can see that the proposed digital twin and RFS-based online sensor control method can effectively reduce the OSPA error. We can also find that as time evolves, the OSPA error of the proposed method also gradually reduces in this application. Figure <ref type="figure" target="#fig_4">16</ref> gives the estimated submarines' numbers of 10 Monte Carlo simulations generated by using the proposed data-assimilation algorithm and the different online sensor control methods.</p><p>The black line represents the truth of submarines' number, and the data points of different shapes represent the estimated submarines' number at each time step of 10 Monte Carlo simulations. Figure <ref type="figure" target="#fig_4">16a</ref> is the result of the proposed sensor control method, and Figure <ref type="figure" target="#fig_4">16b</ref> is the result of the random control method. We can find that the proposed sensor control method performs much better than the random control method on estimating submarines' number. Figure <ref type="figure" target="#fig_5">17</ref> gives the estimated submarines' states of 10 Monte Carlo simulations generated by using the proposed data-assimilation algorithm and the different online sensor control methods. The black lines represent the truth of submarines' states, and the data points of different shapes represent the truth of the submarines' states. Figure <ref type="figure" target="#fig_5">17a</ref> is the result of the proposed sensor control method, and Figure <ref type="figure" target="#fig_5">17b</ref> is the result of the random control method. We can find that the proposed sensor control method also performs much better than the random control method for estimating submarines' states. The paths of the anti-submarine ship for two methods are shown in Figure <ref type="figure" target="#fig_16">18</ref>. Different colors represent different Monte Carlo simulations, and the red points represent the truth of the submarines' trajectories. We can see that the proposed sensor control method can successfully guide the sensor to move close to the enemy submarines to get more accurate and more reliable measurements. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.3.3.">Sensitivity Analysis</head><p>In this section, the performance of the prosed online sensor control method is further analyzed by sensitivity analysis. We analyze some parameters' influence on the performance of the proposed sensor control method. These parameters are the time interval T c of two sensor control actions, factor α, the number M of prediction measurements, and particle number N for each submarine.</p><p>From Figure <ref type="figure">19</ref>, we can see that as T c increases, the mean OSPA error also increases. This means that decreasing T c can improve the performance of the prosed online sensor control method. Figure <ref type="figure" target="#fig_0">20</ref> gives the OSPA error for various values of parameter α. We can find that α has quite little influence on the performance of the proposed sensor control method in this application. The influence of the number M of prediction measurements on the online sensor control method is shown in Figure <ref type="figure" target="#fig_0">21</ref>. We can see that the influence of M on the performance of the proposed sensor control method is little. The reason is that the performance of the proposed method does not only depend on the reward function, but also depends on the data-assimilation algorithm. As it is shown in Figure <ref type="figure" target="#fig_0">22</ref>, the particle number N can affect the performance of the proposed method. The increase of N can ensure more reasonable choice of the control action. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Conclusions</head><p>In this paper, we studied the digital twin-based framework of sensor control in ASW. We firstly combine the simulated ASW with the real ASW by employing the digital twin theory. Then we proposed an RFS-based data-assimilation algorithm to dynamically incorporate online measurements generated from the real ASW. At last, we also fostered the ability of the simulation system to control the sensor in ASW by deriving and implementing the data-assimilation-based reward function. The proposed data-assimilation algorithm has the potential to overcome the limitations of the conventional vector-based algorithms. It can jointly estimate the number of enemy submarines and the state of each enemy submarine. We tested the proposed data-assimilation algorithm by using the identical-twin experiment. The results prove that the proposed algorithm can assimilate the input measurements and improve the accuracy of simulation results. We tested the proposed online sensor control method with two group of experiments, including the scenario with single submarine and the scenario with multiple submarines. The results showed that the proposed online sensor control method can effectively control the sensor. This paper can be regarded as an application of digital twin in ASW and the methods can also be applied to other applications.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. The technical view of the digital twin and RFS-based framework of online sensor control.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3. State transition diagram for Markov chain of the enemy submarine in ASW. Now we derive the RFS-based simulation model of enemy submarine. Since we represent the submarine's simulation states by using Bernoulli RFS, we consider two different situations for the RFS-based simulation model.Firstly, if the enemy submarine does not exist in the real operational area at time k, we can get X k = ∅. In addition, the submarine can appear in the operational area with probability p b,k and have kinematic state x k with PDF b k|k−1 (x k ), or remain absent from the operational area with probability 1 − p b,k . The simulation model f k|k−1 (X k |∅) for state X k is specified as follows:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 4 .</head><label>4</label><figDesc>Figure 4. Schematic Diagram of the SMC-Based Calculation of the RFS-Based Data Assimilation.The simplest choice of importance densityρ k (x|x k−1 , Z k ) is the transitional density π k|k−1 (x k |x k−1 ).If there is little prior knowledge of the action plan of enemy submarine, we should assume that the enemy submarine can appear anywhere in the state space S(X ). So, we model b k|k−1 (x) by using the uniform distribution over S(X ). The birth importance density β k in<ref type="bibr" target="#b28">(27)</ref> needs to have the same support as b k|k−1 (x) (i.e., the entire S(X ))<ref type="bibr" target="#b42">[40]</ref>.The update step of the data-assimilation algorithm is implemented according to (22)-<ref type="bibr" target="#b24">(24)</ref>. First, for every z ∈ Z k , the integral I k (z) = g k (z|x)s k|k−1 (x)dx, which appears in<ref type="bibr" target="#b24">(24)</ref>, is approximately calculated as follows:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 5 .</head><label>5</label><figDesc>Figure 5. Identical-twin experiment procedure.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 6 .</head><label>6</label><figDesc>Figure 6. The experimental results averaged over 500 Monte Carlo simulations: (a) Anti-submarine ship motion, simulated submarine trajectory and the assimilated one; (b) Error performance of the assimilated submarine state and the simulated one.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 7 .</head><label>7</label><figDesc>Figure 7. The submarine's existence probability q k|k versus k: (a) The assimilated submarine's existence probability of a single run; (b) The assimilated submarine's existence probability averaged over 500 Monte Carlo simulations.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 8 .Figure 9 .</head><label>89</label><figDesc>Figure 8. The data-assimilation results for N = 500, 1000, 3000, 5000, 7000, 9000 and 50,000 (averaged over 500 Monte Carlo simulations): (a) RMS position errors for different N; (b) The assimilated probability of submarine existence for different N.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 10 .Figure 11 .</head><label>1011</label><figDesc>Figure 10. The data-assimilation results for p D,Max =0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.98, and 0.99 (averaged over 500 Monte Carlo simulations): (a) RMS position error for different p D,Max ; (b) The estimated probability of submarine existence for different p D,Max .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>igure 12 .</head><label>12</label><figDesc>The set of admissible future legs of the anti-submarine ship trajectory.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>−Figure 13 .Figure 14 .</head><label>1314</label><figDesc>Figure 13. RMS positional error obtained by averaging over 500 Monte Carlo runs at time step k = 51 for all admissible second leg anti-submarine ship course θ = −170 • , −155 • , • • • , 175 • .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Table 2 .</head><label>2</label><figDesc>Number of times (out of 500 Monte Carlo runs) a particular second leg course θ has been chosen for different values of parameter M.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head></head><label></label><figDesc>y ] T is the velocity. The position of the anti-submarine ship is represented by u o k = x o k y o k T . The probability of detecting the enemy submarine at position p k = [x k y k ] T is computed as follows:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>2 .</head><label>2</label><figDesc>where ω is zero-mean white Gaussian measurement noise, with deviation σ ω = σ 0 + β p k − u o k In this experiment, σ 0 = 1 m and β = 5 × 10 −5 m −1 . The clutters are modeled as the Poisson RFS. The intensity of clutters is modeled by the uniform densityκ(z) = λ • c(z) with mean λ = 5.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 15 .</head><label>15</label><figDesc>Figure 15. Error performance of two methods of 10 Monte Carlo simulations.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Figure 16 .</head><label>16</label><figDesc>Figure 16. The estimated submarines' number for two methods of 10 Monte Carlo simulations: (a) Estimated submarines' number by the proposed sensor control method; (b) Estimated submarines' number by the random control method.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 17 .</head><label>17</label><figDesc>Figure 17. The estimated submarines' states for two methods of 10 Monte Carlo simulations: (a) Estimated submarines' states by the proposed sensor control method; (b) Estimated submarines' states by the random control method.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>Figure 18 .</head><label>18</label><figDesc>Figure 18. The paths of the anti-submarine ship of 10 Monte Carlo simulations for two methods: (a) Paths of anti-submarine ship controlled by the proposed sensor control method; (b) Paths of anti-submarine ship controlled by the random control method.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Figure 19 .Figure 20 .Figure 21 .Figure 22 .</head><label>19202122</label><figDesc>Figure 19. Error performance for T c = 2, 5, 6, 10, and 15 (averaged over 10 Monte Carlo simulations).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Ship Operational System Simulation Based Sensor Control System Measurements Control Physical ASW</head><label></label><figDesc></figDesc><table><row><cell></cell><cell>Action(s),</cell><cell></cell><cell></cell><cell>Operator</cell></row><row><cell cols="2">Message(s)</cell><cell cols="2">App. Logic,</cell><cell>commands</cell></row><row><cell cols="2">State of the Scene</cell><cell cols="2">Visualization Communication</cell><cell>situation COAs</cell><cell>metrics</cell></row><row><cell></cell><cell>States of</cell><cell cols="2">Sensors</cell><cell>COA Evaluator</cell></row><row><cell cols="2">Submairne</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell cols="2">Measurements</cell></row><row><cell cols="3">RFS based Data Assimilation</cell><cell></cell></row><row><cell>Update States</cell><cell cols="2">Predicted States</cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">Simulation Results</cell></row><row><cell cols="3">Simulation System of ASW Activity</cell><cell></cell></row><row><cell></cell><cell cols="2">COAs</cell><cell cols="2">Control: start, pause, model update,</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">simulation branch, backtrack etc.</cell></row><row><cell>Recognition</cell><cell cols="2">Courses of</cell><cell></cell></row><row><cell>Prime Decision</cell><cell cols="2">Action (COAs)</cell><cell></cell></row><row><cell>Support Module</cell><cell cols="2">Generator</cell><cell></cell></row><row><cell cols="2">Expectancies, percepts,</cell><cell>Preferences,</cell><cell></cell></row><row><cell>goals, cues</cell><cell></cell><cell>possible COAs</cell><cell></cell></row></table><note>Figure 1. The operational view of the digital twin-based framework of sensor control in ASW.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Physical ASW Space Predicted States and Evaluated COA Simulated ASW Space Physical Sensor Command and Control System</head><label></label><figDesc></figDesc><table><row><cell></cell><cell></cell><cell></cell><cell>Real States</cell><cell></cell></row><row><cell></cell><cell></cell><cell>Simulation</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>Inputs</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell>Control Action</cell><cell></cell></row><row><cell>Assimilated States</cell><cell>Predicted States</cell><cell>Predicted Measurements Calibrated Parameters</cell><cell>Assimilated States and Weights</cell><cell>Real Time Measurements</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Weights Online Measurements Predicted Measurements Z C W</head><label></label><figDesc></figDesc><table><row><cell cols="8">Compute Predicted Weights by Using Eq.(28)</cell></row><row><cell cols="8">Poisson RFS based</cell></row><row><cell></cell><cell cols="5">Birth Model</cell><cell></cell><cell></cell></row><row><cell>k k</cell><cell>1</cell><cell>X</cell><cell>k</cell><cell>,</cell><cell>u</cell><cell>k</cell><cell>1</cell></row></table><note>Compute Predicted Probability of Existence by Using Eq.<ref type="bibr" target="#b19">(19)</ref> Weight Updating by Using Eq.(31) and Eq.(32)k Update Probability of Existence by Using Eq.<ref type="bibr" target="#b22">(22)</ref> </note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 1 .</head><label>1</label><figDesc>Parameters settings in the experiment.</figDesc><table><row><cell>Name</cell><cell>Parameter</cell><cell>True Value</cell><cell>Biased Value</cell></row><row><cell>Enemy submarine</cell><cell>Initial speed</cell><cell>5 knot</cell><cell>3 knot</cell></row><row><cell></cell><cell>Process noise intensity</cell><cell>0.0</cell><cell>0.2</cell></row><row><cell></cell><cell>Initial position</cell><cell cols="2">(10,000, 1000) m (9500, 1000) m</cell></row><row><cell></cell><cell>Initial heading</cell><cell>−135 deg</cell><cell>−90 deg</cell></row><row><cell></cell><cell>Survival Probability p s</cell><cell>0.99</cell><cell>-</cell></row><row><cell>Anti-submarine ship</cell><cell>Initial speed</cell><cell>4 knot</cell><cell>-</cell></row><row><cell></cell><cell>Initial heading</cell><cell>−50 deg</cell><cell>-</cell></row><row><cell></cell><cell>Initial position</cell><cell>(0, 0) m</cell><cell>-</cell></row><row><cell></cell><cell>Detection probability P D</cell><cell>N (x, 0, 5000)</cell><cell>-</cell></row><row><cell></cell><cell>Max detection probability p D,Max</cell><cell>0.98</cell><cell>-</cell></row><row><cell></cell><cell>Measurement standard deviation σ θ</cell><cell>1 deg</cell><cell>-</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments:</head><p>The authors have received patient guidance and great assistance from Professor Kedi Huang. The authors have also obtained the enthusiastic help in English writing from Dongling Liu.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest:</head><p>The authors declare no conflict of interest.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Abbreviations</head><p>The following abbreviations are used in this manuscript: </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Observability in passive target motion analysis</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Jauffret</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Pillon</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/7.543850</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Aerospace and Electronic Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Aerosp. Electron. Syst.</title>
+		<idno type="ISSN">0018-9251</idno>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1290" to="1300" />
+			<date type="published" when="1996" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+	<note>CrossRef</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Observability Criteria for Bearings-Only Target Motion Analysis</title>
+		<author>
+			<persName><forename type="first">Steven</forename><surname>Nardone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vincent</forename><surname>Aidala</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/taes.1981.309141</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Aerospace and Electronic Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Aerosp. Electron. Syst.</title>
+		<idno type="ISSN">0018-9251</idno>
+		<imprint>
+			<biblScope unit="volume">AES-17</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="162" to="166" />
+			<date type="published" when="1981-03" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Nth-order dynamics target observability from angle measurements</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Fogel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gavish</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/7.192098</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Aerospace and Electronic Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Aerosp. Electron. Syst.</title>
+		<idno type="ISSN">0018-9251</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="305" to="308" />
+			<date type="published" when="1988-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+	<note>AES-</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Particle filtering for multi-target tracking and sensor management</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Doucet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B-N</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Andrieu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Davy</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icif.2002.1021192</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Fifth International Conference on Information Fusion. FUSION 2002. (IEEE Cat.No.02EX5997)</title>
+				<meeting>the Fifth International Conference on Information Fusion. FUSION 2002. (IEEE Cat.No.02EX5997)<address><addrLine>Annapolis, MD, USA, 8</addrLine></address></meeting>
+		<imprint>
+			<publisher>Int. Soc. Inf. Fusion</publisher>
+			<date>11 July 2002</date>
+			<biblScope unit="page" from="474" to="481" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Active clutter reduction through fusion with passive data</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Aughenbaugh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">A</forename><surname>Yocom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Brian</forename><forename type="middle">R</forename><surname>La Cour</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icif.2010.5711979</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2010 13th International Conference on Information Fusion</title>
+				<meeting><address><addrLine>Cologne, Germany</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2010-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">&lt;title&gt;Global posterior densities for sensor management&lt;/title&gt;</title>
+		<author>
+			<persName><forename type="first">Ronald</forename><forename type="middle">P S</forename><surname>Mahler</surname></persName>
+		</author>
+		<idno type="DOI">10.1117/12.317518</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Acquisition, Tracking, and Pointing XII</title>
+				<imprint>
+			<publisher>SPIE</publisher>
+			<date type="published" when="1998-07-30" />
+			<biblScope unit="volume">3365</biblScope>
+			<biblScope unit="page" from="252" to="263" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">MULTITARGET SENSOR MANAGEMENT OF DISPERSED MOBILE SENSORS</title>
+		<author>
+			<persName><forename type="first">Ronald</forename><surname>Mahler</surname></persName>
+		</author>
+		<idno type="DOI">10.1142/9789812796592_0012</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Theory and Algorithms for Cooperative Systems</title>
+				<imprint>
+			<publisher>WORLD SCIENTIFIC</publisher>
+			<date type="published" when="2004-08" />
+			<biblScope unit="page" from="239" to="310" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Theory and Algorithms for Cooperative Systems</title>
+		<author>
+			<persName><forename type="first">Don</forename><surname>Grundel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Murphey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Panos</forename><forename type="middle">M</forename><surname>Pardalos</surname></persName>
+		</author>
+		<idno type="DOI">10.1142/5635</idno>
+		<imprint>
+			<date type="published" when="2004-08" />
+			<publisher>WORLD SCIENTIFIC</publisher>
+			<biblScope unit="page" from="239" to="310" />
+			<pubPlace>Singapore</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Dynamic sensor management of dispersed and disparate sensors for tracking resident space objects</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>El-Fallah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Zatezalo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mahler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Mehra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Donatelli</surname></persName>
+		</author>
+		<idno type="DOI">10.1117/12.778240</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Signal Processing, Sensor Fusion, and Target Recognition XVII</title>
+				<imprint>
+			<publisher>SPIE</publisher>
+			<date type="published" when="2008-04-03" />
+			<biblScope unit="volume">6968</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Random Set Tracker Experiment on a Road Constrained Network with Resource Management</title>
+		<author>
+			<persName><forename type="first">James</forename><surname>Witkoskie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Walter</forename><surname>Kuklinski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephen</forename><surname>Theophanis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Otero</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icif.2006.301659</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2006 9th International Conference on Information Fusion</title>
+				<meeting><address><addrLine>Florence, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2006-07" />
+			<biblScope unit="page" from="10" to="13" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">The Cauchy–Schwarz divergence and Parzen windowing: Connections to graph theory and Mercer kernels</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Jenssen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jose</forename><forename type="middle">C</forename><surname>Principe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Deniz</forename><surname>Erdogmus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Torbjørn</forename><surname>Eltoft</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jfranklin.2006.03.018</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Franklin Institute</title>
+		<title level="j" type="abbrev">Journal of the Franklin Institute</title>
+		<idno type="ISSN">0016-0032</idno>
+		<imprint>
+			<biblScope unit="volume">343</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="614" to="629" />
+			<date type="published" when="2006-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Sensor control for multi-object state-space estimation using random finite sets</title>
+		<author>
+			<persName><forename type="first">Branko</forename><surname>Ristic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ba-Ngu</forename><surname>Vo</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.automatica.2010.06.045</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<title level="j" type="abbrev">Automatica</title>
+		<idno type="ISSN">0005-1098</idno>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="1812" to="1818" />
+			<date type="published" when="2010-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Sensor management for multi-target tracking via multi-Bernoulli filtering</title>
+		<author>
+			<persName><forename type="first">Hung</forename><forename type="middle">Gia</forename><surname>Hoang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ba</forename><forename type="middle">Tuong</forename><surname>Vo</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.automatica.2014.02.007</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<title level="j" type="abbrev">Automatica</title>
+		<idno type="ISSN">0005-1098</idno>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1135" to="1142" />
+			<date type="published" when="2014-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">The Cauchy–Schwarz Divergence for Poisson Point Processes</title>
+		<author>
+			<persName><forename type="first">Hung</forename><forename type="middle">Gia</forename><surname>Hoang</surname></persName>
+			<idno type="ORCID">0000-0002-3058-3484</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ba-Ngu</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ba-Tuong</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ronald</forename><surname>Mahler</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tit.2015.2441709</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Information Theory</title>
+		<title level="j" type="abbrev">IEEE Trans. Inform. Theory</title>
+		<idno type="ISSN">0018-9448</idno>
+		<idno type="ISSNe">1557-9654</idno>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="4475" to="4485" />
+			<date type="published" when="2015-08" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Performance Evaluation for Large-Scale Multi-Target Tracking Algorithms</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Beard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ba</forename><forename type="middle">Tuong</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ba-Ngu</forename><surname>Vo</surname></persName>
+		</author>
+		<idno type="DOI">10.23919/icif.2018.8455700</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 21st International Conference on Information Fusion (FUSION)</title>
+				<meeting><address><addrLine>Washington, DC, USA, 6-9</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-07" />
+			<biblScope unit="page" from="937" to="944" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Constrained Sensor Control for Labeled Multi-Bernoulli Filter Using Cauchy-Schwarz Divergence</title>
+		<author>
+			<persName><forename type="first">Amirali</forename><forename type="middle">K</forename><surname>Gostar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Reza</forename><surname>Hoseinnezhad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tharindu</forename><surname>Rathnayake</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaoying</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alireza</forename><surname>Bab-Hadiashar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/lsp.2017.2723924</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Signal Processing Letters</title>
+		<title level="j" type="abbrev">IEEE Signal Process. Lett.</title>
+		<idno type="ISSN">1070-9908</idno>
+		<idno type="ISSNe">1558-2361</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="1313" to="1317" />
+			<date type="published" when="2017-09" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">A risk-based sensor management using random finite sets and POMDP</title>
+		<author>
+			<persName><forename type="first">Marcos</forename><forename type="middle">Eduardo</forename><surname>Gomes-Borges</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dominique</forename><surname>Maltese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Philippe</forename><surname>Vanheeghe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Emmanuel</forename><surname>Duflos</surname></persName>
+		</author>
+		<idno type="DOI">10.23919/icif.2017.8009843</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 20th International Conference on Information Fusion (Fusion)</title>
+				<meeting><address><addrLine>Xi&apos;an, China</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-07" />
+			<biblScope unit="page" from="10" to="13" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Foundations and Applications of Sensor Management</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Castanon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">; A O</forename><surname>Carin</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Iii</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Castanon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Cochran</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-0-387-49819-5</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Foundations and Applications of Sensor Management; Hero</title>
+				<editor>
+			<persName><forename type="first">K</forename><surname>Kastella</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Boston, MA, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer US</publisher>
+			<date type="published" when="2008" />
+			<biblScope unit="page" from="7" to="32" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Modeling of Cyber-Physical Systems and Digital Twin Based on Edge Computing, Fog Computing and Cloud Computing Towards Smart Manufacturing</title>
+		<author>
+			<persName><forename type="first">Qinglin</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dongming</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">Warren</forename><surname>Liao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<idno type="DOI">10.1115/msec2018-6435</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Volume 1: Additive Manufacturing; Bio and Sustainable Manufacturing</title>
+				<meeting><address><addrLine>College Station, TX, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Society of Mechanical Engineers</publisher>
+			<date type="published" when="2018-06-18" />
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Digital Twin: Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Grieves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Vickers</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-38756-7_4</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Transdisciplinary Perspectives on Complex Systems</title>
+				<editor>
+			<persName><forename type="first">F-Jflumerfelt</forename><surname>Kahlen</surname></persName>
+			<persName><forename type="first">S</forename><surname>Alves</surname></persName>
+			<persName><forename type="first">A</forename></persName>
+		</editor>
+		<meeting><address><addrLine>Boston, MA, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016-08-17" />
+			<biblScope unit="page" from="85" to="113" />
+		</imprint>
+	</monogr>
+	<note>Mitigating Unpredictable</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Semantic data management for the development and continuous reconfiguration of smart products and systems</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Abramovici</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jens</forename><forename type="middle">Christian</forename><surname>Göbel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hoang</forename><forename type="middle">Bao</forename><surname>Dang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cirp.2016.04.051</idno>
+	</analytic>
+	<monogr>
+		<title level="j">CIRP Annals</title>
+		<title level="j" type="abbrev">CIRP Annals</title>
+		<idno type="ISSN">0007-8506</idno>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="185" to="188" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">About The Importance of Autonomy and Digital Twins for the Future of Manufacturing</title>
+		<author>
+			<persName><forename type="first">Roland</forename><surname>Rosen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Georg</forename><surname>Von Wichert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kurt</forename><forename type="middle">D</forename><surname>Bettenhausen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2015.06.141</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="567" to="572" />
+			<date type="published" when="2015" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">From simulation to experimentable digital twins: Simulation-based development and operation of complex technical systems</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Schluse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juergen</forename><surname>Rossmann</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/syseng.2016.7753162</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 IEEE International Symposium on Systems Engineering (ISSE)</title>
+				<meeting><address><addrLine>Edinburgh, UK</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-10" />
+			<biblScope unit="page" from="3" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Digital Twin Data Modeling with AutomationML and a Communication Methodology for Data Exchange</title>
+		<author>
+			<persName><forename type="first">Greyce</forename><forename type="middle">N</forename><surname>Schroeder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Charles</forename><surname>Steinmetz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlos</forename><forename type="middle">E</forename><surname>Pereira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Danubia</forename><forename type="middle">B</forename><surname>Espindola</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2016.11.115</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">30</biblScope>
+			<biblScope unit="page" from="12" to="17" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">Coupling Damage-Sensing Particles to the Digitial Twin Concept</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename><surname>Hochhalter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">P</forename><surname>Leser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Newman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">H</forename><surname>Glaessgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">K</forename><surname>Gupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">I</forename><surname>Yamakov</surname></persName>
+		</author>
+		<ptr target="https://ntrs.nasa.gov/search.jsp?R=20140006408" />
+		<imprint>
+			<date type="published" when="2014-04" />
+			<biblScope unit="page">15</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">The Digital Twin Paradigm for Future NASA and U.S. Air Force Vehicles</title>
+		<author>
+			<persName><forename type="first">Edward</forename><surname>Glaessgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Stargel</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2012-1818</idno>
+	</analytic>
+	<monogr>
+		<title level="m">53rd AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics and Materials Conference&lt;BR&gt;20th AIAA/ASME/AHS Adaptive Structures Conference&lt;BR&gt;14th AIAA</title>
+				<meeting><address><addrLine>Honolulu, HI, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2012-04-23" />
+			<biblScope unit="page" from="23" to="26" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Next Generation Digital Twin</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Boschert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Christoph</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Rosen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of</title>
+				<meeting>null</meeting>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Horvath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Suarez Rivero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Castellano</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Eds</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francis</forename><surname>Taylor</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="209" to="218" />
+			<pubPlace>Las Palmas de Gran Canaria, Spain</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">A Posteriori Error Estimates for DDDAS Inference Problems</title>
+		<author>
+			<persName><forename type="first">Vishwas</forename><surname>Rao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adrian</forename><surname>Sandu</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procs.2014.05.113</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<title level="j" type="abbrev">Procedia Computer Science</title>
+		<idno type="ISSN">1877-0509</idno>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page" from="1256" to="1265" />
+			<date type="published" when="2014" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Digital-Twin Enabled Experimentation Testbed for MBSE</title>
+		<idno type="DOI">10.2514/6.2021-0201.vid</idno>
+		<ptr target="https://www.ge.com/digital/sites/default/files/" />
+	</analytic>
+	<monogr>
+		<title level="m">GE. The Digital Twin: Compressing Time-to-Value for Digital Industrial Companies</title>
+		<title level="s">The-Digital-Twin-Compressing-Time-to-Valuefor-Digital-Industrial-Companies.pdf</title>
+		<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics (AIAA)</publisher>
+			<date type="published" when="2020-01-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Dynamic data driven simulation</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Hu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scs Model. Simul. Mag</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="16" to="22" />
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">An Open Framework for Dynamic Big-data-driven Application Systems (DBDDAS) Development</title>
+		<author>
+			<persName><forename type="first">Craig</forename><forename type="middle">C</forename><surname>Douglas</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procs.2014.05.112</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<title level="j" type="abbrev">Procedia Computer Science</title>
+		<idno type="ISSN">1877-0509</idno>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page" from="1246" to="1255" />
+			<date type="published" when="2014" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Data Assimilation in Discrete Event Simulations-A Rollback based Sequential Monte Carlo Approach</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Verbraeck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gu</surname></persName>
+		</author>
+		<idno type="DOI">10.23919/TMS.2016.7918817</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2016 Spring Simulation Conference</title>
+				<meeting>the 2016 Spring Simulation Conference<address><addrLine>Pasadena, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016-04" />
+			<biblScope unit="page" from="522" to="529" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Particle Filter Based Traffic Data Assimilation with Sensor Informed Proposal Distribution</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Xue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Hu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2015 Spring Simulation Conference</title>
+				<meeting>the 2015 Spring Simulation Conference<address><addrLine>Alexandria, VA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015-04" />
+			<biblScope unit="page" from="264" to="271" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Data assimilation using sequential monte carlo methods in wildfire spread simulation</title>
+		<author>
+			<persName><forename type="first">Haidong</forename><surname>Xue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Feng</forename><surname>Gu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaolin</forename><surname>Hu</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2379810.2379816</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Modeling and Computer Simulation</title>
+		<title level="j" type="abbrev">ACM Trans. Model. Comput. Simul.</title>
+		<idno type="ISSN">1049-3301</idno>
+		<idno type="ISSNe">1558-1195</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1" to="25" />
+			<date type="published" when="2012-11" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">An effective proposal distribution for sequential Monte Carlo methods-based wildfire data assimilation</title>
+		<author>
+			<persName><forename type="first">Haidong</forename><surname>Xue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaolin</forename><surname>Hu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/wsc.2013.6721573</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2013 Winter Simulations Conference (WSC)</title>
+				<meeting><address><addrLine>Washington, DC, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013-12" />
+			<biblScope unit="page" from="1938" to="1949" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Bayesian Filtering With Random Finite Set Observations</title>
+		<author>
+			<persName><forename type="first">Ba-Tuong</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ba-Ngu</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Cantoni</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsp.2007.908968</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Signal Processing</title>
+		<title level="j" type="abbrev">IEEE Trans. Signal Process.</title>
+		<idno type="ISSN">1053-587X</idno>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1313" to="1326" />
+			<date type="published" when="2008-04" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Intelligent Transportation Systems Architectures (Artech House Intelligent Transportation Systems Library). Bob McQueen and Judy McQueen. Artech House Publishers, 685 Canton Street, Norwood, MA 02062, USA, 1999. 467 pp. + xxxiii. ISBN 0-89006-525-X. US $99.00.</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Blackman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Popoli</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0965-8564(02)00043-5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Transportation Research Part A: Policy and Practice</title>
+		<title level="j" type="abbrev">Transportation Research Part A: Policy and Practice</title>
+		<idno type="ISSN">0965-8564</idno>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">192</biblScope>
+			<date type="published" when="2003-02" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+	<note>ISBN 978-1580530064</note>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Differential geometry measures of nonlinearity for filtering with nonlinear dynamic and linear measurement models</title>
+		<author>
+			<persName><forename type="first">La</forename><surname>Scala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">F</forename><surname>Mallick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Arulampalam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename></persName>
+		</author>
+		<idno type="DOI">10.23919/TMS.2016.7918817</idno>
+	</analytic>
+	<monogr>
+		<title level="m">SPIE Proc</title>
+				<imprint>
+			<date type="published" when="2007" />
+			<biblScope unit="volume">6699</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Uncertainty in Modeling and Simulation</title>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><surname>Kesidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tina</forename><surname>Morrison</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Tinsley</forename><surname>Oden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jitesh</forename><forename type="middle">H</forename><surname>Panchal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christiaan</forename><surname>Paredis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Pennock</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sez</forename><surname>Atamturktur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gabriel</forename><surname>Terejanu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Yukish</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-58544-4_5</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Research Challenges in Modeling and Simulation for Engineering Complex Systems</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="75" to="86" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<monogr>
+		<title level="m" type="main">Research Challenges in Modeling and Simulation for Engineering Complex Systems</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fujimoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bock</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Page</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Panchal</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-58544-4</idno>
+		<imprint>
+			<date type="published" when="2017" />
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="75" to="85" />
+			<pubPlace>Boston, MA, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Nonlinear Data Assimilation for high-dimensional systems</title>
+		<author>
+			<persName><forename type="first">Peter</forename><forename type="middle">J</forename><surname>Van Leeuwen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Reich</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-18347-3_1</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Frontiers in Applied Dynamical Systems: Reviews and Tutorials</title>
+				<editor>
+			<persName><forename type="first">C</forename><forename type="middle">K R T</forename><surname>Nonlinear Data Assimilation; Jones</surname></persName>
+			<persName><forename type="first">L.-S</forename><surname>Young</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Boston, MA, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="1" to="73" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Bernoulli Forward-Backward Smoothing for Joint Target Detection and Tracking</title>
+		<author>
+			<persName><forename type="first">Ba-Tuong</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ba-Ngu</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Branko</forename><surname>Ristic</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsp.2011.2158427</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Signal Processing</title>
+		<title level="j" type="abbrev">IEEE Trans. Signal Process.</title>
+		<idno type="ISSN">1053-587X</idno>
+		<idno type="ISSNe">1941-0476</idno>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="4473" to="4477" />
+			<date type="published" when="2011-09" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Foundations and Applications of Sensor Management</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">O</forename><surname>Hero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Kreucher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">; A O</forename><surname>Blatt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Castanon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Cochran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kastella</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-0-387-49819-5</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Foundations and Applications of Sensor Management; Hero</title>
+				<meeting><address><addrLine>Boston, MA, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer US</publisher>
+			<date type="published" when="2008" />
+			<biblScope unit="page" from="33" to="57" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Optimal observer maneuver for bearings-only tracking</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Passerieux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Van Cappel</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/7.705885</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Aerospace and Electronic Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Aerosp. Electron. Syst.</title>
+		<idno type="ISSN">0018-9251</idno>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="777" to="788" />
+			<date type="published" when="1998-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Optimizing the receiver maneuvers for bearings-only tracking</title>
+		<author>
+			<persName><forename type="first">J.-P</forename><forename type="middle">L</forename><surname>Cadre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Laurent-Michel</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/S0005-1098(98)00183-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="591" to="606" />
+			<date type="published" when="1999" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Optimization of observer trajectories for bearings-only target localization</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Oshman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Davidson</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/7.784059</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Aerospace and Electronic Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Aerosp. Electron. Syst.</title>
+		<idno type="ISSN">0018-9251</idno>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="892" to="902" />
+			<date type="published" when="1999-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">An Information-Based Approach to Sensor Management in Large Dynamic Networks</title>
+		<author>
+			<persName><forename type="first">Christopher</forename><forename type="middle">M</forename><surname>Kreucher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alfred</forename><forename type="middle">O</forename><surname>Hero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Keith</forename><forename type="middle">D</forename><surname>Kastella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><forename type="middle">R</forename><surname>Morelande</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jproc.2007.893247</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<title level="j" type="abbrev">Proc. IEEE</title>
+		<idno type="ISSN">0018-9219</idno>
+		<imprint>
+			<biblScope unit="volume">95</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="978" to="999" />
+			<date type="published" when="2007-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">New Instantaneous Frequency Definition for IMF and Its Application in Financial Data Analysis</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Nakamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Yamamoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Honda</surname></persName>
+		</author>
+		<idno type="DOI">10.1115/1.859827.paper17</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Information Technology and Management Engineering (ITME 2011)</title>
+				<meeting><address><addrLine>Chicago, IL, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ASME Press</publisher>
+			<date type="published" when="2011" />
+			<biblScope unit="page" from="71" to="74" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

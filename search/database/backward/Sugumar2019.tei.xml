@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Assessment of a Method for Detecting Process Anomalies Using Digital-Twinning</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>IEEE</publisher>
+				<availability status="unknown"><p>Copyright IEEE</p>
+				</availability>
+				<date type="published" when="2019-09">2019-09</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Gayathri</forename><surname>Sugumar</surname></persName>
+							<email>sugumar@mymail.sutd.edu.sg</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">iTrust</orgName>
+								<orgName type="department" key="dep2">Centre for Research in Cyber Security</orgName>
+								<orgName type="institution">Singapore University of Technology</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Aditya</forename><surname>Mathur</surname></persName>
+							<email>mathur@sutd.edu.sg</email>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="department" key="dep1">Centre for Research in Cyber Security</orgName>
+								<orgName type="department" key="dep2">University of Technology and Design and Department of Computer Science</orgName>
+								<orgName type="institution">Purdue University</orgName>
+								<address>
+									<country key="SG">Singapore</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Assessment of a Method for Detecting Process Anomalies Using Digital-Twinning</title>
+					</analytic>
+					<monogr>
+						<title level="m">2019 15th European Dependable Computing Conference (EDCC)</title>
+						<imprint>
+							<publisher>IEEE</publisher>
+							<date type="published" when="2019-09" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/edcc.2019.00031</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:58+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Cyber-physical Systems</term>
+					<term>Anomaly detection</term>
+					<term>Timed Automata</term>
+					<term>Water treatment plant</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Several methods exist for detecting process anomalies resulting from cyber-attacks on critical infrastructure. The assessment of such methods could be conducted using simulation or directly on a realistic operational testbed. While the results of an assessment on a testbed may be more authentic than those carried out using simulation, conducting such experiments is fraught with challenges such as the time required to set up and launch attacks thus limiting the variety and number of attacks launched. To overcome such limitations, while maintaining the reliability of the outcome of the assessment, an approach based on timed automata models of a critical infrastructure was investigated. The investigation involved development of a digital twin for a 6stage water treatment plant. A design-centric anomaly detection method, as well as an attack launcher, were integrated with the model and experiments were performed. The outcome of this investigation reveals the value of the proposed approach in rapid assessment of a design-centric anomaly detection method.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Cyber-Physical systems (CPS) feature tight integration of computations, physical systems, and networks <ref type="bibr" target="#b0">[1]</ref>. Such integration, obtained through cyber connectivity in a critical infrastructure (CI) across the controllers, sensors, actuators, and thus the physical process, often leads to vulnerabilities. Over the years vulnerabilities so introduced in CI have been exploited leading to undesirable impact on the underlying process <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b2">[3]</ref>, <ref type="bibr" target="#b3">[4]</ref>. Rapid detection of cyber-attacks, via the identification of the resulting process anomalies, has been of considerable interest. Effective identification of process anomalies can be accomplished using various methods and incorporated as security specifications during the design stage of a CI <ref type="bibr" target="#b4">[5]</ref>. The tactical goal of incorporating an anomaly detection solution is to delay and render the threat unsustainable, hopefully effectively eliminating it.</p><p>Regardless of which anomaly detection method is deployed, one needs to ensure that the technique will be largely effective in rapid detection of anomalies. This leads to an obvious question: How should one assess the effectiveness of the anomaly detector? Doing so in an operational plant appears infeasible as the plant management is unlikely to allow the launch of attacks on the process to test if the detector detects the resulting anomaly. The other option is to perform the assessment in a realistic testbed such as those available in iTrust <ref type="bibr" target="#b5">[6]</ref>. While operational and realistic testbeds do offer a viable alternative to the assessment of anomaly detectors in a plant, they come with their own challenges. For example, the physical process in a testbed operates in "real-time" thus making it impossible to launch attacks at a rapid pace while simultaneously observing their impact as well as the outcome of the anomaly detector. Further, to launch attacks one may need to bring the system to a specific state. Again, this requires the experimenter to wait until the plant reaches the desired state. Simulation, used in this work, is a well known approach to overcome such challenges.</p><p>In this work, we explore the use of formal methods to design, model, and verify the effectiveness of an anomaly detector in the context of a specific CI, namely, the Secure Water Treatment plant (SWaT). SWaT is a six stage operational water treatment plant. Each stage performs distinct functions such as water supply and storage, ultra-filtration, reverse osmosis, and backwash <ref type="bibr" target="#b6">[7]</ref>. A model of SWaT is verified for correctness using a model checker by checking against a set of system properties. Once the model is cross-validated against the actual plant, the anomaly detector is incorporated into the plant model. An invariant-based anomaly detector was used as a test object <ref type="bibr" target="#b7">[8]</ref>. Once the model has been verified and the anomaly detector integrated, a variety of attacker models are integrated into the model to evaluate the anomaly detector.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Choice of plant model:</head><p>A key question explored in this work is "What is an appropriate model for a complex CI, such as a water treatment plant?" Finite state automata are used to model systems and are prevalent in the formal verification community. Plants controlled through human interaction can be modelled with non-deterministic finite state automata. Another option to model a complex CI is to use hybrid automata <ref type="bibr" target="#b8">[9]</ref> suitable for describing systems consisting of discrete states interacting with analog physical processes. Various popular modelling techniques are based on hybrid automata such as the Alur-Henzinger hybrid automaton. An interesting sub-class of hybrid automata is Timed Automata (TA) <ref type="bibr" target="#b9">[10]</ref> that captures timing aspects of systems. In this work, we decided to model the selected system using TA for reasons below.</p><p>1) Timing is critical to the operation of SWaT and therefore finite-state automata are not adequate. For instance, in stage-3 of SWaT, when the water level in a tank is below the low set point, the inlet motorised valve is opened.</p><p>The valve spends 5-7 seconds transiting from closed to open state. One cannot adequately model this behavior using a finite state automaton. 2) A rich set of tools is available to develop and analyze TA models. Hence, the implementation and verification of such models of CI is well supported. 3) While hybrid automata are more expressive than TA, verification of such models is limited.</p><p>Choice of UPPAAL: Several tools could be considered to model and analyse CI <ref type="bibr" target="#b10">[11]</ref>, <ref type="bibr" target="#b11">[12]</ref>, <ref type="bibr" target="#b12">[13]</ref>, <ref type="bibr" target="#b13">[14]</ref>, <ref type="bibr" target="#b14">[15]</ref>. UPPAAL <ref type="bibr" target="#b15">[16]</ref> is a powerful modelling and verification tool that supports TA. Several case studies are available in the literature for analysis of systems using UPPAAL that is also scalable <ref type="bibr" target="#b16">[17]</ref>, <ref type="bibr" target="#b17">[18]</ref>, <ref type="bibr" target="#b18">[19]</ref>. This motivated the modeling of CI using TA and hence the choice of UPPAAL.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Extension of past work:</head><p>Work presented here is a significant extension of that in <ref type="bibr" target="#b19">[20]</ref>, where only a single stage of SWaT model was presented. In this work, nearly all plant components, process, and controller are modelled as a network of TA. The complete model is used as a case-study to validate the system design against the model. An invariant based anomaly detector, also modelled using TA, is integrated into the plant model. An attacker model is implemented to evaluate the effectiveness of the anomaly detector and integrated into the network of TA.</p><p>Novelty: A network of TA <ref type="bibr" target="#b9">[10]</ref>, <ref type="bibr" target="#b20">[21]</ref> is used to create an integrated model of a multi-controller distributed CI with those of an anomaly detector and of cyber-attacks. The integrated model thus formulated is further improved by modeling sensor and process noise to bring added realism. The utility of such a model, and the underlying approach, is demonstrated by applying it to an operational water treatment plant. As demonstrated, the proposed approach can be useful to test design-centric process anomaly detectors <ref type="bibr" target="#b21">[22]</ref>. Successful model based testing of an anomaly detector increases the confidence in implementing it in a live plant without compromising plant availability.</p><p>Contributions: (a) A modeling technique using TA, as applied to a water treatment plant, that integrates models of multiple physical processes, component noise, an anomaly detection method, and cyber-attacks. (b) A case study to evaluate the effectiveness of an anomaly detector that uses process invariants.</p><p>Organization: An overview of the methodology used in modeling a CPS, and its application to test an anomaly detector, is in Section II. A brief description of the SWaT testbed is also in this section; details are in <ref type="bibr" target="#b6">[7]</ref>. The construction of a root model of SWaT using a network of TA is in Section III. This is followed by Section IV where noise analysis is performed based on experimental data collected from SWaT. Verification of the model for SWaT is discussed in Section V. An attack detection technique based on process invariants is implemented and networked with system model as described in Section VI. Implementation and results from attack detection experiments using UPPAAL are presented in Section VII. Challenges related to modeling using TA are discussed in Section VIII. Related research is in Section IX. A summary and conclusions from this work are in Section X.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. PROPOSED METHODOLOGY</head><p>A modeling approach, and a case study, is presented to assess the effectiveness of anomaly detection in a simulation environment. The entire methodology that begins with the design of a CI and ends in the evaluation of an anomaly detector, is illustrated in Figure <ref type="figure" target="#fig_0">1</ref>. As shown, the method leads to the creation of eight intermediate models labeled A through H. Each of these models is integrated (F) and coded in UPPAAL. Creation of the root model (A) is described in Section III. Modeling of sensor and process noise (C, E) is described in Section IV. Anomaly detection and attack models (B, D, G, H) are in Sections VI with results from UPPAAL simulation summarized in VII. A brief introduction to SWaT follows; details are in <ref type="bibr" target="#b5">[6]</ref>, <ref type="bibr" target="#b6">[7]</ref>.</p><p>Secure Water Treatment Plant (SWaT): SWaT, an operational water treatment plant, consists of six stages of sub-processes with a multi-level communication network.These stages are referred to as P 1 through P 6 . Each process in a stage is controlled by a programmable logic controller (PLC) denoted as PLC 1 , PLC 2 , and so on. There are various sensors and actuators in SWaT to enable monitoring and control of the physical process. The sensors such as Level Indicator and Transmitter (LIT) and Flow Indicator and Transmitter (FIT), are located in appropriated stages to collect information about the physical process. The measurements are processed by the controller to make decisions so as to operate the plant in a safe state. The process is controlled by sending commands to the actuators such as motorized valves (MV) and pumps.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. ROOT MODEL OF SWAT</head><p>The overall model of a complex system is treated here as a network of TA models. The approach to model the SWaT control system as TA models is to have a periodic task that measures the level sensors (LIT101, LIT301). In addition there are periodic tasks for monitoring or issuing control signals to actuators (Controller TA) and a sporadic task to handle the alarm (Alarm TA). Further, TA models for pumps and motorised valves are required to model the components in the system. Shared variables are used in the models to record the states of SWaT components such as that of the motorised valve in stage-1 (MV101) and the tank (T101) in stage-1 (Level T1).  Steps in modeling and validation for assessing the effectiveness of an invariant-based anomaly detection mechanism using process simulation.</p><p>Channels bridge the different automata in the mode, e.g., the P101 ON signal is issued by the controller to pump P101 which moves it from OFF to ON state. TA models of SWaT components are described next.</p><p>To create an initial, or a root, model of SWaT, we begin with the assumption that the model is free of sensor noise and behaves in accordance with the functional requirements of the plant. Each component in SWaT, e.g., a tank and a motorized valve, is modeled using a TA. During this initial modeling phase, facts and assumptions are distinguished. Facts include, for example, "the controller in stage-1 closes the motorized valve MV101 when water in tank T101 reaches the High set point." Assumptions include, for example, "system is noise free or there is no delay between the controller command and actuator state change."</p><p>a) Tank Automaton: The tank automaton sets the level set-point based on the water level in the tank to a value in the set {LL, L, H, HH}. The set points are defined for tank components, e.g., for T-401, LowLow (LL)=250mm, Low (L)=800mm, High (H)=1000mm, and HighHigh (HH)=1200mm. Water level measurement is compared with the pre-defined thresholds periodically to determine the current state of the tank and hence decide whether to change the state of connected actuators such as the motorized valve MV101 and pump P101. b) Controller: The primary task of a controller in SWaT is to monitor and control the physical process to operate it safely in the desired state. For monitoring and control, the controller receives measurements from the sensors placed across the plant. The actuators are managed by changing their states. An example of controller automaton is in Figure <ref type="figure" target="#fig_1">2</ref>  feed water. Accumulation of these solids could damage the membrane thereby affecting the operational performance of the process. Hence it is designed to monitor the health of membrane and clean it periodically using Reject Recycle water stream from the RO process in stage-5. This process is referred to as UF backwash and is carried out by performing a sequence of operations. TA automaton of UF backwash sequence is represented in Figure <ref type="figure">3</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. COMPONENT AND PROCESS NOISE</head><p>SWaT uses ultrasonic level sensors made of piezoelectric ceramic (PZT ceramic) material transducer. There are several factors which contribute to disturbances in measurement from such sensors. The level sensor measures the time taken for the acoustic waves to return after hitting the water surface. Here the measurements are affected by factors such as temperature, water sloshing, obstacles like tank walls, etc.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data analysis:</head><p>For the identification and modeling of process noise, it is important to collect sensor data from the process. One assumption made in this root model phase is that when the controller issues a control command to an actuator, the corresponding actuator instantly changes its state. However, this is not the case in the actual plant. For instance, the motorized valve spends some time while travelling from the open to close state and vice-versa. To model this delay in the TA, two new states, namely, opening and closing, are introduced. The times spent in opening and closing states are derived from experimental data collected from SWaT. TA models were found useful here to capture and model the time delay between the controller command and the actuator state change. For all the motorized valves in the system, this procedure is performed to find their corresponding times for state change and are incorporated in the model. As an example, the automaton of motorized valve is briefly described next. The process noise in the system is an important component that ought to be analysed and included in the plant model. There are several processes in SWaT to meet the water purification requirements. A case study of the filling process is chosen to demonstrate the analysis of process noise. This process involves filling the tank component with water to maintain safe limits in the corresponding tanks. The filling process is involved in three of the six stages of SWaT. The flow sensor measurements at the inlet and outlet pipes and level sensor measurements of the tanks are analysed to determine the noise in the filling process. Ideally, there should be no disturbance in the level sensor measurements when there is no inflow or outflow of water. However, this is not true in practice due to process and sensor noise. For each tank, the process noise is determined as the difference in change in level measurements to the net-flow of water in the tank.</p><formula xml:id="formula_0">P602 == ON P602_ON! clk = 0 BW_P601_ON BW_P602_OFF c lk &lt; = 5 P602 == OFF &amp;&amp; clk &gt;= 5 P602_OFF! MV303 == OPEN MV303_OPEN! clk &gt;= 5 B W _ M V 3 0 2 _ O F F B W _ M V 3 0 1 _ O N MV302 == CLOSE P301 == OFF P301_OFF! B a c k W a s h _ O N clk &lt;= 1800 UF == ON clk = 0 clk = 0 clk = 0 clk &gt;= 3 clk = 0 START clk &lt;= 3 UF_feed_start! B W _ d o n e MV303 == CLOSE MV303_CLOSE! clk &gt;= 5 clk &lt;= 5 BW_MV303_OFF MV301 == CLOSE B W _ M V 3 0 1 _ O F F clk = 0 MV301_CLOSE! UF =</formula><p>Sensor noise is computed as ΔL -(F in -F out ), where ΔL is the change in level measurements, i.e. (L k -L k−1 ) at time instants k and k − 1, respectively, F in is the flow of water into the tank and F out is the outflow of water from the tank.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. VERIFICATION OF SWAT MODEL</head><p>Verification of the TA model is performed using the Verifier in UPPAAL. Certain properties and functions are identified as necessary to verify model behavior against that of the plant. The properties are transformed into queries supported by UPPAAL in the form of a subset of Temporal Computation Tree Logic (TCTL). A subset of queries verified in UPPAAL against the model is listed in Table <ref type="table" target="#tab_3">I</ref>.</p><p>An important objective of this work is to find a model that is as close to SWaT as possible. Various properties including reachability, safety, and deadlock are verified. The UPPAAL query has two path qualifiers (E and A) together with temporal operators. The notation E represents the existential, and A the universal, path qualifier.</p><p>• Property (P) expressed as A[]P is satisfied, if and only if P is true on all runs of state space. The universal path qualifiers can be expressed to verify the safety conditions of the system. • Property (Q) expressed as E &lt;&gt; Q is satisfied, if Q holds true on some runs of state space.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. PROCESS ANOMALY DETECTION</head><p>One challenge in CI is that they are autonomous and realtime systems that add to the complexity of the design and  implementation of any methods for anomaly detection. In <ref type="bibr" target="#b22">[23]</ref>, <ref type="bibr" target="#b23">[24]</ref>, the authors discuss various design improvements that can be beneficial in the context of securing CPS. Design principles applied to cyber-physical systems include redundancy, diversity, and separation of privileges. However, an attacker with strong understanding of the CPS architecture, may use techniques to break security layers such as firewall, authentication, etc., in the system and send the malicious measurements and control signals to the controller.</p><p>In this work, we adopt an invariant based technique to detect anomalies resulting from cyber-physical attacks. Invariants are boolean functions that must remain true for the safe operation of the plant. They are implemented to monitor the sensor measurements and actuator status so that they obey the physical dynamics of the system. Security specifications are derived for the SWaT system to ensure that the actuator status and sensor measurements conform to the safe operation of the system. A subset of the specifications is listed in Table <ref type="table" target="#tab_3">II</ref>. TA model of SS1 is presented in Figure <ref type="figure" target="#fig_4">5</ref>. The detection automaton periodically monitors the plant status and determine the presence of the attack based on the modelled security specification. Transition of the automaton to a anomaly state indicates the presence of a process anomaly an an alarm is raised.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VII. SIMULATION STUDY</head><p>In this section, we present the attack model, and attack detection via anomaly detectors, studied through simulation. The simulation study is conducted by running the attack model against the plant model with anomaly detector. The attacks are modelled as TA models and integrated with the plant and anomaly detector models. For each attack, the simulation study is performed and studied if the anomaly detector checks the presence of attack in the system.</p><p>For the TA attacker model in Figure <ref type="figure">6</ref>, the attack was launched at 15-time units since the start of simulation. The attacker manipulates LIT101 measurements and states of actuators MV101 and P101. The controller processes the manipulated level measurements and continues to assume that the plant is in safe state. However, the actual level of water is increasing. If this attack goes undetected, the attacker will be successful in realizing the intent, i.e., causing the tank to overflow. The invariant to estimate water level in the tank detects the attack and reports it by raising an alarm. Figure <ref type="figure" target="#fig_5">7</ref> shows the sensor measurements and estimated measurements for SWaT stage-1. The instance at which the attack is launched and detected is also shown in the plot.</p><p>Several attack models are derived by implementing as TA model which performs the sensor and command manipulation. The attacks can be single point or multi-point attacks. In single point attacks, one component is manipulated in the attack duration, such as sending false data to the controller or switching actuator status to controller. Similarly multi-point attacks were derived by compromising two or more state points in the system; for instance, attacking two sensors or   Table <ref type="table" target="#tab_3">IV</ref> summarises the attacks launched and the resulting anomalies detected by the detector. The single-point attacks manipulated one state variable in the system. The manipulating variables for single-point vector was either a sensor or an actuator. For instance, an attack launched on single-point over a sensor is as follows. An attack to alter the level sensor LIT301 is launched where false measurement of 1000mm is sent to the controller but the true measurement of tank was in safe limit i.e. 500mm. The controller stopped the inflow of tank T301 by closing MV201 and initiated the outflow which eventually lead to underflow of tank in stage-3. This attack was detected by the anomaly detector by one of the invariants in SS group estimating the state variable LIT301. Similarly a single point attack altering AIT202 measuring the pH of the water in stage-2 was launched. The actual value of 7.05 was manipulated to 7.15 and it was not detected by the implemented anomaly detector. Similarly, single-point attacks were launched on actuators in the system. For example, the attack model targeted the pump P401 to on when it was in off state in order the underflow the tank T401. The attack was detected by the anomaly detector by raising alarm. In this study, all single-point attacks on actuators were detected by the anomaly detector. Multi-point attacks manipulated two or more state variables in the system. An example of multi-point attack is shown in Figure <ref type="figure">6</ref>. In summary, the anomaly detector alerted for 77% of 109 attacks single-point attacks in this study. The detection technique was able to detect attacks on level sensors and flow measurements. However, the attacks on chemical properties such as ORP, pH were not detected. This implied the possibility that the invariants were inadequate to detect attacks on chemical properties of the system. Similarly, for multi-point attacks, i.e. attacks that compromised two or more sensors/actuators, the detection mechanism was able to detect 97% of 138 attacks launched.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VIII. DISCUSSION</head><p>From UPPAAL model to the plant: The work presented here was to explore how a network of TA, integrated with those of noise and cyber-attacks, could be used to test the effectiveness of an attack detection mechanism in a CPS. Simulation results do indicate that an invariant based mechanism to detect process anomalies in SWaT is effective. This conclusion has been separately validated in other published works that use a similar invariant based detection mechanism and in the same plant, i.e. SWaT, as used in this work <ref type="bibr" target="#b24">[25]</ref>, <ref type="bibr" target="#b21">[22]</ref>. While in the case of SWaT, the simulation study reported here was performed after the attack detection mechanism was implemented and evaluated in SWaT, for other plants a reverse process is recommended. Specifically, it is recommended that the modeling and simulation methodology as in Section II be used prior to the actual implementation of an attack detection mechanism in a legacy plant. Doing so would likely raise the confidence of plant designers and operators in the effectiveness of the detection mechanism before it is placed in an operational plant.</p><p>As part of future work, we plan to develop a methodology to automate and scale this process to larger installations than SWaT.</p><p>Limitations of the approach: Though there are several advantages in assessing the detecting process of anomalies using digital twinning, there exists certain limitations which are described next. The lack of network protocol simulation in the model limits the nature of attacks that can be launched. Attacks launched here are constrained to level 0 network i.e., the level of communication between PLCs and components such as sensors and actuators. However, attacks can be launched across level 1 or higher where PLCs communicate with each other and with SCADA or engineering workstations. Although in this implementation, the attacks on higher levels of communication link are not tested, this works can be substantially expanded to accommodate the other levels of communication links.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IX. RELATED WORK</head><p>The usefulness of TA in modeling real-time systems has been pointed out in <ref type="bibr" target="#b20">[21]</ref>, <ref type="bibr" target="#b25">[26]</ref>. As CI exhibit both time dependent continuous behavior and discrete behavior, TA <ref type="bibr" target="#b9">[10]</ref> would be useful to capture the dynamics of system. Using TA to model real-time systems and communication protocols is described for a case study of gearbox in vehicular system in <ref type="bibr" target="#b26">[27]</ref>. In <ref type="bibr" target="#b27">[28]</ref>, TA is used to detect communication bus collisions using TA models. In the context of using TA to model attack detection and attacker models in UPPAAL <ref type="bibr" target="#b15">[16]</ref> was discussed in <ref type="bibr" target="#b19">[20]</ref>.</p><p>One step in protecting a CPS from disastrous effects of a cyber-attack is detecting it soon after it begins to impact the process in the attacked plant. In <ref type="bibr" target="#b28">[29]</ref>, a survey of various detection techniques is presented. In <ref type="bibr" target="#b24">[25]</ref> the authors have discussed extensively the use of process invariants to detect cyber-attacks. Since there is a large set of legacy critical infrastructure, it is important to test an attack detection technique without compromising plant availability. Attacker models derived specifically for CI are reported in <ref type="bibr" target="#b29">[30]</ref>, <ref type="bibr" target="#b30">[31]</ref>. In <ref type="bibr" target="#b21">[22]</ref> the authors proposed four categories of attacks used in the study reported in this paper. Attacker templates for sensor measurements were studied in <ref type="bibr" target="#b31">[32]</ref>. Some of the attack templates are scaling attacks, pulse attacks, random attacks, ramp attacks, etc. Any of the attack templates can be used for sensor measurement manipulation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>X. CONCLUSION</head><p>Formal modeling of a specific CI, namely SWaT, using TA is presented in this work. The model consists of a network of TA models. The interaction of various TA models leads to exchange of control and sensor information. A model based anomaly detection technique was designed by deriving safety specifications based on system dynamics. The performance of the detection techniques was evaluated with the attacker model implemented as a TA. The attacks were launched from the attacker model by manipulating single-point and multiple point attacks that relate to actuator states and sensor measurements. Results from simulation studies indicate that the derived anomaly detection technique is effective in detecting the anomalies arising consequent to the injected attacks. The attacks were detected and an alarm was raised to ensure the safe operation of the plant. Our future work is to design and develop automatic attacker model generation to effectively test the detection technique.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1.Steps in modeling and validation for assessing the effectiveness of an invariant-based anomaly detection mechanism using process simulation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. TA automaton for the controller in stage-5.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>Motorised valves are actuators to control the flow of water. Based on the control algorithm, the actuator is either in open or in close state. When the controller sends commands to a motorised valve, it switches its state from open to close or vice-versa. A model of motorised valve MV304 in stage-3 of SWaT is shown in Figure 4. Initially, the valve is in MV CLOSE state. When the MV304 OPEN command is issued by the controller (PLC 3 ) to MV304 automaton, it transits from close to open state. As the valve spends 5-7 time units (hardware delay) changing its state, additional traveling states are introduced in the model to obtain a more accurate representation of the valve.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. TA automaton for the motorised valve MV304.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Security specification for multi-point attack detection SS1.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Detection of the attack on stage-1 to cause tank overflow.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>. As seen in the controller TA model, there are blade-likestructures, each representing a control action such as when Reverse Osmosis (RO) process is inactive, move valve MV503 to OPEN if it is CLOSED state, and so on. c) UF backwash process: The membranes in the UF unit filter out the solids and other colloidal particles in the</figDesc><table><row><cell></cell><cell>RO == OFF &amp;&amp; MV503 == CLOSE</cell></row><row><cell></cell><cell>MV503_OPEN!</cell></row><row><cell>P401 == ON &amp;&amp; RO == OFF</cell><cell>RO == OFF &amp;&amp; MV504 == CLOSE</cell></row><row><cell>RO_STARTUP!</cell><cell>MV504_OPEN!</cell></row><row><cell></cell><cell>AIT502 &lt;= H || AIT504 &gt;= HH</cell></row><row><cell>(P401 == OFF || UV == OFF ||</cell><cell>&amp;&amp; RO == ON</cell></row><row><cell>LIT401 == LL ) &amp;&amp; P501 == ON</cell><cell>RO_SHUTDOWN_30!</cell></row><row><cell>P501_OFF!</cell><cell></cell></row><row><cell>P401 == ON &amp;&amp; LIT401 &gt; LL</cell><cell></cell></row><row><cell>&amp;&amp; UV == ON &amp;&amp; P501 == OFF</cell><cell></cell></row><row><cell>P501_ON!</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>TABLE I A</head><label>I</label><figDesc>SUBSET OF VERIFICATION QUERIES FOR THE TA MODEL OF SWAT UF == ON ) imply (P 602 == OF F ) During the ultra-filtration process, the Backwash Pump P-602 is in OFF state.</figDesc><table><row><cell>ID</cell><cell cols="3">UPPAAL Query</cell><cell>Description</cell></row><row><cell cols="4">Query 1 A[] not deadlock</cell><cell>Verifies if system model is free from dead-</cell></row><row><cell></cell><cell></cell><cell></cell><cell>lock</cell></row><row><cell cols="4">Query 2 E &lt;&gt; MV 302.M V OP EN</cell><cell>The state MV OPEN of MV302 is reachable</cell></row><row><cell></cell><cell></cell><cell></cell><cell>or not</cell></row><row><cell cols="4">Query 3 E[](LIT 101 == L imply MV 101 ==</cell><cell>When the water in Tank T101 indicated by</cell></row><row><cell></cell><cell cols="3">OP EN )</cell><cell>LIT101 is Low, inflow of water via MV101</cell></row><row><cell></cell><cell></cell><cell></cell><cell>is open</cell></row><row><cell cols="4">Query 4 E[](P 101 == ON imply M V 201 ==</cell><cell>When Pump P101 is turned On, the valve in</cell></row><row><cell></cell><cell cols="3">OP EN )</cell><cell>stage-2 MV201 is OPEN.</cell></row><row><cell cols="4">Query 5 E[](UF Backwash == ON &amp;&amp;P 301 ==</cell><cell>When the backwash cleaning of UF mem-</cell></row><row><cell></cell><cell cols="3">OF F )</cell><cell>brane is in process, the feed water pump to</cell></row><row><cell></cell><cell></cell><cell></cell><cell>UF process is stopped.</cell></row><row><cell cols="3">Query 6 A[](Start MV101 == CLOSE || P101 == ON</cell><cell>Check</cell><cell>Normal</cell></row><row><cell cols="2">MV101 == OPEN &amp;&amp;</cell><cell></cell><cell>MV101 == OPEN &amp;&amp;</cell></row><row><cell cols="2">P101 == OFF clk = 0</cell><cell cols="2">clk &lt;= 25</cell><cell>P101 == OFF &amp;&amp; LIT101 &gt; ref_LIT101</cell></row><row><cell cols="2">ref_LIT101 := LIT101</cell><cell></cell></row><row><cell></cell><cell></cell><cell cols="2">MV101 == OPEN &amp;&amp;</cell></row><row><cell></cell><cell></cell><cell cols="2">P101 == OFF &amp;&amp;</cell></row><row><cell></cell><cell></cell><cell cols="2">LIT101 &lt;= ref_LIT101</cell></row><row><cell>Alarm!</cell><cell></cell><cell></cell><cell>Anomaly</cell></row><row><cell>Detected = True</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>TABLE II SECURITY</head><label>II</label><figDesc>SPECIFICATIONS FOR ATTACK DETECTION OF SWAT Specification for multi-stage attack detection. SS: Specification for single-stage attack detection Fig.6. TA automaton for the attacker model to bring SWaT into an unsafe state by over-flowing tank T101. two actuators or a sensor &amp; an actuator. A sample of attacks launched is listed in TableIII.</figDesc><table><row><cell>Security</cell><cell>Actuator status</cell><cell cols="2">Sensors Specification</cell><cell></cell><cell cols="2">Comments</cell></row><row><cell>Specification</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>SS 1</cell><cell>MV101 = Open &amp;&amp;</cell><cell cols="2">LIT101 ↑</cell><cell></cell><cell cols="2">When there is inflow (MV101 = open) and no outflow</cell></row><row><cell></cell><cell>P101 = Off</cell><cell></cell><cell></cell><cell></cell><cell cols="2">(P101 = off), level in T101 should be increasing.</cell></row><row><cell>SS 2</cell><cell>MV101 = Open</cell><cell cols="2">FIT101 ↑</cell><cell></cell><cell cols="2">When there is inflow (MV101 = Open), the FIT101</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>is High.</cell></row><row><cell>SS 3</cell><cell>MV101 = Open/Close</cell><cell cols="5">l t+1 = l t + k(f in − f out ) Water level in tank T101 at time instant t; k: multi-</cell></row><row><cell></cell><cell>&amp;&amp; P101 = Off/on</cell><cell></cell><cell></cell><cell></cell><cell cols="2">plier to convert net flow rate to change in water level;</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">f in and f out are, respectively, the inflow and outflow</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">rates for tank T101. Water level in tank T101 changes</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">gradually; no sudden increase or decrease is expected.</cell></row><row><cell>SS 4</cell><cell>MV101 = Open/Close</cell><cell cols="2">LL − &lt;=LIT101&lt;=HH +</cell><cell></cell><cell cols="2">The level sensor reading should be within the safe</cell></row><row><cell></cell><cell>&amp;&amp; P101 = Off/on</cell><cell></cell><cell></cell><cell></cell><cell cols="2">operation range of water tank, where LL − is the low</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">threshold and HH + is the HighHigh threshold of T101.</cell></row><row><cell>MS 1</cell><cell>MV101 = Close &amp;&amp;</cell><cell cols="2">LIT101 &amp;&amp; LIT301</cell><cell></cell><cell cols="2">When there is no inflow/outflow, level in T101 is</cell></row><row><cell></cell><cell>P101 = Off &amp;&amp; P301</cell><cell></cell><cell></cell><cell></cell><cell cols="2">unchanged while there is no inflow/outlfow in T301,</cell></row><row><cell></cell><cell>= Off</cell><cell></cell><cell></cell><cell></cell><cell cols="2">LIT301 remains unchanged.</cell></row><row><cell>MS 2</cell><cell>MV101 = Close &amp;&amp;</cell><cell cols="2">LIT101 &amp;&amp; LIT301 ↓</cell><cell></cell><cell cols="2">When there is no inflow/outflow, level in T101 re-</cell></row><row><cell></cell><cell>P101 = Off &amp;&amp; P301</cell><cell></cell><cell></cell><cell></cell><cell cols="2">mains unchanged while there is only outlfow in T301,</cell></row><row><cell></cell><cell>= On</cell><cell></cell><cell></cell><cell></cell><cell cols="2">LIT301 decreases.</cell></row><row><cell>MS 3</cell><cell>P302 = Off</cell><cell cols="3">UF Backwash sequence is</cell><cell cols="2">During the UF Backwash process activation, the</cell></row><row><cell></cell><cell></cell><cell cols="2">active</cell><cell></cell><cell cols="2">Pump P302 is turned Off.</cell></row><row><cell cols="2">MS: Start</cell><cell>Action_1</cell><cell cols="3">Action_2 MV101 == CLOSE clk = 0</cell><cell>Update</cell></row><row><cell></cell><cell>clk = 0 clk&gt;=15 clk &lt;= 15</cell><cell>clk &lt;= 2</cell><cell>MV101_OPEN!</cell><cell cols="2">P101_OFF!</cell><cell>clk &lt;= 1</cell><cell>clk &gt;= 1 Level_T1 = 00</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>clk = 0</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>P101 == ON</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>clk = 0</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>TABLE III SAMPLE</head><label>III</label><figDesc>OF ATTACKS LAUNCHED IN THE SIMULATOR.</figDesc><table><row><cell>Attack Point(s)</cell><cell>Start State</cell><cell>Manipulated</cell></row><row><cell></cell><cell></cell><cell>State</cell></row><row><cell>LIT101</cell><cell>500mm</cell><cell>150mm</cell></row><row><cell>P101</cell><cell>OFF</cell><cell>ON</cell></row><row><cell>FIT401</cell><cell>1.7 m 3 /hr</cell><cell>2.1 m 3 /hr</cell></row><row><cell>LIT101, LIT301</cell><cell>450mm, 750mm</cell><cell>800mm, 500mm</cell></row><row><cell>LIT301, MV201</cell><cell>300mm, OPEN</cell><cell>850mm, CLOSE</cell></row><row><cell>AIT402 , P501</cell><cell>170mV, ON</cell><cell>240mV, OFF</cell></row><row><cell>MV101, LIT101,</cell><cell>OPEN, 300mm,</cell><cell>CLOSE, 800mm,</cell></row><row><cell>P101</cell><cell>OFF</cell><cell>ON</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>TABLE IV ATTACKS</head><label>IV</label><figDesc>DESIGNED TO VALIDATE THE ANOMALY DETECTION MECHANISM.</figDesc><table><row><cell>Attack</cell><cell>Attack</cell><cell>Number of</cell><cell>Detection</cell></row><row><cell>Type</cell><cell>Points</cell><cell>Attacks</cell><cell>result (%)</cell></row><row><cell>Single</cell><cell>Sensor</cell><cell>109</cell><cell>77</cell></row><row><cell>Point</cell><cell>Actuator</cell><cell>58</cell><cell>100</cell></row><row><cell>Multi</cell><cell>Sensor &amp;</cell><cell>138</cell><cell>97</cell></row><row><cell>Point</cell><cell>Actuator</cell><cell></cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">This work was supported by research grant NRF2014-NCR-NCR001-040 from the National Research Foundation, Singapore.</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Ragunathan</forename><forename type="middle">(raj)</forename><surname>Rajkumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Insup</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lui</forename><surname>Sha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Stankovic</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1837274.1837461</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 47th Design Automation Conference on - DAC &apos;10</title>
+				<meeting>the 47th Design Automation Conference on - DAC &apos;10</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2010" />
+			<biblScope unit="page" from="731" to="736" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Malicious control system cyber security attack case studymaroochy water services, australia</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Abrams</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Figure .7.1..Stuxnet infection rates by country, September 2010</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Matrosov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Rodionov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Harley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Malcho</surname></persName>
+		</author>
+		<idno type="DOI">10.1787/888932694576</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ESET LLC</title>
+		<imprint>
+			<date>September 2010. 2010</date>
+			<publisher>Organisation for Economic Co-Operation and Development (OECD)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">LAS VEGAS SANDS CORP., a Nevada corporation, Plaintiff, v. UKNOWN REGISTRANTS OF www.wn0000.com, www.wn1111.com, www.wn2222.com, www.wn3333.com, www.wn4444.com, www.wn5555.com, www.wn6666.com, www.wn7777.com, www.wn8888.com, www.wn9999.com, www.112211.com, www.4456888.com, www.4489888.com, www.001148.com, and www.2289888.com, Defendants.</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lipovsky</surname></persName>
+		</author>
+		<idno type="DOI">10.1089/glre.2016.201011</idno>
+		<ptr target="http://www.welivesecurity.com/" />
+	</analytic>
+	<monogr>
+		<title level="j">Gaming Law Review and Economics</title>
+		<title level="j" type="abbrev">Gaming Law Review and Economics</title>
+		<idno type="ISSN">1097-5349</idno>
+		<idno type="ISSNe">1941-5494</idno>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="859" to="868" />
+			<date type="published" when="2016-12" />
+			<publisher>Mary Ann Liebert Inc</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Introducing Cyber Security at the Design Stage of Public Infrastructures: A Procedure and Case Study</title>
+		<author>
+			<persName><forename type="first">Sridhar</forename><surname>Adepu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Mathur</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-29643-2_6</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Intelligent Systems and Computing</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="75" to="94" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">US Ignite testbeds: Advanced testbeds enable next-generation applications</title>
+		<author>
+			<persName><forename type="first">Glenn</forename><surname>Ricart</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/itc.2014.6932975</idno>
+		<ptr target="https://itrust.sutd.edu.sg/testbeds/" />
+	</analytic>
+	<monogr>
+		<title level="m">2014 26th International Teletraffic Congress (ITC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014-09" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">SWaT: a water treatment testbed for research and training on ICS security</title>
+		<author>
+			<persName><forename type="first">Aditya</forename><forename type="middle">P</forename><surname>Mathur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nils</forename><forename type="middle">Ole</forename><surname>Tippenhauer</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cyswater.2016.7469060</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 International Workshop on Cyber-physical Systems for Smart Water Networks (CySWater)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-04-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Using Process Invariants to Detect Cyber Attacks on a Water Treatment System</title>
+		<author>
+			<persName><forename type="first">Sridhar</forename><surname>Adepu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Mathur</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-33630-5_7</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ICT Systems Security and Privacy Protection</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="91" to="104" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">The theory of hybrid automata</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Henzinger</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/lics.1996.561342</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings 11th Annual IEEE Symposium on Logic in Computer Science</title>
+				<meeting>11th Annual IEEE Symposium on Logic in Computer Science</meeting>
+		<imprint>
+			<publisher>IEEE Comput. Soc. Press</publisher>
+			<date>Jul 1996</date>
+			<biblScope unit="page" from="278" to="292" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A theory of timed automata</title>
+		<author>
+			<persName><forename type="first">Rajeev</forename><surname>Alur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">L</forename><surname>Dill</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/0304-3975(94)90010-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Theoretical Computer Science</title>
+		<title level="j" type="abbrev">Theoretical Computer Science</title>
+		<idno type="ISSN">0304-3975</idno>
+		<imprint>
+			<biblScope unit="volume">126</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="183" to="235" />
+			<date type="published" when="1994-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Proceedings of the 16th international conference on World Wide Web - WWW &apos;07</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Design</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1242572</idno>
+		<ptr target="http://www.mirabilisdesign.com" />
+	</analytic>
+	<monogr>
+		<title level="j">World Wide Web</title>
+		<imprint>
+			<date type="published" when="2007" />
+			<publisher>ACM Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Introduction</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Tiller</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-1-4615-1561-6_1</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Introduction to Physical Modeling with Modelica</title>
+				<imprint>
+			<publisher>Springer US</publisher>
+			<date type="published" when="2001" />
+			<biblScope unit="volume">615</biblScope>
+			<biblScope unit="page" from="3" to="15" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Romeo: A Tool for Analyzing Time Petri Nets</title>
+		<author>
+			<persName><forename type="first">Guillaume</forename><surname>Gardey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Didier</forename><surname>Lime</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Morgan</forename><surname>Magnin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Olivier</forename><forename type="middle">(h. )</forename><surname>Roux</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/11513988_41</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Computer Aided Verification</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2005" />
+			<biblScope unit="page" from="418" to="423" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Simulink Modeling and Design of an Efficient Hardware-Constrained FPGA-Based PMSM Speed Controller</title>
+		<author>
+			<persName><forename type="first">Bogdan</forename><surname>Alecsa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcian</forename><forename type="middle">N</forename><surname>Cirstea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexandru</forename><surname>Onea</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tii.2012.2193891</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+		<idno type="ISSN">1551-3203</idno>
+		<idno type="ISSNe">1941-0050</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="554" to="562" />
+			<date type="published" when="2012-08" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Snoopy – A Unifying Petri Net Tool</title>
+		<author>
+			<persName><forename type="first">Monika</forename><surname>Heiner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mostafa</forename><surname>Herajy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Rohr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Schwarick</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-31131-4_22</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<editor>
+			<persName><forename type="first">S</forename><surname>Haddad</surname></persName>
+			<persName><forename type="first">L</forename><surname>Pomello</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin, Heidelberg; Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2012" />
+			<biblScope unit="page" from="398" to="407" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Validation, Synthesis and Optimization for Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">Kim</forename><forename type="middle">G</forename><surname>Larsen</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-662-54577-5_1</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Tools and Algorithms for the Construction and Analysis of Systems</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="3" to="20" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Verification of an Audio Protocol with bus collision using Uppaal</title>
+		<author>
+			<persName><forename type="first">Johan</forename><surname>Bengtsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">O David</forename><surname>Griffioen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kåre</forename><forename type="middle">J</forename><surname>Kristoffersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kim</forename><forename type="middle">G</forename><surname>Larsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fredrik</forename><surname>Larsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Pettersson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wang</forename><surname>Yi</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/3-540-61474-5_73</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Computer Aided Verification</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="1996" />
+			<biblScope unit="page" from="244" to="256" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Formal validation of supervisory energy management systems for microgrids</title>
+		<author>
+			<persName><forename type="first">Gayathri</forename><surname>Sugumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rajasekar</forename><surname>Selvamuthukumaran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tomislav</forename><surname>Dragicevic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ulrik</forename><surname>Nyman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kim</forename><forename type="middle">G</forename><surname>Larsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Frede</forename><surname>Blaabjerg</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/iecon.2017.8216197</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IECON 2017 - 43rd Annual Conference of the IEEE Industrial Electronics Society</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-10" />
+			<biblScope unit="page" from="1154" to="1159" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Supervisory Energy-Management Systems for Microgrids: Modeling and Formal Verification</title>
+		<author>
+			<persName><forename type="first">Gayathri</forename><surname>Sugumar</surname></persName>
+			<idno type="ORCID">0000-0002-5589-8730</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Rajasekar</forename><surname>Selvamuthukumaran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mateja</forename><surname>Novak</surname></persName>
+			<idno type="ORCID">0000-0001-8142-0872</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Tomislav</forename><surname>Dragicevic</surname></persName>
+			<idno type="ORCID">0000-0003-4755-2024</idno>
+		</author>
+		<idno type="DOI">10.1109/mie.2019.2893768</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Industrial Electronics Magazine</title>
+		<title level="j" type="abbrev">EEE Ind. Electron. Mag.</title>
+		<idno type="ISSN">1932-4529</idno>
+		<idno type="ISSNe">1941-0115</idno>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="26" to="37" />
+			<date type="published" when="2019-03" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Testing the Effectiveness of Attack Detection Mechanisms in Industrial Control Systems</title>
+		<author>
+			<persName><forename type="first">Gayathri</forename><surname>Sugumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Mathur</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/qrs-c.2017.29</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE International Conference on Software Quality, Reliability and Security Companion (QRS-C)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-07" />
+			<biblScope unit="page" from="138" to="145" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Scheduling a steel plant with timed automata</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fehnker</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/rtcsa.1999.811256</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings Sixth International Conference on Real-Time Computing Systems and Applications. RTCSA&apos;99 (Cat. No.PR00306)</title>
+				<meeting>Sixth International Conference on Real-Time Computing Systems and Applications. RTCSA&apos;99 (Cat. No.PR00306)</meeting>
+		<imprint>
+			<publisher>IEEE Comput. Soc</publisher>
+			<date>1999</date>
+			<biblScope unit="page" from="280" to="286" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Distributed Detection of Single-Stage Multipoint Cyber Attacks in a Water Treatment Plant</title>
+		<author>
+			<persName><forename type="first">Sridhar</forename><surname>Adepu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Mathur</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2897845.2897855</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 11th ACM on Asia Conference on Computer and Communications Security</title>
+				<meeting>the 11th ACM on Asia Conference on Computer and Communications Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2016-05-30" />
+		</imprint>
+	</monogr>
+	<note>in Press</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Basic concepts and taxonomy of dependable and secure computing</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Avizienis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J-C</forename><surname>Laprie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Randell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Landwehr</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tdsc.2004.2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Dependable and Secure Computing</title>
+		<title level="j" type="abbrev">IEEE Trans.Dependable and Secure Comput.</title>
+		<idno type="ISSN">1545-5971</idno>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="11" to="33" />
+			<date type="published" when="2004-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">The protection of information in computer systems</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Saltzer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Schroeder</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/proc.1975.9939</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<title level="j" type="abbrev">Proc. IEEE</title>
+		<idno type="ISSN">0018-9219</idno>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="1278" to="1308" />
+			<date type="published" when="1975" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Using Process Invariants to Detect Cyber Attacks on a Water Treatment System</title>
+		<author>
+			<persName><forename type="first">Sridhar</forename><surname>Adepu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Mathur</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-33630-5_7</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ICT Systems Security and Privacy Protection</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="91" to="104" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">UPPAAL — a tool suite for automatic verification of real-time systems</title>
+		<author>
+			<persName><forename type="first">Johan</forename><surname>Bengtsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kim</forename><surname>Larsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fredrik</forename><surname>Larsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Pettersson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wang</forename><surname>Yi</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/bfb0020949</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Hybrid Systems III</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="1996" />
+			<biblScope unit="page" from="232" to="243" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Formal design and analysis of a gear controller</title>
+		<author>
+			<persName><forename type="first">Magnus</forename><surname>Lindahl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Pettersson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wang</forename><surname>Yi</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/bfb0054178</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Tools and Algorithms for the Construction and Analysis of Systems</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="1998" />
+			<biblScope unit="page" from="281" to="297" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Formal modeling and analysis of an audio/video protocol: an industrial case study using UPPAAL</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Havelund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Skou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">G</forename><surname>Larsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Lund</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/real.1997.641264</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings Real-Time Systems Symposium</title>
+				<meeting>Real-Time Systems Symposium</meeting>
+		<imprint>
+			<publisher>IEEE Comput. Soc</publisher>
+			<date>1997</date>
+			<biblScope unit="page" from="2" to="13" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Intrusion detection in cyberphysical systems: Techniques and challenges</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H.-H</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ling</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Systems Journal</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1049" to="1059" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+	<note>IEEE</note>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Challenges for securing cyber physical systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Cardenas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Amin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sinopoli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Giani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Perrig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sastry</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshop on future directions in cyber-physical systems security</title>
+				<imprint>
+			<date type="published" when="2009" />
+			<biblScope unit="page">5</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Physical security of a smart grid infrastructure</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Mo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T.-J</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Brancik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dickinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Perrig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sinopoli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="195" to="209" />
+			<date type="published" when="2012-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Understanding the physical and economic consequences of attacks on control systems</title>
+		<author>
+			<persName><forename type="first">Yu-Lun</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alvaro</forename><forename type="middle">A</forename><surname>Cárdenas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saurabh</forename><surname>Amin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zong-Syun</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hsin-Yi</forename><surname>Tsai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shankar</forename><surname>Sastry</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ijcip.2009.06.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Critical Infrastructure Protection</title>
+		<title level="j" type="abbrev">International Journal of Critical Infrastructure Protection</title>
+		<idno type="ISSN">1874-5482</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="73" to="83" />
+			<date type="published" when="2009-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

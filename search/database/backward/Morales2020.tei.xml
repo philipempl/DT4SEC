@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Security Impacts of Sub-Optimal DevSecOps Implementations in a Highly Regulated Environment</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Jose</forename><forename type="middle">Andre</forename><surname>Morales</surname></persName>
+							<email>jamorales@sei.cmu.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Thomas</forename><forename type="middle">P</forename><surname>Scanlon</surname></persName>
+							<email>scanlon@sei.cmu.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Aaron</forename><forename type="middle">M</forename><surname>Volkmann</surname></persName>
+							<email>amvolkmann@sei.cmu.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Joseph</forename><forename type="middle">D</forename><surname>Yankel</surname></persName>
+							<email>jdyankel@sei.cmu.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hasan</forename><surname>Yasar</surname></persName>
+							<email>hyasar@sei.cmu.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department">Software Engineering Institute</orgName>
+								<orgName type="institution">Carnegie Mellon University</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Security Impacts of Sub-Optimal DevSecOps Implementations in a Highly Regulated Environment</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1145/3407023.3409186</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:46+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Software development methods</term>
+					<term>Software and application security</term>
+					<term>Systems security DevSecOps, software factory, system security, software security</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This work presents lessons learned from a multi-year support effort of a large and well-funded software development project. The focus is on the security impacts to the DevSecOps culture, process, and pipeline. These impacts stem from faulty implementations of requirements in order to achieve a full DevSecOps environment. The faulty implementations resulted in a lax security posture facilitating potential compromise in many areas of the software development environment. We discuss each of the faulty implementations in detail and provide recommendations to avoid in future engagements. The main lesson learned was the organization's inability to strictly adhere to DevSecOps principles resulted in a dysfunctional software development environment and a reduced security posture.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>The process of implementing DevSecOps (DSO) in highly regulated environments is a non-trivial task <ref type="bibr" target="#b0">[1]</ref>. This work details the lessons learned, observations, and insights from a multi-year engagement supporting a software development effort for a large, well-funded, and highly regulated program that adopted Agile and DevSecOps (DSO) principles during a 24-month period. The program was originally set up to use the waterfall software development approach with a traditional Earned Value (EV) scheme, and had completed several rounds of development utilizing this structure. The program's shift to a combination of Agile and DSO produced many challenges. This work details five notable observations categorized by us as shortcomings resulting with both evident and inadvertent impacts to various sectors of the program's security posture. The findings revolved primarily around three central themes: workforce, communications and workflow, and software development practices. All the outcomes detailed here are further examined to capture the security impacts to the DSO culture, process, and pipeline being implemented and to uncover insights into what could have been done differently to achieve improved results where things went wrong.</p><p>A prevailing sentiment observed with this program is that attention was focused almost entirely on technological changes in the software development lifecycle, with little regard to the people and processes involved. While Agile and DevSecOps are autonomous concepts that can be adopted independently, a symbiotic relationship exists between them that allows for significant impact when implemented together. Agile provides a development methodology ideally suited for DevSecOps pipelines, which in turn provide the necessary pillars to turn Agile concepts into development reality. However, in this case, the program wanted to "be agile" without taking the time to actually adopt Agile methods. Likewise, their adoption of DSO was based mainly around implementing tools, instead of adopting the fundamental principles of DSO. The program had a singular focus of milestone achievement. In order to accomplish this, the program's leadership decided to tailor both DSO and Agile recommendations to fit their program needs and business model. This resulted in partial or faulty implementations of recommended practices primarily in the areas of DSO process and pipeline. The security impacts were: insufficiently tested software pushed to production, temporary fixes allowed to run in production, insufficient configuration management, lack of static and dynamic analysis of code, development and testing platform incompatibilities, and minimal interoperability between the systems the program was developing and other software components of the program. The results of these security impacts were schedule delays and additional time and financial consumption to complete full system integration and testing, gain regulatory approval for security devices such as cross domain solutions, and perform needed analysis, detection and amendment of discovered security flaws. This program was executed by a prime contractor in concert with multiple subcontractors, each responsible for a developing and delivering a portion of the system. Each sub was directed to use a constantly evolving, centralized DSO environment for development and testing. Due to contractual agreements, each vendor was primarily incentivized to deliver new features to their component of the system on a set schedule. Merging these features on a daily basis via the DSO continuous integration / continuous delivery pipeline served its purpose in revealing issues early by "breaking the build," halting progress for some teams on the pipeline until the issues could be resolved. Without an agile planning approach to properly sequence work across teams and DSO cultural mindset, this created a visible source of contention amongst the vendors. The program schedule was developed in a waterfall fashion without considering the detailed planning needed to orchestrate frequent integrations of work from multiple vendors in the pipelines. The success or failure of a team from a schedule perspective was decided by which team's changes were allowed to be introduced to the pipeline first. An atmosphere of rivalry emerged at the time when the program most needed a culture of shared responsibility, open communication, and empathy. Status meetings between vendors turned into blame sessions creating a victim mentality. Certain subcontractors felt they didn't have a seat at the table during strategic technical conversations on prioritizing work in the pipeline making any attempt to meet schedule destined to fail. In response, the traditional EV structure of the program allowed for unmet acceptance criteria on features to be pushed into a defect backlog to be completed in a later program phase. This technical debt improved short term schedule performance on paper, but ultimately resulted in greater overall inefficiency because the cost of resolution increases exponentially as time passes <ref type="bibr" target="#b1">[2]</ref>. This was another major example of how a tools-only approach to DSO will not yield expected improvements.</p><p>The work presented here serves as an advisory account to others undertaking similar DevSecOps and Agile transformations, particularly in large organizations, so that they may better strategize methods to diminish similar shortcomings and the associated suboptimal impacts to their security posture.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Security Posture of DSO</head><p>We define the security component of DSO as a dyad of efforts: security of the software development environment and of the software being developed. These two distinct efforts together secure both the software factory and the deployed software. Achieving each requires a different set of requirements and approaches.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Security of the software development environment</head><p>The software development approach of DSO is one component of the overall software factory. The factory encapsulates all stakeholders of a software project including the business components.</p><p>Within the factory is the continuous integration/continuous delivery (CI/CD) pipeline used by the technological components. The culture and process of DSO is embedded within primarily development, management, and stakeholder mindset. From a security standpoint, the factory, as a whole, must be safeguarded to ensure the DSO process of developing software is not manipulated in a malicious manner. Some of the major security threats in the factory are: These threats can be embedded into the mechanics of how a software factory implements the DSO process. This ultimately embeds these threats and others into the implementation mechanics themselves potentially making detection extremely difficult. The threats then have the ability to persist long term. The software factory itself is a software product and should be handled with the same rigor as the software products it helps produce. The factory should be built and maintained through scripting and binary artifacts protected through configuration control to the greatest extent possible. All changes to these factory artifacts must pass the usual software promotion gates from development to production, being tested and peer reviewed with a security focus. The factory should also be able to respond to changing threats, with the ability to be quickly and confidently patched. This should be accomplished through factory pipelines that automatically test and deploy changes to the factory. Threat modeling should be performed on the software factory to identify areas that present security risks for mitigation. Malicious user stories are a useful vehicle to evaluate and mitigate potential security flaws in the factory <ref type="bibr" target="#b3">[3]</ref>. Like other systems, proper security hardening should be applied to tools, services, and platforms. Logs produced by the factory should be collected, stored and continuously monitored for security concerns. The software factory should have the same or greater quality and security process rigor as any other software service.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Security of the deployed software</head><p>Typically securing software under development is what comes to most people's minds when they think of software security. This is an essential practice as the removal of vulnerabilities and other faulty code as early as possible in the software development process is always desirable. Some types of software security testing <ref type="bibr" target="#b4">[4]</ref> include: </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">General views on implementing security practices</head><p>In DSO, the automation of testing, including factory and software security, is a cornerstone practice. Unfortunately, as we will see later, security can be seen as a necessary evil that would preferably be minimized or ignored by leadership. The time, money, and other resources, spent in gathering, creating, and implementing security testing can be seen as unnecessary and not needed due to the advance and well established practice of issuing security patches to deployed software. The rise in popularity of cyber security further minimizes the need for testing. In our observation with this program, testing was minimized to only what was required by the program. As long as those tests, of which a small subset dealt with security in any form, were viewed as satisfied by program auditors, development continued as usual with little to no thought given to other security concerns.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Faulty DSO Implementations</head><p>As previously mentioned, there were five key areas where a DSO practice was not fully implemented. This faulty implementation affected various aspects of the program's security posture. Some of these impacts were evident as direct results of the sub-optimal implementation. In these cases, certain members of the sub were aware but did nothing to change it since it was not a requirement from the prime. Inadvertent impacts were not plainly obvious and in some cases were never noticed by members of the sub. In a few cases, we pointed out the security issue to the sub's program leadership and the typical reaction was to do nothing for two reasons:</p><p>1. The issue was not causing problems 2. The prime was not requiring changes</p><p>The sub made little to no effort to inform the prime of these security flaws. The motivation was to avoid providing the prime reasons to doubt the sub's ability to complete the work. Overall, contract and funding sustainment was a key goal of the sub. Often the sub did not mention issues in order to achieve this goal. The following is a detail account of each of the five faulty implementations, their security impacts and recommendations to mitigate their occurrence in future engagements. We present the issue along with our general observations of its manifestation including reasons for its occurrence, impacts to security, and recommended mitigations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Inability of the prime to provide needed development environments significantly impacted work performance</head><p>Observations. The inability of the prime to provide and sustain needed development environments significantly impacted the sub, causing work delays. The DevSecOps pipeline created by the prime and used by the sub for testing and delivery proved to be an everpresent challenge to sustain in an operational mode. This resulted in countless losses of time due to testing and delivery failures from faults in the mechanics of the pipeline's functionality. The sub constantly struggled with sub-optimal environment pipelines. These pipelines served the critical role of testing in all its various stages. The sub incurred many slips in schedule due to the prime's failure of providing environments needed for testing. Often the prime's team tasked with building and provisioning these environments were focused on other tasking. The need to provide the sub's environments was pushed back months, bringing the sub's work in that area to a complete halt. This unnecessarily absorbed a large of resources which was difficult to quantify. When asked about the status of an environment, the prime typically did not have a good answer. The sub proposed workarounds in the form of functionally equivalent environments that were available for testing. This caused some back-and-forth until approval was given and testing occurred. In the end of one particular instance, the needed environment, after several months of delay, was deemed no longer needed by the prime and dropped from the program. This sort of poor planning consumed much time and resources with no outcome. The sub also had to argue diligently to be assigned needed resources that the prime possessed in small numbers. When assigned, there was always a time limit that constrained what the sub could do with the resource. The result was less work than desired performed on the resources before it was reassigned elsewhere. The pipelines were virtual and accessed via remote servers. The prime failed to sustain the pipelines as a highly available service. In our observations, the number one reason given by the sub for failures and delays was the unavailability of environment pipelines. It was clear to us that the prime did not have a full understanding of the infrastructure implementing environments and their operational sustainment. Many times, we witnessed these pipelines failing for reasons outside of the sub's domain and control. Most of these instances were in the deployment of services needed for the pipeline to run tests in an automated fashion. The pipelines appeared to be composed of a complex weaving of several commercial products, which needed to execute in a particular manner in order to properly run tests requiring hours to complete. It was clear to us that the prime did not possess full understanding of the detailed intricacies of the intercommunications between various products. The outcome of this was the sub repeating and delaying tests on a routine basis along with an inability to report latest test pass/fail scores in various update meetings.</p><p>Security Impacts. The lack of a stable, highly-available DevSecOps platform raises considerable security concerns. The first of which is that all the down time not only affects productivity, but can also affect security. With less time to perform development work than anticipated, developers will be rushed and more prone to make mistakes and errors in their coding. This issue is further exacerbated by also having less time to perform testing. Further, given that they had issues just getting the MVP DSO platform to be stable and reliable, there was little opportunity to build in additional security features. Since developers were rushed in development time, they would have greatly benefited from the security aspects of a mature DSO pipeline, such as automated test execution and security-focused code scanning tools. Much of this test automation can be integrated directly into a developer's IDE when the corresponding DSO pipeline has the functionality available. This points to a final security concern with how the DSO pipeline was implemented in this case: security features were viewed as add-on features that could just be tacked onto the pipeline at some point. Instead, security features should be engineered into the pipeline from the beginning as part of a conscious, directed security strategy.</p><p>Mitigation. In this case, the program attempted to build the DevSecOps platform itself in an Agile manner, but in reality, they were just figuring it out as they went along. In an initiative like this, the DevSecOps platform is the critical backbone that enables all the software development to occur, and should be wellengineered from the onset. Environment parity, Infrastructure as Code (IaC), and automated testing are principal components of DevSecOps. It was clear to us that even though these three concepts are meant to make software development better, for this program they instead added layers of complexity in implementation that caused them to violate a core tenet of DevSecOps: continuous availability. What the program could have, and should have, done from the beginning was to dedicate resources to an architecture spike to engineer the DevSecOps platform. There are numerous resources available that present reference architectures and basic guidance for engineering a DevSecOps platform, including free offerings from non-commercial parties like the GSA DevSecOps Guide <ref type="bibr" target="#b5">[5]</ref> or the DoD Enterprise DevSecOps Reference Design <ref type="bibr" target="#b6">[6]</ref>.</p><p>Reference designs such as these provide a nice menu of components that should be considered for a DevSecOps platform, though it is likely only a subset of components is needed to start a project. An evaluation should be done in the beginning to determine which components are absolutely needed to begin work, basically establishing the minimal viable product (MVP) for the DevSecOps platform itself. Once this is established, the MVP DevSecOps platform should be built and rigorously tested before software development begins. Many organizations lack the expertise inhouse to determine which components are needed for a DevSecOps platform, yet alone to install, configure and test them. This is another area where this program failed from the beginning. Outside counsel should have been brought in from the program inception specifically to guide the engineering and architecture of the DevSecOps platform. When selecting such outside counsel, programs should be careful to select advisors who are agnostic to specific vendor products -most components of a DevSecOps pipeline end up being commercial products and many DevSecOps advisors have some connection to commercial interests. In summary, what could have been done to prevent the fragility and unavailability of this DevSecOps platform is to have properly engineered and architected it from the beginning, as well as obtained counsel from those with expertise in these areas.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Environment parity was lacking between development and integration testing platforms</head><p>Observations. The program had no explicit requirement to ensure that development testing was performed on the same version of an environment as integration testing.</p><p>An environment for development testing would be provisioned at the start of a development sprint, which would last multiple weeks. In parallel with software development, changes would be made to the IaC used to provision test environments. Once development testing in a sprint was completed in the "old" version of the environment, the software changes would be automatically deployed and tested in a newly provisioned test environment, which had often received dozens of changes compared to the "old" version of the environment. This, more often than not, lead to a break-fix cycle after a software development sprint was declared complete. In addition to this, overall sub-optimal dissemination of environment changes and updates to all related teams resulted in countless losses of time and resources from uninformed personnel scheduling tests on modified environments which, in most cases, resulted in failure. This issue partially stems from the sub-optimal communication discussed previously in this document. The sub ran a suite of tests in integration test pipelines containing needed resources and configurations on a daily basis. The sub always assumed the pipeline was in an expected state and that their automated tests would run with results ready for viewing, typically the following day. Often, the reality was that the tests failed or, in many instances, never started. The sub would submit issues to the prime's DevSecOps team in an issue tracker for each of these failures. After some investigating by both the prime and the sub, the culprit was found to be a change in the environment: either missing files, dormant services, or absent permissions. In these cases, the specific persons at the sub running the tests would claim either they did not know of the change or were informed the change would occur at some later date. Since these tests took many hours to run, they were always scheduled to run over night or over the weekend. A failure always cost at least a day of lost productivity. The prime often made changes in the form of custom modifications, updates, upgrades, patches, and the addition or removal of resources.</p><p>The prime sustained multiple versions of the environments running on pipelines. The changes were almost always implemented on the latest available version of an environment. The sub did not always develop and test on the latest available that may have not been present when a pipeline was created by the sub for initial tests such as unit testing. These pipelines would be in use for days or weeks before being terminated and rebuilt. During the provisioning of a pipeline, the desired environment version would be specified. It seemed to us that the sub would always choose latest version available. The sub did not recognize that is this latest version may contain changes from the previous version used for development.</p><p>Security Impacts. When there is parity difference in between application environments, the circumstances are ripe for inadvertently introducing security weaknesses. If the application code successfully executes in one environment, but fails in another due to environment differences, developers will most often address these differences with manual workarounds. Examples of such workarounds include manually setting environment variables and system configuration elements, writing ad hoc configuration scripts, and modifying account privileges. All of these activities can serve to retrofit code into a different environment, but also are significant security risks contributing to unauthorized system access and escalation of privileges. Additionally, in some cases, dynamic security testing tools will yield different results based on different system configurations. Thus, a test case may pass in one environment, but would fail in another due to configuration differences. If the testing tool is only run in one environment, valid test exceptions could exist in another differently configured environment where the tool is not executed. Environment parity is crucial to security and attempts should be made to minimize differences as much as possible, and then to automate the addressing of any remaining differences.</p><p>Mitigation. When incrementally developing both a software product and its corresponding operational environment in a DevSecOps paradigm, a balance must be struck between stability and change. Software development teams must not be permitted to keep using an outdated version of an integration environment for an extended period of time, and at the same time their work should not be disrupted by constantly shifting sands in the environments used to integrate and test their work products. DevSecOps pipelines should have the flexibility to allow teams to control the versions of inputs injected into them and not be forced to consume the latest version. To empower teams to quickly switch between environments and versions, the program should have adopted the use of application containers from the beginning of the project. In simplest terms, application containers are a packaged bundle that includes executable application software code, the software dependencies for the application, and the hardware requirements needed to run the application all wrapped into in a single, selfcontained unit. Application containers thus address the problem of how to get software to run reliably when moved from one computing environment to another. For example, in a typical software development environment, development is begun on a developer's laptop, then moved to a Test environment, then to a Quality Assurance (QA) environment, and finally to a Production environment. Often, each of these environments vary in hardware, configurations, operating system versions, and other areas. This can lead to differences in application behavior between environments even when running identical copies of the same application code. Application containers abstract away the impact of these hardware differences by providing the hardware requirements (CPU, RAM, etc.) needed to run, without giving concern to how the requirements are satisfied, only that each environment provides the same prescribed resources. Further, application containers also eliminate common issues related to software dependencies in applications. Containers are often the mechanism used to govern and control environments in DevSecOps platforms and this program would have been wise to implement their use from beginning. Even with greater control of the environments, baseline testing of an environment should still be part of the plan. The ability to perform automated tests is one of the powerful benefits using a DevSecOps platform. As such, environment changes should be tested using a form of "canary testing" where a subset of the software and its functional tests are run to ascertain the impact of the changes prior to mainstream consumption by downstream consumers. Changes to environments should be disseminated extensively to related stakeholders and easily accessible and understood. These practices would help minimize unexpected problems during integration and testing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">An iterative testing process during development did not include production-like environments</head><p>Observations. The sub had in place a well-defined DevSecOpsbased process for testing in various stages of development. These included unit tests, functional tests, and integration tests. All these tests occurred on the previously discussed pipeline environments. These pipelines were virtualized and meant to be a sort of staging environment loosely emulating the targeted production environment's architecture. The virtualized pipeline environment diverged in key areas that affected the effectiveness of testing in that environment, including but not limited to differences in network topology, storage devices, and user groups and permissions. Given these differences, not testing in a replica of the actual production environment was, in our opinion, a mistake. The testing process in its current form only ensures the code ran correctly in the pipeline, which was a virtualized environment running a simplified replica of the production environment. This virtualized environment did not have the required emulated components to fully test the software components end-to-end. The testing process in the pipeline did not ensure the code would run in the actual production environment. Many issues may only come to light when significant portions of code have been delivered from across the program into an actual production-like environment weeks or months after software development is complete. In this context, the resources needed to correct any errors will be significantly higher. In some instances, the sub was allowed to test certain code during staging on production hardware due to unavailability of an environment pipeline. In these cases, iterative testing was carried out and ensured the code ran in the production environment.</p><p>Security Impacts. Lack of testing in a production-like environment can introduce security issues in a number of ways. First, as mentioned previously, if the application code runs differently in QA environments than production, there will be a tendency to manually fix problems in production. Moreover, when such issues are manually fixed in production, they are likely to not be fixed in the source code base, meaning the same problems will be introduced again in a future deployment. Further, specifically considering the difference between production and all other environments, production environments typical have more data and greater system load than other environments. Some weaknesses in software are only observed when the system is operated under heavy load, so they would not be caught during testing if you do not test in a production-like environment. In addition to load, sometimes certain data conditions (specific combinations of data values) can reveal an error in program code that is not seen when these conditions do not exist. If data in test environments is not truly representative of production, such code errors will not be detected in testing,</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Mitigation.</head><p>A properly established DevSecOps testing process will detail the iterative testing of small units of code in isolation (unit test), satisfying requirements (functional test), and proper execution in a production-like environment together with previously delivered components (integration test). In an ideal scenario, a pipeline test environment would be provisioned with the same IaC as the production environment. The entire production environment would be reproducible in a pipeline enabling the repeated execution of automated tests that guarantee that all code changes will function in the actual production environment. As discussed in the previous observation, the program could have used container technology to promote greater parity between environments. This would have reduced, and possibly eliminated, discrepancies between environments in configuration settings, software versions, and dependencies. While the use of containers would greatly reduce the variability in testing, it would not have eliminated all testing discrepancies between production and development regions. This is because the containers would stabilize the foundation the software is running on, it would not account for differences in things like data sets and user activity sequences. In large enterprises that truly want to test the impact changes will have to the production environment, model-based systems engineering is practiced from the beginning. Model-based systems engineering (MBSE) is a formalized application of modeling to support system requirements, design, analysis, verification and validation during all software life cycle phases. A basic precept of model-based systems engineering is the use of Digital Twins. A Digital Twin is traditionally thought of as a digital representation or virtualized prototype of a physical system, but the Digital Twin concept is also useful for testing large software systems. A non-production Digital Twin that is an exact replica of production can be leveraged for performing test cases in as real of a setting as possible, short of testing in production which is not advised. It takes a lot of resources to build and maintain a Digital Twin of a system, so this solution is only advised for large programs such as the one studied here, but the program should have engaged a concept such as this from the beginning. Even if they could not have built and maintained an exact production replica, thought should have been given to how production-like testing would be done from project commencement.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">The sub focused too much on exit criteria to qualify for completion of development and testing, thereby increasing technical debt</head><p>Observations. The sub focused extensively on exit criteria to qualify for completion of development and testing. This resulted in qualification based on easier work while more challenging development tasks were shifted right for completion at a later date.</p><p>As the sub performed work, the process of completion and delivery of code was prescribed by the prime. Critical to completion of work was validating that requirements associated with a singular block of developed code had been fulfilled. This was done via functional tests. The sub had the task of creating test procedures for each requirement and data sets for each procedure. These tests were executed and the results reported. The testing portion was called an assessment of a requirement. Typically, requirements were assessed internally by the sub. A running total of passing tests was kept until the threshold set by the prime was reached. Once the threshold was internally reached at the sub, the tests were repeated with persons from the prime observing and signing off on the results. The prime set a threshold of 100% assessment for all requirements and 80% passing of functional tests for all requirements related to a cluster of code blocks. The 80% threshold left a 20% gap of tests that did not need to pass in order to claim completion. This gap was often used by the sub in order to shift harder coding tasks to the right. Every failed test would be added to a backlog of pending code fixes to be carried out at a later date.</p><p>Only the person from the prime providing the sign off could require that certain functional tests must pass in order to claim completion. We observed with regularity the sub discussing the current passing percentage and what was needed to surpass the threshold. It should be noted that engineers planning for a coding sprint chose tasks based on priorities set by the prime. It was within those tasks, each of which could consist of several coding sub-tasks, where easier ones were assigned first with harder ones left for later. These decisions were based on the skill sets and experience of a given group of engineers. As more labor-intensive features were being developed and functional tests executed, the lack of skill sets was evident when certain test procedures would fail multiple times. These test failures illustrated the inability of the sub to implement the features in the time allotted and inevitably were converted to a defect to be solved in a different program phase, typically by a program leadership decision after reaching the required development threshold. This process created a defect backlog consisting mostly of the hardest work that could not be accomplished during scheduled development time.</p><p>Security Impacts. The security impact of this observation is quite simple: they were ignoring the execution of security specific tests all together and were likewise willing to accept failed tests for a significant portion (20%) of test cases. By only focusing on passing the minimal number of functional tests to earn credit for the work, the project team was leaving the software exposed to countless security risks that were never even tested. Furthermore, focusing tests on functional testing of expected behaviors is likely to miss many security flaws in the application code. Many common types of software weaknesses occur when software code encounters unexpected conditions, such as buffer overflow, memory leaks, and race conditions. These types of weaknesses are often detected by utilizing fuzzing testing techniques whereby known invalid data and scenarios are tested against the software. The intent is to determines how the software behaves in exception cases. By not performing such fuzz testing, and only focusing on minimal functional tests to prove the software works as expected, the project team missed testing for whole classes of security issues.</p><p>Mitigation. This program should have been more diligent in defining test and acceptance criteria in the beginning. Establishing a Definition of Ready for user requests would have included laying out exactly how they would bested, eliminating the wiggle room to manipulate test results. Likewise, establishing a Definition of Done would have explicitly mapped out all the things needed for the sub to qualify a request as completed. The program could have further protected itself from this type of behavior by investing more in the automated test tooling available in a DevSecOps pipeline. While tools were used to some degree in their testing, they were not full taken advantage of from the beginning. There are many functional testing tools available, at least one of which should have been deployed. With the proper tooling in place, an independent test team should have been instantiated to develop functional test cases directly from the user stories, and then execute these tests directly without involvement from the development team. The development team should never be the sole arbiter of testing user requests. Even if a more disciplined approach to testing had occurred, there is another fundamental flaw with the testing approach of this program. By instituting a metric that 80% of tests cases must pass for a chunk of code to pass testing, they set a standard that all test cases are equal. In practice, that is rarely the case. Some tests are always more important than others. From the onset, the team should have used a weighted value approach to testing. For example, the analytic hierarchy process (AHP) is a subjective weighting method that places more weight on some tests case than other based on the subjective experience judgment of subject matter experts <ref type="bibr" target="#b8">[7]</ref>.</p><p>Similarly, another test case prioritization method places more weight on certain tests cases than others based on time factors, defect factors, requirement factors, and complexity factors <ref type="bibr" target="#b9">[8]</ref>.</p><p>Even if such formal approaches to weighted testing were not implemented, the program should have at least incorporated some type of rudimentary weighting into their test process to ensure the most important test cases for a user request passed testing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5">Secure coding and system security were not prioritized</head><p>Observations. Throughout our engagement with the sub, we did not note any security testing being used. In speaking with engineers and the sub's project leadership, the idea of using secure coding practices was not a requirement. The main focus of the sub's overall development was always adhering to scheduled dates and meeting the minimum required exit criteria for various stages of development, test, and delivery. This is a business-driven focus and not a technical one. Given the multiple schedule slips, failures and delays, it was clear that practices like secure coding would only add more work and not help in keeping with schedule. The downside to this is that vulnerable code could potentially be deployed into production. We questioned the sub's project leadership if they felt their engineers should practice secure coding on this project. The answer: "it's not a priority… (the prime) probably does security testing". It seems the prime did carry out some form of application security testing but if a fault was discovered by them it would likely be found long after an insecure code change was introduced. This would require a considerable amount of time and resources to trace back to the sub, analyze the error, fix, test, redeploy and validate by the prime. Clearly, doing this for each discovery would cause schedule slips.</p><p>Security Impacts. To truly make security a fundamental, integral aspect of software development, it needs to be engineered in from the very beginning of a project. Security is not something to be added on at the end or tested for in only one place. This includes engineering security concerns into both the DSO pipeline and the software it produces. There are many methods to achieve this such as following secure coding guidelines, utilizing automated testing tools, hardening all devices, having a defined patching process, scanning for known vulnerabilities, and more. The cumulative effect of emphasizing such things is the team develops a security mindset whereby security is regularly part of their processes and thoughts. Instead, by placing little emphasis on security, program leadership set the stage for development teams to act accordingly. Of all the security issues presented here, this one is of greatest concern. Some of the other issues involved tactical issues than can be easily remedied. However, by placing no emphasis on security as a critical success factor, this program is leaving itself open to security issues of all types.</p><p>Mitigation. As the name suggests, DevSecOps mandates that security is a key component of the application pipeline. There are a myriad of application security testing tools available, such as static code analyzers, dynamic code analyzers, origin analysis tools, correlation tools, and more <ref type="bibr" target="#b10">[9]</ref>. These tools come in both open source and commercial offerings and most are designed to be fully automated and integrated into DevSecOps pipelines. In the beginning of the project, an evaluation should be performed to determine which application security testing tools are appropriate for this project. There are many factors which influence the types of security testing tools that are appropriate for a project: technical objectives, source code availability, target platform, resources and budget, integration level, prior findings, and more <ref type="bibr" target="#b11">[10]</ref>. To get maximum benefit of such tools, a threat modeling activity should also be performed at the beginning of a new project. Threat modeling will reveal areas of security concern for a specific project so that the relevant tooling can be obtained and tuned to combat these threats. There are many threat modeling techniques available that possesses distinctive strengths and weaknesses for differing contexts, such as STRIDE, Pasta, LINDUN and Octave <ref type="bibr" target="#b12">[11]</ref>.</p><p>Lastly, in addition to using threat modeling and security tooling, staff members should be educated in relevant secure coding practices at the beginning of a project. Taking proactive measures to build security into the development process will typically yield great dividends in the long run -it only takes one significant security incident to ruin a software project.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Conclusions and future work</head><p>This work captures observed issues which occurred at a large wellfunded software development project implementing DevSecOps during a multi-year engagement. The observations focus on suboptimal DSO implementations creating potential attack surface by decreasing security postures. Recommendations are provided for future avoidance or mitigation. This paper shows that in spite of being well-funded and having best intentions to implement DSO, the sub-optimal adoption of some principles resulted in an elevated risk to security violations. As seen here, partial implementation not only could produce a sub-standard deliverable but could also embed security issues into the software development process itself. This embedding can result in security risk insertion in all future software development projects. Future work will focus on extending and detailing sub-optimal implementations of DSO and their realized and potential impacts of software development.</p></div>		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0" />
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Implementing DevOps Practices in Highly Regulated Environments</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Morales</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Yasar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Volkmann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Workshop on Secure Software Engineering in DevOps and Agile Devlopment</title>
+				<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Examing the Agile Cost of Change Curve</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">W</forename><surname>Ambler</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<ptr target="http://www.agilemodeling.com/essays/costOfChange.htm" />
+		<title level="m">Available</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Malicious User Stories, Rejection Criteria, and the New Business Value</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Waits</surname></persName>
+		</author>
+		<ptr target="https://insights.sei.cmu.edu/devops/2016/02/malicious-user-stories-rejection-criteria-and-the-new-business-value.html" />
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+		<respStmt>
+			<orgName>Carnegie Mellon University, Software Enginnering Institute</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Decision-Making Factors for Selecting Application Security Testing Tools</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Scanlon</surname></persName>
+		</author>
+		<ptr target="https://insights.sei.cmu.edu/sei_blog/2018/08/decision-making-factors-for-selecting-application-security-testing-tools.html" />
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+		<respStmt>
+			<orgName>Carnegie Mellon University, Software Engineering Institute</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">DevSecOps Guide</title>
+		<author>
+			<persName><forename type="first">Gsa</forename><surname>Tech At</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">General Services Administration</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">DoD Enterprise DevSecOps Reference Design Version 1.0</title>
+		<author>
+			<persName><surname>Department Of Defense</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note>Chief Information Officer</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Available: https://dodcio.defense.gov/Portals/0/Documents/DoD%20 Enterprise%20DevSecOps%20Reference%20Design%20v 1.0_Public%20Release.pdf?</title>
+		<idno>ver=2019-09-26-115824-583</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Using the analytic hierarchy process (ahp) to select and prioritize projects in a portfolio</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">V</forename><surname>Vargas</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010" />
+			<publisher>PMI Global Congress</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A Test Case Prioritization Method with Weight Factors in Regression Testing Based on Measurement Metrics</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Muthusamy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Advanced Research in Computer Science and Software Engineering</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="390" to="396" />
+			<date type="published" when="2013" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">10 Types of Application Security Testing Tools: When and How to Use Them</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Scanlon</surname></persName>
+		</author>
+		<ptr target="https://insights.sei.cmu.edu/sei_blog/2018/07/10-types-of-application-security-testing-tools-when-and-how-to-use-them.html" />
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+		<respStmt>
+			<orgName>Carnegie Mellon University, Software Engineering Institute</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Decision-Making Factors for Selecting Application Security Testing Tools</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Scanlon</surname></persName>
+		</author>
+		<ptr target="https://insights.sei.cmu.edu/sei_blog/2018/08/decision-making-factors-for-selecting-application-security-testing-tools.html" />
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+		<respStmt>
+			<orgName>Carnegie Mellon University, Software Engineering Institute</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Threat Modeling: A Summary of Available Methods</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Shevchenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Chick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>O'riordan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Scanlon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Woody</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+		<respStmt>
+			<orgName>Carnegie Mellon University, Software Engineering Institute</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

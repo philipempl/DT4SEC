@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main"></title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:35+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This section will provide a brief overview of Cyber Physical Systems and discuss their relationship to related systems such as embedded systems and Internet of Things (IoT).</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.1.1">CPS Definition</head><p>Cyber-physical systems (CPS) are "smart systems that include engineered interacting networks of physical and computational components" (NIST 2017). The term "smart" refers to the fact that CPS generally involves "sensing, computation, and actuation." CPS typically bridge connections between operational technologies (those that perform control and actuation functions) and traditional information technologies (such as those that perform sensing and computation). The ability to automate transactions between those domains and create faster sense/response times is one of the primary advantages of CPS. CPS are not limited to single systems that bridge Information Technology (IT) and Operational Technology (OT) domains. A CPS will often be part of a "system-of-systems" that has multiple sensor, computation, and actuator connections that share data directly, or act on the results of aggregated data across multiple sensors <ref type="bibr">(NIST 2017)</ref>.</p><p>The enhanced functionality provided by automated response in these systems also comes with a tradeoff in ensuring the trustworthiness of the underlying algorithms and data in these systems. Imagine an autonomous vehicle (and example of a CPS) that has been trained to detect as stop sign and reacts by  applying brakes to the vehicle and bringing the car to rest. The ability of the CPS to correctly sense the input (stop sign) and react accordingly (stop) without any human interaction across a variety of possible environmental conditions <ref type="bibr">(weather, obscured view, etc.)</ref> is fundamental to the operation of the CPS. Any manipulation of the input data or modifications to the algorithms could compromise this system and the safety of its passengers. There needs to be emphasis placed on the security, privacy, safety, reliability, and resilience of such systems, given the degree of connectedness and autonomy being introduced (NIST 2017).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Perspectives on Securing Cyber Physical Systems</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.1.2">Related Systems</head><p>In this section, we'll cover some of the similarities and differences among systems related to CPS including embedded systems and Internet of Things (IoT). Embedded systems are "collections of computers and networks that monitor and control physical processes" <ref type="bibr" target="#b13">(Lee and Seshia 2017)</ref>. Embedded systems are often part of a CPS, providing the functionality required to sense and react directly with the physical environment. They also tend to be applied in cases requiring real-time response in systems. Examples are numerous, ranging from avionics systems in aircraft to control systems in automobiles that provide antilock braking or fuel efficiency. Embedded systems tend to be characterized by their direct coupling to physical systems (via microcontrollers and other devices) as opposed to CPS which may be made up of larger numbers of connections that perform automated sensing and response among multiple components.</p><p>Internet of Things (IoT) refers to collections of computing devices used to sense, compute, and respond to physical systems connected via larger networks such as the internet. IoT devices share many similarities with CPS systems and are often used interchangeably with CPS. IoT devices are characterized by four primary capabilities <ref type="bibr" target="#b2">(Boeckl et al. 2018</ref>):</p><p>1) Transducer capabilities. Transducer capabilities act as the means for computing devices to interact directly with the physical systems they are attached to. Two primary types of transducer capabilities are those related to sensing and actuating. 2) Data capabilities. These include data storage and processing capabilities. 3) Interface capabilities. Interface capabilities may exist at multiple levels such as application-level interfaces, human user interfaces, and network interfaces. 4) Supporting capabilities. These may include device management, cybersecurity, and privacy functions. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2">CPS Security Challenges</head><p>Because of the unique nature of Cyber-Physical Systems, they introduce several challenges for security. Their coupling to physical systems creates vulnerabilities that are not typically present in traditional IT systems. Such challenges are not limited to a specific industry or domain -numerous examples will be discussed in the following section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2.1">Transportation: Automobile Security</head><p>As mentioned earlier, today's automobiles are examples of Cyber-Physical Systems. They are outfitted with a variety of automated functions including driver assist technology, automatic braking, and sense and avoid technology. Each of these functions senses conditions around the automobile and responds automatically with minimal human intervention. And as a result, these functions introduce vulnerabilities that were not originally intended in the design.</p><p>In July of 2015, Charlie Miller and Chris Valasek demonstrated the ability to hack into a car remotely and control key functions of the car through the vehicle's internet enabled entertainment system <ref type="bibr" target="#b6">(Greenberg 2015)</ref>. The demonstration and subsequent publication of the exploit has raised awareness of the problem across the automotive industry. The compromise of a network-enabled automobile is an example of how a CPS can be compromised. It also highlights a major concern of CPS -that such manipulation of those systems could lead to human injury or even loss of life.</p><p>Miller and Valasek were ultimately able to gain access to the Jeep Cherokee's controller access network (CAN) bus where the major functions of the car (steering, braking, acceleration, etc.) are controlled. While there is no direct connection between the CANBUS and the internet, the Jeep's entertainment system serves as a pivot point. A service known as "Uconnect," which provides internet connectivity for thousands of Fiat Chrysler automobiles, provides connectivity between the car's entertainment system and the internet. Miller and Valasek were able to access the entertainment system through that connection and rewrite the firmware that controlled the entertainment system to allow it to send commands over the CANBUS network. Once they had gained access to the CANBUS, they were able to disable or engage components such as steering, braking, or the engine itself.</p><p>The vulnerabilities documented in the Jeep car hack highlight one of the primary challenges in securing CPS. While creating enhanced functionality by connecting the physical systems of the car to the internet, unforeseen vulnerabilities are introduced that can disable the automobile and impact driver safety. The inability to fully predict and understand the unintended consequences of design decisions can have catastrophic impacts once fielded. And as the complexity of CPS grows, understanding the full range of possible vulnerabilities will continue to be a challenge.</p><p>Vulnerabilities in connected automobiles are not limited to the Jeep car hack. In 2018, researchers demonstrated how they could gain access to a Tesla Model S through cloning of the Tesla key fob <ref type="bibr" target="#b8">(Greenberg 2018)</ref>. By precomputing and cataloging all potential cryptographic keys for the fob (a database of over 6-TB) they were able to correctly respond to the Tesla's cryptographic challenge -thereby unlocking the car and turning on the engine. While such an attack does not directly gain access to critical functions of the car, it highlights how the physical access control of the automobile is vulnerable based on network-enabled functionality (the wireless key fob). By exploiting such physical access to CPS, attackers can gain access to such systems.</p><p>The future of transportation is already moving beyond single network-enabled automobiles. Future systems will be composed of networks of connected vehicles that will interact with other cars as well as with sensors in the road. The implications for CPS are significant -creating an entire network of multiple, connected CPS entities. Information on individual automobiles such as position, speed, and heading, will be transmitted in messages using Vehicle-to-Vehicle (V2V) communications -requiring that the integrity and authenticity of those messages is maintained <ref type="bibr" target="#b14">(McGurrin and Gay 2016)</ref>. As in other transportation CPS examples, the inability to properly engineer security controls during the design of V2V and Vehicle-to-Infrastructure (V2I) communications could introduce vulnerabilities that have significant safety impacts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2.2">Health IT: Medical Device Security</head><p>A network-enabled medical device is a Cyber-Physical System. These devices have direct physical interaction with a patient as either diagnostic tools (monitoring devices), or drug delivery systems (wireless infusion pumps) while also being network-enabled. And as with other CPS, their network enabled nature provides a potential for attackers to access such system and inflict harm to patients.</p><p>In <ref type="bibr" target="#b22">Rajkumar et al. (2016)</ref>, the authors highlight how the "combination of the embedded software controlling the devices, the new networking capabilities, and the complicated physical dynamics of the human body" warrant characterizing these devices as a distinct class of CPS -Medical CPS (MCPS). They also go on to cite the increasing use of intelligence in these devices as another aspect that makes them distinct. For example, the devices may automatically change their behavior (dosage levels, etc.) based on monitoring changes in the physiology of the patient. This characteristic of CPS creates another potential security concern as the "AI" can be influenced by corrupted input data to take action thereby inducing harmful effects in the patient. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2">CPS Security Challenges 293</head><p>In September 2017, the Industrial Control Systems (ICS) Cyber Emergency Response Team (CERT) issued an advisory citing vulnerabilities discovered by researcher Scott Gayou in Smiths Medical 4000 Wireless Syringe Infusion Pumps (ICS-CERT 2017). These pumps provide intravenous drugs to patients and use software on the device to manage delivery of such drugs. Many infusion pumps can be accessed and controlled remotely via a wireless network, creating a means for attackers to access the pump and inflict harm on an unsuspecting patient <ref type="bibr" target="#b4">(Donovan 2018</ref>). This vulnerability is another example of how functionality added to a CPS through network connectivity created an unforeseen vulnerability that could jeopardize safety. The National Cybersecurity Center of Excellence (NCCoE) recently published guidance on ways to protect such infusion pumps through their Special Publication 1800-8, "Securing Wireless Infusion Pumps" <ref type="bibr" target="#b19">(O'Brien et al. 2018)</ref>.</p><p>Infusion Pumps are not the only class of MCPS that is vulnerable to attacks. Heart devices such as pacemakers have been shown to be vulnerable to cyberattacks, as demonstrated by Kevin Fu in 2008 <ref type="bibr" target="#b9">(Halperin et al. 2008)</ref>. In 2011, Jerome Radcliffe demonstrated how vulnerabilities in an Insulin Pump could be exploited in a presentation at the 2011 Black Hat Conference (Radcliffe 2011). Similar vulnerabilities have been documented across a wide range of medical devices including anesthesia devices, ventilators, defibrillators, and lab equipment <ref type="bibr" target="#b12">(Larson 2017)</ref>. Beyond the concern over directly tampering with these devices, there is an additional concern over how data from these devices could be intercepted and modified in ways that could falsify patient medical records and lead to "unnecessary procedures or medical prescriptions" <ref type="bibr" target="#b23">(Rapaport 2018)</ref>. In <ref type="bibr" target="#b0">Almohri et al. (2017)</ref>, the authors discuss security concerns across a broad range of MCPS.</p><p>These reports also caution that while the vulnerabilities in these systems exist, there has yet to be a documented case in which a patient has been harmed as a result of an MCPS cyber-attack. Nonetheless, the increasing complexity of these systems as well as the rapid increase of cyber-attacks against medical devices, suggests that security must be engineered into these devices from the beginning and not addressed once the device has been brought to market. Over-engineering security into these devices can also be a concern. The introduction of security controls -such as complex passwords, multi-factor authentication, and other controls -could potential hamper patient safety by limiting access to devices involved in life-saving procedures.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.2.3">Energy Systems: Smart Grid</head><p>Energy systems are rapidly evolving as complex systems that rely on vast networking and connectivity, sophisticated software that monitors operations and adapts to conditions to effectively deliver energy to end users. The scale at which energy CPS operate is quite large -in fact, energy systems are really just collections of hundreds or thousands of individual CPS. Understanding and securing such large CPS networks is a significant challenge. The term "Smart Grid" is used to describe the evolution of the current energy grid to a system of even greater complexity, with advanced monitoring, control, communications, and delivery systems enabled by advances in computer and networking technologies <ref type="bibr" target="#b26">(Shabanzadeh and Moghaddam 2013)</ref>. The employment of such technology will ideally lead to advances in the generation and delivery of energy to end users. However, the application of such advances may also create vulnerabilities in these systems that could allow attackers to shut down power to users.</p><p>One of the most notable cyberattacks against an electric utility involved the use of the malware "CRASHOVERIDE" in an attack on the Ukrainian electric grid operations in December of 2016. This December 2016 attack was the second attack in as many years but the main difference in this attack was that "the 2016 attack was fully automated. It was programmed to include the ability to 'speak' directly to grid equipment, sending commands in the obscure protocols those controls use to switch the flow of power on and off" <ref type="bibr" target="#b7">(Greenberg 2017)</ref>. This type of attack could foreshadow more sophisticated attacks against energy utilities in the near future. And as elements of the Smart Grid emerge, the opportunity to gain access through greater connectivity and automation is a concern.</p><p>The National Institute of Standards and Technology (NIST) has issued guidance on securing the Smart Grid <ref type="bibr">(NIST 2014;</ref><ref type="bibr" target="#b27">Stouffer et al. 2015)</ref>. In <ref type="bibr" target="#b27">Stouffer et al. (2015)</ref>, differences between securing Industrial Control Systems (ICS) and traditional IT security systems are discussed. Among those differences are the following:</p><p>• ICS systems tend to be more time-critical, and many are built on real-time operating systems.</p><p>• Availability of ICS systems is usually much greater than that of traditional IT systems. Outages that impact service are not acceptable. Traditional measures of patching or rolling in software fixes by taking down and rebooting a component are typically not acceptable with ICS systems.</p><p>• Unlike IT systems where data confidentiality and integrity are paramount, the focus of ICS is on human safety and public health. Any security control that impacts public safety is unacceptable.</p><p>• ICS components -such as Programmable Logic Controllers (PLCs) -are directly tied to physical operations.</p><p>• Unlike IT systems which typically have a lifespan of 3-5 years, an ICS may be in use for 10-15 years. In many cases, it may be infeasible to employ security controls due to the legacy nature of the equipment or inability to convince the manufacture to make changes.  <ref type="bibr" target="#b27">Stouffer et al. (2015)</ref> goes further in identifying potential ICS security architecture elements that can be employed to help secure ICS systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.3">Challenges and Opportunities for M&amp;S in CPS Security</head><p>Modeling and Simulation (M&amp;S) technologies have shown to be an effective tool in improving the overall design, development, integration, and testing of systems. Examples of using M&amp;S to improve design, and create efficiencies in the systems engineering process are prevalent. The design and construction of the Boeing 777 made use of significant M&amp;S to fully evaluate performance of design tradeoffs prior to "bending metal" <ref type="bibr" target="#b11">(Kossiakoff et al. 2011)</ref>. M&amp;S has also been used extensively in the engineering of complex systems <ref type="bibr" target="#b28">(Tolk and Rainey 2015)</ref>.</p><p>The idea of using M&amp;S as a means of identifying potential security vulnerabilities, during the design phase of the system, has tremendous appeal to security engineers. As was seen in the examples mentioned earlier, one of the underlying challenges in securing CPS systems is the inability to identify the unintended consequences of design decisions. M&amp;S of CPS is still relatively immature and requires representation of the physical dynamics of the target system as well as the network connectivity of that system and the influence of such connections on that target system. As such capability matures, we could foresee a number of instances in which M&amp;S could be used in effective ways to secure CPS in the future.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.3.1">Incorporating M&amp;S into Systems Security Engineering and Resiliency</head><p>Too often, little thought is put into securing systems while they are being developed (as has been noted previously). More recently, the idea of incorporating security into the formal systems engineering process has begun to gain prominence. The NIST publication 800-160 is evidence of that increased focus <ref type="bibr" target="#b25">(Ross et al. 2016)</ref>. The insights of that document apply to CPS as well as traditional IT systems. Using that guide as a reference, there are numerous opportunities to apply M&amp;S to the Systems Security Engineering process. NIST 800-160 specifically cites the use of M&amp;S in the cyber resiliency verification process to "evaluate correctness before a system element is implemented, based on design artifacts." NIST 800-160 also mentions the potential for M&amp;S application during the design phase to "support analysis of potential systemic consequences stemming from the compromise of a given resource." A related topic to system security engineering is Cyber resilience -defined as the ability to "anticipate, withstand, recover from, and adapt to adverse conditions, stresses, attacks, or compromises on cyber resources" <ref type="bibr" target="#b1">(Bodeau and Graubert 2017)</ref>. Unlike traditional methods which look to close vulnerabilities within a system, cyber resilience focuses more on building in redundancy into systems which will allow it to function in the face of a security compromise. M&amp;S methods could help to advance approaches in understanding CPS resiliency, through modeling of system behavior to a variety of threats and helping to develop resilient approaches. In addition to the resiliency applications for M&amp;S mentioned in 800-160 above, the more recent volume, NIST Special Publication 800-160, Volume 2, titled "Systems Security Engineering: Cyber Resiliency Considerations for the Engineering of Trustworthy Secure Systems" offers additional opportunities on potential applications of M&amp;S <ref type="bibr" target="#b24">(Ross et al. 2018)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.3.2">Digital Twin Concept for CPS Security</head><p>In many CPS examples, gaining access to the actual physical system is not an option either due to the ongoing use of the system in a critical application (energy, health) or concerns on behalf of the manufacturer. Having access to a digital "twin" of a CPS would provide the ability to investigate responses of the system to threats while not taking these systems offline.</p><p>A digital twin is a "virtual representation of a physical object or system across its life-cycle. It uses real-time data and other sources to enable learning, reasoning, and dynamically recalibrating for improved decision making" <ref type="bibr" target="#b15">(Mikell and Clark 2018)</ref>. Because of the connected nature of CPS systems, they are always evolving and changing as new software features are incorporated into the system and new connections created. The digital twin concept ensures that as the actual CPS changes, sensors on that system communicate those changes to the digital representation so it too, can maintain consistency. Digital twins are already gaining prominence in applications such as manufacturing by allowing analysis of production processes and machinery <ref type="bibr" target="#b3">(Castellanos 2018)</ref>. In 2017, Gartner named digital twin technology as one of their top strategic technology impacts <ref type="bibr" target="#b20">(Pettey 2017)</ref>.</p><p>The digital twin concept would allow a security engineer to monitor a digital replicate of a CPS system and create digital approaches to security without impacting the actual device. The application of security controls, evaluation of vulnerabilities, and understanding of response of a CPS to threats could all be done in the digital domain and validated prior to applying to the actual CPS system. Simulations of device behavior could be running continually with recommended actions provided to the security engineer. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.3.3">M&amp;S for CPS Risk Assessment</head><p>At its heart, cybersecurity is all about managing risk. Blindly applying security controls without understanding what risks exist within an enterprise will not lead to improved security. Instead, it will potentially lead to a misalignment of security resources against the highest priority vulnerabilities. The Risk Management Framework, developed by NIST, is the most widely accepted approach for organizations to document and manage risk. It outlines a seven step process for assessing and managing risk through the system development life cycle (NIST Joint Task Force 2018).</p><p>One of the tasks outlined within the RMF is the requirement to perform a system-level risk assessment. Such as assessment typically relies upon "identification of threat sources and threat events affecting assets, whether and how the assets are vulnerable to threats, the likelihood that an asset vulnerability will be exploited by a threat, and the impact (or consequence) of the loss of the asset" (NIST Joint Task Force 2018). M&amp;S applications that can not only represent the detailed complexity of a CPS but also how a CPS is coupled to the operational environment, and affected by external threats, could be incredibly useful as tools for performing risk assessments. Such tools could be updated continuously with inputs from CPS and other systems and continuously run to generate outputs with unexpected outcomes -linking the concept of the digital twin to performing risk assessment. The likelihood of those outcomes based on the current security posture of the organization and expected threats could help to automate the risk assessment process.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.3.4">CPS Cyber Ranges</head><p>A major concern in securing CPS is understanding how vulnerabilities within systems can lead to cascading effects among large numbers of systems at scale. Because a CPS may rely on many networked connections across multiple systems, the potential for unanticipated behavior at scale is a real possibility. Cyber ranges -that consist of large numbers of emulated endpoints deployed through virtualization -offer an opportunity to investigate such behavior in a controlled environment. The National Cyber Range, run OSD's Test Resources Management Center (TRMC), is one of the best known cyber ranges with thousands of nodes able to assess complex interactions of systems as large scales <ref type="bibr" target="#b5">(Ferguson et al. 2014</ref>). However, one of the limitations of many of these ranges is their inability to represent CPS. As noted earlier, most CPS differ from traditional IT systems and the OS that are used so simply virtualizing thousands of OS instances is not sufficient to address CPS analysis at scale. As M&amp;S becomes better at representing such CPS, deploying instances of those simulations on a large range would allow for more meaningful analysis of CPS interactions. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>ann pportunities or MS in CPS Security 295</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">On Threat Modeling and Mitigation of Medical Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">Hussain</forename><surname>Almohri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Long</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Danfeng</forename><surname>Yao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Homa</forename><surname>Alemzadeh</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/chase.2017.69</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE/ACM International Conference on Connected Health: Applications, Systems and Engineering Technologies (CHASE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Intended effects of cyber resiliency techniques on adversary activities</title>
+		<author>
+			<persName><forename type="first">Deborah</forename><surname>Bodeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Graubart</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ths.2013.6698967</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2013 IEEE International Conference on Technologies for Homeland Security (HST)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Considerations for managing Internet of Things (IoT) cybersecurity and privacy risks</title>
+		<author>
+			<persName><forename type="first">Katie</forename><surname>Boeckl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Fagan</surname></persName>
+			<idno type="ORCID">0000-0002-1861-2609</idno>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><surname>Fisher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Naomi</forename><surname>Lefkovitz</surname></persName>
+			<idno type="ORCID">0000-0003-3777-3106</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Katerina</forename><forename type="middle">N</forename><surname>Megas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ellen</forename><surname>Nadeau</surname></persName>
+			<idno type="ORCID">0000-0003-2553-9304</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Danna</forename><forename type="middle">Gabel</forename><surname>O'rourke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ben</forename><surname>Piccarreta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karen</forename><surname>Scarfone</surname></persName>
+			<idno type="ORCID">0000-0001-6334-9486</idno>
+		</author>
+		<idno type="DOI">10.6028/nist.ir.8228</idno>
+		<imprint>
+			<date type="published" when="2019-06" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>National Institute of Standards and Technology</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Digital Twins Concept Gains Traction Among Enterprises</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Castellanos</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Wall Street Journal</title>
+		<imprint>
+			<date type="published" when="2018-09-12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Wireless Infusion Pumps Could Increase Cybersecurity Vulnerability</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Donovan</surname></persName>
+		</author>
+		<ptr target="http://HealthITSecurity.com" />
+		<imprint>
+			<date type="published" when="2018-08-28" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">National Cyber Range Overview</title>
+		<author>
+			<persName><forename type="first">Bernard</forename><surname>Ferguson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anne</forename><surname>Tall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Denise</forename><surname>Olsen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/milcom.2014.27</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2014 IEEE Military Communications Conference</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Kill Me Now</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Greenberg</surname></persName>
+		</author>
+		<idno type="DOI">10.5040/9781770916227.00000007</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Hackers Remotely Kill a Jeep on the Highway -With Me In It. Wired Magazine</title>
+				<imprint>
+			<publisher>Playwrights Canada Press</publisher>
+			<date type="published" when="2015-10-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">23. Turning the Power Structure Upside Down</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Greenberg</surname></persName>
+		</author>
+		<idno type="DOI">10.4159/9780674243224-024</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Talk Radio’s America</title>
+				<imprint>
+			<publisher>Harvard University Press</publisher>
+			<date type="published" when="2019-12-31" />
+			<biblScope unit="page" from="219" to="226" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Hackers steal records from Oakridge Lab</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Greenberg</surname></persName>
+		</author>
+		<idno type="DOI">10.1063/pt.5.021743</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Physics Today</title>
+		<title level="j" type="abbrev">Phys. Today</title>
+		<idno type="ISSNe">1945-0699</idno>
+		<imprint>
+			<date type="published" when="2007" />
+			<publisher>AIP Publishing</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Pacemakers and Implantable Cardiac Defibrillators: Software Radio Attacks and Zero-Power Defenses</title>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Halperin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">S</forename><surname>Heydt-Benjamin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Ransford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shane</forename><forename type="middle">S</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benessa</forename><surname>Defend</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Will</forename><surname>Morgan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Fu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tadayoshi</forename><surname>Kohno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">H</forename><surname>Maisel</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sp.2008.31</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2008 IEEE Symposium on Security and Privacy (sp 2008)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2008-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Smiths Medical Medfusion Model 4000 Syringe Infusion Pump</title>
+		<idno type="DOI">10.1097/01.bmsas.0000420199.71132.35</idno>
+		<idno>ICS-CERT Advisory ICSMA-17-250-02A</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Biomedical Safety &amp; Standards</title>
+		<idno type="ISSN">1080-9775</idno>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">17</biblScope>
+			<biblScope unit="page">133</biblScope>
+			<date type="published" when="2012-10-01" />
+			<publisher>Ovid Technologies (Wolters Kluwer Health)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Systems Engineering Principles and Practice</title>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Kossiakoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">N</forename><surname>Sweet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Samuel</forename><forename type="middle">J</forename><surname>Seymour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">M</forename><surname>Biemer</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/9781118001028</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Development of the Boeing</title>
+		<imprint>
+			<biblScope unit="volume">777</biblScope>
+			<biblScope unit="page">278</biblScope>
+			<date type="published" when="2011-04-04" />
+			<publisher>John Wiley &amp; Sons, Inc.</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Medical Device Security Considerations -Case Study</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Larson</surname></persName>
+		</author>
+		<ptr target="www.rsaconference.com" />
+	</analytic>
+	<monogr>
+		<title level="m">RSA Conference</title>
+				<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">An introductory textbook on cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Edward</forename><forename type="middle">A</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sanjit</forename><forename type="middle">A</forename><surname>Seshia</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1930277.1930278</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2010 Workshop on Embedded Systems Education - WESE &apos;10</title>
+				<meeting>the 2010 Workshop on Embedded Systems Education - WESE &apos;10</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">Review of the USDOT Report on Connected Vehicle Initiative Communications Systems Deployment</title>
+		<idno type="DOI">10.17226/22166</idno>
+		<imprint>
+			<date type="published" when="2015-04-28" />
+			<publisher>Transportation Research Board</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>US Department of Transportation</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mikell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Clark</surname></persName>
+		</author>
+		<title level="m">Cheat Sheet: What Is a Digital Twin. IBM Internet of Things Blog</title>
+				<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Framework for cyber-physical systems: volume 1, overview</title>
+		<author>
+			<persName><forename type="first">Edward</forename><forename type="middle">R</forename><surname>Griffor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><surname>Greer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">A</forename><surname>Wollman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><forename type="middle">J</forename><surname>Burns</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.1500-201</idno>
+		<imprint>
+			<date type="published" when="2017-06-26" />
+			<publisher>National Institute of Standards and Technology</publisher>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+		<respStmt>
+			<orgName>NIST, Cyber-Physical Systems Public Working Group</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Color supplement to NIST special publication 400-93:</title>
+		<idno type="DOI">10.6028/nist.ir.5324</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Draft NIST Special Publication</title>
+		<imprint>
+			<biblScope unit="page" from="800" to="837" />
+			<date type="published" when="1994" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>NIST Joint Task Force ; National Institute of Standards and Technology</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Guidelines for smart grid cybersecurity</title>
+		<idno type="DOI">10.6028/nist.ir.7628r1</idno>
+	</analytic>
+	<monogr>
+		<title level="m">NIST Smart Grid Interoperability Panel Smart Grid Cybersecurity Committee</title>
+				<imprint>
+			<publisher>National Institute of Standards and Technology</publisher>
+			<date type="published" when="2014-09" />
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+		<respStmt>
+			<orgName>National Institute of Standards and Technology</orgName>
+		</respStmt>
+	</monogr>
+	<note>Guidelines for Smart Grid Cybersecurity</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Securing Wireless Infusion Pumps In Healthcare Delivery Organizations</title>
+		<author>
+			<persName><forename type="first">Gavin</forename><surname>O'brien</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sallie</forename><surname>Edwards</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Littlefield</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Neil</forename><surname>Mcnab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sue</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kangmin</forename><surname>Zheng</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.1800-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">NIST Special Publication</title>
+		<imprint>
+			<biblScope unit="page" from="1800" to="1808" />
+			<date type="published" when="2018-08" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>National Cybersecurity Center of Excellence (NCCoE</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Prepare for the Impact of Digital Twins</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Pettey</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Gartner.com</title>
+		<imprint>
+			<date type="published" when="2017-09-18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Hacking Medical Devices for Fun and Insulin: Breaking the Human SCADA System</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Radcliffe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2011 Black Hat Conference</title>
+				<imprint>
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Cyber Physical Systems</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Rajkumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>De Niz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Klein</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016" />
+			<publisher>Addison Wesley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Cardiac devices: pacemakers and defibrillators</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rapaport</surname></persName>
+		</author>
+		<idno type="DOI">10.1159/000493601</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Fast Facts: Cardiac Arrhythmias</title>
+				<imprint>
+			<publisher>S. Karger AG</publisher>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Enhanced Security Requirements for Protecting Controlled Unclassified Information: A Supplement to NIST Special Publication 800-171</title>
+		<author>
+			<persName><forename type="first">Ron</forename><surname>Ross</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Victoria</forename><surname>Pillitteri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gary</forename><surname>Guissanie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ryan</forename><surname>Wagner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Graubart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Deb</forename><surname>Bodeau</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.800-172</idno>
+	</analytic>
+	<monogr>
+		<title level="j">NIST Special Publication</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="800" to="160" />
+			<date type="published" when="2021-01-28" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">Systems security engineering: considerations for a multidisciplinary approach in the engineering of trustworthy secure systems, volume 1</title>
+		<author>
+			<persName><forename type="first">Ron</forename><surname>Ross</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Mcevilley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Janet</forename><forename type="middle">Carrier</forename><surname>Oren</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.800-160v1</idno>
+		<idno>800-160</idno>
+		<imprint>
+			<date type="published" when="2018-03" />
+			<publisher>National Institute of Standards and Technology</publisher>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">What is the Smart Grid? Definitions, Perspectives, and Ultimate Goals</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shabanzadeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Moghaddam</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Power System Conference</title>
+				<imprint>
+			<date type="published" when="2013-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Guide to Industrial Control Systems (ICS) Security</title>
+		<author>
+			<persName><forename type="first">Keith</forename><surname>Stouffer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Victoria</forename><surname>Pillitteri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Suzanne</forename><surname>Lightman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marshall</forename><surname>Abrams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Hahn</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.800-82r2</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Guide to Industrial Control Systems (ICS) Security. NIST Special Publication</title>
+				<imprint>
+			<publisher>National Institute of Standards and Technology</publisher>
+			<date type="published" when="2015-06" />
+			<biblScope unit="page" from="800" to="882" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title level="m" type="main">Modeling and Simulation Support for System of Systems Engineering Applications</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rainey</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/9781118501757</idno>
+		<imprint>
+			<date type="published" when="2014-12-12" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Taxonomy of generative adversarial networks for digital immunity of Industry 4.0 systems</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2021-02-24">24 February 2021.</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Vagan</forename><surname>Terziyan</surname></persName>
+							<affiliation key="aff3">
+								<orgName type="department">Faculty of Information Technology</orgName>
+								<orgName type="institution">University of Jyväskylä</orgName>
+								<address>
+									<postCode>40100</postCode>
+									<settlement>Jyväskylä</settlement>
+									<country key="FI">Finland</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="department">Faculty of Information Technology</orgName>
+								<orgName type="institution">University of Jyväskylä</orgName>
+								<address>
+									<postCode>40100</postCode>
+									<settlement>Jyväskylä</settlement>
+									<country key="FI">Finland</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="department">Faculty of Information Technology</orgName>
+								<orgName type="institution">University of Jyväskylä</orgName>
+								<address>
+									<postCode>40100</postCode>
+									<settlement>Jyväskylä</settlement>
+									<country key="FI">Finland</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="department">Faculty of Information Technology</orgName>
+								<orgName type="institution">University of Jyväskylä</orgName>
+								<address>
+									<postCode>40100</postCode>
+									<settlement>Jyväskylä</settlement>
+									<country key="FI">Finland</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Svitlana</forename><surname>Gryshko</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">Department of Economic Cybernetics</orgName>
+								<orgName type="institution">Kharkiv National University of Radioelectronics</orgName>
+								<address>
+									<postCode>61166</postCode>
+									<settlement>Kharkiv</settlement>
+									<country key="UA">Ukraine</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff7">
+								<orgName type="department">Department of Economic Cybernetics</orgName>
+								<orgName type="institution">Kharkiv National University of Radioelectronics</orgName>
+								<address>
+									<postCode>61166</postCode>
+									<settlement>Kharkiv</settlement>
+									<country key="UA">Ukraine</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">Department of Economic Cybernetics</orgName>
+								<orgName type="institution">Kharkiv National University of Radioelectronics</orgName>
+								<address>
+									<postCode>61166</postCode>
+									<settlement>Kharkiv</settlement>
+									<country key="UA">Ukraine</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff7">
+								<orgName type="department">Department of Economic Cybernetics</orgName>
+								<orgName type="institution">Kharkiv National University of Radioelectronics</orgName>
+								<address>
+									<postCode>61166</postCode>
+									<settlement>Kharkiv</settlement>
+									<country key="UA">Ukraine</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Mariia</forename><surname>Golovianko</surname></persName>
+							<affiliation key="aff5">
+								<orgName type="department">Department of Artificial Intelligence</orgName>
+								<orgName type="institution">Kharkiv National University of Radioelectronics</orgName>
+								<address>
+									<postCode>61166</postCode>
+									<settlement>Kharkiv</settlement>
+									<country key="UA">Ukraine</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff8">
+								<orgName type="department">Department of Artificial Intelligence</orgName>
+								<orgName type="institution">Kharkiv National University of Radioelectronics</orgName>
+								<address>
+									<postCode>61166</postCode>
+									<settlement>Kharkiv</settlement>
+									<country key="UA">Ukraine</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="department">Department of Artificial Intelligence</orgName>
+								<orgName type="institution">Kharkiv National University of Radioelectronics</orgName>
+								<address>
+									<postCode>61166</postCode>
+									<settlement>Kharkiv</settlement>
+									<country key="UA">Ukraine</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff8">
+								<orgName type="department">Department of Artificial Intelligence</orgName>
+								<orgName type="institution">Kharkiv National University of Radioelectronics</orgName>
+								<address>
+									<postCode>61166</postCode>
+									<settlement>Kharkiv</settlement>
+									<country key="UA">Ukraine</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">University of Jyväskylä</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution">Kharkiv National University of Radio Electronics</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">Kharkiv National University of Radio Electronics</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Taxonomy of generative adversarial networks for digital immunity of Industry 4.0 systems</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Procedia Computer Science</title>
+						<title level="j" type="abbrev">Procedia Computer Science</title>
+						<idno type="ISSN">1877-0509</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">180</biblScope>
+							<biblScope unit="page" from="676" to="685"/>
+							<date type="published" when="2021-02-24">24 February 2021.</date>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1016/j.procs.2021.01.290</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T13:01+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Industry 4.0</term>
+					<term>Generative Adversarial Networks</term>
+					<term>cybersecurity</term>
+					<term>artificial digital immunity Industry 4.0</term>
+					<term>Generative Adversarial Networks</term>
+					<term>cybersecurity</term>
+					<term>artificial digital immunity</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The user has requested enhancement of the downloaded file.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction and related work</head><p>Generative Adversarial Network (GAN) is a popular research concept and efficient (adversarial) machine learning (ML) paradigm. According to this concept, two neural networks are trained towards contradictory objectives (both useful for various applications), compete with each other, co-evolve while training and mutually facilitate each other`s training process. Since <ref type="bibr" target="#b0">[1]</ref>, where GANs are used for generating samples in an unsupervised way, a large number of GAN modifications and corresponding algorithms have been proposed. Gui et al. <ref type="bibr" target="#b1">[2]</ref> 1. Introduction and related work Generative Adversarial Network (GAN) is a popular research concept and efficient (adversarial) machine learning (ML) paradigm. According to this concept, two neural networks are trained towards contradictory objectives (both useful for various applications), compete with each other, co-evolve while training and mutually facilitate each other`s training process. Since <ref type="bibr" target="#b0">[1]</ref>, where GANs are used for generating samples in an unsupervised way, a large number of GAN modifications and corresponding algorithms have been proposed. Gui et al. <ref type="bibr" target="#b1">[2]</ref> recently published a review on various GANs methods from the perspectives of algorithms, theory, and applications. They also combined GANs with other ML algorithms (semi-supervised learning, reinforcement learning, and transfer learning) to be used in popular applications (processing image, speech, music and audio for generic data science and medicine in particular). The most promising artificial intelligence solutions and architectures, including GANs, are being successfully applied in Industry 4.0, which indicates the emerging trend of the digital (data-driven) transformation of manufacturing enterprises. Such applications working for industrial diagnostics, fault detection and predictive maintenance require essential amount of data about faults, which is not always available but may be generated using GANs <ref type="bibr" target="#b2">[3]</ref>. GANs present a way to learn deep representations without extensively annotated training data. As shown in <ref type="bibr" target="#b3">[4]</ref>, this feature can be used in several applications (image style transfer, synthesis, semantic editing, super-resolution and classification). GANs can be also useful in the context of digital twins <ref type="bibr" target="#b4">[5]</ref> or simulation-based decision support tools used for optimization and resilience of future factories <ref type="bibr" target="#b5">[6]</ref>. Integrated with proper simulation environments <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b7">8,</ref><ref type="bibr" target="#b8">9,</ref><ref type="bibr" target="#b9">10]</ref>, where challenging (complex and adversarial) conditions can be modelled and digitally applied against various industrial assets and processes, the GAN-driven digital twins may essentially improve security and productivity of industrial processes. Good review of GANs with particular applications presented in <ref type="bibr" target="#b10">[11]</ref>. For example, image synthesis could be handled by DCGAN <ref type="bibr" target="#b11">[12]</ref>; engineering design could be addressed by GANs enhanced by augmented human intelligence and creativity <ref type="bibr" target="#b12">[13]</ref>; for the imbalanced data classification, a class expert GAN (CE-GAN) can be useful <ref type="bibr" target="#b13">[14]</ref>; various data quality issues could be handled by ACGAN as an auxiliary classifier GAN <ref type="bibr" target="#b14">[15]</ref>; surface inspection could be provided using, e.g., LSGAN architecture, i.e., modified least-square GANs <ref type="bibr" target="#b15">[16]</ref>; condition monitoring could be addressed by GANs with the denoising autoencoder as a discriminator as suggested in <ref type="bibr" target="#b16">[17]</ref>; anomaly detection by f-AnoGAN architecture <ref type="bibr" target="#b17">[18]</ref>; security of cyber-physical systems by novel CGAN (conditional GAN) architecture GAN-Sec <ref type="bibr" target="#b18">[19]</ref>, etc.</p><p>Domains related to security, remain the natural application area where GANs could be applied with the major impact. <ref type="bibr" target="#b19">[20]</ref> published an interesting review on the application of GANs in cybersecurity. They observe two major approaches within cybersecurity studies: (a) use of GANs to improve generalization to unforeseen adversarial attacks, by generating novel adversarial samples as training data for ML models (i.e., improving the "defence" mechanism); (b) training GANs aiming to generate realistically looking adversarial data that can fool a security system (i.e., improving the "attack" mechanism). Most of the currently discussed cybersecurity strategies follow the paradigm of the proactive security, i.e., attempting to prevent potential attacks before they occur. As noticed in <ref type="bibr" target="#b20">[21]</ref>, many real-world applications still follow a reactive security approach (i.e., systems are updated when novel attacks are observed). The GAN concept enables proactive security solutions up to the extent of the digital immunity. Usually term "immunity" is applied in biology to define the balanced state of an organism, which is capable to apply adequate defences to fight unwanted biological invasion. Termanini <ref type="bibr" target="#b22">[23]</ref> contributed to applying the immunization legacy to the digital world. He described the Cognitive Early Warning Predictive System as a digital immune system, which inoculates critical systems with the vaccination as a service and considers so-called "smart vaccine" (autonomous AI robot) as a holy grail of digital immunity. The early warning predictive component in the system is the AI reasoning engine that acquires knowledge from past attacks and predicts, probable incoming cyberattacks. Such approach to digital immunity applies top-down (expert-driven) AI (ontological representation of knowledge and inference engine). In this paper, we suggest an opposite, bottom-up (computational intelligence) AI approach to digital immunity and smart vaccination, which can be obtained as a result of adversarial GAN-driven learning.</p><p>Our generic objective or the meta-goal (for the former, present and future research) is further empowerment of the GAN models as an instrument capable to address the academic challenges related to strong AI, digital cloning, collective intelligence, etc., and also real world, practical and emerging challenges of Industry 4.0. The specific objective addressed in this paper is to suggest a set of GAN modifications suitable for the use as a proactive security (digital immunity) enabler for intelligent components within Industry 4.0.</p><p>The rest of the paper is organized as follows: In Section 2, we discuss on the analogy of GANs as abstract models with the immunity and vaccination as proactive security mechanism; in Section 3, we present the major modification for traditional GAN architecture by introducing the "Reality" component as the third one neural-net-driven player; in Section 4, we describe reasonable updates regarding traditional GAN players ("Discriminator" and "Generator"); in Section 5, we used the new properties of all the three GAN players to get the structural representation (taxonomy) of the potential new GAN architectures suitable to address the proactive security challenges; and we conclude in Section 6.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Digital immunity and generative adversarial networks</head><p>The brief story, on how we came to the immunity concept as a motivation to update further the GAN framework, is as follows. Our team (mainly AI experts) was interested in GAN as such because it has been one of the major inventions in AI and ML for the last decade. We worked out some techniques on using GANs to design digital cognitive clones of humans capable to replace the latter ones in some industrial processes <ref type="bibr" target="#b23">[24]</ref>. Later, when we meet the challenges of NATO SPS project "Cyber-Defence for Intelligent Systems" (http://recode.bg/natog5511) and particularly security of AI/ML-supervised supply-chain and logistics, we discover that one of the most dangerous vulnerabilities of such systems (allowing the most insidious attacks) is the intelligent component and ML in particular <ref type="bibr" target="#b24">[25]</ref>. Successful adversarial attacks to ML may cause huge impact as shown in <ref type="bibr" target="#b25">[26]</ref>, and, as indicated in <ref type="bibr" target="#b26">[27]</ref> industry practitioners are still not equipped to protect, detect and respond to such attacks. ML systems are vulnerable both at the learning phase of the model design (e.g., data poisoning attack) or when the trained model start making predictions (evasion attacks). A common way to force the models to make wrong predictions is to design adversarial examples as discovered in <ref type="bibr" target="#b27">[28]</ref> and such design involves perturbations that are almost indistinguishable to humans, yet force ML models to make wrong predictions. An adversarial example is an input to ML model that is intentionally designed by an attacker to fool the model into producing an incorrect output. Effective defenses as response to the new types of attacks appear slower than the new attacks are being invented. There is just one example among many similar ones: the popular and effective ML-based malware detection techniques (e.g., the ones based on Random Forest, Support Vector Machine, and Convolutional Neural Networks) has been shown to completely fail under the novel adversarial texture malware perturbation attack presented in <ref type="bibr" target="#b28">[29]</ref>. Therefore, a reactive security paradigm cannot be exploited alone without adding also some proactive security efforts to be prepared for potential attacks before they occur, by incorporating knowledge of the attacker's strategy into the defense mechanism <ref type="bibr" target="#b20">[21]</ref>. We believe that good analogy for the proactive security in real world would be an immune system of a human and its interaction with the vaccines as proactive security measures. Such interaction can be modelled with GANs, which is a good instrument to represent and pre-train two coevolving counterparts (artificial attacker and artificial defender). Our interests on GANs development and the need for proactive security solution for our projects meet at that point, and we discovered several updates to the traditional GAN architecture, which might be suitable to design some sort of digital immunity for the intelligent systems.</p><p>The core of the GAN-driven generic abstract skeleton for the digital immune system is the basic filtering element, which we call a "Debunker", which corresponds to the Discriminator (D) in GAN model. The task of it is to address an input (e.g., incoming "stranger") from the external environment and to make a decision about the origin and the intentions of the input (either true / real input ("welcome guest") from the environment or a falsified input ("intruder") from an attacker pretending to be a real one). To train the "immunity" in such adversarial situations, D must have some supervised interaction experience with the two external players: (a) "Reality" component, which represents the real external environment and selects true ("healthy") inputs (data samples) from it. In some cases, we need the Reality to generate inputs as challenging as possible for further processing by other components; and (b) Fake component, which corresponds to the Generator (G) in GAN architecture, acts as an attacker and generates intruders or false inputs (artificially generated data samples) aiming to fool D, break into the system and make harm there. It is assumed that D does not know the origin of the inputs (Reality or Fake) during training process and must decide itself, whether it is a real or a fake input. The training is possible due to the mechanism of feedbacks for all the players (D, Reality and G). This mechanism enables players to constantly improve own performance in achieving their competing goals. Therefore, after the training, D will be trained to protect (aka immunity), G -to attack (aka vaccine) and Reality -to be as challenging as possible for both rivals.</p><p>Consider the classical formulation of the GAN problem. D gets samples from two sources: (a) from Reality, assuming existence of {x (�) , … , x (�) } minibatch of reality samples with probability distribution p ���� (x); (b) from G, assuming existence of {z <ref type="bibr">(�)</ref> , … , z (�) } minibatch of fake samples with probability distribution p � (z). Discriminator is trained to distinguish between the fake and the reality samples. Generator tries to generate samples from scratch aiming at the same distribution as the reality samples distribution. It learns to capture the reality samples distribution and therefore to fool the Discriminator. The fundamental mathematical model of GANs in the classical formulation reproduces the minimax game between a generator (G) and a discriminator (D) with the objective function ( , ).</p><p>In game theory terms, the GAN model converges when D and G reach a Nash equilibrium, which is the optimal point for the minimax equation below:</p><formula xml:id="formula_0">� � ( , ) = �~� ���� (�) [ ( )] + �~� � (�) [ �1 − � ( )��.<label>(1)</label></formula><p>The equation above includes two addends that reflect the competing goals of the players: (a) the entropy of the real data samples passing through D (i.e., the probability of the "successful" job of D when it allows the flow of data from the reality ( ���� ( )); (b) the entropy of the random data samples fed to D, i.e. the "failure" level of D when it allows the flow of fake data created by G ( � ( )). Naturally, D works to maximize the function (1) trying to increase the first term (i.e., successfully recognize the real data inputs) and also increase the second one (i.e., uncover the fake inputs from G). G has an opposite task. Its cheating is aimed at ensuring that D is making mistakes: misses the "correct" samples (minimizing the first addend) and allows the flow of fakes (minimizing also the second term). Therefore, G works to minimize the function <ref type="bibr" target="#b0">(1)</ref>. Loss function for D (provided as a feedback for update of D) considers the own misclassification error and, therefore, the generation success of G:</p><formula xml:id="formula_1">( ) = � � • ∑ �log � (�) � + log �1 − � � (�) ���� � ��� .</formula><p>(2)</p><p>Loss function for G (provided as a feedback for update of G) takes into account the own generation error (uncovered samples) and, therefore, the discrimination success of D:</p><formula xml:id="formula_2">( ) = � � • ∑ (1 − ( ( (�) ))) � ��� .<label>(3)</label></formula><p>Training GANs means training simultaneously two competing neural networks using the loss values as a feedback for the backpropagation <ref type="bibr" target="#b29">[30]</ref>. Training algorithm for D starts with fixing (temporally "freezing") the weights of G and taking samples from both real world and generated images. Then D is being trained to distinguish between the R and G images. Then the time is given for G to learn. At the first stage, training algorithm for G freezes the weights of D. Then samples from G are created. The backpropagation error through D is used to update the weights of G. There can be several iterations of such asynchronous (D-G) training. At each iteration, the gradient of the loss function is updated, as well as the parameters to min (max) the loss function (gradient descent / ascent). These two steps iterate until convergence. G is "perfect" if it is impossible to discriminate between real and generated input samples (D accuracy ≈ 0.5). In this paper, we show that the basic principles of GANs are well suited for creation of different digital "immunity" and "vaccination" models for the AI-driven Industry 4.0 systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Reality as the third player in GAN architecture</head><p>Unlike in the classical GAN-architecture with two major players (G vs. D), a third full-fledged independent player representing reality is needed to model the immunity. In such architectures, the "Reality" would be an independent, proactive and learnable player, as the two others. The Reality component is responsible for supplying the real-world data as a training content for G and D. We distinguish three main ways of organizing such a delivery:  Method (A) "Reality as Such", when an unsupervised flow of data from the natural environment is fed to the system (similar to traditional GAN architecture);  Method (B) "Filtered Reality", when a controlled flow of data from the natural environment is fed to the system.</p><p>To do this, a new player "Reality Recruiter" is introduced within the GAN architecture. Its task is to select the appropriate data set (correct from the point of view of the "immune response" creation) from the environmental data samples (from either the most representative or the "trickiest" ones);</p><p> Method (C) "Generated Reality", when the generated data flow from the simulated or artificial environment is fed to the system. "Reality as Such" (А) version, in which the "Reality" component is not an intelligent one (neither learnable, nor a neural network driven). This component serves as the "Reality" model according to the "Closed World Assumption". Most ML algorithms process training sets as "closed world" systems. Following the "Closed World Assumption", one concludes that this information is false due to the lack of information about the sample. That means the unknown simply cannot be true by default. An alternative to it is the Open World Assumption, according to which lack of information does not imply the missing information to be false.</p><p>Assume we have a complete set of the Real-World samples (e.g. images), which have some distribution = ���� ( ). The "Reality as Such" component randomly selects samples from the Real World with respect to the distribution . This component is the same as the one used in the classical GAN and it is not an active player in the "game": Fake (G) vs. Debunker (D), i.e., it does not depend on the feedback from this game.</p><p>"Filtered Reality" (В) version of the "Reality" component is an intelligent one (capable of learning and neural network driven). This component intends to represent the "Reality" so that it would be difficult to learn how to fake it. It also follows the Closed World Assumption (see Figure <ref type="figure">1</ref>). Fig. <ref type="figure">1</ref>. GAN with Filtered Reality (enhanced with the trainable "Recruiter").</p><p>Assume we have a complete set of the Real-World samples (e.g. images), which has some distribution = ���� ( ). Such set can be divided into a number of subsets � � , … , � ∈ Ƥ( ) so that each subset � has some distribution � = ���� (�) ( ) . The core of Filtered Reality is a neural network "Reality Recruiter" (RR). Its configuration works as a filter, which recognizes a sample of a particular distribution � and "recruits" it as a set � to represent the Reality. After the set � is collected, the traditional "game": G vs. D starts. It lasts as long as necessary for reaching the balance (i.e., G learns � and is capable to fool D). Then RR gets the feedback from this game as a loss function, which is the inverse ratio to the time needed to reach the balance. After one cycle of the backpropagation, RR will be modified and will be capable to recruit the Reality samples with different distribution � , which will be harder to fake. After several iterations RR is expected to find such configuration ������ , which corresponds to the subset of samples ������ from the reality, which would be most difficult to forge. Loss function for RR has the following basic structure:</p><formula xml:id="formula_3">( ) = � � ������� , (<label>4</label></formula><formula xml:id="formula_4">)</formula><p>where ������� is the amount of training (G vs. D) iterations needed to reach the balance. RR must function so that the distribution of the samples in the subset from the real world images created/updated by it would be as difficult as possible to forge, and, in case of such an attempt, it would be as easy as possible to recognize a counterfeit. D in such architecture tries to distinguish between real and fake images according to the discovered difference between corresponding distributions. G tries to guess the distribution of the current subset of the real-world images and generates fake images of the world according to that distribution. RR takes and constantly updates the subset of the real-world images and, therefore, updates the distribution of images (aiming to hide this distribution from G as long as possible). The Feedback loop for RR works as follows. First, G learns how to fool D (i.e., the distribution of generated images is almost the same as the distribution of the real images subset) forcing it to guess (fifty-fifty). Then R will get a feedback as a loss function proportional to G and D overall learning feedback during the last iteration. RR will update its weights so that the distribution of the new subset of the real-world images increases the "hacking" (G) effort for the next iteration and decreases the "discriminating" (D) effort. RR forms (and later during training) constantly updates the selection criteria, which is an explicit specification of the features for the distribution � . On the basis of the selection of the real-world images (with the distribution � ) the traditional GAN (with the two players: G vs. D) starts to work until the balance of G vs. D performances is reached. Assume that the balance is reached in � iterations. RR, which is a neural network, receives the feedback from GAN (after the balance is reached). The feedback is a loss function ( ) value, which depends on how easy the previous selection made by RR can be hacked by G. Therefore, following the basic formulation (4):</p><formula xml:id="formula_5">( ) = � � � . (<label>5</label></formula><formula xml:id="formula_6">)</formula><p>The loss function initiates the backpropagation process in the RR network and, as the result, the network reconfigures the parameters of the distribution from � to ��� . Then RR prepares a new group of training samples as a subset of all the real-world images according to the updated distribution ��� . The specifics of the neural network training guarantees that this new selection will be more difficult to hack ( ��� ≥ � ) for G than the previous one. Therefore iteratively (after a number of iterations) RR will find an optimal (most protected against potential evasion attacks) subset of training data and also both D and G will be trained in the most challenging environment.</p><p>The third possible player for the Reality role is the "Generated Reality", which is also the learnable and neural network driven. This component intends to generate some new version of the "Reality" so that it would be as difficult as possible to learn how to fake. It follows the Open World Assumption, capable of working without the set of the Real-World samples (e.g., images). It has a new component Reality Generator (GR), which generates (at each iteration) a set of samples as the representation of the generated reality with some distribution � = � (�) ( ). Then the traditional "game": Fake (G) vs. Debunker (D) starts and lasts as long for reaching the balance as necessary (i.e., G learns � and is capable to fool D with fakes). Then the neural network of the GR gets the feedback from this game as the loss function value, which is the aggregated difference between D (ally) losses and G (adversary) losses during the time needed to reach the balance. After one step of the backpropagation, the GR network will be modified and will be capable to generate the Reality samples with a different distribution � , which is harder to fake. With the Open World Assumption this iterative process may continue infinitely or can be stopped on some satisfactory configuration ������ , which will correspond to the subset of the generated (difficult enough to forge) samples from the reality. The Reality Generator ( ) loss function is:</p><formula xml:id="formula_7">( ) = ∑ [ � ( ) − � ( )] � ������� ��� ,<label>(6)</label></formula><p>where indicates the iteration number and ������� is the amount of training (G vs. D) iterations needed to reach the balance. To avoid the dependence of the ������� in formulas ( <ref type="formula" target="#formula_3">4</ref>) and ( <ref type="formula" target="#formula_7">6</ref>) and � in formula (5) on the random weight initialization within D and potential mode collapse issues <ref type="bibr" target="#b30">[31]</ref>, GAN must be trained synchronously with several initializations for D and the obtained values �������</p><p>, �������</p><p>, … , �������</p><p>for the discrete time (measured in iterations) needed to reach the balance can be aggregated using the harmonic mean function <ref type="bibr" target="#b31">[32]</ref>, which is less tolerant to the high valued outliers.</p><p>GR must function so that the distribution created/updated by it would be as difficult as possible to forge, and, in the case of the attempt, it would be as easy as possible to recognize a counterfeit. Tasks of D are the same as in the previous GАN architectures. D tries to distinguish between real and fake images according to the discovered difference between corresponding distributions. G tries to guess the distribution of the real-world images and generates fake images of the world according to that distribution. GR makes changes ("creatively") in the real world and, therefore, updates the distribution of real-world images (aiming to hide this distribution from G as long as possible). The feedback loop for the GR works as follows. First, G finishes learning how to fool D (i.e., the distribution of generated images is almost the same as the distribution of real images) forcing it to guess (fifty-fifty). Then the GR gets feedback as a loss function proportional to the G's D's overall learning feedback during the last iteration. Finally, the GR updates its weights so that new distribution of the real-world images increases the "hacking" (G) effort for the next iteration and decreases the "discriminating" (D) effort. We name these adversarial learning techniques the Immunity Training. Each of three GAN components perform its tasks regarding the immunity development:</p><p> RR (also GR) creates a variety of sophisticated "vaccines" against potential attacks on the "organism";  D simulates the immune system of the organism, which helps the organism to perform its functionality correctly after the sophisticated attacks;</p><p> G helps the vaccine to attack the vulnerabilities of the organism in the most challenging way to activate the immune system towards positive evolution.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Updating classical GAN players for immunity development</head><p>The immune system is created in a repeated confrontation between a defender (D) and an attacker (G). G is a sparring partner for D and its role is to simulate the attacks to train D and strengthen the digital immune system as a whole. We distinguish two principal ways to model possible attacks with the help of the G, and, accordingly, two types of the "Fake"/G player (Figure <ref type="figure">2</ref> (left)):</p><p>1) "Generated Fake", which generates fake samples; 2) "Generated Noise", when the samples are real, but they are subjects to the poisoning by some noise. Fake-component of the first type is defined as "Generated Fake". This version of the "Fake" component is exactly G from the traditional GAN architecture. This is an intelligent (learning and neural network driven) component. G tries to generate samples from scratch (from the random noise ) with the distribution � ( ) aiming to bring this distribution as close as possible to the reality samples distribution. It trains to capture the reality samples distribution and, therefore, to fool D. Therefore, its target is to minimize its own loss function <ref type="bibr" target="#b2">(3)</ref>.</p><p>Fake-component of the second type is defined as "Generated Noise" (GN). Such component is not creating fakes as such, but it creates (generates) special signals ("noise"), which being mixed with the Reality samples, keep these samples to be naturally looking for humans and at the same time confusing for the artificial D (evasion attack). We consider two kinds of "noise": the one, which is added as such to the reality samples; or the one, which is served as a "style", i.e., set of features values, which are integrated to the deeper representation of the reality sample.</p><p>Similarly, to the traditional G component, the GN trains to capture the reality samples distribution and therefore to fool any kind of D. Therefore, its target is to minimize own loss function:</p><formula xml:id="formula_11">( ) = � � • ∑ �1 − � � (�) ��� . � ���<label>(7)</label></formula><p>Finally, let us consider the element, which ensures security functions of the digital immunity, i.e., the Debunker (D in terms of GAN). We distinguish two principal types of security modelling (Figure <ref type="figure">2</ref>  The Traditional Discriminator (I) version of the "Debunker" component is exactly the one, named D in the traditional GAN architecture. This is an intelligent (learning and neural network driven) component. D tries to distinguish between samples coming from the "Reality" channel from the ones coming from the "Fake" channel, i.e., it learns the decision boundary between real and fake samples. When trained, it can be used as a component, which "protects" the "organism" of an intelligent system from the dangerous alien instances. While training its target is to minimize its own loss function <ref type="bibr" target="#b1">(2)</ref>.</p><p>The second type of the Debunker is an interesting, innovative and potentially very useful and multi-purpose component. The "Turing Discriminator" (TD) version of the "Debunker" component behaves, on the one hand, as a "black box", i.e., similar to the traditional D, it has the same structure of the loss function, however, on the other hand, it has different semantics. TD is a collective intelligence, which includes at least one human (H), and at least one traditional learning neural (D) discriminator. Both (H and D) are differentiating between input samples ("real" or "fake"). The TD outputs the probability distribution between "Match" and "No match" of the H and D opinions, which is used as the loss function to train D. The D player in TD tries to learn to synchronize its own opinions on the inputs with the H's opinions. Such schema allows training D to be resistant against potential evasion attacks. Sometimes it is possible to use a "strong previously trained artificial classifier" AI-H instead of H, and then D tries to learn to the level of AI-H. GAN architecture encoded as (A) (2) (I) is a good illustration of a training model (aka "immunity against poisons") for an Intelligent System. GN generates well camouflaged and constantly evolving noise (or style) to compromise data, and D improves own performance in the discovery ("poisoned" or "clean") for every input.</p><p>Architecture encoded as (A) (2) (II) naturally inherits the properties of both (A) (2) (I) and (A) (1) (II) architectures. Architecture encoded as (B) (1) (I) is similar to (A) (1) (I) architecture but with the better trained attacker and, as a result, the better trained immunity. G generates constantly evolving aliens (imitating different representations of the reality) for the poisoning attacks; therefore, the generic immunity driver D (after training) will have more advanced capability in the discovery (a "friend" or an "alien") for every intruder. Architecture (B) (1) (II) naturally inherits the properties of both (A) ( <ref type="formula" target="#formula_0">1</ref>  <ref type="formula">2</ref>) (II) architectures. This architecture assumes that the GN will learn how to generate a suitable poison for images of a self-creative smart reality aiming at a sophisticated evasion attacks on the test data of an intelligent system. TD in this case learns to detect sophisticated malicious inputs.</p><p>As we see, different combinations of the key elements create 12 basic architectures of the АI-immunity. They cover a wide range of aspects to protect AI-driven Industry 4.0 systems from a variety of the reality manipulation attacks with varying degrees of difficulty.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Conclusions</head><p>Digital immunity as a basic trained self-protection mechanism is needed for Industry 4.0 systems. GAN is a suitable paradigm to simulate training environment needed for the digital immunity. We suggest a couple of modifications to the basic GAN schema, i.e., Reality as a proactive trained neural-network-driven player and Turing Discriminator, which enables human-in-the-loop. By combining various players in the GAN configuration (three options for the Reality role; two options for the Discriminator role and two options for the Generator role), we present 12 GAN architectures. Each of these architectures has certain specifics if applied for the purpose of security of Industry 4.0 systems. Tasks related to the immunity training against various sophisticated attacks (data poisoning, evasion, etc.) could be addressed by thorough choice of the appropriate GAN architecture. Smart and evolving adversarial components in the architectures essentially facilitate the immunity training. Basic GAN components can be multiplied (e.g., several Discriminators or Generators, or several humans within Turing Discriminator), which creates wide possibilities to create complex GANs for new challenging problems. Therefore, as the immediate goals for the future research would be constructing and testing GAN architectures with multiple human and AI components, i.e., with the embedded collective intelligence and checking the potential impact of such digitalized collaborative intelligence for a variety of industrial problems.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>(right)): I) "Traditional Discriminator" based on AI; II) "Turing Discriminator" based on collective intelligence.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>) (II) and (B) (1) (I) architectures. Architecture (B) (2) (I) naturally inherits the properties of (A) (2) (I) and (B) (1) (I) architectures. Architecture (B) (2) (II) naturally inherits the properties of both (A) (2) (II) and (B) (2) (I) architectures. (C) (1) (I) is similar to (A) (1) (I) architecture but with the better trained attacker and, as a result, the better trained immunity. G generates constantly evolving aliens for the poisoning attacks (trying to capture not only the distribution of the reality samples but also the hidden model of how the reality is being modified by the GR component). Therefore, the generic immunity driver D will have more advanced capability after such training. Architecture (C) (1) (II) naturally inherits the properties of (C) (1) (I), (A) (1) (II) and (B) (1) (II) architectures. Architecture (C) (2) (I) naturally inherits the properties of (C) (1) (I), (A) (2) (I) and (B) (2) (I) architectures. Architecture (C) (2) (II) naturally inherits the properties of (C) (2) (I), (A) (2) (II) and (B) (</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Vagan Terziyan et al. / Procedia Computer Science 180 (2021) 676-685 Author name / Procedia Computer Science 00 (2019) 000-000</note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Author name / Procedia Computer Science 00 (2019) 000-000 Author name / Procedia Computer Science 00 (2019) 000-000 Fig. <ref type="figure">2</ref>. Players (1, 2) for the "Fake" role (left). Players (I, II) for the "Debunker" role (right).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Periodic table of elements for GAN</head><p>The versatility of each of the GAN components creates unique opportunities for the adaptation of the digital immunity concept to the features of each particular system and its tasks. To order all possible combinations of elements, let us use the principles of the chemical "Periodic table of elements" (Table <ref type="table">1</ref>). Let`s briefly describe the features and denote the area of use for some of these GAN-based architectures of digital immunity.</p><p>Code (A) (1) (I) means that the AI immune system consists of Reality as Such, Generated Fake and Traditional Discriminator. (A) (1) (I) is a traditional GAN, which is a good illustration of a very basic generic "immunity" training model. G generates well-camouflaged and constantly evolving aliens for the "data poisoning" attacks, and D improves own performance in the discovery (a "friend" or an "alien") for every intruder. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DEBUNKER FAKE</head><p>"Generated Fake" (1) "Generated Noise" (2)</p><p>REALITY: "Reality as Such" (А) GAN architecture with TD encoded as (A) (1) (II) is an illustration of a "vaccination" aiming protection of the intelligent systems against evasion attacks. TD improves own performance in being at least as good as a human in handling perturbated images. This architecture can be used also to train "cognitive clones" of particular human skills or other intelligent decision-makers.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Generative adversarial networks</title>
+		<author>
+			<persName><forename type="first">Ian</forename><surname>Goodfellow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jean</forename><surname>Pouget-Abadie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mehdi</forename><surname>Mirza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bing</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Warde-Farley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sherjil</forename><surname>Ozair</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aaron</forename><surname>Courville</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yoshua</forename><surname>Bengio</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3422622</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<title level="j" type="abbrev">Commun. ACM</title>
+		<editor>Z. Ghahramani et al.</editor>
+		<idno type="ISSN">0001-0782</idno>
+		<idno type="ISSNe">1557-7317</idno>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="139" to="144" />
+			<date type="published" when="2020-10-22" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Generating High-fidelity Cybersecurity Data With Generative Adversarial Networks</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ye</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2020-4117.vid</idno>
+		<idno type="arXiv">arXiv:2001.06937</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2020. A Review on Generative Adversarial Networks: Algorithms, Theory, and Applications</title>
+				<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics (AIAA)</publisher>
+			<date type="published" when="2020-11-16" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Application of deep neural network and generative adversarial network to industrial maintenance: A case study of induction motor fault detection</title>
+		<author>
+			<persName><forename type="first">Yong</forename><forename type="middle">Oh</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Jo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jongwoon</forename><surname>Hwang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/bigdata.2017.8258307</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE International Conference on Big Data (Big Data)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-12" />
+			<biblScope unit="page" from="3248" to="3253" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Generative Adversarial Networks: An Overview</title>
+		<author>
+			<persName><forename type="first">Antonia</forename><surname>Creswell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tom</forename><surname>White</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vincent</forename><surname>Dumoulin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kai</forename><surname>Arulkumaran</surname></persName>
+			<idno type="ORCID">0000-0003-0459-892X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Biswa</forename><surname>Sengupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anil</forename><forename type="middle">A</forename><surname>Bharath</surname></persName>
+			<idno type="ORCID">0000-0001-8808-2714</idno>
+		</author>
+		<idno type="DOI">10.1109/msp.2017.2765202</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Signal Processing Magazine</title>
+		<title level="j" type="abbrev">IEEE Signal Process. Mag.</title>
+		<idno type="ISSN">1053-5888</idno>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="53" to="65" />
+			<date type="published" when="2018-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Deep digital twins for detection, diagnostics and prognostics</title>
+		<author>
+			<persName><forename type="first">Wihan</forename><surname>Booyse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><forename type="middle">N</forename><surname>Wilke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephan</forename><surname>Heyns</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ymssp.2019.106612</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Mechanical Systems and Signal Processing</title>
+		<title level="j" type="abbrev">Mechanical Systems and Signal Processing</title>
+		<idno type="ISSN">0888-3270</idno>
+		<imprint>
+			<biblScope unit="volume">140</biblScope>
+			<biblScope unit="page">106612</biblScope>
+			<date type="published" when="2020-06" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">A New Concept of Digital Twin Supporting Optimization and Resilience of Factories of the Future</title>
+		<author>
+			<persName><forename type="first">Adrien</forename><surname>Bécue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eva</forename><surname>Maia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Linda</forename><surname>Feeken</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Philipp</forename><surname>Borchers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Isabel</forename><surname>Praça</surname></persName>
+			<idno type="ORCID">0000-0002-2519-9859</idno>
+		</author>
+		<idno type="DOI">10.3390/app10134482</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Sciences</title>
+		<title level="j" type="abbrev">Applied Sciences</title>
+		<idno type="ISSNe">2076-3417</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">13</biblScope>
+			<biblScope unit="page">4482</biblScope>
+			<date type="published" when="2020-06-28" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Supply chain security: an integrated framework for container terminal facilities</title>
+		<author>
+			<persName><forename type="first">Francesco</forename><surname>Longo</surname></persName>
+		</author>
+		<idno type="DOI">10.1504/ijspm.2012.049154</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Simulation and Process Modelling</title>
+		<title level="j" type="abbrev">IJSPM</title>
+		<idno type="ISSN">1740-2123</idno>
+		<idno type="ISSNe">1740-2131</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">159</biblScope>
+			<date type="published" when="2012" />
+			<publisher>Inderscience Publishers</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Intelligent Agents for Human Behavior Modeling as Support to Operations</title>
+		<author>
+			<persName><forename type="first">Agostino</forename><forename type="middle">G</forename><surname>Bruzzone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marina</forename><surname>Massei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Simonluca</forename><surname>Poggi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Bartolucci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Angelo</forename><surname>Ferrando</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-11457-6_8</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Intelligent Systems and Computing</title>
+				<meeting><address><addrLine>Tampa (USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2014-10-22" />
+			<biblScope unit="page" from="119" to="132" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Factors Affecting the Human Error: Representations of Mental Models for Emergency Management</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Petrillo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">D</forename><surname>Felice</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Longo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bruzzone</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Simulation and Process Modelling</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">3-4</biblScope>
+			<biblScope unit="page" from="287" to="299" />
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A Digital Twin based Service Oriented Application for a 4.0 Knowledge Navigation in the Smart Factory</title>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Padovano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francesco</forename><surname>Longo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Letizia</forename><surname>Nicoletti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giovanni</forename><surname>Mirabelli</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2018.08.389</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="631" to="636" />
+			<date type="published" when="2018" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Convolutional and generative adversarial neural networks in manufacturing</title>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Kusiak</surname></persName>
+			<idno type="ORCID">0000-0003-4393-1385</idno>
+		</author>
+		<idno type="DOI">10.1080/00207543.2019.1662133</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Production Research</title>
+		<title level="j" type="abbrev">International Journal of Production Research</title>
+		<idno type="ISSN">0020-7543</idno>
+		<idno type="ISSNe">1366-588X</idno>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1594" to="1604" />
+			<date type="published" when="2019-09-09" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Radford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Metz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chintala</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1511.06434</idno>
+		<title level="m">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</title>
+				<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Creative Intelligence – Automating Car Design Studio with Generative Adversarial Networks (GAN)</title>
+		<author>
+			<persName><forename type="first">Sreedhar</forename><surname>Radhakrishnan</surname></persName>
+			<idno type="ORCID">0000-0002-4098-103X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Varun</forename><surname>Bharadwaj</surname></persName>
+			<idno type="ORCID">0000-0001-8986-9682</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Varun</forename><surname>Manjunath</surname></persName>
+			<idno type="ORCID">0000-0002-7769-160X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ramamoorthy</forename><surname>Srinath</surname></persName>
+			<idno type="ORCID">0000-0003-1818-8577</idno>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-99740-7_11</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">11015</biblScope>
+			<biblScope unit="page" from="160" to="175" />
+		</imprint>
+	</monogr>
+	<note>In: Machine Learning and Knowledge Extraction</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Deep Learning for Imbalance Data Classification Using Class Expert Generative Adversarial Network</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">W</forename><surname>Cenggoroa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">135</biblScope>
+			<biblScope unit="page" from="60" to="67" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Generative adversarial networks for data augmentation in machine fault diagnosis</title>
+		<author>
+			<persName><forename type="first">Siyu</forename><surname>Shao</surname></persName>
+			<idno type="ORCID">0000-0003-3180-2180</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Pu</forename><surname>Wang</surname></persName>
+			<idno type="ORCID">0000-0001-8725-6225</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ruqiang</forename><surname>Yan</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compind.2019.01.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers in Industry</title>
+		<title level="j" type="abbrev">Computers in Industry</title>
+		<idno type="ISSN">0166-3615</idno>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page" from="85" to="93" />
+			<date type="published" when="2019-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Application of improved least-square generative adversarial networks for rail crack detection by AE technique</title>
+		<author>
+			<persName><forename type="first">Kangwei</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiushi</forename><surname>Hao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yi</forename><surname>Shen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neucom.2018.12.057</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neurocomputing</title>
+		<title level="j" type="abbrev">Neurocomputing</title>
+		<idno type="ISSN">0925-2312</idno>
+		<imprint>
+			<biblScope unit="volume">332</biblScope>
+			<biblScope unit="page" from="236" to="248" />
+			<date type="published" when="2019-03" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">An intelligent diagnosis scheme based on generative adversarial learning deep neural networks and its application to planetary gearbox fault pattern recognition</title>
+		<author>
+			<persName><forename type="first">Zirui</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Youren</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neucom.2018.05.024</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neurocomputing</title>
+		<title level="j" type="abbrev">Neurocomputing</title>
+		<idno type="ISSN">0925-2312</idno>
+		<imprint>
+			<biblScope unit="volume">310</biblScope>
+			<biblScope unit="page" from="213" to="222" />
+			<date type="published" when="2018-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">f-AnoGAN: Fast unsupervised anomaly detection with generative adversarial networks</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Schlegl</surname></persName>
+			<idno type="ORCID">0000-0003-0706-7876</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Philipp</forename><surname>Seeböck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sebastian</forename><forename type="middle">M</forename><surname>Waldstein</surname></persName>
+			<idno type="ORCID">0000-0003-2899-6279</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Georg</forename><surname>Langs</surname></persName>
+			<idno type="ORCID">0000-0002-5536-6873</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ursula</forename><surname>Schmidt-Erfurth</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.media.2019.01.010</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Medical Image Analysis</title>
+		<title level="j" type="abbrev">Medical Image Analysis</title>
+		<idno type="ISSN">1361-8415</idno>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="page" from="30" to="44" />
+			<date type="published" when="2019-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">GAN-Sec: Generative Adversarial Network Modeling for the Security Analysis of Cyber-Physical Production Systems</title>
+		<author>
+			<persName><forename type="first">Sujit</forename><forename type="middle">Rokka</forename><surname>Chhetri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anthony</forename><forename type="middle">Bahadir</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiang</forename><surname>Wan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohammad</forename><forename type="middle">Abdullah</forename><surname>Al Faruque</surname></persName>
+		</author>
+		<idno type="DOI">10.23919/date.2019.8715283</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 Design, Automation &amp; Test in Europe Conference &amp; Exhibition (DATE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-03" />
+			<biblScope unit="page" from="770" to="775" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">A review of generative adversarial networks and its application in cybersecurity</title>
+		<author>
+			<persName><forename type="first">Chika</forename><surname>Yinka-Banjo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ogban-Asuquo</forename><surname>Ugot</surname></persName>
+			<idno type="ORCID">0000-0001-8575-0609</idno>
+		</author>
+		<idno type="DOI">10.1007/s10462-019-09717-4</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Artificial Intelligence Review</title>
+		<title level="j" type="abbrev">Artif Intell Rev</title>
+		<idno type="ISSN">0269-2821</idno>
+		<idno type="ISSNe">1573-7462</idno>
+		<imprint>
+			<biblScope unit="volume">53</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1721" to="1736" />
+			<date type="published" when="2019-06-01" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">PATTERN RECOGNITION SYSTEMS UNDER ATTACK: DESIGN ISSUES AND RESEARCH CHALLENGES</title>
+		<author>
+			<persName><forename type="first">Battista</forename><surname>Biggio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giorgio</forename><surname>Fumera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fabio</forename><surname>Roli</surname></persName>
+		</author>
+		<idno type="DOI">10.1142/s0218001414600027</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Pattern Recognition and Artificial Intelligence</title>
+		<title level="j" type="abbrev">Int. J. Patt. Recogn. Artif. Intell.</title>
+		<idno type="ISSN">0218-0014</idno>
+		<idno type="ISSNe">1793-6381</idno>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">07</biblScope>
+			<biblScope unit="page">1460002</biblScope>
+			<date type="published" when="2014-10-14" />
+			<publisher>World Scientific Pub Co Pte Lt</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">The Cognitive Early Warning Predictive System Using the Smart Vaccine</title>
+		<author>
+			<persName><forename type="first">Rocky</forename><surname>Termanini</surname></persName>
+		</author>
+		<idno type="DOI">10.1201/b19155</idno>
+		<imprint>
+			<date type="published" when="2016-01-06" />
+			<publisher>Auerbach Publications</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Seeing What a GAN Cannot Generate</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Bau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun-Yan</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonas</forename><surname>Wulff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><surname>Peebles</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bolei</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hendrik</forename><surname>Strobelt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Torralba</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/iccv.2019.00460</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE/CVF International Conference on Computer Vision (ICCV)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-10" />
+			<biblScope unit="page" from="4502" to="4511" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Patented intelligence: Cloning human decision models for Industry 4.0</title>
+		<author>
+			<persName><forename type="first">Vagan</forename><surname>Terziyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Svitlana</forename><surname>Gryshko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mariia</forename><surname>Golovianko</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jmsy.2018.04.019</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Manufacturing Systems</title>
+		<title level="j" type="abbrev">Journal of Manufacturing Systems</title>
+		<idno type="ISSN">0278-6125</idno>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="page" from="204" to="217" />
+			<date type="published" when="2018-07" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+	<note>Part C</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Patented intelligence: Cloning human decision models for Industry 4.0</title>
+		<author>
+			<persName><forename type="first">Vagan</forename><surname>Terziyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Svitlana</forename><surname>Gryshko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mariia</forename><surname>Golovianko</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jmsy.2018.04.019</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Manufacturing Systems</title>
+		<title level="j" type="abbrev">Journal of Manufacturing Systems</title>
+		<editor>K. Dimitrov</editor>
+		<idno type="ISSN">0278-6125</idno>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="page" from="204" to="217" />
+			<date type="published" when="2018-07" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Adversarial Attacks and Defenses in Deep Learning</title>
+		<author>
+			<persName><forename type="first">Kui</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tianhang</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhan</forename><surname>Qin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xue</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.eng.2019.12.012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Engineering</title>
+		<title level="j" type="abbrev">Engineering</title>
+		<idno type="ISSN">2095-8099</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="346" to="360" />
+			<date type="published" when="2020-03" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S S</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Nyström</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lambert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Marshall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Goertzel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Comissoneru</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Xia</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2002.05646</idno>
+		<title level="m">Adversarial Machine Learning--Industry Perspectives</title>
+				<imprint>
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Preprint repository arXiv achieves milestone million uploads</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Szegedy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zaremba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Sutskever</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bruna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Erhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Goodfellow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fergus</surname></persName>
+		</author>
+		<idno type="DOI">10.1063/pt.5.028530</idno>
+		<idno type="arXiv">arXiv:1312.6199</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Physics Today</title>
+		<title level="j" type="abbrev">Phys. Today</title>
+		<idno type="ISSNe">1945-0699</idno>
+		<imprint>
+			<date type="published" when="2014" />
+			<publisher>AIP Publishing</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">ATMPA</title>
+		<author>
+			<persName><forename type="first">Xinbo</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiliang</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yaping</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">He</forename><surname>Li</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3326285.3329073</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Symposium on Quality of Service</title>
+				<meeting>the International Symposium on Quality of Service<address><addrLine>Phoenix, AZ, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2019-06-24" />
+			<biblScope unit="page" from="1" to="10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">PAC Generalization Bounds for Co-training</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Salimans</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Goodfellow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zaremba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Cheung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Radford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.7551/mitpress/1120.003.0053</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems 14</title>
+				<imprint>
+			<publisher>The MIT Press</publisher>
+			<date type="published" when="2002" />
+			<biblScope unit="page" from="2234" to="2242" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Seeing What a GAN Cannot Generate</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Bau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun-Yan</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonas</forename><surname>Wulff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><surname>Peebles</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bolei</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hendrik</forename><surname>Strobelt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Torralba</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/iccv.2019.00460</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE/CVF International Conference on Computer Vision (ICCV)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-10" />
+			<biblScope unit="page" from="4502" to="4511" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">The Nature and Use of the Harmonic Mean</title>
+		<author>
+			<persName><forename type="first">Wirth</forename><forename type="middle">F</forename><surname>Ferger</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/01621459.1931.10503148</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the American Statistical Association</title>
+		<title level="j" type="abbrev">Journal of the American Statistical Association</title>
+		<idno type="ISSN">0162-1459</idno>
+		<idno type="ISSNe">1537-274X</idno>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="issue">173</biblScope>
+			<biblScope unit="page" from="36" to="40" />
+			<date type="published" when="1931-03" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Digital Twin-based Anomaly Detection in Cyber-physical Systems</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>IEEE</publisher>
+				<availability status="unknown"><p>Copyright IEEE</p>
+				</availability>
+				<date type="published" when="2021-04">2021-04</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Qinghua</forename><surname>Xu</surname></persName>
+							<email>qinghua@simula.no</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Simula Research Laboratory</orgName>
+								<orgName type="institution">University of Oslo Fornebu</orgName>
+								<address>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Shaukat</forename><surname>Ali</surname></persName>
+							<email>shaukat@simula.no</email>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Simula Research Laboratory Fornebu</orgName>
+								<address>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Tao</forename><surname>Yue</surname></persName>
+							<email>taoyue@ieee.org</email>
+							<affiliation key="aff2">
+								<orgName type="laboratory">Simula Research Laboratory Nanjing University of Aeronautics and Astronautics Nanjing</orgName>
+								<address>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Digital Twin-based Anomaly Detection in Cyber-physical Systems</title>
+					</analytic>
+					<monogr>
+						<title level="m">2021 14th IEEE Conference on Software Testing, Verification and Validation (ICST)</title>
+						<imprint>
+							<publisher>IEEE</publisher>
+							<date type="published" when="2021-04" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/icst49551.2021.00031</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T13:06+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>cyber-physical system</term>
+					<term>digital twin</term>
+					<term>machine learning</term>
+					<term>anomaly detection</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Cyber-Physical Systems (CPS) are susceptible to various anomalies during their operations. Thus, it is important to detect such anomalies. Detecting such anomalies is challenging since it is uncertain when and where anomalies can happen. To this end, we present a novel approach called Anomaly deTection with digiTAl twIN (ATTAIN), which continuously and automatically builds a digital twin with live data obtained from a CPS for anomaly detection. ATTAIN builds a Timed Automaton Machine (TAM) as the digital representation of the CPS, and implements a Generative Adversarial Network (GAN) to detect anomalies. GAN uses a GCN-LSTM-based module as a generator, which can capture temporal and spatial characteristics of the input data and learn to produce realistic unlabeled adversarial samples. TAM labels these adversarial samples, which are then fed into a discriminator along with real labeled samples. After training, the discriminator is capable of distinguishing anomalous data from normal data with a high F1 score. To evaluate our approach, we used three publicly available datasets collected from three CPS testbeds. Evaluation results show that ATTAIN improved the performance of two state-of-art anomaly detection methods by 2.413%, 8.487%, and 5.438% on average on the three datasets, respectively. Moreover, ATTAIN achieved on average 8.39% increase in the anomaly detection capability with digital twins as compared with an approach of not using digital twins.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>A Cyber-physical system (CPS) is a complex system consisting of both physical and cyber parts. CPS have become increasingly ubiquitous in critical infrastructures, such as water treatment plants, smart grids, and railways.</p><p>Anomaly detection for CPS concerns the identification of unusual behaviors, i.e., anomalies. Such anomalies could result from control elements, network, or physical environment. Also, they may result from hardware and software faults, operator errors, or even misconfigurations of CPS. Multiple attack detection mechanisms have been proposed to tackle these challenges, including techniques based on invariant checking, physical attestation, and fingerprinting. A well-known solution is to build an anomaly detector <ref type="bibr" target="#b0">[1]</ref>- <ref type="bibr" target="#b4">[5]</ref>, in which an underlying machine learning (ML) model is trained on static data from a system to judge when it deviates from its normal behavior. Typically, such a model would be in the form of a neural network, a powerful model to learn and recognize complex patterns of behaviors that CPS exhibit. An anomaly detector's effectiveness can be assessed by subjecting it to a test suite of attacks, and observing whether it can correctly identify anomalous behaviors.</p><p>Despite the success of these neural network-based anomaly detectors, most of them still suffer from two major problems. First, most of these models are trained on static log data and cannot keep learning during the operation of CPS. As a result, these models perform best when dealing with known attacks, but suffer from low accuracy when novel attacks occur. Another problem with neural network-based models is that they rely on a large amount of labeled data for training. However, acquiring labels in CPS is expensive generally. Hence, a model that can take advantage of unlabeled data is much more desirable in this situation.</p><p>To address the above-mentioned two key problems, we propose a novel approach, called Anomaly deTection with digiTAl twIN (ATTAIN), which takes advantage of unlabeled data and continuously learns during the operation of a CPS i.e., at runtime. Digital twin is an emerging concept consisting of two parts: Digital Twin model and Digital Twin capability. Digital twin model is a virtual replica or live model of the CPS, while digital twin capability is the digital twin's functionality <ref type="bibr" target="#b5">[6]</ref>. In our context, the capability of a digital twin is the application of ML algorithms for anomaly detection. We build a digital twin model with historical data and fine-tune it with real-time data, which simulates the CPS with high realism during runtime. We use a Generative Adversarial Network (GAN) to implement the ATTAIN digital twin capability, which can be trained on labeled historical data and unlabeled real-time data with the digital twin model's ground truth label.</p><p>We evaluate the effectiveness of our method on three datasets collected from real-world critical infrastructure testbeds: Secure Water Treatment (SWaT) <ref type="bibr" target="#b6">[7]</ref>-a multi-stage water purification plant, Water Distribution (WADI) <ref type="bibr" target="#b7">[8]</ref>-a consumer distribution network, and Battle of Attack Detection Algorithms (BATADAL) <ref type="bibr" target="#b8">[9]</ref>-a dataset designed for an attack detection contest. We demonstrate that our method improves the performance of two state-of-the-art anomaly detection methods by 2.413%, 8.487%, and 5.438% on average on SWAT, WADI, and BATADAL, respectively.</p><p>The remaining part of this paper is organized as follows. We present background on digital twins in Section II. Section III presents a running example of CPS operation and an attack against actuators. Section IV introduces our proposed ATTAIN in details. Section V shows the design of our empirical evaluation, followed by Section VI where we present the experimental results and analysis. Section VII shows existing research related to our work. Finally, Section VIII summarizes the paper and proposes possible future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. BACKGROUND</head><p>El Saddik <ref type="bibr" target="#b9">[10]</ref> defined a concept of Digital Twin as "a digital replica of a living or non-living physical entity". In this paper, we focus on building a digital twin of a CPS. Fig <ref type="figure" target="#fig_0">1</ref> shows a high-level view of a digital twin for a CPS in operation, which is referred to as Physical Twin -a commonly used term in the literature. Data from the physical twin is continuously fed to the digital twin. Depending on the CPS, such data may come from its environment, communication medium, and the CPS itself. A digital twin may also be able to take actions on the physical twin. Examples of such actions include preventing unsafe situations or alerting a CPS operator about abnormal behaviors of the CPS. At some situations, one may not be able to intervene in the operation of the CPS.</p><p>As shown in Fig <ref type="figure" target="#fig_0">1</ref>, a digital twin consists of two parts, i.e., digital twin model and digital twin capability. The digital twin model refers to the digital representation of the CPS. This representation could be in the form of heterogeneous models (e.g., software, hardware, communication models). These models can be constructed in different ways. In some instances, we may have CPS design models that could be used and improved incrementally during the operational digital twin based on live data, thereby representing the most up-to-date state of the underlying CPS. In this paper, we build such models initially from historical data followed by the continuous improvement of them with live data in our context. The digital twin capability refers to the functionality of a digital twin. Depending on the context, a digital twin can provide various capabilities such as predictions of non-functional properties, uncertainty detection, and failure prevention. In our context, we focus on the anomaly detection capability that detects anomalies during the operation of a CPS. The digital twin capability can interact with the digital twin model, e.g., to perform simulations on it. Similarly, the digital twin model can interact with the capability, e.g., to get feedback. This bidirectional relationship is shown as a dotted arrow between the digital twin model and the capability in Fig 1 <ref type="figure">.</ref> In this paper, a digital twin model provides ground truth labels to improve the anomaly detection capability of ATTAIN.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. RUNNING EXAMPLE FROM THE SWAT TESTBED</head><p>To better illustrate our method, we present a running example in Table <ref type="table" target="#tab_0">I</ref>. In this table, we use sensor and actuator data  <ref type="formula" target="#formula_0">1</ref>u</p><formula xml:id="formula_0">= [u s1 , u s2 , u s3 , ...u a1 , u a2 , u a3 , ...]<label>(1)</label></formula><p>where u sj represents a value for the j th sensor and u ak represents the value for the k th actuator. We define u i to be the system state at the i th time point, and U i to be the sequence of states before the i th time point. An attack against MV101 is also shown in this table <ref type="table">.</ref> The system starts at 10:00:00, pumping water from outside into the tank. As the water level (LIT101) in the tank grows above the upper limit, MV101 should be closed to prevent a water overflow. However, an attacker forces MV101 to be opened regardless of the readings from LIT101. This attack starts at 10:29:14 and ends at 10:44:53, causing real water overflow damages to the plant. Our goal in this paper is to detect this attack in advance, before it causes actual damages, with the help of U i .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. APPROACH</head><p>In Section IV-A, we provide the overview of ATTAIN, followed by the discussions on the digital twin model generation (Section IV-B and the digital twin capability (Section IV-C).  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Overview</head><p>We propose a novel approach called Anomaly deTection with digiTAl twIN (ATTAIN), which continuously learns from new data and improves its anomaly detection performance using a mix of labeled and unlabeled adversarial data. ATTAIN has two different segments: Digital Twin Model and Digital Twin Capability.</p><p>Fig <ref type="figure" target="#fig_1">2</ref> shows the overview diagram of our proposed method ATTAIN. Two types of data need to be collected before training: sensor and actuator values. Data is acquired both from the past, i.e., Historical Data) and in real-time (i.e., Real-time Data) from an operational CPS.</p><p>Learning digital twin models is a standard state prediction process based on historical and real-time data. It is initially learned as a Timed Automaton Machine from the historical data statically. Though this pre-trained digital twin model tends to simulate the real CPS with high realism, it is limited to capturing only known behaviors. Therefore, this model needs to be further improved with real-time data, allowing it to evolve along with its physical counterpart at runtime. Both the pretraining and online training processes utilize the OTALA <ref type="bibr" target="#b10">[11]</ref> algorithm, a multi-stage algorithm with the following steps: pre-processing, prefix detection, state merging. We extend this algorithm to learn probabilistic real-time automaton.</p><p>The digital twin capability, i.e., the anomaly detector, in this case, is trained on real-time data only. Generative Adversarial Network (GAN) is used as the backbone framework in our anomaly detector. GAN consists of a generator and a discriminator. The generator learns to generate adversarial samples, mapping from a latent space to the distribution of input data. The discriminator learns to distinguish among real attack, real normal, adversarial normal, and adversarial attack samples. The anomaly detector is trained in a supervised learning fashion, yet unlabeled adversarial samples are also utilized. To that end, our method calculates a ground truth label as training signals by comparing real sensor and actuator values and predicted sensor and actuator values generated by the digital twin model. This ground truth label is then used for the cross entropy loss calculation. Backpropagation is applied in both the generator and discriminator such that the generator produces better adversarial samples, while the discriminator becomes more skilled at flagging samples from different categories.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Digital Twin Model Generation</head><p>A digital twin model is often a behavioral model. Such a model is usually represented as a statechart or a finite automaton, and mostly created manually by domain experts <ref type="bibr" target="#b11">[12]</ref>, <ref type="bibr" target="#b12">[13]</ref>. However, there exist approaches on the automated construction of Deterministic Finite automaton (DFA) such as the ones reported in <ref type="bibr" target="#b10">[11]</ref>, <ref type="bibr" target="#b13">[14]</ref>. Along with this line, we propose to use Timed Automaton to represent our automatically generated digital twin model. In the automaton theory, a timed automaton is a finite automaton extended with a finite set of real-valued clocks, which can better model real-time systems. Below, in Section IV-B1 we introduce the formalism of Timed Automaton, and in Section IV-B2 we discuss the Online Timed Automaton Learning Algorithm (OTALA) in details <ref type="bibr" target="#b10">[11]</ref>.</p><p>1) Timed Automaton Formalism: A Timed Automaton is a tuple A = (U, T, δ), where</p><p>• U is a finite set of states. In our context, each state u ⊆ U is defined as an observation in a time point, which is a vector consisting of sensor values and actuator values u = [u s1 , u s2 , u s3 , ...u a1 , u a2 , u a3 , ...] . • T is a finite set of transitions, where T ⊆ U × U . For example, for a transition &lt; u, u &gt;, u, u ∈ U are the source and destination states. • δ is a transition timing constraint δ : T − → I, where I is a set of probability distribution functions with regard to time, which denotes how much time is needed for a certain transition.</p><p>2) Learning Algorithm: OTALA was introduced by Maier et. al. <ref type="bibr" target="#b10">[11]</ref> as a generic algorithm. We extend it for our purpose. According to Maier's definition, a transition is triggered by events and finished when the timing constraint clock runs up. However, in the case of CPS, events are not observable and transitions are not deterministic. Therefore, we extend OTALA by dropping the concept of events and introducing probability distribution functions as time constraints. Our method described in Algorithm 2 works as follows: For each GANPredictedProbabilty=C.GANDiscriminator(concat(u j ,adversarialSample));</p><formula xml:id="formula_1">if isAttackGroundTruth then groundTruthLabel=[[0,1,0],[0,0,1]]; else groundTruthLabel=[[1,0,0],[0,0,1]];</formula><p>end loss=CrossEntropyLoss(groundTruthLabel,GANPredictedProbabilty); loss.backpropagation(); updateParameters(C); 24 end real-time observations, we first perform a prefix detection to find if it has been observed before (lines 2 -9). If such an observation is observed before, it is checked if the current transition exists (line 4). A new transition is added or existing transition information is updated (lines 7 -8) accordingly. Otherwise, a new state and new transition are added, while time constraints are updated (line 13). After each step, it is checked whether the learning converged to the final automaton (lines 18 -20 ) and if it is converged, the identified automaton is returned. The learning is considered to be converged if the number of states, number of transitions, and timing constraints remain unchanged for a certain period of time.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Digital Twin Capability</head><p>The core part of our proposed approach ATTAIN is a Generative Adversarial Network (GAN). GAN's capability of producing adversarial samples significantly increases the volume of training data. It consists of two independent models: generator (G) and discriminator (D). Considering an input noise variable z, the goal of G is to generate a new adversarial sample G(z) that comes from the same distribution as of u.</p><p>On the other hand, the discriminator model (D) returns the probability D(u) that the given sample u is from real data set rather than generated by G. The ultimate goal of G is to maximize the probability that D would mistakenly predict generated data as a real one, and for D the goal is to do the opposite. Thus, G learns to generate more realistic samples while D continuously improves its capability of distinguishing adversarial samples from real samples. Here we modify this vanilla GAN for our purpose. We calculate a ground truth label with the help of digital twin model and denote each sample with more fine-grained labels: real normal, real attack, adversarial normal, and adversarial attack. In this case, the discriminator is a 4-category classifier, which is trained with much more data compared to most existing anomaly detectors.</p><p>1) Generator: As introduced in the previous section, sensor and actuator values in a CPS are time-series scalar data. Therefore, for the generator, we use an LSTM and a GCN module to capture temporal and spatial characteristics of the input data, respectively.</p><p>Let u[i] be the ith sensor or actuator values of the system. We consider values within a predefined time window as  To get a spatial representation spatial[i] for each time step, first, the input is fed into a multi-layer network, consisting of an Input Layer, a GCN Layer, and a Pooling Layer. Second, the spatial representation of all time steps within the window is fed into an LSTM module to learn temporal characteristics. The final output of the generator is adversarial samples f ake <ref type="bibr">[i]</ref> containing both temporal and spatial characteristics.  <ref type="formula" target="#formula_2">2</ref>, while for continuous values, we expand them to 3-dimensional vectors, adding their upper limits and lower limits as two additional dimensions as shown in Equation <ref type="formula">3</ref>. u[i] is made up by concatenating a[i] and s[i] as in Equation <ref type="formula" target="#formula_3">4</ref>a</p><formula xml:id="formula_2">[i] = oneHot(a[i])<label>(2)</label></formula><formula xml:id="formula_3">s [i] = concat(s[i], upper limit, lower limit) (3) u [i] = concat(a [i], s [i])<label>(4)</label></formula><p>• GCN Layer. GCN Layer captures interdependent relationships among sensors and actuators. Unlike CNN, GCN takes a specification graph as well as sensor and actuator values as input. In this graph, each actuator and sensor is viewed as a node, while edges are drawn where there is a connection between these two nodes according to the CPS process. For example, in the SWAT testbed, P101 is connected to LIT101 because P101 changes its value based on the readings of LIT101. Let g be the graph we acquired from the CPS specification, which contains a set of edges E and a set of nodes V as in Equation <ref type="formula" target="#formula_4">5</ref>. GCN takes graph g and vector u [i] as input as shown in Equation <ref type="formula" target="#formula_5">6</ref>.</p><formula xml:id="formula_4">g = (E, V )<label>(5)</label></formula><p>gcn</p><formula xml:id="formula_5">out [i] = GCN (g, u [i])<label>(6)</label></formula><p>• Pooling Layer. In the pooling layer, all the GCN outputs collapse into one vector, as shown in Equation <ref type="formula" target="#formula_6">7</ref>below:</p><formula xml:id="formula_6">spatial[i] = maxP ooling(gcn out )<label>(7)</label></formula><p>where spatial[i] is the spatial representation vector of timestep i. • LSTM Layer. In the LSTM Layer, spatial representations from different time steps are concatenated together as input as shown in Equation <ref type="formula">8</ref>. LSTM learns temporal features by calculating hidden states between each time step as in Equation <ref type="formula" target="#formula_7">9</ref>. The last hidden state h[i] is used as our final representation f ake[i] for time step i as shown in Equation <ref type="formula" target="#formula_8">10</ref>.</p><formula xml:id="formula_7">input w = concat(spatial[i : i − window size]) (8) h[i] = LST M (input w )<label>(9)</label></formula><p>f ake</p><formula xml:id="formula_8">[i] = h[i]<label>(10)</label></formula><p>2) Discriminator: The discriminator distinguishes input from adversarial normal, adversarial attack, real attack, and real normal. It is a 4-category classification task. We first transform the input to the output space with linear transformation followed by applying a tanh activation function. After that, we calculate a ground truth label using the predicted sensor and actuator values from the digital twin model. With this ground truth label, we calculate cross entropy loss as training signals for our model. Cross Entropy loss is commonly used loss function for classification tasks <ref type="bibr" target="#b14">[15]</ref>. It works by penalizing high confident false predictions, increasing the model's generalization ability.</p><p>• Transformation. This linear layer takes input from both generators and real samples. This layer applies a linear transformation and an activation function consecutively as shown in Equation <ref type="formula" target="#formula_9">11</ref>, 12 and 13.</p><formula xml:id="formula_9">input[i] = concat(real[i], f ake[i])<label>(11)</label></formula><formula xml:id="formula_10">linear out [i] = Linear(input[i])<label>(12)</label></formula><formula xml:id="formula_11">out[i] = tanh(linear out [i])<label>(13)</label></formula><p>• Ground Truth Calculation. We calculate the ground truth for every adversarial sample from the generator, and further label it as a adversarial attack or adversarial normal data. We first use digital twin model to predict the current state as in Equation <ref type="formula" target="#formula_12">14</ref>. With predicted and real state vector, we then calculate the hamming distance, which is compared with the threshold value δ afterward as shown in Equation <ref type="formula" target="#formula_13">15</ref>. For each sample j from the input, we assign a label indicating whether or not it is a normal state as in Equation <ref type="formula">16</ref>.</p><formula xml:id="formula_12">a[i] = DigitalT winM odel(f ake[i])<label>(14)</label></formula><formula xml:id="formula_13">d = hamming(â[i], a[i])<label>(15)</label></formula><formula xml:id="formula_14">label[j] =          [1, 0, 0, 0], if sample j is fake &amp; d &gt; δ [0, 1, 0, 0], if sample j is fake &amp; d &lt;= δ [0, 0, 1, 0], if sample j is real normal [0, 0, 0, 1]</formula><p>, if sample j is real attack (16) • Classification Layer. We use cross entropy loss for the training as in:</p><formula xml:id="formula_15">likelihood[i] = sof tmax(out[i])<label>(17)</label></formula><formula xml:id="formula_16">loss = CrossEntropyLoss(label[i], likelihood[i])<label>(18)</label></formula><p>V. EMPIRICAL EVALUATION DESIGN Section V-A presents the three research questions that we would like to answer. Section V-B presents the case studies we used for experimentation, followed by evaluation metrics (Section V-C). Section V-D provides parameter settings of the experiments, and Section V-E details the experiment execution process.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Research Questions</head><p>In our experiment, we are interested in answering the following three research questions (RQs).</p><p>• RQ1: How effective is our anomaly detector as compared to the literature? • RQ2: How realistic is our digital twin model? • RQ3: Is the mechanism of using digital twin effective in detecting anomalies as compared to not using it?</p><p>With RQ1, we aim to compare the performance of our approach with existing approaches from the literature. RQ2 is important to answer since a digital twin model is a timed automation machine, aiming at realistically simulating its physical counterpart. Intuitively, the more realistic this model is, the better performance the digital twin capability will demonstrate. Given that we are using the digital twin model to improve anomaly detection, thus, it is important that we assess whether using the digital twin model payoffs at the end and thus we define RQ3.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Case Studies</head><p>We evaluate ATTAIN with three CPS case studies, namely Secure Water Treatment (SWaT) <ref type="bibr" target="#b6">[7]</ref>, Water Distribution (WADI) <ref type="bibr" target="#b7">[8]</ref>, and Battle Of The Attack Detection Algorithms (BATADAL) <ref type="bibr" target="#b8">[9]</ref>.</p><p>SWaT is a CPS testbed for water treatment. Its main functionality is about producing filtered water through a series of stages. The testbed consists of 25 sensors and 26 actuators. The SWaT dataset was produced from the testbed during its operation. The dataset has 946722 samples, each of which has 51 attributes, i.e., sensor measurements and actuator states. Each sample was labeled with normal or attack.</p><p>The second case study is the WADI data produced from the WADI testbed -an extension to the SWaT testbed. The WADI testbed consists of 42 sensors and 61 actuators. The dataset has 1221372 samples, each of which has 103 attributes, i.e., sensor measurements and actuator states. The main functionality of the WADI testbed is about the secure distribution of water. The dataset generated from the WADI testbed has two week's normal operation data, whereas it has two days' attacks data.</p><p>The third case study is the BATADAL dataset, which is an extension of the WADI dataset and the attacks were designed for an attack detection competition. The dataset consists of 26 sensors and 17 actuators and has 12938 samples in total.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Evaluation Metrics</head><p>Following the similar research on anomaly detection <ref type="bibr" target="#b15">[16]</ref>- <ref type="bibr" target="#b17">[18]</ref>, we adopt the three commonly used evaluation metrics, namely precision, recall, and F 1 score, to evaluate our anomaly detector. These metrics are generally considered to be better than other metrics such as accuracy when dealing with imbalanced datasets like the three datasets used in our experiments. Precision is defined in Equation <ref type="formula">19</ref>precision = T P T P + F P <ref type="bibr" target="#b18">(19)</ref> where TP and FP stand for True Positive and False Positive, respectively. The recall is defined in Equation <ref type="formula">20</ref>recall = T P T P + F N <ref type="bibr" target="#b19">(20)</ref> where FN denotes False Negative, and F 1 is defined in Equation 21</p><formula xml:id="formula_17">F 1 = 2 • precision • recall precision + recall (21)</formula><p>To answer RQ2 (aiming to evaluate how realistic our digital twin model is), we consider two metrics:</p><p>• Hamming Distance. Hamming distance is commonly used for comparing vectors with equal length. The higher the hamming distance between predicted and actual actuator values is, the more realistic our digital twin model is.</p><p>• Outlier Detection Accuracy. Outlier Detection Accuracy is derived from the hamming distance and it demonstrates the realism of the digital twin model by showing its capability in downstream tasks such as outlier detection.</p><p>We compare the hamming distance between predicted and actual values at a certain time point with a given threshold. If the hamming distance is larger than the threshold value, this sample is considered to be an outlier. We then calculate the accuracy of outlier detection. For an ideal digital twin model, the predicted values and real values should be identical. In this case, the hamming distance is zero and the outlier detection accuracy is 100%.</p><p>(1) hamming distance between predicted and actual actuator values, and (2) outlier detection accuracy. Hamming distance is commonly used for comparing vectors with equal length. The higher the hamming distance between predicted and actual actuator values is, the more accurate that our digital twin model is. Another metric for evaluation is the outlier detection accuracy, which is defined by comparing the hamming distance with a predefined threshold to detect outliers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Parameter Settings</head><p>To find optimal parameter settings, we split each dataset into 10 chunks sequentially. The last chunk was used as the heldout testing data, while the first 9 chunks were used as the training data (i.e., training dataset). We performed a 9-fold cross validation on the training dataset with F1 score as an evaluation metric. We set the hyperparameters in our model based on the validation result. We trained the GAN with a batch size of 10 (1 from real-time data, 9 from historical data). The hidden dimension of the neural network was set as 100, and Rectified Linear Unit (ReLU) was used as the activation function. As for the GCN layer, we used a gated GCN module and set the number of layers to 2.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. Experiment Execution</head><p>In this paper, neural network layers were built with the PyTorch framework <ref type="bibr" target="#b18">[19]</ref>, and the GCN layer was constructed with the PyTorch Geometric (PyG) framework <ref type="bibr" target="#b19">[20]</ref>. All the experiments were carried out on Google collaboratory notebooks, with Intel(R) Xeon(R) CPU at 2.00GHz, 12 GB system memory and for GPU, Tesla V100-SXM2 with 16GB memory. To eliminate the effect of randomness, we repeated all the experiments 10 times, and the average results were reported in this paper. For the SWaT dataset, we followed previous works <ref type="bibr" target="#b16">[17]</ref> by ignoring the first 16000 records because the state of the CPS tends to be highly unstable during that period of time after it is started.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. RESULTS AND ANALYSIS</head><p>Section VI-A, Section VI-B, and Section VI-C present the results for RQ1, RQ2, and RQ3 respectively. The overall discussion is presented in Section VI-D and the threats to validity in Section VI-E.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Results and Analysis for RQ1</head><p>Table <ref type="table" target="#tab_0">II</ref> presents the comparison of ATTAIN with the state-of-the-art approaches, i.e., the LSTM-CUSUM anomaly detector <ref type="bibr" target="#b20">[21]</ref> and the MAD-GAN anomaly detector <ref type="bibr" target="#b21">[22]</ref>, with respect to precision, recall, and F1 score. Both LSTM-CUSUM and MAD-GAN are designed for CPS anomaly detection and more details about their models can be found in the related work section. We can observe from Table <ref type="table" target="#tab_0">II</ref> that ATTAIN outperforms LSTM-CUSUM and MAD-GAN for almost all metrics on all the three datasets. For SWaT, MAD-GAN achieved a slightly better precision, while ATTAIN outperforms it in recall and F1 score by 5.003% and 2.413%, respectively. For the WADI and BATADAL datasets, MAD-GAN has the highest recall. However, in terms of the precision and F1 score, ATTAIN outperformed the other two methods by a large margin, at least 5.184% and 5.438%, respectively, on the WADI and BATADAL datasets. It is clearly shown in the figure that the hamming distance decreases by a large margin after the digital twin model has been trained with 80,000 and more samples, reaching around 0.5 at the end. After the training of the digital twin model is converged, we define an outlier detector to demonstrate its outlier detection accuracy. A sample is considered to be an outlier or an anomaly if the hamming distance between the real value and a predicted value exceeds a threshold (e.g., 0.5 in our experiment). This threshold value is chosen by experimenting on the validation datasets. We calculated the outlier detection accuracy using labels provided by the datasets, and the results on SWaT, WADI, and BATADAL are 0.82, 0.69, and 0.74, respectively. Considering that our current outlier detector is a very simple model and we did not train the digital twin model for outlier detection, achieving this level of accuracy is already encouraging. In the future, we plan to devise a better outlier detector and train the digital twin model to further improve the outlier detection accuracy. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Results and Analysis for RQ2</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Results and Analysis for RQ3</head><p>In ATTAIN, signals from the digital twin model are used to calculate a ground truth label for the digital twin capability, and in turn the ground truth label is used to guide the training process of GAN (Fig. <ref type="figure" target="#fig_1">2</ref>). To prove that this ground truth label is critical in the training, we conducted experiments to compare the methods of ATTAIN with signals and the ATTAIN without signals from the digital twin model. Without these signals, ATTAIN becomes a vanilla GAN model, i.e., the simplest model to distinguish adversarial samples from the real ones. To get optimal parameters, we re-tuned the GAN model. As a result, the batch size is changed to 20, while the hidden size decreases from 100 to 32. As shown in Table <ref type="table" target="#tab_0">II</ref>, the fifth and sixth rows denote the results of ATTAIN with and without signals from the digital twin model, respectively. ATTAIN with signals from the digital twin model improves the F1 score by more than 10% on the SWaT and BATADAL datasets when compared with ATTAIN without signals. We remark that for the BATADAL dataset, the number of normal samples and attacks samples are both the lowest among the three datasets, making data augmentation critical in improving the performance of the detectors. However, only our ATTAIN with signals can increase the data volume by a large margin. Therefore, the poor performance of ATTAIN without signals is reasonable. The comparison shows that signals from the digital twin model are vital in improving the overall performance of ATTAIN.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Discussion</head><p>ATTAIN outperforms the state-of-art models on the three benchmark datasets for most of the cases. We argue that we achieve this good performance due to the following reasons.</p><p>First, capturing temporal and spatial features of CPS is critical in making predictions. Many LSTM-based models were proposed to learn temporal characteristics of CPS, while several CNN-based models have been presented to learn spatial features <ref type="bibr" target="#b22">[23]</ref>. CNN was initially designed to learn potential features of images, which can be considered as functions in the Euclidean space. However, actuators and sensors are connected in a Non-Euclidean fashion, contradicting the nature of CNN. Therefore, we use GCN instead of CNN, since GCN is known for its capability of capturing Non-Euclidean structures.</p><p>Second, ATTAIN achieved good performance since we used GAN for data augmentation. Existing benchmarks suffer from the sparsity of attack data. However, manually acquiring labeled data, especially attack data in the CPS security domain is expensive. We mitigate this problem by using a GAN framework, thereby increasing the number of attack data by generating our own attack data. A newly expanded dataset with ATTAIN improves its performance by a large margin.</p><p>Third, we design our model to be able to learn continuously at runtime. Existing effort mainly focuses on developing new models to improve detecting performance. However, the deployment of these methods has not been studied yet. In particular, there is barely any mechanism for updating trained models to prevent new attacks. However, for a deployed CPS, real-time data can be obtained all the time during its operation. Therefore, we design the digital twin model of ATTAIN as an online learning model, taking full advantage of newly obtained real-time data. Otherwise, a CPS would be vulnerable to attacks that were not included in the training dataset.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. Threats to Validity</head><p>We identify the following threats to the validity of our experiments. First, our experiments were performed on three testbeds scaled down from real operating CPS. Without conducting experiments with real CPS, we cannot draw a sound conclusion on the performance of ATTAIN. Similarly, at this stage, more experiments are definitely required to make any claim on generalizing ATTAIN to other CPS. However, we would like to point out that, in our context, to conduct experiments with real CPS, they need to be deployed, as ATTAIN needs to get connected to them during their operations and obtain their operating data at runtime. Setting up this kind of experiment is complicated, which requires simulators, setting up communications between a digital twin (i.e., ATTAIN) and its corresponding CPS, etc.</p><p>Second, same as for other existing research works (e.g., <ref type="bibr" target="#b20">[21]</ref>[ <ref type="bibr" target="#b16">[17]</ref>]), in our experiments, we only kept the stable data of the SWaT dataset. However, attacks are possible to take place during the starting stage of a CPS. Ignoring this part of the data renders the CPS vulnerable at the start, and it is likely that ATTAIN would produce more false-positives at the starting phase of a CPS. In the future, ATTAIN needs to be extended, by for instance developing a strategy particularly for detecting anomalies of the starting phase of a CPS, and then switching to the current implemented strategy.</p><p>Third, currently ATTAIN adopted several commonly used techniques such as ReLU, for activation function and max pooling for dimension reduction. There are opportunities to further improve the performance of ATTAIN with alternative techniques such as leaky ReLU <ref type="bibr" target="#b23">[24]</ref> and average pooling <ref type="bibr" target="#b24">[25]</ref>. In the future, we will design dedicated experiments to assess the effect of alternative techniques on the performance of ATTAIN. Moreover, we adopted the hamming distance as the metric for evaluating the realism of the digital twin model. However, we are aware of other metrics such as the Levenshtein distance <ref type="bibr" target="#b25">[26]</ref>. In the future, we will experiment with different metrics for measuring the quality of digital twin models.</p><p>Fourth, in ATTAIN, the digital twin model is represented with Timed Automaton machine. We are aware that there are other methods that can be used to represent digital twin models of CPS, such as the Dependent Markov Chain <ref type="bibr" target="#b26">[27]</ref>. When needed, in the future, we will pursue opportunities to equip ATTAIN with different digital twin modeling solutions, and evaluate their cost-effectiveness in terms of supporting the digital twin capability of ATTAIN.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VII. RELATED WORK</head><p>We present the related work from three aspects: anomaly detection for CPS (Section VII-A, digital twin enabled anomaly detection (Section VII-B), and GAN-based anomaly detection (Section VII-C).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. CPS Anomaly Detection</head><p>Anomaly detection is a popular research topic in the domain of CPS security. There exist several techniques for detecting anomalies in CPS. As reported in <ref type="bibr" target="#b27">[28]</ref>, methods based on rules (e.g., frequency limit), state estimation (e.g., the Kalman filter), and statistical models (e.g., Gaussian model, histogrambased model) have been proposed to learn normal states of CPS <ref type="bibr" target="#b28">[29]</ref>. However, these methods usually require domain knowledge of experts, or need to know underlying normal data distributions. Machine learning approaches do not rely on domain-specific knowledge. However, they usually require a large quantity of labeled data, e.g., for classification-based methods. Also, such labeled data cannot capture properties such as spatial-temporal correlation <ref type="bibr" target="#b22">[23]</ref>, which are specific to CPS.</p><p>To this end, deep learning-based anomaly detection methods have been proposed to identify anomalies in CPS, by exploring various neural network architectures to detect attacks in different CPS domains <ref type="bibr" target="#b28">[29]</ref>. Jonathan et al. <ref type="bibr" target="#b20">[21]</ref> introduced Long Short Term Memory Networks (LSTM) to capture temporal characteristics of time series data. LSTM was used as a predictor to model the normal behavior of the CPS and subsequently, CUSUM was used to identify abnormal behaviors. Several approaches (e.g., <ref type="bibr" target="#b15">[16]</ref>- <ref type="bibr" target="#b17">[18]</ref>) adopt a convolutional layer as the first layer of a neural network to obtain correlations of multiple sensors in a sliding time window. Further, extracted features are fed to subsequent layers to generate output scores. Canizo et al. <ref type="bibr" target="#b15">[16]</ref> and Wu et al. <ref type="bibr" target="#b29">[30]</ref> used RNN to take the output of the CNN layer and form the prediction layer. Moreover, both methods used datasets from real industrial plants and applied precision, recall, F1, and ROC as the evaluation metrics. We follow this research line and use LSTM to capture temporal characteristics of CPS data, while utilizing GCN instead of CNN to better capture their spatial characteristics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Digital Twin based Anomaly Detection</head><p>Rubio et al. <ref type="bibr" target="#b30">[31]</ref> published a survey on anomaly detection techniques and discussed the trend of future industry, clearly stating that digital twins open up new opportunities to this field. To the best of our knowledge, only a few papers have been proposed to use digital twins for anomaly detection, which are discussed below.</p><p>Eckhart &amp; Ekelhart <ref type="bibr" target="#b9">[10]</ref> built a knowledge-based intrusion detection system with digital twins, which is based on the assumption that a CPS would exhibit certain unusual behavior patterns during an attack. To this end, they proposed rules that the system must adhere to under normal conditions. Based on these rules, they built a simple digital twin, which continuously checks rule violations at runtime. This method achieved a low false-positive rate in anomaly detection tasks. However, these rules need to be predefined and do not evolve or get updated when additional real-time data available from operating systems as ATTAIN does, because their digital twin is simply a static representation of a real system, implying that the digital twin does not evolve/learn when new data are available.</p><p>Later on, Eckhart &amp; Ekelhart <ref type="bibr" target="#b31">[32]</ref> further improved their digital twin by introducing a passive state replication approach to simulate real systems with real-time data. To demonstrate the viability of the proposed digital twin, Eckhart &amp; Ekelhart (2018b) implemented a behavior-specification-based intrusion detection system. They evaluated the effectiveness by launching a man-in-the-middle and an insider attack against a real CPS <ref type="bibr" target="#b5">[6]</ref>. Evaluation results show that the proposed anomaly detector yields a low false-positive rate while being capable of detecting unknown attacks. In their work, the specification of a CPS is used to automatically build the digital twin model, which is a Finite State Machine (FSM). FSM does not consider time constraints for transitions as Timed Automaton does, making it difficult to replicate a CPS with delayed transitions such as SWaT, WADI, and BATADAL. Also, their intrusion detector depends on the digital twin model to simulate the correct behavior of a CPS and when a mismatch between a state of the digital twin model and the corresponding state of the real operating CPS occurs, the CPS is considered to be under attack. However, mismatches are determined by predefined rules, which is not capable of detecting complicated attack patterns, such as attacks with delayed effects and attacks targeting at multiple access points at the same time. Our approach ATTAIN, however, mitigates this challenge by using Timed Automaton as the representation of the digital twin model and using GCN as the GAN generator to capture temporal characteristics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. GAN-based Anomaly Detection</head><p>GANs and the adversarial training framework have been successfully applied to model complex and high dimensional distributions of real-world data <ref type="bibr" target="#b32">[33]</ref>. Existing GAN-based anomaly detectors can be divided into two categories: unsupervised and semi-supervised.</p><p>Schlegl et al. <ref type="bibr" target="#b33">[34]</ref> introduced AnoGAN as a supervised anomaly detector. AnoGAN uses a standard GAN, which is trained only on positive samples. After the training, the generator learns to map a latent space representation z to a realistic normal samplex = G(z). AnoGAN then trains an encoder to map inversely, from real sample to latent space representation. In the detection phase, first, each sample is mapped back to the latent space and then fed into the generator. Given that the generator only learns how to generate normal samples, when an anomalous sample is encoded, its reconstruction will be non-anomalous. The difference between the input and the reconstructed image, therefore, highlights anomalies. AnoGAN is evaluated on a clinical image dataset, and their experiment results show that it can identify anomalies with the precision of 0.8834. However, AnoGAN suffers from a high computational expense because the generator and encoder are not trained simultaneously and a costly optimization procedure is required at test time.</p><p>Zenati et al. <ref type="bibr" target="#b34">[35]</ref> proposed the Efficient GAN-Based Anomaly Detection (EGBAD) approach by introducing the Bi-GAN structure to anomaly detection. EGBAD aims to address the above-mentioned limitation of AnoGAN by adopting the ideas of Donahue et al. <ref type="bibr" target="#b35">[36]</ref> and Dumoulin et al. <ref type="bibr" target="#b36">[37]</ref> on learning the encoder and generator simultaneously. Doing so enables EGGBAD to compute the anomaly score without optimization steps during the inference as it happens in AnoGAN, reducing the time cost for the convergence of GAN.</p><p>Li et al. <ref type="bibr" target="#b21">[22]</ref> proposed MAD-GAN, a multi-variate anomaly detector for time series data with GAN. They used LSTM as the base model in both generator and discriminator. The proposed method is a completely unsupervised GAN model, which is well-known for suffering from the "mode collapse" problem. Therefore, their evaluation results reveal a high false positive rate on the WADI dataset.</p><p>Fewer works have focused on developing semi-supervised and GAN-based anomaly detectors. Akcay et al. <ref type="bibr" target="#b37">[38]</ref> proposed GANomaly -a novel semi-supervised model that can take advantage of both labeled and unlabeled data. They trained a generator network on normal samples to learn their manifold X while at the same time an autoencoder is trained to learn how to encode data in their latent representation efficiently. Employing encoder-decoder-encoder sub-networks in the generator network enables the model to map the input to a lower dimension vector, which is then used to reconstruct the generated output. They conducted experiments in various application domains, and the results demonstrate the efficacy and generalization of their model.</p><p>When comparing with these related works, ATTAIN relies on a digital twin model to generate ground truth labels, which consequently takes fake unlabelled samples produced by the generator as the input and generates fake labeled samples for the discriminator. Inspired by <ref type="bibr" target="#b31">[32]</ref>, ATTAIN builds the digital twin model as a Timed Automaton, which takes time constraints into consideration. As for the GAN-based digital twin capability, we adopt a GCN-LSTM structure to better capture the spatial and temporal characteristics of input data instead of the CNN-RNN structure, which was commonly used in existing anomaly detectors.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VIII. CONCLUSION AND FUTURE WORK</head><p>In this paper, we presented Anomaly deTection with dig-iTAl twIN (ATTAIN), a novel digital twin-based approach to address the anomaly detection problem of Cyber-Physical Systems (CPS). ATTAIN consists of a timed automaton-based digital twin model and a GAN-based anomaly detector. The digital twin model provides ground truth labels indicating whether a CPS is operating in a normal state. Doing so allows ATTAIN to take advantage of a large amount of unlabeled real-time data obtained during the CPS operation, and enables ATTAIN to continuously learn along with the operation. We evaluated ATTAIN with three datasets obtained from three real-world CPS testbeds. Experiment results that the performance superiority of ATTAIN in comparison to two state-of-art anomaly detectors, increasing by 2.413%, 8.487%, and 5.438% on SWAT, WADI, and BATADAL, respectively.</p><p>In future work, we plan to conduct more experiments on real-world CPS of various domains to evaluate the scalability and generalization of ATTAIN. We will also consider exploring digital twins for more challenging tasks, such as detecting attacks targeting multiple CPS at the same time, which requires developing an integrated digital twin model. We also want to investigate how digital twins can be extended to provide additional advanced analyses during the operation of CPS such as predicting uncertainties and non-functional properties.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Digital Twin for Cyber-Physical System</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Overview of ATTAIN: Anomaly deTection with digiTAl twIN.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Algorithm 1 :</head><label>1</label><figDesc>Overview Algorithm Input: Historical Observations H = h 0 , ..., h n−1 and Real-time Observation U = u 0 , ..., u n−1 where h i and u i are IO vectors Output: Digital Twin Model Timed Automaton A, Digital Twin Capability Anomaly Detector C / * pretraining digital twin model * / 1 A=TimedAutomaton(); C=GAN(); 2 for all h i ∈ H do 3 prefixDetection(A,h i ); 4 stateMerging(A,h i ); 5 end / * online training * / 6 for all u j ∈ U do // refine digital twin model &amp; calculate ground truth of attack or not 7 prefixDetection(A,u j ); 8 stateMerging(A,u j ); 9 DTMPredictedActuatorValues=A.predict(u j ); realAcutatorValues=subset(u j ); distance=hammingDistance(DTMPredictedActuatorValues,realActuatorValues); isAttackGroundTruth=True if distance &gt; threshhold else False; // train anomaly detector noise=uncertaintyGenerator(u j ,randomSeed); adversarialSample=C.GANGenerator(noise);</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Model Structure of the GAN Generator</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>•</head><label></label><figDesc>Input Layer. Let u[i] be the raw input values in the ith time point, consisting of actuator values a[i] and sensor values s[i], which are discrete values and continuous values, respectively. For discrete values, we encode them into one-hot vectors as shown in Equation</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 4</head><label>4</label><figDesc>Figure 4 reveals changes in the hamming distance during the training of the digital twin model, which measures its realism.It is clearly shown in the figure that the hamming distance decreases by a large margin after the digital twin model has been trained with 80,000 and more samples, reaching around 0.5 at the end. After the training of the digital twin model is converged, we define an outlier detector to demonstrate its outlier detection accuracy. A sample is considered to be an outlier or an anomaly if the hamming distance between the real value and a predicted value exceeds a threshold (e.g., 0.5 in our experiment). This threshold value is chosen by experimenting on the validation datasets. We calculated the outlier detection accuracy using labels provided by the datasets, and the results on SWaT, WADI, and BATADAL are 0.82, 0.69, and 0.74, respectively. Considering that our current outlier detector is a very simple model and we did not train the digital twin model for outlier detection, achieving this level of accuracy is already encouraging. In the future, we plan to devise a better outlier detector and train the digital twin model to further improve the outlier detection accuracy.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I</head><label>I</label><figDesc></figDesc><table><row><cell></cell><cell></cell><cell cols="2">RUNNING EXAMPLE</cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="7">Timestamp FIT101 LIT101 MV101 P101 P102 Label</cell></row><row><cell>10:00:00</cell><cell>2.43</cell><cell>522.84</cell><cell>2</cell><cell>2</cell><cell>1</cell><cell>Normal</cell></row><row><cell>10:00:01</cell><cell>2.45</cell><cell>522.88</cell><cell>2</cell><cell>2</cell><cell>1</cell><cell>Normal</cell></row><row><cell>...</cell><cell>...</cell><cell>...</cell><cell>...</cell><cell>...</cell><cell>...</cell><cell>...</cell></row><row><cell>10:29:13</cell><cell>2.44</cell><cell>816.84</cell><cell>2</cell><cell>1</cell><cell>1</cell><cell>Normal</cell></row><row><cell>10:29:14</cell><cell>2.49</cell><cell>817.67</cell><cell>2</cell><cell>1</cell><cell>1</cell><cell>Attack</cell></row><row><cell>10:29:15</cell><cell>2.54</cell><cell>817.94</cell><cell>2</cell><cell>1</cell><cell>1</cell><cell>Attack</cell></row><row><cell>...</cell><cell>...</cell><cell>...</cell><cell>...</cell><cell>...</cell><cell>...</cell><cell>...</cell></row><row><cell>10:44:53</cell><cell>6e-4</cell><cell>869.72</cell><cell>1</cell><cell>2</cell><cell>1</cell><cell>Attack</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Algorithm 2 :</head><label>2</label><figDesc>OTALA Algorithm (Σ, U ) Input: Real-time Observations U = u 0 , ..., u n−1 where u i is vector of sensor and actuator values Output: Timed Automaton A 1 while newObservationExists() do</figDesc><table><row><cell></cell><cell cols="2">/ * prefix detection</cell><cell>* /</cell></row><row><cell>2</cell><cell cols="2">for all s ∈ S do</cell></row><row><cell>3</cell><cell cols="2">if u(t)==u(s) then</cell></row><row><cell>4</cell><cell></cell><cell>stateExists=True if transitionExists() then</cell></row><row><cell>5</cell><cell></cell><cell>updateTransition(t);</cell></row><row><cell></cell><cell></cell><cell>updateTimeConstraint(t);</cell></row><row><cell>6</cell><cell></cell><cell>else</cell></row><row><cell>7</cell><cell></cell><cell>createNewTransition(currentState, t(j),s);</cell></row><row><cell></cell><cell></cell><cell>updateTimeConstraint(currentState);</cell></row><row><cell>8</cell><cell></cell><cell>end</cell></row><row><cell>9</cell><cell cols="2">end</cell></row><row><cell></cell><cell cols="2">currentState=s</cell></row><row><cell></cell><cell>end</cell></row><row><cell></cell><cell cols="2">/ * state merging</cell><cell>* /</cell></row><row><cell></cell><cell cols="2">if !stateExists then</cell></row><row><cell></cell><cell cols="2">snew = createNewState()</cell></row><row><cell></cell><cell></cell><cell>createNewTransition(currentState, t(j), snew)</cell></row><row><cell></cell><cell>end</cell><cell>currentState = snew</cell></row><row><cell></cell><cell cols="2">if learningConverged() then</cell></row><row><cell></cell><cell cols="2">return A</cell></row><row><cell></cell><cell>end</cell></row><row><cell cols="2">18 end</cell></row><row><cell cols="3">19 return A</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>TABLE II EXPERIMENT</head><label>II</label><figDesc>RESULTS OF COMPARING ATTAIN WITH THE STATE-OF-THE-ART APPROACHES (RQ1 AND RQ2)</figDesc><table><row><cell></cell><cell></cell><cell>SWaT</cell><cell></cell><cell></cell><cell>WADI</cell><cell></cell><cell></cell><cell>BATADAL</cell><cell></cell></row><row><cell>Model</cell><cell>Precision</cell><cell>Recall</cell><cell>F1</cell><cell>Precision</cell><cell>Recall</cell><cell>F1</cell><cell>Precision</cell><cell>Recall</cell><cell>F1</cell></row><row><cell>LSTM-CUSUM</cell><cell>0.90701</cell><cell>0.67721</cell><cell>0.77544</cell><cell>0.61402</cell><cell>0.69763</cell><cell>0.65959</cell><cell>0.65773</cell><cell>0.72105</cell><cell>0.68794</cell></row><row><cell>MAD-GAN</cell><cell>0.96136</cell><cell>0.94228</cell><cell>0.95172</cell><cell>0.43212</cell><cell>0.95274</cell><cell>0.59456</cell><cell>0.52991</cell><cell>0.96213</cell><cell>0.68342</cell></row><row><cell>ATTAIN(without signals)</cell><cell>0.92210</cell><cell>0.95402</cell><cell>0.93779</cell><cell>0.52473</cell><cell>0.78219</cell><cell>0.62784</cell><cell>0.55318</cell><cell>0.77451</cell><cell>0.64540</cell></row><row><cell>ATTAIN</cell><cell>0.95994</cell><cell>0.99231</cell><cell>0.97585</cell><cell>0.66586</cell><cell>0.84411</cell><cell>0.74446</cell><cell>0.72238</cell><cell>0.76341</cell><cell>0.74232</cell></row><row><cell cols="4">Fig. 4. Hamming distances of the Digital Twin Models (RQ3)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGEMENT</head><p>This work is supported by the security project funded by Norwegian Ministry of Education and Research, and Hori-zon2020 project ADEPTNESS, Grant Agreement Number: 871319.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Log-Based Anomaly Detection of CPS Using a Statistical Method</title>
+		<author>
+			<persName><forename type="first">Yoshiyuki</forename><surname>Harada</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yoriyuki</forename><surname>Yamagata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Osamu</forename><surname>Mizuno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eun-Hye</forename><surname>Choi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/iwesep.2017.12</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 8th International Workshop on Empirical Software Engineering in Practice (IWESEP)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-03" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Orpheus</title>
+		<author>
+			<persName><forename type="first">Long</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ke</forename><surname>Tian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Danfeng</forename><forename type="middle">(daphne)</forename><surname>Yao</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3134600.3134640</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 33rd Annual Computer Security Applications Conference</title>
+				<meeting>the 33rd Annual Computer Security Applications Conference</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2017-12-04" />
+			<biblScope unit="volume">1325</biblScope>
+			<biblScope unit="page" from="315" to="326" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">CORGIDS</title>
+		<author>
+			<persName><forename type="first">Ekta</forename><surname>Aggarwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mehdi</forename><surname>Karimibiuki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karthik</forename><surname>Pattabiraman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">André</forename><surname>Ivanov</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264893</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+			<biblScope unit="page" from="24" to="35" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">TABOR</title>
+		<author>
+			<persName><forename type="first">Qin</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sridha</forename><surname>Adepu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sicco</forename><surname>Verwer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Mathur</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3196494.3196546</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 on Asia Conference on Computer and Communications Security</title>
+				<meeting>the 2018 on Asia Conference on Computer and Communications Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-29" />
+			<biblScope unit="page" from="525" to="536" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Power-Grid Controller Anomaly Detection with Enhanced Temporal Deep Learning</title>
+		<author>
+			<persName><forename type="first">Zecheng</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aswin</forename><surname>Raghavan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guangyuan</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sek</forename><surname>Chai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ruby</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/trustcom/bigdatase.2019.00030</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 18th IEEE International Conference On Trust, Security And Privacy In Computing And Communications/13th IEEE International Conference On Big Data Science And Engineering (TrustCom/BigDataSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-08" />
+			<biblScope unit="page" from="160" to="167" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Digital Twins for Cyber-Physical Systems Security: State of the Art and Outlook</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-25312-7_14</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Security and Quality in Cyber-Physical Systems Engineering</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="383" to="412" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">SWaT: a water treatment testbed for research and training on ICS security</title>
+		<author>
+			<persName><forename type="first">Aditya</forename><forename type="middle">P</forename><surname>Mathur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nils</forename><forename type="middle">Ole</forename><surname>Tippenhauer</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cyswater.2016.7469060</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 International Workshop on Cyber-physical Systems for Smart Water Networks (CySWater)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-04-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">WADI</title>
+		<author>
+			<persName><forename type="first">Chuadhry</forename><forename type="middle">Mujeeb</forename><surname>Ahmed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Venkata</forename><forename type="middle">Reddy</forename><surname>Palleti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><forename type="middle">P</forename><surname>Mathur</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3055366.3055375</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 3rd International Workshop on Cyber-Physical Systems for Smart Water Networks</title>
+				<meeting>the 3rd International Workshop on Cyber-Physical Systems for Smart Water Networks</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2017-04-21" />
+			<biblScope unit="page" from="25" to="28" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Battle of the Attack Detection Algorithms: Disclosing Cyber Attacks on Water Distribution Networks</title>
+		<author>
+			<persName><forename type="first">Riccardo</forename><surname>Taormina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefano</forename><surname>Galelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nils</forename><forename type="middle">Ole</forename><surname>Tippenhauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elad</forename><surname>Salomons</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Avi</forename><surname>Ostfeld</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Demetrios</forename><forename type="middle">G</forename><surname>Eliades</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohsen</forename><surname>Aghashahi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Raanju</forename><surname>Sundararajan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohsen</forename><surname>Pourahmadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Katherine</forename><surname>Banks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">M</forename><surname>Brentan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Enrique</forename><surname>Campbell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Lima</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Manzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ayala-Cabrera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Herrera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Montalvo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Luvizotto</surname><genName>Jr</genName></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sarin</forename><forename type="middle">E</forename><surname>Chandy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amin</forename><surname>Rasekh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zachary</forename><forename type="middle">A</forename><surname>Barker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruce</forename><surname>Campbell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Ehsan</forename><surname>Shafiee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcio</forename><surname>Giacomoni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nikolaos</forename><surname>Gatsis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmad</forename><surname>Taha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmed</forename><forename type="middle">A</forename><surname>Abokifa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kelsey</forename><surname>Haddad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cynthia</forename><forename type="middle">S</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pratim</forename><surname>Biswas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Fayzul K</forename><surname>Pasha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bijay</forename><surname>Kc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saravanakumar</forename><forename type="middle">Lakshmanan</forename><surname>Somasundaram</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mashor</forename><surname>Housh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ziv</forename><surname>Ohar</surname></persName>
+		</author>
+		<idno type="DOI">10.1061/(asce)wr.1943-5452.0000969</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Water Resources Planning and Management</title>
+		<title level="j" type="abbrev">J. Water Resour. Plann. Manage.</title>
+		<idno type="ISSN">0733-9496</idno>
+		<idno type="ISSNe">1943-5452</idno>
+		<imprint>
+			<biblScope unit="volume">144</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page">04018048</biblScope>
+			<date type="published" when="2018-08" />
+			<publisher>American Society of Civil Engineers (ASCE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A Specification-based State Replication Approach for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264892</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+			<biblScope unit="page" from="22" to="23" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Online passive learning of timed automata for cyber-physical production systems</title>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Maier</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/indin.2014.6945484</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2014 12th IEEE International Conference on Industrial Informatics (INDIN)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Cellular Automata</title>
+		<author>
+			<persName><forename type="first">Joel</forename><forename type="middle">L</forename><surname>Schiff</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/9781118032381</idno>
+		<imprint>
+			<date type="published" when="2007-12-06" />
+			<publisher>John Wiley &amp; Sons, Inc.</publisher>
+			<biblScope unit="volume">45</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Network attack detection using partial deterministic finite automaton pattern matching</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Burns</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Narayanaswamy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Rawat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Shieh</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011-03" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">From Passive to Active: Learning Timed Automata Efficiently</title>
+		<author>
+			<persName><forename type="first">Bernhard</forename><forename type="middle">K</forename><surname>Aichernig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrea</forename><surname>Pferscher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Tappler</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-55754-6_1</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<editor>
+			<persName><forename type="first">R</forename><surname>Lee</surname></persName>
+			<persName><forename type="first">S</forename><surname>Jha</surname></persName>
+			<persName><forename type="first">A</forename><surname>Mavridou</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2020" />
+			<biblScope unit="page" from="1" to="19" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Backpropagation neural networks for modeling gasoline consumption</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">E</forename><surname>Nasr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A</forename><surname>Badr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Joun</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0196-8904(02)00087-0</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Energy Conversion and Management</title>
+		<title level="j" type="abbrev">Energy Conversion and Management</title>
+		<idno type="ISSN">0196-8904</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="893" to="905" />
+			<date type="published" when="2003-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Multi-head CNN–RNN for multi-time series anomaly detection: An industrial case study</title>
+		<author>
+			<persName><forename type="first">Mikel</forename><surname>Canizo</surname></persName>
+			<idno type="ORCID">0000-0001-8888-2375</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Isaac</forename><surname>Triguero</surname></persName>
+			<idno type="ORCID">0000-0002-0150-0651</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Angel</forename><surname>Conde</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Enrique</forename><surname>Onieva</surname></persName>
+			<idno type="ORCID">0000-0001-9581-1823</idno>
+		</author>
+		<idno type="DOI">10.1016/j.neucom.2019.07.034</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neurocomputing</title>
+		<title level="j" type="abbrev">Neurocomputing</title>
+		<idno type="ISSN">0925-2312</idno>
+		<imprint>
+			<biblScope unit="volume">363</biblScope>
+			<biblScope unit="page" from="246" to="260" />
+			<date type="published" when="2019-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Detecting Cyber Attacks in Industrial Control Systems Using Convolutional Neural Networks</title>
+		<author>
+			<persName><forename type="first">Moshe</forename><surname>Kravchik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Asaf</forename><surname>Shabtai</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264896</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+			<biblScope unit="page" from="72" to="83" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Anomaly Detection as a Service: Challenges, Advances, and Opportunities</title>
+		<author>
+			<persName><forename type="first">Danfeng</forename><forename type="middle">(daphne)</forename><surname>Yao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaokui</forename><surname>Shu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Long</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Salvatore</forename><forename type="middle">J</forename><surname>Stolfo</surname></persName>
+		</author>
+		<idno type="DOI">10.2200/s00800ed1v01y201709spt022</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Synthesis Lectures on Information Security, Privacy, and Trust</title>
+		<title level="j" type="abbrev">Synthesis Lectures on Information Security, Privacy, and Trust</title>
+		<idno type="ISSN">1945-9742</idno>
+		<idno type="ISSNe">1945-9750</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1" to="173" />
+			<date type="published" when="2017-10-24" />
+			<publisher>Morgan &amp; Claypool Publishers LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Neural Information Processing Systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Paszke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gross</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Massa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lerer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bradbury</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Chanan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Killeen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Gimelshein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Antiga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Desmaison</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kopf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Devito</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Raison</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tejani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chilamkurthy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Steiner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Fang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chintala</surname></persName>
+		</author>
+		<idno type="DOI">10.7551/mitpress/11474.003.0014</idno>
+	</analytic>
+	<monogr>
+		<title level="m">The Deep Learning Revolution</title>
+				<editor>
+			<persName><forename type="first">H</forename><surname>Wallach</surname></persName>
+			<persName><forename type="first">H</forename><surname>Larochelle</surname></persName>
+			<persName><forename type="first">A</forename><surname>Beygelzimer</surname></persName>
+			<persName><forename type="first">F</forename><surname>Buc</surname></persName>
+			<persName><forename type="first">E</forename><surname>Fox</surname></persName>
+			<persName><forename type="first">R</forename><surname>Garnett</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>The MIT Press</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="page">8024</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Thermochemical Data Fusion Using Graph Representation Learning</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Lenssen</surname></persName>
+		</author>
+		<idno type="DOI">10.1021/acs.jcim.0c00699.s001</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ICLR Workshop on Representation Learning on Graphs and Manifolds</title>
+				<imprint>
+			<publisher>American Chemical Society (ACS)</publisher>
+			<date>2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Anomaly Detection in Cyber Physical Systems Using Recurrent Neural Networks</title>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Goh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sridhar</forename><surname>Adepu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcus</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zi</forename><forename type="middle">Shan</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/hase.2017.36</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE 18th International Symposium on High Assurance Systems Engineering (HASE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="140" to="145" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">A deep learning approach for anomaly detection based on SAE and LSTM in mechanical equipment</title>
+		<author>
+			<persName><forename type="first">Zhe</forename><surname>Li</surname></persName>
+			<idno type="ORCID">0000-0002-7627-2075</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jingyue</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yi</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kesheng</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00170-019-03557-w</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The International Journal of Advanced Manufacturing Technology</title>
+		<title level="j" type="abbrev">Int J Adv Manuf Technol</title>
+		<idno type="ISSN">0268-3768</idno>
+		<idno type="ISSNe">1433-3015</idno>
+		<imprint>
+			<biblScope unit="volume">103</biblScope>
+			<biblScope unit="issue">1-4</biblScope>
+			<biblScope unit="page" from="499" to="510" />
+			<date type="published" when="2019-03-22" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">High-Performance Unsupervised Anomaly Detection for Cyber-Physical System Networks</title>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Schneider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Konstantin</forename><surname>Böttinger</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264890</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+			<biblScope unit="page" from="1" to="12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Empirical evaluation of rectified activations in convolutional network</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Li</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">A survey of intrusion detection techniques for cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Mitchell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ing-Ray</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2542049</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Computing Surveys</title>
+		<title level="j" type="abbrev">ACM Comput. Surv.</title>
+		<idno type="ISSN">0360-0300</idno>
+		<idno type="ISSNe">1557-7341</idno>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1" to="29" />
+			<date type="published" when="2014-04" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Approximating edit distance in near-linear time</title>
+		<author>
+			<persName><forename type="first">Alexandr</forename><surname>Andoni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Krzysztof</forename><surname>Onak</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1536414.1536444</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 41st annual ACM symposium on Symposium on theory of computing - STOC &apos;09</title>
+				<meeting>the 41st annual ACM symposium on Symposium on theory of computing - STOC &apos;09</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2009" />
+			<biblScope unit="page" from="199" to="204" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Power Cyber-Physical System Risk Area Prediction Using Dependent Markov Chain and Improved Grey Wolf Optimization</title>
+		<author>
+			<persName><forename type="first">Zhaoyang</forename><surname>Qu</surname></persName>
+			<idno type="ORCID">0000-0001-7599-9531</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Qianhui</forename><surname>Xie</surname></persName>
+			<idno type="ORCID">0000-0002-6410-2941</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Yuqing</forename><surname>Liu</surname></persName>
+			<idno type="ORCID">0000-0001-9546-1536</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Yang</forename><surname>Li</surname></persName>
+			<idno type="ORCID">0000-0002-6515-4567</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Lei</forename><surname>Wang</surname></persName>
+			<idno type="ORCID">0000-0003-2907-636X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Pengcheng</forename><surname>Xu</surname></persName>
+			<idno type="ORCID">0000-0001-7545-0266</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Yuguang</forename><surname>Zhou</surname></persName>
+			<idno type="ORCID">0000-0001-8545-6506</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jian</forename><surname>Sun</surname></persName>
+			<idno type="ORCID">0000-0002-2401-5106</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Kai</forename><surname>Xue</surname></persName>
+			<idno type="ORCID">0000-0001-5338-3824</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Mingshi</forename><surname>Cui</surname></persName>
+			<idno type="ORCID">0000-0003-3264-7661</idno>
+		</author>
+		<idno type="DOI">10.1109/access.2020.2991075</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="82844" to="82854" />
+			<date type="published" when="2020" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">State of the art of cyber-physical systems security: An automatic control perspective</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">Z</forename><surname>Lun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Innocenzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Smarra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Malavolta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Di</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Benedetto</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Systems and Software</title>
+		<imprint>
+			<biblScope unit="volume">149</biblScope>
+			<biblScope unit="page" from="174" to="216" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Deep Learning-based Anomaly Detection in Cyber-physical Systems</title>
+		<author>
+			<persName><forename type="first">Yuan</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ya</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Long</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guojun</forename><surname>Peng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Danfeng</forename><forename type="middle">(daphne)</forename><surname>Yao</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3453155</idno>
+		<ptr target="http://arxiv.org/abs/2003.13213" />
+	</analytic>
+	<monogr>
+		<title level="j">ACM Computing Surveys</title>
+		<title level="j" type="abbrev">ACM Comput. Surv.</title>
+		<idno type="ISSN">0360-0300</idno>
+		<idno type="ISSNe">1557-7341</idno>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1" to="36" />
+			<date type="published" when="2021-06" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">A Weighted Deep Representation Learning Model for Imbalanced Fault Diagnosis in Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">Zhenyu</forename><surname>Wu</surname></persName>
+			<idno type="ORCID">0000-0001-9617-7094</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Yang</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenfang</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuyang</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yang</forename><surname>Ji</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/s18041096</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<title level="j" type="abbrev">Sensors</title>
+		<idno type="ISSNe">1424-8220</idno>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">1096</biblScope>
+			<date type="published" when="2018-04-05" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Analysis of Intrusion Detection Systems in Industrial Ecosystems</title>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">Enrique</forename><surname>Rubio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cristina</forename><surname>Alcaraz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rodrigo</forename><surname>Roman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Javier</forename><surname>Lopez</surname></persName>
+		</author>
+		<idno type="DOI">10.5220/0006426301160128</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 14th International Joint Conference on e-Business and Telecommunications</title>
+				<meeting>the 14th International Joint Conference on e-Business and Telecommunications</meeting>
+		<imprint>
+			<publisher>SCITEPRESS - Science and Technology Publications</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="116" to="128" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Towards Security-Aware Virtual Environments for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3198458.3198464</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 4th ACM Workshop on Cyber-Physical System Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-22" />
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">A Survey on GANs for Anomaly Detection</title>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">Di</forename><surname>Mattia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Galeone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">De</forename><surname>Simoni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Ghelfi</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/1906.11632" />
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Unsupervised Anomaly Detection with Generative Adversarial Networks to Guide Marker Discovery</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Schlegl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Philipp</forename><surname>Seeböck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sebastian</forename><forename type="middle">M</forename><surname>Waldstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ursula</forename><surname>Schmidt-Erfurth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Georg</forename><surname>Langs</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-59050-9_12</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+		<title level="s">Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics</title>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="146" to="157" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Adversarially Learned Anomaly Detection</title>
+		<author>
+			<persName><forename type="first">Houssam</forename><surname>Zenati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Manon</forename><surname>Romain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chuan-Sheng</forename><surname>Foo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruno</forename><surname>Lecouat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vijay</forename><surname>Chandrasekhar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icdm.2018.00088</idno>
+		<ptr target="http://arxiv.org/abs/1802.06222" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE International Conference on Data Mining (ICDM)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<monogr>
+		<title level="m" type="main">Adversarial Feature Learning</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Donahue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Krähenbühl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Darrell</surname></persName>
+		</author>
+		<ptr target="http://arxiv.org/abs/1605.09782" />
+		<imprint>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="1" to="18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Author index</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Dumoulin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Belghazi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Poole</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Mastropietro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lamb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Arjovsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Courville</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/eleltech.2017.8075003</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 5th National Conference on E-Learning &amp; E-Learning Technologies (ELELTECH)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">GANomaly: Semi-supervised Anomaly Detection via Adversarial Training</title>
+		<author>
+			<persName><forename type="first">Samet</forename><surname>Akcay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amir</forename><surname>Atapour-Abarghouei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Toby</forename><forename type="middle">P</forename><surname>Breckon</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-20893-6_39</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Computer Vision – ACCV 2018</title>
+		<title level="s">Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics</title>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="622" to="637" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

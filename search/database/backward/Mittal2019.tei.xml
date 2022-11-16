@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">DIGITAL TWIN MODELING, CO-SIMULATION AND CYBER USE-CASE INCLUSION METHODOLOGY FOR IOT SYSTEMS</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Saurabh</forename><surname>Mittal</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">The MITRE Corporation</orgName>
+								<address>
+									<addrLine>1051 Channingway Drive</addrLine>
+									<postCode>45324</postCode>
+									<settlement>Fairborn</settlement>
+									<region>OH</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Andreas</forename><surname>Tolk</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="institution">The MITRE Corporation</orgName>
+								<address>
+									<addrLine>903 Enterprise Parkway, Suite 200 Hampton</addrLine>
+									<postCode>23666</postCode>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Andrew</forename><surname>Pyles</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="institution">The MITRE Corporation</orgName>
+								<address>
+									<addrLine>903 Enterprise Parkway, Suite 200 Hampton</addrLine>
+									<postCode>23666</postCode>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Nicolas</forename><surname>Van Balen</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="institution">The MITRE Corporation</orgName>
+								<address>
+									<addrLine>1 Hospital Drive Charlottesville</addrLine>
+									<postCode>22908</postCode>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kevin</forename><surname>Bergollo</surname></persName>
+							<affiliation key="aff3">
+								<orgName type="institution">The MITRE Corporation</orgName>
+								<address>
+									<addrLine>202 Burlington Road Bedford</addrLine>
+									<postCode>01730</postCode>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">DIGITAL TWIN MODELING, CO-SIMULATION AND CYBER USE-CASE INCLUSION METHODOLOGY FOR IOT SYSTEMS</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:46+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Mittal</term>
+					<term>Tolk</term>
+					<term>Pyles</term>
+					<term>Balen</term>
+					<term>and Bergollo</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Cyber Physical Systems (CPS) and Internet of Things (IoT) communities are often asked to test devices regarding their effects on underlying infrastructure. Usually, only one or two devices are given to the testers, but hundreds or thousands are needed to really test IoT effects. This proposition makes IoT Test &amp; Evaluation (T&amp;E) cost and management prohibitive. One possible approach is to develop a digital twin of the IoT device and employ many replicas of the twin in a simulation environment comprised of various simulators that mimic the IoT device's operational environment. Cyber attack experimentation is a critical aspect of IoT T&amp;E and without such a virtual T&amp;E environment, it is almost impossible to study large scale effects. This paper will present a digital twin engineering methodology as applicable to IoT device T&amp;E and cyber experimentation.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>Cyber Physical Systems (CPS) and Internet of Things (IoT) communities are often asked to test devices regarding their effects on underlying infrastructure. Usually, only one or two devices are given to the testers, but hundreds or thousands are needed to really test IoT effects. IoT effects are defined as the effects resulting from the operation of a collection of IoT devices on the critical infrastructure. For example, take the Power Grid <ref type="bibr" target="#b12">(Soltan et al. 2018)</ref>, and the impact of smart thermostats acting in synchronization to draw power from the Power Grid during the peak hours. Another example would be a smart washing machine using the Water infrastructure. A collection of smart washing machines may load the water infrastructure if they act synchronously. While smart devices are pushing the society to smart houses, they have limited access and control to mitigate the synchronous activity happening at the neighborhood or geographical block levels, when a synchronized execution is resulting from a cyber attack involving more than one domain (e.g. water and electricity domains together). Currently there exists no legal or commercial entities that are tasked to perform such cross domain analyses that have societal implications.</p><p>This proposition makes IoT Test &amp; Evaluation (T&amp;E) cost and management prohibitive. One possible approach is to develop a digital twin of the IoT device and employ many replicas of the twin in a simulation environment comprised of various simulators that mimic the IoT device's operational environment. A digital twin is a digital replica of a living or non-living physical entity that co-evolves with the entity.</p><p>Many academic and research groups have studied the impact of such smart devices on a single infrastructure using modeling and simulation (M&amp;S). The process usually starts with developing a model of the smart device at an abstract level and interfacing the model with a critical infrastructure simulator to study the impact of such a device, in collective, in a simulated environment. While the methodology has become well established by <ref type="bibr" target="#b5">(Mittal et al. 2015)</ref> and <ref type="bibr" target="#b7">(Pratt et al. 2017)</ref>, the process of developing the model, or a digital twin, is not straightforward. Due to the nature of the modeling activity, the abstraction introduces gaps between the real and modeled activities. To close the gap, hardware-in-the-loop (HWIL) is used where the model is replaced by the actual hardware device, which facilitates model calibration and validation. Once validated, the model then is scaled up in the simulated environment.</p><p>This paper reports a similar methodology -IoT Digital Twin Engineering-and advances the state of the art by incorporating the modeling of a cyber attack on a collection of digital twins for smart devices, e.g. smart thermostat, and examines the effect of such an attack in a simulated environment. Cyber attack experimentation is a critical aspect of IoT T&amp;E and without such a virtual T&amp;E environment, it is almost impossible to study large scale effects <ref type="bibr" target="#b6">(Mittal and Zeigler 2017)</ref>.</p><p>The research presented in this paper grew out of the discussions at earlier expert panels and tracks conducted in support of better understanding the usefulness of simulation methods to cope with challenges of CPS. The first selected event of interest was conducted at the Spring Simulation Multi-Conference 2018. Our research group provided the results of a literature survey on the use of hybrid simulation support for CPS , followed by a panel discussion to provide insights into current research conducted in this domain . The need for a common formalism to represent simulation methods as a computational capability for CPS was a recurring discussion point in this panel. Although Discrete Event Systems (DEVS) formalism was not the only solution envisioned, the use for co-simulation based on this formalism was featured by several panelists. Co-simulation is the co-existence of multiple simulators to interoperate in a common scenario. Additional requirements have been identified within <ref type="bibr" target="#b10">(Shao and Kibira 2018)</ref>, addressing among others the need to allow the evaluation of CPS solution in the context of the portfolio or enterprise in which it is used. Finally, the recent edition of Zeigler's seminary text  focuses explicitly on the support of iterative system computational foundations, including the design of digital twins and the application of hybrid approaches for the development of simulation systems.</p><p>However, another main driver for the research is coming from the modeling efforts within the systems engineering discipline: the Digital Engineering transformation <ref type="bibr" target="#b19">(Zimmerman et al. 2017)</ref>. It is not only the defense community being interested in these efforts, but NASA is addressing similar issues <ref type="bibr" target="#b8">(Puchek et al. 2017)</ref>. The definition used in the defense community is: "Digital Engineering is an integrated digital approach that uses authoritative sources of systems' data and models as a continuum across disciplines to support lifecycle activities from concept through disposal." As such, digital engineering is more an evolutionary than a revolutionary approach.</p><p>The use of M&amp;S within acquisition projects has a decades long history, but was often conducted as a parallel activity. Nonetheless, the 1995 US Department of Defense M&amp;S Master Plan identified the support technology assessment, system upgrade, prototype and full-scale development, and force structuring as facets of one of the two pillars of the M&amp;S vision (USDoD 1995). The introduction of Simulation Based Acquisition by the Director for Test Systems Engineering and Evaluation (DTSE&amp;E) during the same period promoted the use of M&amp;S throughout the phases of system design, test and evaluation, and modification and upgrade <ref type="bibr" target="#b0">(Davis 2000)</ref>. However, the success was not as expected, as the technologies were not aligned on multiple conceptual levels.</p><p>With the introduction of Model-based Systems Engineering (MBSE), the systems engineering discipline started a consolidation process of the artifacts used to describe the various facets of systems over the various phases of its life cycle <ref type="bibr" target="#b16">(Wymore 1993</ref>). This process took its time, but overall resulted in the convergence of methods and concepts, which also provided a foundation for M&amp;S methods to be integrated. In particular, the new challenges of complexity and emergence did lead to the recognition of the necessity for increasing use of M&amp;S methods to discover, understand, and manage the new phenomena <ref type="bibr" target="#b11">(Sheard et al. 2015)</ref>.</p><p>Our research contributes to this vision: to utilize systems engineering artifacts and enrich them to make them executable digital twins that can represent the systems in a valid representation of their operational environment, allowing for the dynamic evaluation of system behavior in the context of its portfolio. In our proof of feasibility, we furthermore wanted to be able to ensure the representational equivalence of a real system and its digital representation, so that we could conduct experiments on the small scale with the real device, such as a cellphone or a thermostat, and experiments on the big scale, where hundreds or thousands of such systems are needed to evaluate the effect on the grid within a smart city, could be conducted with the digital twins. The following sections will describe these concrete examples and present some tentative results.</p><p>The paper is organized as follows. Section 2 elaborates the elements of Digital Twin Engineering and describes the evolutionary process. Section 3 describes the use case in detail. Section 4 describes the technical process and implementation architecture for the M&amp;S framework. Section 5 builds on the use case and modifies it to reflect a cyber attack. It also presents preliminary results and a comparative evaluation between the two use cases. Section 6 concludes the paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">DIGITAL TWIN M&amp;S ENGINEERING</head><p>There are three elements to any M&amp;S-oriented digital twin development:</p><p>The Modeling aspect: This aspect digitizes the physical concept of the system for which a digital representation is desired. This relates to the well researched topic of MBSE with a new name digital twin. Many times the development and exploration stops at this stage and does not graduate to the next aspect (below). The outcome of this aspect are static digital twin artifacts that help build consensus between different stakeholders, AND if not taken to the next step, become stale and serve as paper-weights and shelfware. The primary reason is the lack of foresight and ignorance of the two aspects below, coupled with the technological hurdle of taking a model to a simulation environment. One has to select an appropriate modeling paradigm and tool that lends itself to simulation.</p><p>The Simulation aspect: This aspects takes the digital twin, a model (for simplicity), and implements the dynamic behavior of the model in a computational environment to show the models interaction with other entities (or models) and the environment it resides in. The computational environment may have different flavors such as Live, Virtual, and Constructive (LVC). Live environment deals with interfacing models with real systems and real humans. Virtual environments deal with interfacing models with simulated and emulated systems involving real humans. And lastly, Constructive environments interface models with simulated systems and simulated humans (or agents). The simulation aspect takes the digital twin to a mature level of understanding of its operation within a given operational context and the associated dynamics. This is the validation step. More scenarios and operational contexts (e.g. cyber) can be constructed at this stage that capitalize on the models structure, behavior, and its situatedness within the modeled environment. The digital twin development can stop here and at this stage the validated digital twin may belong to a repository with reuse opportunities as an asset/component, to be reused in future contexts and scenarios.</p><p>The Experimentation aspect: This aspect builds on the simulation aspect and actually, is the true motivation behind the whole concept of digital twin. Experimentation involves taking the model, the simulation, and performing parametrization with the digital twin. This aspect helps evolve the model and creates experimental frames that can themselves be part of a repository for large scale experimentation, test, and evaluation in varied contexts.</p><p>Together, these three aspects realize the vision of Digital Twin Engineering. These aspects were elaborated in the context of M&amp;S-based complex systems engineering .</p><p>Coming to the IoT context, this research hits on these three points for an IoT device. Fundamentally, the problem with test, evaluation, experimentation, verification, and validation of IoT devices is the lack of availability of the contextual virtual environment (as in LVC above). With reference to the IoT context:</p><p>• The Modeling aspect: This employs a modeling paradigm such as discrete event, continuous time, and agent-based or a hybrid approach to model the IoT device structure and behavior in an operational context. The resulting hybrid model is not a one-off solution. Using a formal modeling paradigm such as DEVS facilitates automated inclusion in the next step. • The Simulation aspect: This entails taking the hybrid model and standing up a simulation environment to execute the model's dynamic behavior. The hybrid simulation environment is called Co-Simulation environment, and as the name suggests, it is the co-existence of simulators and emulators that need to be brought together for simulation of a hybrid model. At this point, the model is in a position to go through a validation exercise and once validated, is reusable. • The Experimentation aspect: This capitalizes on the simulation aspect and performs large scale experimentation with validated models in different operational contexts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Digital Twin Evolutionary Process</head><p>A digital twin is an evolving entity as it is exposed to different scenarios over time and gets refined as a result. Figure <ref type="figure" target="#fig_0">1</ref> shows the evolutionary cycle for a typical Digital System (IoT System as an example). The process has two distinct sections: End-user and M&amp;S Services, separated by a dotted line. The End-User section refers to the inputs that an end-user provides, with regards to operational scenario, parametrics, and operational constraints. The M&amp;S Services section refers to the technical M&amp;S infrastructure that provides the Digital Twin capability for modeling, simulation, and experimentation activities. The process begins with the existence of a Model Library (IoT Model Libary in our case) that holds various IoT-device digital twins in a format that lends them to a composable scenario. The IoT device digital twin follows a configuration management process that allows the usage of various versions of an IoT-device digital twin with other relevant dependencies. The IoT Model Library also consists of virtual infrastructure models, software dependencies, and protocol adapters. The IoT system is a multi-protocol system, and is described in the next section. These components are then composed in an IoT scenario using formalisms such as DEVS, that allow explicit structure and behavior composability. This step develops the notion of scenario specification and provides details of the composed IoT digital twin (in entirety). The next step formulates the notion experiments that the scenario is evaluated on. It defines the parameters that the scenarios are experimented upon and the outcomes each experiment should end up with. Employing DEVS formalism allows the inclusion of simulation as the enabling technology for performing experimentation. If more than one simulator is needed, the accompanying co-simulation infrastructure provides seamless simulation capability. Once the scenario is executable and experiments available, more experiments with non-functional requirements are added in the next step. The last step brings in various other considerations such as IoT Device security, safety and IoT ecosystem considerations that may impact the overall IoT system behavior. These considerations, which are rooted in IoT operational environment, provide relevant data that is then used to calibrate the IoT-device digital twin. This calibration results in creating more versions of the digital twin, which are then stored back in the IoT Model Library.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">USE CASE DESCRIPTION</head><p>To illustrate the methodology, we considered a smart thermostat, such as a NEST thermostat (www.nest.com). A smart thermostat is a device that allows superior access and control of a thermostat by being more embedded in the local environment. The environment may consist of input sources, not just the house temperature, but also occupancy, occupant mobility, time of the day, outside weather, remote operation, and market conditions. While input sources related to occupants are internal to the house, other sources are external and universally applicable. An Internet-enabled thermostat allows remote modification of these parameters using a mobile app, installed on a mobile phone. With remote operation comes the cyber implications as the smart thermostat is now amenable to hacking.</p><p>The use case is depicted in Figure <ref type="figure" target="#fig_1">2</ref>. It shows the entire IoT System (as considered in this article), comprised of 3 smart homes (containing smart thermostat, smart hubs, mobile apps, and user), interacting with the electricity Power Grid. The IoT-enabled smart thermostat also communicates with the manufacturer (NEST) network and a user-accessible mobile app. Through our use-case, we would like to study the following two things:</p><p>1. Information and resource flow interaction dynamics between various system entities, and 2. Effect of a cyber attack through the IoT-device Application Programming Interface (API) when the API is compromised by a hacker using a software bot or the mobile app that utilizes the API. The hacker/bot may execute an attack where many smart devices are synchronized in operation.</p><p>Figure <ref type="figure" target="#fig_2">3</ref> shows the system entity structure (SES) for the IoT system in a very minimalistic way. The SES notation is a very succinct way of depicting architectures <ref type="bibr" target="#b4">(Mittal and Martin 2013)</ref>, including IoT systems <ref type="bibr" target="#b3">(Mittal et al. 2019)</ref>.  Figure <ref type="figure" target="#fig_1">2</ref> also depicts the IoT System architecture and shows constituent system components labeled as Live (L), Virtual (V), and Constructive (C). A constructive system is an abstract representation, a model, of the real system. A virtual system is a simulated or emulated version of the real system; and a live, as the name suggests, is the real system itself. To perform M&amp;S-based IoT systems engineering, the IoT device's digital twin begins its evolutionary path as an isolated abstract constructive model, followed by its replacement with a higher fidelity digital twin, which many times is an emulator provided by the device manufacturer itself, followed by the actual hardware device. In this progressive path, the digital twin continues to interact with other system components within the architecture that may be in different L, V, C configurations themselves. The M&amp;S methodology conforming with DEVS formalism allows such model continuity <ref type="bibr" target="#b2">(Hu 2005</ref>). An IoT system is a multi-protocol system i.e. there does not exist a single communication protocol connecting all the constituent systems. Primarily, we are considering MQTT and REST/HTTP protocols. This requires an appropriate middleware be engineered in the developed M&amp;S test-bed. The whole objective of the test-bed is to provide a virtual environment for the IoT digital twin's design, experimentation, and validation. Since incorporating live elements is both cost-prohibitive and technically challenging, much of the experimentation is carried in Virtual or Constructive mode, with only validation of the digital twin occurring in the Live mode. Once the digital twin is validated, then experimentation at scale can further take place purely in a virtual environment.</p><p>Figure <ref type="figure" target="#fig_3">4</ref> shows the architecture from a simulation system perspective. To create an M&amp;S workbench (i.e. editor and execution test-bed), the IoT System architecture was decomposed of various simulation systems as there does not exist a single system that can serve as the test-bed. The simulation systems need to cooperate for creating a virtual, constructive environment for both the modeling and simulation activities. The co-simulation architecture consists of four simulation systems: (1) Smart Grid simulation such as GridLab-D, (2) Smart Home simulation incorporating the IoT-device digital twin and smart hub, (3) Mobile Device app emulator and (4), network communication simulator. The co-simulation architecture also contains a multi-protocol middleware that facilitates message exchange between the constituent simulation systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Co-Simulation Framework, Analytics, and Complex Event Processing</head><p>Figure <ref type="figure" target="#fig_4">5</ref> shows the co-simulation architecture. It also depicts the communication middleware that may be implemented using four methods: (1) network sockets, (2) messaging queue, such as RabbitMQ or ZeroMQ, (3) Service-oriented architecture (using protocols such as Remote Method Invocation [RMI], HTTP, STOMP, and MQTT), and (4) Event cloud providing complex event processing (CEP) capabilities. We selected the last option of event cloud for superior runtime pattern discovery capabilities provided by the CEP engine. As we are using DEVS formalism as the core kernel for the co-simulation architecture and the included middleware, various plugins (as DEVS wrappers and proxies) were developed that allowed simulation systems to interact across different media.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">IoT Device Live Integration</head><p>The NEST thermostat digital twin was validated using a hardware in the loop (HWIL) approach with a NEST thermostat and a Java agent (to serve as an interface between the digital twin and the hardware device). More elaborate description will be reported in an extended article. Below is a brief summary.</p><p>Hardware Circuit: A NEST T4000ES Learning Thermostat E was used in a hardware circuit that allows for monitoring of the thermostat output. We needed to isolate the NEST thermostat in our test-bed without actually connecting it to the HVAC system. Power was supplied from a 24VAC adapter and two LED lights, one red and one blue, were connected to the thermostat's leads for the heating and cooling systems respectively. When either system sent power, the corresponding LED lit up signalling the system was active in a given mode. The thermostat was connected to wireless network and communicating with the NEST Cloud as is the case of normal operation. This was a minimalist configuration that allowed us to communicate with the NEST device through the established procedure that required NEST Cloud be in the loop. For a more detailed integration configuration refer <ref type="bibr" target="#b7">(Pratt et al. 2017)</ref>.</p><p>Java Agent: A Java agent or a software bot was created using a custom library to interface with both the digital twin and the NEST Cloud. Although any communication protocol would be possible, for this particular case, the agent communicated with the digital twin using MQTT protocol over RabbitMQ as a message broker. When an action was requested over the MQTT interface, the agent used an authentication code, PIN, and a device ID obtained from the NEST developer's API to send the appropriate command to the NEST Cloud to task the device. Currently, these commands include getting the list of devices associated with the account, and the thermostat commands, which include getting and setting high and low target temperature setpoints, and the operating mode (heat or cool) for the HVAC.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">FORMULATING CYBER USE CASE AND EXPERIMENTATION</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Cyber Considerations</head><p>The overall IoT system architecture consists of one or more smart IoT devices installed in a residential neighborhood environment in multiple smart homes. We focused specifically on the Nest T4000ES Learning Thermostat E, an IoT-enabled thermostat, which can be remotely accessed and can control the home HVAC unit. If the communication to the thermostat is intercepted, a remote attacker could send arbitrary commands to the HVAC unit at will.</p><p>The Cyber use-case technical approach consists of two steps. First, externally observe and detect network traffic and protocols used. Second, observe normal usage patterns and determine which patterns are of interest. To externally observe and detect network traffic, the first step is to power on the device and externally observe network device behavior. This includes monitoring network traffic and ideally observing and decoding protocols. In order to observe normal usage patterns and determine patterns of interest, we investigated the NEST Cloud API, and found the necessary sequence of API calls to: (1). Set MAX temperature, (2). Set MIN temperature, (3). Determine location (zipcode), and (4). Change HVAC mode.</p><p>After these were implemented, we observed the Java Client/bot could set these values for the NEST device. Further, we observed that a single account using the API could set the MIN temperature, thus powering the HVAC unit ON without raising suspicions. A more detailed NEST device integration is described in our prior work at NREL <ref type="bibr" target="#b7">(Pratt et al. 2017)</ref>. The focus of this research was to ensure that the digital twin was a valid digital twin and can externally interact with other systems displaying correct behavior.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Cyber Use Case</head><p>After manual analysis of a single NEST residential device, we made the following observations:</p><p>• The Java bot could arbitrarily power ON/OFF a single HVAC unit via the NEST Cloud.</p><p>• The HVAC unit powering ON produced a localized, minuscule power spike.</p><p>• Java bot required unique account credentials.</p><p>While a single HVAC unit produced an insignificant power spike, the cyber use case we envision is a localized coordinated attack on the Power Grid. We made the following assumptions:</p><p>• A given zip code has a large population of NEST users.</p><p>• Most users use the NEST mobile application. <ref type="bibr">Mittal,</ref><ref type="bibr">Tolk,</ref><ref type="bibr">Pyles,</ref><ref type="bibr">Balen,</ref><ref type="bibr">and Bergollo Figure 6</ref>: Cyber attack use case.</p><p>• Attacker has access to a list of mobile phones of users within a specific area code. This might be obtained from Home Owner Association (HOA) directories, neighborhood swimming pools, etc. • Attacker has access to an exploit of a mobile phone and uses the exploit to steal NEST credentials from a mobile phone, for example, see <ref type="bibr" target="#b1">(Google. 2019</ref>). • Attacker can quickly deploy Java Agent bot instances associated with each stolen credential.</p><p>With the stolen credentials in hand, the attacker can either (a) leverage the NEST API and develop a custom application or (b) use the official NEST Android App. If the latter, the attacker can use an Android emulator (as shown in Figure <ref type="figure">6</ref>, labeled as mobile.proxy). This has the added benefit of using the preferred method and may set off fewer flags. Both methods have the potential to scale quickly. Following the use case, we made the following sequence diagram: Figure <ref type="figure">6</ref>. It shows how the attack can be executed by the existing IoT system components by augmenting existing functionalities. The block area is standard operation of any NEST device for enabling heating mode in HVAC. However, once the credentials were compromised at NEST Cloud, the Mobile.proxy or Java agent bot can use the NEST Cloud to exploit the normal operation of NEST devices in a coordinated attack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Preliminary Results</head><p>The 4-node 3-house IoT system structure shown in Figure <ref type="figure" target="#fig_2">3</ref> is modeled using DEVS formalism as implemented in xDEVS (www.github.com/jlrisco/xdevs). The results of such a co-simulation were reported earlier in <ref type="bibr" target="#b9">(Ruth et al. 2015)</ref> and <ref type="bibr" target="#b5">(Mittal et al. 2015)</ref>, and were reproduced to establish a baseline before cyber experimentation was attempted.</p><p>When the cyber attack was enabled by the Mobile.proxy component on the NEST Cloud proxy component on the simulated timeline, we saw the IoT System behavior adapting to the attack. Figure <ref type="figure" target="#fig_5">7</ref> shows the comparison between the executions. It shows: (1) the instant the cyber attack event was injected (dotted line in the red box), the GridLab-D proxy continued to draw the power and did not shut off any of the HVACs, and (2) the frequency of invocation of GridLab-D proxy is reduced with the HVACs switched on for longer durations. More elaborate results will be reported in our extended article. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">DISCUSSION AND CONCLUSIONS</head><p>Digital Twins are a necessity in today's digital world. Digital twin engineering comprises of three elements: modeling, simulation, and experimentation, each requiring specific undertaking. Without all three aspects included in any digital twin endeavor, it will fall short of expectations and will lead to failure.</p><p>IoT Device experimentation needs a digital twin and IoT experimentation needs a virtual environment. Virtual environment consists of simulators and emulators. Simulators are specialized virtual environments that implement domain knowledge, e.g. weather, power flow, transportation, vehicle, etc. Co-simulation platform is imperative to such experimentation. Effects of any system's actions cannot be studied until system component interactions are studied in a virtual environment. IoT digital engineering requires multidomain simulator integration. Cyber experimentation can build on such a platform and inform more robust studies.</p><p>DEVS formalism provides a proven tested methodology to incorporate MBSE best practices coupled with M&amp;S infrastructure. Abstract representations of IoT devices can be used to develop models in a progressive manner: Constructive to Virtual (Simulator/Emulator) to Live (Hardware) systems. Validated constructive models can be scaled up in virtual and constructive environments to do large scale studies and impact on the modeled environment. <ref type="bibr">Mittal, Tolk, Pyles, Balen, and Bergollo</ref> We illustrated a sample use case employing digital twin of a NEST IoT-enabled smart thermostat and the IoT system it is part of. We described the use case, the technical architecture, and the modeling of a cyber attack by augmenting the use case. We demonstrated the progressive development of a digital twin by first isolating it at all three levels: constructive, virtual, and live, and then employing the virtual and constructive to perform cyber experimentation. We also reported how HWIL can be used to validate the digital twin's behavior.</p><p>IoT experimentation at scale and its impact on critical infrastructure can be studied effectively with this methodology. The Internet of Things, where things can be devices, drones, or any online system for that matter, requires a formal methodology to do large scale experimentation and analysis.</p><p>Digital Twins and the associated simulation and experimentation environment, saves money, resources, and mitigates risk before system designs are fielded. A forward leaning Digital Twin experimentation environment lends itself to inclusion of new models/systems before they are integrated in the real-world. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Digital twin evolutionary process.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: IoT use case and live, virtual and constructive categorization.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: System Entity Structure (SES) for IoT system.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: Need for co-Simulation environment.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: Co-simulation architecture and complex event processing options.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 7 :</head><label>7</label><figDesc>Figure 7: Comparison between normal execution and attacked execution.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>DISCLAIMER Approved for Public Release; Distribution Unlimited. Case Number 19-1646. c 2019 The MITRE Corporation. All Rights Reserved.</figDesc><table /></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Simulation-based Acquisition: An Impetus for Change</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">J</forename><surname>Davis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2000 Winter Simulation Conference</title>
+				<editor>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Joines</surname></persName>
+			<persName><forename type="first">R</forename><forename type="middle">R</forename><surname>Barton</surname></persName>
+			<persName><forename type="first">K</forename><surname>Kang</surname></persName>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Fishwick</surname></persName>
+		</editor>
+		<meeting>the 2000 Winter Simulation Conference<address><addrLine>Orlando, FL</addrLine></address></meeting>
+		<imprint>
+			<publisher>Institute of Electrical and Electronics Engineers, Inc</publisher>
+			<date type="published" when="2000" />
+			<biblScope unit="page" from="1061" to="1067" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Android Security Bulletin -May</title>
+		<author>
+			<persName><surname>Google</surname></persName>
+		</author>
+		<ptr target="https://source.android.com/security/bulletin/" />
+		<imprint>
+			<date type="published" when="2019-05-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Model-Continuity-based Life Cycle Systems Methodology for Real-time Systems</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Hu</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005" />
+			<pubPlace>Tucson, Arizona</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Department of Electrical and Computer Engineering, University of Arizona</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Ph.D. thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Cane</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Schmidt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">B</forename><surname>Harris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Tufarolo</surname></persName>
+		</author>
+		<title level="m">Taming Complexity and Risk in Internet of Things (IoT) Ecosystem using System Entity Structure (SES) Modeling&quot;. In Complexity Challenges in Cyber Physical Systems: A Modeling and Simulation Approach</title>
+				<editor>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Hoboken, NJ USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>John Wiley &amp; Sons</publisher>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Netcentric System of Systems Engineering with DEVS Unified Process</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Martin</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013" />
+			<publisher>CRC Press</publisher>
+			<pubPlace>Boca Raton, FL USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">A System-of-Systems Approach for Integrated Energy Systems Modeling and Simulation</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ruth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pratt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lunacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Krishnamurthy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Jones</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Summer Simulation Multi-conference</title>
+				<editor>
+			<persName><forename type="first">D</forename><surname>Cetinkaya</surname></persName>
+			<persName><forename type="first">J</forename><forename type="middle">L R</forename><surname>Martin</surname></persName>
+			<persName><forename type="first">I</forename><forename type="middle">C</forename><surname>Moon</surname></persName>
+			<persName><forename type="first">E</forename><surname>Syriani</surname></persName>
+			<persName><forename type="first">F</forename><forename type="middle">De</forename><surname>Rango</surname></persName>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</editor>
+		<meeting>Summer Simulation Multi-conference</meeting>
+		<imprint>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="1" to="10" />
+		</imprint>
+	</monogr>
+	<note>Society of Modeling and Simulation International</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Theory and Practice of M&amp;S in Cyber Environments</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Zeigler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Profession of Modeling and Simulation: Discipline, Ethics, Education, Vocation, Societies, and Economics</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+			<persName><forename type="first">T</forename><surname>Oren</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Hoboken, NJ</addrLine></address></meeting>
+		<imprint>
+			<publisher>John Wiley &amp; Sons</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="223" to="264" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Hardwarein-the-Loop Simulation of a Distribution System with Air Conditioners under Model Predictive Control</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pratt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ruth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Krishnamurthy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sparn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lunacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Marks</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Power and Energy Society General Meeting</title>
+				<imprint>
+			<publisher>Institute of Electrical and Electronics Engineers, Inc</publisher>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Digital Model-Based Engineering: Expectations, Prerequisites, and Challenges of Infusion</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Puchek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bisconti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zimmerman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Guerrero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Kobryn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kukkala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Baldwin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hale</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mulpuri</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017" />
+			<pubPlace>Washington, D.C</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Interagency Working Group on Engineering Complex Systems (IAWG</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical report</note>
+	<note>Model-based Systems Engineering (MBSE) Infusion Task Team</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Effects of Home Energy Management Systems on Distribution Utilities and Feeders under various market structures</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ruth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pratt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lunacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Jones</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">23rd International Conference on Electricity Distribution</title>
+				<meeting><address><addrLine>Lyon, France; Belgium</addrLine></address></meeting>
+		<imprint>
+			<publisher>Association des Ingnieurs de Montefiore</publisher>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Digital Manufacturing: Requirements and Challenges for Implementing Digital Surrogates</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Shao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kibira</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Winter Simulation Conference</title>
+				<editor>
+			<persName><forename type="first">M</forename><surname>Rabe</surname></persName>
+			<persName><forename type="first">A</forename><surname>Juan</surname></persName>
+			<persName><forename type="first">N</forename><surname>Mustafee</surname></persName>
+			<persName><forename type="first">A</forename><surname>Skoogh</surname></persName>
+			<persName><forename type="first">S</forename><surname>Jain</surname></persName>
+			<persName><forename type="first">B</forename><surname>Johansson</surname></persName>
+		</editor>
+		<meeting>the 2018 Winter Simulation Conference<address><addrLine>Gothenburg, Sweden</addrLine></address></meeting>
+		<imprint>
+			<publisher>Institute of Electrical and Electronics Engineers, Inc</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="1226" to="1237" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">A Complexity Primer for Systems Engineers</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sheard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Cook</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Honour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hybertson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Krupa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mcever</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mckinney</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ondrus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ryan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Scheurer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Singer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sparber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>White</surname></persName>
+		</author>
+		<ptr target="https://www.incose.org/docs/default-source/ProductsPublications/a-complexity-primer-for-systems-engineers.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">INCOSE Complex Systems Working Group White Paper</title>
+				<imprint>
+			<date type="published" when="2015-05" />
+			<biblScope unit="page">15</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">BlackIoT: IoT Botnet of High Wattage Devices Can Disrupt the Power Grid</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Soltan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">V</forename><surname>Poor</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">27th USENIX Security Symposium</title>
+				<meeting><address><addrLine>Baltimore, MD USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>USENIX</publisher>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Hybrid simulation for cyber physical systems: a panel on where are we going regarding complexity, intelligence, and adaptability of CPS using simulation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Barros</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>D'ambrogio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rajhans</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Mosterman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Shetty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">K</forename><surname>Traoré</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Vangheluwe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Yilmaz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Symposium on M&amp;S of Complexity in Intelligent, Adaptive and Autonomous Systems, Spring Simulation Conference</title>
+				<editor>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+			<persName><forename type="first">J</forename><surname>Martin</surname></persName>
+		</editor>
+		<meeting>the Symposium on M&amp;S of Complexity in Intelligent, Adaptive and Autonomous Systems, Spring Simulation Conference<address><addrLine>San Diego, CA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+	<note>Society for Modeling and Simulation International</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Hybrid Simulation for Cyber Physical Systems: state of the art and a literature review</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">H</forename><surname>Page</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Society for Modeling and Simulation International</title>
+				<editor>
+			<persName><forename type="first">E</forename><surname>Frydenlund</surname></persName>
+			<persName><forename type="first">S</forename><surname>Jafer</surname></persName>
+			<persName><forename type="first">H</forename><surname>Kavak</surname></persName>
+		</editor>
+		<meeting><address><addrLine>San Diego, CA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="1" to="10" />
+		</imprint>
+	</monogr>
+	<note>Proceedings of the Annual Simulation Symposium</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">59-P, Office of the Under Secretary of Defense for Acquisition and Technology</title>
+		<idno>DoD 5000</idno>
+		<ptr target="https://apps.dtic.mil/docs/citations/ADA301787,lastaccessed15" />
+		<imprint>
+			<date type="published" when="2019-05" />
+			<pubPlace>Washington, DC</pubPlace>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+	<note>Modeling and Simulation (M&amp;S) Master Plan</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Model-based Systems Engineering</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">W</forename><surname>Wymore</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1993" />
+			<publisher>CRC Press</publisher>
+			<pubPlace>Boca Raton, FL USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">MBSE with/out Simulation: The State of the Art and Way Forward</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Zeigler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Traore</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/systems6040040,lastaccessed</idno>
+		<ptr target="https://doi.org/10.3390/systems6040040,lastaccessed" />
+		<imprint>
+			<date type="published" when="2018-05-15" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Theory of Modeling and Simulation: Discrete Event &amp; Iterative System Computational Foundations</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Zeigler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Muzy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Kofman</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+			<publisher>Academic Press</publisher>
+			<pubPlace>San Diego, CA USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Digital engineering transformation across the Department of Defense</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zimmerman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Gilbert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Salvatore</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/1548512917747050</idno>
+		<ptr target="https://doi.org/10.1177/1548512917747050" />
+	</analytic>
+	<monogr>
+		<title level="m">The Journal of Defense Modeling and Simulation</title>
+				<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note>last accessed 15 May 2019. AUTHOR BIOGRAPHIES</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">His e-mail address is smittal@mitre</title>
+		<idno>ORCID is 0000-0003-1430-5799</idno>
+	</analytic>
+	<monogr>
+		<title level="m">SAURABH MITTAL is Chief Scientist for Simulation, Experimentation, and Gaming Department at The MITRE Corporation, USA. He holds Ph.D. and M.S. in Electrical and</title>
+				<meeting><address><addrLine>Tucson</addrLine></address></meeting>
+		<imprint/>
+		<respStmt>
+			<orgName>Computer Engineering from the University of Arizona</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Analytics Division of The MITRE Corporation and Adjunct Professor at Old Dominion University</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sc</surname></persName>
+		</author>
+		<idno>ID is 0000-0002-4201-8757</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ANDREAS TOLK is Technology Integrator for the Modeling, Simulation, Experimentation, and</title>
+				<meeting><address><addrLine>Munich, Germany</addrLine></address></meeting>
+		<imprint/>
+	</monogr>
+	<note>He is a senior member of ACM and IEEE and a Fellow of SCS. His e-mail address is atolk@mitre</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Lead Cybersecurity Engineer at The MITRE Corporation. He received both Ph.D. and M.S. in Computer Science from College of William and Mary. He has two patents related to energy efficiency on mobile devices</title>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Pyles Is</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>His e-mail address is apyles@mitre.org</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">His interests include mobile security, IoT networking, and mobile Android devices</title>
+		<author>
+			<persName><forename type="first">Nicolas</forename><surname>Van Balen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">is Mobile Security Software Engineer at The MITRE Corporation</title>
+				<imprint/>
+	</monogr>
+	<note>Computer Science from the College of William and Mary. His e-mail address is nvanbalen@mitre.org</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">Software Engineer, UX, Visualization, &amp; Decision Support Department at The MITRE Corporation, USA. He holds a Bachelor of Computer Science from the University of Puerto Rico, Mayaguez</title>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Bergollo</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Sr</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>His e-mail address is kevinbl@mitre.org</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,1163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">On the Implementation of IoT-Based Digital Twin for Networked Microgrids Resiliency Against Cyber Attacks</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+				<availability status="unknown"><p>Copyright Institute of Electrical and Electronics Engineers (IEEE)</p>
+				</availability>
+				<date type="published" when="2020-11">2020-11</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><roleName>Student Member, IEEE</roleName><forename type="first">Ahmed</forename><surname>Saad</surname></persName>
+							<idno type="ORCID">0000-0001-9726-7411</idno>
+						</author>
+						<author>
+							<persName><roleName>Member, IEEE</roleName><forename type="first">Samy</forename><surname>Faddel</surname></persName>
+							<email>samy.faddel@ucf.edu</email>
+						</author>
+						<author>
+							<persName><roleName>Member, IEEE</roleName><forename type="first">Tarek</forename><surname>Youssef</surname></persName>
+							<email>tyoussef@uwf.edu</email>
+							<idno type="ORCID">0000-0001-9047-9163</idno>
+						</author>
+						<author>
+							<persName><roleName>Fellow, IEEE</roleName><forename type="first">Osama</forename><forename type="middle">A</forename><surname>Mohammed</surname></persName>
+							<email>mohammed@fiu.edu</email>
+							<idno type="ORCID">0000-0002-2586-4046</idno>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical and Computer Engineering</orgName>
+								<orgName type="institution">Florida International University</orgName>
+								<address>
+									<postCode>33174</postCode>
+									<settlement>Miami</settlement>
+									<region>FL</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Electrical and Computer Engi-neering</orgName>
+								<orgName type="institution">University of Central Florida</orgName>
+								<address>
+									<postCode>32816</postCode>
+									<settlement>Orlando</settlement>
+									<region>FL</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Electrical and Computer Engi-neering</orgName>
+								<orgName type="institution">University of West Florida</orgName>
+								<address>
+									<postCode>32514</postCode>
+									<settlement>Pensacola</settlement>
+									<region>FL</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">On the Implementation of IoT-Based Digital Twin for Networked Microgrids Resiliency Against Cyber Attacks</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">IEEE Transactions on Smart Grid</title>
+						<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+						<idno type="ISSN">1949-3053</idno>
+						<idno type="eISSN">1949-3061</idno>
+						<imprint>
+							<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+							<biblScope unit="volume">11</biblScope>
+							<biblScope unit="issue">6</biblScope>
+							<biblScope unit="page" from="5138" to="5150"/>
+							<date type="published" when="2020-11" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/tsg.2020.3000958</idno>
+					<note type="submission">This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TSG.2020.3000958, IEEE Transactions on Smart Grid</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:53+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The increased rate of cyber-attacks on the power system necessitates the need for innovative solutions to ensure its resiliency. This work builds on the advancement in the IoT to provide a practical framework that is able to respond to multiple attacks on a network of interconnected microgrids. This paper provides an IoT-based digital twin (DT) of the cyberphysical system that interacts with the control system to ensure its proper operation. The IoT cloud provision of the energy cyber-physical and the DT are mathematically formulated. Unlike other cybersecurity frameworks in the literature, the proposed one can mitigate an individual as well as coordinated attacks. The framework is tested on a distributed control system and the security measures are implemented using cloud computing. The physical controllers are implemented using single-board computers. The practical results show that the proposed DT is able to mitigate the coordinated false data injection and the denial of service cyber-attacks.</p><p>Index Terms-Digital twin, networked microgrids, distributed control, industrial internet of things, cybersecurity.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>T HE rapid penetration of Renewable Energy Resources (RES) and the recent trend of transportation electrification increase the growth of networked microgrids industries in the energy sector. The recent development of the Networked Microgrid (NMG) systems converted the electrical distribution grid from passive to active networks and transformed the consumers into prosumers, which significantly increases the complexity of these systems. On one hand, the NMG physical system becomes more composite by containing multiple two-way interconnected systems such as Distributed Energy Resources (DERs), Energy Storage Systems (ESSs), flexible loads (as electric vehicles), fixed loads, power electronics converters, transformers, cables, etc. On the other hand, the degree of the cyber system complexity is much greater due to the use of multiple infrastructures, communication protocols, controllers, Intelligent Electronics Devices (IED), smart meters, and phasor measurement units. This transforms the modern electric distribution system into a critical energy cyber-physical system (ECPS) <ref type="bibr" target="#b0">[1]</ref>- <ref type="bibr" target="#b2">[3]</ref>.</p><p>The two-way power flow controllability and the transactive energy capabilities of the NMG depend mainly on a large number of bidirectional power electronic converters, which should have a flexible, fast, and stable response to support the grid during the normal operation and the disasters. To efficiently and safely operates the NMG, proper management and control methodologies should be developed. Modern networked control systems are linked from the downstream level (nanogrids) to the upstream level (distribution substation), which are considered as an Industrial Internet of Things (IIoT) based communication infrastructure. The IIoT enables the required flexible coordination and integration among the DER's controllers and also improves the overall system management. Being IoT technology-dependent, a large amount of data is harvested from the physical assets' sensors and the cyber assets' controllers, which lead to the efficient operation of the grid and securely minimizes the risk. Thus, the IoT is believed to revolutionize the way we understand the energy sector <ref type="bibr" target="#b3">[4]</ref>- <ref type="bibr" target="#b6">[7]</ref>.</p><p>Usually, the control system of the NMG systems is developed as a hierarchical distributed architecture, which contains primary, secondary and tertiary control layers. The geographical distribution of the NMG gives incentives to the designers to use the distributed control strategy to reduce the communication bandwidth and ensures the plug-and-play flexible installation of the microgrids. Generally speaking, the coordination between agents in a distributed control system usually depends on consensus protocols <ref type="bibr" target="#b7">[8]</ref>- <ref type="bibr" target="#b17">[18]</ref>.</p><p>Despite the reported benefits of the distributed control system in the literature <ref type="bibr" target="#b8">[9]</ref>- <ref type="bibr" target="#b13">[14]</ref>, <ref type="bibr" target="#b18">[19]</ref>- <ref type="bibr" target="#b20">[21]</ref>, it is more vulnerable to cyber threats. Due to the absence of the centric oversight and the low-security level at this layer of consumer system, more cyber-attacks are inevitable <ref type="bibr" target="#b0">[1]</ref>. In this kind of control systems, typically, the data transaction is secured using two ways. The first track is provided by IT data encryption and certificate authentication <ref type="bibr" target="#b18">[19]</ref>. The second one focuses on the resiliency of the control system itself <ref type="bibr" target="#b0">[1]</ref>, <ref type="bibr" target="#b9">[10]</ref>- <ref type="bibr" target="#b17">[18]</ref>, <ref type="bibr" target="#b19">[20]</ref>- <ref type="bibr" target="#b23">[24]</ref>. The authors in <ref type="bibr" target="#b0">[1]</ref> presented an attack resilient control system for multiple DERs based on a neighbour watching mechanism to isolate the attacked control agent from the network graph. In <ref type="bibr" target="#b19">[20]</ref>, a resilient distributed control system is introduced to solve the packet loss problem while in <ref type="bibr" target="#b20">[21]</ref>, a distributed hierarchical control system was proposed. The controller was able to detect and gradually isolate the infected controller. In <ref type="bibr" target="#b9">[10]</ref>, a mathematical morphology technique was used to analyze the neighbour's dynamical features to detect, identify and mitigate the attacked agent. A trust-based and compensatorbased control protocol were introduced in <ref type="bibr" target="#b14">[15]</ref> and <ref type="bibr" target="#b15">[16]</ref>, respectively to guarantee the distributed system synchronization under sensor/actuator attacks. In <ref type="bibr" target="#b16">[17]</ref>, a reputation-based neighbourhood watches method was used to detect the data integrity attack on the distributed scheduling. For the same problem, the authors in <ref type="bibr" target="#b17">[18]</ref> proposed a confidence level-based mechanism using on the top hidden communication network in parallel with the main distributed management system to detect and isolate the attack. Kullback-Leibler (KL) divergence technique was used in <ref type="bibr" target="#b21">[22]</ref> to determine the trust level of the distributed controllers and then isolate the faulty data source according to the divergence rates.</p><p>Regardless of the efforts that were done so far, multiple coordinated attacks on the distributed secondary and/or tertiary control systems have not received enough attention. Coordinated attacks can easily disturb the consensus among the distributed controllers. Besides, regular solutions of mitigating these kinds of attacks by excluding it from the cyber graph cannot solve the problem because the excluded agent might be a vital agent that can disturb an entire microgrid cluster. Furthermore, mixing the coordinated attacks on both sensors and controllers alongside with communication network magnifies the security concerns and impose handicap on the IIoT benefits. Motivated by <ref type="bibr" target="#b23">[24]</ref>, the authors believe that the live data-driven model can discover the coordinated attack and provide the autonomous post-attack recovery.</p><p>In this paper, an IoT-based digital twin (DT) for the cyberphysical networked microgrids is introduced to enhance the resiliency against cyber attacks. The cloud-based DT platform is implemented to be a centric oversight for the NMG system. The cloud system hosts the controllers (cyber things) and the sensors (physical things) into the cloud IoT core in terms of the IoT shadow. The proposed DT covers the digital replica for both the physical layer, cyber layers and their hybrid interactions. The proposed framework ensures the proper and secure operation of the NMG. Also, it can detect false data injection (FDIA) and denial of service (DoS) attacks on the control system whether they are individual or coordinated attacks. Once an attack is detected, corrective action can be taken by the observer-based on What-If scenarios that ensure the safe and seamless operation of the networked microgrids (NMG). DT introduce a constructible active model to provide interaction between the defence mechanism and the attackers. In summary, the major contributions of this paper are:</p><p>1) New use of the concept of DT to secure the NMG.</p><p>2) Formulating the IoT shadow and cyber-physical DT mathematically. 3) Developing practical resilient control algorithms that are able to detect and mitigate FDIA attacks.</p><p>4) Deploying the cloud-based services to provide an IoT based implementation of the DT. 5) Validating the interaction between the cloud-based services and the physical entities of the control system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. OVERALL SYSTEM DESCRIPTION</head><p>Recently, the IoT technologies and cloud computing advancements encourage the energy sector to utilize this digital transformation for better understanding and improving the energy system operation. The Digital Twin (DT) strategic technology is proposed to get the benefits of the IIoT, the ECPS models and the advanced data analytics to understand what is happening and what will happen for the ECPS. The DT is defined as digital replica/model that includes the last information matching a thing. The DT was successfully applied recently in the industry for manufacturing, power plants, healthcare and automotive sectors <ref type="bibr" target="#b5">[6]</ref>, <ref type="bibr" target="#b24">[25]</ref>, <ref type="bibr" target="#b25">[26]</ref>.</p><p>Fig. <ref type="figure" target="#fig_0">1</ref> shows the proposed DT architecture. The NMG (physical assets) under study is a DC networked microgrid (DCNMG) system in the physical space in the lower layer. The physical system is constructed by n interconnected DC microgrids clusters where each cluster contains m DCNMGs.</p><p>The interconnected clusters are connected to a main Medium Voltage DC (MVDC) bus. The NMG is aggregated at the point of common coupling (PCC) with grid through an interlinking DC/AC inverter and a step-up transformer. The primary controllers are assumed to be a part of the physical system as they are mainly responsible for the local control of the converters. In the second layer, the edge control system consists of the distributed controllers and the tertiary controller. The secondary controllers are communicating and coordinating via a cyber combination IED-to-IED links to satisfy the objective control rule that is received from the tertiary controller at the PCC.</p><p>The tertiary control agent sends the required reference power-sharing factor to the secondary controllers' leaders for each cluster of microgrids. Then, the leader sends the control law to the cluster follower agents by the consensus protocol to make an agreement on the leader state. The control objective is to guarantees equal relative power-sharing among microgrids. The failure in ensuring the control objective due to a communication failure or a cyber-attack causes unfair power-sharing and can disturb/collapse the voltage regulation at the PCC. Since the NMG is ruled by the balancing between the NMGs power and the PCC power, the physical DT is implemented to represent the real-time balancing according to the physical living model of the interconnected system.</p><p>In addition, the cyber DT represents the multi-agent consensus convergence rules to guarantee the matching between the tertiary control system and the secondary control system. The hybrid CPS replica enhances the centric oversight by ensuring that the mismatch between the cyber and physical system components is decaying to zero. If the mismatch between the DT and the real-time measurements exists, the CPS failure or attack can be detected, estimated and mitigated. Both the physical system states and the cyber control agents are connected to the virtual layer (cloud system) through the IoT core as a shadow of things. Things' shadows have the last states of the controllers/sensors, which are updated periodically by the edge controller to notify the cloud of the new states. A serviceless computing function is utilized to launch certain applications/measures according to the status of the shadow states. The main focus of this paper is the resiliency of the NMG against the cyber-attacks on the physical sensors and/or control agents.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. DIGITAL TWIN LIVING MODEL</head><p>The Degree of complexity and the accuracy of the DT is defined according to the application and the type of analysis or the outputs that are required to be implemented. The purpose of the DT in this paper is to discover the physical balancing mismatch, the cyber control system convergence and the hybrid CPS consistency. Therefore, the system models are implemented for the DT as follows.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Physical Twin Model</head><p>In this work, the intra-microgrids dynamics are ignored for the control system since the objective is the power transaction and the power balancing rule among the microgrids and the PCC. Therefore, the implemented physical twin model emphases mainly on the bidirectional DC/DC converters because they are the things that control the power flow transaction and regulates the system parameters <ref type="bibr" target="#b26">[27]</ref>.</p><p>Generally, the DCNMG dynamics of i th microgrids can be described by,</p><formula xml:id="formula_0">L i dĨ i dt = E * i − r iĨi − v t i C i dv t i dt =Ĩ i − I t i        (1)</formula><p>whereĨ i is the i th microgrid converter average inductor current, E * i is the reference voltage at the i th microgrid v t i is the microgrid terminal voltage and I t i is the transmitted current from/to microgrid i to the grid. In addition, R i , L i and C i are the equivalent resistance, inductance and capacitance of each microgrid.</p><p>It is assumed that the microgrid output is controlled by the reference signals of the terminal voltage V t,ref i and the output reference power P ref i using the droop control characteristics as follows,</p><formula xml:id="formula_1">E * i = V t,ref i − k i P ref i − P i (2)</formula><p>where k i is droop coefficient and the output power can be represented in terms of power-sharing factors P i = P i,max x i . Therefore, if β i = k i P i,max , the controlled voltage in (2) can be rewritten as,</p><formula xml:id="formula_2">E * i = V t,ref i − β i x ref i − x i<label>(3)</label></formula><p>The microgrid terminal t i is connected to the distribution grid nodes g j which has voltages v g o = [v g o , . . . , v g m ] and the transmitted current to the grid nodes can be described as,</p><formula xml:id="formula_3">I t i = j⊂m I g j = j⊂m y tg ij v t i − v g j (4)</formula><p>where y tg ij is the line or cable admittance between the nodes t i and g j . Since the balancing and power flow is the purpose of the model, the electromagnetic transients are ignored which leads that the grid interconnection model is represented as follows,</p><formula xml:id="formula_4">I t I g = Y tt Y tg Y gt Y gg V t V g<label>(5)</label></formula><p>According to (1) and ( <ref type="formula" target="#formula_2">3</ref>)-( <ref type="formula" target="#formula_4">5</ref>), the balancing dynamics in matrix notation can be written as,</p><formula xml:id="formula_5">L dĨ dt = V t,ref − βX ref − RĨ − V t C dV t dt =Ĩ − I t I t = Y tt V t + Y tg V g I g = Y gt V t + Y gg V g                  (6)</formula><p>where the power sharing states</p><formula xml:id="formula_6">X ref = [x ref 1 , . . . , x ref n ] T , and the reference terminal voltages, V t,ref = [v t,ref 1 , . . . , v t,ref n ] T .</formula><p>To ensure the equilibrium of the dynamics, ( <ref type="formula">6</ref>) is analyzed in steady-state such that V t = V t,ref − βX ref − RI t as,</p><formula xml:id="formula_7">I t = Y tt V t,ref − βY tt X ref − RY tt I t + Y tg V g I g = Y gt V t,ref − βY gt X ref − RY gt I t + Y gg V g (7)</formula><p>whose re-arranging yields,</p><formula xml:id="formula_8">I t = Y tt −1 + R −1 V t,ref − β Y tt −1 + R −1 X ref +Y tg (1 + RY tt ) −1 V g I g = Y gt − Y gt R Y tt −1 + R −1 V t,ref − βY gt − Y gt Rβ Y tt −1 + R −1 X ref Y gg − Y gt Y tg R (1 + RY tt ) −1 V g                        (8)</formula><p>The system achieves the equilibrium if the controlled values V t,ref and X ref are chosen to guarantee that the system in ( <ref type="formula">6</ref>) is solvable. A physical asset ϕ ∈ Φ is represented by the physical set of states, which is measured by a sensor ψ ∈ Ψ. The physical system is represented in state-space form as,</p><formula xml:id="formula_9">X Ψ = A Φ X Ψ + B Φ U Ψ Y Ψ = C Φ X Ψ (9)</formula><p>where the physical system states are</p><formula xml:id="formula_10">X Ψ = [Ĩ, V t ] T</formula><p>, and the inputs are</p><formula xml:id="formula_11">U Ψ = [V t,ref , X ref , I t ]</formula><p>T . The physical system dynamical parameters are derived from ( <ref type="formula">6</ref>) as follows,</p><formula xml:id="formula_12">A Φ = −RL −1 −L −1 C −1 0 n , C Φ = [I n ] B Φ = L −1 −βL −1 0 n 0 n 0 n −C −1 .<label>(10)</label></formula><p>As an illustration, The NMG system under study is DC microgrids with two microgrids clusters, which are interconnected by z c tie-lines. As shown in Fig. <ref type="figure" target="#fig_1">2</ref>, the first cluster has five microgrids and the second cluster has three microgrids. The two clusters are connected to the PCC by the lines z c1 , z c 8. Each microgrid has a bidirectional DC/DC converter and the controlled variables are the voltages, which should be maintained at 1p.u. and the power-sharing factor that is provided by the secondary control layer.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Cyber Twin Model</head><p>The distribution system that contains NMG can be considered as a virtual power plant. The aggregated power from the NMG is controlled by the tertiary controller at PCC (leader) and the multi-agent cooperated controllers at each microgrid (followers) <ref type="bibr" target="#b0">[1]</ref>, <ref type="bibr" target="#b8">[9]</ref>, <ref type="bibr" target="#b14">[15]</ref>- <ref type="bibr" target="#b17">[18]</ref>. The PCC tertiary controller objective is to satisfy the energy management optimal update, which is the reference power-sharing P ref pcc by aggregating it from the NMGs sharing P i . Since the NMG contains different scales of microgrids, the sharing capability of each microgrid is different. Therefore, the PCC agent (agent 0) is described by the sharing factor x 0 = P 0 /P 0,max and each microgrid sharing capability is defined as x i = P i /P i,max . The PCC agent control objective is to achieve certain reference common power-sharing factor as follows,</p><formula xml:id="formula_13">min x x ref 0 − x 0 (x i ) s.t. 0 ≤ x 0 ≤ 1, 0 ≤ P 0 ≤ P 0,max<label>(11)</label></formula><p>where P 0,max is the maximum power-sharing capability at the PCC.</p><p>The secondary distributed controllers cooperate to achieve a consensus on the main leader control objective. According to the graph theory, the cyber communication is a graph G = (V, ε) that determines the cyber state coupling of the agents' dynamics where V = {0, 1, . . . , n} is the vertex set with a set of edges ε ⊆ V × V is the coupling between the control agents. Figure <ref type="figure" target="#fig_2">3</ref> shows the communication network cyber graph topology. Agent 0 is the main leader for the system, and it is connected to the leaders of microgrids clusters i l , which is connected to several i followers.  1949-3053 (c) 2020 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.</p><p>This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TSG.2020.3000958, IEEE Transactions on Smart Grid</p><p>The edge (i, j) ∈ E represents the cyber state of i th agent will influence the dynamics of j th agent according to weighing factor w ij , which is represented as a global adjacency matrix A ∈ R (n+1)×(n+1) , which is described as <ref type="bibr" target="#b7">[8]</ref>, <ref type="bibr" target="#b14">[15]</ref>- <ref type="bibr" target="#b16">[17]</ref>,</p><formula xml:id="formula_14">[A] ij = w ij &gt; 0 if i, j ∈ E 0 otherwise (12)</formula><p>The graph Laplacian matrix is defined as L = D − A, were D = diag {d i }, is the in-neighbours degree matrix and d i = j∈ni w ij . Remark 1: The leader-follower consensus protocol can be implemented in the following discrete-time form for k th samples to achieve an agreement on the steady-state control leader such that, lim k→∞ x i (k) = x ref 0 ∀i ∈ n that is provided by the tertiary controller as formulated in Algorithm A2 in <ref type="bibr" target="#b27">[28]</ref>,</p><formula xml:id="formula_15">δ ij (k + 1) = δ ij (k) + w ij (x j (k) − x i (k))<label>(13)</label></formula><p>x</p><formula xml:id="formula_16">i (k + 1) = ε.δ ij (k + 1) + g i • x 0 (14)</formula><p>where δ ij is an intermediate updating of the control law for an agent i by j th neighbours, ε is a constant to regulate the consensus speed and g i is the pinning gain, which characterizes the spanning tree at the leader. The dynamics of the consensus protocol can be modelled as a set of interacting agents that achieve a common goal x 0 . The local neighbourhood tracking error e i of a controller i is formulated as,</p><formula xml:id="formula_17">e i =ẋ i = j∈ni w ij (x j − x i ) + g i • (x 0 − x i )<label>(15)</label></formula><formula xml:id="formula_18">X = −(L + G) • X + G1x 0 (16)</formula><p>The leader takes the role of controlling the graph in a distributed manner using the consensus protocol u i = ιe i , were ι is a constant gain, which is chosen to ensure the synchronization among agents. The synchronization error with the leader can be represented as δ i = x i − x 0 . The consensus is achievable under the input u i to the leader state x 0 and the synchronization error with the leader is decaying to zero, δ i → 0 if the dynamical matrix of the cyber graph is stabilizable. The global dynamical error under the control mechanism u i be formulated as,</p><formula xml:id="formula_19">δ =Ẋ −Ẋ 0 = ((I n ⊗ A) − ι(L + G)) δ = A c δ      (17)</formula><p>were A c represent the error closed dynamical matrix. The solution is written as,</p><formula xml:id="formula_20">δ(t) = e A c t δ(0)<label>(18)</label></formula><p>A cyber thing θ represents a controller state x θ ∈ X Θ , which uses the sensor measurement and the cyber graph G to control the physical asset ϕ. The cyber system dynamics is given by,</p><formula xml:id="formula_21">X Θ = A Θ X Θ + B Θ U Θ Y Θ = C Θ X Θ (19)</formula><p>where the cyber states X Θ = X ref , the graph control input U Θ = X 0 , the cyber system dynamics are</p><formula xml:id="formula_22">A Θ = −(L + G), B Θ = ιG1, C Θ = I n .</formula><p>The IoT cyber edge system is vulnerable to different types of attacks that can threaten the communication links or the controllers itself. A cyber-attack against control systems is usually classified into three different properties/resources available for the attack: model knowledge, disclosure resources, and disruptive resources. The following assumptions hold.</p><p>Assumption 1: An attacker can acquire at least the local data to launch an attack to disturb the consensus. Also, the link between the secondary and primary controller is a part of the local controller. If an attack launched on the PCC agent or its communication link with the leaders can mislead the entire distribution system. Also, if an attacker knows the distributed control systems, consensus protocol and the network topology, he can launch a multiple coordinated attacks, which can easily mislead the distributed observers.</p><p>Assumption 2: If an attack was successfully launched on the PCC agent or the leader agents of clusters and the attack is detected, the isolation of the attacked agent cannot retrofit the consensus as that will exclude also the healthy follower agents.</p><p>Mathematically, the attack on the controller can be on the control actuator signal to the physical system and/or on the cyber graph states as follows,</p><formula xml:id="formula_23">u f i = u i + γ i u a i x f i = x i + α i x a i (<label>20</label></formula><formula xml:id="formula_24">)</formula><p>where u i , u f i are the healthy and the attacked actuator signal to the physical system. Also, x i , x f i are the healthy and faulty states sent to neighbourhood controllers from the physical system. The Boolean signals γ i , α i is representing the presence of the attack vector u a i , x a i . Theorem 1: Suppose the cyber system ( <ref type="formula">19</ref>) is under attack <ref type="bibr" target="#b19">(20)</ref> and let Assumptions 1-2 are applied. If an agent i is the attacked, then all intact agents j th , the tertiary control objective cannot be satisfied.</p><p>Proof : According to attack model <ref type="bibr" target="#b19">(20)</ref> and by applying the error dynamics <ref type="bibr" target="#b14">(15)</ref> and substituting in the cyber system (19), the combined system dynamics is represented as,</p><formula xml:id="formula_25">x θ i = A θ x θ i + B θ u θ i + B θ ξ θ i ξ θ i = γ i u a i − ι   j∈ni w ij α i x a i − α j x a j + g i α i x a i          (21)</formula><p>By calculating the error dynamics with respect to the leader state and rewriting <ref type="bibr" target="#b20">(21)</ref> in matrix form,</p><formula xml:id="formula_26">δ =Ẋ −Ẋ 0 = A c δ + I n ⊗ B θ ξ θ ξ θ = −ι(L + G) (α ⊗ I n ) X a + (α ⊗ I n ) U a (<label>22</label></formula><formula xml:id="formula_27">)</formula><p>by combining ( <ref type="formula">17</ref>) and ( <ref type="formula" target="#formula_26">22</ref>), the error dynamics becomes,</p><formula xml:id="formula_28">δ = A c δ − ι I n ⊗ B θ (L + G) (α ⊗ I n ) X a + I n ⊗ B θ (α ⊗ I n ) U a (23)</formula><p>let the attack is launched at time τ , the solution of ( <ref type="formula">23</ref>) is,</p><formula xml:id="formula_29">δ(t) = e A c t δ(0) + t 0 e A x (t−τ ) X a dt + t 0 e A u (t−τ ) U a dt<label>(24)</label></formula><p>However, the first term is decaying to zero, the second and the third term is nonzero and their steady-state values depends on the attack vectors alongside cyber system connectivity. Therefore, the PCC control objective cannot be satisfied.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. IOT SHADOW AND DT REPRESENTATION</head><p>The CPS hybrid models are combined into a single concatenation dynamical model from both systems ( <ref type="formula">9</ref>) and <ref type="bibr" target="#b18">(19)</ref> to represent the overall system behaviour. The series concatenation operation is performed <ref type="bibr" target="#b28">[29]</ref>. The hybrid system model is represented as,</p><formula xml:id="formula_30">Ẋ Θ X Ψ = A Θ 0 B Φ C Θ A Φ X Θ X Ψ + B Θ 0 U Θ (<label>25</label></formula><formula xml:id="formula_31">)</formula><formula xml:id="formula_32">Y ΘΨ = 0 C Φ X Θ X Ψ (26)</formula><p>where Y ΘΨ is the hybrid model output.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. IoT Shadow Representation</head><p>The shadow states represent the monitored cyber and physical states for provisioning the CPS activity every h time instant. A chosen physical sensor ψ transmits its local microgrid measurements to the virtual space (cloud) and the transmitted state is subjected to noise σ Ψ . The shadow of the physical states Z Ψ is provisioned by matrix S Φ as follows,</p><formula xml:id="formula_33">z Ψ (h) = S Φ C Φ X Ψ (h) + σ Ψ (h)<label>(27)</label></formula><p>Similarly, the cyber system controller state ϕ is reported as a cyber shadow state Z Θ to the cloud by provisioning matrix S Θ as follows,</p><formula xml:id="formula_34">Z Θ (h) = S Θ C Θ X Θ (h) + σ Θ (h)<label>(28)</label></formula><p>where the transmitted data has noise σ Θ . In addition to the periodic shadow update every sample time h, the occurrence of an event q is assumed to update the shadow to Z (t q ) that has the following representation,</p><formula xml:id="formula_35">z i (h) = {z i (t q−1 ) , z i (t q ) , t q−1 , t q , z (t q )} (<label>29</label></formula><formula xml:id="formula_36">)</formula><p>where t q−1 , t q are the times of the last two consequence events and Z (t q ) is the reported malicious neighbour agents of i th agent. Figure <ref type="figure" target="#fig_3">4</ref> shows the discrimination between the different time scales of secondary, tertiary and shadow updating rates. The tertiary controller and the secondary controllers update the control input every T and k time instances, respectively. The shadow updates occur every h time instance and/or every event trigger instant t q . To monitor the security of the system activity and reduce the communication burden with the cloud system, the shadow update is assumed to be T h &gt; k during the normal periodic update.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Luenberger Observer (LO) Based DT Constructor</head><p>Using the LO, multi-What-If scenarios are constructed and tested to authenticate the healthy desired control state. Given the linear system, which represents the dynamics of the CPS in ( <ref type="formula">9</ref>), ( <ref type="formula">19</ref>), ( <ref type="formula" target="#formula_30">25</ref>)-( <ref type="formula">26</ref>), the LO is constructed firstly for the full healthy state as,</p><formula xml:id="formula_37">X i (h + 1) = Λ X i (h) + ΓU i (h) + i Y i (h) −Ŷ i (h) Ŷ i (k) = Υ X i (h)    (30)</formula><p>where X i is the estimated state that is calculated according to the control input U i and the measurement Y i . The LO is constructed by assigning the control input and the measured output based on the shadow states of the cyber and physical systems such that Λ and Υ are full ranked. According to the realtime CPS topology, the observer parameters Λ, Γ and Υ are built to represent the last shadow state. The LO gain i is selected such that the eigenvalues of (Λ− Υ) is stabilizable. During the normal healthy operation, the observer input is set to the desired state at the PCC, U i (h) = Z 0 (h) and the observer measured output is set to the reported shadow states Y i (h) = Z i (h).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Also, the observation error</head><formula xml:id="formula_38">Z i (h) − O i X i (h) 2 2</formula><p>is decaying to zero, where O i = Υ i , Υ i Λ, . . . , Υ i Λ t−1 T is the block of the output parameter for the set of shadow states during time period t. The LO observer is rewritten as,</p><formula xml:id="formula_39">X i (h + 1) = Λ X i (h) +ΓŨ i (h) Λ = Λ − i Υ ĩ Γ = Γ i Ũ i = Z 0 Z i T         <label>(31)</label></formula><p>If a set of the observed states are non-decaying to zero error, these states' indices are recorded in . Then, the LO is reconstructed to checking the satisfiability such that,</p><formula xml:id="formula_40">lim h→∞ supp Z i (h) − O i X i (h) 2 2 ≤ T H (<label>32</label></formula><formula xml:id="formula_41">)</formula><p>for constant T H, which is selected based on the composite noise from the cyber edge to the cloud. The observer gain i is chosen such that Λ has the characteristic polynomial d(s) = s n + a 1 s n−1 + • • • + a n of the healthy case. To guarantee that condition, a linear coordination transformation of the observer parameter matrices is applied as proposition 2.3 in <ref type="bibr" target="#b29">[30]</ref> as,</p><formula xml:id="formula_42">Λ t = I n ⊗        −a 1 −a 2 • • • −a n−1 −a n 1 0 • • • 0 0 0 1 • • • 0 0 . . . . . . . . . . . . . . . 0 0 • • • 1 0        Γ t = I n ⊗ 1 0 • • • 0 0 T (33)</formula><p>Remark 2: The LO purpose is to estimate the suspicious data source of each set of shadow states. After that, the suspicious indices vectors are compared logically, which eventually defines the bad data source which will be discussed in Algorithm 1 and 2. The presence of the adversarial input ξ, the LO can be defined as follows,</p><formula xml:id="formula_43">X i (h + 1) = Λ X i (h) + ΓŨ i (h) +Bξ(h)<label>(34)</label></formula><p>which leads to the error dynamics can be derived from ( <ref type="formula" target="#formula_26">22</ref>)-( <ref type="formula">23</ref>),δ</p><formula xml:id="formula_44">i = Λδ i + Bξ i (35)</formula><p>The residual estimate that resulted from adversarial input is estimated as,</p><formula xml:id="formula_45">π i (h) = Z i (h) − O i X i (h) 2 2 − T H (36)</formula><p>under an attack, π i (h) is non-decaying to zero according to Theorem 2 in <ref type="bibr" target="#b30">[31]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. DIGITAL TWIN BASED SECURED CONTROL</head><p>The proposed cloud-based DT provides an end to end security audit solution for the ECPS even with multiple coordinated attack scenarios. The proposed solution has two parts; the first one is implemented on the cyber edge and the second part is built as a function on the cloud. The following subsections discuss the two parts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. DT Cloud Algorithms</head><p>The physical, cyber and cyber-physical twin models are built as auxiliary functions as discussed in the previous Sections. Algorithm 1 shows the DT algorithm that is implemented on the cloud. The DT models' functions are imported and the connection with IoT core and shadow services are launched. Then, the DT is constructed based on the LO by mapping the shadow states to the LO input vector. The system is assumed to be secure initially by setting q = 0. The DT loop starts by continuously estimating the ECPS full states. If a conflict between the shadow states and the estimated state is detected or a security audit is requested by a control agent, the authentication and auditing functions will be initiated at t q . This function is discussed in Algorithm 2. The purpose of the function is to return the secured observer and states, which are used to reconstruct the healthy model after the event Ξ tq+1 . The healthy desired state is updated on the IoT shadow, which will be used later by the edge controllers.</p><p>To guarantee a healthy estimation of the desired control action and to discriminate between the healthy and the attacked state, Algorithm 2 is used. The shadow states Z tq and the conflicted agents tq that were determined in Algorithm 1 are utilized to define the malicious agents and their number and N . Then, parallel DT observers will run by configuring the inputs with the malicious data sourcesŨ . For each malicious data source, the residues (36) is calculated, normalized and sorted ascendingly to choose the most suspicious data source indices J . Estimate the full state, X i (h + 1) = Λ X i (h) + ΓŨ i (h)</p><formula xml:id="formula_46">8: if ∃ i s.t Z i (h) − O i X i (h) 2 2</formula><p>≤ T H ∨ q = 0 then 9:</p><p>Launch security authentication and audit function, Update</p><formula xml:id="formula_47">Z des i (h) update desired shadow → edge Algorithm 2 AuthAudit Z tq , tq 1: Input Z Ψ i (t q ) , Z Θ i (t q ) , Z i (t q )</formula><p>from IoT shadow 2: Define , N andŨ parallel DT observers 3: for ∈ 1, 2, ..., N do</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>4:</head><p>Construct DT for conflict case withŨ such that, Compute the residues for i th shadow state, </p><formula xml:id="formula_48">π i (t q ) = z i (t q ) − O i X i (t q ) 2 2 − T H 8: Normalize the residues, π i = π i / O i 2 2</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>9:</head><p>Sort the residues ascendingly, π sort ∀i 10:</p><p>Choose maximum residues indexes, 11: J = Max (π sort ) . Index</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>12:</head><p>Convert non-zero indices J into Boolean vector Ω For each iteration, the indices J , its Boolean representation Ω and their estimated statesX J are stored. Finally, the indices of the confirmed attacked agents F are calculated as,</p><formula xml:id="formula_49">F = supp   N Q =1 Ω   (<label>37</label></formula><formula xml:id="formula_50">)</formula><p>and the equivalent secured LO is rebuilt using the healthy states η based on <ref type="bibr" target="#b32">(33)</ref> to be returned to Algorithm 1</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Resilient Distributed Control Algorithm</head><p>In the NMG, the leader nature is different as compared with the follower's nature. The attack on the leader can cause a complete disruption for the microgrid cluster. Therefore, the proposed methodology in this paper is to have maximum security level by authenticating every incoming update from the PCC agent. However, the followers depend on their neighbours to estimate the control update and the isolation of the attacked follower can retrofit the control system back to consensus. Consequently, one algorithm for the leaders and a different one for the followers are proposed to guarantee the system security without increasing the system complexity or utilizing higher communication bandwidth.</p><p>1) Cluster's leader agent algorithm: Algorithm 3 shows the secured control for the leader i l of MG cluster. Firstly, the agent is initialized by assuming a secure state. The leader subscribes on edge for the main leader (PCC) state. If a change in the leader state or a security event is triggered, the desired shadow state X des i l is received from the IoT shadow. Either the received PCC state from the edge does not match the DT desired or the DT already confirmed that agent 0 is attacked. The PCC is excluded and the DT on the cloud became a tertiary controller temporary by directly utilizing the DT estimated desired x i l = X des . If the PCC healthy, the edge update is accepted. Afterwards, the updated state is published to the edge, the cloud IoT shadow is updated and the primary controller of this MG is actuated by this healthy control action.</p><p>2) Followers agent algorithm: Algorithm 4 is implemented on the follower agents. After initialization and receiving the neighbour's data from the edge, the update event is checked by watching if the neighbour's states change exceeds or the security event q is triggered. Then, The Kullback-Leibler divergence KL i is used to check if the neighbours diverge from the consensus. Receive P CC agent 0 state, 5:</p><formula xml:id="formula_51">KL i (x j x j+1 ) = j∈ni x j • log x j x j+1<label>(</label></formula><p>x 0 (k) subscribe on edge 6:</p><formula xml:id="formula_52">if (|∆x 0 (k)| &gt; 0) ∨ (q = 1) then 7:</formula><p>Control update event triggered, 8:</p><p>Receive desired shadow state, 9:</p><formula xml:id="formula_53">Z des i l = X des (h), F get IoT Shadow 10:</formula><p>if x 0 (k) =X des (h) ∨ (F = P CC) then 11:</p><p>Declare P CC agent attacked and excluded,</p><note type="other">12:</note><p>Cloud DT is tertiary controller, <ref type="bibr" target="#b12">13</ref>:</p><formula xml:id="formula_54">x i l (k + 1) = X des (h)<label>14: else 15:</label></formula><p>P CC state accepted, x 0 (k)</p><p>16:</p><p>x i l (k + 1) = x 0 (k)</p><p>17:</p><p>Send new state to neighbours, 18:</p><p>x i l (k + 1) publish to edge Send secured state to i l primary controller 21:</p><formula xml:id="formula_55">else 22: No Update, x i l (k + 1) = x i l (k) 23: k = k + 1 Algorithm 4 Followers Resilient Control Algorithm 1: Initialize M G follower i f agent, x i f , i f , ω i f ,j f 2: k = 0 3: while T rue do 4:</formula><p>Receive j t h follower agent state, 5:</p><p>x j (k) ∀j = {1, 2, ..., n i }, j = i subscribe on edge 6:</p><p>if (|∆x j (k)| &gt; ) ∨ (q = 1) then 7:</p><p>Control update event triggered, 8:</p><p>Estimate Kullback-Leibler divergence KL i , (</p><p>if |KL i | &gt; ℵ then 10:</p><p>Malicious activity detected, DT audit request, 11:</p><p>X des (h) get IoT Shadow 12:</p><p>Find diverged neighbours from desired X des 13:</p><p>Send reported state to the cloud, <ref type="bibr" target="#b13">14</ref>:</p><formula xml:id="formula_57">Z i f = Z Ψ i f , Z Θ i f , Z i f update IoT shadow 15:</formula><p>Receive the desired state and attacked agent, <ref type="bibr" target="#b15">16</ref>:</p><formula xml:id="formula_58">Z des i f = X des (h), F get IoT Shadow 17:</formula><p>Exclude the attacked agent, ω i f ,F = 0 18:</p><formula xml:id="formula_59">else 19: Neighbours state x j (k) accepted, ω i f ,j f = 1 20:</formula><p>Information update until consensus using ( <ref type="formula" target="#formula_15">13</ref>)-( <ref type="formula" target="#formula_54">14</ref>)</p><p>21:</p><p>Send new state to neighbours, 22:</p><p>x i f (k + 1) publish to edge Send secured state to i f primary controller 25:</p><formula xml:id="formula_60">else 26: No Update, x i f (k + 1) = x i f (k) 27: k = k + 1</formula><p>where x j and x j+1 are the neighbours of the follower i. An auditing request q will be activated if KL i &gt; ℵ. The desired estimated state by DT is received from the IoT shadowX des . A neighbour agent is marked as a malicious agent if it has the highest KL. Then, the shadow is updated by states</p><formula xml:id="formula_61">Z Ψ i f , Z Θ i f</formula><p>and the candidate malicious index Z i f . The cloud DT feedback is received from Algorithm 1 and 2 that ensures the healthy desired state Z des i f . The adjacency matrix wights are modified according to F. Finally, using the healthy state, the consensus is updated by ( <ref type="formula" target="#formula_15">13</ref>) and ( <ref type="formula" target="#formula_54">14</ref>) and the secured final state is published to the edge and updated on the cloud IoT shadow.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. DIGITAL TWIN IMPLEMENTATION</head><p>The proposed system is implemented practically by developing two main platforms. Locally, the distributed controllers are implemented on embedded single board computers. Remotely, cloud computing is implemented on AWS cloud vendor. Figure <ref type="figure" target="#fig_10">5</ref> shows the practical implementation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Embedded Distributed Control Platform</head><p>The distributed controllers use the onboard WiFi modules to communicate locally with each other via UDP protocol and to communicate with the upper cloud layer via TCP/IP protocol. The networked control algorithms and the communication interface settings are applied on embedded Raspberry-Pi3B+ toolkits as control agents using Python Programming. A Data Distribution Service (DDS) <ref type="bibr" target="#b19">[20]</ref> middleware interface is used to share the control parameters locally within the control edge. The DDS is machine-to-machine connectivity that can be implemented locally without message broker. We used rticonnextdds-connector Python package <ref type="bibr" target="#b31">[32]</ref> to configure the publish/subscribe connectivity on each embedded controller. Both the connectivity and the communication QoS are configured using an XML configuration file. This configuration guarantees lower latency, packet-loss mitigation and IT security batches.</p><p>To communicate with the cloud, an MQTT client is created using AWSIoTPython SDK to exchange messages. On AWS, HTTPS, WebSockets and MQTT protocols are available to interact with the cloud. The MQTT is selected due to its low latency for small messages <ref type="bibr" target="#b32">[33]</ref>. On each device, the generated keys and certificates are attached and configured to define the device on the AWS cloud computing platform <ref type="bibr" target="#b17">[18]</ref>. Those authentication files are generated during the creation of each thing on AWS IoT Core. Each device has a detailed model for its microgrid to emulate the real physical system. We implemented an event-based callback function to trigger the data interaction based on the events. The cloud communication has higher latency compared to edge communication. Performance analysis of the local DDS communication and the remote MQTT communication will be discussed in the next section. It is worth mentioning that the sampling rate of the edge control system and the shadow sampling rate are assumed to be k = 0.2s and h = 2s, respectively. The thresholds are set as = 0.01, ℵ = 0.035 and T H = 0.05.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Cloud Computing Platform</head><p>Numerous components involved in the ECPS requires a flexible, reliable and integrated system which can deal with the IoT complexities. The cloud computing services cover these needs by including computing servers, databases, networking, analytics, intelligence over the internet. Figure <ref type="figure">6</ref> shows the functional block diagram of the implemented services.</p><p>1) AWS IoT core: The IoT Core is a cloud service that enables things to connect securely and interact with different cloud services and applications. Each thing is registered on the cloud. The IoT policy is created to control the access and allows/denies a predefined service to be accessed by the thing. Then, the created policies are attached to each thing's certificate. On the edge of the things, each sensor/controller is configured by attributing the generated keys and certificates to its device. One of the default settings in the thing policy is the access of the MQTT message broker to the thing. The MQTT communication protocol is used to interact (get and update) with the shadow of the things on the AWS cloud. The thing shadow is a JSON payload that is used to store and retrieve the things' last states. The contents of the shadow file are shadow states, asset metadata, update version, client token and the timestamp of the last transaction. The shadow has two categories; the reported states Z i and the desired states Z des i . The metadata holds a tuple of the constant parameter of each microgrid as the power and voltage ratings, the location, the owner and the updated version. Also, one of the main IoT core components is the rule engine, which is the filters, that takes actions on the fly based on predefined rules. The actions can be activated by a cloud microservice function, which is the AWS Lambda function.</p><p>2) AWS lambda function: The AWS lambda-Function is a service less computing function that can trigger a computing service in response to a detected event or a predefined logic/task. In this paper, the security audit event q is managed by the lambda-function. Besides, it can update the tertiary control and management objective, launch a response to grid Figure <ref type="figure">6</ref>. Digital Twin Description.</p><p>ancillary service during a contingency, guide the secondary control layer or response to restoration request after a blackout.</p><p>3) AWS SageMaker: The AWS SageMaker is integrated and managed computing service. In this paper, the physical twin, the cyber twin and the hybrid ECPS models are implemented as functions to be imported by different tasks and applications. In addition to the centric oversight and security auditing applications, the Sagemaker is used to guide the distributed controllers and runs what-if scenarios using LO based DT.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Attack Emulation</head><p>The false data injection attacks are artificially soft coded and is implemented on each controller to emulate the attacker. The attacked agent, attack vector, and the attack time instant are predefined according to the required emulation. For the attacks on the edge controllers, the artificial attack agent is can join the network, subscribe on data and publish under the topic name of the infected real agent. Also, it has been designed to be able to publish/subscribe on/to the cloud messages. According to the required study, the attacker agents can be configured to launch an attack on the link between the infected agent and its neighbor(s). Also, the attacker agent is configured to mislead the cloud by reporting a healthy state to it while publishing faulty data to the edge. By the same emulator, the multi-coordinated attacks can be launched on multiple agents to degrade the consensus. This can be done by activating the soft-coded attacks on multiple agents simultaneously. The Denial of Service (DoS) attacks, network delay and the packet loss emulation are implemented using a network emulation software. In this paper, NETEM tool is utilized. The network corruption, the switched delay and the packet loss probability functions are used to implement the DoS, the delay and the packet loss, respectively.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VII. RESULTS AND DISCUSSION</head><p>To validate the effectiveness and the performance of the proposed methodology, multiple scenarios are tested.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. False Data Injection Attack</head><p>Figure <ref type="figure" target="#fig_11">7</ref> shows the first scenario of multiple coordinated attacks on the first cluster's leader (agent 1) and agent 4, at k = 55 and k = 75, respectively. Figure <ref type="figure" target="#fig_11">7</ref>(a) shows the states on the edge cyber system. The edge system detected a malicious activity and the suspected agents were 1, 4 and 5. The left axis in Fig. <ref type="figure" target="#fig_11">7</ref>(b) shows the reported IoT shadow states and the desired state. On the right-hand axis of the second subplot, the attacked agents are depicted. Agent 5 has been temporarily declared as an attacked during h = 3 to 4 because of the delay produced by the algorithms' initialization. In addition, the divergence of Agent 5 away from the desired state at h = 10 to 12 is resulted by the attack on agent 4. The DT based authentication is able to find the new healthy desired state and confirm that Agents 1 and 4 are attacked. Therefore, even though Agent 5 has been subjected to the delay and misleading, the agent succeeded to use the estimated healthy PCC desired state. to retrofit its consensus dynamics by comparing both neighbors with the DT desired state and mitigate the attack by excluding Agent 4 from the cyber graph. As shown in Fig. <ref type="figure" target="#fig_11">7</ref>(c), The DT estimations for the injected power from each microgrid and the voltage at the PCC are very close to the actual simulation. Figure <ref type="figure" target="#fig_12">8</ref> shows the second scenario where Agent 4 is attacked by injecting x 4 = 0.95 instead of x i,s.s = 0.5.  However, the actual value of 0.5p.u. was sent to the cloud to mislead the algorithm by reporting the healthy state. On the edge control system, the attack disturbed the consensus between k = 75 to 110. On the cloud, the DT succeeded to calculate the healthy desired sharing factor state.</p><p>Based on the ECPS twin model, the DT realized that the edge control system is attacked. It authenticated that the PCC tertiary control shadow state and the PCC sensor state are matching. However, until this time, the DT suspected only Agent 5 (healthy agent). Between h = 12 to 13, the DT had no ability to know the attacked agent because Agent 4 is still misleading them by submitting the healthy state. On the other side, the security auditing algorithm is running. Both Agent 5 and 3 used the desired state and ensured that Agent 4 is attacked. Based on that reported malicious activity, the DT confirmed the attack regardless of the deception. Finally, the neighbor agents succeeded to isolate the attacked agent. The proposed algorithm was able to discriminate between the healthy and the attacked agents even with multiple attacks and the cloud DT is misled.</p><p>Figure <ref type="figure" target="#fig_13">9</ref> depicts the summation of total residues of ECPS states for the LO based DT that running during the security audit analysis. The first scenario has higher residues as compared to scenario#2 because the malicious agents in scenario#1 are higher than scenario#2 and the execution time to decay to zero residues is higher in the first scenario. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Denial of Service Attack</head><p>Scenario # 3, DoS attack is tested on the communication link between the PCC and the leaders. The tertiary controller at PCC requested 40% increase in sharing power but this new command is intercepted by corrupting the communication between the PCC agent and the leaders (agent 1 and 6) as shown in Fig. <ref type="figure" target="#fig_0">10</ref>. Primarily, all agents reported a malicious activity due to the difference between the DT shadow state and the edge state, which triggers the PCC authentication function (Algorithm 2). The LO based DT is reconstructed for the reported measurements. The DT observation is used to check the residuals and the healthy desired value is estimated according to Algorithm 1 and 2. Fig. <ref type="figure" target="#fig_0">10(b</ref>) shows the shadow of the sharing factors on the cloud and the detected malicious agents using the DT algorithms.</p><p>Almost all agents after the attack was a suspicious agent between h = 6 and h = 12 without certain definition of the infected agent. However, at t = 13 the DT algorithms were able to ensure that the PCC agent is the infected source of information. Finally, the proposed platform succeeded to declare that the PCC-to-MG's leader communication links are attacked, and the cloud-based DT became the tertiary controller temporarily and all agents are retrofitted to the healthy state.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Communication Platform Performance</head><p>The performance of the communication platform is tested for both intra-edge communication (DDS) and edge-to-cloud communication (MQTT). The average intra-edge latency for all agents during previously discussed scenarios is shown in Fig. <ref type="figure" target="#fig_0">11</ref>. As shown, the maximum latency recorded in this test is 594µs, which ensures the message delivery using DDS near to the real-time. To estimate the edge-to-cloud communication delay, two events case study is demonstrated to measure the latency. As shown in Fig. <ref type="figure" target="#fig_0">12</ref>, the reference sharing factor changes from 0% to 50% at t = 1s, then at t = 21s the tertiary command is updated from 50% to 90%. Also, to test the effect of a large delay and packet loss on the performance, the NETEM network emulation tool is used to emulate a delay and packet loss on published data from Agent 2 to both the edge and the cloud. The packet loss is emulated randomly during the whole test to be 5% and 2s delay is added intentionally between t = 24s and t = 26s. Also, the test is made more challenging by setting the update reporting rate between the edge and the cloud to be one second only. As illustrated in Fig. <ref type="figure" target="#fig_0">12</ref>(a), the edge controllers normally follow the leaders without any noticeable effect of the packet loss on the consensus. Although the 2s delay causes a slight disturbance in the consensus dynamics, the communication graph connectivity remains stable and achieved an agreement. Also, the same effect is reflected in the cloud shadow as shown in Fig. <ref type="figure" target="#fig_0">12(b</ref>). To measure precisely the delay between the edge and the cloud. The output data from Agent 2 is stamped by the departure time and the arrival time. The difference between the two timestamps is depicted in Fig. <ref type="figure" target="#fig_0">12(c</ref>) and zoomed in Fig. <ref type="figure" target="#fig_0">12(d)</ref>. Except for the 2s delay period, the measured delay between the edge and the cloud did not exceed 300ms. Another test is performed to study the effect of the message size, a 256B JSON message is tested. The average and maximum recorded delay under best QoS effort are shown in Table <ref type="table" target="#tab_2">I</ref> for both DDS and MQTT middleware. VIII. CONCLUSION In this paper, mathematical formulation and implementation of an IoT based digital twin (DT) for the resiliency of interconnected microgrids was developed. The proposed DT was validated using a practical setup of the distributed control system and Amazon Web Services (AWS). The proposed framework was able to quickly detect and mitigate a different kind of attacks such as false data injection, denial of service, and coordinated attacks. Future research of this work will consider the fusion of deep learning and LO to enhance the speed, accuracy and predictability of the attacks.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. The overall system architecture of the proposed DT platform for ECPS.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. NMG equivalent circuit for the physical system model.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3. NMG cyber graph topology.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 .</head><label>4</label><figDesc>Figure 4. Overall time-scales discrimination.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Algorithm 1 5 :</head><label>15</label><figDesc>Digital Twin Algorithm on Cloud 1: Initialize DT model and import auxiliary functions 2: Connect to IoT Core and Shadow Service 3: Construct full state DT using LO such that: 4:Ũ i = Z 0 Z i T , rk(Λ) is full Initialize security event function q = 0 6: while T rue do 7:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>10 :Ξ: else 13 :</head><label>1013</label><figDesc>tq+1 (η, Λ,Γ, X ) = AuthAudit Z tq , tq 11: Reconstruct DT with the healthy model Ξ tq+1 12Keep the full DT Ξ tq+1 = Ξ tq 14:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>13 :</head><label>13</label><figDesc>Store J , Ω and X J 14: Confirm the attacked agents/sensors indices, 15: F = supp Λ N =1 Ω , η = ¬F 16: Transform Λ, Γ according to η and (33) 17: Return η, Λ,Γ, x η</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>38) Algorithm 3 1 :</head><label>31</label><figDesc>Cluster's Leader Resilient Control Algorithm Initialize M G cluster's leader i l agent, x i l , i l , ω 0,i l 2: k = 0 3: while T rue do 4:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 5 .</head><label>5</label><figDesc>Figure 5. Practical distributed control and DT implementation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 7 .</head><label>7</label><figDesc>Figure 7. Response under the multiple attacks on agents 1 and 4 with mitigation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 8 .</head><label>8</label><figDesc>Figure 8. Response for the attack on agent 4 and cloud misleading with mitigation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 9 .</head><label>9</label><figDesc>Figure 9. Total residues during DT based security audit for Scenarios 1, 2.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Figure 10 .</head><label>10</label><figDesc>Figure 10. Response for DoS attack on link between the PCC and leader agents.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 11 .</head><label>11</label><figDesc>Figure 11. Average agent-to-agent time delay in the edge (DDS communication).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>Figure 12 .</head><label>12</label><figDesc>Figure<ref type="bibr" target="#b11">12</ref>. The performance under 2s delay and 5% packet loss on the communication output from agent 2 to the edge and the cloud channels.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table I COMMUNICATION</head><label>I</label><figDesc>PERFORMANCE UNDER DELAY FOR 256B MESSAGES</figDesc><table><row><cell cols="2">Middleware Unicast/Multicast</cell><cell>QoS</cell><cell>τ,av (ms)</cell><cell>τmax (ms)</cell></row><row><cell>Edge-edge, DDS</cell><cell cols="2">Unicast Best effort</cell><cell>0.252</cell><cell>0.454</cell></row><row><cell></cell><cell cols="2">Multicast Best effort</cell><cell>0.275</cell><cell>0.622</cell></row><row><cell>Edge-cloud, MQTT</cell><cell>Unicast</cell><cell>Level 1</cell><cell>105</cell><cell>301</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">IEEE TRANSACTION ON SMART GRID, VOL. XX, NO. X, XXXXX 2020</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Authorized licensed use limited to: University of Exeter. Downloaded on June 10,2020 at 12:35:38 UTC from IEEE Xplore. Restrictions apply.</note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Ahmed Saad (S'18) received the B.Sc. and M.Sc. degrees in electrical engineering from Helwan University, Cairo, Egypt, in 2007 and 2012, respectively. He is currently working toward the Ph.D. degree in electrical engineering at Florida International University, Miami,FL, USA. Since 2009, he has been a Teacher and Research Assistant with the Department of Electrical Power and Machines Engineering, Helwan University. His research interests include integration of renewable energy in smart grids, optimal distributed control and optimization, cyber-physical security, machine learning, internet of things and digital twin. Dr. Mohammed is a world-renowned expert on various topics in power and energy systems. Specifically, he has interests in design optimization and physics based modeling in electric drive systems and other low-frequency environments, electromagnetic signatures, wide band gap devices and switching, and ship power systems modeling and analysis, energy storage systems, and power electronics. Recent research projects included smart-grid distributed control, interoperability, and energy cyberphysical systems. He currently has active research projects with several federal agencies in these areas. He has authored nearly 800 articles in refereed journals and other refereed international conference records. He has also authored a book and several book chapters and holds 16 patents awarded or filed. He has made numerous keynotes and invited presentations at academic and industrial organizations and conferences worldwide in addition to being general chair of 10 major IEEE international conferences. Professor Mohammed is a Fellow of IEEE and a Fellow of the Applied Computational Electromagnetic Society ACES. He is a recipient of the prestigious IEEE Power and Energy Society Cyril Veinott Electromechanical Energy Conversion Award and the Outstanding Research Award from FIU in 2012, and the 2017 Outstanding Doctoral Mentor at FIU.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">An Attack-Resilient Cooperative Control Strategy of Multiple Distributed Generators in Distribution Networks</title>
+		<author>
+			<persName><forename type="first">Yun</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Huanhai</forename><surname>Xin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhihua</forename><surname>Qu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Deqiang</forename><surname>Gan</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2016.2542111</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="2923" to="2932" />
+			<date type="published" when="2016-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Data-Centric Hierarchical Distributed Model Predictive Control for Smart Grid Energy Management</title>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Saad</surname></persName>
+			<idno type="ORCID">0000-0001-9726-7411</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Tarek</forename><surname>Youssef</surname></persName>
+			<idno type="ORCID">0000-0001-9047-9163</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmed</forename><forename type="middle">T</forename><surname>Elsayed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amr</forename><surname>Amin</surname></persName>
+			<idno type="ORCID">0000-0002-6761-3050</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Omar</forename><forename type="middle">Hanafy</forename><surname>Abdalla</surname></persName>
+			<idno type="ORCID">0000-0002-8847-0829</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Osama</forename><surname>Mohammed</surname></persName>
+			<idno type="ORCID">0000-0002-2586-4046</idno>
+		</author>
+		<idno type="DOI">10.1109/tii.2018.2883911</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+		<idno type="ISSN">1551-3203</idno>
+		<idno type="ISSNe">1941-0050</idno>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="4086" to="4098" />
+			<date type="published" when="2019-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Smart Control of Fleets of Electric Vehicles in Smart and Connected Communities</title>
+		<author>
+			<persName><forename type="first">Ramin</forename><surname>Moghaddass</surname></persName>
+			<idno type="ORCID">0000-0003-3634-633X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Osama</forename><forename type="middle">A</forename><surname>Mohammed</surname></persName>
+			<idno type="ORCID">0000-0002-2586-4046</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Erotokritos</forename><surname>Skordilis</surname></persName>
+			<idno type="ORCID">0000-0003-1441-9630</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Shihab</forename><surname>Asfour</surname></persName>
+			<idno type="ORCID">0000-0001-5052-9402</idno>
+		</author>
+		<idno type="DOI">10.1109/tsg.2019.2913587</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="6883" to="6897" />
+			<date type="published" when="2019-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">A fog-based internet of energy architecture for transactive energy management systems</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Moghaddam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Leon-Garcia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet of Things Journal</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1055" to="1069" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Digital Twin in Industry: State-of-the-Art</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+			<idno type="ORCID">0000-0002-9020-0633</idno>
+		</author>
+		<author>
+			<persName><forename type="first">He</forename><surname>Zhang</surname></persName>
+			<idno type="ORCID">0000-0002-7630-2211</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tii.2018.2873186</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+		<idno type="ISSN">1551-3203</idno>
+		<idno type="ISSNe">1941-0050</idno>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2405" to="2415" />
+			<date type="published" when="2019-04" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Gartner names top 10 data and analytics technology trends</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Cearley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Burke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Searle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Walker</surname></persName>
+		</author>
+		<idno type="DOI">10.1287/lytx.2020.04.17n</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The Top</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<date type="published" when="2020-07-15" />
+			<publisher>Institute for Operations Research and the Management Sciences (INFORMS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Model-Based Fault Detection and Identification for Switching Power Converters</title>
+		<author>
+			<persName><forename type="first">Jason</forename><surname>Poon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Palak</forename><surname>Jain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ioannis</forename><forename type="middle">C</forename><surname>Konstantakopoulos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Costas</forename><surname>Spanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sanjib</forename><forename type="middle">Kumar</forename><surname>Panda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Seth</forename><forename type="middle">R</forename><surname>Sanders</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tpel.2016.2541342</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Power Electronics</title>
+		<title level="j" type="abbrev">IEEE Trans. Power Electron.</title>
+		<idno type="ISSN">0885-8993</idno>
+		<idno type="ISSNe">1941-0107</idno>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1419" to="1430" />
+			<date type="published" when="2017-02" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Autonomous Coordinated Control Scheme for Cooperative Asymmetric Low-Voltage Ride-Through and Grid Support in Active Distribution Networks With Multiple DG Units</title>
+		<author>
+			<persName><forename type="first">Masoud</forename><forename type="middle">M</forename><surname>Shabestary</surname></persName>
+			<idno type="ORCID">0000-0003-1589-2390</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Yasser Abdel-Rady I.</forename><surname>Mohamed</surname></persName>
+			<idno type="ORCID">0000-0002-4351-9457</idno>
+		</author>
+		<idno type="DOI">10.1109/tsg.2019.2948131</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2125" to="2139" />
+			<date type="published" when="2020-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">An Adaptive Event-Triggered Communication-Based Distributed Secondary Control for DC Microgrids</title>
+		<author>
+			<persName><forename type="first">Subham</forename><surname>Sahoo</surname></persName>
+			<idno type="ORCID">0000-0002-7916-028X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Sukumar</forename><surname>Mishra</surname></persName>
+			<idno type="ORCID">0000-0002-5642-0835</idno>
+		</author>
+		<idno type="DOI">10.1109/tsg.2017.2717936</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="6674" to="6683" />
+			<date type="published" when="2018-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A secured distributed control system for future interconnected smart grids</title>
+		<author>
+			<persName><forename type="first">Ahmed</forename><forename type="middle">A</forename><surname>Saad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Samy</forename><surname>Faddel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Osama</forename><surname>Mohammed</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.apenergy.2019.03.185</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Energy</title>
+		<title level="j" type="abbrev">Applied Energy</title>
+		<idno type="ISSN">0306-2619</idno>
+		<imprint>
+			<biblScope unit="volume">243</biblScope>
+			<biblScope unit="page" from="57" to="70" />
+			<date type="published" when="2019-06" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Distributed Control Techniques in Microgrids</title>
+		<author>
+			<persName><forename type="first">Mehrdad</forename><surname>Yazdanian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Mehrizi-Sani</surname></persName>
+			<idno type="ORCID">0000-0001-9072-4819</idno>
+		</author>
+		<idno type="DOI">10.1109/tsg.2014.2337838</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="2901" to="2909" />
+			<date type="published" when="2014-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Distributed Adaptive Virtual Impedance Control for Accurate Reactive Power Sharing Based on Consensus Control in Microgrids</title>
+		<author>
+			<persName><forename type="first">Huaguang</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sunghyok</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiuye</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianguo</forename><surname>Zhou</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2015.2506760</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1749" to="1761" />
+			<date type="published" when="2017-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">A Two-Layer Distributed Cooperative Control Method for Islanded Networked Microgrid Systems</title>
+		<author>
+			<persName><forename type="first">Xiaoyu</forename><surname>Wu</surname></persName>
+			<idno type="ORCID">0000-0003-0505-5644</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Yin</forename><surname>Xu</surname></persName>
+			<idno type="ORCID">0000-0002-0945-9024</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Xiangyu</forename><surname>Wu</surname></persName>
+			<idno type="ORCID">0000-0001-8237-2454</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jinghan</forename><surname>He</surname></persName>
+			<idno type="ORCID">0000-0003-4210-955X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Josep</forename><forename type="middle">M</forename><surname>Guerrero</surname></persName>
+			<idno type="ORCID">0000-0001-5236-4592</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Chen-Ching</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kevin</forename><forename type="middle">P</forename><surname>Schneider</surname></persName>
+			<idno type="ORCID">0000-0003-1749-5014</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Dan</forename><forename type="middle">T</forename><surname>Ton</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2019.2928330</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="942" to="957" />
+			<date type="published" when="2020-03" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Resilience-Oriented Hierarchical Service Restoration in Distribution System Considering Microgrids</title>
+		<author>
+			<persName><forename type="first">Li-Jun</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">You</forename><surname>Zhao</surname></persName>
+			<idno type="ORCID">0000-0002-1603-9466</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Chen</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peng</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jin-Hui</forename><surname>Hao</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/access.2019.2948372</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="152729" to="152743" />
+			<date type="published" when="2019" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Synchrony in Networked Microgrids Under Attacks</title>
+		<author>
+			<persName><forename type="first">Shankar</forename><surname>Abhinav</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hamidreza</forename><surname>Modares</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Frank</forename><forename type="middle">L</forename><surname>Lewis</surname></persName>
+			<idno type="ORCID">0000-0003-4074-1615</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Ferrese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Davoudi</surname></persName>
+			<idno type="ORCID">0000-0003-2951-442X</idno>
+		</author>
+		<idno type="DOI">10.1109/tsg.2017.2721382</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="6731" to="6741" />
+			<date type="published" when="2018-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Distributed Resilient Adaptive Control of Islanded Microgrids Under Sensor/Actuator Faults</title>
+		<author>
+			<persName><forename type="first">Nima</forename><forename type="middle">Mahdian</forename><surname>Dehkordi</surname></persName>
+			<idno type="ORCID">0000-0003-1493-1941</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Seyed</forename><forename type="middle">Zeinolabedin</forename><surname>Moussavi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2019.2960205</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2699" to="2708" />
+			<date type="published" when="2020-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">A Resilient Consensus-Based Distributed Energy Management Algorithm Against Data Integrity Attacks</title>
+		<author>
+			<persName><forename type="first">Jie</forename><surname>Duan</surname></persName>
+			<idno type="ORCID">0000-0002-3962-203X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Mo-Yuen</forename><surname>Chow</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2018.2867106</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="4729" to="4740" />
+			<date type="published" when="2019-09" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">A Secure Distributed Transactive Energy Management Scheme for Multiple Interconnected Microgrids Considering Misbehaviors</title>
+		<author>
+			<persName><forename type="first">Yun</forename><surname>Liu</surname></persName>
+			<idno type="ORCID">0000-0002-1370-4467</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Hoay</forename><forename type="middle">Beng</forename><surname>Gooi</surname></persName>
+			<idno type="ORCID">0000-0002-5983-2181</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Yuanzheng</forename><surname>Li</surname></persName>
+			<idno type="ORCID">0000-0001-8052-1233</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Huanhai</forename><surname>Xin</surname></persName>
+			<idno type="ORCID">0000-0001-5327-1371</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jian</forename><surname>Ye</surname></persName>
+			<idno type="ORCID">0000-0002-5333-4704</idno>
+		</author>
+		<idno type="DOI">10.1109/tsg.2019.2895229</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="5975" to="5986" />
+			<date type="published" when="2019-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Resilient End-to-End Message Protection for Cyber-Physical System Communications</title>
+		<author>
+			<persName><forename type="first">Youngjin</forename><surname>Kim</surname></persName>
+			<idno type="ORCID">0000-0003-3766-6335</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Vladimir</forename><surname>Kolesnikov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marina</forename><surname>Thottan</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2016.2613545</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2478" to="2487" />
+			<date type="published" when="2018-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Consensus of Heterogeneous Linear Multiagent Systems Subject to Aperiodic Sampled-Data and DoS Attack</title>
+		<author>
+			<persName><forename type="first">Dan</forename><surname>Zhang</surname></persName>
+			<idno type="ORCID">0000-0001-5140-3588</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Lu</forename><surname>Liu</surname></persName>
+			<idno type="ORCID">0000-0003-2741-2542</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Gang</forename><surname>Feng</surname></persName>
+			<idno type="ORCID">0000-0001-8508-8416</idno>
+		</author>
+		<idno type="DOI">10.1109/tcyb.2018.2806387</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Cybernetics</title>
+		<title level="j" type="abbrev">IEEE Trans. Cybern.</title>
+		<idno type="ISSN">2168-2267</idno>
+		<idno type="ISSNe">2168-2275</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1501" to="1511" />
+			<date type="published" when="2019-04" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Modeling and Sensitivity Study of Consensus Algorithm-Based Distributed Hierarchical Control for DC Microgrids</title>
+		<author>
+			<persName><forename type="first">Lexuan</forename><surname>Meng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tomislav</forename><surname>Dragicevic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Javier</forename><surname>Roldan-Perez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">C</forename><surname>Vasquez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Josep</forename><forename type="middle">M</forename><surname>Guerrero</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2015.2422714</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1504" to="1515" />
+			<date type="published" when="2016-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Detection and Mitigation of Data Manipulation Attacks in AC Microgrids</title>
+		<author>
+			<persName><forename type="first">Aquib</forename><surname>Mustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Binod</forename><surname>Poudel</surname></persName>
+			<idno type="ORCID">0000-0002-0922-1956</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Bidram</surname></persName>
+			<idno type="ORCID">0000-0003-4722-4346</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Hamidreza</forename><surname>Modares</surname></persName>
+			<idno type="ORCID">0000-0003-0800-5140</idno>
+		</author>
+		<idno type="DOI">10.1109/tsg.2019.2958014</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2588" to="2603" />
+			<date type="published" when="2020-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">CCPA: Coordinated Cyber-Physical Attacks and Countermeasures in Smart Grid</title>
+		<author>
+			<persName><forename type="first">Ruilong</forename><surname>Deng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peng</forename><surname>Zhuang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Liang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2017.2702125</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="2420" to="2430" />
+			<date type="published" when="2017-09" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Cyber-Attack Recovery Strategy for Smart Grid Based on Deep Reinforcement Learning</title>
+		<author>
+			<persName><forename type="first">Fanrong</forename><surname>Wei</surname></persName>
+			<idno type="ORCID">0000-0002-4899-4580</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Zhiqiang</forename><surname>Wan</surname></persName>
+			<idno type="ORCID">0000-0002-0652-4759</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Haibo</forename><surname>He</surname></persName>
+			<idno type="ORCID">0000-0002-5247-9370</idno>
+		</author>
+		<idno type="DOI">10.1109/tsg.2019.2956161</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2476" to="2486" />
+			<date type="published" when="2020-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Iot: Developer guide. amazon web services</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aws</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inc., Tech. Rep, Tech. Rep</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Model-Based Design of Complex Aeronautical Systems Through Digital Twin and Thread Concepts</title>
+		<author>
+			<persName><forename type="first">Gray</forename><surname>Bachelor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eugenio</forename><surname>Brusa</surname></persName>
+			<idno type="ORCID">0000-0001-7478-0650</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Davide</forename><surname>Ferretto</surname></persName>
+			<idno type="ORCID">0000-0003-2294-9105</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Mitschke</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jsyst.2019.2925627</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Systems Journal</title>
+		<title level="j" type="abbrev">IEEE Systems Journal</title>
+		<idno type="ISSN">1932-8184</idno>
+		<idno type="ISSNe">2373-7816</idno>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1568" to="1579" />
+			<date type="published" when="2020-06" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Robust Stability Analysis of DC Microgrids With Constant Power Loads</title>
+		<author>
+			<persName><forename type="first">Jianzhe</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Zhang</surname></persName>
+			<idno type="ORCID">0000-0002-7511-2870</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Giorgio</forename><surname>Rizzoni</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tpwrs.2017.2697765</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Power Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Power Syst.</title>
+		<idno type="ISSN">0885-8950</idno>
+		<idno type="ISSNe">1558-0679</idno>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="851" to="860" />
+			<date type="published" when="2018-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">A Correction to Algorithm A2 in “Asynchronous Distributed Averaging on Communication Networks”</title>
+		<author>
+			<persName><forename type="first">Maximilian</forename><surname>Kriegleder</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tnet.2013.2292800</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE/ACM Transactions on Networking</title>
+		<title level="j" type="abbrev">IEEE/ACM Trans. Networking</title>
+		<idno type="ISSN">1063-6692</idno>
+		<idno type="ISSNe">1558-2566</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="2026" to="2027" />
+			<date type="published" when="2014-12" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Series concatenation of 2D convolutional codes</title>
+		<author>
+			<persName><forename type="first">Joan-Josep</forename><surname>Climent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Diego</forename><surname>Napp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Raquel</forename><surname>Pinto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rita</forename><surname>Simoes</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/nds.2015.7332648</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2015 IEEE 9th International Workshop on Multidimensional (nD) Systems (nDS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-09" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Minimal state-space realization in linear system theory: an overview</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">De</forename><surname>Schutter</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0377-0427(00)00341-1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computational and Applied Mathematics</title>
+		<title level="j" type="abbrev">Journal of Computational and Applied Mathematics</title>
+		<idno type="ISSN">0377-0427</idno>
+		<imprint>
+			<biblScope unit="volume">121</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="331" to="354" />
+			<date type="published" when="2000-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Simultaneous Fault Isolation and Estimation of Lithium-Ion Batteries via Synthesized Design of Luenberger and Learning Observers</title>
+		<author>
+			<persName><forename type="first">Wen</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei-Tian</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mehrdad</forename><surname>Saif</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meng-Feng</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hai</forename><surname>Wu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tcst.2013.2239296</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Control Systems Technology</title>
+		<title level="j" type="abbrev">IEEE Trans. Contr. Syst. Technol.</title>
+		<idno type="ISSN">1063-6536</idno>
+		<idno type="ISSNe">1558-0865</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="290" to="298" />
+			<date type="published" when="2014-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<monogr>
+		<title level="m" type="main">Fibre optic connector interfaces. Type SC connector family</title>
+		<author>
+			<persName><surname>Rticommunity</surname></persName>
+		</author>
+		<idno type="DOI">10.3403/02805155u</idno>
+		<ptr target="https://github.com/rticommunity/rticonnextdds-connector-py" />
+		<imprint>
+			<date>2019</date>
+			<publisher>BSI British Standards</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">AWS Pricing and Cost Management</title>
+		<author>
+			<persName><forename type="first">Himanshu</forename><surname>Singh</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-1-4842-6222-1_2</idno>
+		<ptr target="https://github.com/aws/aws-iot-device-sdk-python" />
+	</analytic>
+	<monogr>
+		<title level="m">Practical Machine Learning with AWS</title>
+				<imprint>
+			<publisher>Apress</publisher>
+			<date type="published" when="2020-11-25" />
+			<biblScope unit="page" from="29" to="44" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

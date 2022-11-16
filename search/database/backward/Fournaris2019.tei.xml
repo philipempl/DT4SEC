@@ -1,0 +1,2535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Design and Run-Time Aspects of Secure Cyber-Physical Systems</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Springer International Publishing</publisher>
+				<availability status="unknown"><p>Copyright Springer International Publishing</p>
+				</availability>
+				<date type="published" when="2019">2019</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Apostolos</forename><forename type="middle">P</forename><surname>Fournaris</surname></persName>
+							<email>fournaris@isi.gr</email>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Andreas</forename><surname>Komninos</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Aris</forename><forename type="middle">S</forename><surname>Lalos</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Athanasios</forename><forename type="middle">P</forename><surname>Kalogeras</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Christos</forename><surname>Koulamas</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Dimitrios</forename><surname>Serpanos</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Industrial Systems Institute</orgName>
+								<orgName type="institution" key="instit2">ATHENA Research Center</orgName>
+								<address>
+									<settlement>Patras</settlement>
+									<country key="GR">Greece</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Design and Run-Time Aspects of Secure Cyber-Physical Systems</title>
+					</analytic>
+					<monogr>
+						<title level="m">Security and Quality in Cyber-Physical Systems Engineering</title>
+						<imprint>
+							<publisher>Springer International Publishing</publisher>
+							<biblScope unit="page" from="357" to="382"/>
+							<date type="published" when="2019" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1007/978-3-030-25312-7_13</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:35+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Security by design</term>
+					<term>Security run-time monitoring</term>
+					<term>Cyber-physical systems security</term>
+					<term>Cybersecurity</term>
+					<term>Digital Twins</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Cyber-Physical Systems (CPSs) combine computational and physical components enabling real-world interaction. Digitization, decentralization, and high connectivity, as well as incorporation of various enabling technologies, raise various security issues. These security concerns may affect safety, endangering assets and even human lives. This is especially true for CPS utilization in different sectors of great significance, including manufacturing or critical infrastructures, creating a need for efficiently handling relevant security issues. Including security as part of a software-intensive technical system (i.e., the CPS) that can be distributed and highly resilient highlights the need for appropriate security methodologies to be applied on the CPS from the engineering stage during CPS design. The efficient security-related processes that are implemented at design time have an impact on security monitoring during the CPS operational phase (at run-time). Efficient and accurate security monitoring that follows security-by-design principles can be a potent tool in the hands of the CPS manager for detecting and mitigating cyber threats. Monitoring traffic and activity at the system boundaries, detecting changes to device status and configuration, detecting suspicious activity indicating attacks, detecting unauthorized activity that is suspicious or violates security policies, and timely responding to security incidents and recovering from them are issues that need to be efficiently tackled with by security monitoring. In this chapter, we explore the various CPS cybersecurity threats and discuss how adding security as a parameter at the CPS design phase can provide a well-structured and efficient approach on providing strong security CPS foundations. New technologies on CPS security design are presented and emerging security directions are discussed. Furthermore, in the chapter, the different aspects of security monitoring are presented with a special emphasis on CPSs, discussing the various existing monitoring approaches that are followed in order to detect security issues at run-time. Specific use cases of CPSs in the manufacturing domain and with reference to critical infrastructures are also</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.1">Introduction</head><p>Cyber-physical systems (CPS) are characterized by the tight integration of computing, communication, and control technologies <ref type="bibr" target="#b73">(Rajkumar et al. 2010)</ref>.</p><p>They transverse a number of application areas ranging from manufacturing to transportation, to energy and healthcare, to name just a few. They are associated with several research domains including real-time networking, real-time computing, hybrid systems, wireless sensor networks, model-driven development, and security <ref type="bibr" target="#b46">(Kim and Kumar 2012)</ref>. Cyber-Physical Systems (CPSs) constitute a disruptive technology applicable in many industrial domains and present strong impact on economies and social processes, on many fronts, including robotics, security, safety, and military, and across industries and applications , as they aim to bridge the cyber world of computing and communications with the physical world <ref type="bibr" target="#b73">(Rajkumar et al. 2010)</ref>. CPSs represent complex engineered physical systems, centered on Information and Communication Technologies (ICT) to integrate, control, monitor, and coordinate their operations. The advances of ICT toward interacting with the physical world actually make CPS rather ICT systems integrated into the physical world processes and applications <ref type="bibr" target="#b33">(Gollmann 2012;</ref><ref type="bibr" target="#b37">Humayed et al. 2017)</ref>.</p><p>The application of CPSs is wide, covering different domains. Such domains include critical infrastructure monitoring, control and protection (energy, water resources, communication systems, and transportation infrastructures), manufacturing, factory automation and control, building management and control, environmental monitoring, automotive systems, healthcare, and defense and military systems. Identification of end user needs, challenges, and opportunities in the different application domains can advance research in CPS. Multidisciplinary collaborative research can lead toward high confidence systems characterized by compatibility, synergistic behavior, and integration at all scales between cyber and physical designs <ref type="bibr" target="#b2">(Baheti and Gill 2011)</ref>. This confidence cannot be attained unless it stems from the careful integration of security and, by extension, reliability considerations in the design of such systems.</p><p>The inherent characteristics of CPSs raise significant security challenges. CPSs are characterized by wide geographical distribution comprising different types of sensing, actuating, computing, and control devices, usually without physical security. In several cases, those devices are left unattended and unsupervised in "hostile" environments where they can be easily attacked. They have requirements with a need to react in a real-time manner. They have different communication channels that may be exploited by adversaries due to the CPS feedback from the physical environment. They are characterized by distribution of management and control usually involving multiple parties. They present System of Systems control characteristics <ref type="bibr" target="#b68">(Neuman 2009)</ref>. The peculiarities of CPSs with reference to their characteristics and the high economic and societal impact stemming from potential security attacks make reliability and security integral to their operation. In order to guarantee such properties in complex systems comprising heterogeneous devices interconnected with different communication technologies, it is imperative to have a deep understanding of related threats and vulnerabilities at the outset of the design phase. This approach leads to formal specifications describing the CPS implementation. However, this task is quite challenging as it needs to address both discrete and continuous CPS behavior. There is a strong need for security operations integration to CPS hardware structure as well as CPS software-intensive operations beginning from the CPS engineering (design) phase and progressing to CPS operation phase in order to be able to achieve a high level of protection against cybersecurity attacks and to support a broad range of security activities. Applying security-by-design principles is the best approach in order to structure CPSs that have the capability to support intrinsically strong security at operational time with minimal number vulnerabilities. This also reduces the fault tolerance of the CPS system, thus making it more resilient to support safety critical applications.</p><p>This security-by-design approach that leads to designs with several supported security features, however, has no impact on security if such features are not put in good use throughout the full lifecycle of the CPS. More specifically, at the CPS regular operation, security protocols must be efficiently established at the communication level and specialized security mechanisms must be deployed and executed in order to monitor the system for cyberthreats.</p><p>Run-time security monitoring utilizes program monitors in order to examine deviations between the expected and real behavior of a system. The formal specification describing the CPS behavioral model as well as machine learning algorithms can be used for the determination of the expected "good behavior" of the system. Building such program monitors is quite complex and challenging when it comes to large-scale CPSs of high complexity involving physical processes. Enabling technologies in the context of Industry 4.0 and the Industrial Internet of Things can be used to enhance such monitoring mechanisms. Digital Twin <ref type="bibr" target="#b85">(Tao et al. 2018)</ref> by representing a digital model that accurately mimics its physical counterpart and evolves, is continuously updated to reflect changes in the physical world <ref type="bibr" target="#b62">(Maurer 2017)</ref> becomes fertile ground for detecting deviations between the physical twin and its digital counterpart.</p><p>In this chapter, we discuss emergent security and reliability challenges pertinent to CPSs focusing on the mechanisms, approaches, and solutions on achieving securityby-design goals in CPSs in order to support security-based software-intensive functions at the CPS's operational level. We discuss the design principles that need to be applied in order to protect communications and to achieve resilience, robustness in CPSs. We also present and analyze existing and emerging approaches on how to constantly monitor the CPS's security level through appropriate cyber-threat and anomaly detection schemes considering also novel concepts like the Digital Twins technology. Finally, we also present a use-case scenario that targets security in industrial/critical infrastructure CPSs and give some future research directions on the chapter's concepts. The rest of the chapter is organized as follows: Sect. 13.2 presents CPS security challenges and deals with reliability and security by design, Sect. 13.3 addresses Run-Time Security Monitoring in CPSs. Section 13.4 deals with the use case of Industrial Control Systems (ICS), a subclass of CPS, their threats and vulnerabilities. Finally, Sect. 13.4 presents relevant research challenges and concludes the chapter.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.2">Reliability and Security by Design</head><p>Reliability and Security are two equivalent aspects of a system's operation. They are related with two different domains of thinking. While security ensures that a system is doing the right thing, system reliability safeguards that the system is doing the thing in the right way. To be characterized as secure, a system must exhibit the following three properties: confidentiality, integrity, and availability. Confidentiality represents a set of rules limiting access to information. It thus ascertains that sensitive information does not reach inappropriate parties, while guaranteeing that it is accessible by the right parties. Integrity is the assurance of information consistency, trustworthiness, and accuracy throughout its entire lifecycle. It thus implies that information is only modified by authorized parties. Availability is a guarantee of authorized parties' reliable access to information.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.2.1">Threats to Cyber-Physical Systems</head><p>In the past, CPS' safety and reliability have been the foremost concern, even though their security had always been recognized as important. Despite this acknowledgment, CPS security has traditionally been treated as an "afterthought" in the engineering phases of systems <ref type="bibr" target="#b67">(Mouratidis et al. 2003)</ref>, owing mostly to the fact that in traditional CPSs security dangers were limited, since these systems were operated in isolation from the rest of the world. With the use of open networks, wireless technologies, the Internet and the IoT, and the cloud, the isolation of CPSs has ended, resulting in Internet-based attacks being the majority of attacks after 2001 <ref type="bibr" target="#b11">(Byres and Lowe 2004)</ref>. Unfortunately, despite the increasing connectivity of systems and the realization that the connectedness requirements of modern systems also imply an increased need for system security, the application of security-conscious design practices in industrial systems remains fragmented. Modern systems are still designed without a consistent integration of security practices or requirements into the core functional requirements identified through design <ref type="bibr" target="#b77">(Ruiz et al. 2015)</ref>. In a 13 Design and Run-Time Aspects of Secure Cyber-Physical Systems 361 sense, this is not overly surprising-after all, with the ever-changing nature of cyber threats, it would be impossible to design a completely secure system that could be robust against any future type of attack. However, to ensure CPS reliability and security, it is imperative that these systems are designed from the outset with a thorough understanding and consideration of the threats and challenges that at least a current adversary may pose.</p><p>Although the precise form of a CPS security threat may differ, and indeed, even though it is impossible to predict the novel and ingenious types of attack that may emerge in the future, the fundamental nature of a threat remains unchanged. A security threat represents a set of circumstances with the potential to cause loss or harm <ref type="bibr" target="#b71">(Pfleeger and Pfleeger 2006)</ref>. The US National Institute of Standards and Technology defines threats more analytically as "Any circumstance or event with the potential to adversely impact organizational operations (including mission, functions, image, or reputation), organizational assets, or individuals through an information system via unauthorized access, destruction, disclosure, modification of information, and/or denial of service" <ref type="bibr" target="#b76">(Ross et al. 2006)</ref>. In a CPS, system vulnerabilities that can cause such circumstances or events might be distinguished into cyber, physical, or cyber-physical. Physical vulnerabilities include physical sabotage of equipment or jamming but also fault injection and side channel attacks <ref type="bibr" target="#b26">(Fournaris et al. 2017a)</ref>. Cyber vulnerability types include communications and communication protocols, software, and web-based attacks. Cyber-physical vulnerabilities include interconnected devices, insecure protocols, insecure Operating Systems, Software, Replay, and Injection attacks.</p><p>Summarizing, a threat is a situation where a given system is vulnerable to one or multiple attackers, attempting to gain access to one or more components of the system, in order to carry out an unauthorized objective. Through a review of existing literature, <ref type="bibr" target="#b55">Lei et al. (2018)</ref> proposed a concise taxonomy of threats to the security (and by extension, reliability) of CPS, in which a specific attack can be categorized from three major perspectives, namely, its origination, purpose, and target. Furthermore, in <ref type="bibr" target="#b37">Humayed et al. (2017)</ref> we also find a consideration about the consequences of a successful attack.</p><p>These definitions may seem somewhat abstract, but understanding the fundamental components of a threat allows a system engineer to begin to integrate security aspects as an intrinsic part of the requirements capture process and subsequent design choices. As a result, while designing around the requirements of a system, an engineer might begin to consider security by asking Who (i.e., which entities), Why (i.e., what objective these persons might have) and How (i.e., what tools or exploits will they attempt to use). The estimated consequences of an attack (we could call this the What aspect), allows an engineer to identify the individual components that merit security considerations, classify the severity of each threat, and therefore prioritize and inform the design work required to counter these threats (Fig. <ref type="figure">13</ref>.1). Such consequences may affect the operation of a system asset (technical consequence), business aspects (e.g., loss of confidential information, inability to respond to customer demands) and also psychological consequences both within the organization operating the CPS (in-house morale) and outside it (e.g., investor relationships, public sentiment). Concerning the "Who" aspect, a CPS engineer should be aware that attacks can be adversarial, initiated by malicious insiders and outsiders, that is, entities (persons or organizations) with authorized or unauthorized (illegitimate) access to the CPS. We often think of other humans as "attackers" of a system, and indeed this is a significant source of anxiety since we cannot always predict who might be interested in initiating an attack, but humans are not the only source of threats. Accidental damage caused by legitimate components (e.g., a buggy software update that may inadvertently wipe, or corrupt data under very specific and rare contexts), environmental factors including natural or man-made disasters ("act-of-God" phenomena), or simple failures, can also be the source of a threat that can affect security and reliability. Great heterogeneity of CPS components is also a source of vulnerability as they generally come from different vendors, following different paths of specification, design, implementation, and integration, involving different entities. This greater level of integration of components that CPSs are composed of brings forth the inherent vulnerabilities of all constituent components <ref type="bibr" target="#b23">(Ericsson 2010)</ref>. Thankfully, these nonhuman sources are easier to predict (and thus guard against).</p><p>In respect to the "Why" aspect, the motivation of attackers can be classified into cybercrime, cyber espionage, cyber terrorism, or cyber war <ref type="bibr" target="#b82">(Setola 2011)</ref>. Further threats move beyond the realm of the technical and into the sociopolitical domain (e.g., societal and legal reactions toward increased automation, surveillance, data gathering). As such, motives might include personal factors (e.g., disgruntled employees), political factors (e.g., protest against government actions, retaliation against physical attacks), and sociocultural factors (e.g., anniversaries of important or historic events). Answers to the "Why" question help a system engineer understand the context of attacks, and perhaps even anticipate their timings <ref type="bibr" target="#b31">(Gandhi et al. 2011)</ref>.</p><p>The "How" aspect defines the type of attack, through the medium, tools, and techniques that are used to carry out the attack. This is more formally defined as the attack vector. Attacks can be categorized as passive or active, in the sense that passive attacks attempt to obtain access to sensitive information without affecting the operation of the CPS, while active attacks explicitly aim to affect the CPS resources and modify the operation of the system (e.g. bringing nodes offline, or maliciously modifying their behavior). Alternatively, an attack can be classified according to the system asset that it targets. Interception attacks aim to obtain unauthorized access to information (e.g., via keylogging, packet sniffing, side channel leakage exploitation) and are, by their very nature, passive. Modification attacks target the system's integrity, by modifying control signals or sensor values for example. Interruption attacks target the system resource availability (e.g., Denial of Service Attacks), by disrupting communication, modifying software or deleting data. Finally, fabrication attacks target the system's operation by inserting non-authenticated operations, for example, fake control signals and transactions. These three latter types of attack are all considered as active attacks. These active attacks can further be viewed under two typical scenarios, random attacks (in which, e.g., an intruder blindly injects or modifies information into the CPS) and targeted attacks, where the attacker attempts to affect specific components or states of the CPS <ref type="bibr" target="#b19">(Ding et al. 2017)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.2.2">Approaches to Preventing and Detecting CPS Attacks</head><p>As discussed previously, compared to pure software systems, the design of a CPS needs to be concerned with a mixture of physical, cyber, and cyber-physical threats. To mitigate the effects of such attacks, a CPS may be designed so as to implement preventative measures at both the physical level (e.g., restricting physical access to certain assets, monitoring employee, contractor or asset presence, maintaining backup copies in physically remote locations) and also the cyber levels (e.g., enforcing strong cryptography, software certification and user/service authentication measures). Some measures involve a hybrid cyber-physical approach, for example, securing physical access to assets can be implemented using both physical equipment (e.g., gates, door locks) and cyber equipment (e.g., RFID employee badges, smart locks, sensor equipment). Other examples might include the physical location of networking equipment, which in turn, dictates the type of networking equipment that can be used, and thus the type of cybersecurity mechanisms that need to be implemented on top of the network layer. For example, at the design phase, the engineer may have to choose between wired and wireless communication technologies for certain assets, depending not just on the physical properties of the environment where these assets might be located, but also on the likelihood of potential types of attack that exploit weaknesses of the network types. In the next sections, we discuss a few core considerations during the design of secure CPSs and present common approaches that the engineer might consider during the design phase.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.2.2.1">Prevention Strategies</head><p>Communication networks are perhaps the most obvious attack target for connected CPSs. The obvious approach is to prevent such attacks by strictly securing all communications, data, and access to various subcomponents, but this approach introduces problems at scale, given the required complexity and generated overheads. This is because many of the participating IoT devices (such as sensors) do not have the computing capability required to implement such measures, or at the very least, not with the required lack of delay <ref type="bibr" target="#b92">(Zhang et al. 2016)</ref>. Moreover, given the heterogeneity of large-scale CPSs, the different operating characteristics and configurations (often left at "defaults") of commercial off-the-shelf components that make up parts of a CPS can be easily exploited for attacks, or equally may make it difficult to integrate them into a comprehensive security framework <ref type="bibr" target="#b37">(Humayed et al. 2017</ref>). To circumvent the problem, it has been demonstrated that securing intelligently selected subsets of data, or strategically introducing secure infrastructure at key areas of a CPS, like hardware security tokens <ref type="bibr" target="#b27">(Fournaris et al. 2017b)</ref>, may act as a strong deterrent, especially in large-scale systems such as power grids, since such approaches make it extremely hard and impractical for an attacker to effect more than small and inconsequential compromises to the system's integrity <ref type="bibr" target="#b47">(Kim and Poor 2011)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.2.2.2">Detection Strategies</head><p>The design and integration of preventive strategies can add a strong deterrent to the security of a networked CPS, but it is not enough to guarantee reliable operation of a system. For example, an insider attack from a corrupted employee can completely override any network security measures and is not preventable with such means. Organized, motivated, and well-funded attackers may be able to find ways to penetrate the security of a CPS network, but there is a range of attacks that do not require penetration of a network's security (e.g., DoS through flooding), and which are able to wreak havoc on even the most heavily secured system. To secure a CPS and ensure its reliability, engineers must integrate detection mechanisms at the design phase, to continuously monitor the operation of the system and identify potential breaches of security, or threats to the reliable operation of the system, ideally in real time.</p><p>In the design of CPS, mathematical modeling of the effects of various attack types can be useful in order to derive monitoring schemes that can detect these attacks in real time. For example, network performance degradation, such as observed in 13 Design and Run-Time Aspects of Secure Cyber-Physical Systems 365 denial of service attacks, is well studied in terms of its modeling and is therefore easily detectable <ref type="bibr" target="#b69">(Pang et al. 2011;</ref><ref type="bibr" target="#b1">Amin et al. 2013;</ref><ref type="bibr" target="#b7">Befekadu et al. 2015)</ref>. Other types of network attack are harder to detect and defend against, for example, in <ref type="bibr" target="#b54">Lee et al. (2014)</ref> a framework is presented for detecting wormhole attacks. These attacks target the control signals relayed between distant sites over wireless networks, by establishing links that appear to be authentic, but in reality, work by delaying signals, or replaying previous signals. This type of attack is not preventable by cryptography, since the delayed or replayed messages are all valid.</p><p>When attackers are able to bypass network security and gain access to a networked CPS, there are still measures that can be implemented from the design phase, which can help ensure reliable operation of the system. A frequent objective of attack after penetration is to enact interruption or fabrication types of attack, threatening the integrity of CPS data. It is possible to implement simple yet effective detectors of bad data, either using simple thresholds (which the attacker cannot know in advance) or by detecting significant deviations from the expected reported states <ref type="bibr" target="#b64">(Mo et al. 2010)</ref>. Even with such measures, small changes effected by attackers may incrementally mount to large consequences in the operation of CPSs, and still, an attacker might adopt conservative strategies to minimize the chances of being detected. As such, it is apparent that real-time detection should ideally be paired with longitudinal monitoring of system behavior, in order to detect such cumulative effects on the system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.2.2.3">Implementing CPS Security Strategies</head><p>More recently, the rise of popularity (and accessibility) of machine learning tools has led to the recommendation for applying such techniques (especially deep learning neural networks) to detect reliability or security issues <ref type="bibr" target="#b51">(Kriebel et al. 2018)</ref>. One drawback of these approaches is that although a trained classifier can work in real time to detect threats, on the cloud, fog, or even edge level <ref type="bibr" target="#b59">(Mamdouh et al. 2018)</ref>, the training process has to be performed typically offline, and particularly so when the training data consists a large volume. Hence, such classifiers cannot be retrained online and require multitier architectures <ref type="bibr" target="#b44">(Khorshed et al. 2015)</ref> for their implementation (e.g., online for detection, near-line for model tuning, offline for training).</p><p>Other approaches, such as <ref type="bibr" target="#b83">Singh et al. (2016)</ref> are more concerned not with detecting attacks, but mitigating the results of attacks by implementing a better control mechanism that is robust to a variety of network effects, whether these effects occur naturally (e.g., dynamic inadvertent changes in network operating conditions) or occur maliciously (e.g., certain types of attack).</p><p>The introduction of trusted computing as part of the security-by-design approach can also provide a proactive countermeasure against possible attacks on CPS devices. Latest processor technologies provide trusted execution environment (TEE) generation that can be used for security sensitive software execution. Such execution environments cannot be accessed by attackers to install malicious code or alter existing software code since all activities are monitored. For example, ARM offers the ARMTrustzone TEE for all its cortex A family and in some of its cortex M processor family. Dedicated hardware tokens can also be placed in non-embedded system CPS devices like Trusted Platform Modules (TPMs) in order to instill security and trust on control management subsystems of a CPS <ref type="bibr" target="#b25">(Fournaris and Sklavos 2014)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.2.3">Challenges to Securing Cyber-Physical Systems</head><p>There are several open problems and research challenges associated with security of CPS. First of all, there is a need to consider CPS security aspects throughout their lifecycle. This means that security should be an intrinsic property of CPS right from its design phase, rather than an issue to be dealt with at a later stage, for example, for mitigating a potential attack. Secondly, CPS security design has to consider both cyber and physical system aspects. The combination of cybersecurity and physical system theoretic security, results in better guaranteeing CPS security as both approaches are incomplete and present drawbacks <ref type="bibr" target="#b65">(Mo et al. 2012</ref>). Yet, this approach requires a change in design principles so as to address both the cyber and physical worlds. Thirdly, the real-time nature of CPS security needs to be addressed. Real-timeliness of decision making is critical in ascertaining survivability of CPS in the case of an attack. Ensuring attack resilience of CPS mandates taking into account the physical and cyber world interactions, during the design phase <ref type="bibr" target="#b12">(Cárdenas et al. 2011)</ref>. A fourth research challenge is associated with CPS change management. CPSs represent complex systems that comprise a big number of components and systems. Changes in CPS, for instance changes in hardware, device mobility, software updating and patching or addition of capabilities, often result in different overall systems. It is a challenge to ascertain that no new vulnerabilities are introduced and that the CPS security assumptions remain valid as well as ascertain that updates are not tampered and are transmitted to CPS devices in a secure way.</p><p>Despite technical progress such as reported above, and as can generally be found in the domain of cryptography, system security and network security, a CPS introduces fundamental challenges to the holistic aspect of security and reliability, given its very nature. Starting off with the fact that we should not forget the physical aspect of CPSs, it is imperative that physical security measures (e.g., gates, barriers, locks, security personnel, access protocols, and policies) are designed, tested, and implemented. These physical security measures are by no means perfect and undefeatable, and their compromise can quickly lead to mounting threats in the cyber aspect of CPSs (e.g., manual installation of rootkits that compromise cybersecurity). Still, one challenge to be faced in the transition from classical industrial control systems to dynamic CPSs is the fact that older CPSs assumed isolation from the external world (hence burden was more heavily focused on physical, rather than cybersecurity). These legacy systems will inadvertently form part of extended, interconnected CPSs (until such time at least as they are upgraded or replaced) and therefore present an inherent security risk, since they rely on unsecure software and connection protocols (since the principle of isolation did not mandate more sophisticated approaches) <ref type="bibr" target="#b37">(Humayed et al. 2017)</ref>.</p><p>In this regard, it should be considered that a CPS may be subject to not just single types of attack, but needs to be secured against multiple types of simultaneous attacks. Given its scale, it is plausible that attackers might choose to adopt a low-detectability, low-consequence form of attack, whose effects might however amount to large cumulative problems in the operation of CPSs. Scale also aggravates the problem of attack detection, since network effects and the nonlinear dynamics of networked, adaptive, and self-configurable operations might signal unexpected deviations from normal operating parameters, which might be confused for attacks. The latter aspect of networked, adaptive, and self-configurable operation of CPSs (especially in the context of Industry 4.0 and distributed manufacturing) demonstrates the difficulty in developing robust, accurate, and integral formal models for the simulation of such systems. Quite simply, the dynamic configuration of available components, operating modes, and context-sensitive goals of CPSs make the modeling of any nontrivial such system a daunting prospect.</p><p>On the positive side, this dynamic complexity of adaptive and self-configurable CPSs makes it hard for attackers to carry out targeted attacks, since this typically requires an intimate knowledge of the system's configuration and operations <ref type="bibr" target="#b12">(Cárdenas et al. 2011)</ref>. This aspect can work well to the advantage of defending such systems, since it has been demonstrated that prior knowledge about a system's configuration (physical model) can significantly help in identifying the most critical sensors and attacks <ref type="bibr" target="#b12">(Cárdenas et al. 2011)</ref>, and of course, a priori knowledge of this configuration can help to dynamically identify and control security aspects during operation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.2.4">Designing Security and Reliability into CPSs Using Digital Twins</head><p>At this time, given the relative infancy of large-scale networked CPSs, it is not surprising that attempts at defining engineering and design processes for incorporating security into the design of such systems are very limited. In <ref type="bibr" target="#b68">Neuman (2009)</ref> it is argued that for CPSs, all communication channels within an application are enumerated and analyzed for security constraints, under a domain-specific understanding that includes both physical (sensor) and external (human operator or third-party control) process channels. This analysis feeds into the relatively modern concept of a "Digital Twin": an online, cyber model of the physical processes taking place in a CPS, which can be used to simulate outcomes at decision points, or monitor the operation of a CPS in real time. In this sense, a Digital Twin can incorporate many of the online threat detection and prevention measures discussed above. To become a successful tool toward this end, a Digital Twin cannot be statically defined; instead, it needs to be dynamically generated and adapted using environment specification. Multiple such twins can be produced for various purposes: control, monitoring, and testing, the latter particularly important for security engineers, who can exploit these models to test CPS resilience against a variety of attack vectors, without fear of risking the real CPS in operation <ref type="bibr" target="#b20">(Eckhart and Ekelhart 2018a)</ref>. Even better, the Digital Twin is something that can evolve along with the design of a CPS. As various options are explored in the design phases, they can be modeled and trialed in a partial Digital Twin model, thereby informing the design process and help engineers make better decisions in the context of security and reliability, as they work toward designing the full system.</p><p>Although the concept of a Digital Twin is promising, considering the assistance it may offer to engineers throughout the whole lifecycle of a CPS (design, operation, maintenance), there are some issues that need to be considered. The main challenge in producing a Digital Twin for a CPS is that engineers need to fully document the subsystems that comprise the CPS using a parseable formal specification language (e.g., AutomationML). Changes to existing components must also be reflected in their specification, to ensure model validity. This challenge is significant, as it requires considerable additional effort at the design stage of a CPS, and also there is no guarantee that components (e.g., third-party services, off-the-shelf assets) that are later added to the CPS will come with such documentation; therefore, it might be challenging to integrate these new components into an existing Digital Twin model. Even if a Digital Twin model was able to fully capture the operation of a CPS, the model cannot display complete fidelity to the real world, since observed effects in real-world operation are often nonlinear and chaotic, hence may not be so accurately modeled (e.g., signal noise, network latency, power grid fluctuations).</p><p>Further from preliminary steps toward the specific use of Digital Twins as tools for security and reliability analysis, little other progress has been made in generalizing the use of Digital Twins as engineering design and lifecycle monitoring tools, as acknowledged in <ref type="bibr" target="#b5">Bécue et al. (2018)</ref>. However, it is envisioned that digital twins that act as a testbed for real large-scale CPSs can enhance the potential of identifying and correctly applying strategic security approaches, possibly through carrying out adversarial exercises (red team vs. blue team, attackers vs. defenders) across the security engineers and personnel involved in the operation of a CPS. In that sense, the CPS users can be trained on the security aspects of their CPS using trial and error without affecting the reliability of the actual system. Also, CPS Digital Twins can be used in order to test new security policy effectiveness before such policies are applied to the real system, thus considerably helping the construction of a tailored-made, concrete security policy for each CPS at hand.</p><p>The Digital Twin concept will undoubtedly feedback results of such exercises into the design of CPSs, helping to improve their configuration. At a time where it is uniformly accepted that our knowledge about how to best configure and secure large-scale adaptive CPSs is rather limited, the digital twin can be seen not just as a tool for posthoc evaluations of system security and reliability, but potentially as an integral part in the incremental design process of robust CPSs, from their very core conceptual phases. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.3">Run-Time Security Monitoring</head><p>Considering the security threats and challenges that CPS have, as those described in the previous section, it becomes obvious that there is a considerable need to continuously monitor a CPS during its regular operation for security anomalies that can result to some security attack. Typical ICT systems have a series of welldeveloped tools that by combining a wide range of technologies and methods can detect, respond, and mitigate security attacks. The generic category of run-time monitoring systems may comprise various components like intrusion detection systems (IDS), zero-vulnerability malware detectors, and anomaly detectors that are all interconnected under a security information and event management (SIEM) system. The SIEM is usually responsible for the correlation between various events and logs to extract security alerts and make attack mitigation suggestions. However, a CPS run-time security monitoring system must consider the CPS specificities that, in several cases, are distinctly different than those of a typical ICT system. According to <ref type="bibr" target="#b63">Mitchell and Chen (2014)</ref>, there are four basic characteristics that distinguish CPSs from typical ICT systems in terms of run-time security intrusion detection: physical process monitoring, Machine-to-Machine communications, heterogeneity, and legacy system interactions. Due to their connection between the cyber and the physical world, the CPS devices measure physical phenomena and perform physical processes that are governed by the laws of physics. Thus, a CPS security monitoring system must perform physical process monitoring, using physical laws as a control mechanism to model and predict valid instructions and outcomes. Furthermore, many CPSs application scenarios are highly focused on automation and time-driven processes that realize closed control loops, which do not require human intervention (and its associated unpredictability). This kind of behavior focused on Machine-to-Machine communications, increasing the regularity and predictability of the CPSs' activities. The CPS security monitoring system should be able to monitor regularly closed control loops. Thirdly, the attack surface of a CPS is considerably broader than that of an ICT system. CPSs consist of many heterogeneous subsystems and devices while they follow a broad range of different, not ICT related, control protocols like ISA 100, Modbus, CAN, etc. Some of these devices and protocols have proprietary software or standards that may constitute ICT attacks unfitting. This characteristic, along with the fact that a successful CPS attack has high impact and thus high payoff, attracts very skilled attackers that can mount very sophisticated attacks on CPSs <ref type="bibr" target="#b26">(Fournaris et al. 2017a</ref>). Such attacks are usually very hard to discover and document since typical ICT intrusion detection software cannot identify them (e.g., the attacks may not be IT related but rather OT related). Attackers exploit CPS zero-day vulnerabilities, which would render many ICT security monitoring toolsets useless (e.g., knowledge-based ones <ref type="bibr" target="#b63">(Mitchell and Chen 2014)</ref>).</p><p>Lastly, many CPSs include legacy hardware that is difficult to modify or physically access. Such components may be partially analog, have very limited installed software resources and be dictated by physical processes. The challenge here is how to install security monitoring sensors on such devices and how to predict/model their behavior correctly in order to detect possible anomalies. It needs also to be considered that legacy devices do not have many computational resources and it becomes hard for the monitoring system to retain its real-time responsiveness when collecting security metrics from them. Run-time security monitoring in the CPS domain, considering the above specificities can take various forms. However, they all rely on two core functions, the collection of data from various CPS sources and the analysis of data in a dedicated run-time security monitoring subsystem. To achieve appropriate data collection, the security monitoring system must deploy security agent software/hardware <ref type="bibr" target="#b28">(Fournaris et al. 2018</ref>) on the monitored CPS devices, or introduce virtual entities (Virtual Machines) for data collection <ref type="bibr" target="#b20">(Eckhart and Ekelhart 2018a)</ref> within the CPS infrastructure. Examples of collected data can be Syslog log events, system call logs, traffic recordings from network interfaces, reputation scores, processing loads, connection/communication failures, etc. All collected data are analyzed in the CPS run-time security monitoring system that uses data mining, machine learning, pattern recognition or statistical data analysis to extract metrics on security issues that may take place inside the CPS at run-time. Such issues may be possible incidents detected via data that can be binarily characterized as bad/good, or continuously characterized by a specific significance grade. The performance of the security monitoring system is measured by the False Positive Rate (FPR), the False Negative Rate (FNR), and the True Positive Rate (TPR). The system is also measured in terms of incident detection latency and consumed resources number, computational overhead, excessive network traffic, and power consumption <ref type="bibr" target="#b63">(Mitchell and Chen 2014)</ref>.</p><p>To better understand the monitoring/detection approach that run-time security monitoring systems follow, we can broadly identify two approach categories: knowledge-based detection and behavioral-based approaches. In a knowledge-based security monitoring system run-time, features that are extracted from collected data are matched with a specific profile pattern or model. Alarms are raised when there is a behavior mismatch with the existing profiles or models. This approach may lead to low FPR, but needs a very well-described profile or model to be effective (e.g., an attack dictionary, a CPS device functionality pattern) since it relies on identifying a specific pattern/model.</p><p>On the other hand, behavior-based security monitoring systems do not rely on a specific prescribed knowledge but rather look for run-time features that seem out of the ordinary and act as outlier values to the expected behavior of a CPS. Supervised, semi-supervised, or unsupervised machine learning algorithms can be employed on this approach. As expected, in supervised and semi-supervised algorithms a predefined training set must be constructed in such a way that it reflects accurately the expected CPS behavior. Given the CPS specificities, this is a nontrivial task. It takes a lot of time and effort to structure such a dataset (e.g., using state-of-the-art feature analysis, discovery, and engineering techniques) and still the behavior-based monitoring may result in high FPR. Unsupervised behavior-based monitoring does not need a prestructured training set and creates the dataset using CPS live data <ref type="bibr" target="#b63">(Mitchell and Chen 2014)</ref>. The behavior pattern that the above approaches evaluate can be a deviation from good behavior or a match to bad behavior <ref type="bibr" target="#b42">(Khan et al. 2016)</ref>. Bad behavior matching monitors detect attacks by building profile(s) of known bad system behavior, such as statistical profiles of attacks <ref type="bibr" target="#b36">(Hodge and Austin 2004;</ref><ref type="bibr" target="#b70">Paxson 1998)</ref>. Such monitors are robust since machine learning techniques tend to generalize from the presented data <ref type="bibr" target="#b42">(Khan et al. 2016</ref>). On the other hand, good behavior deviation monitors build a statistical profile of normal (good) behavior and detect deviations from this profile <ref type="bibr" target="#b52">(Lakhina et al. 2005;</ref><ref type="bibr" target="#b88">Watterson and Heffernan 2007)</ref>. Their robustness is better than that of bad behavior monitors since their employed machine learning techniques do not rely on historical knowledge of possible attacks <ref type="bibr" target="#b42">(Khan et al. 2016)</ref>.</p><p>There are several CPS security monitoring systems that consider some of the distinguishing CPS characteristics in their design, like the works in <ref type="bibr" target="#b40">Kane (2015)</ref> and <ref type="bibr" target="#b48">Koopman and Wagner (2016)</ref>, which are focused on closed control loop monitoring in autonomous computing systems and on traditional network traffic monitoring. Specifically, for industrial network run-time security monitors, there are solutions that take advantage of the physical process measuring taking place in an industrial site as well as the closed control loop processes <ref type="bibr" target="#b72">(Qin 2012</ref>), but they still use techniques based on traditional network traffic monitoring. For example, the ARMET <ref type="bibr" target="#b43">(Khan et al. 2018</ref>) system can identify good behavior deviations in a reliable way that has very low FPR and FNR. ARMET can observe at run-time an application's execution, compare it against the predicted execution behavior, and identify deviations.</p><p>When it comes to security run-time monitoring based on knowledge-based approaches using models, there is a need for some model description language that can take into account CPS characteristics like real-time responsiveness <ref type="bibr" target="#b9">(Blum and Wasserman 1994)</ref>. <ref type="bibr" target="#b3">Barnett et al. (2003)</ref> proposed the use of AsmL as an executable specification language for run-time monitoring. AsmL, an extension of Abstract State Machines (ASM), is based on the formalism of a transition system whose states are first-order algebras <ref type="bibr" target="#b10">(Börger and Stärk 2012)</ref>. In <ref type="bibr" target="#b14">Chupilko and Kamkin (2013)</ref>, a full framework for executing specifications of real-time systems is proposed. This proposal can be used for security run-time monitoring in CPS timed systems.</p><p>There are very few CPS security run-time monitoring systems that provide efficiency metrics as are specified at the beginning of this section <ref type="bibr" target="#b40">(Kane 2015)</ref>. There exist works where such results are provided but only for CPS monitoring subsystems like IDSs <ref type="bibr" target="#b42">(Khan et al. 2016)</ref>.</p><p>What needs also to be mentioned is the fact that existing solutions on CPS security monitoring are primarily focused on detecting computational and network security incidents happening in a CPS. However, since a CPS implements closed control loops that rely on collected data for autonomic decision-making, malicious attacks on the collected data can also constitute a very serious threat. Recently, effort has been invested in detecting false data injection (FDI) attacks that aim to maliciously alter the CPS control loops. Research works aiming to provide protection against FDI are focused on making efficient vulnerability analysis like the work in <ref type="bibr" target="#b42">Khan et al. (2016)</ref> where vulnerability to FDI is expressed as a satisfiability problem and solved using a solver that supports functions over real numbers <ref type="bibr" target="#b32">(Gao et al. 2013</ref>) or focused on utilizing appropriately FDI fault diagnosis techniques <ref type="bibr" target="#b74">(Rigatos 2015</ref><ref type="bibr" target="#b75">(Rigatos , 2016</ref>.</p><p>It is important here to note that the full potentials of a run-time security monitoring system are not unrelated with the security-by-design principles described in the previous section. A very important aspect of any monitoring tool is the mechanism that provides input to such a tool. As mentioned, in security monitoring tools inputs are provided by event data collection points (security agents or sensors) that are installed in various parts of a CPS. It is of prime importance that these security sensors are designed and realized in the CPS architecture during the engineering phase (design time) and that they are fully integrated with the CPS architecture.</p><p>Only then can such sensors maximize their efficiency (in terms of speed but also in terms of impact) on collecting all security-related information that may trigger run-time security anomalies.</p><p>As will be explored in detail in the following chapters of this book, Digital Twins can enhance CPS security monitoring mechanisms. It has already been proposed as a tool to provide additional security in a CPS system by testing security components in complex CPSs <ref type="bibr" target="#b21">(Eckhart and Ekelhart 2018b;</ref><ref type="bibr" target="#b86">Tauber and Schmittner 2018;</ref><ref type="bibr" target="#b15">Damjanovic-Behrendt 2018)</ref>. A framework providing a security-aware environment for Digital Twins is described in <ref type="bibr">Eckhart and Ekelhart (2018a, b)</ref>, demonstrating, among others, how security and safety rules can be monitored in security-relevant use cases. The framework is extended in <ref type="bibr" target="#b22">Eckhart and Ekelhart (2018c)</ref> by a specificationbased, physical device state replication approach, by passively monitoring their inputs and outputs, showing successful detections of attacks against a CPS testbed. However, there is still no concrete proposal on how to use Digital Twins of a CPS as part of a run-time security monitoring system since Digital Twins is a relatively new modeling approach and it has considerable complexity making it hard to be integrated in a monitoring tool. However, conceptually, Digital Twins can be an integral part of security monitoring since it provides a trusted environment for testing real inputs without the possible presence of malicious entities. In that sense, a Digital Twin of a CPS can act as a trusted replica of the actual system where good behavior can be modeled and evaluated as well as device patterns can be described and trusted. Following the knowledge-based or behavior-based CPS runtime monitoring approaches, we can use the Digital Twin virtual environment to match collected data and its behavioral patterns with the known good behavior of the Digital Twin. Alternatively, Digital Twins can be used in order to construct in a safe, virtual environment, training datasets for machine learning algorithms that are used during CPS run-time security monitoring.</p><p>The industrial sector is beginning to understand the security benefits and potentials of Digital Twins in the industrial CPSs. As such, large companies have announced their plans to launch relevant products based on the Digital Twins concept. The announcement of General Electric's (GE) Digital Ghost, which is a combination of GE's Digital Twin efforts and industrial control technologies, as a means to thwart cyber-attacks <ref type="bibr" target="#b18">(Dignan 2017</ref>) constitutes an indication of the above interest. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.4">CPS Security Use Cases</head><p>In this section, we focus more specifically on a CPS use case, targeting Industrial Control Systems (ICS) and describe state-of-the-art approaches in the application of CPS security and reliability design for such systems, in order to concretely demonstrate the integration of the aspects discussed in the preceding chapters. An ICS is a subclass of CPS that is associated primarily with the manufacturing sector, yet is increasingly utilized for control and management of critical infrastructures. It thus covers a wide area of application use cases such as energy smart grids, transport systems, water management systems apart from the pure industrial manufacturing domain as its name implies. ICS constitute the infrastructure of the so-called Operational Technology (OT), comprising control equipment (Programmable Logic Controllers (PLCs), Network Controllers (NCs), and robot controllers), supervisory control and data acquisition systems (SCADA), and their industrial networking infrastructure. OT has a different path of evolution with reference to Information Technology (IT) systems, as it addresses quite different end user needs. The interoperable convergence of OT and IT is an emerging challenge, as ICSs are viewed in the context of the emergence of the Industrial Internet of Things (IIoT) both in the pure industrial manufacturing domain, and other application domains taking advantage of OT like critical infrastructures or healthcare <ref type="bibr" target="#b81">(Serpanos and Wolf 2017)</ref>. Industry 4.0 <ref type="bibr">(Schweichhart n.d.)</ref> is a high-tech strategy of the German government that promotes computerization in manufacturing. It tries to bridge the two worlds of OT and IT to enable higher, more flexible and efficient productivity in the manufacturing sector and more services. Its reference architecture RAMI 4.0 comprises three axes related to Hierarchy, Architecture, and Product Lifecycle (Fig. <ref type="figure">13</ref>.2). The hierarchical axis actually dissolves the traditional multilevel hierarchy in the manufacturing domain to a flat and flexible hierarchy that distributes functionalities to devices and equipment in a Smart Factory producing smart products and being connected to the world.</p><p>The Industrial Internet Consortium <ref type="bibr" target="#b57">(Lin et al. 2017a</ref>) has also developed a reference architecture, the Industrial Internet Reference Architecture (IIRA) (Fig. <ref type="figure">13</ref>.3). IIRA is applicable to ICS that are related to different domains ranging from manufacturing to transportation to energy and healthcare. IIRA Functional Viewpoint focuses on functional components, structure and interrelation, interfaces and interactions. There are efforts for mapping between IIRA and RAMI 4.0 recognizing the commonalities between the two reference architectures <ref type="bibr">(Lin et al. 2017a, b) (Fig.13.4)</ref>.</p><p>Different types of threats are relevant for ICSs: criminal, financial, political, and physical. For each threat five factors may be identified, namely, source, target, motive, attack vector, and consequences <ref type="bibr" target="#b37">(Humayed et al. 2017)</ref>. A criminal threat has as a potential consequence ICS application disruption of operation through its remote control utilizing wireless connectivity (vector) by an attacker (source). A financial threat leads to financial losses (consequence) of a utility (target) through false data injection or tampering (vector) by a customer (source) <ref type="bibr" target="#b87">(Turk et al. 2005)</ref>. Critical infrastructures of a targeted nation are usually attacked by a hostile nation (source) in political threats utilizing to this end access to ICS devices or malware and leading to sabotage actions or environmental destruction <ref type="bibr" target="#b78">(Ryu et al. 2009)</ref>. A physical threat is of the type of sensor input spoofing like the spoofing of optical flow cameras (target) in UAVs possible even for not sophisticated adversaries (source) <ref type="bibr" target="#b16">(Davidson et al. 2016)</ref>.</p><p>ICSs present different cyber, physical, and cyber-physical vulnerabilities. The geographically distributed nature of ICS especially with reference to Critical Infrastructure applications, for example, road infrastructure, and physical exposure of its different components creates a physical vulnerability, as inability to physically secure each and every component makes them vulnerable to tampering or sabotage.</p><p>ICS cyber vulnerabilities include communication and software vulnerabilities. Communication vulnerabilities are related to specific protocols utilized in ICSs and their inherent vulnerabilities, as well as the communication physical medium. Use of open protocols, like TCP/IP, not intended to be secure by design, raises security issues <ref type="bibr" target="#b8">(Bellovin 1989)</ref>. Remote procedure call (RPC) protocol vulnerabilities have contributed to the Stuxnet attack <ref type="bibr" target="#b53">(Langner 2011)</ref>. Man in the Middle attacks are a vulnerability of both wired and wireless systems <ref type="bibr" target="#b38">(Hwang et al. 2008;</ref><ref type="bibr" target="#b30">Francia III et al. 2012)</ref>. False data injection, capturing traffic, attacking employee probably unsafe personal devices connected to ICS network are just a few of the vulnerabilities. A taxonomy for wireless communication vulnerabilities is presented in <ref type="bibr" target="#b89">Welch and Lathrop (2003)</ref>. Software vulnerabilities include SQL injection <ref type="bibr" target="#b34">(Halfond et al. 2006</ref>) and email-based attacks <ref type="bibr" target="#b29">(Fovino et al. 2009)</ref>. ICS cyber-physical vulnerabilities include communication, OS, and software vulnerabilities. Communication vulnerabilities comprise vulnerabilities of the protocols used for ICS component communications. For instance, widely used in ICSs, the Modbus protocol lacks encryption, integrity checks, and authentication measures, making it vulnerable to different types of attacks <ref type="bibr" target="#b11">(Byres and Lowe 2004)</ref>. MTF-Storm fuzzer has evaluated different Modbus implementations and identified issues with all of them <ref type="bibr" target="#b41">(Katsigiannis and Serpanos 2018)</ref>. Direct access to ICS devices, left with default passwords <ref type="bibr" target="#b65">(Mo et al. 2012)</ref>, or being directly connected to the Internet <ref type="bibr" target="#b56">(Leverett 2011)</ref>, or through secondary emergency communication channels <ref type="bibr" target="#b0">(Alcaraz and Zeadally 2013)</ref>, is also an ICS communication vulnerability. OS vulnerabilities comprise real-time operating system (RTOS), used by ICS devices, and general-purpose OS, where ICS applications run, vulnerabilities. Absence of access control mechanisms in RTOS makes them vulnerable <ref type="bibr" target="#b39">(Igure et al. 2006</ref>) to authentication and confidentiality failures. General-purpose OS vulnerabilities are exploitable for attacks as proven in the case of Stuxnet attack, exploiting Windows Print Spooler Service and Server Service vulnerabilities <ref type="bibr" target="#b13">(Chen and Abu-Nimeh 2011)</ref>. Software vulnerabilities are associated with ICS devices reduced computational resources that limit their capacity to enforce cryptographic measures <ref type="bibr" target="#b53">(Langner 2011)</ref>. Existing backdoors in ICS devices further facilitate attacks <ref type="bibr" target="#b79">(Santamarta 2012)</ref>. A solution toward ascertaining that ICS applications are free from vulnerabilities while meeting their requirements is developing reliable and secure applications by design. The challenge is to derive in a formal way the ICS application implementation starting from a declarative specification. This challenge is quite ambitious as it has to take into account both continuous and discrete system behaviors. Different approaches in literature address security by design <ref type="bibr" target="#b90">(Yang et al. 2012;</ref><ref type="bibr" target="#b91">Zhang et al. 2015;</ref><ref type="bibr" target="#b60">Martinelli and Matteucci 2007;</ref><ref type="bibr" target="#b61">Matteucci 2007)</ref> or reliability by design <ref type="bibr" target="#b84">(Soulat 2014</ref>). An approach for reliable and secure by design ICS applications <ref type="bibr" target="#b43">(Khan et al. 2018</ref>) based on deductive synthesis <ref type="bibr" target="#b17">(Delaware et al. 2015)</ref> utilizes stepwise refinements of declarative specifications. In this context, an initial nondeterministic specification is refined into a fully deterministic efficient, correct, and secure implementation. As an example, the Coq proof assistant <ref type="bibr" target="#b4">(Barras et al. 1997</ref>) is used to encode ICS behavior declarative specification based on an abstraction relation specification <ref type="bibr" target="#b35">(Hoare 1978)</ref>.</p><p>The reliable and secure by design ICS applications is coupled by run-time security monitoring utilizing to this end both the specification and implementation of the ICS application <ref type="bibr" target="#b42">(Khan et al. 2016)</ref>. The specification models normal behavior of ICS resources, data, and control flow between their submodules as well as misbehavior (bad behavior). The divergence between anticipated normal behavior and misbehavior of submodules of an ICS is an indication of potential attacks. Hypothetical attacks can be used for diagnostic reasoning, increasing robustness of the approach.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="13.5">Research Directions</head><p>Part of the current challenges in certain dimensions have been initially discussed above, referring mainly to the evolution path of core CPS engineering disciplines that should widely adopt and adapt modern model-based and formal methods that should incorporate security aspects from the system specification and design phases. Looking into the core aspects of existing approaches, there are two main research directions identified as of paramount importance.</p><p>The first direction involves the formal description methods for the principal, as well as for the emerging composable system properties and the exploitation of automatic executable model transformation and component code generation methods and tools in order to create security monitor(s) from a distributed system specification. While there is a significant progress on the available knowledge and tools, these are typically applicable to provable correct autonomous computing nodes for the detection of specific attack types <ref type="bibr" target="#b43">(Khan et al. 2018</ref>). Their applicability though to complex distributed systems is not straightforward, considering the introduction of additional system properties that are contributing to the system-wide correctness condition, as well as the introduction of additional attack surfaces that need to be handled altogether, and not on an isolated basis, both contributing to an exponential complexity increase for the detection of multiple, concurrent attacks. Furthermore, the existence of other nonfunctional system properties like the timeliness constraints and critical dependencies in a distributed CPS, pose substantial challenges to the engineering of robust program synthesis and code generation techniques and modules. Needless to say, the unpredictability of human-in-the-loop scenarios <ref type="bibr" target="#b24">(Folds 2015)</ref> adds to the complexity of formally modeling CPSs, and while CPS literature has, so far, largely avoided the subject, it is hard to see how it can be completely disregarded in many CPS use cases, where human operators play a vital role to critical and safety-sensitive systems' behavior (e.g., intelligent transportation and aviation).</p><p>Then, there is the quest for the consolidation, or even more, the standardization of basic run-time frameworks, component libraries, and subsystem interfaces that will ease the deployment of interoperable customized components into generic, domain-specific solutions and architectural frameworks <ref type="bibr" target="#b49">(Koulamas and Kalogeras 2018)</ref>. These include the prevalent reference architectures of Industry 4.0 and IIC, and the challenge is enlarged after considering the widening of the Digital Twins deployment alternatives, stemming from the expected evolution of AI capabilities in embedded devices at the edge <ref type="bibr" target="#b50">(Koulamas and Lazarescu 2018)</ref>, in contrast to the typical cloud-based paradigm of today. That is, the security designing and run-time monitoring becoming a distributed system procedure on its own terms, opening then other research challenges on the necessary computing hardware and networking hardware and software support for the isolation of the two concurrently executed distributed systems, such as the exploitation and integration of results from trusted execution environments and trusted platform modules (TPM) or from time-sensitive networking (TSN) research. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>Run-Time Aspects of Secure Cyber-Physical Systems 359</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>Fig. 13.1 Overview of CPS security and run-time monitoring environment. At the design phase, engineers should factor the Who, Why, How, and What aspects in the specification of system requirements. Answers to these questions feed into the design and implementation of run-time countermeasures</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head></head><label></label><figDesc>Run-Time Aspects of Secure Cyber-Physical Systems 367</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head></head><label></label><figDesc>Run-Time Aspects of Secure Cyber-Physical Systems 369</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head></head><label></label><figDesc>Run-Time Aspects of Secure Cyber-Physical Systems 371</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head></head><label></label><figDesc>Run-Time Aspects of Secure Cyber-Physical Systems 373</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head></head><label></label><figDesc>Fig. 13.2 Reference Architectural Model Industry 4.0 (RAMI 4.0) (Schweichhart n.d.)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head></head><label></label><figDesc>Run-Time Aspects of Secure Cyber-Physical Systems 377</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13">Design and Run-Time Aspects of Secure Cyber-Physical Systems</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13">Design and Run-Time Aspects of Secure Cyber-Physical Systems</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13">Design and Run-Time Aspects of Secure Cyber-Physical Systems</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Acknowledgments This work is supported by the project "I3T-Innovative Application of Industrial Internet of Things (IIoT) in Smart Environments" (MIS 5002434) implemented under the "Action for the Strategic Development on the Research and Technological Sector," funded by the Operational Programme "Competitiveness, Entrepreneurship and Innovation" (NSRF 2014(NSRF  -2020 and co-financed by Greece and the European Union (European Regional Development Fund).</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Critical Control System Protection in the 21st Century</title>
+		<author>
+			<persName><forename type="first">Cristina</forename><surname>Alcaraz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sherali</forename><surname>Zeadally</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mc.2013.69</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<title level="j" type="abbrev">Computer</title>
+		<idno type="ISSN">0018-9162</idno>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="74" to="83" />
+			<date type="published" when="2013-10" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Security of interdependent and identical networked control systems</title>
+		<author>
+			<persName><forename type="first">Saurabh</forename><surname>Amin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Galina</forename><forename type="middle">A</forename><surname>Schwartz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Shankar Sastry</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.automatica.2012.09.007</idno>
+		<ptr target="https://doi.org/10.1016/j.automatica.2012.09.007" />
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<title level="j" type="abbrev">Automatica</title>
+		<idno type="ISSN">0005-1098</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="186" to="192" />
+			<date type="published" when="2013-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Future perspectives and cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Baheti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Gill</surname></persName>
+		</author>
+		<idno type="DOI">10.1049/pbce089e_ch11</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Control-Based Operating System Design</title>
+				<imprint>
+			<publisher>Institution of Engineering and Technology</publisher>
+			<date>2011</date>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="161" to="169" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Runtime verification of .NET contracts</title>
+		<author>
+			<persName><forename type="first">Mike</forename><surname>Barnett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wolfram</forename><surname>Schulte</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0164-1212(02)00041-9</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Systems and Software</title>
+		<title level="j" type="abbrev">Journal of Systems and Software</title>
+		<idno type="ISSN">0164-1212</idno>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="199" to="208" />
+			<date type="published" when="2003-03" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">The Coq proof assistant reference manual: Version</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Barras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Boutin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Cornes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Courant</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-C</forename><surname>Filliatre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Gimenez</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1997" />
+			<biblScope unit="volume">6</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">PhD Thesis</note>
+	<note>Inria</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">CyberFactory#1 — Securing the industry 4.0 with cyber-ranges and digital twins</title>
+		<author>
+			<persName><forename type="first">Adrien</forename><surname>Becue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yannick</forename><surname>Fourastier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Isabel</forename><surname>Praca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexandre</forename><surname>Savarit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claude</forename><surname>Baron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Baptiste</forename><surname>Gradussofs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Etienne</forename><surname>Pouille</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carsten</forename><surname>Thomas</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/wfcs.2018.8402377</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 14th IEEE International Workshop on Factory Communication Systems (WFCS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">CyberFactory#1 — Securing the industry 4.0 with cyber-ranges and digital twins</title>
+		<author>
+			<persName><forename type="first">Adrien</forename><surname>Becue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yannick</forename><surname>Fourastier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Isabel</forename><surname>Praca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexandre</forename><surname>Savarit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claude</forename><surname>Baron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Baptiste</forename><surname>Gradussofs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Etienne</forename><surname>Pouille</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carsten</forename><surname>Thomas</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/wfcs.2018.8402377</idno>
+		<ptr target="https://doi.org/10.1109/WFCS.2018.8402377" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 14th IEEE International Workshop on Factory Communication Systems (WFCS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-06" />
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+	<note>14th IEEE International Workshop on Factory Communication Systems (WFCS)</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Risk-Sensitive Control Under Markov Modulated Denial-of-Service (DoS) Attack Strategies</title>
+		<author>
+			<persName><forename type="first">Getachew</forename><forename type="middle">K</forename><surname>Befekadu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vijay</forename><surname>Gupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Panos</forename><forename type="middle">J</forename><surname>Antsaklis</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tac.2015.2416926</idno>
+		<ptr target="https://doi.org/10.1109/TAC.2015.2416926" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<title level="j" type="abbrev">IEEE Trans. Automat. Contr.</title>
+		<idno type="ISSN">0018-9286</idno>
+		<idno type="ISSNe">1558-2523</idno>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="3299" to="3304" />
+			<date type="published" when="2015-12" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Security problems in the TCP/IP protocol suite</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Bellovin</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/378444.378449</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGCOMM Computer Communication Review</title>
+		<title level="j" type="abbrev">SIGCOMM Comput. Commun. Rev.</title>
+		<idno type="ISSN">0146-4833</idno>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="32" to="48" />
+			<date type="published" when="1989-04" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Software reliability via run-time result-checking</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Blum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wasserman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the ACM. Citeseer</title>
+		<imprint>
+			<date type="published" when="1994" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">ASM Design and Analysis Method</title>
+		<author>
+			<persName><forename type="first">Egon</forename><surname>Börger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Stärk</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-18216-7_2</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Abstract State Machines</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2003" />
+			<biblScope unit="page" from="13" to="86" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">The myths and facts behind cyber security risks for industrial control systems</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Byres</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lowe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the VDE Kongress</title>
+				<meeting>the VDE Kongress</meeting>
+		<imprint>
+			<publisher>Citeseer</publisher>
+			<date type="published" when="2004" />
+			<biblScope unit="page" from="213" to="218" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Attacks against process control systems</title>
+		<author>
+			<persName><forename type="first">Alvaro</forename><forename type="middle">A</forename><surname>Cárdenas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saurabh</forename><surname>Amin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zong-Syun</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu-Lun</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chi-Yen</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shankar</forename><surname>Sastry</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1966913.1966959</idno>
+		<ptr target="https://doi.org/10.1145/1966913.1966959" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 6th ACM Symposium on Information, Computer and Communications Security - ASIACCS &apos;11</title>
+				<meeting>the 6th ACM Symposium on Information, Computer and Communications Security - ASIACCS &apos;11<address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2011" />
+			<biblScope unit="page" from="355" to="366" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Lessons from Stuxnet</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Abu-Nimeh</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mc.2011.115</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<title level="j" type="abbrev">Computer</title>
+		<idno type="ISSN">0018-9162</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="91" to="93" />
+			<date type="published" when="2011-04" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Runtime Verification Based on Executable Models: On-the-Fly Matching of Timed Traces</title>
+		<author>
+			<persName><forename type="first">Mikhail</forename><surname>Chupilko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Kamkin</surname></persName>
+		</author>
+		<idno type="DOI">10.4204/eptcs.111.6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Electronic Proceedings in Theoretical Computer Science</title>
+		<title level="j" type="abbrev">Electron. Proc. Theor. Comput. Sci.</title>
+		<idno type="ISSNe">2075-2180</idno>
+		<imprint>
+			<biblScope unit="volume">111</biblScope>
+			<biblScope unit="page" from="67" to="81" />
+			<date type="published" when="2013-03-02" />
+			<publisher>Open Publishing Association</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">A Digital Twin-based Privacy Enhancement Mechanism for the Automotive Industry</title>
+		<author>
+			<persName><forename type="first">Violeta</forename><surname>Damjanovic-Behrendt</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/is.2018.8710526</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 International Conference on Intelligent Systems (IS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-09" />
+			<biblScope unit="volume">115</biblScope>
+			<biblScope unit="page" from="25" to="26" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Controlling UAVs with sensor input spoofing attacks</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Davidson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Jellinek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ristenpart</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">10th USENIX Workshop on Offensive Technologies</title>
+				<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Fiat</title>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Delaware</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Clément</forename><surname>Pit-Claudel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jason</forename><surname>Gross</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Chlipala</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2775051.2677006</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGPLAN Notices</title>
+		<title level="j" type="abbrev">SIGPLAN Not.</title>
+		<idno type="ISSN">0362-1340</idno>
+		<idno type="ISSNe">1558-1160</idno>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="689" to="700" />
+			<date type="published" when="2015-05-11" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">GE aims to replicate digital twin success with security-focused digital ghost</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Dignan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ZDNet</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">On scheduling of deception attacks for discrete-time networked systems equipped with attack detectors</title>
+		<author>
+			<persName><forename type="first">Derui</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guoliang</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sunjie</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yurong</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fuad</forename><forename type="middle">E</forename><surname>Alsaadi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neucom.2016.09.009</idno>
+		<ptr target="https://doi.org/10.1016/j.neucom.2016.09.009" />
+	</analytic>
+	<monogr>
+		<title level="j">Neurocomputing</title>
+		<title level="j" type="abbrev">Neurocomputing</title>
+		<idno type="ISSN">0925-2312</idno>
+		<imprint>
+			<biblScope unit="volume">219</biblScope>
+			<biblScope unit="page" from="99" to="106" />
+			<date type="published" when="2017-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Towards Security-Aware Virtual Environments for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3198458.3198464</idno>
+		<ptr target="https://doi.org/10.1145/3198458.3198464" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 4th ACM Workshop on Cyber-Physical System Security<address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-22" />
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">A Specification-based State Replication Approach for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264892</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+			<biblScope unit="volume">115</biblScope>
+			<biblScope unit="page" from="22" to="23" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A Specification-based State Replication Approach for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264892</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy<address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+			<biblScope unit="page" from="36" to="47" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Cyber Security and Power System Communication—Essential Parts of a Smart Grid Infrastructure</title>
+		<author>
+			<persName><forename type="first">Göran</forename><forename type="middle">N</forename><surname>Ericsson</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tpwrd.2010.2046654</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Power Delivery</title>
+		<title level="j" type="abbrev">IEEE Trans. Power Delivery</title>
+		<idno type="ISSN">0885-8977</idno>
+		<idno type="ISSNe">1937-4208</idno>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1501" to="1507" />
+			<date type="published" when="2010-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Human in the Loop Simulation</title>
+		<author>
+			<persName><forename type="first">Dennis</forename><forename type="middle">J</forename><surname>Folds</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-1-4471-5634-5_15</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Modeling and Simulation in the Systems Engineering Life Cycle</title>
+				<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer London</publisher>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="175" to="183" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Secure embedded system hardware design – A flexible security and trust enhanced approach</title>
+		<author>
+			<persName><forename type="first">Apostolos</forename><forename type="middle">P</forename><surname>Fournaris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nicolas</forename><surname>Sklavos</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compeleceng.2013.11.011</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Electrical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Electrical Engineering</title>
+		<idno type="ISSN">0045-7906</idno>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="121" to="133" />
+			<date type="published" when="2014-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Exploiting Hardware Vulnerabilities to Attack Embedded System Devices: a Survey of Potent Microarchitectural Attacks</title>
+		<author>
+			<persName><forename type="first">Apostolos</forename><surname>Fournaris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lidia</forename><surname>Pocero Fraile</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Odysseas</forename><surname>Koufopavlou</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/electronics6030052</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Electronics</title>
+		<title level="j" type="abbrev">Electronics</title>
+		<idno type="ISSNe">2079-9292</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">52</biblScope>
+			<date type="published" when="2017-07-13" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Hardware Security for Critical Infrastructures - The CIPSEC Project Approach</title>
+		<author>
+			<persName><forename type="first">Apostolos</forename><forename type="middle">P</forename><surname>Fournaris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Konstantinos</forename><surname>Lampropoulos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Odysseas</forename><surname>Koufopavlou</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/isvlsi.2017.69</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE Computer Society Annual Symposium on VLSI (ISVLSI)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-07" />
+			<biblScope unit="page" from="356" to="361" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Trusted hardware sensors for anomaly detection in critical infrastructure systems</title>
+		<author>
+			<persName><forename type="first">Apostolos</forename><forename type="middle">P</forename><surname>Fournaris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Konstantinos</forename><surname>Lampropoulos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Odysseas</forename><surname>Koufopavlou</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mocast.2018.8376629</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 7th International Conference on Modern Circuits and Systems Technologies (MOCAST)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-05" />
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+	<note>7th International Conference</note>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">An experimental investigation of malware attacks on SCADA systems</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">N</forename><surname>Fovino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Carcano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Masera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Trombetta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Critical Infrastructure Protection</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="139" to="145" />
+			<date type="published" when="2009" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Wireless vulnerability of SCADA systems</title>
+		<author>
+			<persName><forename type="first">Guillermo</forename><surname>Francia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Thornton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Brookshire</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2184512.2184590</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 50th Annual Southeast Regional Conference on - ACM-SE &apos;12</title>
+				<meeting>the 50th Annual Southeast Regional Conference on - ACM-SE &apos;12</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2012" />
+			<biblScope unit="page" from="9" to="14" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Dimensions of Cyber-Attacks: Cultural, Social, Economic, and Political</title>
+		<author>
+			<persName><forename type="first">Robin</forename><surname>Gandhi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anup</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><surname>Mahoney</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><surname>Sousan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiuming</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Phillip</forename><surname>Laplante</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mts.2011.940293</idno>
+		<ptr target="https://doi.org/10.1109/MTS.2011.940293" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Technology and Society Magazine</title>
+		<title level="j" type="abbrev">IEEE Technol. Soc. Mag.</title>
+		<idno type="ISSN">0278-0097</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="28" to="38" />
+			<date type="published" when="2011" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">dReal: An SMT Solver for Nonlinear Theories over the Reals</title>
+		<author>
+			<persName><forename type="first">Sicun</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Soonho</forename><surname>Kong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edmund</forename><forename type="middle">M</forename><surname>Clarke</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-38574-2_14</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Automated Deduction – CADE-24</title>
+				<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2013" />
+			<biblScope unit="page" from="208" to="214" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Security for Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">Dieter</forename><surname>Gollmann</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-36046-6_2</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Mathematical and Engineering Methods in Computer Science</title>
+				<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2013" />
+			<biblScope unit="page" from="12" to="14" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Preventing SQL injection attacks using AMNESIA</title>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">G J</forename><surname>Halfond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alessandro</forename><surname>Orso</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1134285.1134416</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 28th international conference on Software engineering</title>
+				<meeting>the 28th international conference on Software engineering</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2006-05-28" />
+			<biblScope unit="page" from="13" to="15" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Proof of Correctness of Data Representations</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A R</forename><surname>Hoare</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-1-4612-6315-9_20</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Programming Methodology</title>
+				<imprint>
+			<publisher>Springer New York</publisher>
+			<date type="published" when="1978" />
+			<biblScope unit="page" from="269" to="281" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">A Survey of Outlier Detection Methodologies</title>
+		<author>
+			<persName><forename type="first">Victoria</forename><surname>Hodge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jim</forename><surname>Austin</surname></persName>
+		</author>
+		<idno type="DOI">10.1023/b:aire.0000045502.10941.a9</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Artificial Intelligence Review</title>
+		<title level="j" type="abbrev">Artificial Intelligence Review</title>
+		<idno type="ISSN">0269-2821</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="85" to="126" />
+			<date type="published" when="2004-10" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Cyber-Physical Systems Security—A Survey</title>
+		<author>
+			<persName><forename type="first">Abdulmalik</forename><surname>Humayed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingqiang</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fengjun</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Luo</surname></persName>
+			<idno type="ORCID">0000-0001-8196-2436</idno>
+		</author>
+		<idno type="DOI">10.1109/jiot.2017.2703172</idno>
+		<ptr target="https://doi.org/10.1109/JIOT.2017.2703172" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet of Things Journal</title>
+		<title level="j" type="abbrev">IEEE Internet Things J.</title>
+		<idno type="ISSNe">2327-4662</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1802" to="1831" />
+			<date type="published" when="2017-12" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">A Study on MITM (Man in the Middle) Vulnerability in Wireless Network Using 802.1X and EAP</title>
+		<author>
+			<persName><forename type="first">Hyunuk</forename><surname>Hwang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gyeok</forename><surname>Jung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kiwook</forename><surname>Sohn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sangseo</forename><surname>Park</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/iciss.2008.10</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2008 International Conference on Information Science and Security (ICISS 2008)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2008-01" />
+			<biblScope unit="page" from="164" to="170" />
+		</imprint>
+	</monogr>
+	<note>ICISS. International Conference</note>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Security issues in SCADA networks</title>
+		<author>
+			<persName><forename type="first">Vinay</forename><forename type="middle">M</forename><surname>Igure</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sean</forename><forename type="middle">A</forename><surname>Laughter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ronald</forename><forename type="middle">D</forename><surname>Williams</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2006.03.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="498" to="506" />
+			<date type="published" when="2006-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<monogr>
+		<title level="m" type="main">Runtime monitoring for safety-critical embedded systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kane</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">MTF -Storm: a High Performance Fuzzer for Modbus/TCP</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Katsigiannis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Serpanos</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/etfa.2018.8502600</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE 23rd International Conference on Emerging Technologies and Factory Automation (ETFA)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-09" />
+			<biblScope unit="page" from="926" to="931" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">A rigorous and efficient run-time security monitor for real-time critical embedded system applications</title>
+		<author>
+			<persName><forename type="first">Muhammad</forename><forename type="middle">Taimoor</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dimitrios</forename><surname>Serpanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Howard</forename><surname>Shrobe</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/wf-iot.2016.7845510</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 IEEE 3rd World Forum on Internet of Things (WF-IoT)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-12" />
+			<biblScope unit="page" from="100" to="105" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">ARMET: Behavior-Based Secure and Resilient Industrial Control Systems</title>
+		<author>
+			<persName><forename type="first">Muhammad</forename><forename type="middle">Taimoor</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dimitrios</forename><surname>Serpanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Howard</forename><surname>Shrobe</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jproc.2017.2725642</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<title level="j" type="abbrev">Proc. IEEE</title>
+		<idno type="ISSN">0018-9219</idno>
+		<idno type="ISSNe">1558-2256</idno>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="129" to="143" />
+			<date type="published" when="2018-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Integrating Internet-of-Things with the power of Cloud Computing and the intelligence of Big Data analytics — A three layered approach</title>
+		<author>
+			<persName><forename type="first">Md</forename><forename type="middle">Tanzim</forename><surname>Khorshed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Neeraj</forename><forename type="middle">Anand</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kunal</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mishal</forename><surname>Prasad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B M Shawkat</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yang</forename><surname>Xiang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/apwccse.2015.7476124</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2015 2nd Asia-Pacific World Congress on Computer Science and Engineering (APWC on CSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-12" />
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+		<respStmt>
+			<orgName>APWC on CSE</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Integrating Internet-of-Things with the power of Cloud Computing and the intelligence of Big Data analytics — A three layered approach</title>
+		<author>
+			<persName><forename type="first">Md</forename><forename type="middle">Tanzim</forename><surname>Khorshed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Neeraj</forename><forename type="middle">Anand</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kunal</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mishal</forename><surname>Prasad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B M Shawkat</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yang</forename><surname>Xiang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/apwccse.2015.7476124</idno>
+		<ptr target="https://doi.org/10.1109/APWCCSE.2015.7476124" />
+	</analytic>
+	<monogr>
+		<title level="m">2015 2nd Asia-Pacific World Congress on Computer Science and Engineering (APWC on CSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Cyber-physical systems: A perspective at the centennial</title>
+		<author>
+			<persName><forename type="first">K.-D</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">R</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="page" from="1287" to="1308" />
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Strategic Protection Against Data Injection Attacks on Power Grids</title>
+		<author>
+			<persName><forename type="first">Tùng</forename><forename type="middle">T</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">Vincent</forename><surname>Poor</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2011.2119336</idno>
+		<ptr target="https://doi.org/10.1109/TSG.2011.2119336" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="326" to="333" />
+			<date type="published" when="2011-06" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Challenges in Autonomous Vehicle Testing and Validation</title>
+		<author>
+			<persName><forename type="first">Philip</forename><surname>Koopman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Wagner</surname></persName>
+		</author>
+		<idno type="DOI">10.4271/2016-01-0128</idno>
+	</analytic>
+	<monogr>
+		<title level="j">SAE International Journal of Transportation Safety</title>
+		<title level="j" type="abbrev">SAE Int. J. Trans. Safety</title>
+		<idno type="ISSN">2327-5634</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="15" to="24" />
+			<date type="published" when="2016-04-05" />
+			<publisher>SAE International</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Cyber-Physical Systems and Digital Twins in the Industrial Internet of Things [Cyber-Physical Systems]</title>
+		<author>
+			<persName><forename type="first">Christos</forename><surname>Koulamas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Athanasios</forename><surname>Kalogeras</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mc.2018.2876181</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<title level="j" type="abbrev">Computer</title>
+		<idno type="ISSN">0018-9162</idno>
+		<idno type="ISSNe">1558-0814</idno>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="95" to="98" />
+			<date type="published" when="2018-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<monogr>
+		<title level="m" type="main">Real-time embedded systems: Present and future</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Koulamas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">T</forename><surname>Lazarescu</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+			<publisher>MDPI Electronics</publisher>
+			<biblScope unit="page">7</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Robustness for smart cyber physical systems and internet-of-things: From adaptive robustness methods to reliability and security for machine learning</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Kriebel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rehman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Hanif</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Khalid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shafique</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ISVLSI.2018.00111</idno>
+		<ptr target="https://doi.org/10.1109/ISVLSI.2018.00111" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE Computer Society Annual Symposium on VLSI (ISVLSI)</title>
+				<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="581" to="586" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Mining anomalies using traffic feature distributions</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lakhina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Crovella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Diot</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACM SIGCOMM Computer Communication Review</title>
+				<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2005" />
+			<biblScope unit="page" from="217" to="228" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Stuxnet: Dissecting a cyberwarfare weapon</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Langner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security and Privacy</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="49" to="51" />
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">A passivity framework for modeling and mitigating wormhole attacks on networked control systems</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bushnell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Poovendran</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TAC.2014.2351871</idno>
+		<ptr target="https://doi.org/10.1109/TAC.2014.2351871" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="page" from="3224" to="3237" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Security and Reliability Perspectives in Cyber-Physical Smart Grids</title>
+		<author>
+			<persName><forename type="first">Hangtian</forename><surname>Lei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karen</forename><forename type="middle">L</forename><surname>Butler-Purry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chanan</forename><surname>Singh</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/isgt-asia.2018.8467794</idno>
+		<ptr target="https://doi.org/10.1109/ISGT-Asia.2018.8467794" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE Innovative Smart Grid Technologies - Asia (ISGT Asia)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-05" />
+			<biblScope unit="page" from="42" to="47" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<monogr>
+		<title level="m" type="main">Laskey, Prof. Ronald Alfred, (born 26 Jan. 1945), Charles Darwin Professor, University of Cambridge, 1983–2011, now Emeritus; Fellow of Darwin College, Cambridge, since 1982; Hon. Director, 1999–2006, Joint Hon. Director, 2006–10, MRC Cancer Cell Unit</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Leverett</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/ww/9780199540884.013.23843</idno>
+		<imprint>
+			<date type="published" when="2007-12-01" />
+			<publisher>Oxford University Press</publisher>
+			<pubPlace>Darwin College, 7</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>University of Cambridge</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Internet of Things (IoT) - Reference architecture</title>
+		<author>
+			<persName><forename type="first">S.-W</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Crawford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mellor</surname></persName>
+		</author>
+		<idno type="DOI">10.3403/30320686</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Reference architecture. Industrial Internet Consortium</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<date>2017a</date>
+			<publisher>BSI British Standards</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<monogr>
+		<title level="m" type="main">Supplemental Information 2: Table S2. List of modern mtDNA sequences downloaded from GenBank (Montana et al. 2017b).</title>
+		<author>
+			<persName><forename type="first">S.-W</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Murphy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Clauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Loewen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Neubert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Bachmann</surname></persName>
+		</author>
+		<idno type="DOI">10.7717/peerj.6424/supp-2</idno>
+		<idno>IIC:WHT: IN3: V1.0:PB: 2017120 5</idno>
+		<imprint>
+			<date>2017b</date>
+			<publisher>PeerJ</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Securing the Internet of Things and Wireless Sensor Networks via Machine Learning: A Survey</title>
+		<author>
+			<persName><forename type="first">Marwa</forename><surname>Mamdouh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohamed</forename><forename type="middle">A</forename><surname>I. Elrukhsi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Khattab</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/comapp.2018.8460440</idno>
+		<ptr target="https://doi.org/10.1109/COMAPP.2018.8460440" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 International Conference on Computer and Applications (ICCA)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-08" />
+			<biblScope unit="page" from="215" to="218" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">An Approach for the Specification, Verification and Synthesis of Secure Systems</title>
+		<author>
+			<persName><forename type="first">Fabio</forename><surname>Martinelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ilaria</forename><surname>Matteucci</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.entcs.2006.12.003</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Electronic Notes in Theoretical Computer Science</title>
+		<title level="j" type="abbrev">Electronic Notes in Theoretical Computer Science</title>
+		<idno type="ISSN">1571-0661</idno>
+		<imprint>
+			<biblScope unit="volume">168</biblScope>
+			<biblScope unit="page" from="29" to="43" />
+			<date type="published" when="2007-02" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Automated Synthesis of Enforcing Mechanisms for Security Properties in a Timed Setting</title>
+		<author>
+			<persName><forename type="first">Ilaria</forename><surname>Matteucci</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.entcs.2007.03.025</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Electronic Notes in Theoretical Computer Science</title>
+		<title level="j" type="abbrev">Electronic Notes in Theoretical Computer Science</title>
+		<idno type="ISSN">1571-0661</idno>
+		<imprint>
+			<biblScope unit="volume">186</biblScope>
+			<biblScope unit="page" from="101" to="120" />
+			<date type="published" when="2007-07" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<monogr>
+		<title level="m" type="main">Digital-Twin Enabled Experimentation Testbed for MBSE</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Maurer</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2021-0201.vid</idno>
+		<ptr target="https://community.plm.automation.siemens.com/t5/Digital-Twin-Knowledge-Base/What-is-a-digital-twin/ta-p/432960" />
+		<imprint>
+			<date type="published" when="2020-01-11" />
+			<publisher>American Institute of Aeronautics and Astronautics (AIAA)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">A survey of intrusion detection techniques for cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Mitchell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ing-Ray</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2542049</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Computing Surveys</title>
+		<title level="j" type="abbrev">ACM Comput. Surv.</title>
+		<idno type="ISSN">0360-0300</idno>
+		<idno type="ISSNe">1557-7341</idno>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1" to="29" />
+			<date type="published" when="2014-04" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">False data injection attacks against state estimation in wireless sensor networks</title>
+		<author>
+			<persName><forename type="first">Yilin</forename><surname>Mo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Emanuele</forename><surname>Garone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alessandro</forename><surname>Casavola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruno</forename><surname>Sinopoli</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cdc.2010.5718158</idno>
+		<ptr target="https://doi.org/10.1109/CDC.2010.5718158" />
+	</analytic>
+	<monogr>
+		<title level="m">49th IEEE Conference on Decision and Control (CDC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2010-12" />
+			<biblScope unit="page" from="5967" to="5972" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Mo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">.-J</forename><surname>Brancik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Dickinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Perrig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sinopoli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">Cyber–Physical Security of a Smart Grid Infrastructure</title>
+		<author>
+			<persName><surname>Yilin Mo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tiffany Hyun-Jin</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Brancik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dickinson</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Heejo Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Perrig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sinopoli</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jproc.2011.2161428</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<title level="j" type="abbrev">Proc. IEEE</title>
+		<idno type="ISSN">0018-9219</idno>
+		<idno type="ISSNe">1558-2256</idno>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="195" to="209" />
+			<date type="published" when="2012-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Integrating Security and Systems Engineering: Towards the Modelling of Secure Information Systems</title>
+		<author>
+			<persName><forename type="first">Haralambos</forename><surname>Mouratidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paolo</forename><surname>Giorgini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gordon</forename><surname>Manson</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/3-540-45017-3_7</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Notes on Numerical Fluid Mechanics and Multidisciplinary Design</title>
+				<editor>
+			<persName><forename type="first">J</forename><surname>Eder</surname></persName>
+			<persName><forename type="first">&amp; M</forename><surname>Missikoff</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2003" />
+			<biblScope unit="page" from="63" to="78" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">Science of Security Cyber Physical Systems Workshop Program</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Neuman</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/soscyps.2016.7579996</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 Science of Security for Cyber-Physical Systems Workshop (SOSCYPS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-04-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Secure Networked Control Systems under Denial of Service Attacks*</title>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">H</forename><surname>Pang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">P</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Dong</surname></persName>
+		</author>
+		<idno type="DOI">10.3182/20110828-6-it-1002.02862</idno>
+		<ptr target="https://doi.org/10.3182/20110828-6-IT-1002.02862" />
+	</analytic>
+	<monogr>
+		<title level="j">IFAC Proceedings Volumes</title>
+		<title level="j" type="abbrev">IFAC Proceedings Volumes</title>
+		<idno type="ISSN">1474-6670</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="8908" to="8913" />
+			<date type="published" when="2011-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title level="a" type="main">Bro: a system for detecting network intruders in real-time</title>
+		<author>
+			<persName><forename type="first">Vern</forename><surname>Paxson</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s1389-1286(99)00112-7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Networks</title>
+		<title level="j" type="abbrev">Computer Networks</title>
+		<idno type="ISSN">1389-1286</idno>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">23-24</biblScope>
+			<biblScope unit="page" from="2435" to="2463" />
+			<date type="published" when="1999-12" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">P</forename><surname>Pfleeger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Pfleeger</surname></persName>
+		</author>
+		<title level="m">Security in computing</title>
+				<meeting><address><addrLine>Saddle River, NJ</addrLine></address></meeting>
+		<imprint>
+			<publisher>Prentice Hall</publisher>
+			<date type="published" when="2006" />
+		</imprint>
+	</monogr>
+	<note>4th ed.</note>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<analytic>
+		<title level="a" type="main">Survey on data-driven industrial process monitoring and diagnosis</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Qin</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.arcontrol.2012.09.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Annual Reviews in Control</title>
+		<title level="j" type="abbrev">Annual Reviews in Control</title>
+		<idno type="ISSN">1367-5788</idno>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="220" to="234" />
+			<date type="published" when="2012-12" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Ragunathan</forename><forename type="middle">(raj)</forename><surname>Rajkumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Insup</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lui</forename><surname>Sha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Stankovic</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1837274.1837461</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 47th Design Automation Conference on - DAC &apos;10</title>
+				<meeting>the 47th Design Automation Conference on - DAC &apos;10</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2010" />
+			<biblScope unit="page" from="731" to="736" />
+		</imprint>
+	</monogr>
+	<note>47th ACM/IEEE</note>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">Nonlinear Kalman Filtering Based on Differential Flatness Theory</title>
+		<author>
+			<persName><forename type="first">Gerasimos</forename><forename type="middle">G</forename><surname>Rigatos</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-16420-5_4</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Nonlinear Control and Filtering Using Differential Flatness Approaches</title>
+				<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="141" to="181" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Control of the Functioning of Multiphase Electric Machines</title>
+		<author>
+			<persName><forename type="first">Gerasimos</forename><surname>Rigatos</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-39156-4_4</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Intelligent Renewable Energy Systems</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="159" to="212" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<monogr>
+		<title level="m" type="main">Minimum security requirements for federal information and information systems</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Ross</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">W</forename><surname>Katzke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">A</forename><surname>Johnson</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.fips.200</idno>
+		<imprint>
+			<date type="published" when="2006-03" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<analytic>
+		<title level="a" type="main">An Integrated Security and Systems Engineering Process and Modelling Framework</title>
+		<author>
+			<persName><forename type="first">Jose</forename><forename type="middle">Fran. </forename><surname>Ruiz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Maña</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carsten</forename><surname>Rudolph</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/comjnl/bxu152</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The Computer Journal</title>
+		<title level="j" type="abbrev">The Computer Journal</title>
+		<idno type="ISSN">0010-4620</idno>
+		<idno type="ISSNe">1460-2067</idno>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="2328" to="2350" />
+			<date type="published" when="2014-12-21" />
+			<publisher>Oxford University Press (OUP)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">Reducing security vulnerabilities for critical infrastructure</title>
+		<author>
+			<persName><forename type="first">Dae</forename><forename type="middle">Hyun</forename><surname>Ryu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hyungjun</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Keehong</forename><surname>Um</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jlp.2009.07.015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Loss Prevention in the Process Industries</title>
+		<title level="j" type="abbrev">Journal of Loss Prevention in the Process Industries</title>
+		<idno type="ISSN">0950-4230</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1020" to="1024" />
+			<date type="published" when="2009-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<analytic>
+		<title level="a" type="main">Here are your cards… now empty your head of our secrets</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Santamarta</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/eb056352</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Industrial Management</title>
+		<title level="j" type="abbrev">Industrial Management</title>
+		<idno type="ISSN">0007-6929</idno>
+		<imprint>
+			<biblScope unit="volume">73</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="4" to="5" />
+			<date type="published" when="1973-10" />
+			<publisher>Emerald</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">Reference architectural model industrie 4.0 (RAMI 4.0) -An introduction</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Schweichhart</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">D.</orgName>
+			</affiliation>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Serpanos</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="70" to="73" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+	<note>Computer</note>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">IoT System Architectures</title>
+		<author>
+			<persName><forename type="first">Dimitrios</forename><surname>Serpanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marilyn</forename><surname>Wolf</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-69715-4_2</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Internet-of-Things (IoT) Systems</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017-11-25" />
+			<biblScope unit="page" from="7" to="15" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">Risks, threats and mitigation strategies for SCADA systems</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Setola</surname></persName>
+		</author>
+		<idno type="DOI">10.1049/pbpo081e_ch13</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Cyber-Physical-Social Systems and Constructs in Electric Power Engineering</title>
+				<imprint>
+			<publisher>Institution of Engineering and Technology</publisher>
+			<date>2011</date>
+			<biblScope unit="page" from="345" to="370" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<analytic>
+		<title level="a" type="main">Load Frequency Control with Communication Topology Changes in Smart Grid</title>
+		<author>
+			<persName><forename type="first">Vijay</forename><forename type="middle">P</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nand</forename><surname>Kishor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paulson</forename><surname>Samuel</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tii.2016.2574242</idno>
+		<ptr target="https://doi.org/10.1109/TII.2016.2574242" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+		<idno type="ISSN">1551-3203</idno>
+		<idno type="ISSNe">1941-0050</idno>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1943" to="1952" />
+			<date type="published" when="2016-10" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<monogr>
+		<title level="m" type="main">Synthesis of correct-by-design schedulers for hybrid systems</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Soulat</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+		<respStmt>
+			<orgName>École normale supérieure de Cachan-ENS Cachan</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">PhD Thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<analytic>
+		<title level="a" type="main">Digital Twin in Industry: State-of-the-Art</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+			<idno type="ORCID">0000-0002-9020-0633</idno>
+		</author>
+		<author>
+			<persName><forename type="first">He</forename><surname>Zhang</surname></persName>
+			<idno type="ORCID">0000-0002-7630-2211</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tii.2018.2873186</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+		<idno type="ISSN">1551-3203</idno>
+		<idno type="ISSNe">1941-0050</idno>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2405" to="2415" />
+			<date type="published" when="2019-04" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<monogr>
+		<title level="m" type="main">Enabling security and safety evaluation in industry 4.0 use cases with digital twins</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tauber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Schmittner</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+			<publisher>ERCIM News</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<monogr>
+		<title level="m" type="main">Cyber incidents involving control systems</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Turk</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005" />
+			<publisher>CiteSeer</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<analytic>
+		<title level="a" type="main">Runtime verification and monitoring of embedded systems</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Watterson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Heffernan</surname></persName>
+		</author>
+		<idno type="DOI">10.1049/iet-sen:20060076</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IET Software</title>
+		<idno type="ISSN">1751-8806</idno>
+		<idno type="ISSNe">1751-8814</idno>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="172" to="179" />
+			<date type="published" when="2007-10-01" />
+			<publisher>Institution of Engineering and Technology (IET)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<analytic>
+		<title level="a" type="main">Wireless security threat taxonomy</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Welch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lathrop</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/smcsia.2003.1232404</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Systems, Man and Cybernetics SocietyInformation Assurance Workshop, 2003.</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date>2003</date>
+			<biblScope unit="page" from="76" to="83" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<analytic>
+		<title level="a" type="main">A language for automatically enforcing privacy policies</title>
+		<author>
+			<persName><forename type="first">Jean</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kuat</forename><surname>Yessenov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Armando</forename><surname>Solar-Lezama</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2103621.2103669</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGPLAN Notices</title>
+		<title level="j" type="abbrev">SIGPLAN Not.</title>
+		<idno type="ISSN">0362-1340</idno>
+		<idno type="ISSNe">1558-1160</idno>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="85" to="96" />
+			<date type="published" when="2012-01-18" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<analytic>
+		<title level="a" type="main">Towards Automatic Generation of Security-Centric Descriptions for Android Apps</title>
+		<author>
+			<persName><forename type="first">Mu</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yue</forename><surname>Duan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qian</forename><surname>Feng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Heng</forename><surname>Yin</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2810103.2813669</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security</title>
+				<meeting>the 22nd ACM SIGSAC Conference on Computer and Communications Security<address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2015-10-12" />
+			<biblScope unit="page" from="518" to="529" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<analytic>
+		<title level="a" type="main">Privacy and performance trade-off in cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Heng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuanchao</forename><surname>Shu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peng</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiming</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mnet.2016.7437026</idno>
+		<ptr target="https://doi.org/10.1109/MNET.2016.7437026" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Network</title>
+		<title level="j" type="abbrev">IEEE Network</title>
+		<idno type="ISSN">0890-8044</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="62" to="66" />
+			<date type="published" when="2016-03" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

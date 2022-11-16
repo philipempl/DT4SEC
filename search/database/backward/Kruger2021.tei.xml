@@ -1,0 +1,1272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A Holonic Control Implementation for Agricultural Production Management View project Critical Evaluation of Predictive Modelling of a Cervical Disc Design View project</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2021-04-29">29 April 2021.</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Karel</forename><surname>Kruger</surname></persName>
+							<email>kkruger@sun.ac.za</email>
+							<affiliation key="aff3">
+								<orgName type="department">Department of Mechanical and Mechatronic Engineering</orgName>
+								<orgName type="institution">Stellenbosch University</orgName>
+								<address>
+									<addrLine>Stellen-bosch</addrLine>
+									<postCode>7600</postCode>
+									<country key="ZA">South Africa</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Anro</forename><surname>Johannes</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Hermanus</forename><surname>Redelinghuys</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Anton</forename><forename type="middle">Herman</forename><surname>Basson</surname></persName>
+							<affiliation key="aff3">
+								<orgName type="department">Department of Mechanical and Mechatronic Engineering</orgName>
+								<orgName type="institution">Stellenbosch University</orgName>
+								<address>
+									<addrLine>Stellen-bosch</addrLine>
+									<postCode>7600</postCode>
+									<country key="ZA">South Africa</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">A</forename><forename type="middle">J H</forename><surname>Redelinghuys</surname></persName>
+							<affiliation key="aff3">
+								<orgName type="department">Department of Mechanical and Mechatronic Engineering</orgName>
+								<orgName type="institution">Stellenbosch University</orgName>
+								<address>
+									<addrLine>Stellen-bosch</addrLine>
+									<postCode>7600</postCode>
+									<country key="ZA">South Africa</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">O</forename><surname>Cardin</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">IUT de Nantes</orgName>
+								<orgName type="laboratory">LS2N, UMR CNRS 6004</orgName>
+								<orgName type="institution">Université de Nantes</orgName>
+								<address>
+									<addrLine>44 470</addrLine>
+									<settlement>Carquefou</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">Stellenbosch University</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution">Stellenbosch University</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">Stellenbosch University</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A Holonic Control Implementation for Agricultural Production Management View project Critical Evaluation of Predictive Modelling of a Cervical Disc Design View project</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2021-04-29">29 April 2021.</date>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1007/978-3-030-69373-2_5</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:40+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Digital Twin</term>
+					<term>Industry 4.0</term>
+					<term>Holonic Manufacturing Systems</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The user has requested enhancement of the downloaded file.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>One of the first introductions to the elements of a Digital Twin was by Dr. Michael Grieves in 2002 in a University of Michigan presentation to industry for the formation of a Product Lifecycle Management (PLM) center <ref type="bibr" target="#b0">[1]</ref>. The term Digital Twin was first introduced as the "Conceptual Ideal for PLM" and consisted of all the currently accepted elements of a DTreal space, virtual space and a connection with data/information flow between the virtual and real space. Around 2011, the term Digital Twin was introduced in Virtually Perfect: Driving Innovative and Lean Products through Product Lifecycle Management and was attributed to John Vickers of NASA <ref type="bibr" target="#b1">[2]</ref>. However, some believe that DT technology has its roots in a concept practiced ever since the 1960s, where NASA would use basic twinning ideas by creating physically duplicated systems at ground level to match the system in space. A well-known example was the Apollo 13 in 1970. Since those early beginnings, DTs became one of the top strategic technological trends in 2017 <ref type="bibr" target="#b0">[1]</ref> and was named one of Gartner's Top 10 Strategic Technology Trends for the past couple of years. The Digital Twin has been identified as a key enabler for Industry 4.0, as it constitutes a cornerstone for the development, and effective integration, of cyber-physical production systems.</p><p>The most widely-accepted definition of a DT, as defined by NASA in <ref type="bibr" target="#b2">[3]</ref>, is: "an integrated multi-physics, multi-scale, probabilistic simulation of a system that uses the best available physical models, sensor updates, fleet history, etc. to mirror the life of its flying twin". <ref type="bibr" target="#b3">Grieves and Vickers (2017)</ref> distinguishes between DT instances and aggregates. A DT instance (DTI) mirrors its physical twin during its entire lifespan. A DT aggregate (DTA), on the other hand, is not directly associated with a physical counterpart, but is the aggregation of some DTIs and other DTAs. While a DTI can be an independent structure, a DTA cannot. DTIs can, for example, be interrogated by a DTA for their current state <ref type="bibr" target="#b3">[4]</ref>.</p><p>A DT ideally creates a highly accurate digital model of the physical system in cyberspace. Through the quality and fidelity of information, the DT can accurately replicate and simulate the behavior of the physical system <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b4">5]</ref>. According to Tao et al. <ref type="bibr" target="#b5">[6]</ref>, a DT can also provide a digital footprint of products by integrating geometry, structure, behavior, rules and functional properties. In the context of designing, setting up and configuring an automation system for manufacturing, a DT is a set of computer models that provide the means to design, validate and optimize a part, a product, a manufacturing process or a production facility in the cyberspace. A DT enables flexibility in manufacturing by reducing the required time for product design, manufacturing process design, system planning design and production facility design <ref type="bibr" target="#b6">[7]</ref>.</p><p>The combination of the physical production system and its corresponding DT are the fundamental building blocks of fully connected and flexible systems that can learn and adapt to new demands. Ideas about the role of the DT are still developing at this stage. Some of the roles postulated in recent literature are <ref type="bibr" target="#b6">[7]</ref><ref type="bibr" target="#b7">[8]</ref><ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref>: remote monitoring; predictive analytics; simulating future behavior; optimization and validation; documentation and communication; and connection of disparate systems. DTs have attracted significant research interest in various domains, also beyond production and manufacturing. The importance and potential of the DT concept has been reflected in the increasing number of DT related contributions to the recent editions of the SOHOMA workshops.</p><p>This paper reviews the research that has been presented at SOHOMA in the past that have considered or developed the DT concept. The review investigates the needs and objectives for which DTs are intended, the architectures that have been developed, and the implementation technologies that have been used. The paper then turns it focus to the futureaiming to understand and predict the trajectory that DT research might (or should) follow in future editions of SOHOMA.</p><p>The paper presents the past and future perspectives of DT research at SOHOMA in two sections: section 2 reviews the DT related contributions in past SOHOMA workshops, and section 3 considers a future trajectory for DT research within the SOHOMA workshops and community. A conclusion is offered in section 4.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Review of past contributions</head><p>This section reviews the DT related research contributions that were presented at SOHOMA to date. The section first investigates the evolution of DT research at SOHOMA, before offering a summary of the DT functions, architectures and implementation technologies that were considered in the past papers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.1</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Evolution of Digital Twin contributions</head><p>While only emerging recently, DT research has garnered notable research interest in the SOHOMA community. This section quantifies this emergence through an analysis of DT related contributions, and provides a chronological description of the development of DT research at past editions of the SOHOMA workshop.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Analysis and overview.</head><p>DT research has only emerged recently in the SOHOMA community, with the concept only mentioned for the first time in the proceedings of SOHOMA 2017. However, the concept has gained notable traction within the research community and has subsequently been mentioned in, and has been the primary focus of, several contributions to recent SOHOMA workshopsas is shown in Figure <ref type="figure" target="#fig_0">1</ref>. Similarly, the percentage of papers at recent editions of SOHOMA that mention DTs has increased notablyas is shown in Figure <ref type="figure" target="#fig_1">2</ref>.</p><p>The growth of DT research, as is evident in Fig. <ref type="figure" target="#fig_0">1</ref> and Fig. <ref type="figure" target="#fig_1">2</ref>, is the result of contributions from several research teams from different countries. Teams are based in France, Portugal, Romania, Slovenia, South Africa and the United Kingdom. While there has been a strong focus on applications within the manufacturing domain, DT developments and implementations for other domains (e.g. maritime, and building and asset management) have also been presented.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2011-2017: Developing the Digital Twin idea.</head><p>Upon review of papers of the early editions of SOHOMA, it is evident that, while the term Digital Twin was not yet used, some research already started to develop the idea. The DT idea was presented in the form of a "digital mirror" in <ref type="bibr" target="#b10">[11]</ref> and an "observer" in <ref type="bibr" target="#b11">[12]</ref>, and as "objects in the real world are linked with the virtual world" in <ref type="bibr" target="#b12">[13]</ref>.</p><p>In the earliest mentions of the DT, it is considered closely integrated, and even synonymous, with discrete event simulation. In retrospect, the session at SOHOMA 2016 on Virtualization and Simulation in Computing-Oriented Industry and Services (see <ref type="bibr" target="#b13">[14]</ref><ref type="bibr" target="#b14">[15]</ref><ref type="bibr" target="#b15">[16]</ref><ref type="bibr" target="#b16">[17]</ref>) focused strongly on this aspect of the DT (under the gaze of different terminology). The term DT first appears in the proceedings of SOHOMA 2017, as used by both <ref type="bibr" target="#b17">[18]</ref> and <ref type="bibr" target="#b18">[19]</ref>. In both papers, the function of mimicking the behavior of the physical counterpart is highlighted.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2018: The introduction of ARTI.</head><p>Prior to the 2018 edition, it was still unclear how the DT concept could be integrated with, and supported by, the holonic systems approach that is so central to SOHOMA. However, the role of the DT within the holonic systems paradigm was clearly defined in the keynote presentation and subsequent paper by Paul Valckenaers at SOHOMA 2018 <ref type="bibr" target="#b19">[20]</ref>. Organized jointly with IFAC INCOM 2018 conference, this plenary session can be considered as one important vector of visibility for the workshop series since then. The keynote presented the ARTI architecturea reconsideration of its well-established predecessor, PROSAand described the role of DTs in providing software systems (e.g. for control and planning) with access to the real world (or, at least, the world-of-interest) <ref type="bibr" target="#b20">[21]</ref>.  This architecture, without actually mentioning explicitly the notion of the DT, clearly exhibited for the first time in the community the difference between beings and agents. Beings are meant to replicate how it is (i.e. reflect reality), while agents are meant to determine how it will be (i.e. make decisions). Therefore, it showed at the same time that these notion were already considered when building multi-agent architectures, but that decoupling implied many benefits. In a way, when control relies on the data available in the DT, the DT is not only used by control and can have many more benefits. ARTI, pointing out the difference between beings and agents, also implies that computer agents are not necessarily the development primitives of DTs. This role of the DT, and its importance as an enabler for cyber-physical systems within Industry 4.0, is supported and further evaluated by a collection of reviews from the SOHOMA community <ref type="bibr" target="#b21">[22]</ref>. Furthermore, many of the proposals of the following years, detailed in next section, inherit from this position.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2018-2020: Digital Twin developments and early applications.</head><p>Apart from the ARTI discussion, the 2018 edition of SOHOMA included three more papers that considered or extended the role of the DT <ref type="bibr" target="#b22">[23]</ref><ref type="bibr" target="#b23">[24]</ref><ref type="bibr" target="#b24">[25]</ref>. The DT is considered to evolve with the physical twin, as a non-static virtual model that is updated with sensor data over the lifetime of the physical component. Furthermore, the DT is envisioned to play an important role in supporting local and global decision making, through mechanisms such as fault detection and diagnosis. <ref type="bibr" target="#b23">[24]</ref> was the first paper at SOHOMA to present an implementation architecture for the DT. The paper presented the Six-Layer Architecture for Digital Twins (SLADT), which makes provision for the connection of the DT to the physical twin, the conversion of local data to information on the cloud, and for emulation and simulation tools within the DT.</p><p>SOHOMA 2019 saw a large growth in the number of papers that focus on DTs. These papers considered the role of DTs in diverse contexts beyond manufacturing, ranging from building information management to maritime vessels. The 2019 edition of the workshop also hosted the first session dedicated to DTs for CPS, which included six papers. Furthermore, two papers within the Digital Transformation in Construction, Building Management and Smart City Services session also had a strong focus on DTs.</p><p>DTs have continued to attract major interest in the 2020 edition of SOHOMA. The dedicated special session received 7 submissions of papers directly focusing on the topic, whereas 46% of all submissions refer to the concept of DT. This edition also showed five different research teams concurrently implementing a tentative DT on their own research platforms, which is a clear mark of interest for the concept. New considerations, such as the place of humans in the DT <ref type="bibr" target="#b25">[26]</ref>, are also gaining interest.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Functions of Digital Twins</head><p>Upon review of past DT publications at SOHOMA, the set of envisioned functions of DTs can be formulated. <ref type="bibr" target="#b19">[20]</ref> postulated that the primary function of DTs should be to reflect the reality of their physical counterpart as a single source of truth. This then represents the value of DTs, because the accurate and up to date reflection of reality is extremely valuable and play a critical in effective control, scheduling and planning <ref type="bibr" target="#b26">[27]</ref>. In order to perform this primary function, DT architectures and implementations must provide key supporting functions, such as:</p><p> Support data and information exchange between physical and digital worlds <ref type="bibr" target="#b23">[24]</ref>.</p><p> Gather and aggregate data from the physical world, from multiple sources <ref type="bibr" target="#b27">[28]</ref>.  Couple the virtual representation to their physical counterpart <ref type="bibr" target="#b26">[27]</ref>.  Store historical data of the physical twin over its entire lifespan <ref type="bibr" target="#b27">[28]</ref>.</p><p>As a result of these supporting functions, DTs can offer several benefits:</p><p> Enhanced visibility of (and insight into) performance/operation of physical twin <ref type="bibr" target="#b26">[27]</ref>.  Integration of the physical twin, and supported interoperability for collaboration, with different digital systems and services <ref type="bibr" target="#b26">[27,</ref><ref type="bibr" target="#b28">29]</ref>.  Organization of systems to manage complexity <ref type="bibr" target="#b29">[30]</ref>.</p><p>Building on the above-mentioned supporting functions and benefits, the papers frequently refer to the high-level functions, or roles, that DTs are envisioned to fulfill. From <ref type="bibr" target="#b23">[24,</ref><ref type="bibr" target="#b27">28,</ref><ref type="bibr" target="#b30">31]</ref> these roles can be summarized as follows: Remote monitoring, Predictive maintenance, Simulation of "what-if" scenarios, Planning and optimization.</p><p>Three regimes can be distinguished in the above four roles: Firstly, some roles require an emulation of the physical twin (i.e. remote monitoring that reflects current operation). Secondly, some roles rely on a simulation model of the physical twin to predict its future behavior, either using historical information (e.g. predictive maintenance) or a combination of historical information and chosen scenarios (e.g. planning and "what-if" simulations). The third regime, control, is also focused on the future, but is aimed at affecting the physical twin's behavior (e.g. planning and optimization). The simulation regime contains the roles that most significantly distinguishes a DT from a supervisory control and data acquisition (or SCADA) system. There is some disagreement amongst researchers whether the simulation and/or control regimes should be considered to be part of the DT, as will be pointed out below.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Digital Twin architectures</head><p>The advancement of DT research, and the wide adoption of DT solutions, benefits greatly from the development of reference architectures to guide the design and implementation. In recent editions of SOHOMA, several papers presented such reference architectures. As mentioned in section 2.1, the introduction of the ARTI architecture presented a blueprint for the creation and integration of DTs within holonic systems. ARTI requires that every system component be classified along three dimensions: Activities or Resources, Types or Instances, and Intelligent Beings or Intelligent Agents. While the classification in the first two dimensions were present in ARTI's predecessor, PROSA, the last classification represents an important change in approach. The classification allows for the separation of decision-making and the reflection of reality. Intelligent Agents should encapsulate the decision-making functionality, while Intelligent Beings should reflect the reality of their corresponding element in the world-of-interest. Intelligent Beings thus represent DTs. <ref type="bibr" target="#b19">[20,</ref><ref type="bibr" target="#b20">21]</ref> The architectures developed in <ref type="bibr" target="#b23">[24,</ref><ref type="bibr" target="#b26">[27]</ref><ref type="bibr" target="#b27">[28]</ref><ref type="bibr" target="#b28">[29]</ref> have a shared characteristicthese architectures aim to encapsulate the functionality of the DT in layers. This clear encap-sulation is arguably the result of the holonic systems influence in their design. The architectures developed in <ref type="bibr" target="#b23">[24]</ref> and <ref type="bibr" target="#b27">[28]</ref> have clearly defined functionality for each of the architecture layers. A similar, yet more detailed and possibly more context-specific architecture was developed in <ref type="bibr" target="#b26">[27]</ref>. When comparing these architectures with the regimes mentioned in the previous section, it is notable that the top layer in <ref type="bibr" target="#b27">[28]</ref> emphasises the simulation regime, but also mentions the control regime in the top layer and explicitly indicates the functionality to implement control. The sixth layer in <ref type="bibr" target="#b23">[24]</ref> explicitly mentions the emulation and simulation regimes, but indirectly implies that a control regime also is provided for through bidirectional information flow.</p><p>Another architecture for the DT, developed in <ref type="bibr" target="#b31">[32]</ref> was guided by the ARTI architecture. The architecture makes a clear distinction between the functions of reality reflection and decision making. Reality reflection is achieved through Intelligent Beings, which in this case constitutes the DT. Decision-making functionality is mapped to the Intelligent Agents. In this architecture, the DT is therefore focused solely in the emulation regime, with the simulation and control regimes are present, but outside the DT. The Six-Layer Architecture for Digital Twins (SLADT) developed in <ref type="bibr" target="#b23">[24]</ref> was extended to support aggregation in <ref type="bibr" target="#b29">[30]</ref>. The SLADT with aggregation (SLADTA) allows for the creation of a hierarchical (or even hybrid) system of DTs. SLADTA aims to support the scalability of DT solutions, by reducing complexity through encapsulation and modularity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Implementation technologies</head><p>Several of the reviewed DT papers have made valuable contributions through case study implementations of their developed DT architectures. These implementations provide valuable insight into the technologies that have been, and may still be, considered for realizing the various functions of the DT. According to these functions, the technologies are identified for realizing communication, data storage, and simulation and analysis in DT implementations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Communication</head><p>Upon inspection of the presented DT implementations, it is clear that communication within these implementations generally occur over two interfaces: the interface between the real and virtual worlds (i.e. between the physical twin and DT), and the interface between digital systems/processes that are local and those that reside on the internet (or cloud). <ref type="bibr" target="#b32">[33]</ref> argued that at both these communication interfaces, there exists a need for heterogeneous communication to support the vast variety of devices, software, and legacy systems.</p><p>For the data exchange between the physical twin and DT, Open Platform Communications Unified Architecture (OPC UA) has been used. <ref type="bibr" target="#b23">[24]</ref> identified the vendorneutrality and security of OPC as a valuable characteristic for DT implementation, within the context of Industry 4.0. <ref type="bibr" target="#b26">[27]</ref> and <ref type="bibr" target="#b31">[32]</ref> also reported using Modbus TCP for communication at this level in their implementation, which is also vendor neutral. Such a bus communication would be particularly appropriate if the DT interfaces directly with the sensors, and not through a controller in the physical twin.</p><p>For the communication between the local components of the DT digital implementation and the internet or cloud, several technologies appear to be suitable. <ref type="bibr" target="#b26">[27]</ref> indicated that the Devices Profile for Web Services (DPWS) and Representational State Transfer (REST) interfaces were used in their case study implementation, with data formatted in the JavaScript Object Notation (JSON). <ref type="bibr" target="#b32">[33]</ref> identified Message Queue Telemetry Transport (MQTT) as a suitable communication protocol, while <ref type="bibr" target="#b23">[24]</ref> used the Structured Query Language (SQL) to communicate with a cloud-based database.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data storage</head><p>There are many suitable cloud-based database options available to the developers of DTs. Among these options, <ref type="bibr" target="#b23">[24]</ref> used the Google Cloud Platform and <ref type="bibr" target="#b27">[28]</ref> selected the IBM CloudBurst private cloud platform.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Simulation and analysis</head><p>It is expected that the simulation and analysis functionality of DT implementation would typically be specific to the application context and, as such, the selection of technology would be dictated by the needs of the application. However, the papers presenting DT implementation in the manufacturing context utilized similar technology for simulation and analysis. For simulation (and, in some cases, emulation) several discrete event simulation software packages were used in the DT implementations: Siemens Tecnomatix PlantSim <ref type="bibr" target="#b23">[24]</ref>, Rockwell Arena <ref type="bibr" target="#b31">[32]</ref> and FlexSim <ref type="bibr" target="#b32">[33]</ref>. In some cases, the discrete event simulation software is also used for basic analysis. To accomplish optimization within their analysis, <ref type="bibr" target="#b26">[27]</ref> utilized the IBM ILOG CPLEX optimizer engine.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">The future trajectory of Digital Twin research</head><p>Shifting the focus from the past to the future, this section aims to describe a possible trajectory of DT research for the coming editions of SOHOMA. It is expected that DT research has notable momentum and opportunities to build on; however, several challenges must still be addressed. The section thus highlights the existing enablers and challenges to DT research, and offers a strategy for ongoing and future DT research endeavors.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Enablers</head><p>Future DT research are expected to investigate further architectures and applications. The SOHOMA community's background in holonic concepts will provide a strong base for these developments because of the many parallels between holons and DTs: a DT and its physical twin could be seen as a resource-type holon, while the aggregation principle behind a DTA is characteristic of holonic systems. As more DT applications are researched, one can expect one or two architectures to become commonly accepted, as PROSA and ADACOR had become in holonic systems. One expected trend is that DTs for increasingly complex systems will be researched, where the concepts in ARTI can play an important role. While building on well-established principles of preceding holonic architectures, the introduction of ARTI managed to reignite the discussion on the development and implementation of holonic systems. The architecture formally identifies and integrates the concept of the DT within its description. In effect, the presence of the DT within ARTI indicates that DT research in fact represents a continuation, rather than a disruption, within the SOHOMA context. As such, ARTI is expected to enable DT research through not just an architectural blueprint, but also as a basis for leveraging the valuable preceding research of SOHOMA.</p><p>An important enabler for DT research is the SOHOMA community and the SOHOMA workshop itself, which represents one of the foremost events for the discussion of DTs between so many international teams. The annual workshops have proven to be invaluable as opportunities for scientific discussion and collaboration. As mentioned in section 2.1, early development of the DT concept occurred in discussions during workshop sessions. Furthermore, these workshops played a role in the understanding and refinement of the ARTI architecture. The SOHOMA workshops of the future are expected to continue to support the development, evaluation and collaboration on DT research.</p><p>In the early years, the SOHOMA workshop series was created around research teams sharing a strong activity of platform development; aiming at implementing the holonic principle on size 1 demonstrators. As of 2020, about a dozen platforms are developed across the world by regular SOHOMA participants. These laboratory scale systems are mainly built around automated transfer loops conveying products on pallets around 3 to 12 automated or manual workstations. The intelligence is either embedded on the pallet or container (e.g. RFID tag, embedded CPU, Arduino chips, WSN mote, etc.) or in the product (e.g. RFID tag embedded in wood or textile raw material). For many years, contributions to SOHOMA were mainly focused on the design of innovative control and the associated decision-making techniques. However, as prevalent in the ARTI discussion in section 2.1, it appears that these platforms also constitute ideal support for the development of innovative DT architectures and proofs of concepts.</p><p>Lastly, in addition to their expertise in architecture and platform development, the research teams involved in the SOHOMA workshop series have a strong industrial background that enables them to interact effectively with industrial partnersamong which are Bombardier, French Postal service and Airbus Group, to name a few. This strong connection with industry already leads the community to integrate, step by step, the classical concepts of the workshop series (holonic control, for example) in the organization of these companies. DTs are currently following the same path, with some early industrial implementations expected to appear in the next couple of years and represent one of the future directions of this topic in SOHOMA.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Challenges</head><p>A key challenge exists in the development of DT software. DTs are globally meant to become middleware interfacing all sorts of applications with the manufacturing system. This middleware is also meant to integrate reconstruction and forecasting models <ref type="bibr" target="#b31">[32]</ref> to enhance the quality and quantity of available data. However, all these objectives, added to a context of high variability of architecture and technologies of targeted applications, tend to increase the complexity of software development. This complexity might become one of the main barriers to achieving actual DT implementations on industrial scales. The SOHOMA workshop series is a precursor in a domain that should gain major interest in the next few years and integrate researchers from communities more oriented towards software development.</p><p>Further challenges relate to achieving real-world impact through industrial applications of DTs. In this context, the first challenge is the validation and evaluation of DT functionality and performance. A particular challenge in evaluating alternative DT architectures and implementations, is the lack of widely accepted benchmarks and standards. The different life-cycle phases of the DT itself, as well as the underlying system it mirrors, will require different benchmarks. For example, the benchmarks in the initial development phase of a DT, where the immediate development context (e.g. the team's expertise and tools) can be influenced, will be different from the maintenance and support phase, where the future context is less certain. Also, some figures of merit are difficult to quantify in a research context (e.g. availability) and others are highly dependent on the expertise and experience of the persons doing the research (e.g. customizability and maintainability).</p><p>In addition to a lack of benchmarks and standards, there is currently still a shortage of real-world, industrial case studies and applications. <ref type="bibr" target="#b33">[34]</ref> mention that the development of the DT is still at its infancy, as literature (at the time) mainly presented conceptual ideas and architectures without concrete case studies. Although there exist many papers on the DT for a manufacturing system, there is still little concrete evidence of DT implementation and evaluation in real world settings. Many existing solutions and platforms already provide communication in one direction for monitoring and analytical purposes, but there is insufficient evidence of bidirectional communication.</p><p>Considering the potential for industrial applications, a key concern is that of cybersecurity. With more and more devices migrating towards an interconnected environment, where devices in the real world are connected to/through the cyberspacethe risk of infiltration through cyber-attacks increases. <ref type="bibr" target="#b34">[35]</ref> mentioned that "CEOs see cybersecurity as the number one threat to the global economy over the next five to ten years". <ref type="bibr" target="#b35">[36]</ref> further mentions that 80% of enterprises are not equipped with cybersecurity prevention and mitigation plans. Security threats that Industry 4.0 may introduce can be broadly grouped as <ref type="bibr" target="#b36">[37]</ref>: data loss or corruption, intellectual property breaches, and Denial-of-Services (DoS). It is therefore sensible to integrate cybersecurity best practices when developing DTs. An interesting development, initiated by General Electric and particularly relevant to CPPS, was the combination of a DT and industrial control systems to form a Digital Ghost to prevent cyber-attacks. This initiative aimed to use physics to detect and prevent attacks by sensing anomalies in processes <ref type="bibr" target="#b37">[38]</ref>.</p><p>Finally, Industry 4.0 and its driving technologies are challenged with the effective integration of humans. While DT research has made advancements in the development of architectures, communication frameworks, and analysis tools, there has been a lack of focus on human factors. These human factors should be considered in two aspects: how should humans be integrated with DTs, and how can humans be integrated through DTs. The first aspect relates to the development of suitable interfaces between DT and human decision makers, while the second explores the DT as a mechanism for making humans an integral part of intelligent systems as both activity performers and decision makers. While some advances in this area have been madeespecially in the sessions on human factors at recent editions of SOHOMAcontinued research effort is required to address these important aspects.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Strategic focus and impact</head><p>In order to develop architectures, frameworks and methodologies that are suitable for a wide range of applications, it is necessary to inherently separate the elements that are context-specific from those that are generic. This separation of concerns is emphasized by the ARTI architecture and is also evident in each of the architectures reviewed in section 2.3. The elements in the architecture that are generic, contributes to the creation of the infrastructure of any given applicationin the case of DTs, this primarily refers to the accurate reflection of reality (i.e. the physical twin and the WOI). However critical this infrastructure may be, it generally does not (strive to) offer much value to a specific enterprise. The real value-addition is achieved by integrating the context-specific elements, as adapted to suit the given application context. The question then arises: should SOHOMA researchers focus on the development of DT infrastructure, or on value-adding elements? Unfortunately, this question does not seem to have an "either/or" answer. Development of a generic DT infrastructure, through architecture, platform and communication specification, is crucial for the researcher. However, this may not be enough to convince the industrial client who must focus on value and results. Alternatively, the strong focus on addressing individual client requirements through context-specific solutions and tools will hardly support continued research momentum. Furthermore, this strategy may not result in achieving the change in thinking that may be desired in industry.</p><p>The (hollow and, probably, unsurprising) answer then seems to be for researchers to strive to find a balance between the development of generic and context-specific elements within their DT research. This strategy, as has been followed by most of the papers reviewed here, involves developing a generic architecture, framework or methodology, and implementing, adapting and extending it in a specific case study. While the application may be specific to the case study, it can be used to validate and gain insight into DT applications in general.</p><p>As DTs for increasingly complex systems are researched, the value in collaboration amongst researchers will increase. If research groups can share generic functional elements of DTs, it would enable groups to focus more on the novel aspects in new architectures and applications. Some agreements on the architectures (particularly the ge-neric functional units), as well as communication protocols and ontologies, are necessary precursors for such collaboration. The SOHOMA community, with its network of diverse industry partners, is an environment conducive to developing the foundation for collaboration.</p><p>In support of this strategy, the research community should retain a predisposition of constructive skepticism and place high value of the evaluation of such DT applications. A strong focus on validation and evaluation will serve to address the challenge of not having any effective mechanisms for evaluating DT architectures and implementations. It is also crucial for the researchers to communicate their development and applications to the research community, at events like SOHOMA, and engage in the discussions on key issues.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Conclusion</head><p>The Digital Twin (DT) has emerged as a key enabler for cyber-physical systems and, as such, Industry 4.0. Considering the recent editions of SOHOMA, DT research has gained notable traction and resulted in an increasing number of contributions. While several papers in these editions recognize the DT concept as a critical aspect of Industry 4.0 and CPPS landscape, truly valuable contributions have been made by papers which developed reference architectures for the design and implementation of DTs. This paper provided a review of the DT related papers at SOHOMA, which focused on the functions and roles of DTs, the presented reference architectures, and the most prominent implementation technologies. The review is followed by a discussion of the future trajectory of DT research in the context of SOHOMA. The discussion highlights some aspects that may enable and challenge DT research in the future, and attempts to outline a research strategy for the SOHOMA community.</p><p>The enabling factors for DT research are summarized as follows:</p><p> The SOHOMA community has a strong culture of architecture development  ARTI serves as a valuable blueprint for DT development  The SOHOMA workshops are one of the foremost platforms for scientific discussion and collaboration on DT research  The SOHOMA community have developed important demonstrators to support DT implementations  As was the case for holonic systems, the strong industry connection will support the industrial adoption of DT research</p><p>The following challenges are identified:</p><p> DT software is expected to become increasingly complex  There exists a shortage of benchmarks and standards to support the evaluation of DT architectures and implementations  There is a need for real-world DT applications and validations  There are issues concerning cybersecurity in DT application  More research focus on human factors are required The paper recommends that the DT research community continues with a strategy that balances the development of generic architectures and platforms, with context-specific applications, which can simultaneously support research collaboration and industry impact.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. DT related papers at recent editions of SOHOMA.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. The increase in the percentage of papers that refer to DTs in SOHOMA editions</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">The history and creation of the digital twin concept</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Miskinis</surname></persName>
+		</author>
+		<ptr target="https://www.chal-lenge.org/insights/digital-twin-history" />
+		<imprint>
+			<date type="published" when="2019-05" />
+			<biblScope unit="volume">28</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Digital Twin: Manufacturing Excellence through Virtual Factory Replication</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grieves</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014" />
+			<pubPlace>Melbourne</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Modeling, simulation, information technology &amp; processing roadmap</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shafto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Conroy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Doyle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Glaessgen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Technology Area</title>
+		<imprint>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Digital twin: mitigating unpredictable, undesirable emergent behavior in complex systems</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grieves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Vickers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Transdisciplinary Perspectives on Complex Systems</title>
+				<editor>
+			<persName><forename type="first">F</forename><forename type="middle">J</forename><surname>Kahlen</surname></persName>
+			<persName><forename type="first">S</forename><surname>Flumerfelt</surname></persName>
+			<persName><forename type="first">A</forename><surname>Alves</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">The digital twin of an industrial production line within the industry 4.0 concept</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Vachalek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bartalsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Rovny</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Sismisova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Morhac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Loksik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2017 21st International Conference on Process Control</title>
+				<meeting>the 2017 21st International Conference on Process Control</meeting>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="258" to="262" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Digital twin-driven product design, manufacturing and service with big data</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Sui</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Advanced Manufacturing Technology</title>
+		<imprint>
+			<biblScope unit="volume">94</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="3563" to="3576" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">The value of the digital twin</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Feuer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Weissman</surname></persName>
+		</author>
+		<ptr target="https://community.plm.auto-mation.siemens.com/t5/Digital-Transformations/The-value-of-the-digital-twin/ba-p/385812" />
+		<imprint>
+			<date type="published" when="2017-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">What is digital twin technology -and why is it so important</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Marr</surname></persName>
+		</author>
+		<ptr target="https://www.forbes.com/sites/bernardmarr/2017/03/06/what-is-digital-twin-technology-and-why-is-it-so-important/#26203f1c2e2a" />
+		<imprint>
+			<date type="published" when="2017-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">The value of automation and power of the digital twin</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Martin</surname></persName>
+		</author>
+		<ptr target="https://newsigna-ture.com/articles/value-automation-power-digital-twin" />
+		<imprint>
+			<date type="published" when="2017-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Oracle: Digital twins for IoT applications: A comprehensive approach to implementing IoT digital twins</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note>Redwood shores</note>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A service-oriented approach for holonic manufacturing control and beyond</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Van Belle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Philips</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Saint Germain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Van Brussel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Valckenaers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>Borangiu, T., Thomas, A., Trentesaux, D.</editor>
+		<imprint>
+			<biblScope unit="volume">402</biblScope>
+			<biblScope unit="page" from="1" to="20" />
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+	<note>Service Orientation in Holonic and Multi-Agent Manufacturing Control</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Myopia of service oriented manufacturing systems: Benefits of data centralization with a discrete-event observer</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Cardin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Castagna</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>Borangiu, T., Thomas, A., Trentesaux, D.</editor>
+		<imprint>
+			<biblScope unit="volume">402</biblScope>
+			<biblScope unit="page" from="197" to="210" />
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+	<note>Service Orientation in Holonic and Multi-Agent Manufacturing Control</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Service Orientation in Holonic and Multi-Agent Manufacturing and Robotics</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>Borangiu, T., Thomas, A., Trentesaux, D.</editor>
+		<imprint>
+			<biblScope unit="volume">544</biblScope>
+			<biblScope unit="page" from="3" to="14" />
+			<date type="published" when="2013" />
+		</imprint>
+	</monogr>
+	<note>Are intelligent manufacturing systems sustainable?</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Service Orientation in Holonic and Multi-Agent Manufacturing</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dobrescu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Merezeanu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Barata Oliviera</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Proceedings of SOHOMA 2016. Studies in Computational Intelligence</title>
+		<editor>J.</editor>
+		<imprint>
+			<biblScope unit="volume">694</biblScope>
+			<biblScope unit="page" from="395" to="404" />
+			<date type="published" when="2017" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+	<note>Simulation platform for virtual manufacturing systems</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Environment to simulate distributed agent based manufacturing systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rocha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Barroca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Dal Maso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Barata Oliviera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Barata Oliviera</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of SOHOMA 2016</title>
+				<editor>
+			<persName><forename type="first">J</forename></persName>
+		</editor>
+		<meeting>SOHOMA 2016<address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">694</biblScope>
+			<biblScope unit="page" from="405" to="416" />
+		</imprint>
+	</monogr>
+	<note>Service Orientation in Holonic and Multi-Agent Manufacturing</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">An evolvable and adaptable agent based smart grid management -a simulation environment</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rocha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rodrigues</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Barata Oliviera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Barata Oliviera</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of SOHOMA 2016</title>
+				<editor>
+			<persName><forename type="first">J</forename></persName>
+		</editor>
+		<meeting>SOHOMA 2016<address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">694</biblScope>
+			<biblScope unit="page" from="417" to="426" />
+		</imprint>
+	</monogr>
+	<note>Service Orientation in Holonic and Multi-Agent Manufacturing</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Validation of a holonic controller for a modular conveyor system using an object-oriented simulation framework</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kruger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Basson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Barata Oliviera</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of SOHOMA 2016</title>
+				<editor>
+			<persName><forename type="first">J</forename></persName>
+		</editor>
+		<meeting>SOHOMA 2016<address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">694</biblScope>
+			<biblScope unit="page" from="427" to="436" />
+		</imprint>
+	</monogr>
+	<note>Service Orientation in Holonic and Multi-Agent Manufacturing</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Service Orientation in Holonic and Multi-Agent Manufacturing, Proceedings of SOHOMA 2017</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zupan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zerovnik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Herakovik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>Borangiu, T., Trentesaux, D., Thomas, A., Cardin, O.</editor>
+		<imprint>
+			<biblScope unit="volume">803</biblScope>
+			<biblScope unit="page" from="371" to="380" />
+			<date type="published" when="2018" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+	<note>Local search with discrete event simulation for the job shop scheduling problem</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Service Orientation in Holonic and Multi-Agent Manufacturing, Proceedings of SOHOMA 2017</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Derigent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>Cardin, O.</editor>
+		<imprint>
+			<biblScope unit="volume">803</biblScope>
+			<biblScope unit="page" from="127" to="136" />
+			<date type="published" when="2018" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+	<note>Situational awareness in product lifecycle information systems</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Service Orientation in Holonic and Multi-Agent Manufacturing, Proceedings of SOHOMA 2018</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Valckenaers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>Borangiu, T., Trentesaux, D., Thomas, A., Cavalieri, S.</editor>
+		<imprint>
+			<biblScope unit="volume">803</biblScope>
+			<biblScope unit="page" from="1" to="19" />
+			<date type="published" when="2019" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+	<note>ARTI reference architecture -PROSA revisited</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Perspective on holonic manufacturing systems: PROSA becomes ARTI</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Valckenaers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computers in Industry</title>
+		<imprint>
+			<biblScope unit="volume">120</biblScope>
+			<biblScope unit="page">103226</biblScope>
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Scientific discussion: Open reviews of &quot;ARTI reference architecture -PROSA revisited</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Cardin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Babiceanu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Giret</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kruger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Raileanu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Weichhart</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of SOHOMA 2018. Studies in Computational Intelligence</title>
+				<editor>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+			<persName><forename type="first">S</forename><surname>Cavalieri</surname></persName>
+		</editor>
+		<meeting>SOHOMA 2018. Studies in Computational Intelligence<address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="volume">803</biblScope>
+			<biblScope unit="page" from="20" to="37" />
+		</imprint>
+	</monogr>
+	<note>Service Orientation in Holonic and Multi-Agent Manufacturing</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Service Orientation in Holonic and Multi-Agent Manufacturing, Proceedings of SOHOMA 2018</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pipan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Protner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Herakovic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>Borangiu, T., Trentesaux, D., Thomas, A., Cavalieri, S.</editor>
+		<imprint>
+			<biblScope unit="volume">803</biblScope>
+			<biblScope unit="page" from="424" to="435" />
+			<date type="published" when="2019" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+	<note>Integration of distributed manufacturing nodes in smart factory</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">A six-layer digital twin architecture for a manufacturing cell</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J H</forename><surname>Redelinghuys</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Basson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kruger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of SOHOMA 2018</title>
+				<editor>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+			<persName><forename type="first">S</forename><surname>Cavalieri</surname></persName>
+		</editor>
+		<meeting>SOHOMA 2018<address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="volume">803</biblScope>
+			<biblScope unit="page" from="412" to="423" />
+		</imprint>
+	</monogr>
+	<note>Service Orientation in Holonic and Multi-Agent Manufacturing</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Industry 4.0 and service companies: The case of the french postal service</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Selma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Tamzalit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Mebarki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Cardin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bruggeman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Theriot</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of SOHOMA 2018</title>
+				<editor>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+			<persName><forename type="first">A</forename><surname>Thomas</surname></persName>
+			<persName><forename type="first">S</forename><surname>Cavalieri</surname></persName>
+		</editor>
+		<meeting>SOHOMA 2018<address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="volume">803</biblScope>
+			<biblScope unit="page" from="436" to="447" />
+		</imprint>
+	</monogr>
+	<note>Service Orientation in Holonic and Multi-Agent Manufacturing</note>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">A benchmarking platform for human-machine cooperation in Industry 4.0</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Berdal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pacaux-Lemoine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Bonte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Chauvin</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>Submitted to SOHOMA 2020</note>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Service Oriented, Holonic and Multi-agent Manufacturing Systems for Industry of the Future. SOHOMA 2019</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Oltean</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Raileanu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Anton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Anton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Iacob</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giret</forename><surname>Boggino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>A., Botti, V.</editor>
+		<imprint>
+			<biblScope unit="volume">853</biblScope>
+			<biblScope unit="page" from="113" to="133" />
+			<date type="published" when="2020" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+	<note>Embedded digital twin for ARTI-type control of semi-continuous production processes</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Service Oriented, Holonic and Multi-agent Manufacturing Systems for Industry of the Future</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Raileanu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ivanescu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Morariu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Anton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giret</forename><surname>Boggino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">SOHOMA 2019. Studies in Computational Intelligence</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Botti</surname></persName>
+			<persName><forename type="first">V</forename></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2020" />
+			<biblScope unit="volume">853</biblScope>
+			<biblScope unit="page" from="134" to="145" />
+		</imprint>
+	</monogr>
+	<note>Integrating the digital twin of a shop floor conveyor in the manufacturing control system</note>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Service Oriented, Holonic and Multi-agent Manufacturing Systems for Industry of the Future</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Heaton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Parlikad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Schooling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giret</forename><surname>Boggino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">SOHOMA 2019. Studies in Computational Intelligence</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Botti</surname></persName>
+			<persName><forename type="first">V</forename></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2020" />
+			<biblScope unit="volume">853</biblScope>
+			<biblScope unit="page" from="392" to="404" />
+		</imprint>
+	</monogr>
+	<note>From BIM towards digital twin: Strategy and future development for smart asset management</note>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Service Oriented, Holonic and Multi-agent Manufacturing Systems for Industry of the Future. SOHOMA 2019</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Redelinghuys</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kruger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Basson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giret</forename><surname>Boggino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>A., Botti, V.</editor>
+		<imprint>
+			<biblScope unit="volume">853</biblScope>
+			<biblScope unit="page" from="171" to="182" />
+			<date type="published" when="2020" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+	<note>A six-layer architecture for digital twins with aggregation</note>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Service Oriented, Holonic and Multi-agent Manufacturing Systems for Industry of the Future</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Taylor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Human</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kruger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bekker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Basson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giret</forename><surname>Boggino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">SOHOMA 2019. Studies in Computational Intelligence</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Botti</surname></persName>
+			<persName><forename type="first">V</forename></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2020" />
+			<biblScope unit="volume">853</biblScope>
+		</imprint>
+	</monogr>
+	<note>Comparison of digital twin development in manufacturing and maritime domains</note>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Service Oriented, Holonic and Multi-agent Manufacturing Systems for Industry of the Future. SOHOMA 2019</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Cardin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Castagna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Couedel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Plot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Launay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Allanic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Madec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Jegouzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giret</forename><surname>Boggino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>A., Botti, V.</editor>
+		<imprint>
+			<biblScope unit="volume">853</biblScope>
+			<biblScope unit="page" from="183" to="194" />
+			<date type="published" when="2020" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+	<note>Energy aware resource in digital twin: The case of injection moulding machines</note>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Service Oriented, Holonic and Multi-agent Manufacturing Systems for Industry of the Future. SOHOMA 2019</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Andre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Azzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Cardin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Leitao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studies in Computational Intelligence</title>
+		<editor>A., Botti, V.</editor>
+		<imprint>
+			<biblScope unit="volume">853</biblScope>
+			<biblScope unit="page" from="146" to="157" />
+			<date type="published" when="2020" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+	<note>Heterogenous communication middleware for digital twin based cyber manufacturing systems</note>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Digital Twin in manufacturing: A categorical literature review and classification</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Kritzinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Karner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Traar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Henjes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Sihn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="1016" to="1022" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Cybersecurity is the biggest threat to the world economy over the next decade</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Taylor</surname></persName>
+		</author>
+		<ptr target="https://www.cnbc.com/2019/07/09/cybersecurity-biggest-threat-to-world-economy-ceos-say.html.Accessed03" />
+	</analytic>
+	<monogr>
+		<title level="m">CEOs say</title>
+				<imprint>
+			<date type="published" when="2019-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Most Urgent Cybersecurity Issues</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bocetta</surname></persName>
+		</author>
+		<ptr target="https://www.csoon-line.com/article/3501897/10-most-urgent-cybersecurity-issues-in-2019" />
+	</analytic>
+	<monogr>
+		<title level="j">html. Accessed</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page">2019</biblScope>
+			<date type="published" when="2019-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">International Conference on Competitive Manufacturing (COMA 19). Knowledge Valorisation in the Age of Digitalization</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J H</forename><surname>Redelinghuys</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Basson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kruger</surname></persName>
+		</author>
+		<editor>D. Dimitrov, D. Hagedorn-Hansen, &amp; K. von Leipzig</editor>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note>Cybersecurity Considerations for Industrie 4.0. Stellenbosch. 266-271.</note>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<title level="m" type="main">GE aims to replicate Digital Twin success with security-focused Digital Ghost</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Dignan</surname></persName>
+		</author>
+		<ptr target="https://www.zdnet.com/article/ge-aims-to-replicate-digital-twin-success-with-secu-rity-focused-digital-ghost" />
+		<imprint>
+			<date type="published" when="2017-05" />
+			<biblScope unit="volume">23</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

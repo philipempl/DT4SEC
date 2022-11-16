@@ -1,0 +1,1856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Secure embedded intelligence in nuclear systems: Framework and methods</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2020-06">2020-06</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+							<email>humberto.garcia@inl.gov</email>
+							<affiliation key="aff0">
+								<orgName type="institution">Idaho National Laboratory</orgName>
+								<address>
+									<postBox>P.O. Box: 1625</postBox>
+									<postCode>83415</postCode>
+									<settlement>Idaho Falls</settlement>
+									<region>ID</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Steven</forename><forename type="middle">E</forename><surname>Aumeier</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Idaho National Laboratory</orgName>
+								<address>
+									<postBox>P.O. Box: 1625</postBox>
+									<postCode>83415</postCode>
+									<settlement>Idaho Falls</settlement>
+									<region>ID</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ahmad</forename><forename type="middle">Y</forename><surname>Al-Rashdan</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Idaho National Laboratory</orgName>
+								<address>
+									<postBox>P.O. Box: 1625</postBox>
+									<postCode>83415</postCode>
+									<settlement>Idaho Falls</settlement>
+									<region>ID</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Bri</forename><forename type="middle">L</forename><surname>Rolston</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Idaho National Laboratory</orgName>
+								<address>
+									<postBox>P.O. Box: 1625</postBox>
+									<postCode>83415</postCode>
+									<settlement>Idaho Falls</settlement>
+									<region>ID</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Secure embedded intelligence in nuclear systems: Framework and methods</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Annals of Nuclear Energy</title>
+						<title level="j" type="abbrev">Annals of Nuclear Energy</title>
+						<idno type="ISSN">0306-4549</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">140</biblScope>
+							<biblScope unit="page">107261</biblScope>
+							<date type="published" when="2020-06" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1016/j.anucene.2019.107261</idno>
+					<note type="submission">Received 23 February 2019 Received in revised form 27 November 2019 Accepted 13 December 2019</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:36+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Secure embedded intelligence Integrated state awareness Smart nuclear systems Intelligent controls Integrated testing Digital twins Cyber-physical systems Cyber-physical security and resiliency Hybrid threats</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>We present potential approaches for implementing secure embedded intelligence (SEI) and integrated state awareness (ISA) in advanced nuclear energy (NE) systems. A framework for deliberate design and operations of such systems is provided, and potential risks, challenges and impacts discussed. Activities that should be carried out in research, development, and demonstration (RD&amp;D) opportunities are identified. Resulting implications for operation of 'smart nuclear systems', including remote operations, flexible operations, predictive maintenance, inherent digital security, and autonomous controls, are discussed.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1.">Introduction</head><p>The use of energy resources is dramatically changing in multiple aspects, including moving from centralized to distributed topologies, from fixed to flexible generation, from dispatchable to non-dispatchable (renewable) energy sources (e.g., solar, wind, geothermal), and from constant to highly-variable loads (e.g., electric vehicles). Thus, the energy environments in which NE must compete are becoming highly diverse, uncertain, and dynamic. To accommodate these more stringent conditions at a competitive cost, smart nuclear systems (SNS) have been proposed exhibiting intelligence behavior enabled by two cornerstone notions, namely, SEI and ISA <ref type="bibr" target="#b20">(Garcia et al., 2019)</ref>.</p><p>Fig. <ref type="figure" target="#fig_0">1</ref> illustrates the relationship between these notions and the technologies whose rapid advances have made possible their cost-effective implementation: ubiquitous sensing, data analytics, reasoning, intelligent controls, and hybrid (physics-based plus data-driven) modeling and simulation (M&amp;S). Going from left to right in this figure, data is collected from the monitored systems, structures, and components (SSC) through adaptive sensing and, after their appropriate manipulation and interpretation by SEIand ISA-driven processes closely working together in cooperation, commands are executed through adaptive actuation on the monitored SSC at the right. These SEI-and ISA-driven processes are sustained by advanced technologies related to data analytics, reasoning, intelligent controls, and hybrid modeling and simulation (M&amp;S). The bidirectional arrows for sensing and actuation denotes that the sensor and actuation networks used for collecting data from and acting on the monitored SSC, respectively, may accordingly vary at the direction of SEI and ISA to respond to observed or predicted SSC conditions. Via SEI and ISA, adaptation of sensing, actuation, and hence operations is possible, allowing SNS to cost-effectively compete in time-varying energy grids subjected to hybrid (digital plus physical) insults.</p><p>A key objective of SEI is to provide ISA and automated reasoning while ensuring digital security and resiliency, thus bringing the game-changing abilities of digital sciences to advanced reactor concepts using an integrated (as opposed to bolt-on) approach. If achieved, SEI-ISA would provide game-changing implications for systems maintainability, operability (autonomous, semiautonomous, or remote control), digital security and resiliency, and lower-cost expansion of NE applications due to operations simplicity and cost reduction. RD&amp;D associated with SEI-ISA for nuclear systems could be a major contribution to NE technology deployment for the energy markets of the future.</p><p>Smart functionalities (e.g., autonomous operations) can now be safely and cost-effectively introduced in the nuclear industry, including into microreactor designs. A microreactor is understood here as reactors smaller than 20 MWth, which is about 2-3 thousandth the size of a typical commercial light-water reactors (LWR) built today. Thus, the concept of nuclear microreactors supplying heat to reconfigurable power conversion systems is envisioned as a resilient energy system that can meet energy demands for on-and off-the-grid as well as for industrial applications. Small, stackable nuclear microreactors, with multiple units potentially located on a common site, could also be arranged in a plug-and-play configuration to a reactor-agnostic power conversion system. Nuclear microreactors are viewed as a competitive option for NE due to several benefits, including their reliance on economies of multiples (as opposed to scale), phased introduction at locations with shared common facilities, and ability to optimize investment recovery, Microreactors can also be readily integrated within hybrid energy systems (HES) (see e.g., <ref type="bibr" target="#b5">Binder et al., 2017;</ref><ref type="bibr" target="#b19">Garcia et al., 2016;</ref><ref type="bibr" target="#b15">Garcia et al., 2013a;</ref><ref type="bibr" target="#b16">Garcia et al., 2013b)</ref> deployed for facilitating clean energy integration, thus offering the possibility of reestablishing a competitive US nuclear industry <ref type="bibr" target="#b40">(Lovering et al., 2018)</ref>.</p><p>Unattended systems with minimal maintenance, high reliability, and passive safety features are also attractive options for remote areas, forward operating military bases (FOB), merchant vessels, disaster relief, or humanitarian missions. Expected to reduce system complexity and facilitate the implementation passive safety concepts, microreactors are poised to promote the implementation of SEI-driven monitoring and control (M&amp;C) approaches supporting attractive possibilities (e.g., unattended operation without critical human intervention). Key definitions addressed here follow.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2.">Secure embedded intelligence (SEI)</head><p>Embedded intelligence (EI), a generational disruptor, denotes the embedding of sensing, actuation, and intelligence capabilities into SSC that enable or facilitate intelligent behaviors in complex engineered systems interacting with dynamic environments to extract the greatest value. On the other hand, SEI denotes the inherently-secured implementation of EI techniques and technologies in cyber-physical systems (CPS) assuming at the outset that these CPS may be challenged by disturbances and threats, nonmalicious and malicious, of well-or ill-defined characterizations.</p><p>Intelligent capabilities include features for learning, reasoning, and adapting to dynamic situations. By promoting generalization, abstraction, discovery, and association, an engineered system with EI has the ability to recognize important patterns in its processes and operations, interpret what these patterns mean with respect to its mission and state condition, and adjust its processes in real-time to maintain efficient, safe, and secure operations. The fact that security is intrinsically considered during the design, development, and implementation of EI techniques within nuclear systems is unique when compared with traditional designs, which consider only natural disturbances of well-defined characterizations. SSC designed with SEI exhibit inherent digital security and resiliency.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3.">Integrated state-space awareness (ISA)</head><p>ISA, a generational disruptor as well, denotes the ability to perceive the states, attributes, and dynamics of all relevant SSC, comprehend their current situations and conditions, and predict their states based on assumed future operations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.4.">Smart nuclear systems (SNS)</head><p>An SNS denotes a nuclear system with the ability to autonomously monitor, reason, learn, control, and improve its own conditions and performance (and possibly those of others) while operating in dynamic environments subjected to intentional and non-intentional physical and digital disturbances.</p><p>Toward achieving smart functionalities (e.g., self-control, selfprotection, self-healing, and self-improvement), SNS require the ubiquitous integration of SEI techniques (including multi-agent data analysis mechanisms) to enhance many of the regulating functions currently performed by traditional controls. Their ability to achieve ISA of operations exert an unprecedented impact in autonomy and (artificial or machine) reasoning, substantially lowering operations and maintenance (O&amp;M) costs, while assuring high safety and security postures. A key distinction in SNS is their full utilization of knowledge regarding themselves augmented by learning from experience and of feedbacks with justified beliefs resulting from their own actions to provide reliable, safe, and secure controls in accordance with assigned missions or priorities. However, SNS may necessitate a radical change in present regulatory structures and philosophies.</p><p>Fig. <ref type="figure" target="#fig_1">2</ref> illustrates relationships among the key notions addressed in this article. In particular, SNS are nuclear systems that offer a number of smart functionalities opened by the realization of ISA, which is enabled by the ubiquitous use of SEI. The cost-effective achievement of SEI in nuclear systems with robust digital security and resiliency as well as with engineering designs that facilitate  automated and predictive physical maintenance of SSC stands on nine technological thrusts as follows:</p><p>1. Intelligent autonomous frameworks and agents 2. Hyper-layered modeling and distributed digital replication 3. Embedded smart sensing and actuation devices 4. Adaptive security architectures 5. Human-machine interfaces 6. Augmented analytics and machine learning (ML) 7. Advanced edge computing and communication 8. Integrated testing platforms 9. Regulatory research</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.5.">Organization of paper</head><p>The remaining sections of this paper are organized as follows. Section 2 describes the approach of SEI-by-design in which SEI is addressed right at the start of the design phases of an SNS. Section 3 discusses technical opportunities for achieving the implementation of SEI and ISA in SNS and suggests potential architectures, approaches, and methods for their realization. Section 4 concludes the article.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Approach: SEI-by-design</head><p>The use of SEI should be addressed at the start of the design phases of advanced nuclear systems to determine the intelligence required to successfully achieve SEI-by-design and result in optimal ISA. A key aspect of SEI-by-design is devising smart functionality as a principle aspect of the design, which may change the original physical design itself. Multiple factors can influence the degree of intelligence needed in a design, including:</p><p>1. Desired design simplicity 2. Smart functionalities 3. Goals, requirements, and considerations for identified metrics (e.g., performance, health, risk) 4. Constraints of identified technologies 5. Complexity of target application 6. Level of automation Similarly, the introduction of SEI and ISA in nuclear designs should be analyzed in the context of:</p><p>1. Activity-level economic analysis: This context analyzes the benefit and costs of the individual activities regardless of the reactor mission. The cost of some activities might be distributed among multiple tasks and therefore need to be considered in a holistic manner. For example, introducing particular data infrastructures could result in benefits to several automated activities using SEI. 2. Reactor-level economic analysis: This context analyzes the benefit and cost of the smart functionalities facilitated by SEI and ISA. This impacts the cost-saving resulting from automating activities that might not be as attractive if considered independently, but are necessary to achieve the overall cost-saving resulting from the application of technology to the energy market. 3. Fleet-level economic analysis: This context analyzes the benefit and cost of implementing multiple reactors in a connected grid of energy sources, and the ability of the reactors to perform multiple functions depending on the energy demands at any point of time.</p><p>The economic analysis at each level of evaluation requires a hierarchical cost-analysis approach that would be specific to the considered scope and may build on existing efforts that targets the three levels of economic analysis mentioned above. Activitylevel economic analysis would benefit from the ongoing work performed for LWRs <ref type="bibr" target="#b63">(Thomas et al., 2016)</ref>. Reactor-level economic analysis would gain from reactor-technology-specific economic benefits (e.g., <ref type="bibr" target="#b10">DOE, 2014</ref>). Fleet-level economic analysis would benefit from energy optimization efforts performed in multiple Department of Energy (DOE) efforts (e.g., <ref type="bibr" target="#b8">Bragg-Sitton et al., 2016)</ref>.</p><p>Technologies developed under SEI-by-design will reside at different levels of complexity within M&amp;C systems. Fig. <ref type="figure" target="#fig_2">3</ref> depicts a typical functional layering in complex industrial control systems (ICS), with the envisioned intelligent system performing data acquisition, monitoring, verification, validation, evaluation, correction, and reporting of measurements, decisions, and actions at each level. In particular, going from the bottom to the top, the lowest level consists of the (field) sensors and actuators interacting with the physical assets (e.g., nuclear core, energy conversion systems, equipment) to monitor and control a given nuclear SSC as determined by the inner and outer (local, low-level) controllers located at the control level. The supervisory layer, including the operations and production levels, has a larger view of the monitored SSC and coordinates the operation of a set of local controllers by providing them with setpoints that must be tracked. The tactical level contains algorithms supporting plant execution processes, including prognostics and health management (PHM) functions. The strategic level conducts optimization routines considering metrics, objectives, and requirements defined for the monitored CPS to determine the optimal plant settings based on a system-centric perspective of the monitored plant and the conditions existing and predicted for the surrounding environment and energy resources connected to it. The last level, management information system interconnects the operational technology (OT) processes (including control functions) with the information technology (IT) processes (including business functions). The ubiquitous use of SEI at all levels and appropriate implementation of security and resiliency in them are discussed next as they relate to SEI deployment within different elements in SSC.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Technological thrusts</head><p>The framework and methods proposed for the deployment of SNS are designed within a RD&amp;D opportunity space organized into nine technological thrusts as shown in Fig. <ref type="figure" target="#fig_1">2</ref>. The motivation for these thrusts is to provide a structure that encapsulates major scientific disciplines that are central to achieving the ubiquitous implementation of SEI and ISA in nuclear systems following an SEI-by-design approach. This section provides a general discussion regarding these eight thrusts for achieving the implementation of SEI and ISA in SNS and suggests potential architectures, approaches, and methods for their realization.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Intelligent autonomous frameworks and agents</head><p>This thrust involves the development and validation of complete and scalable modules that can be deployed in nuclear systems for realizing smart functionalities attended by intelligent, autonomous agents supporting M&amp;C tasks. These intelligent agents will be responsible to embed SEI-driven techniques and technologies in passive and active SSC.</p><p>For implementing SEI and ISA in nuclear systems, a modular, flexible, scalable, and secure architecture, along with its computational and communication platforms, is necessary to support multiple modern functions such as:</p><p>1. Fault-tolerance and risk-informed operations 2. State awareness and health management 3. Learning, reasoning, adaptation to dynamic conditions 4. Security and resiliency To develop suitable functional frameworks and foundational components in support of these functions, an autonomous M&amp;C framework is envisioned that includes the key functional concepts of system, mission, and cognition, along with the six system components illustrated in Fig. <ref type="figure" target="#fig_3">4</ref> and listed below:</p><p>1. Mission 2. Knowledge databases 3. Condition and pattern assessment 4. Integrated state awareness and automated reasoning (ISAR) 5. Intelligent and resilient controls 6. Smart actuation and sensor networks Fig. <ref type="figure" target="#fig_3">4</ref> is intended to represent a notional functional framework identifying six foundational components assessed as crucial for the implementation of intelligent M&amp;C systems in SNS. Thus, Fig. <ref type="figure" target="#fig_3">4</ref> does not explicitly identify the location(s) or degree(s) of complexity related to each component, but their existence. In general, each of these system components may be distributed and hosted at different locations and computational platforms existing across different SSC. Likewise, each foundational component may extend to several of the levels depicted in Fig. <ref type="figure" target="#fig_2">3</ref>. While sensing and actuation are restricted to reside at the field level of Fig. <ref type="figure" target="#fig_2">3</ref>, a particular intelligent control may be realized in a manner that extends to the control, production, and operations levels. Similarly, knowledge databases may consist of a networked assembly of local databases placed at edge components (e.g., valves or pumps having the computational power necessary for both making decisions and storing knowledge at the edge), constructed from data-driven models, and implemented in co-located memory chips as well as on global databases located at centralized data clusters, constructed from high-fidelity physics-based models, and implemented on highperformance computing (HPC) platforms. A portable, flexible, and scalable architecture is of interest here, one that can be applied to diverse nuclear system designs (e.g., microreactors).</p><p>These system components may be constructed and integrated using multi-agent systems (MAS) technology, an approach for developing loosely coupled autonomous systems, where each intelligent agent pursues its goals while employing standardsconforming messaging to interact with other agents. This fault tolerant approach has several advantages. If one agent fails in its task, for example, it does not necessarily affect or degrade the others in the system, thus maintaining expected levels of robustness, extensibility, and graceful degradation. The multiplicity of alternative control solutions and communication options will enhance the flexibility and adaptability of nuclear systems. The integration of multiple mission-directed intelligent agents within an intelligent M&amp;C architecture paves the way to the realization of SNS. However, such an integration of disparate intelligent agents will require a standard approach to building and deploying individual components and functionalities. Thus, effective and scalable interoperability is a key facet for achieving smart functionalities. The components of this intelligent monitoring and control framework are discussed below.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.1.">Framework components for intelligent M&amp;C</head><p>1) Mission: The notion of mission (or repository of O&amp;M objectives) is of paramount importance to support autonomous con- trol frameworks for SNS. This would require an unambiguous definition of a top-level mission, or objective to be achieved, for the monitored SSC, together with its subordinated goals and associated planning routines. However, traditional implementations of control strategies emphasize the achievement of local control objectives by using multiple, often disassociated inner and outer control loops. This strategy often results in high-precision responses, possibly at the expense of increased brittleness in the design. A practical strategy to eliminate brittleness and increase mission-level security and resilience is to make engineered systems robust 'at the mission level' with regard to these properties . This strategy can be made effective by partially transferring the responsibility of real-time decision-making behavior from operators to the control systems themselves during operations, and is enabled by SEI.</p><p>A key metric for quantification and tracking at the mission level is risk, which can be formulated to assess whether a given SSC is meeting its mission and to otherwise drive control actions in a manner toward reducing residual risk. In this regard, Fig. <ref type="figure" target="#fig_4">5</ref> illustrates a hierarchical architecture of a mission-driven M&amp;C technology, comprising five layers that include some of the foundational components depicted in Fig. <ref type="figure" target="#fig_3">4</ref>, except two components. The first is the ''knowledge and risk assessment" (envisioned within the ''knowledge database" component of Fig. <ref type="figure" target="#fig_3">4</ref>), which encapsulates characterizations defining risk and conditions for the given nuclear SSC as data is collected. The second is the ''awareness and optimization" component (envisioned within the ISAR component of Fig. <ref type="figure" target="#fig_3">4</ref>) and including multiobjective optimization algorithms to identify best solutions to meet the specified system mission in the face of dynamic (possibly uncertain) operating conditions. The ''condition assessment and control" component updates health characterizations embedded within this component as measurements, assessments (e.g., from PHM systems), and commands are received. With assessments on the conditions of the monitored SSC received from the ''condition assessment and control" component, the ''knowledge and risk assessment" component computes metrics and probabilities useful for decision-making and planning to maintain the monitored SSC within an acceptable residual risk, albeit in a degraded manner as needed. Computation of risk is enabled by a dynamic risk assessment model embedded within this component, which includes formulations of aging, degradation, and malfunctioning of critical SSC. Thus, component characterizations may  include aspects regarding cybersecurity, such as whether a given informational component (e.g., sensor, controller) may have been compromised, which may occur with some level of certainty and with the risk reflecting how sure of failure the SSC is and including flexible tolerances to provide flexible cost-efficient security. Using information collected from the ''mission" and ''knowledge and risk assessment" components, the ''awareness and optimization" component uses multiattribute, multi-objective algorithms to determine optimal actions to best achieve specified mission objectives. To balance performance against O&amp;M costs, for example, the ''awareness and optimization" component may decide to execute life extension control actions and operate an aging SSC at a reduced load until the next convenient maintenance cycle can be conducted without affecting safety criteria despite suboptimal performance.</p><p>2) Knowledge databases: The approach of explicitly embedding the notion of knowledge (and with it, knowledge databases) within the notional architecture of Fig. <ref type="figure" target="#fig_3">4</ref> is of key significance toward building ISA and supporting reasoning and optimization on the actual state and understanding of monitored SSC. Knowledge databases span the entire life-cycle digital thread and lifetime of the SSC of focus, with its digital siblings distributively deployed. Assimilated knowledge can be used during operations to evaluate numerous aspects of system state, including: 1. Estimation and prediction of the conditions, states, and patterns or behaviors of SSC relative to a given mission 2. Determination, with the assistance of a multi-objective optimization functionality, of how control elements can be utilized to accommodate the assessed plant conditions and stay focused toward best fulfilling the specified mission for which the given engineered system was designed. Application specific knowledge is contained in this component, with knowledge representations secured and stored in (distributed) knowledge databases, which are fundamental for organizing and supporting intelligent functions. These knowledge databases contain not only information about the monitored SSC, but also knowledge extracted from experts and operators in a manner that represents inputs. This information may include mathematical models characterizing known dynamics of the given SSC and data-driven models learned or augmented from observing and analyzing plant operations. Consequently, the knowledge databases may be constituted by a set of distributed model databases of diverse complexity, granularity, and intelligence interconnected by communication links as illustrated in Fig. <ref type="figure" target="#fig_5">6</ref>. Supporting a hyper-layered M&amp;C approach developed under the ''Hyper-layered modeling and distributed digital replication" trust to be discussed in Section 3.2, this multidimensional, hyper-layered modeling portfolio constituting the knowledge databases may be organized into a hierarchy of networked models of diverse fidelity, complexity, and scope characterizing different objects as illustrated in Fig. <ref type="figure" target="#fig_6">7</ref>. A distributed digital twins (DDT) approach is proposed. To make them work in cooperation, knowledge databases should be equipped, not only with episodic memory consisting of a series of loosely connected parts or events, but also with advanced representation constructs and contents that can be accessed and manipulated to support explanations generated by embedded intelligent agents, including larger-scale structures for recording states, plans, actions, and execution traces. Intelligent agents will then access and extract content from this memory to generate and revise plans and to communicate and answer questions about decisions and reasoning, providing information such as progressions regarding plan execution and events that led to executed plans. In this way, the notional strategy for embedding and manipulating knowledge extends the use of fixed engineering models to run-time models that may be altered and exploited by collected data and SEI-assisted elements, including embedded intelligent autonomous agents. Data in local or global databases may be accessed by diverse autonomous agents at any time to perform statistical and inference analysis on process data, which can be used to support assessments, decisions, and controls. Thus, the databases conferring this knowledge can be in constant network communication, allowing knowledge inference information to be passed from one intelligent agent (e.g., an observer, or controller) to another. The ubiquitous use of sensors embedded throughout monitored SSC will also generate significant volumes of data, which may impose unique requirements in data transmission and storage. A robust and flexible data communication (wired and wireless), management, and storage strategy and framework will be needed to support smart functionalities. The use of the proposed DDT approach may also allow synthetic sensing, and reduction of sensor required for a given observability state of a design, which could provide significant advantage and cost reduction. 3) Condition and pattern assessment: The condition and pattern assessment component updates global and local knowledge databases based on estimations and predictions regarding SSC conditions and states. This component assesses operational data collected from sensing devices. These assessments are then utilized to update the estimations regarding system-states of the SSC contained in corresponding knowledge databases. Collected data may not only include information generated by the monitored SSC themselves, but also events occurring outside of them to make better digital and physical assessments of asset conditions and to issue timely decisions. Data generated by sensors distributed throughout SSC are used by this component to construct diagnostics and prognostics techniques, potentially constructed as hybrid implementations combining physicsbased and data-driven models, to assess and predict the conditions of selected SSC. Diagnostic processes will be typically conducted for anomaly/condition detection, isolation, mode identification, and assessment. Prognostic processes will be conducted for health metric (e.g., remaining-useful-life, RUL) prediction toward estimating the time a given SSC may no longer perform its particular function. For example, early leak detection may be accomplished by measuring pressure, flow, acoustic, electromagnetic, mechanical, chemical, thermal, and other quantifiable attributes. The system then examines the estimated states and searches for anomalies that may suggest the presence of a leak. Similarly, advanced corrosion analytics using data, physics-based models, and ML can be used to estimate the corrosion conditions and associated health metrics of key SSC. International Organization for Standardization (ISO) definitions for fault diagnostics and prognostics can be found in <ref type="bibr">ISO (2012)</ref>, <ref type="bibr">ISO (2011), and</ref><ref type="bibr">ISO (2005)</ref>. In support of improved security, ML and deep learning technologies may be used to extract information from OT data infrastructures to detect digital and physical threats, determine the vulnerability landscape, and deploy corrections. In conclusion, multiple key performance indices (KPI) may be defined and tracked during operations. 4) Integrated state awareness and automated reasoning: The integrated state awareness and automated reasoning (ISAR) component uses embedded knowledge during operations to evaluate the estimated conditions of SSC in relation to the system mission, to reason about its mission, to solve identified issues using acquired knowledge via inference, and to determine how control elements may be utilized to accommodate assessed plant conditions and stay focused on fulfilling the mission, even if this can only be accomplished in a suboptimal or degraded manner. Consequently, it is the point at which mission-and risk-informed decisions are made, using the information stored in the knowledge databases and information computed from optimization to arrive at decisions, while executing all applicable rules associated with the monitored SSC. By interrogating the knowledge databases and understanding system mission, this foundational component makes the system aware of its current state in relation to its mission, detects when system behaviors drift away from achieving mission objectives, and ascertains potential actions for directing system behaviors so they converge toward mission achievement. To facilitate reasoning processes, formal ontological elements may be used to model diverse domains of knowledge <ref type="bibr" target="#b60">(Sanz et al., 2017)</ref>.</p><p>Given received instructions, this reasoning engine relies on goal-directed autonomous agents that may generate plans using problem-space searching techniques, carry out selected plans, and adapt plans as the need arises with little or no human interaction. The automated reasoning engine also interacts with the global database to analyze collected data about the monitored SSC and support additional automated reasoning activities during operations toward improving other functionalities and operations involving the manipulation of knowledge such as: 1. Conducting state estimation, prediction, consolidation 2. Assessing performance quality toward achieving mission 3. Supporting actions and adaptation of sensor and controller configurations 4. Executing re-design actions 5. Supporting reconfiguration of SSC whenever their behavior deviates from the mission in an analogous way, or better, in the ways an operator might respond. Thus, the ISAR component closes the loop between actual system performance and mission requirements to maintain the desired system behavior even in the presence of disturbances, failures, or attacks, whether natural or malicious. As more intelligent systems conducting knowledge interpretation, inference, and reasoning connect and interact among themselves, more evidences are constructed to improve state awareness and reasoning processes, further confirming the actual states of the monitored SSC and the effectiveness of identified actions. As instructions and actions are carried out by autonomous intelligent systems, it is fundamental to building trust and confidence in the ubiquitous application of SEI in nuclear systems that agents are made capable of describing, explaining, and justifying their decisions and actions to human partners, including reveling every aspect of their reasoning and  decision-making processes. This desired ability for autonomous agents to explain the reasoning that produced selections has been referred as explainable agency <ref type="bibr" target="#b35">(Langley et al., 2017)</ref>. As an element of ISAR, an intelligent agent equipped with explainable agency should be able to clarify how chosen decisions relate to made inferences, adopted goals, and generated plans, as well as, if applicable, how its decisions were adapted for selecting alternative responses when observed events appear to diverge from the selected plan. In particular, four abilities have been identified in <ref type="bibr" target="#b35">Langley et al. (2017)</ref> that provide the basics of explainable agency:</p><p>1. Capable of explaining decisions made during plan generation, including producing records of them; 2. Capable of communicating actions conducted during plan execution; 3. Capable of explaining adapted responses during plan monitoring whenever actual events may have diverged from selected plans; 4. Capable of communicating decisions and reasons, including producing reports on reasoning activities and answers to questions about choices. These capabilities present a significant challenge for the research community at large; limited research has been undertaken on this important topic of explainable agency despite the growing need for it in applications demanding SEI. 5) Intelligent and resilient controls: Industries, including nuclear power, use a large spectrum of traditional control algorithms ranging from proportional, integral, and derivative (PID) controllers to advanced predictive-based controllers such as robust control and model predictive control (MPC). However, traditional control algorithms require careful analysis of process dynamics, development of mathematical models characterizing main governing dynamics, and synthesis of control laws that meet specified requirements under wellcharacterized constraints and disturbances. A main drawback of using these mature and well-proven control algorithms is related to the potentially highly complexity of dynamic models. Traditional control techniques will need to be revamped to handle the enhanced complexity. The current trend is to use hybrid control strategies that combine traditional, physics-based control algorithms, synthesized from known process dynamics, with data-driven control algorithms synthesized from process dynamics learned from data using techniques such as ML <ref type="bibr" target="#b45">(Murphy, 2012)</ref>. The concept of adaptive control with ML is a potentially powerful tool for application in advanced nuclear systems, particularly so if standardized nuclear systems are deployed and monitored for relevant data of promising applicability to nuclear systems. Challenges, such as regulations view on non-physics based models and analysis, need to be resolved for enabling this ML-enhanced control in SNS. Relying on intelligent control algorithms, the control element is responsible for generating proper actions by using collected data, instructions issued by the ISAR component, communications exchanged among controllers, information and rules about possible actions contained in knowledge bases, and action-generation knowledge (e.g., forward heuristic planners, adversary models, vulnerability analysis). Actions are then sent to actuators that execute them. The augmented responsibility of modern control elements is, not only to maintain given control objectives under dynamic conditions so that controlled variables track set points, but also to regulate KPI within specified ranges throughout the entire operation process. The unique control strategy introduced here is that metrics are defined and then quantified during operations to have a quantitative picture of where a given monitored SSC is and where it is going. Importance indices (II) that need to be included within KPI are typically defined by the application at hand. KPI could also characterize mission targets or constraints. Overall process optimization can then be executed through the integration of system inputs and target KPI to maximize. Typical KPI may include risk, efficiency, safety, security, cost and profit, energy production quality, component health conditions, physical properties and compositions for different process streams, and environmental requirements. Fig. <ref type="figure" target="#fig_7">8</ref> illustrates an SEI-driven architecture for implementing Intelligent and resilient controls in nuclear SSC. In particular, given: i) specific KPI, metrics, and objective functions embedded within the mission; ii) characterizations, requirements, and constraints embedded in the knowledge database component; and iii) performance assessments computed from feedback information, the state awareness and reasoning engine issues control strategies and conflict resolution directives to regulate the operation of Intelligent and resilient controls in order to meet system-centric performance objectives. This sort of Intelligent and resilient control is now feasible with the advent of SEI advances.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Hyper-layered modeling and distributed digital replication</head><p>This thrust involves the development and validation of advanced hyper-layered M&amp;S capabilities to support 'hyperlayered M&amp;C' enabling multiple predictive features, such as PHM, digital replication (DDR), and predictive maintenance (PM). It also accelerates the creation of multiple, distributed models to be used in support of diverse smart functionalities such as self-validation, self-optimization, and self-protection.</p><p>A variety of SSC models may be used to support smart functionalities, including monitoring, control, reasoning, and decision-making, with proper selection of the appropriate models being crucial to increasing model robustness, reducing uncertainty, improving precision, and reducing cost. The ability to model SSC will create new opportunities to more completely digitize nuclear operations and implement revolutionary concepts such as ISA. The concept of using hyper-layered models to simulate SSC or the entire nuclear enterprise allows SNS to better predict behaviors and to respond with much greater agility to numerous disturbances in materials and environment, in maintenance, and from malicious attacks. Computational techniques support many functionalities. Examples include PM, condition-based maintenance (CBM), fault detection and isolation (FDI), advanced controls, and risk-informed decision-making.</p><p>Based on methods used to derive models, three main approaches can be identified: physics-based, data-driven, and hybrid models. Model derivation typically comes from an understanding of the main physical phenomena and relationships governing the behavior of the monitored SSC. A physics-based model is typically developed based on this understanding by translating it into formulations in the form of a combination of algebraic, ordinary, or/and partial differential equations. However, deriving physics-based models may be very challenging due to system complexity, a need to have expert knowledge, and the potential existence of stochastic mechanisms pertaining to SSC. In complex SSC, physics-based approaches may not be applicable because performing online measurements may be impractical and even impossible. Models can also be derived from data by constructing adequate (e.g., simple to complex) mappings that can relate inputs to outputs using information from condition monitoring data collected via installed sensors. As SSC become more complex and issues related to data imprecision and uncertainty are more pervasive and challenging, data-driven models have gained significant traction recently, especially because of their ability to understand highly-coupled systems, typical in nuclear systems. However, the accuracy of data-driven approaches depends on the data available and quantification of uncertainty remains difficult.</p><p>To meet broader requirements and applications, hybrid systems are often preferred. The current trend is to develop hybrids of modeling and analytical approaches because no single paradigm may be superior to the others in all situations, and integrated approaches tend to improve the 'overall model' by relying on strengths in the sub-models. In this approach, there is a possibility to capitalize on the respective strengths of each approach and address their weaknesses. A hybrid approach combines heterogeneous models to lever the advantages and integrate the merits of different approaches while minimizing their limitations toward making robust metric (e.g., RUL) estimations and predictions about the monitored SSC. In a hybrid model as illustrated in Fig. <ref type="figure" target="#fig_8">9</ref>, mathematical equations are constructed characterizing the 'known, modeled' dynamics of the given SSC. Likewise, input/output relations are also embedded characterizing the unknown, un-modeled dynamics. Outputs from each approach are then combined to compute more accurate estimations and predictions regarding the SSC. How large or involved one portion is with respect to the other depends on the availability and abundance of data and costs associated in constructing each given characterization. It is typically beneficial to continually evaluate the predictive ability of each aspect of the hybrid model under different situations and using diverse predictive strategies by comparing formerly predicted states corresponding to different modeling aspects to the current system state and their observed changes. However, this relationship must run two ways as degradation/ performance of SSC and sensors must be accounted for in order to accurately estimate system state.</p><p>The selection of the model approach to use in support of managing complex systems is based on multiple factors, including the availability and abundance of data and the cost associated with developing it. Recognizing the availability of physics-based models associated with SSC and the new smart functionalities and opportunities offered by data-driven techniques such as ML, multiple industries have capitalized on the use of hybrid approaches. The application of hybrid techniques started long ago, is currently significant, and is expected to continue to grow. Several publications describe hybrid implementations (e.g., <ref type="bibr" target="#b66">Vogl et al., 2016;</ref><ref type="bibr" target="#b44">Mishral et al., 2014;</ref><ref type="bibr" target="#b12">Galar et al., 2013;</ref><ref type="bibr" target="#b41">Ly et al., 2009;</ref><ref type="bibr" target="#b43">Medjaher et al., 2009;</ref><ref type="bibr" target="#b3">Bagul et al., 2008;</ref><ref type="bibr" target="#b1">Alpay et al., 2006;</ref><ref type="bibr" target="#b64">Venkatasubramanian, 2005;</ref><ref type="bibr" target="#b65">Vilim et al., 2001;</ref><ref type="bibr" target="#b14">Garcia and Vilim, 2000;</ref><ref type="bibr" target="#b11">Engel et al., 2000)</ref>. For example, a review of hybrid prognostics approaches and a proposed hybrid framework for system RUL predictions are reported in <ref type="bibr" target="#b36">Liao and Kottig (2014)</ref> and <ref type="bibr" target="#b37">Liao and Kottig (2016)</ref>. The benefits of hybrid models and techniques are many. Potential aspects are summarized below into four distinct areas:</p><p>1. Integrated state awareness (ISA). An outcome would be real-time predictive capability focused on ISA for the facility. This would allow ultimate management and control over system safety, operations, life-cycle risk management, and maintenance costs. 2. Digital-informed and antifragile design approach. The approach will incorporate digitally-informed design to achieve systems resilience, self-protection, and selfhealing among other smart functionalities. These techniques will be essential in assuring these digitallydriven systems remain secure and may advance the art of self-healing systems design. 3. Intelligence-derived safety. The use of hybrid approaches will enable massively embedded sensing, computing, and intelligence to provide an analogue to physicsbased inherent safety. Rather than relying on only physics principals for walk-away safety, a safe end-state may be achieved through highly-reliable predictive intelligence. 4. Digital regulatory and management agents. Coupling a complex system to its digitized hybrid model allows for the ability of agent-based systems to accomplish difficult real-world tasks such as oversight of construction and operations. For example, robotic-and dronedriven systems could oversee and inspect up to 100% of the construction in real-time, providing a much higher level of rigor in ensuring engineering quality at a lower cost and reduction in sensor placement.</p><p>Models can also be used to enable digital twin (DT) concepts that can provide predictive and protective capabilities. A DT is a computational model of a physical SSC. Being a virtual replica of it, a DT can act like the real SSC and assist in the interpretation of signatures and patterns, the testing of new settings, the simulation and analysis of all types of scenarios, and the execution of whatever may be needed in a virtual environment, knowing that what it is observed in the DT would also arise in the physical asset (i SCOOP, 2018). Typical applications benefiting from DDR -in ways that improve reliability, availability, maintainability, safety, and security (RAMS) and reduce costs and operational risks -include anomaly detection, diagnostics, and prognostics, root cause analysis, control, optimization, planning, visualization, commissioning, and training. DT technology may also assist in remote operation, maintenance, and repair of nuclear systems as well as provide feedback and insights for improving designs. Many of these DDR come together to give a 'complete' representation of the SSC at hand, i.e. ISA. Based on these anticipated benefits, it has been argued <ref type="bibr" target="#b39">(Littlefield and Davidson, 2018</ref>) that there will be DTs for almost every SSC within every industry, including airplanes, manufacturing plants, power components, oil refineries, and transportation networks, with billions of components expected to be represented by DTs by 2021 <ref type="bibr" target="#b52">(Panetta, 2017)</ref>.</p><p>Consequently, the development of data structures is crucial for supporting SNS. The use of modern constructs (e.g., data ensembles) is anticipated, which are a collection of data sets created by SSC under time-varying conditions, including variables of different types (e.g., data, independent, condition). Similarly, other data structures may be utilized: distributed arrays, in which data reside in combined memory of clusters; graphics processing unit (GPU) arrays, in which data resides on GPU card memory; and tall arrays, which are large arrays stored within multiple files and disks. It is important to recognize that data calibration should be completed on all inputs prior to data acquisition in order to establish proper baselines. After data are calibrated, they may need to be further prepared to support diverse functionalities. For example, data may be filtered to remove instrumentation noise and outliers to provide sufficiently high levels of certainty and adequately acceptable accuracy rates. With the pervasive use of ML-based computational resources equipped with learning capabilities, record data sets may also need to be parsed for dataset training.</p><p>Fig. <ref type="figure" target="#fig_0">10</ref> illustrates an M&amp;S and algorithm development process using the DT concept to support predictive M&amp;C strategies that enable advanced nuclear reactor functionalities such as PM. In particular, a high-fidelity distributed digital replication (HFDR) is developed of the given SSC using M&amp;S techniques, including finite element methods (FEM). Actual process responses are used to verify, tune, and validate this HFDR. With a validated HFDR, a predictive performance and maintenance engine is synthesized and tested. Even though this HFDR may be used for supporting processes running at the strategic and tactical levels (as introduced in Fig. <ref type="figure" target="#fig_2">3</ref>), a model reduction procedure may be employed to convert HFDR into a reduced-fidelity digital replication (RFDR) with a more manageable complexity for real-time applications. The given RFDR may be constructed using hybrid M&amp;S methods integrating physics-based models characterizing known dynamics with data-driven models characterizing unknown dynamics. This RFDR can then be used for implementing an SEI-driven predictive performance and maintenance engine running at the operations/ production levels depicted in Fig. <ref type="figure" target="#fig_2">3</ref> and close to the edge SSC under consideration.</p><p>To further illustrate the use of DDT, Fig. <ref type="figure" target="#fig_0">11</ref> depicts a sophisticated self-learning controller (based on EI techniques such as artificial neural networks, ANN) capable of learning the desired output response and delivering predictive control via the complementary use of a local, at the edge, digital replication. This self-learning controller may extend over several of the layers (e.g., control, production, and operations levels) depicted in Fig. <ref type="figure" target="#fig_2">3</ref>. i.e. implementing a DDT architecture. The ANN controller is tuned via two complementary learning methods by: i) quantifying the residual between the output from the actual monitored SSC and the desired output response; and ii) utilizing the predictive output computed by the (already-tuned) digital replication of the given SSC when driven by the residual computed from comparing its output with the desired output response. The local DT potentially located at the edge device is tuned by a learning algorithm comparing its output from that outputted by the monitored SSC.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Embedded sensing and actuation devices</head><p>This thrust involves the development or adaptation (e.g., from other industries) of sensing and actuation technologies that can be embedded within complete smart devices. This accelerates the creation of smart sensing and actuation resources and devices that can communicate with one another and are enabled by the use of edge computing techniques.</p><p>In particular the concept of sensor-rich environments for ubiquitous sensing deployments has resulted in EI-driven advance- ments in many industries, advancement that would arguably be extremely beneficial for the nuclear industry. In fact, a sensorrich environment, with a multitude of sensors, is of paramount importance for achieving smart functionalities in nuclear systems, to encompass even autonomous operations. Fortunately, sensorrich environments are now feasible and cost-effective due to the miniaturization of high computational-processing power and networking capabilities embedded at the chip and device levels. These advancements have facilitated the deployment of smart sensors capable of self-awareness, self-decision-making, and self-adaptation. Thus, a benefit of securely implementing AI-enhanced capabilities at the sensors themselves using edge computing may be that of avoiding the need to send a large amount of data between the sensors located near the given edge SSC and a centralized data center or cloud computing system for processing, which may impair the delivery of smart sensors (and smart SSC) that can rapidly respond to critical situations in an informed way. On the other hand, edge computing may not be able to offer some of the attractive advantages for sensing provided by cloud computing such as cost effectiveness, scalability, flexibility,  mobility, and accessibility, although at the expense of possibly degrading its cyber security and resiliency postures. The topic of edge computing is addressed further later in this article. A rich body of sensory data can also support DT concepts by providing a variety of measurements (e.g., temperature distribution through reactor cores, thermal component signatures, and vibrational frequencies) collected in real-time that can be used to update the states of digital-twin replications and increase understanding of the current conditions of the monitored SSC. Considerations should be taken to select sensors based upon a common platform in order to reduce acquisition cost and ensure availability of replacement sensors. Testing of the sensor networks, along with the verification and validation (V&amp;V) of the algorithms, could be performed using both DDR and integrated testing within hardware-in-the-loop (HiL) environments.</p><p>Considering that numerous data formats may be used for recording measurements (e.g., CSV, XML, XLS, RDF, TXT), the standardization of data formats is a key element for implementing SNS. However, data formatting is only one aspect of achieving flexibility. Another aspect for achieving flexibility is to properly address the potential diversity in data fidelity and to quantify uncertainty, which is necessary for controlling and planning tasks. The level of available data fidelity depends on the level of digital instrumentation and control (DI&amp;C) modernization deployed in a given nuclear system, matched with the fidelity of data collected in a nuclear plant, which should be higher than would be seen in an equivalent fossil-based power plant due to the regulatory regime for nuclear plants. However, these data are currently manually collected and are not used beyond the main intended purpose of the data, which is usually to demonstrate safety and regulatory compliance. In a typical operating LWR nuclear power plant in the US, fifteen sources of data are mostly manually collected. These data sources include process instruments and controls, maintenance activities, equipment performance testing, calibration, operator rounds, radiation protection, security, condition reporting, work orders, system-engineer notebooks, schedules, logistics, clearance orders, vendor and plant documentation, and industry operating experience. Data-collection methods can be automated by using autonomous methods. Details of how these methods can be automated can be found in Al- <ref type="bibr" target="#b2">Rashdan and St-Germain (2018)</ref>.</p><p>How a given SSC is managed in terms of data collection depends on whether it is passive or active. In particular, passive equipment is managed through dedicated aging-management program components while active components require surveillance procedures through equipment-specific procedures applied periodically. Active-component monitoring typically involves activities beyond an inspection (e.g., actual disassembly of equipment). SSCs in nuclear plants can be further categorized into rotating machinery (e.g., pumps, turbine, and generators), energy-transfer components (e.g., transformers, heat exchangers, and steam generators), actuators (e.g., valves), DI&amp;C equipment (e.g., process transmitters, reactor controls, breakers, valve actuators), and passive components (e.g., pipes, cables, structures). Each SSC has unique models to reflect its functions and degradation mechanisms. Consequently, SEI must be component specific, with different techniques used for the different SSCs (e.g., <ref type="bibr" target="#b54">Rashdan et al., 2018)</ref>. While the majority of components in nuclear plants may be used in a manner similar to advanced reactors, these reactors will have technologyspecific components, or variations of the standard component used in a typical nuclear plant. For example, sodium-cooled reactors have electromagnetic pumps that are not used in LWR reactors. The migration to smart SSCs (i.e., SSCs with SEI as part of core operations, control, and maintenance) is expected to augment traditional components with additional sensors, controllers, and actuators that enable the equipment to behave more autonomously.</p><p>The need for data collection for SEI-ISA implementation require enhancing the fidelity of data in time and space. This goal can be achieved by automating data-collection methods to enable a continuous flow of data and developing new methods to increase data insights currently not available so as to enable continuous spatial coverage. To achieve these two objectives, new sensors (e.g., fiber optics) may need to be deployed, in addition to mobile, autonomous data-capturing technologies (e.g., drones), fixed datacapturing technologies (e.g., retrofitted sensors, smart equipment, or image processing technologies), or new methods of data mining and integration toward enabling extended use of existing data sources. Given the proliferation of data anticipated for new nuclear plants, there is a need to organize and analyze large data sets while keeping track of the systems and conditions the data represent. Data sources may include historians and real-time database management systems, which are typically secured by unidirectional information flow. However, traditional functions assuming that data are in memory may not be applicable in many cases, leading to the development of functions capable of utilizing large data sets running on computer clusters and cloud-based HPC.</p><p>Identifying the data needed to implement SEI and ISA requires considering the value of data and cost of collecting it, in addition to the feasibility (e.g., due to regulations, power, infrastructure, and practicality), data-communication infrastructure, computational power, storage, and data uses (e.g., the optimal spatial and time coverage of data acquisition to meet objectives). This includes considering data fusion arrangements in which algorithms based on several easily accessible features may outperform algorithms based on one expensive feature. The decision on data needs requires an economic and technical evaluation of data sources, and is therefore application specific. In this regard, it is crucial to recognize that not all sensors monitoring a given SSC provide useful information in support of a given objective (e.g., failure progression). Consequently, optimal sizing and placement of sensing and computational resources is key. SNS will require optimal integrated solutions to well-formulated multi-attribute problems that consider requirements and physical constraints where SSCs coexist if mission goals are to be achieved. To optimize resources, assure adequate O&amp;M activities, and support both the computational and human agents while avoiding information saturation, for example, it is crucial that the selection of sensor suites (considering both resource locations and types) is conducted following a top-to-bottom, system-centric optimization approach, where mission objectives are clearly defined to drive optimal specifications of measurement needs, sensor placements, and sensor performance. This will be significantly influenced by the model-based constructs that are deployed, as predictive models may in some cases replace the need for measured data. It is then imperative that the performance, range, and resolution of distributed sensing is optimized for nuclear applications.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">Adaptive security architectures</head><p>1) Introduction: This thrust involves the development and validation of adaptive security architectures and proactive defense capabilities for effectively handling natural and malicious threats, as well as for the protection, detection, prediction, mitigation, and recovery from disturbances and anomalies including hybrid (physical plus digital) insults. This accelerates the integration of advanced digital-security and resiliency measures to tackle anomalies with an eye toward improving digital-security and resiliency postures of SNS by moving the nuclear industry from preventive and reactive fixes to predictive and proactive solutions.</p><p>Increased automation and connectivity provide myriad benefits, but also increases the risk of a malicious attack or automation dis-ruption due to administration or configuration errors. With no plan to abandon the tremendous gains in flexibility, productivity, and efficiency offered by EI, most, if not all, industries (including Oil and Gas O&amp;G, manufacturing, transportation, energy and power generation) are moving and will continue to move forward with the ubiquitous use of EI in their processes and systems, while managing digital security concerns with the implementation of diversified portfolios of security controls in tailored, continuous, adaptive, security architectures and with the recognition of their differing security and resiliency goals.</p><p>Consequently, it is of paramount importance that digital security and resiliency are intrinsically integrated into the design of the operations management and DI&amp;C systems of the given nuclear system. Embracing the notion of SEI by design is suggested as a proactive embedding of security and resiliency within the notional intelligent control framework illustrated in Fig. <ref type="figure" target="#fig_3">4</ref>. Enabled by SEI techniques and technologies, resilient control systems can be designed to be proactive, rather than reactive, by predictively identifying incipient events and strategies to protect critical, vulnerable, or life-limited SSCs as means of ensuring continued dependable operation. Following an SEI-by-design strategy supporting ISA, highly-modeled, highly-monitored systems would ingrain anti-fragility features highly desired for advanced smart nuclear systems.</p><p>Fig. <ref type="figure" target="#fig_0">12</ref> illustrates a generalized proactive defense architecture in which M&amp;C loops have been extended to address hybrid (digital and physical) disturbances, including malicious insults. Italic labels (in red) denote new elements (e.g., digital health and disturbances, risk/impact, quality metrics, time-varying, resilient M&amp;C adaptation, M&amp;C countermeasures) typically not considered in traditional M&amp;C applications but included here to deal with hybrid threats. The numeric value on the left-top corner of a block denotes its order within the assumed information flow. Under operational scenarios considering malicious threats, disturbances can now compromise sensor and controller configurations, thus demanding resilient M&amp;C adaptation and countermeasures as well as timevarying sensor and controller configurations.</p><p>From a digital security perspective, increasing the use of SEI and ISA in nuclear systems requires a significant digital transformation of technology infrastructure and resources. This digital transformation may increase attack surface exposure and the likelihood that digital events of any kind (security or administrative) may impact operations. In particular, multiple challenges arise when implementing highly-digitized M&amp;C systems in high-consequence applications, including:</p><p>1. Traditional M&amp;C applications, where disturbances are (generally) assumed to act exclusively on physical assets and can generally be well-characterized. Contrarily, malicious attacks, which are intrinsically ill-characterized, may involve manipulating both physical and digital assets, making attack and risk determination more complex in terms of devising security and resiliency solutions; 2. Traditional M&amp;C applications, in which information is typically consumed in a deterministic manner. When responding to a digital event, regardless of origin (but after recognizing the possibility of malicious data manipulation), information may need to be consumed probabilistically and require analytic considerations prior to response. For example, operations systems have to consider whether process deviations are a result of natural or malicious actions. If the deviations continue and hit unacceptable boundaries, threat evaluation and proactive defense measures should be triggered to deliver corresponding security and resiliency analyses and responses; 3. Traditional M&amp;C applications, where information typically involves a fixed set of sensing and controlling resources. Digital security and resiliency architectures for modern M&amp;C implementations may however involve time-varying sets of resources. This challenge should be explicitly addressed in the risk management plan and considered when security life-cycle (design, implementation, maintenance, end-of-life) tasks are performed.</p><p>Operational and cybersecurity risk assessments support the premise that well-considered, carefully-implemented SEI-ISA capabilities may improve digital security risk management, in addition to enhancing operational performance and providing layers of observability that counter the increased attack surface. Incorporating automation techniques in the existing reliability and continuous improvement processes will not only increase operational resilience, but also address potential security concerns. To address digital security considerations due to hybrid (digital plus physical) threats in high-consequence, highly-digitized applications, modern M&amp;C systems should be designed differently by including the following intrinsic properties in their architectural designs <ref type="bibr" target="#b13">(Garcia and Lin, 2018):</ref> 1. Effective management of ill-characterized threats by, for example, utilizing diverse physical and digital health indicators to manage uncertainty and imprecision 2. Effective accommodation of partial, probabilistic, unreliable, or imprecise information by, for example, utilizing multimodal data fusion and probabilistic analysis to address challenging threat situations and behaviors; 3. Predictive and risk-informed dynamic selection of sensing and control resources by, for example, utilizing randomization and diversity in a manner that enhances digital security and resiliency, proactively complicates attack success, and recovers from attacks 4. Adaptive information generation and collection based on assessed SSC conditions by, for example, utilizing adaptive data marshalling toward the minimization of information needed to meet the desired level of assessment quality under particular conditions 5. Graceful performance degradation, as opposed to sudden collapse, when facing severe insults by implementing adaptable intelligence architectures capable of accommodating failure, tampering, and error tolerance as well as utilizing autonomous recovery mechanisms.</p><p>Numerous guides and standards have been provided, addressing security controls for ICS and information systems (e.g., <ref type="bibr">NIST, 2015;</ref><ref type="bibr">NIST, 2014;</ref><ref type="bibr">NIST, 2013;</ref><ref type="bibr">DHS, 2016)</ref>. However, RD&amp;D effort is still needed in these areas to further strengthen existing or to develop new guidelines, practices, and standards beyond the administrative threat-centric conceptualization of security concerns and their preventive risk identification, quantification, and mitigation. The following three sections introduce additional particulars on the topics of digital security, resiliency, and integrated testing.</p><p>2) Digital security: Early studies of digital transformation in corporate IT identified four business innovation characteristics driving it: relative advantage, compatibility, costs, and digital security <ref type="bibr" target="#b68">(Zhu et al., 2006)</ref>. Digital transformation refers to how industries use digital techniques to transform themselves with a focus on becoming more adept at understanding how a business is run and can be improved, including in operational space <ref type="bibr" target="#b25">(Hughes, 2018)</ref>. It also requires horizontal and vertical integration of information, communications, and automation technology throughout the whole organization to address the complexity of today processes <ref type="bibr" target="#b34">(Jamsa-Jounela, 2007)</ref>. For similar reasons, industrial teams concerned with OT have begun to demand integration of operations and optimization efforts, thus impacting production networks and representing complete value-creating production chains <ref type="bibr" target="#b34">(Jamsa-Jounela, 2007)</ref>. Characteristics of industrial transformation include rising investment in automation technology, implementation of advanced SEI-ISA capabilities, and expanded demands for better shop-floor to top-floor communications.</p><p>As illustrated in Fig. <ref type="figure" target="#fig_0">13</ref>, digital security risk is affected by the upswing in the number of data streams, work flows, and technology deployments associated with a transformed industrial envi-ronment. Digital risk mitigations appropriate to digital transformation in nuclear operations have not been widely tested yet, although this could change rapidly given the dynamic nature of security research. In particular, cyberattacks against nuclear operations were not commonly considered until Stuxnet was identified in 2010 <ref type="bibr" target="#b60">(Shearer, 2010)</ref>. However, Moonlight Maze <ref type="bibr" target="#b62">(Thakur et al., 2016)</ref> detected in 1998 and attacks run by Markus Hess <ref type="bibr" target="#b42">(McCartney, 1998</ref><ref type="bibr">) in 1986</ref><ref type="bibr">, unofficially named 'Operation Showerhead' in Stoll (2005</ref>, show that technical cyberattack capabilities have been under development for nearly 40 years. In all these cases, defensive and detection counter-measures were taken to identify similar attacks in the future and to mitigate risk presented to acceptable levels. The historical incidents suggest that: i) attack surface exposure is available for exploitation on high value networks regardless of technology type or level, kind of communications, and amount of data sharing; and ii) digital security risk to nuclear network with SEI-by-design capabilities may still be mitigated to acceptable levels with entirely new, digitalized, and cyber-aware nuclear systems.</p><p>The challenge of digital risk management is compounded by variations in focus, methods, and goals across industries. There is no single approach that can be applied across the board, with tailored approaches often failing if these efforts ignore the business goals of an organization and the engineering risk of the process. In this regard, technical risk assessments using standardized, methodical, and organized guides (NIST, 2012) and approaches (e.g., Risk Management Framework (RMF) <ref type="bibr">(NIST, 2014)</ref> and REsponse Analysis and Characterization Tool (ReACT) ) may be performed on nuclear IT/OT networks and their anticipated implementation of SEI-ISA capabilities to characterize, assess, and mitigate cybersecurity risks. Preliminary technical security assessments suggest that cyber threat hazards related to SEI and ISA can be identified using a combination of operational and cybersecurity risk assessments. Research is needed regarding appropriate digital security and risk management for nuclear environments. Existing trends in digital security research tend to focus in three primary areas, namely: i) high-level technical design requirements; ii) threat or attack-centric conceptualization of security concerns; and iii) methods to identify risk or to calculate risk formulaically. This kind of research is critical to evolving digital nuclear security and risk management practices. Unfortunately, it is not highly actionable, leaving the engineering, process automation, IT/OT, or security teams, who design, implement, and maintain technical security architecture and controls, with a shortage of resources from which to learn or upon which to base work. New approaches to digital security and resilience are needed to address the need for actionable, technical security resources to ensure teams have both the data and knowledge to assess risk and secure digital assets.</p><p>Numerous risk analysis methodologies have been demonstrated that are relevant to SEI and ISA applications. For example, the approach presented in Garrick (1998) is an effective summary of risk management efforts and concerns in most automation environments not just nuclear power, space systems, and chemical processing. As relevant as this article was to engineering risk analysis at the time, it is equally applicable to digital security risk management for any CPS now, including nuclear CPS. In particular, Garrick (1998) identifies requirements necessary to characterize and manage digital security risk in nuclear operations networks; that is: ''A thorough understanding of the components and processes constituting an engineered system, along with a quantitative statement about the failures and scenarios important to risk, enable decision makers to properly allocate resources" <ref type="bibr" target="#b21">(Garrick, 1998)</ref>.</p><p>Several effective digital risk analysis techniques have been proposed in recent years to address concerns unique to CPS (e.g., <ref type="bibr" target="#b50">Nourian and Madnick, 2018;</ref><ref type="bibr" target="#b0">Abdo et al., 2018)</ref>. Each approach, however, depends on a range of SEI being made available, including: up-to-date asset and configuration (hardware, software) inventories; descriptions or digital representations of data flows, network traffic, and system dependencies; and performance data regarding digital resource performance in relation to operations or engineering design requirements. It is then crucial to understand how digital security and other factors may affect operational risk as illustrated in Fig. <ref type="figure" target="#fig_0">13</ref>. To respond to operational risk, both digital probability and engineering impact need to be evaluated. Therefore, digital events, whether of administrative, operational, or security origins, affect the probability of an impact occurring. Put another way, cybersecurity information feeds probability calculations, not impact assessments. Digital risk analysis for CPS are likely to require a deeper understanding of relationships between the physical processes, digital resources, and work flows than existing digital security architecture and risk management models support. This is significant if digital risk can or should be offset with other types of engineering or process controls. New methods for identifying, developing, and analyzing these dependencies must be developed to support expanded risk analysis considerations. SEI combined with engineering design and hazards analysis has shown promising initial results for improving digital risk management, security architecture, and incident management in the CPS space based on these fundamental considerations.</p><p>In paradigms emphasizing attack-centric methods (as opposed to defender-focused capabilities), security efforts often begin with analyzing attacker capabilities. While threat information is imperative for characterizing emerging digital risk, the information is not always directly actionable by defenders. In fact,  demonstrated that IT security operations teams and engineering teams responsible for routine security tasks often need help consuming attack-centric data to make it useful, i.e., allow them to get ahead of the threat curve. Developing adaptive defense-in-depth (DiD) security architectures or appropriate technical security controls for a CPS network requires blended analyses of technical threat characteristics and existing security capabilities, and granular understanding of component function within the process. Tools and risk analysis techniques (e.g., STIG) are needed to convert threat-focused information into actionable security plans.</p><p>Considering that SSC are governed by physical laws and that a sensor-rich environment is assumed for ISA, hybrid intrusion detection and protection system (IDPS) that combine both digital-and physical-based assessments are anticipated for advanced nuclear systems. Fig. <ref type="figure" target="#fig_0">14</ref> illustrates an architecture for implementing hybrid IDPS. Under this advanced digital security solution, threat detection and diagnosis are accomplished by holistically integrating observations and assessments based on collected digital and physical signatures, behaviors, and understandings.</p><p>Briefly, four main components are identified in Fig. <ref type="figure" target="#fig_0">14</ref>: SSC Descriptor Database (SDD), Digital-based Threat Detection (DTD), Physics-based Threat Detection (PTD), and Holistic Digital-Physical Fusion (HDPF). In particular, the SDD describes a given SSC, hosting information that identifies its boundary, inputs, outputs, ports, sensors (e.g., a radiation detector), controllers (e.g., a PLC) and actuators (e.g., a valve), as well as governing equations characterizing key time-and event-driven dynamics. Package streams traveling on the particular control networks are collected and then deep inspected, extracting, not only important information such as identification of the senders generating the data (e.g., a given sensor) and of the targeted receivers (e.g., a given control system) receiving it but also payload info such values of process variables and command actions. With the information organized at SDD, the DTD detects potential intrusions by analyzing network behaviors (e.g., package frequency, package sender/re-ceiver pairs, and package sizes). Similarly, the PTD detects potential intrusions by analyzing payloads considering physicsbased semantics, such as whether a given sensor information makes sense from a physical perspective or whether a given command seems inappropriate as it may take the monitored SSC to an unacceptable, and potentially dangerous, operational region. The HDPF collects both digital and physical assessments and integrate them to determine whether an anomaly or intrusion exists and, if so, whether it is a digital, physical, or hybrid insults. By using digital-and physics-based signatures for intrusion assessment, known and collected understandings, and embedded systemtheoretic approaches based on SEI technologies, multiple benefits can be derived. Implementing this notional digital security architecture for hybrid IDPS in nuclear SSC that has SEI and ISA as emphases produces myriad benefits, including:</p><p>1. A holistic approach to protect nuclear systems and ICS 2. Complementary information security methods with systemtheoretic security methods 3. Exploitation of physical knowledge and understanding on CPS being monitored and controlled 4. Robust response to attacks undetectable and unidentifiable by traditional IDPS</p><p>The DDR concept can also be used here for adaptive defense against malicious attacks delivered to fool sensors and actuators. Assume that an attack is devised to manipulate a given control system associated with a targeted SSC to inflict an undesirable consequence. This control system, which is associated with a set of sensors and actuators, can be fooled in two ways, which rarely exist separately: by providing it with compromised data or by sending a command to a corresponding actuator to make the SSC do something with malicious intent. Typically, an adversary finds a way to act as a valid member in the system. Using this access, it sends false information out in a specific way that results in its ability to take down a system. A DT, including both physical and digital elements such as controls, is constructed to emulate the monitored SSC. Recognizing that physics must always be satisfied and that the data provided by sensors are related by physics, the DT, containing insights regarding the SSC, can be employed to assess sensor data by looking at both the data flow and related physics. If the signal provided by a potentially compromised sensor seems abnormal, the relationship between it and the other sensors will also look abnormal. This anomaly detection can be utilized to respond to an attack, even when multiple sensors are compromised. After a set of sensors has been assessed as being compromised, the DT may also be used to build and employ virtual analytical sensors for the purpose of substituting for the tampered devices and continuing operations of the compromised SSC until the problem is resolved. In this way, DDR concepts can be employed to enable three fundamental defense tasks against malicious insults, namely: i) detect, locate, and warn of an identified problem using known physics; ii) isolate a potentiallycompromised device (e.g., a sensor); iii) build and utilize a virtual device (e.g., an analytical sensor) to continue operations, possibly in a degraded manner but without being forced to end operations. This approach using enhanced state awareness provided by SEI and resulting in ISA is key to moving these 'intelligent systems' toward inherent digital security.</p><p>3) Digital resiliency: Sensing, communication, and control malfunctions are inevitable due to failures, aging, attacks, scheduled updates, and other stressors underpinning M&amp;C functions. Reliance on the highly-digitized system architectures involved in nuclear applications of SEI and ISA, it is of paramount importance to assure that the performance of the given CPS is antifragile and degrades gracefully. A viable strategy to eliminate brittleness and increase mission-level resilience in nuclear systems is to make them robust at the mission level (i.e., as opposed to doing so at low-level controllers) and move the responsibility for real-time adaptive, and possibly reasoning behavior from operators to the intelligent control systems themselves. To tackle this need for so-called graceful degradation, mission-level resilience is required to address component failures and attacks and recover base capabilities after disturbances through FDI and recovery measures, including faulttolerance and run-time self-adaptation based on functional knowledge (e.g., <ref type="bibr" target="#b23">Hernandez et al., 2018)</ref>. It is in the correct and prompt autonomous response to anomalies that the introduction of SEI techniques within nuclear system designs becomes relevant in support of resiliency features for limiting the progression and cascading of anomalies, containing them, and minimizing the need for issuing intrusive commands affecting operations such as shutdowns. Fault/attack detection, diagnosis, and recovery may be used to address faults and perturbations out of the range of control operations.</p><p>Several resilient control architectures have been proposed integrating functional knowledge (within system models and databases) and autonomous supervision to implement fault tolerant control (FTC) and self-adaptation frameworks for augmented autonomy (e.g., <ref type="bibr" target="#b13">Garcia and Lin, 2018;</ref><ref type="bibr" target="#b18">Garcia et al., 2015;</ref><ref type="bibr" target="#b17">Garcia et al., 2014;</ref><ref type="bibr" target="#b38">Lin et al., 2015)</ref>. Some of them rely on physical (e.g., redundant sensors) and computational (e.g., redundant controllers) redundancy in the monitored SSC to replace faulty/ compromised components with alternatives that can perform a similar role. However, these FTC-related methods deployed to deal with anomalies mostly utilize fault-tolerant and self-adaptation solutions synthesized at the component level. Consequently, these fixed, case-based solutions designed for particular purposes cannot by themselves accommodate emergent, systemic threat response. In addition, they are expensive, non-scalable, and hard to maintain. To address this limitation, resiliency in controllers may be improved using reasoning patterns (e.g., <ref type="bibr" target="#b59">Sanz et al., 2014)</ref> and may be important to advance SEI in nuclear systems.</p><p>Following the generalized proactive defense architecture illustrated in <ref type="bibr">Fig. 12,</ref><ref type="bibr">Fig. 15</ref> illustrates a robust M&amp;C architecture to achieve this resiliency goal. This architecture, or pieces of it, may be distributed as needed at the supervisory, operational, and tacti-cal levels denoted in Fig. <ref type="figure" target="#fig_2">3</ref>. In particular, four main components are depicted in Fig. <ref type="figure" target="#fig_0">15</ref>, namely 'data-control quality assessment (DCQA)', 'mission', 'monitoring adaptation (MA)', and 'control adaptation (CA)'. In particular, the DCQA component assesses the quality of data and controls being collected, communicated, utilized, and generated within the given SSC. An unfavorable data quality (DQ) value may be quantified by cybersecurity measures for data if it violates an acquired understanding of ranges and trends, for example. Similarly, an unfavorable control quality (CQ) value may be assigned to a given controller if its control command may take the particular SSC to an undesired state (e.g., leading to instability and catastrophic failure). The mission component then interprets how these DQ and CQ values may affect the SSC mission as it related to risk and health, for example, and predict potential impacts. With assessments conducted at the Mission, the MA and CA components adapt M&amp;C devices, respectively.</p><p>With respect to information devices, adaptation may manifest by optimizing sensor configurations, implementing moving target defense strategies to minimize threat surfaces, and executing data marshalling based on the level of situational alertness necessary for the assessed conditions of the given SSC. Proactive responses may involve reconfiguring to alternate sensor or control configurations to avoid incipient failures, for example, with the purpose of minimizing stresses on the suspect SSC. With respect to control devices, adaptation may manifest by initially using feedback controllers with full functionalities and then moving to less sophisticated control strategies that required less or even no data inputs (e.g., open-loop) as sensory information becomes increasingly compromised. Switching to hardwired control strategies of significantly less functionality may be desirable to maintain safe operation of the nuclear SSC at hand, but at a degraded condition, hence exhibiting the property of graceful degradation.</p><p>New affordable, maintainable, and scalable strategies and methods, supported by SEI techniques and technologies, engineering tools, and reusable assets, for resiliency and self-healing are required to provide adequate levels of dependability. Potential techniques include using mission-directed intelligent agents and DTs with simplified system characterizations describing processes, objectives, and KPI relevant for achieving the required levels for RAMSS. Being simulated faster-than-real time, a DT can be employed to deliver predictive information that can be used in multiple tasks, including monitoring, control, diagnosis, prognosis, security, and safety. In addition, automatic mechanisms should be incorporated to distribute information regarding failures, damaged or compromised components, and other anomalies within knowledge databases to update understanding and state awareness about the monitored plant and facilitate informed reasoning on reassessed conditions and mitigating actions.</p><p>Within a MAS approach enabling graceful degradation, a supervisory agent may use a model of the intelligent control system to detect, diagnose, and predict any deviation from expected behaviors and to determine appropriate corrective actions via reconfiguration. The loss of some functionality due to failures or attacks may lead to suboptimal asset management, but it will not prevent surviving agents from taking tolerable decisions based on partial or incomplete information. Likewise, if a data source becomes inaccessible or a given intelligent agent fails to perform its assigned task (e.g., asset monitoring or control), the other agents within the intelligent M&amp;C system can autonomously continue their tasks and monitor or control the assets affected by the insults. In this manner, the integration of intelligent systems techniques within a MAS approach delivers an SEI-driven M&amp;C approach that meets the requirements of flexibility, extensibility, robustness, and graceful degradation. After detecting a digital, physical, or hybrid attack, an alternate M&amp;C strategy is needed for recovery and resiliency against tampering of measurements or control commands. Different recovery strategies may be used. For example, a physicsbased control strategy may be employed that warns the operator of violating commands and suggests (and automatically switches to) an alternate control algorithm. Mechanisms should also be integrated to deal when conflicts that occur whenever more than one rule suggesting potential solutions are simultaneously triggered.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5.">Human-machine interfaces</head><p>This thrust involves the development or adaptation (e.g., from other industries) of advanced human machine interface (HMI) capabilities (e.g., conversational and augmented immersive reality systems) to significantly improve human-machine interactions. These HMI capabilities will radically enhance the way in which human communicate and interact with their engineered intelligent partners assigned to M&amp;C nuclear systems.</p><p>In particular, SEI/ISA-driven HMI are usually autonomous, proactive, and social, often employing ML to be capable of adapting to new information or requests. Examples of advanced HMI technologies include conversational systems, augmented reality engines, and immersive reality systems. Most digital devices in multiple application areas are being increasingly designed to offer artificial intelligence (AI)-driven HMI capabilities. These approaches are also increasingly equipped with ML to make these agents more adaptive, not only to different input styles and new tasks, but also to accommodate different learning options leveraging supervised learning, unsupervised learning, and hybrid intelligence (where humans participate in the training process over time). In the development and application of conversational and augmented immersive reality systems for nuclear systems, it is important to define and assess their quality attributes and identify quality assurance approaches. In particular, quality attributes may be organized in terms of ISO 9241 <ref type="bibr">(ISO, 2006)</ref> and NUREG 0700 <ref type="bibr" target="#b51">(O'Hara et al., 2002)</ref> considering the concept of usability and addressing efficiency, effectiveness, and satisfaction. Each of these goals would be further subdivided in several categories. For example, quality attributes may include the performance and functionality, each including appropriate attributes as suggested in <ref type="bibr" target="#b53">Radziwill and Benton (2017)</ref>.</p><p>Similarly, quality assessment approaches incorporating metrics are needed to evaluate, prioritize, and select HMI products and solutions for nuclear applications. To this end, evaluation methods can be organized into four classes: qualitative analysis, quantitative analysis, pre-and post-testing, and competitions, with evaluations potentially using more than one evaluation method. Using quantitative analysis, comparisons among options and implementations may rely on the quantification of selected metrics and the prioritization process. Thus, two or more SEI/ISA-driven HMI systems can be compared by selecting the most significant quality attributes, or by analyzing them at two distinct points in time to determine whether the given quality has improved. This is particularly useful for adaptive HMI systems that learn when exposed to additional topics, experiences, and users (see e.g., <ref type="bibr" target="#b6">Boring et al., 2019)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.6.">Augmented analytics and machine learning</head><p>This thrust involves the development, adaptation (e.g., from other industries), organization, and validation of hybrid AI methods and tech- nologies, including augmented data analytics and ML algorithms, for their utilization in nuclear SSC. This accelerates the creation of validated libraries of intelligent algorithms and tools for the nuclear industry.</p><p>Numerous techniques and combinations of them have been developed for the intelligent analysis and interpretation of data. For example, augmented analytics (see e.g., <ref type="bibr" target="#b57">Sallam et al., 2018)</ref> uses ML/AI techniques to automate data preparation, insight discovery and sharing. Likewise, EC and ML have found fruitful areas for combining their corresponding strengths (see <ref type="bibr" target="#b67">Zhang et al., 2011)</ref>. Common techniques can be divided as physics-based, data-driven, and hybridization. With the ability to process large amounts of data, ML-based systems use automated and iterative algorithms to learn and solve a particular problem using supervised, unsupervised, reinforcement, apprenticeship, and other learning methods. Under a supervised method, it is assumed that the desired response or output of the ML system with respect to particular inputs is well known, with examples being provided and taught. Under an unsupervised method, the ML system finds on its own the correlations between data as they are propagated from inputs to outputs. An optimization objective function is used to interpolate or extrapolate trends from a learning dataset, to identify patterns and trends not readily visible using traditional statistical tools, and to understand and predict behaviors that the particular ML system was not explicitly programmed to understand. A ML system can thus be applied to a given monitoring, control, or preventive maintenance system that is smart enough to alter how it observes and controls a machine in response to changing conditions. Similarly, an important application of ML is in the area of hyper-parameter optimization (e.g., <ref type="bibr" target="#b4">Bergstra and Bengio, 2012)</ref>. Given its broad applicability, multiple ML and evolutionary computation (EC) algorithms have been developed, including ANN, fuzzy logic, self-organizing maps, genetic algorithms (GA), casebased reasoning, and ambient-intelligence. ML algorithms are often termed as 'universal approximators', capable of learning behaviors and patterns in data of an SSC under examination from an adequate training dataset. Being data-driven, ML techniques are non-parametric, non-linear, and multivariate learning algorithms that do not need to know a priori the functional form of the SSC under observation as required by traditional algorithms such as least-squares fitting. When training is performed, it is important to ensure that the quality of the ML fit to the particular problem can be independently assessed. To improve their performance, ML algorithms can typically be first trained with multiple models on the same data and then their predictions are averaged. Unfortunately, making predictions using a whole ensemble of models is cumbersome and may be computationally expensive. A practical solution is to use a compression technique to distill the knowledge in an ensemble of NN into a single model, which is much easier to deploy as suggested in <ref type="bibr" target="#b24">Hinton et al. (2014)</ref>. To this end, numerous platforms are available for the development of learning models as reported in <ref type="bibr" target="#b22">Hatcher and Yu (2018)</ref>.</p><p>To illustrate how AI algorithms accordingly validated and organized within specific libraries of tools may be applied to satisfy specific nuclear applications, Fig. <ref type="figure" target="#fig_0">16</ref> depicts a notional block diagram for implementing an inference system that uses SEI techniques. This inference system may include optimization and learning routines validated against specific nuclear applications to determine optimal membership functions for the learning-based, physics-informed control system that satisfy data-and physicsbased constructs stored in the knowledge base that were specifically constructed for addressing particular nuclear SSC applications.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.7.">Advanced edge computing and communication</head><p>This thrust involves the development or adaption (e.g., from other industries), organization, and validation of computing and communication capabilities to support the dissemination of advanced and edge computing in nuclear systems capable of accommodating the intelligent functions addressed under introduced RD&amp;D opportunities. These computational and communication capabilities are expected to improve the latency, reliability, and efficiency of intelligent SEI-driven processes distributed across SSC. This thrust also involves the development of interface standards and guidance facilitating resource interoperability within modular architectures, cohesive system structures, and flexible interfaces.</p><p>In particular, utilizing SEI technologies within the notional intelligent M&amp;C architecture illustrated in Fig. <ref type="figure" target="#fig_3">4</ref> will involve adding more hardware and software resources than those used in current nuclear fleets. However, the complexity of the SEI-driven program varies depending on how much smart functionality is desired, with SEI-assisted controllers often capable of being implemented with low-capability microcontrollers. Similarly, hardware and software improvements will allow for larger data sets to be processed more efficiently. Very fast processing capabilities will speed response time in addressing potentially catastrophic events. Edge computing is a topology in which information processing and content collection and delivery are placed closer to the sources of information (e.g., sensors) and the executers of actions (e.g., actuators). Data are collected and analyzed locally. By keeping information flow local to the extent possible, edge computing delivers multiple benefits, including reduction of latency and improvement of robustness and resiliency. The advent of GPU has enormously facilitated the implementation of very sophisticated SEI-driven functionalities at the device level. While a central processing unit (CPU) core is more powerful than a GPU core, the vast majority of this power goes unused by ML applications. A CPU core is designed to support an extremely broad variety of tasks whereas a GPU core is optimized exclusively for data computations. Because of this singular focus, a GPU core is simpler and has a smaller die area than a CPU, allowing many more GPU cores to be crammed onto a single chip. In fact, GPUs have almost 200 times more processors per chip than a CPU. Likewise, tensor processing units (TPU) and other AI accelerators with symbolic math libraries specifically designed for computing tensors involved in ML applications (e.g., ANN) may be employed. Consequently, SEI-ISA applications expected to perform large numbers of computations on a vast amount of data can see huge (e.g., 10 to 1000 times) performance improvements with GPU and TPU.</p><p>Through edge computing, smart sensor systems like that illustrated in Fig. <ref type="figure" target="#fig_0">17</ref> can be deployed that combine sensing with intelligence and real-time analytics (embedded in the inference engine), and fundamental understanding of the monitored SSC (embedded in the knowledge database) for improved performance, early warnings, and more accurate and robust output from collected input signals. Measurements collected by a smart sensor system are analyzed locally by the inference engine, which is supported by a knowledge base to compute: i) direct and indirect (analytical) sensor values; ii) health conditions of sensors in support of executing voting methods and calibration schemes; and iii) performance metrics, including data qualifiers such as data quality (DQ), which could be used to compute advanced notions (e.g., believability) to adaptively select which data to collect <ref type="bibr" target="#b17">(Garcia et al., 2014)</ref>.</p><p>Capitalizing again from edge computing, Fig. <ref type="figure" target="#fig_0">18</ref> illustrates a hierarchical control assembly specifically designed to deliver a control system with auto-tuning capability, i.e., adjusting its own control gains. In this figure, the inner control loop, running at a fast computational rate, is governed by a lower-level controller that, based on the residual calculated between the desired and sensed output responses, computes control signals to directly regulate the monitored SSC. The outer control loop, running at a slower computational rate, is governed by a higher-level controller (con-sisting of an optimizer and a knowledge database) that, based on performance metrics quantified in real-time, updates the control gains to be used by the lower-level controller. The complementary use of these two controllers results into a self-tuning (hierarchical) control assembly implemented in a local microprocessor that might be located at the specific edge component (e.g., a diesel genset). Given the computed values for defined performance metrics and information stored or accumulated in its knowledge database, an optimizer conducts optimization routines to identify optimal gains for the lower-level controller to best meet desired performance objectives. This auto-tuned lower-level controller may have a hybrid topology, integrating physics-based and data-driven methods. Auto-tuning of model parameters and control gains can also be achieved using SEI-driven methods for optimization through EI techniques like GA or particle-swarm optimization (PSO).</p><p>To implement the notional intelligent M&amp;C architecture illustrated in Fig. <ref type="figure" target="#fig_3">4</ref>, a robust physical infrastructure that can support a reliable and timely flow of data, information, knowledge, decisions, and controls is necessary. For assuring effective management of the large volumes of data expected, new communication guidelines may also be needed for moving data, via both wired and wireless channels, among sensors, databases, and intelligent systems distributed throughout the monitored SSC and supporting a robust and flexible data communication, management, and storage framework. Several data communication protocols and standards should be considered here. For example, within wireless communication technologies, matured data protocols (e.g., Institute of Electrical and Electronics Engineers <ref type="bibr">[IEEE] 802.11 (IEEE, 2018</ref><ref type="bibr">), 802.15.4, (IEEE, 2017</ref> and International Society of Automation (ISA, 2010) offer digital-secure, low-power data-transmission solutions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.8.">Integrated testing platforms</head><p>This thrust involves the development and availability of integrated testing environments (e.g., national digital systems testing frameworks, call-back centers, simulators) where SEI-driven techniques and technologies can be validated, including those related to risk (e.g., common cause failures, CCF) and digital security and resiliency. The testing platform enables every SNS function or activity be verified and validated at all levels of the SNS, i.e. from an SSC level to the integrated nuclear system level.</p><p>In an integrated testing environment, sensing, actuation, and computational resources executing SEI-driven technologies are evaluated within a hybrid framework that includes both computational and physical assets. While computational assets may embody simulated SSC (e.g., a nuclear reactor core) at sufficient fidelity and granularity, a physical asset may be an actual SSC (e.g., a heat exchanger). With the creation of testing centers, data streams collected from, for example, diverse microreactor designs can be collected for integrated analysis, learning, and training. Fur-   thermore, these testing environments can be used for gathering information about dangerous or catastrophic events so that data may also be available to train the models. It is also important to follow a well-defined and structured design process, not only for identifying the implications and impacts on risk, digital security, and digital resiliency aspects resulting from the ubiquitous integration of SEI technologies in nuclear systems, but also for incrementally suggesting and evaluating mitigation strategies that can assure the cost-effective achievement of risk, digital security, and digital resiliency goals specified for the nuclear SSC under examination.</p><p>Fig. <ref type="figure" target="#fig_0">19</ref> illustrates an integrated testing framework that can be used iteratively for evaluating SEI-driven techniques in nuclear SSC and devise mitigation measures for achieving the desired postures regarding risk, performance, digital security, and digital resiliency. In particular, the nuclear SSC under examination (e.g., a given microreactor design) is identified, triggering the execution of two main activities: vulnerability and diversity and defensein-depth (V3D) assessment as well as physical-digital performance and security evaluation (PSE). In V3D, techniques are applied to identify risks and vulnerabilities latent in a nuclear SSC under examination. In PSE, a comprehensive performance, risk, and vulnerability evaluation of the nuclear system is conducted, which benefits from the findings obtained from V3D. With this characterization in place, mitigation strategies are identified and selected, which may include administrative (e.g., incident response plan and training), static (e.g., functional/hardware D3), and proactive (e.g., DTs, hybrid IDPS, reconfiguration) mitigation measures. Then, a dynamic physical-digital testbed is developed for integrated testing. This testbed includes, not only key physical and digital elements associated with the nuclear SSC under examination, along with identified uncertainties, but also the developed SEI-driven techniques and mitigation strategies to assure specified acceptable error-margins. The physical-digital testbed is then subjected to diverse hybrid (malicious and non-malicious) test scenarios and its performance is quantified by computing defined metrics. This quantification is then used to determine whether the nuclear system under examination meet requirements within defined constraints and identify any additional risk or uncertainties. The nuclear SSC under evaluation may be re-characterized by adding findings, and this loop repeats by identifying and implementing new or modified mitigation measures as needed until requirements for performance, safety, security, and resiliency are met.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Conclusion</head><p>This article has defined key features of a deliberate approach at SEI and resulting ISA, providing definition of key terms and con-cepts, and providing a suggested framework for design and implementation. Challenges and risks are discussed. Potential outcomes (functionalities) afforded by deliberate implementation of SEI and ISA in advanced nuclear reactors could be disruptive, providing unprecedented levels of simplicity and cost reduction. SNS represent a promising alternative to traditional nuclear implementations, anticipated to deliver significant benefits to the nuclear industry in multiple ways. The discussed SEI/ISA-assisted nuclear systems are expected to be capable of continuous learning and reasoning in uncertain, imprecise, and challenging environments, exploiting a balance tolerance to achieve unprecedented robustness and tractability at a lower cost than traditional solutions. The ubiquitous use of SEI is anticipated to offer opportunities for adaptable and evolvable systems and functionalities. The more intelligent a nuclear system is engineered to be, the more productive it will be during operations with less downtime and safer and more secure responses.</p><p>The ever-changing nature in the use of energy within increasingly more integrated grids and markets makes it challenging to cost-effectively operate nuclear reactors within dynamic regimes. SNS equipped with SEI and ISA are anticipated to enable the automation of many tasks currently performed by operators, while providing explanations on applicable and selectable decisions and actions. Furthermore, the secure embedding of intelligence and the achievement of ISA in nuclear systems will facilitate information exchange across multiple engineering boundaries and energy resources, which will improve the timeliness and quality of decision-making. However, achieving high levels of autonomy for nuclear systems will require mission-directed intelligent agents, including computational observers, controllers, and decisionmakers, that can provide sophisticated foundational capabilities. The use of modern predictive analytics including ML is expected to be beneficial in managing nuclear processes as well as supporting datamining functions for training and improving designs via insights automatically collected from lessons learned. While the particular choice of architecture and framework for incorporating SEI and ISA in nuclear SSC may depend to some degree on the application at hand, large portions of it and its components as those suggested here are envisioned to be widely reusable and scalable.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. SEI and ISA supported by rapid technological advances.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Relationships among concepts and thrusts introduced.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Typical functional layering in typical industrial control systems.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Notional intelligent monitoring and control (M&amp;C) architecture.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Hierarchical architecture of a risk-informed M&amp;C.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Distributed organization of knowledge databases.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Hyper-layered modeling constituting knowledge databases.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. Control adaptation based on performance and user inputs.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Hybrid modeling approach.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 10 .</head><label>10</label><figDesc>Fig. 10. Digital replication for predictive performance and maintenance.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Fig. 11 .</head><label>11</label><figDesc>Fig. 11. Adaptive self-learning controller using digital twin/replication.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Fig. 12 .</head><label>12</label><figDesc>Fig. 12. Proactive defense for resilient observability, controllability.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Fig. 13 .</head><label>13</label><figDesc>Fig. 13. Potential attack surface exposure from using SEI-ISA.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Fig. 14 .</head><label>14</label><figDesc>Fig. 14. Hybrid intrusion detection and protection system.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Fig. 15 .</head><label>15</label><figDesc>Fig. 15. Embedding of proactive security and resiliency within SSC.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Fig. 16 .</head><label>16</label><figDesc>Fig. 16. Notional block diagram for an inference system.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>Fig. 17 .</head><label>17</label><figDesc>Fig. 17. Smart sensor system.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Fig. 18 .</head><label>18</label><figDesc>Fig. 18. A hierarchical control system with auto/self-tuning capability.</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">H.E. Garcia et al. / Annals of Nuclear Energy 140 (2020) 107261</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Declaration of Competing Interest</head><p>The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">A safety/security risk analysis approach of Industrial Control Systems: A cyber bowtie – combining new version of attack tree with bowtie analysis</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Abdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kaouk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J-M</forename><surname>Flaus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Masse</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2017.09.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">72</biblScope>
+			<biblScope unit="page" from="175" to="195" />
+			<date type="published" when="2018-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">A hybrid model combining first-principles and data-driven models for on-line condition monitoring</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Alpay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Yoo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 5th Inter. Meeting on Nuclear Plant Instrumentation, Controls, and Human machine Interface Technology</title>
+				<meeting>the 5th Inter. Meeting on Nuclear Plant Instrumentation, Controls, and Human machine Interface Technology<address><addrLine>Albuquerque, NM</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2006" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Automation of Data Collection Methods for Online Monitoring of Nuclear Power Plants</title>
+		<author>
+			<persName><forename type="first">Ahmad</forename><forename type="middle">Y</forename><surname>Al Rashdan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shawn</forename><forename type="middle">W</forename><surname>St. Germain</surname></persName>
+		</author>
+		<idno type="DOI">10.2172/1475451</idno>
+		<imprint>
+			<date type="published" when="2018-09-01" />
+			<publisher>Office of Scientific and Technical Information (OSTI)</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Idaho National Lab (INL</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Tech. Rep.</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Overview of Remaining Useful Life Methodologies</title>
+		<author>
+			<persName><forename type="first">Yogesh</forename><forename type="middle">G</forename><surname>Bagul</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ibrahim</forename><surname>Zeid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sagar</forename><forename type="middle">V</forename><surname>Kamarthi</surname></persName>
+		</author>
+		<idno type="DOI">10.1115/detc2008-49938</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Volume 3: 28th Computers and Information in Engineering Conference, Parts A and B</title>
+				<meeting><address><addrLine>Brooklyn, NY</addrLine></address></meeting>
+		<imprint>
+			<publisher>ASMEDC</publisher>
+			<date type="published" when="2008-01-01" />
+			<biblScope unit="page" from="1391" to="1400" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Random search for hyper-parameter optimization</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bergstra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Bengio</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Mach. Learn. Res</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="281" to="305" />
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">The Value of Flexibility in the Design of Hybrid Energy Systems: A Real Options Analysis</title>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">R</forename><surname>Binder</surname></persName>
+			<idno type="ORCID">0000-0002-0777-8240</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Christiaan</forename><forename type="middle">J J</forename><surname>Paredis</surname></persName>
+			<idno type="ORCID">0000-0002-9739-3909</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+			<idno type="ORCID">0000-0002-4107-2882</idno>
+		</author>
+		<idno type="DOI">10.1109/jpets.2017.2764877</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Power and Energy Technology Systems Journal</title>
+		<title level="j" type="abbrev">IEEE Power Energy Technol. Syst. J.</title>
+		<idno type="ISSNe">2332-7707</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="74" to="83" />
+			<date type="published" when="2017-12" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A Comparison Study of Operator Preference and Performance for Analog Versus Digital Turbine Control Systems in Control Room Modernization</title>
+		<author>
+			<persName><forename type="first">Ronald</forename><forename type="middle">L</forename><surname>Boring</surname></persName>
+			<idno type="ORCID">0000-0001-5460-9610</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">A</forename><surname>Ulrich</surname></persName>
+			<idno type="ORCID">0000-0002-2026-1596</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Roger</forename><surname>Lew</surname></persName>
+			<idno type="ORCID">0000-0002-4280-052X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Casey</forename><forename type="middle">R</forename><surname>Kovesdi</surname></persName>
+			<idno type="ORCID">0000-0002-3573-6769</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmad</forename><surname>Al Rashdan</surname></persName>
+			<idno type="ORCID">0000-0002-9682-3137</idno>
+		</author>
+		<idno type="DOI">10.1080/00295450.2018.1509593</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Technology</title>
+		<title level="j" type="abbrev">Nuclear Technology</title>
+		<idno type="ISSN">0029-5450</idno>
+		<idno type="ISSNe">1943-7471</idno>
+		<imprint>
+			<biblScope unit="volume">205</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="507" to="523" />
+			<date type="published" when="2018-10-09" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A Benchmark System for Comparing Reliability Modeling Approaches for Digital Instrumentation and Control Systems</title>
+		<author>
+			<persName><surname>Fig</surname></persName>
+		</author>
+		<idno type="DOI">10.13182/nt09-5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Technology</title>
+		<title level="j" type="abbrev">Nucl Technol</title>
+		<idno type="ISSN">0029-5450</idno>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page" from="1" to="17" />
+			<date type="published" when="2009" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Nuclear-Renewable Hybrid Energy Systems: 2016 Technology Development Program Plan</title>
+		<author>
+			<persName><forename type="first">Shannon</forename><forename type="middle">M</forename><surname>Bragg-Sitton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Boardman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cristian</forename><surname>Rabiti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jong</forename><surname>Suk Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Mckellar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Piyush</forename><surname>Sabharwall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Sacit</forename><surname>Cetiner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">Jay</forename><surname>Harrison</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Lou</forename><surname>Qualls</surname></persName>
+		</author>
+		<idno type="DOI">10.2172/1333006</idno>
+		<imprint>
+			<date type="published" when="2016-03-01" />
+			<publisher>Office of Scientific and Technical Information (OSTI)</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Tech. Rep.). Idaho National Lab (INL</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">No. inl-ext-16-38165</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">THREATS TO ICS reats to ICS: How Security Requirements Are Dierent</title>
+		<idno type="DOI">10.1201/b11352-4</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Cybersecurity for Industrial Control Systems</title>
+				<imprint>
+			<publisher>Auerbach Publications</publisher>
+			<date type="published" when="2016-04-19" />
+			<biblScope unit="page" from="55" to="90" />
+		</imprint>
+		<respStmt>
+			<orgName>NCCIC). U.S. Department of Homeland Security</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Tech. Rep.</note>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Idaho National Laboratory Cultural Resource Monitoring Report for FY 2010</title>
+		<idno type="DOI">10.2172/1004251</idno>
+		<imprint>
+			<date type="published" when="2010-10-01" />
+			<publisher>Office of Scientific and Technical Information (OSTI)</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>U.S. Department of Energy Office of Nuclear Energy, Idaho National Lab (INL) (Tech. Rep.</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Prognostics, the real issues involved with predicting life remaining</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Engel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">J</forename><surname>Gilmartin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bongort</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hess</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/aero.2000.877920</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2000 IEEE Aerospace Conference. Proceedings (Cat. No.00TH8484)</title>
+				<meeting><address><addrLine>Big Sky, MT</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date>2000</date>
+			<biblScope unit="page" from="457" to="469" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Hybrid prognosis for railway health assessment: an information fusion approach for prognostics and health management deployment</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Galar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Villarejo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-A</forename><surname>Johansson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Chem. Eng. Trans</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="page" from="769" to="774" />
+			<date type="published" when="2013" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Resilient monitoring of cyber-physical systems under hybrid threats</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W.-C</forename><surname>Lin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. TBD (under review)</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Integrating Physical Modeling, Neural Computing, and Statistical Analysis for On-Line Process Monitoring</title>
+		<author>
+			<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><forename type="middle">B</forename><surname>Vilim</surname></persName>
+		</author>
+		<idno type="DOI">10.13182/nt03-a3351</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Technology</title>
+		<title level="j" type="abbrev">Nuclear Technology</title>
+		<idno type="ISSN">0029-5450</idno>
+		<idno type="ISSNe">1943-7471</idno>
+		<imprint>
+			<biblScope unit="volume">141</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="69" to="77" />
+			<date type="published" when="2003-01" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Dynamic analysis of hybrid energy systems under flexible operation and variable renewable generation – Part I: Dynamic performance analysis</title>
+		<author>
+			<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amit</forename><surname>Mohanty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wen-Chiao</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">S</forename><surname>Cherry</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.energy.2013.01.022</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Energy</title>
+		<title level="j" type="abbrev">Energy</title>
+		<idno type="ISSN">0360-5442</idno>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="page" from="1" to="16" />
+			<date type="published" when="2013-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Dynamic analysis of hybrid energy systems under flexible operation and variable renewable generation – Part II: Dynamic cost analysis</title>
+		<author>
+			<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amit</forename><surname>Mohanty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wen-Chiao</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">S</forename><surname>Cherry</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.energy.2012.11.032</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Energy</title>
+		<title level="j" type="abbrev">Energy</title>
+		<idno type="ISSN">0360-5442</idno>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="page" from="17" to="26" />
+			<date type="published" when="2013-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Resilient Monitoring Systems: Architecture, Design, and Application to Boiler/Turbine Plant</title>
+		<author>
+			<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wen-Chiao</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Semyon</forename><forename type="middle">M</forename><surname>Meerkov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maruthi</forename><forename type="middle">T</forename><surname>Ravichandran</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tcyb.2014.2316003</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Cybernetics</title>
+		<title level="j" type="abbrev">IEEE Trans. Cybern.</title>
+		<idno type="ISSN">2168-2267</idno>
+		<idno type="ISSNe">2168-2275</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="2010" to="2023" />
+			<date type="published" when="2014-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Resilient plant monitoring systems: Techniques, analysis, design, and performance evaluation</title>
+		<author>
+			<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Semyon</forename><forename type="middle">M</forename><surname>Meerkov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maruthi</forename><forename type="middle">T</forename><surname>Ravichandran</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jprocont.2015.05.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Process Control</title>
+		<title level="j" type="abbrev">Journal of Process Control</title>
+		<idno type="ISSN">0959-1524</idno>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="page" from="51" to="63" />
+			<date type="published" when="2015-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Dynamic performance analysis of two regional Nuclear Hybrid Energy Systems</title>
+		<author>
+			<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Chen</surname></persName>
+			<idno type="ORCID">0000-0002-0934-8519</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jong</forename><forename type="middle">S</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><forename type="middle">B</forename><surname>Vilim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">R</forename><surname>Binder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shannon</forename><forename type="middle">M</forename><surname>Bragg Sitton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><forename type="middle">D</forename><surname>Boardman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">G</forename><surname>Mckellar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christiaan</forename><forename type="middle">J J</forename><surname>Paredis</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.energy.2016.03.128</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Energy</title>
+		<title level="j" type="abbrev">Energy</title>
+		<idno type="ISSN">0360-5442</idno>
+		<imprint>
+			<biblScope unit="volume">107</biblScope>
+			<biblScope unit="page" from="234" to="258" />
+			<date type="published" when="2016-07" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Integrated State Awareness Through Secure Embedded Intelligence in Nuclear Systems: Opportunities and Implications</title>
+		<author>
+			<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+			<idno type="ORCID">0000-0002-4107-2882</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">E</forename><surname>Aumeier</surname></persName>
+			<idno type="ORCID">0000-0001-7997-3136</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmad</forename><forename type="middle">Y</forename><surname>Al-Rashdan</surname></persName>
+			<idno type="ORCID">0000-0002-9682-3137</idno>
+		</author>
+		<idno type="DOI">10.1080/00295639.2019.1698237</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Science and Engineering</title>
+		<title level="j" type="abbrev">Nuclear Science and Engineering</title>
+		<idno type="ISSN">0029-5639</idno>
+		<idno type="ISSNe">1943-748X</idno>
+		<imprint>
+			<biblScope unit="volume">194</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="249" to="269" />
+			<date type="published" when="2020-01-03" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+	<note>in-print</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">The approach to risk analysis in three industries: nuclear power, space systems, and chemical process</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">John</forename><surname>Garrick</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/0951-8320(88)90109-3</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Reliability Engineering &amp; System Safety</title>
+		<title level="j" type="abbrev">Reliability Engineering &amp; System Safety</title>
+		<idno type="ISSN">0951-8320</idno>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="195" to="205" />
+			<date type="published" when="1988-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A Survey of Deep Learning: Platforms, Applications and Emerging Research Trends</title>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">Grant</forename><surname>Hatcher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Yu</surname></persName>
+			<idno type="ORCID">0000-0003-4522-7340</idno>
+		</author>
+		<idno type="DOI">10.1109/access.2018.2830661</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="24411" to="24432" />
+			<date type="published" when="2018" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">A self-adaptation framework based on functional knowledge for augmented autonomy in robots</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Hernandez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bermejo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sanz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Integr. Comput.-Aided Eng</title>
+		<imprint>
+			<biblScope unit="page" from="1" to="14" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Distilling the knowledge in a neural network</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hinton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Vinyals</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Dean</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of NIPS 2014 Deep Learning Workshop</title>
+				<meeting>NIPS 2014 Deep Learning Workshop<address><addrLine>Montreal, Canada</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hughes</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Industrial Transformation: Architecture and Analytics Just the Beginning</title>
+				<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">IEEE Standard for Low-Rate Wireless Networks</title>
+		<idno type="DOI">10.1109/ieeestd.2020.9144691</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Std</title>
+		<imprint>
+			<biblScope unit="volume">802</biblScope>
+			<date>2017</date>
+			<publisher>IEEE</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Institute of Electrical and Electronics Engineers (Tech. Rep.</orgName>
+		</respStmt>
+	</monogr>
+	<note>IEEE</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">The Institute of Electrical and Electronics Engineers, Inc.</title>
+		<idno type="DOI">10.1109/mspec.1967.5217151</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Spectrum</title>
+		<title level="j" type="abbrev">IEEE Spectr.</title>
+		<idno type="ISSN">0018-9235</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="4" to="4" />
+			<date type="published" when="1967-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Institute of Electrical and Electronics Engineers (Tech. Rep.</orgName>
+		</respStmt>
+	</monogr>
+	<note>IEEE</note>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Industrial communication networks. Fieldbus specifications. Wireless systems for industrial automation: process control and related applications</title>
+		<idno type="DOI">10.3403/30253179</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Society of Automation</title>
+				<imprint>
+			<publisher>BSI British Standards</publisher>
+			<date>2010</date>
+			<biblScope unit="volume">100</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">Tech. Rep.</note>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">Scoop</title>
+		<author>
+			<persName><surname>Scoop</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/gmo/9781561592630.article.j400300</idno>
+		<imprint>
+			<date type="published" when="2003" />
+			<publisher>Oxford University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">Condition monitoring and diagnostics of machines. Prognostics</title>
+		<idno type="DOI">10.3403/30152751u</idno>
+		<imprint>
+			<date>2005</date>
+			<publisher>BSI British Standards</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>ISO</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<monogr>
+		<title level="m" type="main">Ergonomics of human-system interaction</title>
+		<idno type="DOI">10.3403/30405549u</idno>
+		<imprint>
+			<date>2006</date>
+			<publisher>BSI British Standards</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>ISO</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">Condition monitoring and diagnostics of machines. Prognostics</title>
+		<idno type="DOI">10.3403/30152751u</idno>
+		<imprint>
+			<date>2011</date>
+			<publisher>BSI British Standards</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>ISO</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">International Organization for Standardization (ISO)</title>
+		<author>
+			<persName><forename type="first">Barry</forename><surname>Turner</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-1-349-59541-9_37</idno>
+		<idno>ISO 13372:2012</idno>
+	</analytic>
+	<monogr>
+		<title level="m">The Statesman’s Yearbook</title>
+				<imprint>
+			<publisher>Palgrave Macmillan UK</publisher>
+			<date type="published" when="2012" />
+			<biblScope unit="page" from="48" to="48" />
+		</imprint>
+		<respStmt>
+			<orgName>ISO</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Future trends in process automation</title>
+		<author>
+			<persName><forename type="first">S.-L</forename><surname>Jamsa-Jounela</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.arcontrol.2007.08.003</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Annual Reviews in Control</title>
+		<title level="j" type="abbrev">Annual Reviews in Control</title>
+		<idno type="ISSN">1367-5788</idno>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="211" to="220" />
+			<date type="published" when="2007-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Explainable, Normative, and Justified Agency</title>
+		<author>
+			<persName><forename type="first">Pat</forename><surname>Langley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Meadows</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sridharan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Choi</surname></persName>
+		</author>
+		<idno type="DOI">10.1609/aaai.v33i01.33019775</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the AAAI Conference on Artificial Intelligence</title>
+		<title level="j" type="abbrev">AAAI</title>
+		<idno type="ISSN">2159-5399</idno>
+		<idno type="ISSNe">2374-3468</idno>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="page" from="9775" to="9779" />
+			<date type="published" when="2019-07-17" />
+			<publisher>Association for the Advancement of Artificial Intelligence (AAAI)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Review of Hybrid Prognostics Approaches for Remaining Useful Life Prediction of Engineered Systems, and an Application to Battery Life Prediction</title>
+		<author>
+			<persName><forename type="first">Linxia</forename><surname>Liao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Felix</forename><surname>Kottig</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tr.2014.2299152</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Reliability</title>
+		<title level="j" type="abbrev">IEEE Trans. Rel.</title>
+		<idno type="ISSN">0018-9529</idno>
+		<idno type="ISSNe">1558-1721</idno>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="191" to="207" />
+			<date type="published" when="2014-03" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">A hybrid framework combining data-driven and model-based methods for system remaining useful life prediction</title>
+		<author>
+			<persName><forename type="first">Linxia</forename><surname>Liao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Felix</forename><surname>Köttig</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.asoc.2016.03.013</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Soft Computing</title>
+		<title level="j" type="abbrev">Applied Soft Computing</title>
+		<idno type="ISSN">1568-4946</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="page" from="191" to="199" />
+			<date type="published" when="2016-07" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Experimental validation of a resilient monitoring and control system</title>
+		<author>
+			<persName><forename type="first">Wen-Chiao</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kris</forename><forename type="middle">R E</forename><surname>Villez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Humberto</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jprocont.2014.03.006</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Process Control</title>
+		<title level="j" type="abbrev">Journal of Process Control</title>
+		<idno type="ISSN">0959-1524</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="621" to="639" />
+			<date type="published" when="2014-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Enabling Digital Twins for Smart Connected Assets: Moving from Hype to (mixed) Reality</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Littlefield</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Davidson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Tech. Rep.). LNS Research</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<monogr>
+		<title level="m" type="main">Planting the Seeds of a Distributed Nuclear Revolution</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lovering</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Murray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Neeley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nelson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Nordhaus</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+			<pubPlace>ClearPath, BreakThrough Institute</pubPlace>
+		</imprint>
+	</monogr>
+	<note type="report_type">Tech. Rep.). Rstreet</note>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Fault diagnosis and failure prognosis for engineering systems: A global perspective</title>
+		<author>
+			<persName><forename type="first">Canh</forename><surname>Ly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kwok</forename><surname>Tom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carl</forename><forename type="middle">S</forename><surname>Byington</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Romano</forename><surname>Patrick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><forename type="middle">J</forename><surname>Vachtsevanos</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/coase.2009.5234094</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2009 IEEE International Conference on Automation Science and Engineering</title>
+				<meeting><address><addrLine>San Francisco, CA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2009-08" />
+			<biblScope unit="page" from="108" to="115" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Computer Hackers Face Spy Charges</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mccartney</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Washington Post</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<date type="published" when="1998" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">A Procedure for Failure Prognostic in Dynamic Systems</title>
+		<author>
+			<persName><forename type="first">Kamal</forename><surname>Medjaher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rafael</forename><surname>Gouriveau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Noureddine</forename><surname>Zerhouni</surname></persName>
+		</author>
+		<idno type="DOI">10.3182/20090603-3-ru-2001.0191</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC Proceedings Volumes</title>
+		<title level="j" type="abbrev">IFAC Proceedings Volumes</title>
+		<idno type="ISSN">1474-6670</idno>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1597" to="1602" />
+			<date type="published" when="2009" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Synthetic data for hybrid prognosis</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mishral</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Leturiondo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Galar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Second European Conference of the Prognostics and Health Management Society</title>
+				<meeting>the Second European Conference of the Prognostics and Health Management Society<address><addrLine>Nantes, France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<title level="m" type="main">Machine Learning: A Probabilistic Perspective</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Murphy</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012" />
+			<publisher>The MIT Press</publisher>
+			<pubPlace>Cambridge, MA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<title level="m" type="main">Color supplement to NIST special publication 400-93:</title>
+		<idno type="DOI">10.6028/nist.ir.5324</idno>
+		<imprint>
+			<date type="published" when="1994" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>NIST ; U.S. Department of Commerce (Tech. Rep.</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Summary of NIST SP 800-53 Revision 4, Security and Privacy Controls for Federal Information Systems and Organizations</title>
+		<author>
+			<persName><forename type="first">Kelley</forename><surname>Dempsey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Greg</forename><surname>Witte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Doug</forename><surname>Rike</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.cswp.02192014</idno>
+	</analytic>
+	<monogr>
+		<title level="j">NIST Special Publication</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="800" to="853" />
+			<date type="published" when="2014-02" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>NIST ; National Institute of Standards and Technology (NIST). U.S. Department of Commerce (Tech. Rep.</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<monogr>
+		<title level="m" type="main">Color supplement to NIST special publication 400-93:</title>
+		<idno type="DOI">10.6028/nist.ir.5324</idno>
+		<imprint>
+			<date type="published" when="1994" />
+			<publisher>National Institute of Standards and Technology</publisher>
+			<pubPlace>U.S. Department of Commerce</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>NIST</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Tech. Rep.</note>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<monogr>
+		<title level="m" type="main">Color supplement to NIST special publication 400-93:</title>
+		<idno type="DOI">10.6028/nist.ir.5324</idno>
+		<imprint>
+			<date type="published" when="1994" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>NIST ; U.S. Department of Commerce (Tech. Rep.</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">A Systems Theoretic Approach to the Security Threats in Cyber Physical Systems Applied to Stuxnet</title>
+		<author>
+			<persName><forename type="first">Arash</forename><surname>Nourian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stuart</forename><surname>Madnick</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tdsc.2015.2509994</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Dependable and Secure Computing</title>
+		<title level="j" type="abbrev">IEEE Trans. Dependable and Secure Comput.</title>
+		<idno type="ISSN">1545-5971</idno>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="2" to="13" />
+			<date type="published" when="2018-01-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Human-system Interface Design Review Guidelines (NUREG-0700, revision 2) (Tech</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>O'hara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Brown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lewis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Persensky</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rep.). U.S. Nuclear Regulatory Commission</title>
+		<imprint>
+			<date type="published" when="2002" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Gartners top 10 strategic technology trends for Artificial intelligence, machine learning, and smart things promise an intelligent future</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Panetta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Smarter With Gartner 10</title>
+				<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Developing and Evaluating Conversational Agents</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Radziwill</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Benton</surname></persName>
+		</author>
+		<idno type="DOI">10.7551/mitpress/2697.003.0013</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Embodied Conversational Agents</title>
+				<imprint>
+			<publisher>The MIT Press</publisher>
+			<date type="published" when="2000" />
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page" from="25" to="36" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<monogr>
+		<title level="m" type="main">Development of a Technology Roadmap for Online Monitoring of Nuclear Power Plants</title>
+		<author>
+			<persName><forename type="first">Ahmad</forename><forename type="middle">Y</forename><surname>Al Rashdan</surname></persName>
+			<idno type="ORCID">0000-0002-9682-3137</idno>
+		</author>
+		<author>
+			<persName><forename type="first">James</forename><forename type="middle">A</forename><surname>Smith</surname></persName>
+			<idno type="ORCID">0000-0002-4450-8573</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Shawn</forename><forename type="middle">W</forename><surname>St Germain</surname></persName>
+			<idno type="ORCID">0000-0002-6980-8206</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><forename type="middle">S</forename><surname>Ritter</surname></persName>
+			<idno type="ORCID">0000-0002-5662-1506</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Vivek</forename><surname>Agarwal</surname></persName>
+			<idno type="ORCID">0000-0003-1334-0509</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Ronald</forename><forename type="middle">Laurids</forename><surname>Boring Phd</surname></persName>
+			<idno type="ORCID">0000-0001-5460-9610</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">A</forename><surname>Ulrich</surname></persName>
+			<idno type="ORCID">0000-0002-2026-1596</idno>
+		</author>
+		<idno type="DOI">10.2172/1492833</idno>
+		<imprint>
+			<date type="published" when="2018-12-01" />
+			<publisher>Office of Scientific and Technical Information (OSTI)</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Tech. Rep.). Idaho National Lab (INL</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">inl-ext-18-52206</note>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<monogr>
+		<title level="m" type="main">ReACT Methodology Proof of Concept Final Report</title>
+		<author>
+			<persName><forename type="first">Bri</forename><surname>Rolston</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sarah</forename><surname>Freeman</surname></persName>
+		</author>
+		<idno type="DOI">10.2172/1133867</idno>
+		<idno>INL-EXT-14- 31522</idno>
+		<imprint>
+			<date type="published" when="2014-03-01" />
+			<publisher>Office of Scientific and Technical Information (OSTI)</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Tech. Rep.). Idaho National Laboratory</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<monogr>
+		<title level="m" type="main">ATAC Process Proof of Concept Final Report</title>
+		<author>
+			<persName><forename type="first">Bri</forename><surname>Rolston</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sarah</forename><surname>Freeman</surname></persName>
+		</author>
+		<idno type="DOI">10.2172/1129111</idno>
+		<idno>INL/EXT-14-31534</idno>
+		<imprint>
+			<date type="published" when="2014-03-01" />
+			<publisher>Office of Scientific and Technical Information (OSTI)</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Tech. Rep.). Idaho National Laboratory</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<monogr>
+		<title level="m" type="main">Augmented Analytics is the Future of Data and Analytics</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sallam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Howson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Idoine</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+			<publisher>Gartner, Inc</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Tech. Rep</note>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Principles for consciousness in integrated cognitive control</title>
+		<author>
+			<persName><forename type="first">Ricardo</forename><surname>Sanz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ignacio</forename><surname>López</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Manuel</forename><surname>Rodríguez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlos</forename><surname>Hernández</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neunet.2007.09.012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neural Networks</title>
+		<title level="j" type="abbrev">Neural Networks</title>
+		<idno type="ISSN">0893-6080</idno>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="938" to="946" />
+			<date type="published" when="2007-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Improved Resilience Controllers Using Cognitive Patterns</title>
+		<author>
+			<persName><forename type="first">Ricardo</forename><surname>Sanz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlos</forename><surname>Hernandez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Julita</forename><surname>Bermejo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Manuel</forename><surname>Rodriguez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ignacio</forename><surname>Lopez</surname></persName>
+		</author>
+		<idno type="DOI">10.3182/20140824-6-za-1003.02433</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC Proceedings Volumes</title>
+		<title level="j" type="abbrev">IFAC Proceedings Volumes</title>
+		<idno type="ISSN">1474-6670</idno>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="683" to="688" />
+			<date type="published" when="2014" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">Ontologies as backbone of cognitive systems engineering</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sanz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bermejo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Morago</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Hernandez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Germany</forename><surname>Aachen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Shearer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of AISB Annual Convention 2017 on Cognition and Ontologies</title>
+				<meeting>AISB Annual Convention 2017 on Cognition and Ontologies</meeting>
+		<imprint>
+			<date type="published" when="2010" />
+			<biblScope unit="page" from="218" to="223" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Tech. Rep.</note>
+	<note>. W32.stuxnet, Symantec</note>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<monogr>
+		<title level="m" type="main">The Cuckoos Egg: Tracking a Spy Through the Maze of Computer Espionage</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Stoll</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005" />
+		</imprint>
+	</monogr>
+	<note>Pocket Books</note>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">Impact of Cyber-Attacks on Critical Infrastructure</title>
+		<author>
+			<persName><forename type="first">Kutub</forename><surname>Thakur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Md</forename><forename type="middle">Liakat</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ning</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meikang</forename><surname>Qiu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/bigdatasecurity-hpsc-ids.2016.22</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 IEEE 2nd International Conference on Big Data Security on Cloud (BigDataSecurity), IEEE International Conference on High Performance and Smart Computing (HPSC), and IEEE International Conference on Intelligent Data and Security (IDS)</title>
+				<meeting><address><addrLine>New York, NY</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-04" />
+			<biblScope unit="page" from="183" to="186" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">A Business Case for Nuclear Plant Control Room Modernization</title>
+		<author>
+			<persName><forename type="first">Ken</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sean</forename><surname>Lawrie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Josef</forename><forename type="middle">M</forename><surname>Niedermuller</surname></persName>
+		</author>
+		<idno type="DOI">10.2172/1364469</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Idaho National Lab (INL)</title>
+				<imprint>
+			<publisher>Office of Scientific and Technical Information (OSTI)</publisher>
+			<date type="published" when="2016-06-01" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Tech. Rep</note>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">Prognostic and diagnostic monitoring of complex systems for product lifecycle management: Challenges and opportunities</title>
+		<author>
+			<persName><forename type="first">Venkat</forename><surname>Venkatasubramanian</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compchemeng.2005.02.026</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1253" to="1263" />
+			<date type="published" when="2005-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">An identification scheme combining first principle knowledge, neural networks, and the likelihood function</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">B</forename><surname>Vilim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">E</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">W</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/87.896759</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Control Systems Technology</title>
+		<title level="j" type="abbrev">IEEE Trans. Contr. Syst. Technol.</title>
+		<idno type="ISSN">1063-6536</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="186" to="199" />
+			<date type="published" when="2001" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">A review of diagnostic and prognostic capabilities and best practices for manufacturing</title>
+		<author>
+			<persName><forename type="first">Gregory</forename><forename type="middle">W</forename><surname>Vogl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Brian</forename><forename type="middle">A</forename><surname>Weiss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Moneer</forename><surname>Helu</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10845-016-1228-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Intelligent Manufacturing</title>
+		<title level="j" type="abbrev">J Intell Manuf</title>
+		<idno type="ISSN">0956-5515</idno>
+		<idno type="ISSNe">1572-8145</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="79" to="95" />
+			<date type="published" when="2016-06-09" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Evolutionary Computation Meets Machine Learning: A Survey</title>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhi-Hui</forename><surname>Zhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ying</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ni</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yue-Jiao</forename><surname>Gong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jing-Hui</forename><surname>Zhong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Henry</forename><forename type="middle">S H</forename><surname>Chung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yun</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu-Hui</forename><surname>Shi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mci.2011.942584</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Computational Intelligence Magazine</title>
+		<title level="j" type="abbrev">IEEE Comput. Intell. Mag.</title>
+		<idno type="ISSN">1556-603X</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="68" to="75" />
+			<date type="published" when="2011-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">Innovation diffusion in global contexts: determinants of post-adoption digital transformation of European companies</title>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shutao</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sean</forename><forename type="middle">Xin</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kenneth</forename><forename type="middle">L</forename><surname>Kraemer</surname></persName>
+		</author>
+		<idno type="DOI">10.1057/palgrave.ejis.3000650</idno>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Information Systems</title>
+		<title level="j" type="abbrev">European Journal of Information Systems</title>
+		<idno type="ISSN">0960-085X</idno>
+		<idno type="ISSNe">1476-9344</idno>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="601" to="616" />
+			<date type="published" when="2006-12" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

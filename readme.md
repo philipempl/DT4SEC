@@ -31,21 +31,21 @@ Based on obtained results, we screened the literature. You find the details in t
 
 ```
 ┌ Search
-| - total: 4898
-| - merged: 4397
+| - total: 6428
+| - merged: 5434
 |
 ├ Screen 1
-| - total: 4397
-| - included: 659
-| - excluded: 3738
+| - total: 5434
+| - included: 812
+| - excluded: 4622
 |
 ├ Screen 2
-| - total: 659
-| - included: 139
-| - excluded: 520
-| - 
+| - total: 812
+| - included: 138
+| - excluded: 521
+| - TODO:	  153
 |
-└ Result: 139
+└ Result: 138
 ```
 
 ## 3. Extraction

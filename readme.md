@@ -1,4 +1,5 @@
-# Digital Twins for Security Operations (DT4Sec) -- A Systematic Literature Review
+# Digital Twins for Security Operations (DT4Sec) 
+## A Systematic Literature Review
 
 > **"Like many others, we posit that more systematic and transparent reviews hold
 the potential to possess more validity/credibility and to manifest improved reproducibility of methods."**

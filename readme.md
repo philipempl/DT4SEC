@@ -60,8 +60,8 @@ We summarized all the insights and concluding remarks in our paper. The manuscri
 ## Reference
 ```
 @article{Empl2022,
-author = {Philip Empl and G{\"u}nther Pernul,
-title = {DT4SEC: A Systematic Review on Digital Twins in the Cybersecurity Domain},
+author = {Philip Empl and David Koch, and Marietheres Dietz, and G{\"u}nther Pernul,
+title = {Digital Twins for Security Operations: State of the Art and Outlook},
 journal = {{ACM} Computing Surveys},
 volume = {XX},
 number = {X},

@@ -40,6 +40,7 @@
 
 | **Key**                        | **Description**                                                                    |
 |--------------------------------|------------------------------------------------------------------------------------|
-| RQ4_Challenges_Future_Research | Extract the challenges and future research (can be found often in the conclusion). |
+| _RQ4_Future_Research_ | Extract the future research (can be found often in the conclusion). |
+| _RQ4_Challenges_ | Extract the challenges (can be found often in the conclusion). |
 
 

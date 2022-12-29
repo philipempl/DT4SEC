@@ -1328,7 +1328,7 @@ Fakhimi2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Falas2020,yes,no,no,no,yes,no,no,no,no,-
 Falbo2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Falco2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Faleiro2022,yes,yes,no,no,no,no,no,no,no,-
+Faleiro2022,yes,no,no,no,no,yes,no,no,no,-
 Falkner2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Falliere2010,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Falliere2010b,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1706,7 +1706,7 @@ Gupta2020ab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Gupta2021,yes,no,no,no,no,yes,no,no,no,-
 Gupta2021a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Gupta2021abc,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Gupta2021abcd,yes,yes,no,no,no,no,no,no,no,-
+Gupta2021abcd,yes,no,no,no,yes,no,no,no,no,-
 Gupta2021b,yes,yes,no,no,no,no,no,no,no,-
 Gupta2022,yes,no,no,no,no,yes,no,no,no,-
 Gupta2022a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2410,7 +2410,7 @@ Kossiakoff2011,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kossiakoff2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kossukhina2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kostromin2020,yes,no,no,no,yes,no,no,no,no,-
-Kotelba2022,yes,yes,no,no,no,no,no,no,no,-
+Kotelba2022,yes,no,no,no,no,yes,no,no,no,-
 Kotenko2012,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kotzias,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Koulamas2018,yes,no,no,no,yes,no,no,no,no,-
@@ -2459,8 +2459,8 @@ Kuck2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kuehn2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kuehn2019a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kuhn2013,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Kula2022,yes,yes,no,no,no,no,no,no,no,-
-Kulik2022,yes,yes,no,no,no,no,no,no,no,-
+Kula2022,yes,no,no,no,yes,no,no,no,no,-
+Kulik2022,yes,no,no,no,no,no,no,yes,no,-
 Kulk2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kulkarni2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kulkarni2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2527,7 +2527,7 @@ Lamport1978,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lamport1982,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lamport1998,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lamport2011,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Lampropoulos,yes,yes,no,no,no,no,no,no,no,-
+Lampropoulos,yes,no,no,no,no,yes,no,no,no,-
 Lan2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 LandetaEcheberria2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Landuyt2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2586,7 +2586,7 @@ Lee2021,yes,no,no,no,no,yes,no,no,no,-
 Lee2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lee2022a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lee2022ab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Lee2022abc,yes,yes,no,no,no,no,no,no,no,-
+Lee2022abc,yes,no,no,no,no,no,yes,no,no,-
 Lees0201,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lefebvre2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lefebvre2021a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2678,7 +2678,7 @@ Liao2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Liao2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Liau2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Liberg2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Lichtzinder2022,yes,yes,no,no,no,no,no,no,no,-
+Lichtzinder2022,yes,no,no,no,yes,no,no,no,no,-
 Lieberman2017,yes,no,no,no,yes,no,no,no,no,-
 Liegmann2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Liew2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2708,7 +2708,7 @@ Lin2021abc,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lin2021b,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lin2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lin2022a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Lin2022ab,yes,yes,no,no,no,no,no,no,no,-
+Lin2022ab,yes,no,no,no,no,yes,no,no,no,-
 Lin2022abc,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lin2022abcd,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lin9999,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2778,8 +2778,8 @@ Lo2021,yes,no,no,yes,no,no,no,no,no,-
 Lobato2018,yes,no,no,no,no,yes,no,no,no,-
 Locklin2020,yes,yes,no,no,no,no,no,no,no,-
 Loke2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Lombardo2022,yes,yes,no,no,no,no,no,no,no,-
-Lombardo2022a,yes,yes,no,no,no,no,no,no,no,-
+Lombardo2022,yes,no,no,no,yes,no,no,no,no,-
+Lombardo2022a,yes,no,no,no,yes,no,no,no,no,-
 Lomov2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Longo2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Longo2019,yes,no,no,no,yes,no,no,no,no,-
@@ -2842,7 +2842,7 @@ Luppi2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Luppi2015,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lv2021,yes,no,no,yes,no,no,no,no,no,-
 Lv2022,yes,no,no,no,yes,no,no,no,no,-
-Lv2022a,yes,yes,no,no,no,no,no,no,no,-
+Lv2022a,yes,no,yes,no,no,no,no,no,no,-
 Lv2022ab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lv2022abc,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lydon2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -3270,7 +3270,7 @@ Myers2012,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Mykoniatis2021,yes,no,no,no,yes,no,no,no,no,-
 Mylrea2021,yes,no,no,yes,no,no,no,no,no,-
 Mylrea2021a,yes,no,no,yes,no,no,no,no,no,-
-N2021,yes,yes,no,no,no,no,no,no,no,-
+N2021,yes,no,no,no,yes,no,no,no,no,-
 NAa,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 NAab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 NAabc,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -3452,7 +3452,7 @@ Oquendo2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Oquendo2018a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Oquendo2018ab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Oracle2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Orbinato2021,yes,yes,no,no,no,no,no,no,no,-
+Orbinato2021,yes,yes,no,no,no,yes,no,no,no,-
 Ore2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Orojloo2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Orojloo2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -3477,7 +3477,7 @@ Ouaknine2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Outchakoucht2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Ouyang2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Ovasapyan2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Ozdogan2022,yes,yes,no,no,no,no,no,no,no,-
+Ozdogan2022,yes,no,no,no,no,no,no,yes,no,-
 Ozkanozen2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Ozkaya2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Ozkaya2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -3685,7 +3685,7 @@ Prezchacn2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Price2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Priyadarshini2021,yes,no,no,no,yes,no,no,no,no,-
 Priyadarshinyedureka2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Priyanka2022,yes,yes,no,no,no,no,no,no,no,-
+Priyanka2022,yes,no,no,no,no,yes,no,no,no,-
 Prokop2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Prommetta2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Promyoo2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -4022,7 +4022,7 @@ Sandvik2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Sani2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Sanislav2012,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Sanislav2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Sanislav2021,yes,yes,no,no,no,no,no,no,no,-
+Sanislav2021,yes,no,yes,no,no,no,no,no,no,-
 Sanislav9999,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Sanjid2023,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Sankaran2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -4201,7 +4201,7 @@ Shahriar2020,yes,no,no,no,yes,no,no,no,no,-
 Shahriar2020ab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Shahsavari2021,yes,no,no,no,yes,no,no,no,no,-
 Shahzad2020,yes,no,no,no,no,yes,no,no,no,-
-Shahzad2022,yes,yes,no,no,no,no,no,no,no,-
+Shahzad2022,yes,no,no,no,yes,no,no,no,no,-
 Shaikh2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Shaikh2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Shakhbulatov2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -4420,7 +4420,7 @@ Stark2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stark2022a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stark2022ab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Starodubova2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Stavrinos2022,yes,yes,no,no,no,no,no,no,no,-
+Stavrinos2022,yes,no,no,no,no,yes,no,no,no,-
 Steclik2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stefano2004,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Steger2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -5011,7 +5011,7 @@ Wang2022abcdefgh,yes,no,yes,no,no,no,no,no,no,-
 Wang2022abcdefghi,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Wang2022abcdefghij,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Wang2022abcdefghijk,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Wang2022abcdefghijkl,yes,yes,no,no,no,no,no,no,no,-
+Wang2022abcdefghijkl,yes,no,no,no,no,no,yes,no,no,-
 Wang2022abcdefghijklm,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Warren2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Warrender9999,no,NA,NA,NA,NA,NA,NA,NA,NA,-

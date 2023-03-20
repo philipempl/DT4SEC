@@ -562,7 +562,7 @@ Bordawekar2015,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Bore2020,yes,yes,no,no,no,no,no,no,no,-
 BoreNA,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Borg2021,yes,no,no,no,yes,no,no,no,no,-
-B�rger2003,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+B?rger2003,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Borghesan2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Borghesi2021,yes,no,no,no,yes,no,no,no,no,-
 Borgne2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -853,7 +853,7 @@ Choi2015,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Choi2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Choi2018a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Choi2020,yes,yes,no,no,no,no,no,no,no,-
-Choi2021,yes,yes,no,no,no,no,no,no,no,-
+Choi2021,yes,no,no,no,no,no,no,no,no,duplicate from Choi2020
 Choi2021a,yes,yes,no,no,no,no,no,no,no,-
 Choi2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Choi2022a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -982,7 +982,7 @@ Czekster2022,yes,no,no,yes,no,no,no,no,no,-
 Cziko1989,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Czimmermann2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 D'souza1997,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-D�Amico2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+D?Amico2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 D2013,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Da2023,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 DaCosta2019,yes,no,no,no,yes,no,no,no,no,-
@@ -1007,7 +1007,7 @@ DamjanovicBehrendt2018,yes,no,no,no,no,no,no,no,yes,-
 Damjanovicbehrendt2018ab,yes,yes,no,no,no,no,no,no,no,-
 Damjanovicbehrendt2018abc,yes,yes,no,no,no,no,no,no,no,-
 Damjanovicbehrendt2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Damjanovicbehrendt2019a,yes,yes,no,no,no,no,no,no,no,-
+Damjanovicbehrendt2019a,yes,no,no,no,no,no,no,no,no,copy from Damjanovicbehrendt2018abc
 DamjanovicbehrendtNA,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Daneshvar2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Dangelo2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1036,7 +1036,7 @@ Day2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Dayal2015,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Daz2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Dazzuccarini2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-DBLP:conf/etfa/AkbarianTFK21,yes,yes,no,no,no,no,no,no,no,-
+DBLP:conf/etfa/AkbarianTFK21,yes,no,no,no,no,no,no,no,no,duplicate from Akbarian2021
 DBLP:conf/giots/Maillet-ContozM20,yes,no,no,no,no,no,no,yes,no,-
 DBSec2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 De2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1229,7 +1229,7 @@ Duviella2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Dwesar2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Dwivedi2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Dwivedi2022a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Dyb�2007,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+Dyb?2007,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Dzambic2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Dzhamaldinova2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Dziedzic2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1376,7 +1376,7 @@ Ferger1931,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Ferguson2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Ferguson2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Fernandes2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-FernAndez-l�pez1997,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+FernAndez-l?pez1997,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Fernandez2019,yes,no,no,no,yes,no,no,no,no,-
 Fernandez2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Fernandeziglesias2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1645,7 +1645,7 @@ Greenberg2007,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Greenberg2015,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Greenberg2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Greenberg2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Gr�gio2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+Gr?gio2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Gregory2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Gregorybrown2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Grewal2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1727,7 +1727,7 @@ Habibi2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Hadar2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Hadar2019,yes,no,no,no,no,yes,no,no,no,-
 Hadar2020,yes,yes,no,no,no,no,no,no,no,-
-Had�iosmanovi?2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+Had?iosmanovi?2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Hae2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Hae2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Haeckel2019,yes,no,no,no,yes,no,no,no,no,-
@@ -1740,7 +1740,7 @@ Hahn2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Haidong2012,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Haidong2013,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Haihui2013,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-H�kansson2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+H?kansson2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Halasz2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Haleem2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Haleem2022a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1808,7 +1808,7 @@ He2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 He2021a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 He2022,yes,no,no,no,no,no,no,yes,no,-
 Hearn2006,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-H�bert1987,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+H?bert1987,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Hebert2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Heidari2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Heidel2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1878,7 +1878,7 @@ Hofmann2021a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Hojjati2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Holland1992,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Hollander2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-H�ller2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+H?ller2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Holler2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Holler2016a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Holliman2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2622,7 +2622,7 @@ Leverett2007,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Levermann2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Levkovskyi2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Levkovskyi2021a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-L�vy-bencheton2013,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+L?vy-bencheton2013,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Leyden2012,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Li2006,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Li2010,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2848,7 +2848,7 @@ Lv2022abc,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lydon2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Lzaro2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 M.E.Sepasgozar2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-M�ller2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+M?ller2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 M2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 M2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Ma2011,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -3186,7 +3186,7 @@ Mohanraj2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Mohapatra2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Mohassel2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Mohieddine2006,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-M�l2008,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+M?l2008,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Molina2011,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Molina2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Molina2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -3406,8 +3406,8 @@ Nunes2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Nutaro2008,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 O'gorman2003,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 O'hara2002,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-O�Dwyer2019,yes,no,no,no,yes,no,no,no,no,-
-O�Sullivan2020,yes,no,no,no,yes,no,no,no,no,-
+O?Dwyer2019,yes,no,no,no,yes,no,no,no,no,-
+O?Sullivan2020,yes,no,no,no,yes,no,no,no,no,-
 Obrachtprondzyska2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Obrien2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Obrien2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -4449,7 +4449,7 @@ Stouffer2011,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stouffer2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stouffer2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Strahilov2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Stra�burger2006,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+Stra?burger2006,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Strasser2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Strasser2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Strater2001,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -4525,7 +4525,7 @@ Syed2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Symantec2012,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Syrmakesis2022,yes,no,no,no,no,yes,no,no,no,-
 Sys2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Syst�mes2007,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+Syst?mes2007,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Systmes2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Szabo2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Szajna2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -4706,7 +4706,7 @@ Tuinema2020,yes,no,no,no,yes,no,no,no,no,-
 Tuli2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Tuli2022a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Tumbajoy2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-T�ng2011,no,NA,NA,NA,NA,NA,NA,NA,NA,-
+T?ng2011,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Turchin2001,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Turchin2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Turing1950,no,NA,NA,NA,NA,NA,NA,NA,NA,-

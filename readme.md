@@ -43,10 +43,10 @@ Based on obtained results, we screened the literature. You find the details in t
 ├ Screen 2
 | - total: 812
 | - included: 138
-| - excluded: 521
-| - TODO:	  153
+| - excluded: 643
+| - TODO: 0
 |
-└ Result: 138
+└ Result: 170
 ```
 
 ## 3. Extraction

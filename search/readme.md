@@ -121,14 +121,14 @@
 
 **Term "digital twin" AND ("internet of things" OR "IoT" OR "CPS" OR "cyber-physical systems" OR "cyber physical systems") AND ("cybersecurity" OR "cyber-security" OR "cyber security" OR "information security")**
 
-- Springer Link: 1126 (ohne Conference Proceedings und Books)
+- Springer Link: 856 (ohne Conference Proceedings und Books)
 - Wiley: 107
 
 
 **Term "digital twin" AND "security"**
 
 - dblp: 34
-- arxiv: 4
+- arxiv: 42
 - AISeL: 101
 - WoS: 135
 - IEEE Xplore: 243

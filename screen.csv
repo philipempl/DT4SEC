@@ -131,7 +131,7 @@ Alcacer2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Alcaraz2015,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Alcaraz2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Alcaraz2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Alcaraz2022a,yes,yes,no,no,no,no,no,no,no,-
+Alcaraz2022a,yes,no,no,no,no,no,no,yes,no,-
 Alecsa2012,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Aleksandrova2019,yes,no,no,no,yes,no,no,no,no,-
 Alelyani2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -411,7 +411,7 @@ Bayreuth2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Bazen2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Baziyad2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Bazmohammadi2022,yes,no,no,no,no,yes,no,no,no,-
-Bcue2022,yes,yes,no,no,no,no,no,no,no,-
+Becue2022,yes,yes,no,no,no,no,no,no,no,-
 Beard2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Bebawy2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Becejac2020,yes,no,no,no,no,yes,no,no,no,-
@@ -1046,7 +1046,7 @@ De2018a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 De2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 De2021a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 De2022,yes,yes,no,no,no,no,no,no,no,-
-De2022a,yes,yes,no,no,no,no,no,no,no,-
+De2022a,yes,no,no,no,no,no,no,yes,no,-
 De2022ab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 De2022abc,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 De2022abcd,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1638,7 +1638,7 @@ Grapentin2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Grasselli2022a,yes,yes,no,no,no,no,no,no,no,-
 Grbel2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Greaves2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Greaves2022,yes,yes,no,no,no,no,no,no,no,-
+Greaves2022,yes,no,no,no,no,no,yes,no,no,-
 Grebenyuk2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Greco2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Greenberg2007,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -1779,7 +1779,7 @@ Harjula2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Harman2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Harper2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Harris2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Harrison2022,yes,yes,no,yes,no,no,no,no,no,-
+Harrison2022,yes,no,no,yes,no,no,no,no,no,-
 Harrison2022a,yes,no,yes,no,no,no,no,no,no,-
 Harvey2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Harwood2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2085,7 +2085,7 @@ Jay1997,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Jayashree2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Jaydip2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Jazdi2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Jbair2022,yes,yes,no,no,no,no,no,no,no,-
+Jbair2022,yes,no,no,yes,no,no,no,no,no,-
 Jemili2007,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Jena2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Jennex2009,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -2371,7 +2371,7 @@ Knig2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Knorr9999,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Knowles2015,yes,no,no,no,no,yes,no,no,no,-
 Knudsen2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Ko2021,yes,yes,no,no,no,no,no,no,no,-
+Ko2021,yes,no,no,no,yes,no,no,no,no,-
 Kobashi2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Koc2013,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Kocakulak2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -3207,7 +3207,7 @@ Monteiro2022a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Moon2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Moore2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Moorthy2022,yes,no,no,no,yes,no,no,no,no,-
-Moradi2022,yes,yes,no,no,no,no,no,no,no,-
+Moradi2022,yes,no,no,no,no,yes,no,no,no,-
 Morales2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Morales2020,yes,yes,no,no,no,no,no,no,no,-
 Mordecai2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -3452,7 +3452,7 @@ Oquendo2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Oquendo2018a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Oquendo2018ab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Oracle2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Orbinato2021,yes,yes,no,no,no,yes,no,no,no,-
+Orbinato2021,yes,yes,no,no,no,no,no,no,no,-
 Ore2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Orojloo2014,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Orojloo2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -4101,7 +4101,7 @@ Schneider2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Schneider2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Schneier2018,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Schnieder1999,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Schnig2022,yes,yes,no,no,no,no,no,no,no,-
+Schnig2022,yes,no,no,no,no,yes,no,no,no,-
 Schofield2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Scholze2016,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Schou2023,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -4434,7 +4434,7 @@ Stephan2015,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stephanie2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stevens2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stiawan2011,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Stirna,yes,yes,no,no,no,no,no,no,no,-
+Stirna2020,yes,yes,no,no,no,no,no,no,no,-
 Stocco2022,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stock2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Stocker2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
@@ -5401,7 +5401,7 @@ Zhu2017,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Zhu2019,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Zhu2019a,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Zhu2020,no,NA,NA,NA,NA,NA,NA,NA,NA,-
-Zhu2020a,yes,yes,no,no,no,no,no,no,no,-
+Zhu2020a,yes,no,no,no,no,no,no,no,yes,-
 Zhu2020ab,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Zhu2021,no,NA,NA,NA,NA,NA,NA,NA,NA,-
 Zhu2021a,no,NA,NA,NA,NA,NA,NA,NA,NA,-

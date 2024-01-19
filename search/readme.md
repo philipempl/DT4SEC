@@ -16,7 +16,7 @@
 
 **Term: ("digital twin" OR "digital shadow" OR "digital model") AND ("internet of things" OR "IoT") AND "Security"**
 
-- AISeL default (38) MISSING
+- AISeL default (38) 
 - ACM default search (60)
 - Science Direct default search (733)
 - Springer Link: default (1007) Exclusion German (985)
@@ -96,7 +96,7 @@
 
 **Term "digital twin" AND ("internet of things" OR "IoT" OR "CPS" OR "cyber-physical systems" OR "cyber physical systems") AND ("cybersecurity" OR "cyber-security" OR "cyber security" OR "information security")**
 
-- Springer Link: 351 (ohne Conference Proceedings und Books)
+- Springer Link: 351 (without Conference Proceedings und Books)
 - Wiley: 60
 
 **Term "digital twin" AND ("internet of things" OR "IoT" OR "CPS" OR "cyber-physical systems" OR "cyber physical systems") AND "information security"**
@@ -121,8 +121,31 @@
 
 **Term "digital twin" AND ("internet of things" OR "IoT" OR "CPS" OR "cyber-physical systems" OR "cyber physical systems") AND ("cybersecurity" OR "cyber-security" OR "cyber security" OR "information security")**
 
-- Springer Link: 856 (ohne Conference Proceedings und Books)
+- Springer Link: 856 (without Conference Proceedings und Books)
 - Wiley: 107
+
+
+**Term "digital twin" AND "security"**
+
+- dblp: 34
+- arxiv: 42
+- AISeL: 101
+- WoS: 135
+- IEEE Xplore: 243
+- ACM: 195
+- IEEE CS: 360
+
+
+## 15.01.2024
+
+**Term "digital twin" AND ("internet of things" OR "IoT" OR "CPS" OR "cyber-physical systems" OR "cyber physical systems") AND ("cybersecurity" OR "cyber-security" OR "cyber security")**
+
+- Science Direct: 954
+
+**Term "digital twin" AND ("internet of things" OR "IoT" OR "CPS" OR "cyber-physical systems" OR "cyber physical systems") AND ("cybersecurity" OR "cyber-security" OR "cyber security" OR "information security")**
+
+- Springer Link: 1631 (without Conference Proceedings und Books)
+- Wiley: 209
 
 
 **Term "digital twin" AND "security"**

@@ -150,10 +150,9 @@
 
 **Term "digital twin" AND "security"**
 
-- dblp: 34
-- arxiv: 42
-- AISeL: 101
-- WoS: 135
-- IEEE Xplore: 243
-- ACM: 195
-- IEEE CS: 360
+- dblp: 64
+- AISeL: 163
+- WoS: 318
+- IEEE Xplore: 1075
+- ACM: 565
+- IEEE CS: 

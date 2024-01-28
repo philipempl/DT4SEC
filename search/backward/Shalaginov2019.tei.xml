@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Cybercrime Investigations in the Era of Smart Applications: Way Forward Through Big Data</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>IEEE</publisher>
+				<availability status="unknown"><p>Copyright IEEE</p>
+				</availability>
+				<date type="published" when="2019-12">2019-12</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Andrii</forename><surname>Shalaginov</surname></persName>
+							<email>andrii.shalaginov@ntnu.no</email>
+							<affiliation key="aff0">
+								<orgName type="institution">Norwegian University of Science and Technology</orgName>
+								<address>
+									<settlement>Gjøvik</settlement>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Igor</forename><surname>Kotsiuba</surname></persName>
+							<email>igor.kotsiuba@pimee.edu.ua</email>
+							<affiliation key="aff1">
+								<orgName type="department">Pukhov Institute of Modelling in Energy Engineering</orgName>
+								<address>
+									<settlement>Kiev</settlement>
+									<country key="UA">Ukraine</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Asif</forename><surname>Iqbal</surname></persName>
+							<email>asif.iqbal@ee.kth.se</email>
+							<affiliation key="aff2">
+								<orgName type="institution">KTH Royal Institute of Technology</orgName>
+								<address>
+									<settlement>Stockholm</settlement>
+									<country key="SE">Sweden</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Cybercrime Investigations in the Era of Smart Applications: Way Forward Through Big Data</title>
+					</analytic>
+					<monogr>
+						<title level="m">2019 IEEE International Conference on Big Data (Big Data)</title>
+						<imprint>
+							<publisher>IEEE</publisher>
+							<date type="published" when="2019-12" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/bigdata47090.2019.9006596</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:56+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>smart cities</term>
+					<term>smart applications</term>
+					<term>big data</term>
+					<term>cybersecurity</term>
+					<term>cyber investigtions</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The omnipresence of smart devices in many aspects of modern everyday life has helped to achieve an enormous level of automation, has ensured sustainable development, and improved quality of life. Over the last decade, such small and portable devices became cheap and easy to deploy in any kind of application. With the full range of versatile connectivity, such technological development also brings multiple challenges related to the security of infrastructure and data. Many individuals, companies, and states worldwide experience the previously unseen scale and scope of the attacks using novel approaches. All these smart applications have also increased the overall attack surface leading to multiple attack vectors available through vulnerabilities. Lack of standards, insufficient security awareness, and new technological landscape does not help either. Considering this, one needs to enhance forensics investigation methodologies, employ novel tools, combine threat intelligence, and integrate forensic readiness. Such measures will help to reduce the total cyber risk through a high level of preparedness for anticipated data-driven crimes in smart applications. We believe that this paper will help in bringing novel focus to existing digital forensics methodologies with a focus on smart applications.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>There is a considerable gap in technologies, approaches, tools and capabilities when comparing crime investigative methodologies involving computer technologies in the 1990s and 2020s <ref type="bibr" target="#b0">[1]</ref>. Even though the basic paradigm of data centres, personal devices and connectivity did not change much, one can see how Information and Communication Technologies (ICT) strongly integrated into our everyday life. Not only speaking of automating everyday tasks such as purchasing tickets or tracing weather forecast but vital for mankind things like optimization of energy consumption, making safer cities and waste management. Decades ago we observed a leap from lamp electronic to transistor-based that resulted in unbelievable reduction in size, power consumption and wasted energy level on heating. Similarly, Internet of Things (IoT) devices became a reality, when match box-size device is capable of performing functions of mid-end personal computer.</p><p>Big Data became a reality with the Value of data as a key in data-driven ICT infrastructure <ref type="bibr" target="#b1">[2]</ref>. IoT devices may costs dollars, while data they store -hundreds or thousands, evaluating Return on Investment (ROI) for the business. It combines all possible data streams in agile system, ensembling Edge, Fog and Cloud layers. And no doubt that the data became a vital instrument in improving quality of life and bringing value for the society. Therefore, it became a target in the cyber attacks that we can see recently such as Mirai botnet <ref type="bibr" target="#b2">[3]</ref>.</p><p>IoT entered ICT as a disruptive technology bringing things like Social Internet of Things into life, which is inspired by the social networks and human relations <ref type="bibr" target="#b3">[4]</ref>. Over the last 10 years, we can observe how smart and intelligent devices developer their way from only smartphone domain to wider range of appliances, having even Operating Systems installed on them. The data storage paradigm moved to Cloud leaving forensics investigators with a spacial puzzle straggling with proprietary data formats, cross-border jurisdiction and previously unseen smart devices <ref type="bibr" target="#b4">[5]</ref>. Moreover, utilization of computational intelligence puts a new pressure level on the crime investigation due to advanced data analytics requiring expertise in computer science and machine learning <ref type="bibr" target="#b5">[6]</ref>.</p><p>The motivation of this contribution is to demonstrate how Smart Applications change the conventional understanding of Computer Forensics. Section II gives an overview of the disruptive smart technologies that became a reality in recent decade. Subsequently, Section III presents how the threat landscape and crimes have changed upon influence of new technologies. Innovations in crime investigations relevant for smart applications are presented in Section IV with overview of the road map for the digital forensics in the agile cyber and digitalized society. Finally, Section VI presented discussion, conclusions and future vision of crime investigations in the era of Big Data generated through Smart Applications.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. CURRENT STATE OF THE ART: SMART APPLICATIONS</head><p>In the era of Big Data, the valuable pieces of information is being generated and transmitted by any instances, ranging from single-board computers that weight tens of grams and up to football stadium-sized data centres. We can see how the so-called "smart devices" and "smart technologies" have entered our life. Constant improvement of the digital circuits design technologies lead to the fact that such devices became a complete member of ICT infrastructure, having all components of proper Personal Computers (PC) infrastructure, e.g. network capabilities, storage, processing, Input/Output (I/O) interfaces, etc.</p><p>Digital forensics in smart applications and modern critical infrastructures face new threats as we are moving from proprietary protocols to more open paradigms and vendor-agnostic landscapes. Considering raised inter-connectivity and inability to keep critical perimeters unconnected, we understand new challenges to keep methods used to collect evidence at the same level, but anyway such methods must be repeatable, demonstrable, and verifiable. These are very important considerations when developing methods, and designing or selecting associated tools and staff, to collect forensically-sound evidence, and these considerations are very difficult to keep in place when city or energy grid is being transformed to smart and interconnected one. As an example of the technological break-through, worth mentioning the following "smart" that have appeared over the last years and contribute towards generating Big Data <ref type="bibr" target="#b6">[7]</ref>:</p><p>• Smart Environments empowers users and citizens of smart cities and smart homes to interact and optimize everyday tasks with a specific goal to provide sustainability in every day's life <ref type="bibr" target="#b7">[8]</ref>. • Smart Grids offer a range of interconnected optimization-based applications, meters, sensors and actuators as a part of the critical infrastructure in the energy sector with a specific focus on moving to renewable energy <ref type="bibr" target="#b8">[9]</ref>. • eHealth Sector has been developed heavily over the last decade to offer better and faster response to changes in patient health, especially off-premises using ICT <ref type="bibr" target="#b9">[10]</ref>. • Drones and Autonomous Vehicles came into the role as a means to perform work that was previously done by human. There are multiple reasons for this, including lowering risks for life, difficult to reach operational places and lowering unnecessary pressure on human expert <ref type="bibr" target="#b10">[11]</ref>.</p><p>Smart applications and infrastructures cause an increase in cybercrime, where the technology is the target, or victim, of the crime, usually involves a more sophisticated knowledge of technology on the part of both the perpetrators and those investigating the crime. This category involves attacks on the energy grid smart components themselves, such as distributed denial of service attacks that freeze or significantly slow down a system's operations; network intrusions that infect computers and systems with malware; and other means of damaging, deleting and altering electronic data, telemetry or commands and impeding system operations. As we continue to rely on technology throughout our lives, for everything from daily operations such as controlling the temperature in your home, to medical device functions, to operating critical infrastructures such as national water supplies, power grids and international flight patterns, the scope of potential crimes attacking computers are dramatic. Moreover, potential harm from those crimes is catastrophic <ref type="bibr" target="#b11">[12]</ref>.</p><p>These crimes can range from individual attacks by a sole actor against a single IoT devise, to major threats against a multinational organization or country by an organized criminal enterprise or enemy nation-state. Potential harms from these crimes can scale from minor inconveniences impacting individuals and companies, to lost data, to significant threats to public health and safety, to cyberwarfare <ref type="bibr" target="#b12">[13]</ref>, <ref type="bibr" target="#b13">[14]</ref>. This area of cybercrime likely also will continue to grow exponentially in light of our expanding reliance on computers, IoT combinations and ecosystems to efficiently manage all aspects of a country's infrastructure and a city's operations. Given the potential scope, damage and complexity of these crimes, it is essential to have a solid understanding of how to prevent, detect and prosecute cybercrime targeted at computer systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. SMART APPLICATIONS: TRADITIONAL AND NEW CRIMES</head><p>Since Smart Applications are a form of ICT, one can map the same modus operandi and types of crimes that are being executed involving those technologies. Generally, the practice is to distinguish between two types of crimes [15]: (i) crimes targeting ICT technologies and (ii) ICT technologies used to commit crimes. Moreover, adversaries know no physical, virtual or cyber borders, bringing novel previously unseen challenges to police officers and forensic investigators. From hardware and software perspective of IoT ecosystem, we can state that infrastructure is susceptible to conventional cyberattacks such as DDoS <ref type="bibr" target="#b2">[3]</ref> while providing advanced opportunities for new ways of committing traditional crimes. Well-known Mirai botnet <ref type="bibr" target="#b2">[3]</ref> is a great example of how inexpensive and relatively cheap devices are used to take down large organization due to poor cybersecurity practices from the vendors' site and low user awareness. Mirai botnet demonstrated that the security and impact of the attacks on the IoT should not be underestimated <ref type="bibr" target="#b14">[16]</ref>. The attack was successful due to multiple factors, including weak and default passwords, insufficient or absent implementation of industrial security standards, lack of privacy-by-design. To resemble the whole picture, it was studied how well privacy is implemented in the Smart Watches by famous brands <ref type="bibr" target="#b15">[17]</ref>. Due to the lack of such omnipresent design feature, multiple users can be affected, especially, when the Smart Watches are used by kids. A similar case was known from German doll called "Cayla", which is susceptible to attacks, also including eavesdropping over wireless communication <ref type="bibr" target="#b16">[18]</ref>. The discovery of the indicators of compromise led to the ban of dolls and it has been pulled out of the market.</p><p>There was suggested earlier so-called Criminal Opportunity Structure theory defining how criminals may choose low-risk high-profit target when committing crime <ref type="bibr" target="#b17">[19]</ref>. There is a rational choice behind this that can be generally expressed in the following components: 1) Offenders. Ranging from script-kiddies to nationsupported agents with specific goals such as financial gain and political influence 2) Targets. Depending on the target, those can be any kind of Smart Applications involved with critical infrastructure control, personal and health data processing, etc. One will pursue specific objectives such as disrupting businesses, leaking data and demanding ransom through malicious software. 3) Facilitators. The traditional understanding of the insider help in committing the crime takes places, however, giving a room to cases of multiple vulnerabilities in the devises, untested hardware and software components.</p><p>Combining with lack of cybersecurity standards implementation and cyber hygiene, it gives enormous possibilities for creating favourable conditions in committing the crimes.</p><p>The examples of the two factors (absence of cybersecurity measures and existence of multiple suitable targets) are shown below, however, leaving open room for adversarial opportunists who are willing to commit the crimes. There can be seen multiple pre-requisites that establish such crime opportunity structure Shodan.io 1 gathers information all over the world about any connected smart devices that have unprotected access available for public. This creates fundamental issues in cybersecurity-related to the fact that anybody can access those devices, either for good or bad purposes. To understand the severity of the issue of having unprotected smart devices in wild, we did an evaluation of the devices accessible through Shodan service. The scope of the study was to find any relevant platforms (such as Arduino, STM32, ESP32, ESP8266, etc) with access to services that do not require authorization (Message Queuing Telemetry Transport -MQTT, HyperText Transfer Protocol -HTTP, etc).</p><p>Even though, the landscape of available devices is agile and some of them stay online only for days, we can surely say that adversarial access may create descriptive events. Based on the observations, we can differentiate between three following categories of smart devices freely accessible:</p><p>Gateway platforms such as Arduino Uno Wifi offer connectivity to a range of sensors and accessories like servos and can be used to build smart home. An example of such publicly-accessible device is shown in the Figure <ref type="figure">1</ref>. Often, those have basic discretion of access control rights, yet have pre-defined, often default, passwords. Using access to those services and data from them, adversarial actors may cause significant damage, if infrastructure is left unprotected.</p><p>Custom-made ad-hoc applications like intelligent light control shown in the Figure <ref type="figure">2</ref> are very specific non-general purpose systems that offer basic connectivity and control. Designed with usability in mind, developers often do not consider cybersecurity as a main functionality requirement. This will lead to uninterruptible access to software and subsequently hardware, once application connected to the Internet.</p><p>Sensor measurement aggregators as shown in the Figure <ref type="figure">3</ref>. offer a convenient representation of the data from a variety of sensors such as brightness, humidity and temperature. While accessing such data may be seen unharmful, situational and context awareness may be deducted during, for example, reconnaissance face before the cyber-/physical-attack happens.</p><p>In overall, we can state that in addition to benefits for mankind, Smart Applications may be a target as well as play a key role in committing variable crimes. A brief search on Shodan revealed multiple devices with open access without security checks. Such low-effort example provides a view and perspective how dangerous cyber attacks can be when cybersecurity standards are not implemented and users do not prioritize the security of data and infrastructure in a traditionally resource-constrained IoT environment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. INNOVATIONS IN MODERN DATA-DRIVEN CYBERCRIME INVESTIGATIONS</head><p>Conventional Computer Forensics is no longer efficient due to the fact that the term Computer has acquired much broader meaning over the last decades than that of just a Personal Computer or a laptop. Multiple aforementioned disruptive technologies result in agile environment. Moreover, previously unseen things like IoT orphan devices <ref type="bibr" target="#b18">[20]</ref> become a normal practice due to the relative inexpensiveness of the technologies, connectivity and power supply. We are surrounded by interconnected components, which we might not know about and those collect personal data, sensitive information and, often, has multiple security vulnerabilities. Some of the novel technologies and data sources that can facilitate timely crime investigations are given below:</p><p>• Social Network Analysis is a new domain that appeared along with the popularity of social networks such as Facebook, Twitter, etc. The main goal is to utilize intelligent graph-and pattern-based models for understanding social behaviour and tracking unusual and criminal patterns <ref type="bibr" target="#b19">[21]</ref>. Availability of private data, changing in a realtime manner, made it possible to commit crimes, as well as to develop novel models to track suspicious behaviour. • Digital forensic intelligence (DFINT) and Open-source Intelligence (OSINT) empower digital forensics process and provide data-enriching technologies from open source sources as well as big digital forensics data <ref type="bibr" target="#b20">[22]</ref>. • Internet of Things Forensics developed itself as a separate field focusing on small devices, their vulnerabilities and possible ways of relevant forensics traces extraction <ref type="bibr" target="#b21">[23]</ref>. • Drone Forensics was not considered as a major source of data until recently when advancement of light-weight computationally-rich hardware made it possible to fly and operate drones remotely with a significant battery time. Modern drones collect large set of data, including photo/video, GPS, sound, accelerometer data, etc. With 2019 Abqaiq-Khurais state-sponsored drone attack on Saudi oil facilities, drone forensics has come to limelight for sure <ref type="bibr" target="#b22">[24]</ref>, <ref type="bibr" target="#b23">[25]</ref>. • Smart Grid Forensics has become one of the most important critical infrastructure in need of digital forensic capability specially after the attacks on Iran and Ukraine <ref type="bibr" target="#b24">[26]</ref>. And with such high velocity data such as in WAMPAC applications, application of Big Data techniques are a must <ref type="bibr" target="#b25">[27]</ref>. • Smart Car Forensics became a necessity when the smart car came under attacks creating danger to drivers and surrounding environment <ref type="bibr" target="#b26">[28]</ref>, <ref type="bibr" target="#b27">[29]</ref>. • Artificial Intelligence and Deep Learning do not provide any forensics-data directly, however, gives a powerful set of tools to analyze, model and make a prediction from available large-scale datasets, lowering among of required manual efforts <ref type="bibr" target="#b28">[30]</ref>, <ref type="bibr" target="#b29">[31]</ref>.</p><p>It is important to understand that the requirements for Digital Forensics methodologies that were used in the 1990s were completely different from what they are now, i.e. completely different from what is required in 2020s. According to Perera et al. <ref type="bibr" target="#b0">[1]</ref>, the evolution of the Internet under-gone five phases: Network, The Internet, Mobile+Internet, Mobiles+People+PCs and, finally, Internet of Things. It is mainly due to the fact that cheap and easy-to-use technologies made it possible to generate extreme amount of data, creating paradigm of so-called Big Data. The amount of data will be grown bringing more challenges to police investigating cases, leaving the only way out is to adopt new technologies capable of processing and extracting real-world data. The size of wellknown Panama Papers is nearly 2.6 Tbytes [32] with 11.5 billion of documents. It is crystal clear that without advanced data analytics, it is not possible to process such quantity of data. Besides this, one needs to consider the variety in used languages, domain-specific content, legislation, country-specific accounting approaches, etc. Therefore, our vision is that modern crime investigation in the era of Big Data and Smart Applications have to focus on novel methods of advanced data analytics to be able to provide timely response despite technological challenges.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. TOWARDS DATA ANALYTICS-ASSISTED FORENSICS IN SMART APPLICATIONS</head><p>Clearly, the modern crime investigation in the era of Smart Applications and Big Data faces multiple challenges <ref type="bibr" target="#b31">[33]</ref>. The data became a high value in every business model, making it a target in crimes or adversarial actions aimed at compromising Confidentiality, Integrity and Availability. Along with the development of new software and hardware to facilitate quality of life improvement, attackers discover new sophisticated ways of breaching the cybersecurity and committing the crimes.</p><p>Digital Forensics over the course of last decade became multi-faceted science targeting all possible aspects of discovering digital traces in a large set of data found at or attributed to a crime scene <ref type="bibr" target="#b32">[34]</ref>. Speaking of Smart Applications from the infrastructure level, we can say that there are multiple components, resembling general IoT ecosystem: Cloud data storage, IoT gateways, IoT nodes, sensors and actuators dealing with tasks such as data acquisition, aggregation, processing, analysis and data-driven decision making <ref type="bibr" target="#b33">[35]</ref>. Moreover, it is important to understand the challenges in Digital Forensics related to such versatile, multi-platform and crossdomain infrastructure. There are considerable differences in the computational and data processing capabilities of both IoT nodes, also called micro-controllers (Micro Controller Units, or MCU) and IoT gateways, also called micro-computers (System on a Chip, or SoC). The comparison of the two most common, widely used and cheap devices is given in the Table <ref type="table">I</ref>. Even though the size of the stored data is relatively small on each device, it can easily enter the Big Data paradigm when Smart infrastructure has multiple nodes in the network.</p><p>Following the list of challenges that Digital Forensics and Cybersecurity expert need to overcome when analysing the IoT-enabled Smart Applications, it is important to recognize the places of Machine Learning in the realm. Machine Learning and advanced data analytics support business analytics and key goals to reduce the amount of manual work. At the same time, besides standard security measures, there is a growing number of Machine Learning applications focusing on cybersecurity. The main advantage is ability to train models based on the historical data and make intelligent decisions using similarities, which is especially useful against zeroday malware and polymorphic network attacks. Mamdouh et al. <ref type="bibr" target="#b34">[36]</ref> performed a survey of possible ML strategies for securing IoT platform and found that Artificial Neural Networks (ANN) and Support Vector Machine (SVM) is considered to 2 https://store.arduino.cc/arduino-uno-rev3 3 https://www.raspberrypi.org/products/raspberry-pi-4-model-b/ <ref type="bibr" target="#b3">4</ref> of which 2 KB is used by bootloader <ref type="bibr" target="#b4">5</ref> SD card extension shield <ref type="bibr" target="#b5">6</ref> Ethernet card extension shield be the most commonly used. Furthermore, network security can be enhanced in a similar way by SVM as suggested by Hou et al. <ref type="bibr" target="#b35">[37]</ref> to protect and by ANN by Cadeno et al. <ref type="bibr" target="#b36">[38]</ref>. The advantage of models like Soft Computing is ability to model inexact and imprecise real-world data <ref type="bibr" target="#b37">[39]</ref>, <ref type="bibr" target="#b38">[40]</ref>. It leads to the fact that the Digital Forensics expert might need to do a "reverse-engineering" of Machine Learning model to understand what is the scope, data and prediction problem embedded in trained model. Such knowledge might play a key role in understanding the environment at a crime scene.</p><p>Despite the number of challenges, we believe that dataenriched Digital Forensics involving Smart Applications process will offer better situational awareness and understanding of the crime scene from both cyber-and physical-based domain. Extensive utilization of intelligent models and data aggregation models will require additional computer science expertise, however, giving more insight into how the Smart Application operates. Various Indicators of Compromise (IoC) <ref type="bibr" target="#b39">[41]</ref> and known Cyber Threat Intelligence <ref type="bibr" target="#b40">[42]</ref> patterns can only be found in log data and system artefacts, leading to data-driven solutions and novel processing methods. The paradigm shift now is in the fact that a human expert is considered to play a role of decision making, while data processing and analysis is offloaded to machine intelligence.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. DISCUSSIONS AND CONCLUSIONS</head><p>Digital Forensics has changed drastically over the last few decades, coming from straight-forward personal computers disks analysis to agile interconnected ecosystem of various devices, aimed also at making intelligent decision. This brings requirements for timely forensics investigation to a new level, necessary of handling large-scale data from multiple, often proprietary, IoT solutions. Despite the challenges, there are a lot of opportunities for both investigation and forensic readiness. We believe that utilization of data-driven approaches and available trained Machine Learning models will give a new insight into how the crime was committed. The number of surrounding IoT devices and computing nodes is growing to bring a concept of "digital twin" of homes, companies and environments into life. By utilizing all available data, one will be able to reconstruct exact sequence of events attributed to a crime involving any kind of Smart Applications. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .Fig. 2 .Fig. 3 .</head><label>123</label><figDesc>Fig. 1. Settings of the freely accessible devices containing sensitive features and details</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>COMPUTATIONAL AND MEMORY CAPABILITIES OF THE COMMUNITY-ACCEPTED SOC AND MCU</figDesc><table><row><cell>Platform</cell><cell>Arduino Uno Rev3 2</cell><cell>Raspberry Pi 4 3</cell></row><row><cell>CPU frequency</cell><cell>16Mhz</cell><cell>4-core 1.5 GHz</cell></row><row><cell>Flash memory</cell><cell>32 KBytes 4</cell><cell>None</cell></row><row><cell>RAM</cell><cell>2 KBytes</cell><cell>up to 4 GB DDR3</cell></row><row><cell>EEPROM</cell><cell>1 KByte</cell><cell>None</cell></row><row><cell>Operating Voltage</cell><cell>3.3-5V</cell><cell>5V</cell></row><row><cell>SD card extension</cell><cell>Possible 5</cell><cell>Yes</cell></row><row><cell cols="2">External Storage (NAS/USB HDD) No</cell><cell>Yes</cell></row><row><cell>Network</cell><cell>Possible 6</cell><cell>Gigabit Ethernet</cell></row><row><cell></cell><cell>TABLE I</cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Authorized licensed use limited to: University College London. Downloaded on May 24,2020 at 15:30:47 UTC from IEEE Xplore. Restrictions apply.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">https://www.shodan.io</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">A Survey on Internet of Things From Industrial Market Perspective</title>
+		<author>
+			<persName><forename type="first">Charith</forename><surname>Perera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chi</forename><forename type="middle">Harold</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Srimal</forename><surname>Jayawardena</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Min Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/access.2015.2389854</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="1660" to="1679" />
+			<date type="published" when="2014" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Big data: The 5 vs everyone must know</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Marr</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">LinkedIn Pulse</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">DDoS in the IoT: Mirai and Other Botnets</title>
+		<author>
+			<persName><forename type="first">Constantinos</forename><surname>Kolias</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Georgios</forename><surname>Kambourakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Angelos</forename><surname>Stavrou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeffrey</forename><surname>Voas</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mc.2017.201</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<title level="j" type="abbrev">Computer</title>
+		<idno type="ISSN">0018-9162</idno>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="80" to="84" />
+			<date type="published" when="2017" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">SIoT: Giving a Social Structure to the Internet of Things</title>
+		<author>
+			<persName><forename type="first">Luigi</forename><surname>Atzori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Iera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giacomo</forename><surname>Morabito</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/lcomm.2011.090911.111340</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Letters</title>
+		<title level="j" type="abbrev">IEEE Commun. Lett.</title>
+		<idno type="ISSN">1089-7798</idno>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="1193" to="1195" />
+			<date type="published" when="2011-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Internet Society By-Laws</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Rose</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Eldridge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chapin</surname></persName>
+		</author>
+		<idno type="DOI">10.17487/rfc2135</idno>
+	</analytic>
+	<monogr>
+		<title level="m">The Internet Society (ISOC)</title>
+				<imprint>
+			<publisher>RFC Editor</publisher>
+			<date type="published" when="1997-04" />
+			<biblScope unit="volume">80</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Ai for crime prevention and detection-5 current applications</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Faggella</surname></persName>
+		</author>
+		<idno>accessed: 22.05</idno>
+		<ptr target="https://www.techemergence.com/ai-crime-prevention-5-current-applications/" />
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">IoT Technologies and Applications</title>
+		<author>
+			<persName><forename type="first">U</forename><surname>Priyadarshinyedureka</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/9781119593584.ch1</idno>
+		<idno>accessed: 31.10.2019</idno>
+		<ptr target="https://www.edureka.co/blog/iot-applications/" />
+	</analytic>
+	<monogr>
+		<title level="m">Intelligent IoT for the Digital World</title>
+				<imprint>
+			<publisher>John Wiley &amp; Sons Ltd</publisher>
+			<date type="published" when="2021-04-16" />
+			<biblScope unit="page" from="1" to="60" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Living in a smart environment implications for the coming ubiquitous information society</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Coroama</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bohn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Mattern</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icsmc.2004.1401091</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2004 IEEE International Conference on Systems, Man and Cybernetics (IEEE Cat. No.04CH37583)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date>2004</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="5633" to="5638" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">The path of the smart grid</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Farhangi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mpe.2009.934876</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Power and Energy Magazine</title>
+		<title level="j" type="abbrev">IEEE Power and Energy Mag.</title>
+		<idno type="ISSN">1540-7977</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="18" to="28" />
+			<date type="published" when="2010-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">eHealth, Care and Quality of Life</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gaddi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Capello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Manca</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-88-470-5253-6</idno>
+	</analytic>
+	<monogr>
+		<title level="m">eHealth, care and quality of life</title>
+				<imprint>
+			<publisher>Springer Milan</publisher>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">UAVs for smart cities: Opportunities and challenges</title>
+		<author>
+			<persName><forename type="first">Farhan</forename><surname>Mohammed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Idries</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nader</forename><surname>Mohamed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jameela</forename><surname>Al-Jaroodi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Imad</forename><surname>Jawhar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icuas.2014.6842265</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2014 International Conference on Unmanned Aircraft Systems (ICUAS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014-05" />
+			<biblScope unit="page" from="267" to="273" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Cyber Security and the Internet of Things: Vulnerabilities, Threats, Intruders and Attacks</title>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Abomhara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Geir</forename><forename type="middle">M</forename><surname>K�ien</surname></persName>
+		</author>
+		<idno type="DOI">10.13052/jcsm2245-1439.414</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Cyber Security and Mobility</title>
+		<title level="j" type="abbrev">JCSM</title>
+		<idno type="ISSN">2245-1439</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="65" to="88" />
+			<date type="published" when="2015" />
+			<publisher>River Publishers</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Stuxnet: Dissecting a Cyberwarfare Weapon</title>
+		<author>
+			<persName><forename type="first">Ralph</forename><surname>Langner</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/msp.2011.67</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security &amp; Privacy Magazine</title>
+		<title level="j" type="abbrev">IEEE Secur. Privacy Mag.</title>
+		<idno type="ISSN">1540-7993</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="49" to="51" />
+			<date type="published" when="2011-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Digital Forensic Readiness in Critical Infrastructures: A Case of Substation Automation in the Power Sector</title>
+		<author>
+			<persName><forename type="first">Asif</forename><surname>Iqbal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mathias</forename><surname>Ekstedt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hanan</forename><surname>Alobaidli</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-73697-6_9</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes of the Institute for Computer Sciences, Social Informatics and Telecommunications Engineering</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">216</biblScope>
+			<biblScope unit="page" from="117" to="129" />
+		</imprint>
+	</monogr>
+	<note>Types of cybercrime,&quot; accessed: 04.11.2019. [Online</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Understanding the mirai botnet</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Antonakakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>April</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bailey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bernhard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bursztein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Cochran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Durumeric</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Halderman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Invernizzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kallitsis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">26th {USENIX} Security Symposium ({USENIX} Security 17</title>
+				<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="1093" to="1110" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Constitution International Council for Exceptional Children</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">C</forename><surname>Council</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/001440295702400104</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Exceptional Children</title>
+		<title level="j" type="abbrev">Exceptional Children</title>
+		<idno type="ISSN">0014-4029</idno>
+		<idno type="ISSNe">2163-5560</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="16" to="20" />
+			<date type="published" when="1957-09" />
+			<publisher>SAGE Publications</publisher>
+		</imprint>
+	</monogr>
+	<note>accessed 24.06.2019</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">http://ljournal.ru/wp-content/uploads/2017/03/a-2017-023.pdf</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Torano</surname></persName>
+		</author>
+		<idno type="DOI">10.18411/a-2017-023</idno>
+		<ptr target="https://thecyberacademy.org/wp-content/uploads/2017/06/CHERYL_TORANO.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Abertay University, Tech. Rep</title>
+		<imprint>
+			<date type="published" when="2017" />
+			<publisher>LJournal</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Situational crime prevention in schools: Implications for victimization, delinquency, and avoidance behaviors</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">J</forename><surname>Watkins</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Figure 8.5.3. Trust in information accessed through online social networks and messaging applications, 2018</title>
+		<idno type="DOI">10.1787/888933931390</idno>
+		<idno>accessed: 04.11.2019</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Online Trust Allience, Tech. Rep</title>
+		<imprint>
+			<date>null</date>
+			<publisher>Organisation for Economic Co-Operation and Development (OECD)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Crawling Facebook for social network analysis purposes</title>
+		<author>
+			<persName><forename type="first">Salvatore</forename><forename type="middle">A</forename><surname>Catanese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pasquale</forename><surname>De Meo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Emilio</forename><surname>Ferrara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giacomo</forename><surname>Fiumara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alessandro</forename><surname>Provetti</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1988688.1988749</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference on Web Intelligence, Mining and Semantics - WIMS &apos;11</title>
+				<meeting>the International Conference on Web Intelligence, Mining and Semantics - WIMS &apos;11</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2011" />
+			<biblScope unit="page">52</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Digital forensic intelligence: Data subsets and Open Source Intelligence (DFINT+OSINT): A timely and cohesive mix</title>
+		<author>
+			<persName><forename type="first">Darren</forename><surname>Quick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kim-Kwang Raymond</forename><surname>Choo</surname></persName>
+			<idno type="ORCID">0000-0001-9208-5336</idno>
+		</author>
+		<idno type="DOI">10.1016/j.future.2016.12.032</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Future Generation Computer Systems</title>
+		<title level="j" type="abbrev">Future Generation Computer Systems</title>
+		<idno type="ISSN">0167-739X</idno>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page" from="558" to="567" />
+			<date type="published" when="2018-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Digital forensics: the missing piece of the Internet of Things promise</title>
+		<author>
+			<persName><forename type="first">Steve</forename><surname>Watson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Dehghantanha</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s1361-3723(15)30045-2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Fraud &amp; Security</title>
+		<title level="j" type="abbrev">Computer Fraud &amp; Security</title>
+		<idno type="ISSN">1361-3723</idno>
+		<imprint>
+			<biblScope unit="volume">2016</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="5" to="8" />
+			<date type="published" when="2016-06" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Drone forensic framework: Sensor and data identification and verification</title>
+		<author>
+			<persName><forename type="first">Upasita</forename><surname>Jain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcus</forename><surname>Rogers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eric</forename><forename type="middle">T</forename><surname>Matson</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sas.2017.7894059</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE Sensors Applications Symposium (SAS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Drone strike deals a blow to Saudi energy ambitions</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hubbard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Karasz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Reed</surname></persName>
+		</author>
+		<idno type="DOI">10.1108/oxan-db246450</idno>
+		<idno>accessed: 19.11</idno>
+		<ptr target="https://www.nytimes.com/2019/09/14/world/middleeast/saudi-arabia-refineries-drone-attack.html" />
+		<imprint>
+			<date type="published" when="2019-09-16" />
+			<publisher>Emerald</publisher>
+		</imprint>
+	</monogr>
+	<note>Online</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Digital Forensic Analysis of Industrial Control Systems Using Sandboxing: A Case of WAMPAC Applications in the Power Systems</title>
+		<author>
+			<persName><forename type="first">Asif</forename><surname>Iqbal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Farhan</forename><surname>Mahmood</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mathias</forename><surname>Ekstedt</surname></persName>
+			<idno type="ORCID">0000-0003-3922-9606</idno>
+		</author>
+		<idno type="DOI">10.3390/en12132598</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Energies</title>
+		<title level="j" type="abbrev">Energies</title>
+		<idno type="ISSNe">1996-1073</idno>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">13</biblScope>
+			<biblScope unit="page">2598</biblScope>
+			<date type="published" when="2019-07-06" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">energies</note>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Intelligent analysis of digital evidences in large-scale logs in power systems attributed to the attacks</title>
+		<author>
+			<persName><forename type="first">Asif</forename><surname>Iqbal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrii</forename><surname>Shalaginov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Farhan</forename><surname>Mahmood</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/bigdata.2018.8622220</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE International Conference on Big Data (Big Data)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-12" />
+			<biblScope unit="page" from="3088" to="3093" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Smart vehicle forensics: Challenges and case study</title>
+		<author>
+			<persName><forename type="first">Nhien-An</forename><surname>Le-Khac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Jacobs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Nijhoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karsten</forename><surname>Bertens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kim-Kwang Raymond</forename><surname>Choo</surname></persName>
+			<idno type="ORCID">0000-0001-9208-5336</idno>
+		</author>
+		<idno type="DOI">10.1016/j.future.2018.05.081</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Future Generation Computer Systems</title>
+		<title level="j" type="abbrev">Future Generation Computer Systems</title>
+		<idno type="ISSN">0167-739X</idno>
+		<imprint>
+			<biblScope unit="volume">109</biblScope>
+			<biblScope unit="page" from="500" to="510" />
+			<date type="published" when="2020-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Cyber-physical security for smart cars</title>
+		<author>
+			<persName><forename type="first">Abdulmalik</forename><surname>Humayed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Luo</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2735960.2735992</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the ACM/IEEE Sixth International Conference on Cyber-Physical Systems</title>
+				<meeting>the ACM/IEEE Sixth International Conference on Cyber-Physical Systems</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2015-04-14" />
+			<biblScope unit="page" from="252" to="253" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title level="m" type="main">Advancing neuro-fuzzy algorithm for automated classification in largescale forensic and cybercrime investigations: Adaptive machine learning for big data forensic</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Shalaginov</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+		<respStmt>
+			<orgName>Norwegian University of Science and Technology</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Ph.D. dissertation</note>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Machine Learning Aided Static Malware Analysis: A Survey and Tutorial</title>
+		<author>
+			<persName><forename type="first">Andrii</forename><surname>Shalaginov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sergii</forename><surname>Banin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Dehghantanha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Katrin</forename><surname>Franke</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-73951-9_2</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Information Security</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="7" to="45" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Backstage to the panama papers: big data analytics and collaborative journalism</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Aguirre</forename><surname>Hernando</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">POLIS: journalism and society at the LSE</title>
+				<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Towards cloud based big data analytics for smart future cities</title>
+		<author>
+			<persName><forename type="first">Zaheer</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ashiq</forename><surname>Anjum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kamran</forename><surname>Soomro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Muhammad</forename><forename type="middle">Atif</forename><surname>Tahir</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/s13677-015-0026-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Cloud Computing</title>
+		<title level="j" type="abbrev">J Cloud Comp</title>
+		<idno type="ISSNe">2192-113X</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2015-02-18" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">Current challenges and future research areas for digital forensic investigation</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lillis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Becker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>O'sullivan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Scanlon</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1604.03850</idno>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Towards an IoT ecosystem</title>
+		<author>
+			<persName><forename type="first">Flavia</forename><forename type="middle">C</forename><surname>Delicato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paulo</forename><forename type="middle">F</forename><surname>Pires</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thais</forename><surname>Batista</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Everton</forename><surname>Cavalcante</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bruno</forename><surname>Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomaz</forename><surname>Barros</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2489850.2489855</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the First International Workshop on Software Engineering for Systems-of-Systems - SESoS &apos;13</title>
+				<meeting>the First International Workshop on Software Engineering for Systems-of-Systems - SESoS &apos;13</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2013" />
+			<biblScope unit="page" from="25" to="28" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Securing the Internet of Things and Wireless Sensor Networks via Machine Learning: A Survey</title>
+		<author>
+			<persName><forename type="first">Marwa</forename><surname>Mamdouh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohamed</forename><forename type="middle">A</forename><surname>I. Elrukhsi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Khattab</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/comapp.2018.8460440</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 International Conference on Computer and Applications (ICCA)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Use of Machine Learning in Detecting Network Security of Edge Computing System</title>
+		<author>
+			<persName><forename type="first">Size</forename><surname>Hou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Huang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icbda.2019.8713237</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE 4th International Conference on Big Data Analytics (ICBDA)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-03" />
+			<biblScope unit="page" from="252" to="256" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Using machine learning to secure IoT systems</title>
+		<author>
+			<persName><forename type="first">Janice</forename><surname>Canedo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anthony</forename><surname>Skjellum</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/pst.2016.7906930</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 14th Annual Conference on Privacy, Security and Trust (PST)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-12" />
+			<biblScope unit="page" from="219" to="222" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Soft Computing and Hybrid Intelligence for Decision Support in Forensics Science</title>
+		<author>
+			<persName><forename type="first">Andrii</forename><surname>Shalaginov</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/isi.2016.7745495</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 IEEE Conference on Intelligence and Security Informatics (ISI)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-09" />
+			<biblScope unit="page" from="304" to="309" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Cyber crime investigations in the era of big data</title>
+		<author>
+			<persName><forename type="first">Andrii</forename><surname>Shalaginov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jan</forename><forename type="middle">William</forename><surname>Johnsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Katrin</forename><surname>Franke</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/bigdata.2017.8258362</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE International Conference on Big Data (Big Data)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-12" />
+			<biblScope unit="page" from="3672" to="3676" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Malicious code intrusion detection using machine learning and indicators of compromise</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">I</forename><surname>Rene</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Abdullah</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Computer Science and Information Security (IJCSIS)</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Darknet and deepnet mining for proactive cybersecurity threat intelligence</title>
+		<author>
+			<persName><forename type="first">Eric</forename><surname>Nunes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmad</forename><surname>Diab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Gunn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ericsson</forename><surname>Marin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vineet</forename><surname>Mishra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vivin</forename><surname>Paliath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Robertson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jana</forename><surname>Shakarian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amanda</forename><surname>Thart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paulo</forename><surname>Shakarian</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/isi.2016.7745435</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 IEEE Conference on Intelligence and Security Informatics (ISI)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-09" />
+			<biblScope unit="page" from="7" to="12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

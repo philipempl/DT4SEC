@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Complexity Challenges in Cyber Physical Systems: Using Modeling and Simulation (M&amp;S) to Support Intelligence, Adaptation and Autonomy, First Edition. Edited by Saurabh Mittal and</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<title level="a" type="main">Complexity Challenges in Cyber Physical Systems: Using Modeling and Simulation (M&amp;S) to Support Intelligence, Adaptation and Autonomy, First Edition. Edited by Saurabh Mittal and</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:46+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract/>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">1.Introduction</head><p>Cyber Physical Systems (CPS), according to a definition provided by National Science Foundation (NSF) are hybrid networked cyber and engineered physical elements co-designed to create adaptive and predictive systems for enhanced performance. These systems are built from, and depend upon, the seamless integration of computation and physical components. Advances in CPS are expected to enable capability, adaptability, scalability, resiliency, safety, security, and usability that will expand the horizons of these critical systems.</p><p>CPS engineering is an activity that brings these elements together in an operational scenario. Sometimes, an operational scenario may span multiple domains, for example, Smart Grid incorporating Power critical infrastructure and Water infrastructure. Intelligent home devices such as a smart washing machine utilize both the infrastructures. Another example would be Smart Transportation system wherein intelligent transportation devices interact with numerous smart vehicles to coordinate large scale traffic behaviors. Numerous such examples exist within the Internet of Things (IoT) perspective. These complex systems involve components at varying level of specifications. The constituent elements are supplied by multiple vendors and composing a solution without a formal test and evaluation infrastructure is a real challenge. Integration of functionality is not happening before the deployment, but after CPS are already deployed. CPS engineering requires a consistent model of operations that need to be supported by the compositions of various CPS contributors. CPS engineering lacks tools to design and  experiment within a lab setting. How does one develop a repeatable engineering methodology to evaluate ensemble behaviors and emergent behaviors when larger systems involving critical infrastructure cannot be brought in a lab setting? This increase in overlapping CPS capability in multitude of domains also introduces a level of complexity unprecedented in other engineered systems. The cross-sector deployment and usage introduces risk that may have cascaded impacts in a highly networked environment. One possibility to reduce the technical risk is to remotely control the systems in the cyber environments, but the sheer number of variables and possible situations introduce complexity at multiple scales. This complexity results in test plans with limited coverage. Additional cyber physical system related issues of intelligence, adaptation, autonomy, and security make the problem even worse. The proposed solution is the enhanced use of Modeling and simulation (M&amp;S). The M&amp;S discipline has supported the development of complex systems since its inception. During the Spring Simulation Multi-Conference 2017, a group of invited experts discussed general challenges in M&amp;S of CPS. In 2018, as follow-on panel was launched dealing with how the combination of various simulation paradigms, methods -so-called hybrid simulation -can be utilized regarding complexity, intelligence, and adaptability of CPS.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</head><p>While the focus of CPS is both on computation and physical devices, it belongs to the class of super complex systems in a man-made world, where labels such as System of Systems (SoS), Complex Adaptive Systems (CAS), and Cyber CAS (CyCAS) are used interchangeably <ref type="bibr" target="#b17">(Mittal 2014;</ref><ref type="bibr" target="#b23">Mittal and Risco-Martín 2017a)</ref>. All of them are multi-agent systems. The constituting agents are goal-oriented with incomplete information at any given moment and interact among themselves and with the environment. SoS is characterized by the constituent systems under independent operational and managerial control, geographical separation between the constituent systems and independent evolutionary roadmap. CAS is an SoS where constituent systems can be construed as agents that interact and adapt to the dynamic environment. Cyber CAS is a CAS that exist in a netcentric environment (for example, Internet) that incorporates human elements where distributed communication between the systems and various elements is facilitated by agreed upon standards and protocols. CPS is an SoS wherein the constituent physical and embedded systems are remotely controlled through the constituent cyber components.</p><p>Complex systems engineering identified a set of methods needed by systems engineers to govern such complex systems and cope with new challenges, like emergent properties or behavior not known in traditional systems. Many of these methods are rooted in the M&amp;S discipline <ref type="bibr" target="#b18">(Mittal et al. 2018)</ref>. This chapter will provide an overview on the M&amp;S methods and technologies that aid CPS engineering in the development and testing phase, and CPS governance when they are deployed in complex cyber environments. How to apply such means to enable the full potential of CPS is one of the grand challenges of our days. With this volume, we contribute to the discussion of developing a computational infrastructure for modeling, simulation, experimentation, and analytics in a transdisciplinary CPS context. The chapter is organized as follows. Section 1.2 provides an overview on multiple modalities of CPS. Section 1.3 describes the fundamental issues with CPS engineering. Section 1.4 describes the current M&amp;S technology, especially the co-simulation methodology, available for CPS engineering for developing a virtual CPS environment. Section 1.5 describes the intelligence, adaptation, and autonomy aspect of CPS and how the computational element in CPS provides opportunities for advanced control and access mechanisms. Section 1.6 concludes the chapter.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">Multimodal Nature of CPS</head><p>CPS are also considered as systems with integrated physical and computational capabilities that can interact with humans through variety of modalities <ref type="bibr" target="#b2">(Baheti and Gill 2011)</ref>. This ability to interact with the physical world through computational means, and by doing so expanding the capabilities of the user of the CPS, allows the CPS to interact within a team, such as enabling human-machine-collaborations, as well as with the environment, such as providing alternative means of locomotion -moving of the CPS -, actuation -positioning of sub-components, such as sensors -, or manipulation -interacting with the environment.</p><p>This multimodality, the ability to interact with humans, others CPS, and the environment via a multitude of computational and physical means, is one of main sources for the complexity challenges we are coping with. It allows CPS to work in different domains and sectors, and provide their services to many different users. The same functionality can be accessed via several different interfaces to be applied in a multitude of contexts in various domains, making the validation of the CPS challenging, if not impossible. As observed in <ref type="bibr" target="#b34">(Rajkumar et al. 2010)</ref>, "… the gap between formal methods and testing needs to be bridged. Compositional verification and testing methods that explore the heterogeneous nature of CPS models are essential. V&amp;V must also be incorporated into certification regimes" (page 735).</p><p>But validation is not the only concern. The multimodality leads to a multitude of interconnections between potentially many CPS, users, and components of the environment, creating a system of interlinked and interdependent objects. Combined with capabilities that now can be applied by CPS in the same domain, the overall complexity increases significantly.</p><p>The other side is, however, that the amount of options for an appropriate reaction in an unforeseen turn of events increases also. If many CPSs can provide a wide variety of services to the same domain, the likelihood that even under catastrophic circumstances we still have options for the appropriate reactions available increases as well. Multimodality is therefore not only the source for more complexity, it also provides the means to cope with it, as it enables higher agility and flexibility. If one modality fails or is not available, it can be quickly replaced by an alternative invocation structure. If one service usually applied within a domain does not succeed, an alternative service may lead to the desired result as well. The multimodel nature of CPS creates the challenge, but it also provides the means to cope with it.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3">Why CPS Engineering Is Complex?</head><p>In todays world, engineering has taken on a new meaning when different branches of Science are brought together, for example, biology and physics in Biomedical engineering, cognitive psychology and systems in Intelligent Systems engineering, urban policy and management, and automobile in Transportation engineering, and the most complex of all, Smart City engineering that includes transportation, smart automobiles, intelligent infrastructure, human factors, cybersecurity, and many more. Likewise, the multi-domain warfare involves air, sea, and land falls into this category as well, so do IoT, the Industry 4.0 initiatives, and CPS. This is the world of complex systems engineering. One characteristic property of such complex systems is that there are always some unknowns. There is high variability. One can never have a complete set of variables to apply brute force engineering based on a single branch of science. Consequently, per the Law of Requisite Variety, it is impossible to develop a controller for such a complex system <ref type="bibr" target="#b20">(Mittal and Rainey 2015)</ref>. This incomplete information and uncertainty in developing control mechanisms lead to emergent behaviors which is the hallmark of any complex system <ref type="bibr" target="#b16">(Mittal 2013;</ref><ref type="bibr" target="#b18">Mittal et al. 2018)</ref>. Consequently, methodologies are needed that embrace emergent behaviors as features of such a complex system. Complex systems today are multi-disciplinary systems that require multiple branches of Science to interact with competing, contrasting, or orthogonal theories. A model may be valid in one scientific theory and simultaneously, may be completely invalid in another branch of Science, for example, consider Quantum mechanics and Newtonian mechanics operating in the same computational model. While they work in reality, it is a difficult problem altogether in a computational realm. Yet, M&amp;S is the best we have to test any upcoming scientific theory or engineer a system-at-scale in a lab setting in any multi-disciplinary endeavor <ref type="bibr" target="#b18">(Mittal et al. 2018)</ref>. Due to the proliferation of various modalities, both hard sciences (bound by physics and mathematics) and soft sciences (e.g. cognitive science, sociology) need to be brought in a computational environment for verification and validation (V&amp;V), test and evaluation (T&amp;E), and experimentation purposes for such CPSs. Bringing these fundamental sciences together require the incorporation of emergent behavior that may arise as different scientific theories are brought to interact within a CPS use-case. Development of CPS through the fundamentals of Systems Theory supported by an equally robust M&amp;S theory is the preferred way forward <ref type="bibr" target="#b28">(Mittal and Zeigler 2017)</ref>.</p><p>A typical CPS comprises of the following components:</p><p>• Sensors • Actuators</p><p>• Hardware platforms (that hosts sensors and actuators)</p><p>• Software interfaces (that accesses hardware directly or remotely through a cyber environment)</p><p>• Computational software environments (that may act both as a controller or service provider)</p><p>• Networked environments (that allows communication across geographical distances)</p><p>• End user autonomy (that allows CPS to be used as a passive system or an active interactive system)</p><p>• Critical infrastructures (water, power, etc., that provides the domain of operation and operational use-case)</p><p>• Ensemble behaviors • Emergent behaviors  hardware and software), and devices (physical platforms). Traditional systems engineering practices and end-user use-cases can be developed in LHS. The RHS shows aspects related to infrastructures. Fundamentally, they can be characterized into Information Technology (IT) and Operational Technology (OT). Between the LHS and RHS is the network/cyber environment that allows information exchange between the two. With the network spanning large geographical distances, the presence of large number of entities/ agents and their concurrent interactions in the CPS result in ensemble and emergent behaviors. The infrastructure-in-a-box is largely unavailable but can be brought to bear with various existing domain simulators in an integrated simulation environment.</p><p>In M&amp;S, we are not only limited to the computational implementations of models. We distinguish between live simulations in which the model involves humans interacting with one another (role playing, play acting, etc.), virtual simulations where the model is simulated by a fusion of humans and computer-generated experiences, and constructive simulations where the model is entirely implemented in a digital computer and may have increased levels of abstraction. Increasingly, we are mixing the three forms of simulation in what is commonly known as live-virtual-constructive (LVC) simulation <ref type="bibr" target="#b9">(Hodson and Hill 2014)</ref>. LVC simulations are used mainly for training but they can be adapted for the type of experimentation/exploration needed to investigate emergent behavior , as shown by the cyclical process in Figure <ref type="figure">1</ref>.2, elaborated in <ref type="bibr" target="#b18">(Mittal et al. 2018</ref>   From a systems theoretic perspective, a CPS model is a hybrid system made up of both continuous and discrete systems. A continuous system (CS) is one that operates in continuous time and in which input, state, and output variables are all real values. A discrete (dynamic) system (DDS) is one that changes its state in piece-wise constant event-based manner (which also included discrete-time systems as they are a special case of discrete event systems) <ref type="bibr" target="#b15">(Lee et al. 2015)</ref>.</p><p>A typical example of a hybrid system is a CPS in which the computation subsystem is discrete and a physical system is CS. A CyCAS <ref type="bibr" target="#b17">(Mittal 2014)</ref> in LVC environment also qualifies as a CPS, with live systems as CS, constructive systems as discrete and virtual systems as hybrid, containing both continuous and discrete. At the fundamental level, there are various ways to model both timed and untimed discrete event systems, all of which can be transformed to, and studied within, the formal Discrete Event Systems (DEVS) theory <ref type="bibr" target="#b16">(Mittal 2013;</ref><ref type="bibr" target="#b21">Mittal and Risco-Martin 2013;</ref><ref type="bibr" target="#b22">Mittal and Martin 2016;</ref><ref type="bibr">Traor et al. 2018;</ref><ref type="bibr" target="#b43">Vangheluwe 2000;</ref><ref type="bibr" target="#b47">Zeigler et al. 2000)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.4">M&amp;S Technology Available for CPS Engineering</head><p>M&amp;S is being considered as a vehicle by which complex systems engineering, including CPS engineering could be done. However, using M&amp;S for CPS engineering is not straight forward due to the inherent complexities residing in both the modeling and the simulation activities. Simulation subsumes modeling. Performing a CPS simulation requires that a CPS model be first built. While CPS modeling is not the focus of this chapter, a recent panel explored the state of the   <ref type="formula">2018</ref>) enumerate the following active research areas and the associated technologies for CPS modeling and concluded that the need for a common formalism that can be applied by practitioners in the field is not yet fulfilled:</p><p>• DEVS formalism: Strong mathematical foundation that support multi-paradigm modeling, multi-perspective modeling, and complex adaptive systems modeling to handle emergent behaviors.</p><p>• Process algebra: Provides hybrid processes using multi-paradigm modeling. Models combine behavior on a continuous time scale with discrete state transition behavior at given points in time.</p><p>• Hybrid automata: Combines finite state machines with Ordinary Differential Equations (ODE) to account for non-deterministic finite states. Bond graphs are used to govern changes.</p><p>• Simulation languages: Combines discrete event and continuous system simulation languages. Involves modular design of hybrid languages, multiple abstraction levels combining different formalisms.</p><p>• Business processes: Use of standardized notation languages like Business Process Modeling Notation (BPMN) provides value in securing buy-in from the stakeholders in an efficient manner.</p><p>• Interface design for co-modeling: Functional Mock-up Interface (FMI) as a means of integration of various CPS components. DEVS can also be used as a common denominator in a vendor neutral manner.</p><p>• Model-driven approaches: Model transformation chains to arrive at a single formal model. Governance is required to develop such automation.</p><p>• Agent-based modeling: Paradigm to employ component models at scale with individual behaviors, to study ensemble effects.</p><p>The above-mentioned approaches and technologies allow the development of CPS models, albeit in a piece-wise manner. These model pieces and their definitions and specifications are dictated by the cross-domain CPS operational usecase. Assuming we now have a validated model (i.e. a model that has been deemed valid by the stakeholders), next comes the task of executing it on a computational platform, i.e. simulation. The piece-wise model composition sometime does not directly translate into a monolithic simulation environment due to the confluence of both the continuous and discrete system in the hybrid system. In the literature survey <ref type="bibr" target="#b40">(Tolk et al. 2018</ref>) as well as in many discussions with the experts, the use of co-simulation was identified as the preferred course of action in support of CPS for development, testing, and eventually training.</p><p>Co-simulation is the co-existence of independent simulators to support a common model <ref type="bibr" target="#b28">(Mittal and Zeigler 2017)</ref>. To understand co-simulation, consider a 1.4 MMS Technology AAailable for CPS Engineering 11 complex system model comprising of Electric Grid, thousands of smart homes, and data-communication network. This would require modeling to be done for: 1) Continuous system for the Power system (using GridLab-D power flow simulator) 2) Continuous system for Building simulation (using LabView simulator) 3) Discrete system for the smart home behavior (using model-predictive software controllers in Generic Algebraic Modeling Systems (GAMS) language) 4) Discrete system model for data communication network (using OmNet++ simulator)</p><p>The simulators used to implements both the discrete and continuous system models in the common Electric Grid hybrid system model are shown in parenthesis. Such hybrid systems demonstrate how a large-scale hybrid modeling could be attempted and can eventually lead to a robust simulation environment, bringing together user(s) in smart homes as agents with big infrastructure such as Electric Grid through the power flow simulator. The first example at Oak Ridge National Lab (ORNL) developed a complex system with item #1 and #4, described in <ref type="bibr" target="#b30">Nutaro et al. (2008)</ref>. The second example at National Renewable Energy Lab (NREL) developed a system comprising of item #1, #2, and #3, described in <ref type="bibr" target="#b33">Pratt et al. (2015)</ref>, and with a stronger flavor on co-simulation application in . Both examples integrated different modeling paradigms and ran simulations on High Performance Computing (HPC) environment in virtual (as-fast-as-possible) and real (wall-clock) time. The NREL effort also integrated air-conditioner hardware with the simulation exercise for a real-time 7-day scenario, described in detail in <ref type="bibr" target="#b32">Pratt et al. (2017)</ref>. Both the efforts at ORNL and NREL employed the DEVS formalism for integrating the constituent simulators. The survey published in <ref type="bibr" target="#b37">Thule et al. (2008)</ref> provides a state-of-the-art overview of co-simulation practices and applications in multiple domains, including CPS.</p><p>A scalable M&amp;S architecture has distinct modeling and simulation layers. In order to deploy in cloud environment, sufficient automation is needed at both the simulation layer and the modeling layer. This can now be achieved by current practices in DevOps implemented using Docker technology. DevOps, a recent buzzword, provides methodologies to automate developer operations, such as compiling, building, releasing, testing through executable scripts. <ref type="bibr" target="#b24">Mittal and Risco-Martin (2017b)</ref> integrated Docker with the granular service oriented architecture (SOA) Microservices paradigm and advanced the state-of-the-art in model and simulation interoperability. This automated deployment of various "DEVS nodes" under a single administrative control is defined as a DEVS Farm. They described the architecture incorporating DevOps methodologies using containerization technologies to develop cloud-based distributed simulation farm for DDS systems specified using DEVS formalism. The research will extend towards containerization of various other simulators either through DEVS wrappers or Functional Mockup Interface (FMI) standards as functional mockup units (FMUs). Knowledge engineering is an activity that has not been adequately dealt within cognitive architectures when it comes to bringing high-level knowledge structures into existing architectures. They have largely focused on symbolic representation, memory structure, and symbol manipulation. As the corpus is small, likewise, the environments these cognitive architectures can be put to use, is also limited to simple to moderate operational environments. Further, issues like abductive reasoning, dynamic memory that acquire new conceptual structures, creative aspects of problem solving, emotional processing, along with plausibly related concepts of metacognition and goal reasoning have received little attention <ref type="bibr" target="#b14">(Langley 2017)</ref> and may require revision to established cognitive theories. A middle ground using a cognitive framework like Belief-Desire-Intention (BDI) in conjunction with (i) algorithms and heuristics, and (ii) high level knowledge representation, will provide adequate strength for a developing a rational agent, capable of handling complex situations. Prior work at Air Force Research Lab (AFRL) demonstrates the development of integrated cognitive systems for building artificial systems <ref type="bibr" target="#b6">(Douglass and Mittal 2013)</ref>. Further, work <ref type="bibr">Zeigler 2014a, 2014b</ref>) on attention-switching for resource-constrained complex intelligent dynamical systems (RCIDS) provide further evidence of bringing together cybernetics, Systems Theory, Cognitive Science, and Software engineering to develop attentionfocusing activity-based systems.</p><p>These recent developments bring together cloud technologies, co-simulation methodologies, and hybrid modeling approaches to deliver an M&amp;S substrate that is applicable across the entire CPS landscape (Figure <ref type="figure">1</ref>.3). The LHS in Figure <ref type="figure">1</ref>  use-case for CPS applications. The RHS provides various domain simulators and employ IT and OT to provide "infrastructure-in-a-box" through LVC architectures. To bridge, LHS and RHS, emerging disciplines like Machine Learning and Data Science will need to be employed to get a handle on data-driven approaches that tackle emergent behaviors when LHS and RHS interact in a parallel distributed discrete event co-simulation environment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.5">Intelligence, Adaptation, and Autonomy Aspects</head><p>Intelligent, adaptive, and autonomous are characteristics often used to describe CPS. In this section, we will provide some of the references to important work supporting to gain a better understanding of these tightly connected topics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.5.1">Intelligence</head><p>Having to define intelligence, adaption, and autonomy is not an easy task, in particular not for the first term. Scientists and philosophers try to understand for centuries what intelligence is. In the context of computational intelligence, the famous "Imitation Game," as described in <ref type="bibr" target="#b42">Turing (1950)</ref>, avoids providing definitions of intelligence itself but instead focuses on the question: "Can computers pass a behavioral intelligence test?" For many applications, such a test is suitable, but not all forms of computational intelligence can be tested in form of such Turing tests, in particular not when the modalities give the nature of the system under test away. A smart device that behaves intelligently will nonetheless be immediately be recognized as a device, which likely will bias the evaluating person, who now knows that he is testing a machine, not a human. However, systems engineering and computer science are collaborating for several years now to develop smart systems. In <ref type="bibr" target="#b39">Tolk et al. (2011)</ref>, we summarized several abilities an intelligent system needs to expose. This list reflects the collective view of various artificial intelligence viewpoints. It is neither complete nor exclusive, but it is still valid and builds a good foundation for smart CPS understanding as well. This list contains adaptability and autonomy as characteristics for intelligence based systems as well, again showing the close proximity of these concepts pivotal to CPS.</p><p>• Intelligent system can explain their decision. It is important that smart decision come to an applicable decision, but they should also be able to explain the reasoning behind such decisions. This is particularly important in humanmachine-teams, where the human must be able to understand the decision process and interact with it, or eventually even overrule the decision. Furthermore, the system behavior of smart devices may change due to learning and adaption, so explaining new reasoning is important. An example is the explanation component of expert systems used for diagnosis tracing the line of reasoning used by the underlying inference engine to answer the questions: Why is the answer to the question the one you recommend? For systems that are able to modify themselves being able to explain their reason is mandatory to ensure credibility.</p><p>Furthermore, the decision space of computational systems is always closed by definition, as it is the union of the range of all included computable functions. If a situation comprises a characteristic attribute outside of the dimension of the space, the attribute does not contribute to the decision which hence may be sub-optimal. This is very important if the intelligence is based on data-driven machine learning using neural networks, as such system will always generate a solution based on the selected training data set and its domain.</p><p>• Intelligent systems must be robust. This characteristic property of a system means that the system behaves well and adequate not only under ordinary conditions, but also under unusual conditions that stress the original requirements and derived assumptions. In other words, robust systems do not break easily, but are able to continue to behave well even under variant circumstances that could lead to failure of system.</p><p>In the more recent systems engineering literature, the term antifragile has been introduced to describe systems that are not only robust, but that actually are getting better under stress (Nicholas Taleb 2012). Again, the often circular definitions are showing up here as well, as many of the characteristics captured in this list are used for explaining antifragile systems as well <ref type="bibr" target="#b11">(Jones 2014</ref>).</p><p>• Another related characteristic is fault tolerance. The intelligent systems will continue to behave well and continue to adequately perform even if one or more of its internal system components fail or break. This tolerance is applicable to external causes, such as malevolent behavior of other systems, as well as to internal causes, such as simple wear and attrition.</p><p>Conducting maintenance procedures to avoid wear and having the ability to repair externally caused damage immediately can help, but these are just custodian abilities to provide fault tolerance. The ability to adapt to a new capability set and plan accordingly is also contributing to fault tolerance, and they will be dealt with in more detail in bullets of their own.</p><p>• Another characteristic often used to describe intelligent systems is the ability to self organize. They can organize their internal components and capabilities in new structures without a central or an external authority in place. Often, this characteristic also applies to the population of several such systems when conducting a mission to reach a common objective. These new structures can be temporal and spatial. In some cases, instead of self-organizing the term self-optimizing is used synonymously. When these self-organizing systems interact within a persistent environment, such as in stigmergic systems, new macro behavioral patterns emerge because the environment becomes an interacting agent itself due to a persistent and evolving structure <ref type="bibr" target="#b16">(Mittal 2013)</ref>.</p><p>In particular when complex tasks have to be conducted by many simple systems, the use of cooperative swarm systems applying specialization and self-organization as a special form of distributed artificial intelligence that may lead to emergent structures on the swarm level. Even in defense operations, the use of self-organizing teams has been identified as a good practice in complex environments <ref type="bibr" target="#b0">(Alberts et al. 2010</ref>).</p><p>• This aspect of cooperation generally exposes social capabilities, which is also a characteristic of intelligent behavior.</p><p>Cooperative systems interact with other systems and potentially humans as well via some kind of communication language or any other modalities described earlier in this chapter. This interaction is not limited to pure observation, but these systems can exchange plans, distribute tasks, etc. Whiteboard technologies are as often used as direct communication.</p><p>• Intelligent systems are also able to learn from observing the achieved results and compare them with the desired outcome. Using methods such as reinforcement learning, decisions that led to positive results are enforced while those with negative results are avoided.</p><p>Learning can also occur by observing other systems and the results of their activities. It is also possible to observe human partners and mimic their behavior.</p><p>Learning can imply deductive as well as inductive methods. Systems can learn general principles from the observations of detailed example, and they can apply general behavioral schemes to guide their decision in new environments. When new knowledge is captured in from of applicable models, abductive learning is possible as well <ref type="bibr" target="#b7">(Håkansson and Hartung 2014)</ref>.</p><p>• The final characteristic to be addressed in this list is agility. In general, agile systems are able to manage and apply knowledge and their capability effectively so that they behave well and adequate in continuously and unpredictably changing environments.</p><p>In particular in complex environments, agility is pivotal to react quickly and appropriately in unforeseen situations. It is often connected with intellectual acuity for the situation and the necessary intellectual capability to cope with newly arising challenges.</p><p>In the recent years, computational advantages allowed for the rebirth of machine learning, in particular based on data-driven approaches <ref type="bibr" target="#b46">(Witten et al. 2016)</ref>. The usefulness of such approaches and the success of data science related approaches are clearly documented in many publications as well as solutions, as IBM's famous Watson <ref type="bibr" target="#b8">(High 2012)</ref>. However, when it comes to CPS, these approaches may not necessarily be the best choice. Many alternative methods supporting computational intelligence, such as collectively described in Steinbrecher ( <ref type="formula">2016</ref>), are benefiting from the same computational advantages and provide traceable and explainable solutions. Furthermore, many of the heuristics developed in the first wave of artificial intelligence have been refined over the years and provide today impressive solutions. It is worth mentioning that explainability itself is not well defined with the community. With a tighter focus on CPS, the terms assurance and traceability are often used as the two bounding examples to express the intention behind requiring this characteristic. Assurance is result oriented, asking for system to be able to explain who they ensure that the results of their rules are going to fall within given constraints, such as rules of engagements, safety concerns, etc. The recent Air Force study summarizes several concepts used by the community <ref type="bibr" target="#b4">(Clark et al. 2013)</ref>. Traceability is interested in how a result can be traced back to all the various decisions made and rules applied.</p><p>It is very close to the requirements traceability asked for in systems engineering.</p><p>A broader spectrum of related concepts has been recently compiled in Karlo <ref type="bibr" target="#b12">Došilović et al. (2018)</ref>. CPS engineers must be aware of such alternative solutions that may fulfill their requirements better than those currently in the main stream.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.5.2">Autonomy</head><p>Many of these characteristics also apply to enable adaptation and autonomy. As with intelligence, the definition of these terms is challenging.</p><p>An autonomous system performs the desired tasks and behaves well and adequate even in complex environments without continuous human guidance. Williams compiled an overview of definitions with focus on the various autonomy scales <ref type="bibr">(2015)</ref>. Like intelligence, autonomy is multi-faceted and can be observed via many modalities in various forms. The use of different levels is therefore common practice, in particular using multi-dimensional scales consisting of levels with descriptive indicators for each set of dimensions defining a particular facet of autonomy. Wiley concludes his synthesis with the definition of the following autonomy dimensions <ref type="bibr" target="#b44">(Williams 2015)</ref>.</p><p>• Goals: an autonomous agent has goals that drive its behavior.</p><p>• Sensing: an autonomous agent senses both its internal state and the external world by taking in information (e.g. electromagnetic waves, sound waves).</p><p>• Interpreting: an autonomous agent interprets information by translating raw inputs into a form usable for decision making. • Rationalizing: an autonomous agent rationalizes information against its current internal state, external environment, and goals using a defined logic (e.g. optimization, random search, heuristic search), and generates courses of action to meet goals.</p><p>• Decision making: an autonomous agent selects courses of action to meet its goals.</p><p>• Evaluating: an autonomous agent evaluates the consequences of its actions in reference to goals and external constraints.</p><p>• Adapting: an autonomous agent adapts its internal state and functions of sensing, interpreting, rationalizing, decision making, and evaluating to improve its goal attainment.</p><p>When comparing the intelligence characteristics with the autonomy dimensions, the close proximity of both concepts immediately becomes eminent. Nearly all papers on the different degrees of autonomy reference the seminary work of Sheridan and his research into levels of autonomy (1992), who introduced the following 10 levels of increasing autonomy.</p><p>1) The computer offers no assistance, the human must do it all.</p><p>2) The computer offers a complete set of action alternatives.</p><p>3) The computer narrows the selection down to a few. 4) The computer suggests the best selection. 5) The computer executes the option upon human approval. 6) The computer allows the human a restricted time to veto before execution. 7) The computer automatically executes and informs the human. 8) The computer informs the human after execution. 9) The computer decides if to inform the human. 10) The computer acts completely on its own. The Armed Forces used these categories to identify the following definition for classes of autonomous systems <ref type="bibr" target="#b45">(Williams 2008</ref>).</p><p>• Human operated systems are fully controlled by humans. All activities result from human initialization, eventually based on provided sensor information.</p><p>• Human assisted systems perform activities in parallel with human inputs, augmenting the human's ability.</p><p>• Human delegated systems perform limited control activities. The human can overrule the system at any time.</p><p>• Human supervised systems conduct all activities needed to perform a given mission, but they inform the human consistently, including providing explanations for decisions.</p><p>• Mixed initiative systems are capable of human-machine teams and can take over given tasks independently.</p><p>• Fully autonomous systems require no human intervention or presence. They conduct all activities across all ranges of conditions. It should be pointed out that in particular for CPS such systems are often integrated into a larger system of systems. An anti-break system conducts a well-defined function autonomously, assisting the human in the operation of a car. The auto-pilot of an airplane autonomously flies it under fully and well-define constraints, etc. The borders between the levels are therefore often fluent.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.5.3">Adaption</head><p>The requirement to be adaptive is known from both concepts discussed so far. It describes the ability of a system to change to better fit into a changing environment. These changes can be behavioral as well as structural <ref type="bibr" target="#b1">(Antonio Martn et al. 2009)</ref>. Structural changes modify the physical components of the CPS. Many CPS have so called actuators that are used to move components of the CPS into new positions, such as robotic arms, sensors, antennas, etc. In addition, many CPS have modular components that can be switched in case of need to support different environments, such as wheeled or tracked locomotion devices. An interesting featured not yet sufficiently researched is the applicability of new capabilities, such as 3D printing in the field. While we already utilize 3D printers for on-demand spare part production, in the future completely new components will be possible that will help the system to adapt to new challenges.</p><p>From the computational perspective, the behavioral adaption is interesting, which addresses mainly the cyber component of the CPS. These computational components provide functions that can be modified, optimized, or completely replaced by an alternative set. The aspect of learning and the methods discussed in Steinbrecher (2016) will be applied here. The aspects of building computational adaptive systems were introduced by Holland in (1992) and mainly embraced for the computational support of social studies. Some of the currently utilized methods are described in detail in Antonio <ref type="bibr" target="#b1">Martn et al. (2009)</ref>. Like already observed for intelligence and autonomy, there is no generally accepted definition for adaption, the list of characteristics of adaptive systems is open as well. Nonetheless, the literature agrees on some aspects, as they are covered in the following enumeration. One of the reasons is the high degree of interdisciplinary of the field, as many different user domains take advantage of the computational progress and the ease of available tools.</p><p>• Adaptive systems are composed of individual agents that interact with each other, may compete for common resources, and that all follow usually welldefined decision and action processes.</p><p>• The macro-behavior of the system results from the interaction of these agents.</p><p>In complex adaptive systems, the resulting behavior of the system can usually not directly be derived from the well-understood behavior of the single agents within the systems.</p><p>• To enable adaption, feedback loops are a necessary element of the highly dynamic interaction processes. The agents have to be able to learn from this feedback information.</p><p>• Cooperation and specialization of agents are also characteristics often mentioned in the literature. The persuasion of a common goals under the constraint of limited resources are driving forces without having to program the behavior into the processes of the agents explicitly.</p><p>Currently, the CPS community does not yet take enough advantage of the rich body of knowledge regarding such methods and solutions from the discipline of M&amp;S. As discussed in <ref type="bibr" target="#b40">Tolk et al. (2018)</ref>, the reason for this may be the lack of awareness of the methods available, but also of the complexity of the underlying problems.</p><p>However, as discussed in <ref type="bibr" target="#b18">Mittal et al. (2018)</ref>, the use of simulation methods is good -if not best -practice when coping with complex environment that often does not provide immediate feedback for actions, but exposes effect of effects and temporarily shifted feedback, often only after several decision cycles after the originating action. The highly non-linear nature of relations in complex system's constituent sub-systems is another challenge. Adaptability in complex environments will require capabilities as provided by M&amp;S. As pointed out in <ref type="bibr" target="#b38">Tolk (2015)</ref>, there is a close connection between CPS and the agent metaphor. Within the virtual environment, intelligent software agents exhibit the same characteristics as CPS in their environment. As such, software agents are not only good candidates for co-simulation approaches to evaluate the scalability of control approaches, they can also serve to get insights into possible emergence and can serve as a test bed for new rule sets and supporting solutions, or they can be used for the optimization of existing ones. Obviously, the agent-based simulation approaches can and should be augmented by other paradigms and approaches, leading to hybrid approaches as initially discussed in <ref type="bibr" target="#b40">Tolk et al. (2018)</ref>.</p><p>What is furthermore of interest for the application of M&amp;S methods to cope with the complexity of CPS is that they are naturally embedded into to life environment. The continuous feedback from their situated environment to allow them to adapt or optimize their decisions, as discussed above, has been the topic of applied M&amp;S research as well. Of particular interest is the research on Dynamic Data Driven Application Systems, which were made popular in earlier US Air Force research <ref type="bibr" target="#b5">(Darema 2004</ref>) and only recently re-introduced as a research topic that can take advantage of the developments in computer technology in <ref type="bibr" target="#b3">Biswas et al. (2018)</ref>. In the hybrid simulation world, the same principle is referred to as symbiotic simulation <ref type="bibr" target="#b31">(Onggo et al. 2018)</ref>. All these approaches have in common that simulation solutions, such as CPS cyber components, are regarded as embedded solutions within the situated environment, using feedback loops for control, and utilizing data science methods to create actionable observation. Again, many techniques used for years in the training community, such as captured under the LVC paradigm <ref type="bibr" target="#b9">(Hodson and Hill 2014)</ref>, should be closely evaluated regarding their ability to contribute to the management of complexity of CPS over the whole lifecycle.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.6">Conclusion</head><p>CPS are complex hybrid systems that span multiple sectors of the society at deployment level. They employ both discrete and continuous systems as they interact with the continuous physical world and the discrete digital world that involve humans as well. The constituent systems may exhibit features of an intelligent, adaptive, or autonmous agent in varying degrees. With IoT in infancy and projected to increase manifold, the CPS when deployed on the World Wide Web (Internet) introduce a lot of risk in the deployed critical infrastructure (such as Energy, Water, Transportation, etc.) which they indirectly use. Consequently, the IoT and CPS of tomorrow is fraught with many challenges and their growth may get stifled as the stakeholders that manage and operate the underlying critical infrastructures become aware of the risks involved. To make matters even more complicated, CPS may have multiple modalities which put the existing CPS in a new operational environment. Without sufficient T&amp;E and V&amp;V, it cannot be predicted if the CPS would produce reliable behavior and would not cause new emergent stresses to the underlying infrastructures leading to cascaded failures. The IT and OT communities that operate various underlying infrastructures may not be cognizant of the larger IoT context as it may fall outside their business operations. Consequently, the responsibility rests solely on CPS engineers to develop a robust CPS with expected modalities and definition of the CPS operations. However, there does not exist an experimentation test-bed that allows CPS T&amp;E in relation to the operational context (over the underlying critical infrastructure). The use of agent-based development and testing platforms for CPS has been subject of several publications that make the clear connection between intelligent, adaptive, and autonomous CPS and their "digital twin" in form of intelligent software agents within a situated virtual environment that replicates the nature of the physical environment in which the CPS is acting in. One example is given in <ref type="bibr" target="#b35">Sanislav and Miclea (2012)</ref>, more will follow in the chapters of this book. However, while this approach is sufficient for developing and testing computational functionality in well-defined missions and environments, the complex environment of CPS often require the human in the loop for testing. The many recent advantages in the domain of LVC methods, such as published in <ref type="bibr" target="#b9">Hodson and Hill (2014)</ref> for the military domain, must be taken into consideration as well.</p><p>M&amp;S technology provides tractable methods for analysis and experimentation. M&amp;S allows the exploration of the emergent behavior when dealing with complex systems engineering provided adequate attention is paid to simulation engineering and no emergent behaviors arise as a result of error approximation due to selection of a wrong modeling method or error propagation through wrong simulation integration that does weaves the space-time-series incorrectly. M&amp;S is integral part of complex systems engineering and must be utilized through the following mechanisms for maximum impact:</p><p>• Live, Virtual, and Constructive (LVC) environments • Systems engineering testing, evaluation, validation, and verification • Operations, distribution, and communications</p><p>The application of M&amp;S technology to CPS engineering is a non-trivial effort. It requires development of a computational infrastructure that brings together a hybrid model employing various domain simulators in a co-simulation environment for CPS contextual use. The co-simulation environment must be integrated with the state-of-the-art simulation technology employing hybrid modeling, cloud-computing, DevOps, parallel and distributed execution, and abstract time implementation. This will allow simulation experiment studies to be conducted in fast mode with reduced time-to-results. Over the decades, M&amp;S has been a strong partner in developing intelligent, adaptive, and autonomous systems. The communities in these areas acknowledge, use, and advance the M&amp;S technologies themselves. This chapter has discussed the state-of-art in M&amp;S and how the aspects of intelligence, adaptation, and autonomy guide the specifications of CPS in a broader context. The intelligent, adaptive, and autonomous systems communities have begun to co-simulation technologies in piece-wise manner wherein two domains may be brought together through simulators. CPS expands the co-simulation concept many fold as we require an M&amp;S environment with a swappable "CPS context" to experiment with various modalities across multiple critical infrastructures.</p><p>The chapters provided in this book have been contributed by invited recognized experts in their contributing fields, which has not been limited to the M&amp;S domain. We asked experts on co-simulation and modeling formalisms as well as CPS practitioners and experts interested in the social aspects of CPS integration to support us in writing this book. The resulting compendium should offer contributions as well as research ideas to bring our communities closer together to tackle the big challenges of complexity in the CPS domain as well as showing the many facets of research and viewpoints that should be considered in this process. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 1 .Figure 1 . 1</head><label>111</label><figDesc>Figure 1.1 shows various aspects of CPS divided into Left-Hand Side (LHS) and Right-Hand Side (RHS). LHS consists of collection of users, systems (both</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head></head><label></label><figDesc>modeling and the complexity associated in engineering intelligence, adaptation, and autonomy through M&amp;S. The literature survey conducted inTolk  et al., (</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 1 . 3</head><label>13</label><figDesc>Figure 1.3 M&amp;S supported (computational) CPS engineering test-bed perspective.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head></head><label></label><figDesc>, Adaptatione, and Autonomy Aspects 19</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>).</figDesc><table><row><cell>Live</cell><cell>Virtual</cell></row><row><cell>• Real-time information • Live decision making</cell><cell>• Mixed reality • Augmented and virtual spectrum</cell></row><row><cell cols="2">Constructive</cell></row><row><cell cols="2">• Basic axioms/theories</cell></row><row><cell cols="2">• Artificial intelligence</cell></row></table><note>Figure 1.2 Experimental LVC approach for generating emergence.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 1 .</head><label>1</label><figDesc></figDesc><table /><note>1 associates each of the CPS constituent element with the corresponding M&amp;S paradigm and how it can be incorporated in the LVC environment.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 1 . 1</head><label>11</label><figDesc>CPS contributor and the associated M&amp;S paradigm.</figDesc><table><row><cell>CPS contributor</cell><cell>M&amp;S paradigm</cell><cell>LVC element</cell></row><row><cell>Sensors</cell><cell>Continuous, physics-based</cell><cell>L, V, C</cell></row><row><cell>Actuators</cell><cell>Continuous, physics-based</cell><cell>L, V, C</cell></row><row><cell>Hardware platform</cell><cell>Both continuous and discrete</cell><cell>L, V</cell></row><row><cell>Software platform</cell><cell>Discrete</cell><cell>V, C</cell></row><row><cell>Network</cell><cell>Discrete</cell><cell>L, V</cell></row><row><cell>End user</cell><cell>Discrete, agent-based</cell><cell>L, V, C</cell></row><row><cell>Critical infrastructure</cell><cell>Both continuous and discrete (hybrid)</cell><cell>V, C</cell></row><row><cell>Ensemble, emergent behaviors</cell><cell>Discrete agent-based</cell><cell>V, C</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">The Complexity in Application of Modeling and Simulation for Cyber Physical Systems Engineering</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>The work presented in this paper was partly supported by the MITRE Innovation Program. The views, opinions, and/or findings contained in this paper are those of The MITRE Corporation and should not be construed as an official government position, policy, or decision, unless designated by other documentation. Approved for Public Release; Distribution Unlimited. Public Release Case Number 19-0424.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">NATO net-enabled capability command and control maturity model (N2C2M2)</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Alberts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Huber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Moffat</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Technology Program</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Adaptation, anticipation and rationality in natural and artificial systems: Computational paradigms mimicking nature</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Antonio Martn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>De Lope</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Maravall</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Natural Computing</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">757</biblScope>
+			<date type="published" when="2009" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Baheti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Gill</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Impact of Control Technology</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="161" to="166" />
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Energy efficient middleware for dynamic data driven application systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Biswas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hunter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fujimoto</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Winter Simulation Conference</title>
+				<editor>
+			<persName><forename type="first">M</forename><surname>Rabe</surname></persName>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Juan</surname></persName>
+			<persName><forename type="first">N</forename><surname>Mustafee</surname></persName>
+			<persName><forename type="first">A</forename><surname>Skoogh</surname></persName>
+			<persName><forename type="first">S</forename><surname>Jain</surname></persName>
+			<persName><forename type="first">&amp;</forename><forename type="middle">B</forename><surname>Johansson</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="628" to="639" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">A study on run time assurance for complex cyber physical systems</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Koutsoukos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Porter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Pappas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Sokolsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Pike</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013" />
+		</imprint>
+		<respStmt>
+			<orgName>Aerospace Systems Directorate, Air Force Research Lab, Wright-Patterson Air Force Base</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Dynamic data driven applications systems: A new paradigm for application simulations and measurements</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Darema</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Computational Science -ICCS 2004</title>
+		<title level="s">Lecture Notes in Computer Science</title>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Bubak</surname></persName>
+			<persName><forename type="first">G</forename><forename type="middle">D</forename><surname>Van Albada</surname></persName>
+			<persName><forename type="first">P</forename><forename type="middle">M A</forename><surname>Sloot</surname></persName>
+			<persName><forename type="first">&amp;</forename><forename type="middle">J</forename><surname>Dongarra</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin, Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2004" />
+			<biblScope unit="volume">3038</biblScope>
+			<biblScope unit="page" from="662" to="669" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A Framework for Modeling and Simulation of the Artificial</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Douglass</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Ontology, Epistemology, and Teleology for Modeling and Simulation, Intelligent Systems Reference Library</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin, Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2013" />
+			<biblScope unit="volume">44</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">An infrastructure for individualised and intelligent decision-making and negotiation in cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Håkansson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hartung</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="822" to="831" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">The Era of Cognitive Systems: An Inside Look at IBM Watson and How It Works</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>High</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012" />
+			<publisher>IBM Corporation</publisher>
+			<pubPlace>Armonk, NY</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Redbooks</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">The art and science of live, virtual, and constructive simulation for test and analysis</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">D</forename><surname>Hodson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">R</forename><surname>Hill</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Defense Modeling and Simulation</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="77" to="89" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Complex adaptive systems</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Holland</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Daedalus</title>
+		<imprint>
+			<biblScope unit="volume">121</biblScope>
+			<biblScope unit="page" from="17" to="30" />
+			<date type="published" when="1992" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Engineering antifragile systems: A change in design philosophy</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">H</forename><surname>Jones</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 1st International Workshop: From Dependable to Resilient, from Resilient to Antifragile Ambients and Systems</title>
+				<meeting>the 1st International Workshop: From Dependable to Resilient, from Resilient to Antifragile Ambients and Systems</meeting>
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Explainable artificial intelligence: A survey</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Karlo Došilović</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Brčić</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Hlupić</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of 2018 41st International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO)</title>
+				<meeting>2018 41st International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO)</meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="210" to="215" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">Computational Intelligence: A Methodological Introduction</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kruse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Borgelt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Braune</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mostaghim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Steinbrecher</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016" />
+			<publisher>Springer</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Progress and challenges in research on cognitive architectures</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Langley</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Thirty-first AAAI Conference on Artificial Intelligence</title>
+				<meeting>Thirty-first AAAI Conference on Artificial Intelligence</meeting>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">System of systems approach to formal modeling of CPS for simulation-based analysis</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">H</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Hong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">G</forename><surname>Kim</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ETRI Journal</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="page" from="175" to="185" />
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Emergence in stigmergic and complex adaptive systems: A formal discrete event systems perspective</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Cognitive Systems Research</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page" from="22" to="39" />
+			<date type="published" when="2013" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Model engineering for cyber complex adaptive systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">European modeling and simulation symposium</title>
+				<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Diallo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Emergent Behavior in Complex Systems Engineering: A Modeling and Simulation Approach</title>
+				<meeting><address><addrLine>Newark</addrLine></address></meeting>
+		<imprint>
+			<publisher>Wiley</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">4</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Human-in-the-loop modeling in system of systems M&amp;S: Applications to live, virtual and constructive (LVC) distributed mission operations (DMO) training</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Doyle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Portrey</surname></persName>
+		</author>
+		<editor>L. B. Rainey &amp; A. Tolk</editor>
+		<imprint>
+			<date type="published" when="2015" />
+			<publisher>Wiley</publisher>
+			<pubPlace>Hoboken, NJ</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Modeling and Simulation Support for System of Systems Engineering Applications</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Harnessing emergent behavior: The design and control of emergent behavior in system of systems engineering</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Rainey</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Summer Computer Simulation Conference</title>
+				<meeting>Summer Computer Simulation Conference</meeting>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">Netcentric System of Systems Engineering with DEVS Unified Process</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Risco-Martin</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013" />
+			<publisher>CRC Press</publisher>
+			<pubPlace>Boca Raton, FL</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">DEVSML Studio: A framework for integrating domain-specific languages for discrete and continuous hybrid systems into DEVS-Based M&amp;S environment</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Risco-Martin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Summer Computer Simulation Conference</title>
+				<meeting>Summer Computer Simulation Conference</meeting>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Simulation-Based Complex Adaptive Systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Risco-Martín</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017" />
+			<publisher>Springer International</publisher>
+			<biblScope unit="page" from="127" to="150" />
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">DEVSML 3.0 stack: Rapid deployment of DEVS farm in distributed cloud environments using microservices and containers</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Risco-Martin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2017 Spring Simulation Multi-Conference (SpringSim&apos;17)</title>
+				<meeting>the 2017 Spring Simulation Multi-Conference (SpringSim&apos;17)</meeting>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">A system-of-systems approach for integrated energy systems modeling and simulation</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ruth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pratt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lunacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Krishnamurthy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Jones</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Summer Computer Simulation Conference. SCS</title>
+				<meeting>Summer Computer Simulation Conference. SCS</meeting>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Modeling attention-switching in resourceconstrained complex intelligent dynamical system (RCIDS)</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Zeigler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Symposium on Theory of Modeling and Simulation/DEVS, Spring Simulation Conference</title>
+				<meeting>Symposium on Theory of Modeling and Simulation/DEVS, Spring Simulation Conference</meeting>
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Context and attention in activity-based intelligent systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Zeigler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Activity-based Modeling and Simulation (ACTIMS14), ITM Web of Conferences</title>
+				<meeting>Activity-based Modeling and Simulation (ACTIMS14), ITM Web of Conferences</meeting>
+		<imprint>
+			<date type="published" when="2014" />
+			<biblScope unit="volume">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">The practice of modeling and simulation in cyber environments</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Zeigler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Profession of Modeling and Simulation</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+			<persName><forename type="first">&amp;</forename><forename type="middle">T</forename><surname>Oren</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Hoboken, NJ</addrLine></address></meeting>
+		<imprint>
+			<publisher>Wiley</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="223" to="264" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<author>
+			<persName><forename type="first">Nicholas</forename><surname>Taleb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename></persName>
+		</author>
+		<title level="m">Antifragile: Things That Gain from Disorder</title>
+				<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Random House Incorporated</publisher>
+			<date type="published" when="2012" />
+			<biblScope unit="volume">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Integrated modeling of the electric grid, communications, and control</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Nutaro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">T</forename><surname>Kuruganti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shankar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Miller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mulle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Energy Sector Management</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="420" to="438" />
+			<date type="published" when="2008" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Symbiotic simulation system: Hybrid systems model meets big data analytics</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">S</forename><surname>Onggo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Mustafee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Juan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Molloy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Smart</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Winter Simulation Conference</title>
+				<editor>
+			<persName><forename type="first">M</forename><surname>Rabe</surname></persName>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Juan</surname></persName>
+			<persName><forename type="first">N</forename><surname>Mustafee</surname></persName>
+			<persName><forename type="first">A</forename><surname>Skoogh</surname></persName>
+			<persName><forename type="first">S</forename><surname>Jain</surname></persName>
+			<persName><forename type="first">&amp;</forename><forename type="middle">B</forename><surname>Johansson</surname></persName>
+		</editor>
+		<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="1358" to="1369" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Hardware-in-the-loop simulation of a distribution system with air conditioners under model predictive control</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pratt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ruth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Krishnamurthy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sparn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lunacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Marks</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Power &amp; Energy Society General Meeting</title>
+				<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Effects of home energy management systems on distribution utilities and feeders under various market structures</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R A</forename><surname>Pratt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lunacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Jones</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 23rd International Conference and Exhibition on Electricity Distribution</title>
+				<meeting>the 23rd International Conference and Exhibition on Electricity Distribution</meeting>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Cyber-physical systems: The next computing revolution</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Rajkumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Sha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stankovic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 47th Design Automation Conference (DAC)</title>
+				<meeting>the 47th Design Automation Conference (DAC)<address><addrLine>Anaheim, CA; New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2010" />
+			<biblScope unit="page" from="731" to="736" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Cyber-physical systems-concept, challenges and research areas</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Sanislav</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Miclea</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Control Engineering and Applied Informatics</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="28" to="33" />
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">B</forename><surname>Sheridan</surname></persName>
+		</author>
+		<title level="m">Telerobotics, Automation, and Human Supervisory Control</title>
+				<meeting><address><addrLine>Cambridge, MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>MIT Press</publisher>
+			<date type="published" when="1992" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Co-simulation: A survey</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Thule</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Broman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">G</forename><surname>Larcen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gomes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Vangheluwe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Computing Surveys</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="420" to="438" />
+			<date type="published" when="2008" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Merging two worlds: Agent-based simulation methods for autonomous systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Autonomous Systems: Issues for Defence Policymakers</title>
+				<editor>
+			<persName><forename type="first">A</forename><forename type="middle">P D</forename><surname>Williams &amp; P</surname></persName>
+			<persName><surname>Scharre</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Norfolk, VA</addrLine></address></meeting>
+		<imprint>
+			<publisher>NATO Allied Command Transformation</publisher>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="291" to="317" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Towards intelligence-based systems engineering and system of systems engineering</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Adams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">B</forename><surname>Keating</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Intelligence-Based Systems Engineering</title>
+				<editor>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Tolk &amp; L</surname></persName>
+			<persName><surname>Jain</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin, Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer-Verlag</publisher>
+			<date type="published" when="2011" />
+			<biblScope unit="page" from="1" to="22" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Hybrid simulation for cyber physical systems: State of the art and a literature review</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tolk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Page</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mittal</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Annual Simulation Symposium, Spring Simulation Multi-Conference</title>
+				<meeting>Annual Simulation Symposium, Spring Simulation Multi-Conference</meeting>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="122" to="133" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Modeling and simulation framework for value-based healthcare systems</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">K</forename><surname>Traoré</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Zacharewicz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Duboz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Zeigler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Simulation</title>
+		<imprint>
+			<biblScope unit="volume">95</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="481" to="497" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Computing machinery and intelligence</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Turing</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mind</title>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="issue">236</biblScope>
+			<biblScope unit="page" from="433" to="460" />
+			<date type="published" when="1950" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Devs as a common denominator for multi-formalism hybrid systems modelling</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Vangheluwe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Symposium on Computer-Aided Control System Design</title>
+				<imprint>
+			<date type="published" when="2000" />
+			<biblScope unit="page" from="129" to="134" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Defining autonomy in systems: Challenges and solutions</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Williams</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Autonomous Systems: Issues for Defence Policymakers</title>
+				<meeting><address><addrLine>Norfolk, VA</addrLine></address></meeting>
+		<imprint>
+			<publisher>NATO Allied Command Transformation</publisher>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="27" to="62" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<title level="m" type="main">Autonomous systems overview</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Williams</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008" />
+			<publisher>BAE Systems</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">H</forename><surname>Witten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Frank</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Hall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Pal</surname></persName>
+		</author>
+		<title level="m">Data Mining: Practical Machine Learning Tools and Techniques</title>
+				<meeting><address><addrLine>Cambridge, MA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Morgan Kaufmann</publisher>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<monogr>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">P</forename><surname>Zeigler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Praehofer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">G</forename><surname>Kim</surname></persName>
+		</author>
+		<title level="m">Theory of Modeling and Simulation. Integrating Discrete Event and Continuous Complex Dynamic Systems</title>
+				<meeting><address><addrLine>San Francisco; New York, Boston, London, Sydney, Tokyo</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academic Press</publisher>
+			<date type="published" when="2000" />
+		</imprint>
+	</monogr>
+	<note>San Diego</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

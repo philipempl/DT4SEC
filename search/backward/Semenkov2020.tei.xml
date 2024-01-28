@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Verification of Large Scale Control Systems with Hybrid Digital Models and Digital Twins</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>IEEE</publisher>
+				<availability status="unknown"><p>Copyright IEEE</p>
+				</availability>
+				<date type="published" when="2020-09">2020-09</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Kirill</forename><surname>Semenkov</surname></persName>
+							<email>semenkovk@mail.ru</email>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Control Sciences</orgName>
+								<orgName type="institution">Russian Academy of Sciences Moscow</orgName>
+								<address>
+									<country key="RU">Russia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Vitaly</forename><surname>Promyslov</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Institute of Control Sciences of the Russian Academy of Sciences Moscow</orgName>
+								<address>
+									<country key="RU">Russia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Alexey</forename><surname>Poletykin</surname></persName>
+						</author>
+						<title level="a" type="main">Verification of Large Scale Control Systems with Hybrid Digital Models and Digital Twins</title>
+					</analytic>
+					<monogr>
+						<title level="m">2020 International Russian Automation Conference (RusAutoCon)</title>
+						<imprint>
+							<publisher>IEEE</publisher>
+							<date type="published" when="2020-09" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/rusautocon49822.2020.9208167</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:55+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>industrial automation</term>
+					<term>cyber physical systems</term>
+					<term>instrumentation and control</term>
+					<term>virtualization</term>
+					<term>industry 4.0</term>
+					<term>digital twin I</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The paper deals with the problem of the design of digital twins of cyberphysical systems of an Industry 4.0 concept. It analyses and compares properties of models in application to the modeling of digital and physical component of a cyberphysical system. A hybrid model that includes virtual machines and emulators and some real hardware is recommended for the purposes of testing and verification of complex cyberphysical system. The importance of single timescale maintaining within the computer models is emphasized. The real case a hybrid model created for integration tests and cybersecurity researches is described. The achievements and drawbacks of the implemented model are discussed.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>INTRODUCTION</head><p>The concept of Industry 4.0 and the term itself were phrased for the first time in Germany, in 2011, by the working group on the vision of industry development prospects ( <ref type="bibr" target="#b0">[1]</ref>). The group performed the researches on an assignment of the German government. In a short period, the concept and the term have become widespread. Note that other countries had performed researches of that kind as well, and the concept under discussion is also known as Industrial Internet, Advanced Manufacturing, Smart Industry, Smart Manufacturing, et cetera ( <ref type="bibr" target="#b1">[2]</ref>). The authors of the concept ( <ref type="bibr" target="#b2">[3]</ref>) consider the industrial environment of the future as a flexible and adaptable cyberphysical system (CPS) that unites manufacturing, warehousing, and logistics through the medium of Internet of Things (IoT).</p><p>The list of digital technologies that must be used by a manufacturing company of Industry 4.0 includes (see, for example <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b3">[4]</ref>, <ref type="bibr" target="#b4">[5]</ref>) cloud and fog computing, artificial intelligence and autonomous robots, virtualization, new data transmission protocols for the IoT and many others. These technologies are to make up a cyberphysical system that integrates digital resources and physical, real objects into a consistent environment.</p><p>Below we are going to discuss the problem of implementation of the new digital technologies to instrumentation and control systems (I&amp;C systems) of Industry 4.0 conformant system and will consider a real example of the implementation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. I&amp;C AS A CYBERPHYSICAL SYSTEM OF HIGH RELIABILITY</head><p>An I&amp;C system in the most general form (see Fig. <ref type="figure">1</ref>) consists of a system of sensors that take off data about the controllable (physical) object state; actuators that directly carry out control actions on the machinery and the equipment; data transfer channels; programmable logic controllers (PLC) collecting and processing the data from sensors and generating control commands; implementation of control algorithms; humanmachine interfaces (HMI). So, an instrumentation and control system itself is a cyberphysical system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sensors</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>PLCs</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Actuators</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Terminals</head><p>(HMI) Data processing units</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Main physical system</head><p>Fig. <ref type="figure">1</ref>. A sketch of the main components of an I&amp;C system.</p><p>Let emphasize an essential property of industrial cyberphysical systems: they should unite high productivity, low downtime, and low or moderate maintenance costs. In the other words, these systems must show high efficiency and reliability.</p><p>The cyberphysical system reliability is conditioned by both the reliability of physical components and the reliability of software modules. The problem of reliability calculation for physical objects is well-developed, while the reliability estimation for software systems is still an unsolved issue. <ref type="bibr">Antonov et al. ([6]</ref>) performed an overview of quantitative methods of software reliability estimation and made a conclusion that current numerical methods do not provide credible estimations of reliability in a classical probability domain.</p><p>The term of software reliability is widely substituted by the term of software quality which, according to the standard ISO/IEC 25010:2011 ( <ref type="bibr" target="#b6">[7]</ref>) is "the degree to which a product or system can be used by specific users to meet their needs to achieve specific goals with effectiveness, efficiency, freedom from risk and satisfaction in specific contexts of use". ISO/IEC standards introduce some metrics to estimate different factors of the software quality, so by their values, it might be possible to draw indirect conclusions about the reliability of specific software under a set of specific conditions.</p><p>That is why the software reliability estimation is usually performed by testing the software in conditions as close as possible to the conditions of the operation. The test cases should cover both normal and stress scenarios of software functioning.</p><p>The software quality assurance process has its difficulties:</p><p>• the absence of a real control object or its components for a sufficiently long time (sometimes up to the final stage of development);</p><p>• the impossibility (for example, because of risk of physical destruction or high costs) of tests in some operating modes.</p><p>Modeling at the earliest possible stages of software development will reduce the costs and time of achieving the required software quality. It allows to check both separate system components and the entire architecture of the designed system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. COMPARISONOF MODEL TYPESWITH REFERENCETO CYBERPHYSICAL SYSTEMS</head><p>The modeling is an inherent part of the design and development process of any industrial systems. It helps to understand and predict behavior of the physical object and properties of control algorithms; to estimate system reliability and security and fault tolerance; to know how the system will react to the controls; to divide the system into the functional modules; to design the data structure and channels of information transfer, and so on. All these problems are solved with the use of models of various kinds. Table <ref type="table" target="#tab_0">I</ref> shows the comparison of different models and the regard on their potential of use for the physical or digital component ("+" or "-" signs mean whether the model suits or does not suit for a specific purpose.</p><p>Full-scale test prototypes can be built to try-out and validate the interaction of system elements. There the preliminary checkout is performed with the real equipment; the final integration with the physical object is carried out at the commissioning stage. The work is, to begin with, time and labor-consuming and expensive because the design and construction of a full-scale prototype require many resources, and, besides, the tests like those discover errors and mismatches at the last stages of system development. The closing of nonconformities implicates a hard work on the repetitive system verification.</p><p>With the progress of the computational facilities, a concept of digital twins of cyberphysical systems has been gaining popularity. A digital twin is an exact virtual copy of a cyberphysical system. The digital twin runs in a purely virtual, computer environment; it receives the information about physical object either from a simulation or from a real object data via the Internet of Things. The verification is possible in very restrictive cases (see, for example, <ref type="bibr" target="#b7">[8]</ref>, <ref type="bibr" target="#b9">[9]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Digital models of cyberphysical systems and modeling restrictions</head><p>With the virtual models of cyberphysical systems, one can configure the system and test the interaction between system components and system modes at any stage of the development.</p><p>For example, <ref type="bibr">Lemay et al. ([10]</ref>), using a number of virtual machines running within a computational cluster, created a digital training model for a SCADA (supervisory control and data acquisition) system of a reference power plant. They used some simulations of physical processes and PLCs, sensors, and actuators. The model gave the possibility to imitate a bunch of cyberattacks to a reference SCADA system, albeit not showed high productivity.</p><p>Alves et al. ( <ref type="bibr" target="#b11">[11]</ref>) for cybersecurity protective measures tests applied modularity principles to the design and construction of a digital model of a SCADA system. They implemented every element of the SCADA (server, workstation, PLC, sensor et cetera) as a separate software module, that allows model scaling in a wide range.</p><p>The design and deployment of digital twins of cyberphysical systems is an essential and expanding technology. However, it is necessary to understand and take into account the boundaries of digital models.</p><p>First, with a digital model, one hardly (if ever) can obtain any data about the productivity of the real system. The system productivity depends on specific models of installed computers and controllers, network capacity, and many other conditions. A virtual model allows getting just some productivity estimates like algorithm performance.</p><p>Second, the hardware and equipment of any specific manufacturer have its features and restrictions, some internal details of equipment functioning are company secrets, so they cannot be implemented entirely in a virtual model. It means the virtual model will use some "average," "neutral" models of the equipment, which also will not allow getting an accurate model.</p><p>A separate task is to correlate in time the dynamics of a real cyberphysical system and the digital model of this system. Lee and Seshia ( <ref type="bibr" target="#b12">[12]</ref>), in chapter 1 of their book, describe the problem in detail.</p><p>The time-dependent dynamical properties of physical objects are usually described by systems of differential equations (motion equations, heat equations, equation of the electrodynamics) where time is a variable. Therefore, a digital model of a physical object is a solution of the differential equation system that describes its behavior. The process of mathematical problem solving does not usually require real-time calculations. The digital component of the model may receive the results of the calculation that had been performed in advance, and the virtual model will approximate the results.</p><p>Digital twins generally implement software models of sensors and controllers: they can use either software emulation (many manufactures provide the emulators) of software models of finite automates and black boxes. Note, that the processor time of program execution flow is not the real physical time, because a computer represents the flow of time by incrementing a counter that depends on the hardware. So the time-related properties of the device digital model can differ from the properties of the real device. We summarize these considerations in Table <ref type="table" target="#tab_0">II</ref>. Cloud systems with numerous virtual machines have multiple events of context switching between the processes and virtual machines. It gives rise to another important problem, the problem of synchronizations of components within a digital model.</p><p>The maintaining of a single timescale is of great importance for I&amp;C systems. Currently, the issue of synchronization of a system of virtual machines has little been studied, but the problem is recognized. Thus, VMware ( <ref type="bibr" target="#b13">[13]</ref>) says that differences between virtual machines and real ones "can still sometimes cause timekeeping inaccuracies and other problems in software running in a virtual machine." Therefore, there is always a risk that the necessary synchronization accuracy would never be achieved in the digital model of the cyberphysical system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Digital models in cybersecurity researches</head><p>One of the promising functions of digital twins is the development of methods of cyberdefense and verification of the system's resistance to cyber threats. Here the cybersecurity is a set of activities and measures (controls) whose objective is prevention, detection, and reaction to malicious actions toward the system. Indeed, a digital twin makes it possible to carry out any tests without risk of real system damaging, and it is easy enough to return a digital model to its original state even after the destruction of the digital twin because of a cyberattack. Some elements of a physical infrastructure could become an attack starting point (for example, an intruder gets the physical access to a server); the goal of the attack could be reducing the system availability as in case of a denial-of-service attack (DoSattack).</p><p>Based on the considerations of section 3.1 and the previous paragraph, we believe that digital twins can and must be used to find the vulnerability points in a cyberphysical system, to divide the system into the levels of cybersecurity, to investigate the paths of cyberattack propagation and to estimate the attack consequences. However, they are not suitable for researching the temporal characteristics of cyberattacks and studying the cyberattacks on the physical infrastructure (physical access to servers, bridges, et cetera).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Hybrid digital model</head><p>The restrictions described above can be partially removed by combining a virtual model with some real parts. For example, one can include in the model a few real sensors and PLCs. The sensors would transmit their output to the virtual medium; the model of the physical process would calculate input signals for PLCs and pass the signals to the standard interfaces of the PLCs. Partial integration of that kind would allow us to check the temporal characteristics of some control signals and facilitate the commissioning process.</p><p>Complex cyberphysical systems are often a product of cooperation of many companies where every company is responsible for its subsystem. A hybrid digital model can facilitate the process of integrating components into a single system because the complexity and labor intensity of creating and maintaining/updating a hybrid virtual model is much less than that of a full-scale test complex. For this purpose, the developer companies may create hybrid digital models of their subsystems and then integrate them on a common site or in a cloud.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. THE PRACTICE OF DIGITAL TWIN DESIGN AND OPERATION</head><p>We designed and built a hybrid digital model of the upperlevel control system (ULCS) of I&amp;C system of a nuclear power plant ( <ref type="bibr" target="#b14">[14]</ref>). The ULCS is a part of the I&amp;C system and is used to transmit operator control commands, monitor I&amp;C system status, integrate information from I&amp;C subsystems within the power unit, perform self-diagnostics.</p><p>The ULCS consists (see Fig. <ref type="figure" target="#fig_0">2</ref>) of servers, active and passive network equipment, workstation, auxiliary equipment of the cabinets (uninterruptible power sources, printers et cetera). The information is transferred over Ethernet networks; all key nodes and data paths are redundant and work in parallel providing hotspare redundancy. The ULCP software works under industrial Linux-based operating system LICS OS ( <ref type="bibr" target="#b15">[15]</ref>). Precise time sources provide a unified time scale within the system. We implemented a hybrid digital model that includes some real hardware of ULCS system and a few dozens of virtual components representing ULCS computers and network devices. The real hardware includes a timeserver, a switch cabinet, a workstation cabinet with operator terminal, server cabinet. A real timeserver acts as the time synchronization source via the Network Time Protocol (NTP). Switch cabinet and server cabinet hardware elements are used, first, to model the behavior of server and workstation system units in the cabinet (for example, UPS control and monitoring) and, second, to test I&amp;C self-diagnostics subsystem.</p><p>The virtual machines for every server and workstation physically run on a host server under LICS OS and QEMU/KVM hypervisor([16], [17]); the workstation physical computer runs under LICS OS as well. The software imitators represent the adjacent subsystems of the NPP I&amp;C system.</p><p>The modeling of network interaction was a significant part of the task. The I&amp;C is a distributed system, the components communicate with one another via TCP/IP and UDP/IP protocol. As we have told, the operational servers, workstation and Ethernet network are redundant, and the model must reflect both logical and physical redundancy of the system. As the model is a hybrid one, it is assumed to interact with external real hardware via some network protocols.We decided to implement the ULCP network structure and topology in the virtual environment, but made possible the interaction with the real hardware.</p><p>Virtual switch software OpenVSwitch <ref type="bibr" target="#b18">[18]</ref>is a tool for network topology construction within the model: every real switch is mapped to a software switch, and the commutation of virtual machines and virtual switches within the virtual network corresponds to the ULCS network topology. VLAN assignment within software switches allows to model physical separation of redundant Ethernet channels. Thus, we model network redundancy where any single failure in the network path does not break the system connectivity. The virtual machines and the real hardware communicate via TCP/IP and UDP/IP network protocols like SNMP (Simple Network Management Protocol) through real Ethernet networks. To provide the connection between virtual machines and real equipment, the host OS network stack is connected to the virtual switches, so the virtual machines can access the external hardware via real Ethernet network.</p><p>To work with operator graphical environment, we pass the graphics via Spice network protocol <ref type="bibr" target="#b20">[19]</ref> to the real workstation. Spice client software was also installed onto the virtual machines.</p><p>The created digital model is a hybrid one, and it includes both the virtual model of the ULCS and some real devices of the ULCS. It allowed us to test the interaction of ULCS software components, prepare software deployment to the real complex, test software updates before the deployment, verify cybersecurity controls.</p><p>However, the operation process showed some drawbacks in the hybrid model design. In the beginning, the computer hardware emulated by the hypervisor (like controllers, network adapters) was chosen to be maximally close to the real one. But the performance of software emulation of the devices did not satisfy the needs of I&amp;C system, the model showed poor network throughoutput. So we had to switch over to paravirtualized devices (for the description of software emulated and paravirtual devices see e.g. <ref type="bibr" target="#b21">[20]</ref>, <ref type="bibr" target="#b22">[21]</ref>) and to give up the idea of maximal similarity between the emulated and real hardware.</p><p>The second serious drawback is NTP timescale instability in virtual environment. Under low load the system after the initial synchronization period stays in the synchronized state. However, under heavy load clock offsets vary within a large interval that in our case achieves up to hundreds of milliseconds. It means that currently we cannot use the model for the heavy computational tasks that require accurate clock synchronization.</p><p>Graphical mode and HMI is another weak point of virtual models. Virtual environment usually does not allow achieving the same graphics productivity as bare-metal solutions. During the modeling, we did not intend to achieve the graphical productivity of a real system but we were going to test and verify the HMI. We managed to achieve acceptable graphics throughoutput and latency for our purposes.</p><p>In spite of the restrictions and drawbacks, the designed and constructed model became a good platform for the software complex testing and verification.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. CONCLUSIONS</head><p>In the paper, we consider instrumentation and control systems (I&amp;C systems) as cyberphysical systems of an Industry 4.0 concept and in particular, deal with the problem of the design of digital twins of cyberphysical systems in application to I&amp;C systems (virtual models of I&amp;C systems).</p><p>Virtual models are a useful tool for working out the interaction of system elements, their functional relations, creation of a set of software quality metrics. From the point of view of cybersecurity, virtual models of I&amp;C systems, in our opinion, can and should be used to identify vulnerability points of a cyberphysical system, to divide the system into the levels of cybersecurity, to research attack propagation paths and to estimate the consequences of the cyberattacks. However, one must understand that virtual models do not provide the ability to measure the temporal characteristics of I&amp;C systems.</p><p>To partially remove the limitations of virtual models, we suggest using combined (hybrid) digital models where the virtual software components are connected with some real devices of the cyberphysical system. We demonstrated the efficiency of a hybrid digital model in the course of works on the test and verification of and upper-level control system for a nuclear power plant. The hybrid model includes virtual machines for server and workstation, software switches, and some real components (devices). This solution allows us to significantly reduce the amount of hardware for the test site, the complexity and labor intensity of configuration change during the development of various options of system implementation, the total cost of test site construction while maintaining a high reference of obtained results.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. The outline of the upper-level control system of an I&amp;C system of NPP.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. The outline of hybrid digital model for the upper-level control system of an I&amp;C system of NPP.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I .</head><label>I</label><figDesc>COMPARISON OF PROPERTIES OF MODELS</figDesc><table><row><cell></cell><cell>Type of model</cell><cell>Motivation</cell><cell cols="2">Phys. Cyber</cell></row><row><cell></cell><cell></cell><cell>Description of a physical object behavior</cell><cell>+</cell><cell></cell></row><row><cell></cell><cell></cell><cell>Verification and validation of algorithms</cell><cell>-</cell><cell></cell></row><row><cell></cell><cell></cell><cell>(system grey/white-box design)</cell><cell></cell><cell>+</cell></row><row><cell cols="2">1 Analytical</cell><cell>Verification of timing characteristicsa</cell><cell>+</cell><cell>+/-</cell></row><row><cell></cell><cell></cell><cell>Staff training</cell><cell>+</cell><cell>+/-</cell></row><row><cell></cell><cell></cell><cell>Design of the control (system black box</cell><cell>+</cell><cell></cell></row><row><cell></cell><cell></cell><cell>design)</cell><cell></cell><cell>+</cell></row><row><cell cols="2">2 Statistical</cell><cell>Estimation of reliability and stability</cell><cell>+</cell><cell>+</cell></row><row><cell cols="2">3 Functional</cell><cell>System design</cell><cell>+</cell><cell>+</cell></row><row><cell>4</cell><cell>Data and data flow</cell><cell>Data representation and system logics without regard to real-time system behavior</cell><cell>-</cell><cell>+</cell></row><row><cell></cell><cell></cell><cell>Validation of system design</cell><cell>+</cell><cell>+</cell></row><row><cell></cell><cell></cell><cell>Validation of models (same as 1-4)</cell><cell>+</cell><cell>+</cell></row><row><cell cols="2">5 Full-scale</cell><cell>Validation of time behavior</cell><cell>+</cell><cell>+</cell></row><row><cell></cell><cell></cell><cell>Validation of system safety and security</cell><cell>+</cell><cell>+</cell></row><row><cell></cell><cell></cell><cell>Staff training</cell><cell>+</cell><cell>+</cell></row><row><cell></cell><cell></cell><cell>Validation of system logical structure and interfaces</cell><cell>+</cell><cell>+</cell></row><row><cell></cell><cell>Virtual (digital twin)</cell><cell>Validation of discrete (state-by-state) time behavior Validation of system cybersecurity</cell><cell>+ -</cell><cell>+ ±</cell></row><row><cell></cell><cell></cell><cell>Staff training</cell><cell>+</cell><cell>+</cell></row><row><cell>7</cell><cell>Hybrid: virtual and some real components</cell><cell>Combines all advantages of the models of types 5 and 6</cell><cell>+</cell><cell>+</cell></row><row><cell></cell><cell>a.</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>TABLE II .</head><label>II</label><figDesc>THE PRINCIPLES OF CPS DIGITAL TWIN DESIGN</figDesc><table><row><cell></cell><cell cols="2">Physical object</cell><cell></cell><cell>Controllers/senso</cell><cell></cell><cell>Software</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>rs</cell><cell></cell></row><row><cell>Type of model</cell><cell cols="3">analytical (equations)</cell><cell>emulation; black-models box software</cell><cell>-</cell></row><row><cell>Representati</cell><cell cols="3">an abstraction: an</cell><cell>a counter of ticks</cell><cell cols="2">a counter of ticks</cell></row><row><cell>on of time</cell><cell>argument</cell><cell>of</cell><cell>the</cell><cell>(hardware</cell><cell cols="2">(hardware</cell></row><row><cell></cell><cell>equations</cell><cell></cell><cell></cell><cell>dependent)</cell><cell cols="2">dependent)</cell></row><row><cell>Implementat</cell><cell cols="3">the equations are solved</cell><cell>a piece of software</cell><cell>a</cell><cell>piece</cell><cell>of</cell></row><row><cell>ion within a</cell><cell cols="3">separately, the twin</cell><cell>running on a real</cell><cell cols="2">software running</cell></row><row><cell>digital twin</cell><cell cols="3">uses the results and can</cell><cell>or virtual computer</cell><cell cols="2">on a real or</cell></row><row><cell></cell><cell cols="2">approximate them</cell><cell></cell><cell></cell><cell cols="2">virtual computer</cell></row><row><cell cols="4">Technologies numerical simulation,</cell><cell>emulation,</cell><cell cols="2">virtualization,</cell></row><row><cell></cell><cell>clusters,</cell><cell></cell><cell></cell><cell>simulation</cell><cell cols="2">cloud computing</cell></row><row><cell></cell><cell cols="2">supercomputers</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">The reported study (Section III) was partially funded by RFBR, project number 19-29-06044</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Authorized licensed use limited to: Carleton University. Downloaded on October 03,2020 at 16:27:11 UTC from IEEE Xplore. Restrictions apply.</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Industrie 4.0: mit dem Internet der Dinge auf dem Weg zur 4. industriellen Revolution</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kagermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W-D</forename><surname>Lukas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wahlster</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">VDI Nachrichten</title>
+		<imprint>
+			<biblScope unit="issue">13</biblScope>
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Design Principles for Industrie 4.0 Scenarios</title>
+		<author>
+			<persName><forename type="first">Mario</forename><surname>Hermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tobias</forename><surname>Pentek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Boris</forename><surname>Otto</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/hicss.2016.488</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 49th Hawaii International Conference on System Sciences (HICSS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Chancen von Industrie 4.0 nutzen</title>
+		<author>
+			<persName><forename type="first">Henning</forename><surname>Kagermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wahlster</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Helbig</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-662-53254-6_12</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Handbuch Industrie 4.0 Bd.4</title>
+				<meeting><address><addrLine>Berlin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="237" to="248" />
+		</imprint>
+	</monogr>
+	<note>final report of the Industrie 4.0 working group</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">A Maturity Model for Assessing Industry 4.0 Readiness and Maturity of Manufacturing Enterprises</title>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Schumacher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Selim</forename><surname>Erol</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wilfried</forename><surname>Sihn</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2016.07.040</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<title level="j" type="abbrev">Procedia CIRP</title>
+		<idno type="ISSN">2212-8271</idno>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="page" from="161" to="166" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Intelligent Manufacturing in the Context of Industry 4.0: A Review</title>
+		<author>
+			<persName><forename type="first">Ray</forename><forename type="middle">Y</forename><surname>Zhong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xun</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eberhard</forename><surname>Klotz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephen</forename><forename type="middle">T</forename><surname>Newman</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.eng.2017.05.015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Engineering</title>
+		<title level="j" type="abbrev">Engineering</title>
+		<idno type="ISSN">2095-8099</idno>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="616" to="630" />
+			<date type="published" when="2017-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Engineering</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Industrial-process measurement, control and automation. Evaluation of system properties for the purpose of system assessment</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">V</forename><surname>Antonov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">F</forename><surname>Zharko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">G</forename><surname>Promyslov</surname></persName>
+		</author>
+		<idno type="DOI">10.3403/30298032</idno>
+		<imprint>
+			<date>2015</date>
+			<publisher>BSI British Standards</publisher>
+			<biblScope unit="page" from="87" to="96" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Systems and software engineering. Systems and software quality requirements and evaluation (SQuaRE). System and software quality models</title>
+		<author>
+			<persName><surname>Iso/Iec</surname></persName>
+		</author>
+		<idno type="DOI">10.3403/30215101u</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Systems and software engineering -Systems and software Quality Requirements and Evaluation (SQuaRE) -System and software quality models</title>
+				<imprint>
+			<publisher>BSI British Standards</publisher>
+			<date>2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Control System Availability Assessment Via Maximum Delay Calculation</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Baybulatov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">G</forename><surname>Promyslov</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icieam.2019.8743012</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 International Conference on Industrial Engineering, Applications and Manufacturing (ICIEAM)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-03" />
+		</imprint>
+	</monogr>
+	<note>Int</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">2019 International Conference on Industrial Engineering, Applications and Manufacturing (ICIEAM)</title>
+		<idno type="DOI">10.1109/icieam45724.2019</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Conf. on Industrial Engineering</title>
+		<imprint>
+			<date type="published" when="2019-03" />
+			<publisher>IEEE</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Applications and Manufacturing</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Verification of the FAIR Control System Using Deterministic Network Calculus</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Schütze</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bondorf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kreider</surname></persName>
+		</author>
+		<idno type="DOI">10.18429/JACoW-ICALEPCS2017-TUCPL06</idno>
+	</analytic>
+	<monogr>
+		<title level="m">ICALEPS2017 Proc</title>
+				<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="238" to="245" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">An isolated virtual cluster for SCADA network security research</title>
+		<author>
+			<persName><forename type="first">Antoine</forename><surname>Lemay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">José</forename><forename type="middle">Enrique</forename><surname>Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Scott</forename><forename type="middle">S</forename><surname>Knight</surname></persName>
+		</author>
+		<idno type="DOI">10.14236/ewic/icscsr2013.10</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ICS-CSR</title>
+		<imprint>
+			<date type="published" when="2013-09-01" />
+			<publisher>BCS Learning &amp; Development</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Virtualization of SCADA testbeds for cybersecurity research: A modular approach</title>
+		<author>
+			<persName><forename type="first">Thiago</forename><surname>Alves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rishabh</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aaron</forename><surname>Werth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Morris</surname></persName>
+			<idno type="ORCID">0000-0002-4854-5419</idno>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2018.05.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">77</biblScope>
+			<biblScope unit="page" from="531" to="546" />
+			<date type="published" when="2018-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">An introductory textbook on cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Edward</forename><forename type="middle">A</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sanjit</forename><forename type="middle">A</forename><surname>Seshia</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1930277.1930278</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2010 Workshop on Embedded Systems Education - WESE &apos;10</title>
+				<meeting>the 2010 Workshop on Embedded Systems Education - WESE &apos;10</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Virtual Machines</title>
+		<author>
+			<persName><forename type="first">Vmware</forename><surname>Inc</surname></persName>
+		</author>
+		<idno type="DOI">10.1201/9781420070286.ch5</idno>
+	</analytic>
+	<monogr>
+		<title level="m">VMware ESX Essentials in the Virtual Data Center</title>
+				<imprint>
+			<publisher>Auerbach Publications</publisher>
+			<date type="published" when="2008-08-25" />
+			<biblScope unit="page" from="95" to="107" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">The new generation of upper levels systems and industry 4.0 conception in NPP APCS</title>
+		<author>
+			<persName><forename type="first">Alexey</forename><surname>Poletykin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elena</forename><surname>Jharko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nadir</forename><surname>Mengazetdinov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vitaly</forename><surname>Promyslov</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mlsd.2017.8109670</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 Tenth International Conference Management of Large-Scale System Development (MLSD)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-10" />
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">LICS 2017 foreword</title>
+		<author>
+			<persName><forename type="first">Joel</forename><surname>Ouaknine</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/lics.2017.8005058</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 32nd Annual ACM/IEEE Symposium on Logic in Computer Science (LICS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Federal Information Processing Standards Publication: federal information processing standards publications (FIPS PUBS) index</title>
+		<idno type="DOI">10.6028/nist.fips.58-1997</idno>
+		<ptr target="https://www1.fips.ru/publication-web/publications/" />
+	</analytic>
+	<monogr>
+		<title level="m">document?type=doc&amp;tab=PrEVM&amp;id=07B0B75D-B08F-4A7B-BF76-011ED855B976, 2019. [16] KVM Contributors</title>
+				<imprint>
+			<publisher>National Institute of Standards and Technology</publisher>
+			<date type="published" when="1997" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">QEMU/KVM Based In-Memory Block Cache Module for Virtualization Environment</title>
+		<author>
+			<persName><forename type="first">Taehoon</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kwanghyeok</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jaechun</forename><surname>No</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sungsoon</forename><surname>Park</surname></persName>
+		</author>
+		<idno type="DOI">10.5626/jok.2017.44.10.1005</idno>
+		<ptr target="https://www.linux-kvm.org/" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of KIISE</title>
+		<title level="j" type="abbrev">JOK</title>
+		<idno type="ISSN">2383-630X</idno>
+		<idno type="ISSNe">2383-6296</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="1005" to="1018" />
+			<date type="published" when="2017-10-31" />
+			<publisher>Korean Institute of Information Scientists and Engineers</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Team Diversity and Team Creativity</title>
+		<author>
+			<persName><forename type="first">Daan</forename><surname>Van Knippenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Inga</forename><forename type="middle">J</forename><surname>Hoever</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/oso/9780190222093.003.0003</idno>
+		<imprint>
+			<date type="published" when="2017-12-21" />
+			<publisher>Oxford University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Une minorité en action : la charité protestante en France, XIX&lt;sup xmlns:m=&quot;http://www.w3.org/1998/Math/MathML&quot; xmlns:mml=&quot;http://www.w3.org/1998/Math/MathML&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;e&lt;/sup&gt;- XX&lt;sup xmlns:m=&quot;http://www.w3.org/1998/Math/MathML&quot; xmlns:mml=&quot;http://www.w3.org/1998/Math/MathML&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;e&lt;/sup&gt; siècles</title>
+		<author>
+			<persName><forename type="first">Martha</forename><surname>Gilson</surname></persName>
+		</author>
+		<idno type="DOI">10.1353/lms.2011.0011</idno>
+		<ptr target="http://docs.openvswitch.org/en/latest/" />
+	</analytic>
+	<monogr>
+		<title level="j">Le mouvement social</title>
+		<title level="j" type="abbrev">Le mouvement social</title>
+		<idno type="ISSNe">1961-8646</idno>
+		<imprint>
+			<biblScope unit="volume">234</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="63" to="82" />
+			<date type="published" when="2011" />
+			<publisher>Project Muse</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">GIOTTO SPICE Data Archive</title>
+		<idno type="DOI">10.5270/esa-yvfs0w3</idno>
+		<ptr target="https://www.spice-space.org/" />
+		<imprint>
+			<date type="published" when="2019" />
+			<publisher>European Space Agency</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Extending Operation Lifespan of Instrumentation and Control Systems with Virtualization Technologies</title>
+		<author>
+			<persName><forename type="first">Kirill</forename><surname>Semenkov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nadir</forename><surname>Mengazetdinov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aleksey</forename><surname>Poletykin</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/rusautocon.2019.8867595</idno>
+		<ptr target="https://ieeexplore.ieee.org/document/8867595" />
+	</analytic>
+	<monogr>
+		<title level="m">2019 International Russian Automation Conference (RusAutoCon)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-09" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Automation Using PowerShell</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Goto</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/9781118257432.ch8</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Mastering</title>
+				<imprint>
+			<publisher>Wiley Publishing, Inc.</publisher>
+			<date type="published" when="2011-11-03" />
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="page" from="327" to="368" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

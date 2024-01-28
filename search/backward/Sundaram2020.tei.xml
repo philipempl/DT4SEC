@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A data analytical approach for assessing the efficacy of Operational Technology active defenses against insider threats</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2020-06">2020-06</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Arvind</forename><surname>Sundaram</surname></persName>
+							<email>sundara4@purdue.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">School of Nuclear Engineering</orgName>
+								<orgName type="institution">Purdue University</orgName>
+								<address>
+									<addrLine>400 Central Dr</addrLine>
+									<postCode>47906</postCode>
+									<settlement>West Lafayette</settlement>
+									<region>IN</region>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hany</forename><forename type="middle">S</forename><surname>Abdel-Khalik</surname></persName>
+							<email>abdelkhalik@purdue.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">School of Nuclear Engineering</orgName>
+								<orgName type="institution">Purdue University</orgName>
+								<address>
+									<addrLine>400 Central Dr</addrLine>
+									<postCode>47906</postCode>
+									<settlement>West Lafayette</settlement>
+									<region>IN</region>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Oussama</forename><surname>Ashy</surname></persName>
+							<email>ashyo@ws-corp.com</email>
+							<affiliation key="aff1">
+								<orgName type="department">WSC, Inc</orgName>
+								<address>
+									<addrLine>7196 Crestwood Blvd #300</addrLine>
+									<postCode>21703</postCode>
+									<settlement>Frederick</settlement>
+									<region>MD</region>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A data analytical approach for assessing the efficacy of Operational Technology active defenses against insider threats</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Progress in Nuclear Energy</title>
+						<title level="j" type="abbrev">Progress in Nuclear Energy</title>
+						<idno type="ISSN">0149-1970</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">124</biblScope>
+							<biblScope unit="page">103339</biblScope>
+							<date type="published" when="2020-06" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1016/j.pnucene.2020.103339</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T13:00+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Neural network</term>
+					<term>deep learning</term>
+					<term>cybersecurity</term>
+					<term>active monitoring</term>
+					<term>reduced-order modeling</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In recent years, the need for the so-called Operational Technology (OT) defenses has been recognized, serving as an additional line of defense when Information Technology (IT) defenses are bypassed. This is no longer considered an uncommon possibility when dealing with advanced persistent threat (APT) actors expected to be state-sponsored and receiving insider assistance. In these extreme adversarial situations, OT defenses aim to provide another layer of defense for the system, introduced directly at the physical process level, as described by the sensors data, the system model, and control actions. Just like IT defenses, two schools of thought, i.e., passive and active defenses, have emerged to address this challenge. In active defenses, representing the focus of this paper, known signatures, synthesized based on the system's unique characteristics, are inserted into the system. In contradistinction, passive methods rely solely on observing system behavior in search of patterns of normal behavior with deviations thereof representing abnormal behavior. In their most sophisticated implementations, both passive and active defenses rely on the use of data analytics to identify the patterns and synthesize the observed and/or inserted signatures. Past research has shown that passive defenses may be bypassed by APT actors relying on data analytics and their intimate knowledge of the system to evade detection by respecting the patterns identified by the defenders. Thus, this manuscript explores the use of active defenses under the assumption that the attacker has privileged access to the system, including access to the system's model and sensors data. Specifically, this manuscript assesses the ability of active defenses to remain invisible to the attackers, and discusses the associated challenges that must be addressed to ensure their resiliency against APT actors.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>The past decade has seen a surge in the replacement of analog industrial control systems (ICS) by their digital counterparts in various sectors, such as healthcare, energy, defense, and transportation. Unfortunately, the massive advancements in digitization and security have been mirrored by even faster-paced developments in advanced electronic intrusion and data breaches strategies. Recent years have also overseen a paradigm shift in the development of the so-called cyber-physical framework, proposed to integrate computations, sensors data, and network communications, to optimize the operation and control of many critical systems, e.g., smart grid, digitized ICS systems, IoT systems, etc <ref type="bibr" target="#b0">[1]</ref>. This paradigm shift has unsurprisingly provided a new battleground for capable and resourceful, e.g., APT, attackers to search for vulnerabilities that may be used to inflict physical damage on the associated systems. This has been demonstrated by numerous recent attacks, e.g., the 2010 Stuxnet malware, the 2015 Ukraine's electric grid attack, and the 2008 Baku-Tbilisi-Ceyhan pipeline attack to name a few.</p><p>The direct response to these challenges has focused on the adoption of information technology (IT) defenses whose main function is to protect the network from unauthorized access. While IT defenses are essential, they cannot protect the physical system at the basic process level. The implication is that if the attackers (equipped with technical know-how) gain a foothold in the system, the system could become defenseless and sustain physical damage. This is because the system protection measures, designed to ensure safe operation, would be known to the attackers and could potentially be circumvented. This attack scenario is indeed realistic for critical systems such as nuclear, chemical, oil and gas plants, etc., because their technical design characteristics are well-known to statesponsored type adversaries, often referred to as APT actors, as they are expected to launch long-term campaign to first learn system behavior, and gain access to the system via insiders' coercion/social engineering before they proceed to inflicting damage to the system.</p><p>Conventional IT defenses have relied on a passive defense strategy which builds walls to stop intrusion, such as firewalls, cryptography, message authentication, etc <ref type="bibr">[2]</ref>. While encryption algorithms such as RSA and hashing functions like SHA-512 are extremely secure for most modern applications, parallel advancements in quantum computing have proven capable of breaking versions of these encryptions <ref type="bibr" target="#b1">[3]</ref>. In the past two decades, active IT strategies have been introduced to shift the burden of intrusion back to the attackers. A defense is considered active if it takes deliberate measures to detect intrusion, like sending network traffic or executing suspected malware in a sandbox <ref type="bibr" target="#b2">[4]</ref>. These defenses can require significant changes to the network architecture to introduce as well. They could be compromised, however, if attackers have access to their design details. State-sponsored attackers have indeed proven that both passive and active defenses can be circumvented with enough knowledge of a given network architecture and the details of associated defense strategies.</p><p>The class of attacks addressed in this work is that of the insider problem, where the adversary has complete information about the system and is capable of manipulating it in surgical ways relying on their privileged access. Security against such attacks is paramount to the safety of critical systems, e.g., nuclear reactors, that typically have air-gapped networks to prevent external access. However, digitization leaves them vulnerable to attacks from insiders or from attackers with strong familiarity with systems such as SCADA. Despite being air-gapped, attacks such as Stuxnet, and sabotage committed by insiders at multiple nuclear power stations such as Zion, Peach Bottom, Trojan, Beaver Valley etc. showcased the vulnerability of such IT-secure plants due to human negligence and malice.</p><p>In light of these challenges, new research and development efforts have shifted towards another type of defense, coining the term Operational Technology (OT) <ref type="bibr">[5]</ref>, which attempts to protect the system at the basic process level, representing a novel and complementary defense paradigm to IT-type defenses. In the OT paradigm, the defense is implemented in terms of the system process variables, representing engineering actuators, commands, components status indicators, or sensors readings, and associated system dynamics models. The basic idea behind OT defenses may be best described by a know-yourself-type approach, wherein the defender's intimate knowledge of the system models and process variables can be used to design unique signatures for normal operation. These signatures are harvested using data analytics techniques and if performed correctly, can generate signatures unique to the various system details such as proprietary design details, operational history etc. Just like IT defenses, these signatures can be employed in either passive or active settings. The passive defense approach relies on artificial intelligence (AI) and the system models --often referred to as digital twin <ref type="bibr" target="#b3">[6]</ref> --to monitor the process variables in search for correlations that can be used to detect falsification of the process variables. This defense is effective when the attackers have no explicit access to the physics models.</p><p>Alternatively, active methods are rendered by inserting known perturbations into the system, akin to the idea of watermarking. In one implementation described in greater detail below <ref type="bibr" target="#b4">[7]</ref>, a signal is deliberately introduced into a system via the control input, and the system models are employed to track its impact on the sensors data. The added noise could be designed to make it the more difficult for the attacker to learn system dynamics or to serve as a signature that the system has not been manipulated. From a control perspective however, the added noise introduces a small penalty on the optimum system control strategy which has to be carefully managed to avoid introducing a noticeable impact on system performance.</p><p>In the state-of-the-art passive and active defenses <ref type="bibr" target="#b5">[8]</ref>, it is typically assumed that the attacker does not have privileged, i.e., full, access to the models, but the models could be learned/approximated using a combination of physics-based and self-learning techniques during a lie-in-wait period. In extreme adversarial scenarios, e.g., APT campaigns, it becomes necessary to assume that the attackers can gain a strategic foothold in the system allowing them privileged access to all the system models and the sensors data. In this type of attack, one must assess the resiliency of passive and active defenses and whether they can be circumvented by privileged-access attackers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Background</head><p>In this section, we briefly describe various passive and active methods used in OT. Many initiatives on the design of OT defenses have been taken by the cybersecurity community to address the challenge of adversarial intrusion into industrial control networks. For example, passive techniques such as model-based defenses rely on predictive models to secure the system by developing a fingerprint based on the system dynamics, and is one of the most popular and effective defense models used <ref type="bibr" target="#b5">[8]</ref>. The core idea is to compare the current state of the model to the expected state based on physical and/or statistical models and decide if the system is under normal operation. Multiple researchers <ref type="bibr" target="#b6">[9,</ref><ref type="bibr" target="#b7">10]</ref> over the past decade have extended this idea further to automate the identification of such fingerprints. Passive algorithms do not change the state of the system while monitoring its behavior, as opposed to active algorithms which involve inserting data throughout the system and analyzing the resulting altered behavior. Passive monitoring, while simple to implement, can be circumvented --as demonstrated by earlier work <ref type="bibr" target="#b8">[11]</ref> --by capable adversaries who have intimate knowledge of the system models, or who can guess the general set of equations used to describe system behavior short of some parameters that can be self-learned during a lie-in-wait period. These learnt attacker models can be exploited to ensure that system data are falsified in manners that respect established system fingerprints, thereby allowing one to evade detection by passive monitoring techniques. Additionally, attack vectors can be successfully constructed to circumvent state-estimators to detect bad/malicious measurements in a system with just knowledge of the network topology. Not only do these vectors pass through the system undetected, but they are also capable of introducing arbitrary unconstrainted errors in a system, thus leading to catastrophic failure <ref type="bibr" target="#b9">[12]</ref>.</p><p>On the other hand, "active monitoring" could be designed to be a more effective approach to deter attackers even if they understand system behavior. It is however not clear what type of inserted data would be immune to selfdiscovery by the attacker, which represents the key focus of this manuscript. The basic idea behind active monitoring may be traced back to an earlier publication which has theoretically shown that noise, inherently found in communication channels, can achieve secure encryption over public networks <ref type="bibr" target="#b10">[13]</ref>, even if the adversaries possess unlimited computational power. This idea has inspired a number of active monitoring algorithms that rely on insertion of noise into the network. The present work performs an assessment of the efficacy of various active measures, of which few examples are discussed next.</p><p>One of the earliest uses of active monitoring techniques is in identifying problematic nodes in a network by sending test packets and measuring properties such as loss, latency etc. Monitoring the packet transmission time provides information about the source and the receiver and can serve as a fingerprint. Moreover, intentional delays can be added as a watermark to authenticate the communication channel. However, the presence of the watermark is typically detectable and may even be duplicated if carelessly implemented <ref type="bibr" target="#b11">[14]</ref>.</p><p>In recent years, the idea has been further developed by the control community to design active changes to the network data themselves, in the form of noise added to the control inputs <ref type="bibr" target="#b4">[7,</ref><ref type="bibr" target="#b12">15]</ref>. As a notable example, dynamic watermarking has been proposed to insert a "private excitation" into the system via the actuator, which can be traced throughout the control loop to detect malicious nodes, i.e., places in the network where the attack occurred. A continuously-changing optimal watermark can then be developed at a desired cost of optimality. It is designed to work against a class of attacks known as "replay attacks" (e.g. Stuxnet) that tricks the system into believing it is under normal operating conditions. This is achieved by broadcasting a previous set of output signals to fool the observer (typically a statistical-detector), and thus the system appears healthy at steady-state while the adversary continues to manipulate the system in malicious ways. Such techniques have a probability of false alarm which must be minimized. Furthermore, they must worry about the non-optimality of system control resulting from the added noise.</p><p>Dynamic approaches that employ features of "security through obscurity" include moving target defenses (MTD) that are seen as an upgrade over static approaches in the cyber community <ref type="bibr">[16]</ref>. While obscurity alone is insufficient, MTD is often used in conjunction with other strategies to secure a system. It works under the assumption that perfect security cannot be attained and attempts to ensure the safe operation of systems in a compromised environment. By constantly changing the attacked surface, these defenses increase the cost of implementing an attack and reduce the window of opportunity. When augmented with AI and strategies from game theory <ref type="bibr" target="#b13">[17]</ref>, the decision-making process on when and how to shift the target is greatly enhanced.</p><p>It is important to note that critical industrial processes, e.g., nuclear and chemical reactors, are associated with massive amounts of data, and breakthroughs in the field of big data analytics have made it possible to derive enabling features that may be exploited for security or adversarial purposes. From a security standpoint, defenders are expected to rely on data analytics to derive fingerprints for their system, not only for the dominant behavior but also for the inherent system noise; see for example the work on the development of sensors fingerprinting called NoisePrint <ref type="bibr" target="#b14">[18]</ref>. These methods are expected to be resilient to detect naïve false data injection attacks with weak familiarity of the system behavior and its characteristic noise. APT actors however are expected to replicate these signatures by doing the same exact thing as the defenders, that is to rely on data analytics to derive behavioral patterns for the dominant behavior as well as the inherent noise characteristics. Interestingly, for some systems, such as nuclear reactors, noise analysis is a well-established area that is used to analyze reactor performance and detect signs of equipment failure and degradation. Hence a significant contribution of this manuscript is to assess active defenses based on the attacker's ability to learn system noise, before launching their attack.</p><p>To summarize, the basic idea of active monitoring is believed to be sound and can potentially create unbreakable fingerprints, however multiple challenges need to be addressed before their implementation can be regulated for industrial purposes. This manuscript will develop few tests to assess the efficacy of some of the noted active OT defenses, and propose some guidance on their implementation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Numerical Experiments</head><p>This section analyzes the effectiveness of injecting noise into a system using three numerical experiments. Neural networks are employed as the data analytical tool to learn, differentiate between different noise sources, and measure their impact on system behavior. Neural networks are integral components of data analytics and can be implemented in both supervised and unsupervised settings. The supervised implementation involves identifying a set of features in a large set of samples based on user-defined output classes that are assigned to each sample. These features are generally complicated functions of the input data, involving multiple neuron functions and activation weights that are determined via a learning algorithm, e.g., the backpropagation algorithm <ref type="bibr" target="#b15">[19]</ref>. Once learning is complete, the neural network can be deployed to classify different sets of inputs. Unsupervised learning performs a similar function but without the user-defined classes.</p><p>In the first numerical experiment, we use supervised learning to show how neural networks can be used to distinguish between different types of noise that are random but differ in their power spectrum. The other two experiments focus on the use of noise as an active OT defense. As mentioned earlier, a number of active OT defenses, e.g., dynamic watermarking, rely on the idea of inserting noise as a basis for protecting a physical process. Recalling our goal focused on the attacker's ability to detect active OT defenses, this study will employ two different noise insertion approaches. In the first approach <ref type="bibr" target="#b16">[20]</ref>, the noise is added to select process variables according to a secret code, designed by the defender, and the defense reduces to an algorithmic search for this code. In doing so, the noise is assumed to have no impact on the future system state. Additionally, the noise is generated using a fixed, i.e., static set of noise sources with known statistics. In the second approach, the noise added at a given time impacts the future system state and is generated from a continuously changing, i.e., dynamic set of sources. The first approach is tested using a representative model for a gas turbine simulator, and the second approach employs a discrete linear dynamical model for demonstration. The second approach is inspired by the idea of dynamic watermarking, where the inserted noise's impact on the system must be taken into account when designing the active OT defense.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Colored noise detection</head><p>This section demonstrates the ability of simple feedforward neural networks to classify different types of noise by their color, i.e. their power spectrum. Five types of noise, red, pink, white, azure, and violet, were generated using the DSP System Toolbox in MATLAB. A total of 10,000 time-series with 1,000 elements each were generated for each noise type before classification. The noise is added to a baseline function representing a physical process, limited in this case to a simple quadratic function. Both binary (i.e., classification into two sets at a time) and multiclass classification are attempted with a neural network generated using the Deep Learning Toolbox in MATLAB. From the adversarial standpoint, the attacker is assumed to filter out the dominant behavior and subtract it away to determine the noise components, before performing the classification. This can be done using an unsupervised learning approach like singular value decomposition or principal component analysis (PCA). The settings used to train a two-layer neural network for supervised learning are described in Table <ref type="table" target="#tab_0">I</ref>. The trained neural network was able to classify the dataset of 50,000 noise samples into five types with a high accuracy using binary classification. The true positive rate of the color along the row is provided in Table <ref type="table" target="#tab_0">II</ref>. For example, in a binary classification problem of azure and violet noise, violet noise was correctly classified about 88% of the time whereas azure was correctly classified about 98.8% of the time. As expected, red noise is the easiest to distinguish due to a markedly different profile compared to the other noise profiles when plotted in the time-domain.</p><p>Violet and azure were the most difficult to distinguish from each other, requiring a large number of neurons in the hidden layer. These findings are corroborated by simple inspection of the various noise types in the time-domain. For the multi-class classification problem, a hidden layer was required with 700 neurons. This is due to the greater number of distinguishing features required by multi-class problems. In Fig. <ref type="figure">1</ref>, violet, azure, white, pink, and red are denoted by the numbers 1-5 respectively. The sixth row contains the classification rate corresponding to each color. For example, out of 10,000 violet samples, about 58% were correctly classified as violet while the remaining 42% were misclassified, most of which fell under azure. It can be inferred that violet and azure noise were harder to separate from the remaining colors owing to their high degree of similarity in the time domain. However, since the other three colors can be separated with a high degree of accuracy, the multiclass problem can be converted to a binary problem between violet and azure and a much higher accuracy can be obtained as shown above in Table <ref type="table" target="#tab_0">II</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Fig. 1: Multiclass classification</head><p>While it is possible to achieve a much higher rate of classification using more neurons, additional hidden layers, and/or support-vector machines, this is not an efficient approach to differentiate noise, especially if one knows the noise sources are colored. However, our goal here is to use a brute-force neural network / black-box approach to determine if noise characteristics can be generally classified. In reality, if the attacker has information about the noise characteristics, more advanced and efficient learning strategies could be devised to obtain the noise parameters. Fig. <ref type="figure">2</ref> shows how a more advanced noise classification approach using unsupervised learning, based on Fourier transformation to the frequency domain, could be devised. After transformation, PCA is used to find the chief directions of the dataset and their components along each transformed series is computed. K-means clustering is then used to separate the components into different clusters. Once the clustering is done, the clustered groups are compared to the five original groups and the accuracy for each color is computed. In Table <ref type="table" target="#tab_0">III</ref>, we observe that the best results were achieved when the data was divided into four clusters. This can be reasoned by the fact that violet and azure datasets have a significant overlap in both the time and frequency domain and are not always distinguishable. The above experiments showcase the success of both supervised and unsupervised learning methods in colored noise classification (depending on domain knowledge) using simple feedforward networks, PCA and k-means clustering. As a result, white Gaussian noise is used for the remaining sets of numerical experiments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Fig. 2: Power Spectral Density of the various colors of noise [21]</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Detection of coded noise</head><p>This numerical experiment focuses on inserting coded noise into a number of system observables, i.e., measured process parameters. The code relies on some algorithm representing a secret formula. Research in the cryptographic community has shown that while complicated secret formulas can be used to increase the burden for an attacker, the key length is what determines the security level of a given encryption algorithm. This notion was well captured by the Vernam-Cipher one-time-pad criterion introduced near the end of World War one, and later proven by Shannon to be the basis for assessing the unbreakability of a given encryption algorithm <ref type="bibr">[22]</ref>.</p><p>To motivate this in our context where no encryption is assumed, the key is represented by a vector of size n, implying n different sources of noise, which could be introduced via a software-based or hardware-based random number generator. These n sources of noise are used to generate a time series of noisy data of length m, representing the number of time steps for the system observable. This can be achieved using a simple linear superposition of n time series, each of length m generated from a random Gaussian distribution, and linearly combined using n randomly generated variables. To generate another time series of noise, one needs to update the n key variables and recombine the n time series, as implied by Eq. 1. The generated noise is then embedded into a physical process, taken here to simulate the power output of a turbine after a pump trip. The power output was simulated using a KEYMASTER TM Generic Combined Cycle Gas Turbine Simulator System by WSC, Inc. (Figs. <ref type="figure" target="#fig_0">3 and 4</ref>).</p><p>Many realizations of the noise are generated, of which one is "coded", i.e., to simulate an active OT defense. To ensure that the noise does not have an impact on the system behavior, a projection operation onto the non-observable space is employed prior to insertion of the noise. The process of embedding the noise is depicted by Eqs. 1-3 below.</p><formula xml:id="formula_0">= ∑ ( )<label>(1)</label></formula><formula xml:id="formula_1">( ) = ( ) ‖ ( )‖</formula><p>(2)</p><formula xml:id="formula_2">( ) = ( ) + * ( − ( ) * ( ) )<label>(3)</label></formula><p>where</p><formula xml:id="formula_3">( ) = [ ( ) ( ) … ]</formula><p>Here, f(t) is a static source of noise, k is a random coefficient representing a component of the variable key, n is the number of fixed sources denoting the complexity of the algorithm, ξ is the noise to be added, u(t) is a unit vector representing the power output time series p(t), and β is a variable that adjusts the noise level. The process is illustrated in Fig. <ref type="figure">5</ref> below.   Many strategies can be envisioned for inserting a secret code. For example, in our implementation, the coded dataset contains more than one component from the non-observable space described by the projection whereas the other samples contain only one component. The components to be included along with their keys are selected using a deterministic formula representing the secret code. Further adjustments are made to ensure statistical similarity between the coded and uncoded samples. The above process is repeated 20,000 times to generate multiple sets of coded and uncoded samples and the keys are changed between each run akin to a one-time pad. Then, a similar supervised learning approach to Section 3.1 is used to classify the coded dataset from the remaining using the Deep Learning Toolbox in MATLAB. To analyze the results, the detection efficiency, δ, is defined as follows:</p><formula xml:id="formula_4">= !"# $% &amp;$##"&amp; #"' &amp; $ ( $ )* &amp;)("( * 100%<label>(4)</label></formula><p>Three factors are identified that might affect the detection efficiency, namely the number of test cases supplied to the neural network, the number of neurons in the hidden layer, and the number of static noise sources used. The number of neurons in the hidden layer used to train the neural network were varied from 10 to 200, the number of noise sources from 3 to 50, and the number of training data runs (each generating 19 cases) from 10 to 20,000. To increase the size of the test matrix, another set of 20,000 runs was created. Only the raw observed data was passed to the neural network for classification as a brute-force approach.</p><p>Classification results indicate that the detection efficiency of the neural network improved drastically with an increase in the number of training cases. We observe that the network requires ~200 runs (3800 samples) before it can reach close to 100% detection efficiency as shown in Fig. <ref type="figure">6</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Fig. 6: Variation of detection efficiency with training cases.</head><p>The number of neurons in the hidden layer required to train the neural network shows a linear relationship with the number of noise sources employed. As illustrated in Fig. <ref type="figure">7</ref>, 10 neurons are sufficient for a problem with 10 noise sources but similar rates of efficiency cannot be achieved if the number of sources increases. However, it must be noted that with enough training cases, the difference may be negligible. On the other hand, for a given number of training cases, one needs additional neurons to improve the detection efficiency of the system due to an increase in the length of the key.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Fig. 7: Variation of detection efficiency with number of noise sources using 10 neurons</head><p>The first important observation is that if the static noise sources were changed randomly from run to run, the neural network will not be able to learn. The second observation is that increasing the length of the key alone is not going to lead to a secure approach, because it can be discovered with neural networks employing additional neurons. The implication is that while random linear combinations of a fixed set of randomly-generated sources may appear random, repeated use of the same static noise sources renders the code detectable. This can be exploited by a sufficiently large neural network without any prior knowledge about the number of static sources or the sources themselves, using just the raw data as input. This observation resonates with the concept of a one-time pad mentioned near the beginning of this section. In theory, if the static noise sources (the "pad") are changed after every run and different keys are used each time, learning would not be possible. This notion is explored in the next numerical experiment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Dynamic Noise in a Control System</head><p>In this section, a linear dynamic system is modeled with additive white Gaussian noise to mimic real-world systems. Additionally, this experiment removes the constraint of static noise sources imposed in section 3.2 and determines if the neural network can adapt to a continuously changing noise source. A similar embedding to the above is performed along the state-space of a single-input single-output (SISO) linear dynamical control system described below along with its cost function. An example of such a system is depicted in Fig. <ref type="figure">8</ref> below with the embedding done on top of the plant noise. Fig. <ref type="figure">8</ref>: Illustration of a SISO control system <ref type="bibr" target="#b18">[23]</ref> The state-space is denoted by x, the output by y which reaches the setpoint r, and the integral of the tracking error is given by xi. Assume that the matrices A, B and C are controllable and observable and the vectors v and w are simple additive white Gaussian noise. Such noise is typically considered in the system model and pioneering work in the field of control theory has led to the near-ubiquitous use of Kalman filters <ref type="bibr" target="#b19">[24]</ref> as optimal state estimators to serve as guidance for system control. The time-domain was discretized into 100 time-steps, each measuring 0.05 seconds (δt). The cost function is given by J with associated cost matrices Q1 and Q2 and the transpose operator is denoted by ' T '. A Linear-Quadratic-Gaussian (LQG) regulator was developed using the Control Systems Toolbox in MATLAB to model the above system and find the optimal control u. Perturbations were then added to the statespace vector on top of the existing plant noise. While the added perturbation was constrained in the non-observable space in the second numerical experiment, it is constrained using the gradient function in this experiment to minimize its impact on the cost function. The gradient of the cost function was then taken with respect to the current state vector. The perturbation to be added is chosen orthogonal to the gradient vector since movement perpendicular to the gradient guarantees no local perturbation to the cost function. The perturbation is added to the state-space from Eq. (5) and before Eqs. <ref type="bibr" target="#b3">(6)</ref><ref type="bibr" target="#b4">(7)</ref><ref type="bibr" target="#b5">(8)</ref> are evaluated.</p><p>Three types of test cases are employed to demonstrate the effect of noise insertion on the cost function. First, a random vector is projected onto the space orthogonal to the gradient and scaled to the magnitude of the natural noise present in the system (NS). Second, a random perturbation is added to the state space with the same statistics but without the orthogonal projection onto the gradient (RN). The last case (NN) is executed without any perturbation, i.e., Eqs.</p><p>(5-8) are evaluated without the intermediate additive step between Eqs. (5) and <ref type="bibr" target="#b3">(6)</ref>. The three cases are run 10,000 times to obtain a baseline variation for the cost function when no additional noise is added.</p><p>Also, the addition of a random perturbation to the state-space can be thought of adding an additional independent noise vector, which increases the variance of the noise matrices used to create the LQG-regulator. In this specific scenario, the added noise increases the variance of the noise (initially 10 -4 ) by about 13%. The same assumptions were made about the projected vector as well, and therefore another LQG-controller was created using the new state-space noise (v) variance matrix to model the modified state-spaces. The original LQG-controller was used for the NN case and the new LQG-controller for the NS and RN.</p><p>The results of the above experiment are presented below. Fig. <ref type="figure">9</ref> shows the relative difference between the cost functions JNN and JNS with respect to JNN. Table <ref type="table" target="#tab_0">IV</ref> provides statistics on the cost function over 10,000 runs due to the added noise. Lastly, Fig. <ref type="figure">10</ref> plots the cost functions after the perturbation against the original.  Table <ref type="table" target="#tab_0">IV</ref>, and Figs. 9 and 10 show that a perturbation to the state-space in a random direction (JRN) increases the spread of the cost function and thus could be detectable, while a random perturbation constrained using the gradient (JNS) is much closer to the original (JNN). Additionally, the state-space is collected across at all time-steps across all 10,000 runs for each of the three cases and sent to a simple feed-forward neural network for classification. Feedforward networks were once again employed to differentiate between the state spaces. However, they are indistinguishable from each other even with a large network size and multiple hidden layers due to the lack of delineating features. The dimension of the state-space across all time-steps is then reduced to a scalar using the cost function, and then sent to the feedforward neural network for classification. Both the random and constrained perturbation do not cause any noticeable deviations from the original cost to be easily separable, and as a result, the feedforward network fails to classify them. Finally, the noticeable change in standard deviation is exploited by dividing the 10,000 runs per case into 10 subsets of 1000 costs each, for a total of 30 subsets. K-means clustering was then used to classify the standard deviations of each subset into three groups.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Fig. 11: Classification using K-Means</head><p>Due to the high degree of similarity between the NN and NS cases, the clustering was unable to clearly classify them and the classification was reduced to two groups instead. It is observed that the network was able to isolate the RN case due to its markedly different standard deviation as shown above in Fig. <ref type="figure">11</ref> with 95% accuracy. This is a positive result since the added noise can now be successfully hidden from neural networks as long as it is constrained along a desired parameter (cost function in this case). Although not explored in this paper, it may merit further analysis using other types of neural networks such as convolutional and recurrent networks, and residualbased methods such as χ 2 -detectors <ref type="bibr" target="#b20">[25,</ref><ref type="bibr" target="#b21">26]</ref>. Further provisions may be made to mimic the original behavior with the added noise and shall also be explored in future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Conclusion</head><p>The overarching objective of this and previous research has focused on developing an initial assessment of various active and passive monitoring techniques used in industrial systems to detect intrusion and malicious activity under the assumption that the attacker knows the system very well. Earlier research has shown that while passive monitoring provides insight into the behavior of a system, it may not be a reliable OT defense against attackers with strong familiarity with system behavior <ref type="bibr" target="#b8">[11]</ref>., thus necessitating the use of active OT defenses. Active OT defenses rely on the inclusion of noise into the network to detect unauthorized manipulation. Unlike passive OT defenses, active defenses introduce changes to the system, and hence their performance must be assessed with regard to the impact on the system, and the ability of the attacker to detect their presence, with the latter goal representing the focus of this manuscript. Different numerical experiments are designed to explore whether active OT defenses can be detected under various assumptions of the type of noise inserted into the system. Results indicate that noise statistics may serve as the first indicator an attacker would look for. Hence any inserted noise must be statistically identical to the natural system noise, otherwise it will be detectable by an attacker familiar with the system noise. Second, insertion of noise using secret formulae, i.e. codes, is not immune for discovery by the attacker, unless the noise sources are frequently changed. Third, when the noise is inserted in a dynamical sense, where the noise impacts future system behavior, the presence of the noise could be detected by observing changes in the optimum system control behavior. Future work will focus on development of strategies to insert the noise in a manner that do not impact system behavior, and hence produce no variations in its optimal control behavior.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Acknowledgement</head><p>We would like to thank the US Department of Energy for funding this project and WSC, Inc. for the KEYMASTER TM Gas Turbine Simulator used in this project. This work was supported by DOE-NEUP grant number DE-NE0008705.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 3 :</head><label>3</label><figDesc>Fig. 3: Gas turbine system in the simulation software.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 4 :</head><label>4</label><figDesc>Fig. 4: Steam turbine system in the simulation software.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig</head><label></label><figDesc>Fig. 5: Algorithm</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 9 :Fig. 10 :</head><label>910</label><figDesc>Fig. 9: Relative change in cost function over 10,000 runs</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I .</head><label>I</label><figDesc>Neural Network Training Parameters</figDesc><table><row><cell>Data Division</cell><cell>Random</cell></row><row><cell>Training</cell><cell>Scaled Conjugate Gradient</cell></row><row><cell>Performance</cell><cell>Cross-Entropy</cell></row><row><cell>Calculations</cell><cell>MEX</cell></row><row><cell>Max. Iterations</cell><cell>1000</cell></row><row><cell>Minimum Gradient</cell><cell>1.00e-06</cell></row><row><cell>Validation Checks</cell><cell>50</cell></row><row><cell>Train-Test-Validation</cell><cell>70-15-15%</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>TABLE II .</head><label>II</label><figDesc>Binary Classification Results</figDesc><table><row><cell>Color</cell><cell>Violet</cell><cell>Azure</cell><cell>White</cell><cell>Pink</cell><cell>Red</cell></row><row><cell>Violet</cell><cell>N/A</cell><cell>88.0%</cell><cell>92.0%</cell><cell>100.0%</cell><cell>100.0%</cell></row><row><cell>Azure</cell><cell>98.8%</cell><cell>N/A</cell><cell>86.4%</cell><cell>100.0%</cell><cell>100.0%</cell></row><row><cell>White</cell><cell>99.0%</cell><cell>96.0%</cell><cell>N/A</cell><cell>100.0%</cell><cell>100.0%</cell></row><row><cell>Pink</cell><cell>99.9%</cell><cell>99.9%</cell><cell>99.5%</cell><cell>N/A</cell><cell>100.0%</cell></row><row><cell>Red</cell><cell>99.9%</cell><cell>99.9%</cell><cell>99.9%</cell><cell>99.7%</cell><cell>N/A</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>TABLE III</head><label>III</label><figDesc></figDesc><table><row><cell>: K-Means clustering results</cell><cell></cell><cell></cell></row><row><cell>K-Means Group</cell><cell>Corresponding Color</cell><cell>Accuracy</cell></row><row><cell>1</cell><cell>Pink</cell><cell>95.13%</cell></row><row><cell>2</cell><cell>Violet + Azure</cell><cell>98.48%</cell></row><row><cell>3</cell><cell>White</cell><cell>96.95%</cell></row><row><cell>4</cell><cell>Red</cell><cell>95.86%</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>TABLE IV .</head><label>IV</label><figDesc>Statistics of the cost function over 10,000 runs</figDesc><table><row><cell></cell><cell>JNN</cell><cell>JNS</cell><cell>JRN</cell></row><row><cell>Mean</cell><cell>32427.28</cell><cell>32427.46</cell><cell>32427.04</cell></row><row><cell>Standard Deviation</cell><cell>102.12</cell><cell>101.59</cell><cell>108.49</cell></row></table></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Collective security</title>
+		<idno type="DOI">10.1017/9781316822524.021</idno>
+		<ptr target="https://www.dhs.gov/science-and-technology/cpssec2" />
+	</analytic>
+	<monogr>
+		<title level="m">Tallinn Manual 2.0 on the International Law Applicable to Cyber Operations</title>
+				<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date>2013</date>
+			<biblScope unit="page" from="357" to="372" />
+		</imprint>
+		<respStmt>
+			<orgName>Department of Homeland Security ; NATO Cooperative Cyber Defense Centre of Excellence</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Erratum: Prime factorization using quantum annealing and computational algebraic geometry</title>
+		<author>
+			<persName><forename type="first">Raouf</forename><surname>Dridi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hedayat</forename><surname>Alghassi</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/srep44963</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Reports</title>
+		<title level="j" type="abbrev">Sci Rep</title>
+		<idno type="ISSNe">2045-2322</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2017-03-22" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Passive and Active Monitoring on a High Performance Research Network.</title>
+		<author>
+			<persName><forename type="first">Warren</forename><surname>Matthews</surname></persName>
+		</author>
+		<idno type="DOI">10.2172/784912</idno>
+		<ptr target="https://www.gartner.com/en/information-technology/glossary/operational-technology-ot" />
+	</analytic>
+	<monogr>
+		<title level="m">Gartner IT Glossary</title>
+		<title level="s">IRIS Network Systems</title>
+		<imprint>
+			<publisher>Office of Scientific and Technical Information (OSTI)</publisher>
+			<date type="published" when="2001-05-01" />
+		</imprint>
+	</monogr>
+	<note>Operational Technology (OT)</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Digital Twin: Manufacturing Excellence Through Virtual Factory Replication</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grieves</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Physical Authentication of Control Systems: Designing Watermarked Control Inputs to Detect Counterfeit Sensor Outputs</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Mo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Weerakkody</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sinopoli</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mcs.2014.2364724</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Control Systems</title>
+		<title level="j" type="abbrev">IEEE Control Syst.</title>
+		<idno type="ISSN">1066-033X</idno>
+		<idno type="ISSNe">1941-000X</idno>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="93" to="109" />
+			<date type="published" when="2015-02" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Limiting the Impact of Stealthy Attacks on Industrial Control Systems</title>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">I</forename><surname>Urbina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jairo</forename><forename type="middle">A</forename><surname>Giraldo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alvaro</forename><forename type="middle">A</forename><surname>Cardenas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nils</forename><forename type="middle">Ole</forename><surname>Tippenhauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junia</forename><surname>Valente</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mustafa</forename><surname>Faisal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Justin</forename><surname>Ruths</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Candell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Henrik</forename><surname>Sandberg</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2976749.2978388</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security</title>
+				<meeting>the 2016 ACM SIGSAC Conference on Computer and Communications Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2016-10-24" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Model-based cybersecurity for control systems: Modeling, design and control</title>
+		<author>
+			<persName><forename type="first">Kenji</forename><surname>Sawada</surname></persName>
+		</author>
+		<idno type="DOI">10.23919/sice.2017.8105750</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 56th Annual Conference of the Society of Instrument and Control Engineers of Japan (SICE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-09" />
+		</imprint>
+	</monogr>
+	<note>56th Annual Conference of the SICE</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Cyber-Physical Systems and Digital Twins in the Industrial Internet of Things [Cyber-Physical Systems]</title>
+		<author>
+			<persName><forename type="first">Christos</forename><surname>Koulamas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Athanasios</forename><surname>Kalogeras</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mc.2018.2876181</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<title level="j" type="abbrev">Computer</title>
+		<idno type="ISSN">0018-9162</idno>
+		<idno type="ISSNe">1558-0814</idno>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="95" to="98" />
+			<date type="published" when="2018-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Effectiveness of Model-Based Defenses for Digitally Controlled Industrial Systems: Nuclear Reactor Case Study</title>
+		<author>
+			<persName><forename type="first">Yeni</forename><surname>Li</surname></persName>
+			<idno type="ORCID">0000-0002-6541-4963</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Elisa</forename><surname>Bertino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hany</forename><forename type="middle">S</forename><surname>Abdel-Khalik</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00295450.2019.1626170</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Technology</title>
+		<title level="j" type="abbrev">Nuclear Technology</title>
+		<idno type="ISSN">0029-5450</idno>
+		<idno type="ISSNe">1943-7471</idno>
+		<imprint>
+			<biblScope unit="volume">206</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="82" to="93" />
+			<date type="published" when="2019-08-13" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">False data injection attacks against state estimation in electric power grids</title>
+		<author>
+			<persName><forename type="first">Yao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">K</forename><surname>Reiter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peng</forename><surname>Ning</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1653662.1653666</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th ACM conference on Computer and communications security - CCS &apos;09</title>
+				<meeting>the 16th ACM conference on Computer and communications security - CCS &apos;09</meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2009" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Unbreakable Keys from Random Noise</title>
+		<author>
+			<persName><forename type="first">Ueli</forename><surname>Maurer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Renato</forename><surname>Renner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Wolf</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-1-84628-984-2_2</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Security with Noisy Data</title>
+				<imprint>
+			<publisher>Springer London</publisher>
+			<date type="published" when="2007" />
+			<biblScope unit="page" from="21" to="44" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">On the Secrecy of Timing-Based Active Watermarking Trace-Back Techniques</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Peng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Neng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Reeves</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2006 IEEE Symposium on Security and Privacy</title>
+				<imprint>
+			<date type="published" when="2006" />
+			<biblScope unit="page">15</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Dynamic Watermarking: Active Defense of Networked Cyber–Physical Systems</title>
+		<author>
+			<persName><forename type="first">Bharadwaj</forename><surname>Satchidanandan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">R</forename><surname>Kumar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jproc.2016.2575064</idno>
+		<ptr target="https://www.dhs.gov/science-and-technology/csd-mtd" />
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<title level="j" type="abbrev">Proc. IEEE</title>
+		<idno type="ISSN">0018-9219</idno>
+		<idno type="ISSNe">1558-2256</idno>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="219" to="240" />
+			<date type="published" when="2017-02" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Department of Homeland Security</orgName>
+		</respStmt>
+	</monogr>
+	<note>Moving Target Defense</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A Game Theoretic Approach to Strategy Generation for Moving Target Defense in Web Applications</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sengupta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">AAMAS</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">NoisePrint</title>
+		<author>
+			<persName><forename type="first">Chuadhry</forename><forename type="middle">Mujeeb</forename><surname>Ahmed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Ochoa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianying</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><forename type="middle">P</forename><surname>Mathur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rizwan</forename><surname>Qadeer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlos</forename><surname>Murguia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Justin</forename><surname>Ruths</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3196494.3196532</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 on Asia Conference on Computer and Communications Security</title>
+				<meeting>the 2018 on Asia Conference on Computer and Communications Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-29" />
+			<biblScope unit="volume">18</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">H</forename><surname>Tsoukalas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Uhrig</surname></persName>
+		</author>
+		<title level="m">Fuzzy and Neural Approaches in Engineering</title>
+				<imprint>
+			<publisher>Wiley</publisher>
+			<date type="published" when="1997" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Exploratory Study into the Effectiveness of Active Monitoring Techniques</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sundaram</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">S</forename><surname>Abdel-Khalik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Ashy</surname></persName>
+		</author>
+		<ptr target="https://en.wikipedia.org/wiki/Colors_of_noise#/media/File:The_Colors_of_Noise.png22" />
+	</analytic>
+	<monogr>
+		<title level="j">Transactions (unpublished)</title>
+		<imprint>
+			<date type="published" when="2019" />
+			<publisher>American Nuclear Society</publisher>
+		</imprint>
+	</monogr>
+	<note>Wikipedia</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Communication Theory of Secrecy Systems*</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Shannon</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/j.1538-7305.1949.tb00928.x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Bell System Technical Journal</title>
+		<idno type="ISSN">0005-8580</idno>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="656" to="715" />
+			<date type="published" when="1949-10" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Damping Low Frequency Oscillations in Power System using Quadratic Gaussian Technique based Control System Design</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">K</forename><surname>Ibraheem</surname></persName>
+		</author>
+		<idno type="DOI">10.5120/16052-5204</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Computer Applications</title>
+		<title level="j" type="abbrev">IJCA</title>
+		<idno type="ISSNe">0975-8887</idno>
+		<imprint>
+			<biblScope unit="volume">92</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="18" to="23" />
+			<date type="published" when="2014-04-18" />
+			<publisher>Foundation of Computer Science</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">A New Approach to Linear Filtering and Prediction Problems</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">E</forename><surname>Kalman</surname></persName>
+		</author>
+		<idno type="DOI">10.1115/1.3662552</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Basic Engineering</title>
+		<idno type="ISSN">0021-9223</idno>
+		<imprint>
+			<biblScope unit="volume">82</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="35" to="45" />
+			<date type="published" when="1960-03-01" />
+			<publisher>ASME International</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">A Chi-square test for fault-detection in Kalman filters</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">D</forename><surname>Brumback</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Srinath</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tac.1987.1104658</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<title level="j" type="abbrev">IEEE Trans. Automat. Contr.</title>
+		<idno type="ISSN">0018-9286</idno>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="552" to="554" />
+			<date type="published" when="1987-06" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Failure detection of dynamical systems with the state chi-square test</title>
+		<author>
+			<persName><forename type="first">Ren</forename><surname>Da</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/3.21193</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Guidance, Control, and Dynamics</title>
+		<title level="j" type="abbrev">Journal of Guidance, Control, and Dynamics</title>
+		<idno type="ISSN">0731-5090</idno>
+		<idno type="ISSNe">1533-3884</idno>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="271" to="277" />
+			<date type="published" when="1994-03" />
+			<publisher>American Institute of Aeronautics and Astronautics (AIAA)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

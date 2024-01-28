@@ -1,0 +1,1437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Conceptual Characterization of Cybersecurity Ontologies</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Beatriz</forename><forename type="middle">F</forename><surname>Martins</surname></persName>
+							<email>bmartins@pros.upv.es</email>
+							<affiliation key="aff0">
+								<orgName type="laboratory">PROS Research Center</orgName>
+								<orgName type="institution">Universitat Politècnica de València</orgName>
+								<address>
+									<addrLine>Camino de Vera s/n</addrLine>
+									<postCode>46022</postCode>
+									<settlement>Valencia</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Lenin</forename><surname>Serrano</surname></persName>
+							<email>lserrano@pros.upv.es</email>
+							<idno type="ORCID">0000-0002-1631-7139</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">PROS Research Center</orgName>
+								<orgName type="institution">Universitat Politècnica de València</orgName>
+								<address>
+									<addrLine>Camino de Vera s/n</addrLine>
+									<postCode>46022</postCode>
+									<settlement>Valencia</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Ingeniería de Sistemas e Informática, Universidad Pontificia Bolivariana</orgName>
+								<address>
+									<addrLine>Km 7 via</addrLine>
+									<settlement>Bucaramanga -Piedecuesta, Santander</settlement>
+									<country key="CO">Colombia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">José</forename><forename type="middle">F</forename><surname>Reyes</surname></persName>
+							<email>jreyes@pros.upv.es</email>
+							<idno type="ORCID">0000-0002-9598-1301</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">PROS Research Center</orgName>
+								<orgName type="institution">Universitat Politècnica de València</orgName>
+								<address>
+									<addrLine>Camino de Vera s/n</addrLine>
+									<postCode>46022</postCode>
+									<settlement>Valencia</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">José</forename><forename type="middle">Ignacio</forename><surname>Panach</surname></persName>
+							<idno type="ORCID">0000-0002-7043-6227</idno>
+							<affiliation key="aff2">
+								<orgName type="department">Escola Tècnica Superior d&apos;Enginyeria, Universitat de València, Avinguda de l&apos;Universitat</orgName>
+								<address>
+									<postCode>46100</postCode>
+									<settlement>Burjassot, Valencia</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Oscar</forename><surname>Pastor</surname></persName>
+							<email>opastor@dsic.upv.es</email>
+							<idno type="ORCID">0000-0002-1320-8471</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">PROS Research Center</orgName>
+								<orgName type="institution">Universitat Politècnica de València</orgName>
+								<address>
+									<addrLine>Camino de Vera s/n</addrLine>
+									<postCode>46022</postCode>
+									<settlement>Valencia</settlement>
+									<country key="ES">Spain</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Benny</forename><surname>Rochwerger</surname></persName>
+							<email>benny.rochwerger@accenture.com</email>
+							<idno type="ORCID">0000-0002-1320-8471</idno>
+							<affiliation key="aff3">
+								<orgName type="laboratory">Accenture Israel Cyber R&amp;D Lab</orgName>
+								<address>
+									<settlement>Tel Aviv</settlement>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Conceptual Characterization of Cybersecurity Ontologies</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1007/978-3-030-63479-7_22</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:45+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Cybersecurity</term>
+					<term>Ontology</term>
+					<term>Knowledge graphs</term>
+					<term>Organizations</term>
+					<term>Enterprise architecture</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Cybersecurity is known as the practice of protecting systems from digital attacks. Organizations are seeking efficient solutions for the management and protection of their assets. It is a complex issue, especially for great enterprises, because it requires an interdisciplinary approach. The kinds of problems enterprises must deal with and this domain complexity induces misinterpretations and misunderstandings about the concepts and relations in question. This article focus on dealing with Cybersecurity from an ontological perspective. The first contribution is a search of previously existing works that have defined Cybersecurity Ontologies. The paper describes the process to search these works. The second contribution of the paper is the definition of characteristics to classify the papers of Cybersecurity Ontologies previously found. This classification aims to compare the previous works with the same criteria. The third contribution of the paper is the analysis of the results of the comparison of previous works in the field of Cybersecurity Ontologies. Moreover, the paper discusses the gaps found and proposes good practice actions in Ontology Engineering for this domain. The article ends with some next steps proposed in the evolution towards a pragmatic and iterative solution that meets the needs of organizations.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>Organizations are actively seeking efficient solutions for the management and protection of their digital assets. The Cybersecurity domain contributes to the basic protection of confidentiality, integrity, and availability of information from ISO/IEC 27032 1 since it relates to actions that rely on information security, application security, and network security. However, Cybersecurity is a domain constantly evolving, always adopting new technologies bringing great concerns to organizations; especially in terms of Enterprise Architecture. Besides, not only technological aspects are relevant, because the weakest link in the chain to guarantee information security is the human factor. This ranges from the behavior of users and attackers to the way in which each stakeholder within the organization participates and understands the concepts and relationships in which they are inserted.</p><p>The kinds of problems enterprises must deal with and this domain complexity induce misinterpretations and misunderstandings about the concepts and relations in question. Indeed these problems arise when it is necessary to ensure effective communication among humans, among systems or between humans and systems <ref type="bibr" target="#b27">[27]</ref>. Moreover, each person is dealing with the information according to their own perception depending on the role each stakeholder plays in the enterprise and this interferes with the strategies adopted w.r.t. the Enterprise Architecture. For instance, the term "Risk" may be controversial. While a manager can think about this concept in a general perception ("How much does it cost and what is the benefit? "), a security engineer can think about the same term but with a specific perception ("What data we may lose and what is the impact? "). Both roles think they are talking about the same concept but, in fact, this is not the truth. The former is thinking about the "Estimation of the degree of exposure to a threat materializing on one or more assets causing damages to the Organization" from MAGERIT 3.0 2 , while the latter is talking about a standard perspective like the ISO/IEC 27000 <ref type="bibr" target="#b2">3</ref> . In this case, both are definitions for the term "Risk" based on standards widely accepted by the cybersecurity community but they mean different "things" w.r.t its semantics.</p><p>The solutions adopted are interdisciplinary. On one hand, the security requirement community addresses this challenge by using graph approaches that provide practical mechanisms of analysis <ref type="bibr" target="#b46">[45]</ref>. This approach is known as Attack Graph (AG) <ref type="bibr" target="#b22">[22]</ref> which is a kind of Knowledge Graph (KG) <ref type="bibr" target="#b25">[25]</ref>. These are methods to explore the security among assets and possible attacks (i.e., risks). In addiction, the Industry 4.0 recently adopted the use of Digital Twins Graphs <ref type="bibr" target="#b9">[9]</ref> that provide statistical methods, data analytics by using machine learning techniques over a simulation environment. On the other hand, conceptual modeling, more specifically the branch of ontologies in computer and information  sciences, has been a tool used to deal with elements constituting a conceptualization of a given domain <ref type="bibr" target="#b16">[16]</ref>. This approach allows articulating abstractions of a certain state of affairs in reality. Cybersecurity KGs are implementations of conceptualizations that intent to provide data analysis. In this sense, ontologies are a natural choice on providing grounding for KGs. The grounding of concepts is one of the most important ontology applications <ref type="bibr" target="#b16">[16]</ref> and a KG may be considered an implementation of a conceptualization (an Operational Ontology) <ref type="bibr" target="#b20">[20]</ref>. Thus, the conceptual modeling through an ontological approach is fundamental to make explicit concepts and to facilitate human comprehension about them <ref type="bibr" target="#b14">[14]</ref>. However, there is no definitive architectural solution for the design and development of KGs supported by ontologies yet.</p><p>Since this issue is complex and interdisciplinary, the first contribution of this paper is an initial study of existing works that deal with cybersecurity requirements from an ontological perspective. For each existing work, we:</p><p>-identify proposals in the cross-field of Cybersecurity and Ontologies; -evaluate the existing Cybersecurity Ontologies' level of applicability; -identify the possible data sources of cybersecurity information.</p><p>The second contribution of this paper is to classify the results from the previous study of the existing works into characteristics. For this aim, we define a set of criteria for comparing the ontologies found in the previous works review. This classification helps compare ontologies among them with the same criteria. Finally, the third contribution is the proposal of solutions to improve the ontology definition in the Cybersecurity domain. These solutions aim to solve most of the problems detected during the analysis of the previous existing works.</p><p>We have organized the rest of this paper as follows: Sect. 2 presents other works who performed the comparison of ontologies. Section 3 presents how we looked into the literature for previous works in the field of cybersecurity ontologies. Section 4 proposes a classification of the previous works. Section 5 presents the analysis of the found works. Section 6 discusses the results and propose some solution to solve found problems in the previous works. Section 7 draws conclusions and discusses some further research directions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Related Works</head><p>There are a few literature review papers in the context of Cybersecurity Ontologies. This is because studies on this topic are recent, as well as their applications in Cybesecurity. The first ontologies we found in our literature review were published together with the first works focused on Ontology-Driven Conceptual Modeling. However, the practical use of these ontologies has only recently started. In our analysis we did not find any systematic literature review covering this specific domain and the reviews we found appear as sample papers.</p><p>The work of Leslie Sikos <ref type="bibr" target="#b44">[44]</ref> presents a literature review in the context of Cybersecurity Ontologies. This related work introduces multiple classifications but the orthogonality relationship among those is not clear, sometimes mixing. Besides, the authors focus only on triple-stores (Resource Description Framework (RDF) 4 triples) setting aside Not Only SQL (NoSQL) platforms. The gray work <ref type="bibr" target="#b41">[41]</ref> goes in the same direction but focusing on the Ontology Web Language (OWL) 5 approach. By contrast, we make no distinction as to the language or implementation used because it is important for us to know any practical approach to bring the state-of-the-art closer to the state-of-practice. Aside from the Cybersecurity domain, there are several works comparing other domain ontologies; however most of them focus the comparison criteria on conceptual matching. Their objective is to verify if a concept present in different ontologies has the same meaning by verifying formal characteristics (at the ABox 6 ). The work of Keil <ref type="bibr" target="#b28">[28]</ref> presents a summary of those approaches. At the same direction there are even proposals for tools to automate this task <ref type="bibr" target="#b55">[54]</ref>. The systematic literature review <ref type="bibr" target="#b4">[5]</ref> covers the ontologies at the Security domain. Their comparison criteria also focus on implementation in OWL, RDF, and DARPA Agent Markup Language (DAML) <ref type="bibr" target="#b6">7</ref> . These approaches go in the opposite direction from ours, since our focus is on conceptualization itself (at the TBox 8 ). The work of Mascardi <ref type="bibr" target="#b29">[29]</ref> compares foundational ontologies. Although it is interesting from the ontological perspective we consider, it is dealing with a higher level of abstraction. Thus, it is a job to consider within the Ontology Engineering process, not in our current research.</p><p>As conclusion of the related works, we highlight that the few works that focus on comparing Cybersecurity Ontologies do not classify the results into characteristics and the sample used for the analysis is reduced.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Looking for Cybersecurity Ontologies in the Literature</head><p>In our research we apply the Design Science Methodology <ref type="bibr" target="#b57">[56]</ref> with the final target to provide a tool able to create, manage, and integrate KGs supported by a well-designed ontology. We are dealing with the domain of Cybersecurity both in the context of Ontology and Software Engineering to produce an efficient KG management tool. 4 http://www.w3.org/TR/rdf-mt/.</p><p>5 https://www.w3.org/TR/owl2-syntax/. <ref type="bibr" target="#b5">6</ref> ABox statements represent instances of associated concepts at the knowledge base.</p><p>7 http://www.daml.org/. <ref type="bibr" target="#b8">8</ref> TBox statements describe the domain by defining its concepts and relations. We start from a selection of a sample search chain <ref type="bibr" target="#b9">9</ref> . However, we considered this is a handful amount, thus in further work, we plan to perform detailed analysis with diverse and more extended search chains. Our selection's criteria is applied in three steps. In the first step we focus on searching into the publication title. In the second step we read the abstract, and finally in the third step we read the whole document. In each step, we reject papers not accessible for reading, papers with low relevance by number of its citations, or papers that do not present effectively any proposal of ontology. Looking for the term in the title of publications at the most relevant sources, we found 198 papers, being: none at ACM, 1 at Springer, none at IEEE, none at Scopus, and 197 at Google Academic. In the second step of our filtering, after removing the papers in which the abstract was out of the target, we reduced the sample to 32. From those, during the reading process, we rejected 3 for lack of access to reading and 4 for not presenting ontologies. Finally, we reduced our sample to 25 publications, with a total of 19 ontologies because 6 papers refer to the same ontology (duplicated or complementary). This work of searching was carried out by two researchers (a Domain Specialist and an Ontology Engineer ).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Characteristics to Compare Cybersecurity Ontologies</head><p>We define the set of characteristics to allow an orthogonal comparison of the works found. We consider two viewpoints: the ontological perspective as a conceptual modeling approach and the domain of knowledge on cybersecurity perspective. The former looks for the aspect of the semantic foundation, while the latter deals with the knowledge domain itself. The proposal of this classification is based on previous works related with the types of ontologies. Note that one of the contributions of this work is to assemble all the classifications specifically for the context of cybersecurity ontologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Ontological Perspective</head><p>Next we describe the characteristics to classify the previous works according to the ontological perspective: <ref type="bibr" target="#b20">[20]</ref>. A Reference Ontology should be a conceptualization constructed to make the best possible description of the domain concerning a certain level of granularity and point of view. An Operational Ontology is the actionable version of a Reference Ontology that uses the more appropriate language intending to guarantee desirable computational properties without compromising the previously defined ontological commitment <ref type="bibr" target="#b17">[17]</ref>. Therefore, there should be no operational ontology without the existence of data and their relationships as instances of previously well-defined <ref type="bibr" target="#b9">9</ref> Search chain, accessed on April 2020: (T IT LE = "Cybersecurity Ontology") or ("Cybersecurity Ontologies") when it is not possible filter by title. concepts. In this sense, the classification of ontologies according to its level of applicability (Reference or Operational) is our base analysis criteria.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Level of Applicability: It is necessary to take into account the difference between Operational Ontologies and Reference Ontologies</head><p>Reference Ontology Supporting the Implementation: The existence or not of a Reference Ontology before its implementation depends on the choice of the design methodology used. Several methodologies drive the ontologies design process, however, there is no consensus about this matter. The methodology SaBio <ref type="bibr" target="#b11">[11]</ref> requires that the Reference Ontology precedes its Operational Ontology but the most known and used methodology, the Methontology <ref type="bibr" target="#b12">[12]</ref>, does not.</p><p>There is also a methodological approach domain-specific <ref type="bibr" target="#b33">[33]</ref> that strives the cybersecurity ontology design according to a three-layer architecture -Upper, Mid-level and Domain Ontologies. Thus, we also consider the adopted design methodology as an aspect related to analysis of the level of applicability.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Level of Generality: This characteristic classifies the ontologies according to</head><p>Guarino's proposal <ref type="bibr" target="#b16">[16]</ref>. In this case, ontologies are classified according to its level of generality in four types: Foundational Ontologies (also known as High-level Ontologies), Domain Ontologies, Task Ontologies, or Application Ontologies.</p><p>Ontology Grounding though a Foundational Ontology: For the generality level classification, it is important to identify if the cybersecurity ontologies are well-grounded through some Foundational Ontology. In this case, we are looking for groundings like BWW <ref type="bibr" target="#b54">[53]</ref>, GFO/GOL <ref type="bibr" target="#b8">[8,</ref><ref type="bibr" target="#b23">23]</ref>, DOLCE <ref type="bibr" target="#b6">[7]</ref>, UFO <ref type="bibr" target="#b19">[19,</ref><ref type="bibr" target="#b21">21]</ref>, or other Foundational Ontology. Only then, we determine the generality level of the paper presented cybersecurity ontology itself, identifying if they are Domain, Task, or Application Ontologies. Eventually, if these ontologies may be classifiable as Core Ontologies 10 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Cybersecurity Perspective</head><p>The ISO/IEC 27032 and ISO/IEC 27000 standards compose the knowledge base to identify and find out definitions to the most used terms in the development of ontologies in the domain of cybersecurity. One of the contributions of this paper is using all these standards as characteristics to classify the found works of cybersecurity ontologies. Next, we describe these characteristics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ISO/IEC 27032:</head><p>The term cybersecurity is defined in the ISO/IEC 27032 standard as a response to technological development and communications today.</p><p>The ISO/IEC 27032 promotes procedures to establish and maintain security in cyberspace in the dimensions of Confidentiality, Availability, and Integrity. The ISO/IEC 27032 offers technical guidance focused on closing the gap between different security domains. We use for our terminological verification the Chapter 4 (numeral from 1 to 58) and from Chapters 8 and 9.</p><p>ISO/IEC 27000: The ISO/IEC 27000 provides an overview of Information Security Management Systems and documents the general terminology used in <ref type="bibr" target="#b10">10</ref> The Core Ontologies classifies ontologies between the Foundational and Domain Ontologies, not so general as the firsts either so specific as the latter's. the cybersecurity domain. Together with the ISO/IEC 27032, the ISO/IEC 27000 proposes controls for risk management, attack identification, detection, monitoring, and incident response. Therefore, these are standards designed to guide the treatment of cybersecurity risks. We consider on our terminological verification the ISO/IEC 27000 definitions documented in Chapter 3 (numeral 1 to 77).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Terminological Verification:</head><p>The last classification we consider is the ISO/IEC 27032 and the ISO/IEC 27000 terminological verification (those terms whose definition is provided at these standards) applied to the papers we found. We aim to know which are the most used terms (concepts) in the papers to compare which notions of cybersecurity each of the selected ontologies uses (for example, if they all have the concept of vulnerability, threat, etc.). Thus, we used a semi-automatic technique to run a regular expression search algorithm <ref type="bibr" target="#b42">[42]</ref> we developed to extract each of the exact ISO/IEC terms. After the automatic extraction we perform a second round of papers' reading to verify if all terms comply with their cybersecurity ontology's context. We found a total of 156 terms from the ISO/IEC definitions complying with ontological concepts, and we count the number of its citations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Cybersecurity Ontologies Analysis</head><p>This section analyzes the works found in the literature. We present these works grouping them by their most relevant characteristic, w.r.t the established ontological perspective.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Reference Ontologies</head><p>The Vulnerability Description Ontology (VDO) <ref type="bibr" target="#b5">[6]</ref> proposal presents a conceptualization by means of natural language descriptions. Thus, the VDO describes the most relevant concepts for vulnerability management. The VDO framework provides a proper syntax to describe characteristics, valid values, and relationships about the domain (a Domain Ontology). Those are terms supported by cybersecurity Common Vulnerabilities and Exposures (CVE) <ref type="bibr" target="#b11">11</ref> knowledge base from MITRE corporation. The Conceptual Model of Vulnerability Ontology <ref type="bibr" target="#b47">[46]</ref> is an ontology-based conceptual model for ontological representation of the cybersecurity vulnerability domain (a Domain Ontology) that is a specific part under the cybersecurity universe. Thus, this ontology complies with information security standards and incorporates social media concepts.</p><p>The Ontology-based cyber security model (Malware Ontology) <ref type="bibr" target="#b15">[15]</ref> presents a conceptualization of the malware behavior. The authors present their approach as a work in progress since they plan developments on reasoning and detection procedures. The Malware Ontology is an ontology written with OWL but not implemented yet. It is not grounded over any Foundational Ontology. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Operational Ontologies</head><p>The Intrusion Detection System ontology (IDS) <ref type="bibr" target="#b53">[52]</ref> is a Target-Centric Ontology for Intrusion Detection implemented with DAML+OIL <ref type="bibr" target="#b24">[24]</ref> and provide reasoning. As it is a Core Ontology being one of the first initiatives on cybersecurity ontologies, but there are no foundational grounding notions in terms of semantics. This happens because Description Logics (DL) <ref type="bibr" target="#b0">[1]</ref> grounds DAML+OIL and it is neutral in terms of ontological level <ref type="bibr" target="#b17">[17]</ref>. The Unified Cybersecurity Ontology (UCO) <ref type="bibr" target="#b48">[47]</ref> is an extension of the IDS ontology for integration and cyber situational awareness. The UCO has an OWL implementation and intents to capture the cybersecurity domain of Knowledge committed with many cybersecurity standards. It also is considered a Domain Ontology since it has focused only on the cybersecurity conceptualization. However, there is no mention of any strong foundational grounding. In summary UCO is essentially an ontology under the Linked Data <ref type="bibr" target="#b3">[4]</ref> perspective.</p><p>The Semantic Cyber Incident Classification (SCIC) <ref type="bibr" target="#b10">[10]</ref> presents a set of steps to produce an Operational Ontology with OWL 12 employing a compilation of different data sources. The SICS focus on the cybersecurity insurance domain providing classification for cybersecurity incidents, so it is a Domain Ontology. However, the SCIC approach does not provide a mechanism to avoid misunderstandings when it is necessary to manipulate, update, or add new information from additional data sources (other than the initial ones). In other words, as SCIC constitutes a compendium of several approaches not supported by any Foundational Ontology, the resulting semantics from the implementation changes along with the data sources taken over time.</p><p>At the Internet of Things (IoT) context, the proposal of an Ontology-Based Cybersecurity Framework <ref type="bibr" target="#b30">[30]</ref> provides the IoTSec ontology focusing on the enterprise viewpoint (a Domain Ontology). The framework has three layers, in which the IoTSec ontology appears as a layer integrator solution for semantic adequacy and reasoning. The IoTSec ontology <ref type="bibr" target="#b13">13</ref> is an Operational Ontology implemented with OWL with reasoning capabilities. They provide a Java API for RESTful Web Services (JAX-RS) that addresses the enterprise modeling mechanisms (BPMN notation) to the knowledge base.</p><p>The Incident Management Ontology (IM) <ref type="bibr" target="#b31">[31]</ref> starts from a metamodel intent to capture a variety of incident management process models. It is an Operational Ontology implemented in OWL with Protègè 14 and according to the Methontology approach. Although the IM ontology is supported by cybersecurity standards for incident management (Domain Ontology), the project was done in an inverse way to the usual, where ontologies support the metamodels for Domain-Specific Languages (DSL) and not the reverse.</p><p>The framework MulVAL <ref type="bibr" target="#b39">[39]</ref> -Multihost, Multistage, Vulnerability Analysisuses the Datalog language as the implementation that is a subset of Prolog.</p><p>12 https://www.w3.org/TR/owl2-syntax/. <ref type="bibr" target="#b13">13</ref> https://github.com/brunomozza/IoTSecurityOntology/blob/master/iotsec.owl. 14 https://protege.stanford.edu/. This framework aims to model the software bugs' interaction with the system and network configurations and provides a reasoning engine for such. The framework MulVAL can be considered an Application Ontology since it inbounds both a specific domain (Domain Ontology) and a set of tasks that scans new information from its network (Task Ontology). It uses the Open Vulnerability Assessment Language (OVAL) <ref type="bibr" target="#b15">15</ref> that is an XML-based language for specifying machine configuration tests. The OVAL tool (an OVAL-compliant scanner) and the analyzer provide a vulnerability report, and an output for the Datalog clauses. The Cyber Ontology <ref type="bibr" target="#b33">[33,</ref><ref type="bibr" target="#b40">40]</ref> is an implementation developed by the MITRE Co <ref type="bibr" target="#b16">16</ref> . It has a large number of the RDF instances and incorporates a sort of ontologies: the Dublin Core metadata standard ontology <ref type="bibr" target="#b17">17</ref> , parts of the Simple Knowledge Organization System (SKOS) <ref type="bibr" target="#b18">18</ref> , a Point-of-Contact ontology <ref type="bibr" target="#b19">19</ref> (grounded over FOAF <ref type="bibr" target="#b20">20</ref> and VCard ontologies), and Content Curation ontology.</p><p>A knowledge-base focusing at the cybersecurity domain divided into three sub-ontologies -Assets (OS and Software), Vulnerability, and Attack(DDos and Control Class) <ref type="bibr" target="#b26">[26]</ref> presents an approach based on machine learning principles to provide an Operational Ontology. The proposal aggregates concepts obtained from cybersecurity sources (or ontologies) by means of the Stanford NER <ref type="bibr" target="#b13">[13]</ref> to provide many different KG instances for each of those sub-ontologies. Although operational, it is not grounded over any foundational ontology. On the contrary, the ontology here is closer to the result than a support for the process.</p><p>The Cognitive CyberSecurity (CCS) <ref type="bibr" target="#b32">[32]</ref> approach implements KGs from an extension of the UCO for event detection context. This proposal is an Operational Ontology implemented with OWL and the Semantic Web Rule Language (SWRL) <ref type="bibr" target="#b21">21</ref> for entity relational rules that provide CCS based on KGs. The CCS can be considered an Application Ontology since it deals with tasks for event detection at the cybersecurity domain.</p><p>The Ontology of Cybersecurity of Critical Infrastructures <ref type="bibr" target="#b2">[3]</ref> is implementation made with OWL and using the TopBraid ME Composer <ref type="bibr" target="#b22">22</ref> . Four subontologies compounds this ontology: IT-Security, Project, Critical Infrastructure (CRITIS), and Compliance. Although it is a conceptualization supported by a set of cybersecurity standards (Domain Ontology), there are no Foundational Ontology grounding those concepts.</p><p>The "Piattaforma Ontologica della Cybsersecurity" (POC) <ref type="bibr" target="#b58">[57]</ref> is a pragmatic approach for representing the cybersecurity knowledge. It is also a threelayer ontology <ref type="bibr" target="#b33">[33]</ref> and can be a conceptualization classified as an Application Ontology because additionally to the domain aspects deals with activities of this domain pragmatically. This ontology is also in the Linked Data context. <ref type="bibr" target="#b15">15</ref> http://oval.mitre.org/documents/docs-03/intro/intro.html. <ref type="bibr" target="#b16">16</ref> http://cve.mitre.org. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Operational Ontologies with Previous Reference Ontology</head><p>The Cybersecurity Operations Center Ontology for Analysis (CoCoa) <ref type="bibr" target="#b38">[38]</ref> aims to help in the understanding of how cyber incidents may be detected in a monitored environment. Although the authors define CoCoa as a process ontology, it is an Application Ontology for the Cybersecurity domain that deals with incidents monitoring through logs and network information, having data tasks like source, sense, detect, respond and recover. The Reference Ontology produces its operational version implemented through a KG able to provide analytics. The Ontology for Vulnerability Management (OVM) <ref type="bibr" target="#b56">[55]</ref> is an ontology implemented through DL grounding (DL is ontologically neutral). Although this conceptualization is supported by well-known cybersecurity standards, it is not grounded over any Foundational Ontology.</p><p>The Ontology of Cybersecurity Operational Information <ref type="bibr" target="#b49">[48,</ref><ref type="bibr" target="#b50">49]</ref> proposes a conceptualization covering three main domains: The Incident Handling Domain, IT Asset Management Domain, and Knowledge Accumulation Domain. Those domains compose sub-ontologies under the Operational Information perspective (Domain Ontology), where the proposal discusses entities and relations related to (Reference Ontology). The approach <ref type="bibr" target="#b52">[51]</ref> extends the ontology to the context of cloud computing and proposes an implementation for that. This proposal <ref type="bibr" target="#b51">[50]</ref> is integrated with CYBEX <ref type="bibr" target="#b43">[43]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.4">Well-Grounded Ontology</head><p>The CRATELO <ref type="bibr" target="#b35">[35,</ref><ref type="bibr" target="#b36">36]</ref> is a three-layer ontology <ref type="bibr" target="#b33">[33]</ref> proposal for the domain of cybersecurity (Domain Ontology). It is grounded over a Foundational Ontology named DOLCE-SPRAY <ref type="bibr" target="#b37">[37]</ref>, a simplification of the DOLCE ontology. The CRATELO ontology also includes the Security Core Ontology (SECCO) and the Domain Ontology of cyber operations (OSCO). It is a well-grounded ontology implemented with OWL-DL and SWRL with Protègè. The CRATELO has some extensions described in <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b34">34]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.5">Comparative Frame</head><p>Table <ref type="table" target="#tab_1">1</ref> presents a summary of the ontology characterization we made according to the orthogonal criteria we propose. From 25 papers (19 ontologies) we found: 5 are only Reference Ontologies and 20 Operational Ontologies, 4 of those are supported by a Reference Ontology. Some works refer to the same ontology, therefore, we found a total of 19 ontologies in this research work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Discussion</head><p>In this scenario the most significant information we extract is the lack of foundational grounding in the cybersecurity ontologies we found. Only, four papers mention a foundational grounding and all of them are related to the  CRATELO <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b34">[34]</ref><ref type="bibr" target="#b35">[35]</ref><ref type="bibr" target="#b36">[36]</ref> proposal. The importance of a conceptual basis is clear when the support of a Foundational Ontology avoids semantic interoperability problems on Domain Ontologies <ref type="bibr" target="#b18">[18]</ref>.</p><p>Besides the lack of grounding that we detect, most papers mentioning Operational Ontologies have been implemented without prior reference ontology (80% have no prior Reference Ontology). In contrast, the proposals of Reference Ontologies are not implemented (20% of the total) and there was no justification provided. Indeed, only the Ontology of Cybersecurity Operational Information <ref type="bibr" target="#b49">[48]</ref><ref type="bibr" target="#b50">[49]</ref><ref type="bibr" target="#b51">[50]</ref><ref type="bibr" target="#b52">[51]</ref>, CoCoa <ref type="bibr" target="#b38">[38]</ref>, and OVM <ref type="bibr" target="#b56">[55]</ref> proposals provide an Operational Ontology supported by a prior Reference Ontology. This notion that operational ontologies and their implementations require the support of a prior reference ontology is well established in <ref type="bibr" target="#b20">[20]</ref>. The main cause of these problems results is from the ontology design methodologies adopted. In other words, they do not perceive that the best practices established in the Software Engineering Process can be knowledge already acquired used as part of the Ontology Engineering Process. The SaBio <ref type="bibr" target="#b11">[11]</ref> methodology is the only one we know that has a proposal to fulfill those gaps. Based on that, we suggest that Ontology Engineers must take some best-practice actions like:</p><p>-maintain efficient and high quality communication with Domain Experts stakeholders; -take in use a methodology that drives the process by using Reference Ontologies before the implementation of Operational Ontologies; -take in use a well-defined ontological grounding for the design process Reference Ontologies; -adequately justify the reasons for not implementing a Reference Ontology (or because it is a project requirement itself or the reasons why the implementation was not viable). This is a methodological question still uncovered.</p><p>Table <ref type="table" target="#tab_2">2</ref> presents most cited terms from the result of our regular expression search algorithm described in Sect. 4.2 through the cybersecurity perspective. We highlight main dimensions of security (Availability, Confidentiality and Integrity ) that are essential properties present on all elements that require security control. Cross-interpreting the two perspectives allows us to determine which cybersecurity concepts are most relevant to the ontology community and how they are (or should be) interpreted. Definitions used by standards such as those in ISO/IEC exist to clarify the interpretation of these terms. However, the standards use natural (or technical) language that leaves room for more diverse interpretations by the community. In other words, well-known standards may provide conflicting definitions for the same term, depending on the point of view taken. Thus, we also need to know the meanings, the context of use, and the importance of these terms. The Table <ref type="table" target="#tab_2">2</ref> shows statistics that are essential as a starting point for doing this analysis. In this work we have three contributions. The first one is a pilot review in the cross-disciplinary context of Cybersecurity and Ontologies with three research questions. The second contribution is a definition of a set of characteristics to classify the ontologies found previously. The third contribution is a clear comparison of Cybersecuruty Ontologies based on an orthogonal characterization. Moreover, we highlight three important lacks in the Ontology Engineering process involved. We also suggest as a solution a set of best-practices for Cybersecurity Ontologies implementation and also useful for ontology design and development in general.</p><p>We would like to clarify that this research is a first step to conduct a systematic research in the future. We are aware that the search string is very limited, but it is enough to look for the particularities of ontologies, like those presented by Leslie Sikos <ref type="bibr" target="#b44">[44]</ref>. Therefore, we know the necessity of new further steps on refining the used terminology. This research is also the basis for other work on the definition and design of a definitive and well-grounded architecture for KGs creation, update and manipulation. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>The first step is to know what are the state-of-art of ontologies covering the cybersecurity domain, if they provide KG implementations, and what are their technical approaches. The research questions in the Design Science of this first step are: 1. What are the existing works around Cybersecurity Ontologies? 2. What should include a well-grounded Cybersecurity Ontology? 3. What are the existing implementations for Cybersecurity Ontologies and what are their technical approach?</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head></head><label></label><figDesc><ref type="bibr" target="#b11">11</ref> https://cve.mitre.org/.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head></head><label></label><figDesc><ref type="bibr" target="#b17">17</ref> http://dublincore.org/documents/dces/.<ref type="bibr" target="#b18">18</ref> http://www.w3.org/2004/02/skos/. 19 http://www.w3.org/Submission/vcard-rdf/. 20 http://xmlns.com/foaf/spec/. 21 https://www.w3.org/Submission/SWRL/. 22 https://www.topquadrant.com/.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 1 .</head><label>1</label><figDesc>Summary of cybersecurity ontologies characterization.</figDesc><table><row><cell>Proposed Ontology</cell><cell cols="2">Level of Applicability</cell><cell cols="2">Level of Generality</cell></row><row><cell></cell><cell>Reference</cell><cell>Operational</cell><cell>Foundational</cell><cell>Guarino's [17] Classification</cell></row><row><cell></cell><cell>Ontology</cell><cell>Ontology</cell><cell>Ontology</cell><cell></cell></row><row><cell>CCS [32]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>CoCoa [38]</cell><cell>Yes</cell><cell>Yes</cell><cell>No</cell><cell>Application Ontology</cell></row><row><cell>Conceptual Model of</cell><cell>Yes</cell><cell>No</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>Vulnerability Ontology [46]</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>CRATELO [35]</cell><cell>No</cell><cell>Yes</cell><cell>Yes</cell><cell>Application Ontology</cell></row><row><cell>CRATELO [36]</cell><cell>No</cell><cell>Yes</cell><cell>Yes</cell><cell>Domain Ontology</cell></row><row><cell>CRATELO [34]</cell><cell>No</cell><cell>Yes</cell><cell>Yes</cell><cell>Domain Ontology</cell></row><row><cell>CRATELO [2]</cell><cell>No</cell><cell>Yes</cell><cell>Yes</cell><cell>Domain Ontology</cell></row><row><cell>Cyber Ontology [40]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Application Ontology</cell></row><row><cell>IDS [52]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Core Ontolgy</cell></row><row><cell>IM [31]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>IoTSec [30]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell cols="2">Knowledge-Base focusing at No</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>the cybersecurity domain [26]</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Malware Ontology [15]</cell><cell>Yes</cell><cell>No</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>MITRE Co approach [33]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Core Ontolgy</cell></row><row><cell>MulVAL [39]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Application Ontology</cell></row><row><cell>Ontology of Cybersecurity</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>of Critical Infrastructures [3]</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Ontology of Cybersecurity</cell><cell>Yes</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>Operational Information [50]</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Ontology of Cybersecurity</cell><cell>Yes</cell><cell>No</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>Operational Information [49]</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Ontology of Cybersecurity</cell><cell>Yes</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>Operational Information [51]</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Ontology of Cybersecurity</cell><cell>Yes</cell><cell>No</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>Operational Information [48]</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>OVM [55]</cell><cell>Yes</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>POC [57]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Application Ontology</cell></row><row><cell>SCIC [10]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>UCO [47]</cell><cell>No</cell><cell>Yes</cell><cell>No</cell><cell>Domain Ontology</cell></row><row><cell>VDO [6]</cell><cell>Yes</cell><cell>No</cell><cell>No</cell><cell>Domain Ontology</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2 .</head><label>2</label><figDesc>Cybersecurity perspective -total of citations according to ISO/IEC 27000 and ISO/IEC 27032 terminology.</figDesc><table><row><cell>Term</cell><cell>Total of citations</cell><cell>Term</cell><cell>Total of cations</cell><cell>Term</cell><cell>Total of cations</cell></row><row><cell>Asset</cell><cell>348</cell><cell>Event</cell><cell>333</cell><cell>Process</cell><cell>401</cell></row><row><cell>Attack</cell><cell>942</cell><cell>Integrity</cell><cell>45</cell><cell>Risk</cell><cell>259</cell></row><row><cell>Availability</cell><cell>61</cell><cell>Malware</cell><cell>218</cell><cell>Stakeholder</cell><cell>50</cell></row><row><cell>Confidentiality</cell><cell>37</cell><cell>Organization</cell><cell>271</cell><cell>Threat</cell><cell>348</cell></row><row><cell>Control</cell><cell>154</cell><cell>Policy</cell><cell>117</cell><cell>Vulnerability</cell><cell>775</cell></row></table></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<author>
+			<persName><forename type="first">F</forename><surname>Baader</surname></persName>
+		</author>
+		<title level="m">The Description Logic Handbook: Theory, Implementation and Applications</title>
+				<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2003" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Ontology-based adaptive systems of cyber defense</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ben-Asher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Oltramari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">F</forename><surname>Erbacher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gonzalez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">STIDS</title>
+		<imprint>
+			<biblScope unit="page" from="34" to="41" />
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Cybersecurity ontology for critical infrastructures</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bergner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Lechner</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017" />
+			<publisher>KEOD</publisher>
+			<biblScope unit="page" from="80" to="85" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Linked data:the story so far</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bizer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Heath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Berners-Lee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Semantic Services, Interoperability and Web Applications: Emerging Concepts</title>
+				<imprint>
+			<publisher>IGI Global</publisher>
+			<date type="published" when="2011" />
+			<biblScope unit="page" from="205" to="227" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A systematic review and comparison of security ontologies</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Blanco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lasheras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Valencia-García</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Fernández-Medina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Toval</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Piattini</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">3th International Conference on Availability, Reliability and Security</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2008" />
+			<biblScope unit="page" from="813" to="820" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Vulnerability description ontology (vdo). A Framework for Characterizing Vulnerabilities</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Booth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Turner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">NIST</title>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Ontological foundations of dolce</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Borgo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Masolo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Theory and Applications of Ontology: Computer Applications</title>
+				<editor>
+			<persName><forename type="first">R</forename><surname>Poli</surname></persName>
+			<persName><forename type="first">M</forename><surname>Healy</surname></persName>
+			<persName><forename type="first">A</forename><surname>Kameas</surname></persName>
+		</editor>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Dordrecht</forename><surname>Springer</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-90-481-8847-513</idno>
+		<imprint>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Gol: toward an axiomatized upperlevel ontology</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Degen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Heller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Herre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Smith</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference on Formal Ontology in Information Systems-Volume</title>
+				<meeting>the International Conference on Formal Ontology in Information Systems-Volume</meeting>
+		<imprint>
+			<date type="published" when="2001" />
+			<biblScope unit="page" from="34" to="46" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A distributed ledger approach to digital twin secure data sharing</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dietz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Putz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-22479-015</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IFIP Annual Conference on Data and Applications Security and Privacy</title>
+				<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="281" to="300" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Cyber incident classifications using ontologybased knowledge representation for cybersecurity insurance in financial industry</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Elnagdy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Qiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Gai</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE 3rd International Conference on Cyber Security and Cloud Computing (CSCloud)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="301" to="306" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">SABiO: Systematic Approach for Building Ontologies</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D A</forename><surname>Falbo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 1st Joint Workshop ONTO.COM/ODISE on Ontologies in Conceptual Modeling and Information Systems Engineering</title>
+				<meeting>the 1st Joint Workshop ONTO.COM/ODISE on Ontologies in Conceptual Modeling and Information Systems Engineering</meeting>
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Methontology: from ontological art towards ontological engineering</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Fernández-López</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gómez-Pérez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Juristo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Ontological Engineering AAAI-97 Spring Symposium Series</title>
+				<meeting>the Ontological Engineering AAAI-97 Spring Symposium Series</meeting>
+		<imprint>
+			<date type="published" when="1997" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Incorporating non-local information into information extraction systems by gibbs sampling</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Finkel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Grenager</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Manning</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 43rd Annual Meeting on Association for Computational Linguistics. ACL 2005</title>
+				<meeting>the 43rd Annual Meeting on Association for Computational Linguistics. ACL 2005<address><addrLine>USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2005" />
+			<biblScope unit="page" from="363" to="370" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">Ontologies and knowledge bases towards a terminological clarification. Towards very large knowledge bases: knowledge building &amp; knowledge sharing</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Giaretta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Guarino</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1995" />
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page">32</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Ontology for malware behavior: a core model proposal</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Grégio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Bonacin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Nabuco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">M</forename><surname>Afonso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">L</forename><surname>De Geus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE 23rd International WETICE Conference</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014" />
+			<biblScope unit="page" from="453" to="458" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Formal ontology in information systems</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Guarino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 1st International Conference</title>
+				<meeting>the 1st International Conference<address><addrLine>Trento, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>IOS Press</publisher>
+			<date type="published" when="1998" />
+			<biblScope unit="page" from="6" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<author>
+			<persName><forename type="first">N</forename><surname>Guarino</surname></persName>
+		</author>
+		<title level="m">The ontological level. Philosophy and the Cognitive Sciences</title>
+				<imprint>
+			<date type="published" when="1994" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">The role of foundational ontology for conceptual modeling and domain ontology representation, keynote paper</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Guizzardi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">7th International Baltic Conference on Databases and Information Systems (DB&amp;IS)</title>
+				<meeting><address><addrLine>Vilnius</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE Press</publisher>
+			<date type="published" when="2006" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<author>
+			<persName><forename type="first">G</forename><surname>Guizzardi</surname></persName>
+		</author>
+		<title level="m">Ontological Foundations for Structural Conceptual Models. CTIT, Centre for Telematics and Information Technology</title>
+				<imprint>
+			<date type="published" when="2005" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">On ontology, ontologies, conceptualizations, modeling languages, and (meta) models. Front</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Guizzardi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Artif. Intell. Appl</title>
+		<imprint>
+			<biblScope unit="volume">155</biblScope>
+			<biblScope unit="page">18</biblScope>
+			<date type="published" when="2007" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">An ontology-based approach for evaluating the domain appropriateness and comprehensibility appropriateness of modeling languages</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Guizzardi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ferreira Pires</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Van Sinderen</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/11557432</idno>
+		<ptr target="https://doi.org/10.1007/11557432" />
+	</analytic>
+	<monogr>
+		<title level="m">MODELS 2005. LNCS</title>
+				<editor>
+			<persName><forename type="first">L</forename><surname>Briand</surname></persName>
+			<persName><forename type="first">C</forename><surname>Williams</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2005" />
+			<biblScope unit="volume">3713</biblScope>
+			<biblScope unit="page">51</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Big data analytics on cyber attack graphs for prioritizing agile security requirements</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Hadar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hassanzadeh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE 27th International Requirements Engineering Conference (RE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="330" to="339" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">General formal ontology (gfo): a foundational ontology for conceptual modelling</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Herre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Poli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Healy</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-90-481-8847-514</idno>
+		<ptr target="https://doi.org/10.1007/978-90-481-8847-514" />
+	</analytic>
+	<monogr>
+		<title level="m">Theory and Applications of Ontology: Computer Applications</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Kameas</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Dordrecht</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Daml+oil: a description logic for the semantic web</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Horrocks</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Data Eng. Bull</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="4" to="9" />
+			<date type="published" when="2002" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Developing an ontology for cyber security knowledge graphs</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Iannacone</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">10th Annual Cyber and Information Security Research Conference</title>
+				<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m" type="main">A practical approach to constructing a knowledge graph for cybersecurity</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Jia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Shang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Li</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="53" to="60" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">An ontology-based enterprise architecture</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Choi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kim</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Syst. Appl</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1456" to="1464" />
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Comparison and evaluation of ontologies for units of measurement</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Keil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Schindler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Semantic Web</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="33" to="51" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">A comparison of upper ontologies</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Mascardi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Cordì</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rosso</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Woa</title>
+		<imprint>
+			<biblScope unit="page" from="55" to="64" />
+			<date type="published" when="2007" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">An ontology-based cybersecurity framework for the internet of things</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">A</forename><surname>Mozzaquatro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Agostinho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Goncalves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Martins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Jardim-Goncalves</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page">3053</biblScope>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">An incident management ontology</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Mundie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Ruefle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Dorofee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Perl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mccloud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Collins</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">STIDS</title>
+		<imprint>
+			<biblScope unit="page" from="62" to="71" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Narayanan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ganesan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Oates</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Finin</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1808.00116</idno>
+		<title level="m">Cognitive techniques for early detection of cybersecurity events</title>
+				<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Developing an ontology of the cyber security domain</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Obrst</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Chase</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Markeloff</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">STIDS</title>
+		<imprint>
+			<biblScope unit="page" from="49" to="56" />
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Computational ontology of network operations</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Oltramari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">F</forename><surname>Cranor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Walls</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Mcdaniel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">MILCOM 2015-2015 IEEE Military Communications Conference</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="318" to="323" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Building an ontology of cyber security</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Oltramari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">F</forename><surname>Cranor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Walls</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">D</forename><surname>Mcdaniel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">STIDS</title>
+		<imprint>
+			<biblScope unit="page" from="54" to="61" />
+			<date type="published" when="2014" />
+			<publisher>Citeseer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Towards a human factors ontology for cyber security</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Oltramari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Henshel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Cains</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hoffman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">STIDS</title>
+		<imprint>
+			<biblScope unit="page" from="26" to="33" />
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<title level="m" type="main">Senso comune</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Oltramari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Vetere</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenzerini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gangemi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Guarino</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010" />
+			<publisher>LREC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Cocoa: An ontology for cybersecurity operations centre analysis process</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Onwubiko</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2018 International Conference On Cyber Situational Awareness</title>
+				<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Mulval: A logic-based network security analyzer</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Ou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Govindavajhala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">W</forename><surname>Appel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">USENIX security symposium</title>
+				<meeting><address><addrLine>Baltimore</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2005" />
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="113" to="128" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Toward an ontology architecture for cyber-security standards</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Parmelee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">STIDS</title>
+		<imprint>
+			<biblScope unit="volume">713</biblScope>
+			<biblScope unit="page" from="116" to="123" />
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<title level="m" type="main">OWL ontology quality assessment and optimization in the cybersecurity domain</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M C</forename><surname>Pipa</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+		<respStmt>
+			<orgName>Instituto Universitário de Lisboa</orgName>
+		</respStmt>
+	</monogr>
+	<note>Ph.D. thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Automatic keyword extraction from individual documents</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rose</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Engel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Cramer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Cowley</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Text Mining. Applications and Theory</title>
+				<editor>
+			<persName><forename type="first">M</forename><forename type="middle">W</forename><surname>Berry</surname></persName>
+			<persName><forename type="first">J</forename><surname>Kogan</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Ltd</addrLine></address></meeting>
+		<imprint>
+			<publisher>John Wiley and Sons</publisher>
+			<date type="published" when="2010" />
+			<biblScope unit="page" from="1" to="20" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Cybex: The cybersecurity information exchange framework (x.1500). SIGCOMM Comput</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rutkowski</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Commun. Rev</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="59" to="64" />
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">OWL ontologies in cybersecurity: conceptual modeling of cyberknowledge</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">F</forename><surname>Sikos</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">AI in Cybersecurity. ISRL</title>
+				<editor>
+			<persName><forename type="first">L</forename><forename type="middle">F</forename><surname>Sikos</surname></persName>
+		</editor>
+		<imprint>
+			<biblScope unit="volume">151</biblScope>
+			<biblScope unit="page" from="1" to="17" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Cham</forename><surname>Springer</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-98842-91</idno>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Security risk analysis of enterprise networks using probabilistic attack graphs</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Singhal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Ou</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-66505-43</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-66505-43" />
+	</analytic>
+	<monogr>
+		<title level="j">Network Security Metrics</title>
+		<imprint>
+			<biblScope unit="page" from="53" to="73" />
+			<date type="published" when="2017" />
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Syed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhong</surname></persName>
+		</author>
+		<title level="m">Cybersecurity vulnerability management: An ontology-based conceptual model</title>
+				<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">UCO: A unified cybersecurity ontology</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Syed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Padia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Finin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Mathews</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Joshi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshops at the Thirtieth AAAI Conference on Artificial Intelligence</title>
+				<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Reference ontology for cybersecurity operational information</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Takahashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Kadobayashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. J</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="2297" to="2312" />
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Building ontology of cybersecurity operational information</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Takahashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Fujiwara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Kadobayashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Sixth Annual Workshop on Cyber Security and Information intelligence Research</title>
+				<meeting>the Sixth Annual Workshop on Cyber Security and Information intelligence Research</meeting>
+		<imprint>
+			<date type="published" when="2010" />
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Cybersecurity information exchange techniques: Cybersecurity information ontology and cybex</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Takahashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Kadobayashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. National Instit. Inf. Commun. Technol</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">3/4</biblScope>
+			<biblScope unit="page" from="127" to="135" />
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Ontological approach toward cybersecurity in cloud computing</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Takahashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Kadobayashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Fujiwara</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 3rd International Conference on Security of Information and Networks</title>
+				<meeting>the 3rd International Conference on Security of Information and Networks</meeting>
+		<imprint>
+			<date type="published" when="2010" />
+			<biblScope unit="page" from="100" to="109" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">A target-centric ontology for intrusion detection</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Undercofer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Finin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pinkston</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Workshop on Ontologies in Distributed Systems, held at The 18th International Joint Conference on Artificial Intelligence</title>
+				<imprint>
+			<date type="published" when="2003" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">On the deep structure of information systems</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Weber</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inf. Syst. J</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="203" to="223" />
+			<date type="published" when="1995" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">An efficient ontology comparison tool for semantic web applications</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ali</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The 2005 IEEE/WIC/ACM International Conference on Web Intelligence (WI 2005)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2005" />
+			<biblScope unit="page" from="372" to="378" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Ovm: an ontology for vulnerability management</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Guo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">5th Annual Workshop on Cyber Security and Information Intelligence Research: Cyber Security and Information Intelligence Challenges and Strategies</title>
+				<imprint>
+			<date type="published" when="2009" />
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<monogr>
+		<title level="m" type="main">Design Science Methodology for Information Systems and Software Engineering</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Wieringa</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014" />
+			<publisher>Springer</publisher>
+			<pubPlace>Berlin</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<monogr>
+		<author>
+			<persName><forename type="first">E</forename><surname>Zuanelli</surname></persName>
+		</author>
+		<title level="m">The cybersecurity ontology platform: the poc solution</title>
+				<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

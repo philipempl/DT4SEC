@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Towards Continuous Monitoring in Personalized Healthcare through Digital Twins</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2019-11">November 2019</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Luis</forename><forename type="middle">F</forename><surname>Rivera</surname></persName>
+							<email>rivera@uvic.ca</email>
+						</author>
+						<author>
+							<persName><forename type="first">Hausi</forename><forename type="middle">A</forename><surname>Müller</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Miguel</forename><surname>Jiménez</surname></persName>
+							<email>miguel@uvic.ca</email>
+						</author>
+						<author>
+							<persName><forename type="first">Prashanti</forename><surname>Angara</surname></persName>
+							<email>pangara@uvic.ca</email>
+						</author>
+						<author>
+							<persName><forename type="first">Norha</forename><forename type="middle">M</forename><surname>Villegas</surname></persName>
+							<email>nvillega@icesi.edu.co</email>
+						</author>
+						<author>
+							<persName><forename type="first">Gabriel</forename><surname>Tamura</surname></persName>
+							<email>gtamura@icesi.edu.co</email>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">University of Victoria Victoria</orgName>
+								<orgName type="institution" key="instit2">British Columbia</orgName>
+								<address>
+									<country>Canada Miguel Jiménez</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Victoria Victoria</orgName>
+								<address>
+									<addrLine>British Columbia</addrLine>
+									<country>Canada Prashanti Angara</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">University of Victoria Victoria</orgName>
+								<address>
+									<addrLine>British Columbia</addrLine>
+									<country>Canada Norha M. Villegas</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<orgName type="institution">Universidad Icesi Cali</orgName>
+								<address>
+									<addrLine>Valle del Cauca</addrLine>
+									<country key="CO">Colombia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff4">
+								<orgName type="department">Gabriel Tamura</orgName>
+								<orgName type="institution">University of Victoria Victoria</orgName>
+								<address>
+									<addrLine>British Columbia</addrLine>
+									<country key="CA">Canada</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff5">
+								<orgName type="institution">Universidad Icesi Cali</orgName>
+								<address>
+									<addrLine>Valle del Cauca</addrLine>
+									<country key="CO">Colombia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff6">
+								<orgName type="institution">University of Victoria Victoria</orgName>
+								<address>
+									<settlement>British Columbia</settlement>
+									<country key="CA">Canada</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff7">
+								<orgName type="institution">University of Victoria Victoria</orgName>
+								<address>
+									<settlement>British Columbia</settlement>
+									<country key="CA">Canada</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff8">
+								<address>
+									<settlement>Toronto</settlement>
+									<region>Ontario</region>
+									<country key="CA">Canada</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff9">
+								<address>
+									<postCode>2019</postCode>
+									<settlement>Markham, New York</settlement>
+									<region>Ontario, Canada. ACM, NY, USA, 6 pages</region>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Towards Continuous Monitoring in Personalized Healthcare through Digital Twins</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2019-11">November 2019</date>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1145/1122445.1122456</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:53+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Digital twin</term>
+					<term>models at run-time</term>
+					<term>adaptive context monitoring</term>
+					<term>selfadaptive systems</term>
+					<term>autonomic computing</term>
+					<term>healthcare</term>
+					<term>mhealth</term>
+					<term>precision medicine</term>
+					<term>personalized healthcare</term>
+					<term>software as a medical device</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Continuous and effective monitoring of chronic diseases and their associated treatments might have a decisive impact on reducing risks and improving life quality of patients. This, however, demands new and innovative methods for engineering systems that support the required capabilities. Research on the application of the novel concept of Digital Twin (DT) in healthcare might provide the means to revolutionize traditional medical practices. A DT comprises a set of virtual representations of both the structural elements and dynamics of any physical asset (e.g., a patient) throughout its lifecycle. In the healthcare domain, it might represent a significant step forward towards tightening and improving the interactions between systems, caregivers and patients. Moreover, integrating data-driven methods (e.g., Machine Learning) and DT could serve as a noteworthy mechanism to not only track patients' health continuously, but also to evaluate the application and evolution of medical treatments virtually. In this paper, we describe our vision for the application of DT in precision medicine. Our contributions are twofold. First, we describe our initial ideas for a reference model that leverages DT capabilities and research advances in self-adaptive systems and autonomic computing to engineer smart and flexible software systems in healthcare. We expect these systems to alleviate complexity and assist in the planning and decision-making processes when applying medical treatments to patients by healthcare professionals. Then, we elaborate on the definition of internal structures for DT to support precision medicine techniques in the context of continuous monitoring and personalized data-driven medical treatments.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>The recent information explosion together with the instrumentation of artificial intelligence capabilities in modern software systems are enabling new research opportunities and innovation in the healthcare domain <ref type="bibr" target="#b15">[16,</ref><ref type="bibr" target="#b36">37,</ref><ref type="bibr" target="#b40">41]</ref>. New emerging and interrelated paradigms such as Informatics &amp; Data-Driven Medicine, 1 eHealth 2 and mHealth, <ref type="bibr" target="#b2">3</ref> Software as a Medical Device (SaMD), <ref type="bibr" target="#b3">4</ref> and Digital Health 5 are flourishing and gaining acceptance among both healthcare professionals and patients <ref type="bibr" target="#b10">[11]</ref>. This confluence of new available medical data, sensing and data processing technologies, and the design and implementation of smart systems is expected to allow unprecedented levels of precision and personalization in healthcare and medicine. On the one hand, the successful implementation of real-time analysis through continuous monitoring of patients will improve healthcare practices that directly impact individual diagnosis accuracy including early detection of deterioration of health conditions <ref type="bibr" target="#b34">[35]</ref>, while reducing costs associated with hospital operations <ref type="bibr" target="#b38">[39]</ref>. On the other hand, the availability and processing of large and diverse flows of health-related data are facilitating the prediction of medical treatment outcomes, even in a traditionally complex domain such as mental and psychological disorders <ref type="bibr" target="#b5">[6,</ref><ref type="bibr" target="#b9">10,</ref><ref type="bibr" target="#b35">36]</ref>. However, achieving this introduce different challenges when engineering systems that support these capabilities <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b10">11,</ref><ref type="bibr" target="#b18">19,</ref><ref type="bibr" target="#b40">41]</ref>.</p><p>As new data-driven personalization requirements arise, designers are facing unseen levels of complexity when defining and implementing smart healthcare systems <ref type="bibr" target="#b10">[11]</ref>. First, large volumes of data coming from myriad and diverse devices must be integrated by these systems <ref type="bibr" target="#b23">[24,</ref><ref type="bibr" target="#b26">27,</ref><ref type="bibr" target="#b37">38]</ref>. The explosion of data size, arising from recent devices' capacity to generate valuable information during their operation, demands new approaches for storing, processing, and managing data. Moreover, the heterogeneity of the produced data calls for adopting new practices to consolidate information in such a way that useful insights can be originated regardless of its origin. Second, the dynamism of a patient's health condition, the uncertainty associated with the variables that affect it, and the advocacy for early diagnosis and corresponding actions require effective interaction between physical and computing systems <ref type="bibr" target="#b11">[12,</ref><ref type="bibr" target="#b17">18]</ref>. This implies guaranteeing an effective and accurate exchange of realtime information among different systems and devices involved in the continuous monitoring of medical states. Third, accommodating quality and safety concerns in modern healthcare demands leveraging uncertainty management, digitization, and simulation capabilities <ref type="bibr" target="#b3">[4]</ref>. This refers to the ability to create accurate virtual abstractions of real-world entities to assist in the analysis of their current properties and the prediction of their future state.</p><p>Digital Twin (DT) is an emerging concept that offers a novel approach for virtually representing both the structural elements and dynamics of an asset throughout its entire lifecycle <ref type="bibr" target="#b30">[31]</ref>. DT represents a significant step forward towards the achievement of integrated data, multidimensional cooperative systems, and the digitalization of both structural and behavioral characteristics of real-world entities. Although this concept manifests a promising idea that could be leveraged in different application domains such as healthcare, technological limitations have hampered its early adoption <ref type="bibr" target="#b39">[40]</ref>. Nonetheless, recent research and advances in data collection, processing, and analysis, as well as in self-adaptive or autonomous systems, are promising to advance the realization of DT. On the one hand, Internet-of-Things (IoT) technologies along with techniques for processing large volumes of data (i.e., big data technologies) allow not only systems to gather data that was not accessible before, but also to process it regardless of its size. On the other hand, instrumenting DT-based systems with self-adaptation and intelligence supported by data mining and machine learning capabilities enables them to reason and produce new information and knowledge from historical and real-time data. Therefore, combining these techniques through DT might play a fundamental role in the proliferation of smart systems <ref type="bibr" target="#b0">[1]</ref>, which could lead to decidedly positive effects in the healthcare domain. Thus, DT technology is conducive to not only track real-time patients' health, but also to reduce the uncertainty related to the effectiveness and progression of medical treatments <ref type="bibr" target="#b6">[7]</ref>. DT simulation capabilities might be leveraged through the simultaneous application and analysis of treatments on virtual clones. Achieving this is challenging, but recent advancements in the simulation of chronic diseases such as diabetes represent a promising opportunity for researchers, patients and medicians <ref type="bibr" target="#b2">[3]</ref>.</p><p>Despite the widely recognized significance of DT, 678 its realization is still challenging <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b24">25]</ref>. In fact, most of the DT-based approaches found in literature mainly feature emergent ideas and preliminary results <ref type="bibr" target="#b24">[25]</ref>, and its application is still limited, particularly in healthcare <ref type="bibr" target="#b29">[30]</ref>. This paper posits our vision on the application of the DT concept in the continuous monitoring of patient conditions and the management of medical treatments by healthcare professionals. To realize our vision, we are working on developing a novel reference model for engineering DT-based healthcare systems based on the principles of self-adaptation and autonomic computing. Thus, the paper elaborates on the modeling <ref type="bibr" target="#b8">9</ref> of smart healthcare systems' internal structures, their interrelationships, and the correspondence of associated DTs to their physical equivalents.</p><p>The remainder of this paper is structured as follows. Section 2 describes the DT concept and its main characteristics. Section 3 presents our vision for the application of DT in healthcare and a preliminary version of the proposed reference model. Section 4 discusses related work. Finally, Section 5 concludes the paper and describes directions of future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">THE DIGITAL TWIN CONCEPT</head><p>As an emergent concept, DT lacks an accepted standard definition applicable to any domain <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b24">25]</ref>. This limitation, however, has not halted research efforts to provide the conceptualization required to enable future advances on this topic in different application domains. This section provides an overview of relevant DT definitions, realization requirements, and implementation challenges from both academic and industry contexts.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Definitions</head><p>Since its conception, researchers have proposed several definitions for DT <ref type="bibr" target="#b33">[34]</ref>. Although the exact origin of the DT concept is not completely clear, its first appearance dates back to 2003 when Grieves <ref type="bibr" target="#b13">[14]</ref> used it in the context of Product Lifecycle Management (PLM). The initial conception of DT involved a basic description of the interconnections between physical and virtual entities <ref type="bibr" target="#b39">[40]</ref>. Since then, a plethora of revisions to the concept has enabled it to evolve and adapt according to recent trends such as IoT and Industry 4.0. The following list outlines the most important DT definitions. Digital Twin: A set of virtual representations that enables describing the fundamental characteristics of a physical entity using different levels of abstraction. A DT is a precise and up-todate virtual manifestation that continuously aggregates data <ref type="bibr" target="#b5">6</ref> https://www.forbes.com/sites/bernardmarr/2017/03/06/what-is-digital-twintechnology-and-why-is-it-so-important/#6a8e8fe52e2a 7 https://www.expresscomputer.in/news/the-importance-of-digital-twins/21810/ 8 https://www.forbes.com/sites/danwoods/2018/07/18/why-digital-twins-should-bethe-ceos-best-friend/#710e64d93c75 <ref type="bibr" target="#b8">9</ref> We focus on the structural models of DT and their relevance for prediction and forecasting (behavioral models). However, we acknowledge (https://lfrivera.github.io/ personal-stuff/publications/lfrivera-cser2019s-poster.pdf) that additional modeling approaches must be considered.</p><p>coming from the physical counterpart <ref type="bibr" target="#b25">[26]</ref>, thus serving as a central knowledge base for both real-time analysis and forecasting. Two major uses for DT have been derived <ref type="bibr" target="#b14">[15]</ref>: interrogation, where DTs are consulted for current and historical data, regardless of their physical counterpart location; and prediction, which involves predicting future behaviour and qualities of the physical entity, throughout its entire lifecycle, using a DT. Digital Twin Prototype (DTP): A DTP specifies the informational structures (e.g., 3D models) required to describe and generate a physical prototype from a specific virtual version. Digital Twin Instance (DTI): A DTI describes a particular physical entity linked to a DT. Privacy and security concerns might motivate the creation of multiple instances of DT for the same physical device <ref type="bibr" target="#b31">[32]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Requirements and Challenges</head><p>Even though different DT definitions have been provided in multiple application domains, most of them share commonalities that enable analyzing DT requirements from a general perspective. Recent research <ref type="bibr" target="#b12">[13]</ref> established that the aggregation of real-time data, integration and interoperability, and fidelity are three major requirements for the realization of DT in the context of Industry 4.0-referring to a fourth revolution in manufacturing processes, driven by recent advancements in the IT field <ref type="bibr" target="#b27">[28]</ref>. We argue that these concepts are also highly relevant to the application of DT in healthcare.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.1">Real-time Data Aggregation.</head><p>In a data-driven world, gathering pertinent data as soon as it is produced becomes essential to comprehend the current state of an element of interest <ref type="bibr" target="#b8">[9]</ref>. To facilitate this, the automatic detection and binding of available physical devices in a network (e.g., wearable healthcare devices) becomes essential. Furthermore, researchers must provide new methods for adjusting the rate at which data produced in the physical domain is updated and replicated in the digital one <ref type="bibr" target="#b31">[32]</ref>. This is crucial for the proper management of diseases that might develop critical emergency conditions in patients (e.g., diabetes). In these cases, monitoring rate or monitored properties must be adapted accordingly for adequate and early intervention.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.2">Integration and Interoperability.</head><p>Multiple DTs might work cooperatively to achieve a shared goal <ref type="bibr" target="#b8">[9,</ref><ref type="bibr" target="#b28">29,</ref><ref type="bibr" target="#b29">30,</ref><ref type="bibr" target="#b31">32,</ref><ref type="bibr" target="#b42">43]</ref>. To accomplish this level of interaction, DT practitioners will need to provide new suitable APIs and mechanisms that enable the automatic detection and composition of DTs available in the network to simplify the interchange and synchronization of information across organizations <ref type="bibr" target="#b31">[32]</ref>. This would be a key factor when modeling the complex interactions that occur in the human body through the establishment of DT hierarchies depicting structural decompositions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.3">Fidelity.</head><p>Accurate detailing is one of the major concerns for future DT practitioners <ref type="bibr" target="#b12">[13]</ref>. DT's fidelity refers to its capability to correspond to a physical entity precisely. This property imposes big challenges to the definition of DT's internal structures that will support detailed representations of complex physical entities such as tissues, organs, or even systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">OUR VISION</head><p>This section provides an overview of our proposed approach towards the achievement of personalized treatments and precision health using DT for continuous monitoring and forecasting. Initially, we describe our DT-Driven reference model for the design, development, and operation of treatment management systems in precision healthcare. Then, we elaborate on the DT internal structures definition that will form the foundations of the model. Furthermore, we present a concrete application scenario where our envisioned approach could be introduced, thus detailing its use.  Our model combines DT concepts with research advances in selfadaptive systems and autonomic computing such as feedback loops and autonomic managers <ref type="bibr" target="#b21">[22]</ref>, Models at Run-time (MARTs) <ref type="bibr" target="#b4">[5]</ref>, and reference models for adaptive control (i.e., IBM's Autonomic Computing Reference Architecture (ACRA) <ref type="bibr" target="#b20">[21]</ref>). First, the model illustrates the acquisition of real-time healthcare data (context) from either a particular individual or a targeted group using noninvasive sensing equipment such as wearable devices. Continuous and diverse flows of data originated from these devices are managed by Adaptive Context Monitoring capabilities that, in the context of DT fidelity improvement, provide flexibility to sampling and data fusion processes, therefore addressing the uncertainty associated with the changing behavior of relevant context sources. In this sense, gathering data from subjects of interest is conceived as a dynamic procedure, instrumented by a context monitoring feedback loop (COM-FL), similar to the one defined in the DYNAMICO reference model <ref type="bibr" target="#b41">[42]</ref>, that enables meeting particular monitoring requirements from specific medical states or treatments, and accommodating context uncertainty originated from the development of critical health conditions. Processed data from the monitoring phase will be stored using data models governed by Adaptive Structural MARTs (cf. Figure <ref type="figure">1</ref>) that constitute the static view of the virtual representations of the human body. These static models define the set of properties to be measured and the schemas to organize sensor readings. Furthermore, they characterize the latest known health status of the subjects under consideration. As new information becomes available or new properties are required to improve the fidelity of the virtual representations, structural models will be required to evolve accordingly. In addition, behavioral AI-based models (e.g., Online Machine Learning algorithms or Cascading Genetic Fuzzy Trees) will describe the dynamic characteristics of the entities being modeled. They enable the expected forecasting and simulation capabilities of DT technologies by exploiting the data stored in structural models and adapting according to Tuning Controllers (cf. tuning feedback loop (TUN-FL in Figure <ref type="figure">1</ref>)) that establish policies to guarantee their correct calibration. Finally, a care management feedback loop (CAM-FL) controls the satisfaction and optimization of high-level goals for particular medical treatments. In this loop, a Treatment Management Controller performs trade-off analysis and dictates the way both run-time models and controllers must adapt conforming to individual patient demands. For instance, new symptoms or available treatment outcomes in patients with similar conditions might drive the re-definition (evolution) of both structural and behavioral modeling to meet particular needs.  Creating model-based abstractions has enabled designers to tame complexity when understanding, conceptualizing, and specifying real-world entities and phenomena. This modeling process has played a fundamental role in the definition of internal structures that comprise information systems supporting daily-basis or even mission-critical tasks. However, a new arising era of complex and interconnected real-time systems, which span beyond the virtual realm (e.g., DTs), imposes new challenges to system modeling <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b44">45]</ref>. The proper formulation of new (meta) modeling mechanisms that enable molding DT understructures, their interrelationships, and their correspondence to physical counterparts is still a key factor towards the successful application of DT in any domain <ref type="bibr" target="#b31">[32]</ref>. Figure <ref type="figure" target="#fig_2">2</ref> depicts our proposal for modeling DTs in healthcare for personalized medical treatments and precision medicine. Inspired by the divide-and-conquer paradigm, we define a Human Digital Twin (HDT) as a set of interrelated and virtual anatomical structures (AS), which might represent tissues, organs, or systems in the human body. Following the definitions of DT described in Section 2.1, we conceive the concepts of AS Digital Twin Prototype (DTP) and AS Digital Twin Instance (DTI). On the one hand, An AS DTP comprises the Adaptive Structural MARTs depicted in Figure <ref type="figure">1</ref>, which are created and maintained by healthcare professionals and autonomic managers for describing the sensing measurements under consideration during a particular medical treatment, thus delineating a virtual representation of the real-world AS affected by the treatment. Through model transformations and synchronizations, AS DTPs manage the underlying data models that serve as an input for the AI-based model (i.e., Adaptive Behavioral MART in Figure <ref type="figure">1</ref>). On the other hand, each AS DTI creates the conditions for simulating and evaluating the outcomes of a particular medical treatment over a specific individual or targeted group. HDT Managers (cf. Figure <ref type="figure">1</ref>) allow the instantiation of AS DTIs from AS DTPs, thus enabling the realization of data-driven personalized medical treatments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Towards a DT-Driven</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Modeling DT in Healthcare</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Motivational Scenario</head><p>Efficient and effective care of patients with chronic diseases such as diabetes calls for continuous monitoring of real-time conditions in order to prevent possible disease-related complications <ref type="bibr" target="#b22">[23]</ref>. Moreover, the assessment of medical procedures for diabetes prevention and treatment becomes essential to improve quality of life and survival chances, determine disease progression, and reduce risks and costs associated with long-term or irremediable complications such as blindness, amputation, cardiovascular diseases, among others <ref type="bibr" target="#b43">[44]</ref>. This section exemplifies the way our envisioned approach can be crucial in the chronic disease management of diabetes, a metabolic disorder that affects more than 400 million people worldwide, <ref type="bibr" target="#b9">10</ref> and whose estimated costs have reached $327 billion in the U.S over the last years. <ref type="bibr" target="#b10">11</ref> Since risks associated with diabetes are persistent, spanning long periods of time or even perpetually, diagnosed patients must learn to adhere to strict disease management in order to improve healthcare outcomes and quality of life <ref type="bibr" target="#b16">[17]</ref>. To achieve this, continuous monitoring and analysis of relevant health signals must be guaranteed <ref type="bibr" target="#b19">[20]</ref>. In our approach, wearable devices (e.g., smartwatches, fitness trackers, and smart clothes) provide the means for the real-time sensing and data acquisition of health-related measurements that might play an essential role in the care management of diabetes. Such measurements might include pedometer and activity-tracking data, heart rate, ingested water and food, or even glucose levels in tears and sweat. <ref type="bibr" target="#b11">12</ref> . Diabetic emergencies (e.g., hyperglycemic or hypoglycemic crises) or changes in treatment goals (e.g., increasing daily physical activity) underpin the use of adaptive context monitoring in our approach. This mechanism enables both a fast response to conditions that require immediate intervention by healthcare professionals and the flexibility needed by evolving diabetes medical procedures.</p><p>Data gathered and pre-processed by monitors feed the models related to each HDT. Initially, using a DT metamodel that specifies the set of constructs to properly model DTs, healthcare professionals define an AS DTP that abstracts a desired anatomical structure in the human body. This prototype is associated with the measurements being sensed for the care management of the disease under consideration. For instance, to manage prediabetes, a medician could define an AS DTP of the endocrine system composed of Inherent Factors, such as insulin resistance; and Risk Factors, such as physical activity. However, as patients develop new medical conditions, new relevant information becomes available, or a new treatment requires changes in the set of properties being measured, the prototype should be adapted to accommodate these circumstances. For example, if prediabetes develops into type 2 diabetes, blood glucose must be considered as a new risk factor in the earlier prototype. Hence model evolution becomes essential. Data models (schemas) are generated and updated from AS DTPs in an automatic manner. Once a prototype has been defined, it can be instantiated one or multiple times as an AS DTI. Each instance encompasses a dataset corresponding to the automatically generated schema and a set of behavioral models (e.g., Machine Learning models for predicting glucose fluctuations) that provide prediction and simulation capabilities. As with their structural counterparts, behavioral models adapt accordingly.</p><p>Particular characteristics of a diabetes patient or group of interest will delineate the high-level care goals defined in the CAM-FL. This loop orchestrates control flows, thus enabling adaptive control in our approach. To exemplify this, consider, for example, the scenario of the increment of insulin resistance in a particular patient. Using the HDT Manager and historical information from the patient residing on an initial AS DTI, the Treatment Management Controller could evaluate two alternative treatments (e.g., higher medication doses and insulin injections) through two new AS DTIs, which avoids the necessity of applying them on the real subject and improves decision-making by professionals. Simulation outcomes might trigger adaption in monitoring policies, as well as in the models that compose the particular HDT under study.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">RELATED WORK</head><p>Recent surveys <ref type="bibr" target="#b24">[25,</ref><ref type="bibr" target="#b39">40]</ref> show that DT has received notable attention in manufacturing-related domains such as Industry 4.0. These studies, nonetheless, do not detail the application of DT in healthcare. Using both industry and academic perspectives, this section presents an overview of previous and ongoing relevant research on DT in this domain. <ref type="bibr" target="#b11">12</ref> https://www.sciencedaily.com/releases/2018/01/180124113903.htm In industry, companies like Siemens, <ref type="bibr" target="#b12">13</ref> Hewlett Packard Enterprise, <ref type="bibr" target="#b13">14</ref> Phillips, <ref type="bibr" target="#b14">15</ref> and General Electrical (GE) <ref type="bibr" target="#b15">16</ref> have directly explored or contributed to the creation of accurate virtual replicas of organs such as the heart <ref type="bibr" target="#b1">[2]</ref> or the brain <ref type="bibr" target="#b32">[33]</ref>. These DTs perform the simulation of organs' functional units and their associated physiological processes. Moreover, companies study the use of these models in the virtual assessment and simulation of medical treatments. Furthermore, they are also investigating the adoption of DTs for modeling hospital environments with the aim to achieve improved resource planning and operations management.</p><p>As occurs with giant technological leaders, academic research recognizes the possible medical revolutions, and its implications on the life of patients, that might be driven by the DT adoption in the healthcare domain. However, only a few instances of academic publications that address the application of DT in healthcare can be found in the literature. A relevant proposal in this regard is the one described by Liu et al. in <ref type="bibr" target="#b29">[30]</ref>. They propose a cloud-based reference framework, based on the concept of Digital Twin Healthcare (DTH), which enables real-time supervision and improved crisis warning for elderly patients. In their proposal, a DTH describes patient information, sensed properties, external factors, and patient symptoms and their optimized solution. To illustrate the feasibility of their approach, they describe its application in the context of care management of cardiac arrhythmia.</p><p>To the best of our knowledge, this is the first paper to report on the use and integration of concepts from self-adaptive systems and autonomic computing to engineer smart and flexible DT-driven healthcare systems focused on chronic disease management (e.g., diabetes). Moreover, we believe that the adoption of adaptive MARTs in our proposal, together with the division of a DT into an adaptive prototype and its particular instances, are novel applications of these concepts in healthcare.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">CONCLUDING REMARKS &amp; FUTURE WORK</head><p>This paper presented our vision for applying the DT concept in personalized medical treatments. We advocate for a modeling approach to leverage advances in autonomic and self-adaptive systems to realize such a vision. Our contributions are as follows. First, we presented preliminary work on the definition of a reference model for engineering smart healthcare systems based on DT. Our model features three feedback loops for adaptive care management, contextual monitoring and adaptive behavioral models. Second, we elaborated on DT internal structures (models) for healthcare.</p><p>Our future work will concentrate on the enrichment of our proposed reference model and its validation. For this, we will further study diabetes control treatments in order to abstract relevant modeling properties of chronic diseases and propose a healthcarerelated metamodel for DTs.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :Figure 1</head><label>11</label><figDesc>Figure 1: DT-Driven Reference Model for Personalized Medical Treatments in Data-Driven Healthcare Systems Figure 1 depicts a high-level and preliminary view of our reference model for engineering smart and flexible healthcare systems that manage the application of medical treatments in patients.Our model combines DT concepts with research advances in selfadaptive systems and autonomic computing such as feedback loops and autonomic managers<ref type="bibr" target="#b21">[22]</ref>, Models at Run-time (MARTs)<ref type="bibr" target="#b4">[5]</ref>, and reference models for adaptive control (i.e., IBM's Autonomic Computing Reference Architecture (ACRA)<ref type="bibr" target="#b20">[21]</ref>). First, the model illustrates the acquisition of real-time healthcare data (context) from either a particular individual or a targeted group using noninvasive sensing equipment such as wearable devices. Continuous and diverse flows of data originated from these devices are managed by Adaptive Context Monitoring capabilities that, in the context of DT fidelity improvement, provide flexibility to sampling and data fusion processes, therefore addressing the uncertainty associated with the changing behavior of relevant context sources. In this sense, gathering data from subjects of interest is conceived as a dynamic procedure, instrumented by a context monitoring feedback loop (COM-FL), similar to the one defined in the DYNAMICO reference model<ref type="bibr" target="#b41">[42]</ref>, that enables meeting particular monitoring requirements from specific medical states or treatments, and accommodating context uncertainty originated from the development of critical health conditions. Processed data from the monitoring phase will be stored using data models governed by Adaptive Structural</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Proposed modeling of DT in Healthcare for Precision Medicine.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Legend Component Data Flow Adaptation Control Flow Subsystem Autonomic Manager</head><label></label><figDesc></figDesc><table><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>Reference Model for</cell></row><row><cell cols="5">Personalized Treatments in Healthcare</cell></row><row><cell cols="3">Systems</cell><cell></cell></row><row><cell cols="3">Physical World</cell><cell></cell><cell>Digital World</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>Human Digital Twin (HDT)</cell></row><row><cell>Target Subjects</cell><cell></cell><cell></cell><cell>Adaptive Structural MARTs</cell><cell>Adaptive Behavioral MARTs</cell><cell>Tuning Controller TUN-FL</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">COM-FL</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Adaptive Context Monitoring</cell><cell>Monitoring Controller</cell></row><row><cell cols="2">Sensing Devices</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>CAM-FL</cell></row><row><cell></cell><cell></cell><cell></cell><cell>HDT Manager</cell><cell>Care Management Controller</cell></row><row><cell>M</cell><cell>A</cell><cell>P</cell><cell>E</cell></row><row><cell>Monitor</cell><cell>Analyze</cell><cell>Plan</cell><cell>Execute</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">http://med.stanford.edu/iddm/overview.html 2 https://www.who.int/ehealth/en/ 3 https://www.who.int/goe/publications/goe_mhealth_web.pdf 4 https://www.fda.gov/medical-devices/digital-health/software-medical-devicesamd 5 https://www.who.int/behealthy/digital-health</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10">https://www.who.int/news-room/fact-sheets/detail/diabetes 11 http://www.diabetes.org/advocacy/news-events/cost-of-diabetes.html</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13">https://www.siemens-healthineers.com/press-room/press-videos/im-20181204001shs.html 14 https://www.hpe.com/us/en/newsroom/press-release/2018/07/hpe-helps-epflblue-brain-project-unlock-the-secrets-of-the-brain.html<ref type="bibr" target="#b14">15</ref> https://www.philips.com/a-w/about/news/archive/blogs/innovation-matters/ 20180830-the-rise-of-the-digital-twin-how-healthcare-can-benefit.html<ref type="bibr" target="#b15">16</ref> https://uscan.gehealthcarepartners.com/insight-detail/applying-simulationmodeling-to-the-hospital-envir</note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENTS</head><p>This work was funded in part by the National Sciences and Engineering Research Council (NSERC) of Canada, IBM Canada Ltd., University of Victoria and Universidad Icesi (Colombia). The authors would like to thank IBM's Centre for Advanced Studies, Canada for supporting this project.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Emergence of Digital Twins</title>
+		<author>
+			<persName><forename type="first">Shoumen Palit Austin</forename><surname>Datta</surname></persName>
+		</author>
+		<idno>abs/1610.06467</idno>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">The Living Heart Project: A robust and integrative simulator for human heart function</title>
+		<author>
+			<persName><forename type="first">Brian</forename><forename type="middle">P</forename><surname>Baillargeon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nuno</forename><surname>Rebelo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">D</forename><surname>Fox</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">Llewellyn</forename><surname>Taylor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ellen</forename><surname>Kuhl</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Mechanics</title>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="page" from="38" to="47" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Chronic disease modeling and simulation software</title>
+		<author>
+			<persName><forename type="first">Jacob</forename><surname>Barhak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Deanna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wen</forename><surname>Isaman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Donghee</forename><surname>Ye</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jbi.2010.06.003</idno>
+		<ptr target="https://doi.org/10.1016/j.jbi.2010.06.003" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Biomedical Informatics</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="page" from="791" to="799" />
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">The Impact of eHealth on the Quality and Safety of Health Care: A Systematic Overview</title>
+		<author>
+			<persName><forename type="first">Ashly</forename><forename type="middle">D</forename><surname>Black</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Josip</forename><surname>Car</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claudia</forename><surname>Pagliari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chantelle</forename><surname>Anandan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">PLOS Medicine</title>
+		<editor>Tomislav Bokun, Brian McKinstry, Rob Procter, Azeem Majeed, and Aziz Sheikh</editor>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="16" />
+			<date type="published" when="2011-01" />
+		</imprint>
+	</monogr>
+	<note>Kathrin Cresswell</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Gordon</forename><surname>Blair</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nelly</forename><surname>Bencomo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">B</forename><surname>France</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Models@run.time. Computer</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="page" from="22" to="27" />
+			<date type="published" when="2009" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Predicting Therapy Success and Costs for Personalized Treatment Recommendations Using Baseline Characteristics: Data-Driven Analysis</title>
+		<author>
+			<persName><forename type="first">Vincent</forename><surname>Bremer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dennis</forename><surname>Becker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Spyros</forename><surname>Kolovos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Burkhardt</forename><surname>Funk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ward</forename><surname>Van Breda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Hoogendoorn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Heleen</forename><surname>Riper</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Medical Internet Research</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page">e10275</biblScope>
+			<date type="published" when="2018-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Digital Twins in Health Care: Ethical Implications of an Emerging Engineering Paradigm</title>
+		<author>
+			<persName><forename type="first">Koen</forename><surname>Bruynseels</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Filippo</forename><surname>Santoni De Sio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeroen</forename><surname>Van Den Hoven</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Genetics</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">31</biblScope>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Design and implementation of smart HealthCare system using IoT</title>
+		<author>
+			<persName><forename type="first">Durga</forename><surname>Amarnath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Budida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ram</forename><forename type="middle">S</forename><surname>Mangrulkar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2017 International Conference on Innovations in Information, Embedded and Communication Systems (ICIIECS)</title>
+				<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Industrial IoT Lifecycle via Digital Twins</title>
+		<author>
+			<persName><forename type="first">Arquimedes</forename><surname>Canedo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Eleventh IEEE/ACM/IFIP International Conference on Hardware/Software Codesign and System Synthesis (CODES &apos;16)</title>
+				<meeting>the Eleventh IEEE/ACM/IFIP International Conference on Hardware/Software Codesign and System Synthesis (CODES &apos;16)<address><addrLine>New York, NY, USA, Article</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="volume">29</biblScope>
+		</imprint>
+	</monogr>
+	<note>1 pages</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Treatment response prediction and individualized identification of first-episode drug-naïve schizophrenia using brain functional connectivity</title>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Raymond</forename><forename type="middle">Y</forename><surname>Cho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dachun</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meihong</forename><surname>Xiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Li</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jair</forename><forename type="middle">C</forename><surname>Soares</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiang Yang</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Molecular Psychiatry</title>
+		<imprint>
+			<date type="published" when="2018-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A Smart Healthcare Systems Framework</title>
+		<author>
+			<persName><surname>Haluk Demirkan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IT Professional</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="38" to="45" />
+			<date type="published" when="2013-09" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Medical cyber-physical systems: A survey</title>
+		<author>
+			<persName><forename type="first">Nilanjan</forename><surname>Dey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amira</forename><forename type="middle">S</forename><surname>Ashour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fuqian</forename><surname>Shi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Simon</forename><forename type="middle">James</forename><surname>Fong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">João</forename><surname>Manuel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Tavares</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Medical Systems</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">74</biblScope>
+			<date type="published" when="2018-03-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Digital Twin Requirements in the Context of Industry 4.0</title>
+		<author>
+			<persName><forename type="first">Luiz</forename><surname>Fernando</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">S</forename><surname>Durão</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sebastian</forename><surname>Haag</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Reiner</forename><surname>Anderl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Klaus</forename><surname>Schützer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eduardo</forename><surname>Zancul</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Product Lifecycle Management to</title>
+				<editor>
+			<persName><forename type="first">Abdelaziz</forename><surname>Bouras</surname></persName>
+			<persName><forename type="first">Frédéric</forename><surname>Noël</surname></persName>
+			<persName><forename type="first">José</forename><surname>Ríos</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="204" to="214" />
+		</imprint>
+	</monogr>
+	<note>Support Industry 4.0, Paolo Chiabert</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">Digital Twin: Manufacturing Excellence through Virtual Factory Replication</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Grieves</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">Digital Twin: Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Grieves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Vickers</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017" />
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="85" to="113" />
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Big data driven healthcare services and wearables</title>
+		<author>
+			<persName><forename type="first">Vladimir</forename><surname>Hahanov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Volodymyr</forename><surname>Miz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Experience of Designing and Application of CAD Systems in Microelectronics</title>
+				<imprint>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="310" to="312" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Impact of mHealth Chronic Disease Management on Treatment Adherence and Patient Outcomes: A Systematic Review</title>
+		<author>
+			<persName><forename type="first">Saee</forename><surname>Hamine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Emily</forename><surname>Gerth-Guyette</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dunia</forename><surname>Faulx</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Beverly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amy</forename><forename type="middle">Sarah</forename><surname>Green</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ginsburg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J Med Internet Res</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page">e52</biblScope>
+			<date type="published" when="2015-02-24" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Review of Cyber-Physical System in Healthcare</title>
+		<author>
+			<persName><surname>Shah Ahsanul Haque</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aziz</forename><surname>Syed Mahfuzul</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mustafizur</forename><surname>Rahman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Distributed Sensor Networks</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page">217415</biblScope>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Big Data Challenges and Opportunities in Healthcare Informatics and Smart Hospitals</title>
+		<author>
+			<persName><forename type="first">Mohammed</forename><forename type="middle">K</forename><surname>Hassan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><forename type="middle">I El</forename><surname>Desouky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sally</forename><forename type="middle">M</forename><surname>Elghamrawy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amany</forename><forename type="middle">M</forename><surname>Sarhan</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019" />
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="3" to="26" />
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">A Digital Ecosystem of Diabetes Data and Technology: Services, Systems, and Tools Enabled by Wearables, Sensors, and Apps</title>
+		<author>
+			<persName><forename type="first">Nathaniel</forename><forename type="middle">D</forename><surname>Heintzman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Diabetes Science and Technology</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="35" to="41" />
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">An Architectural Blueprint for Autonomic Computing</title>
+		<imprint>
+			<date type="published" when="2005" />
+			<publisher>IBM Corporation</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">The vision of autonomic computing</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Jeffrey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">M</forename><surname>Kephart</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Chess</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page" from="41" to="50" />
+			<date type="published" when="2003-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">New Directions in Chronic Disease Management</title>
+		<author>
+			<persName><forename type="first">Sung</forename><surname>Hun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jae</forename><forename type="middle">Hyoung</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kun</forename><surname>Cho</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ho Yoon</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Endocrinology and Metabolism</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page" from="159" to="166" />
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Application of Analytics to Big Data in Healthcare</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shankar</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Krishnan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2016 32nd Southern Biomedical Engineering Conference (SBEC)</title>
+				<imprint>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="156" to="157" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Digital Twin in manufacturing: A categorical literature review and classification</title>
+		<author>
+			<persName><forename type="first">Werner</forename><surname>Kritzinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Karner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Georg</forename><surname>Traar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wilfried</forename><surname>Sihn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">16th IFAC Symposium on Information Control Problems in Manufacturing INCOM</title>
+				<imprint>
+			<date type="published" when="2018-01" />
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="1016" to="1022" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">The Virtual Twin: Controlling Smart Factories Using a Spatially-correct Augmented Reality Representation</title>
+		<author>
+			<persName><forename type="first">Mareike</forename><surname>Kritzler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Markus</forename><surname>Funk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Florian</forename><surname>Michahelles</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wolfgang</forename><surname>Rohde</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Seventh International Conference on the Internet of Things (IoT &apos;17)</title>
+				<meeting>the Seventh International Conference on the Internet of Things (IoT &apos;17)<address><addrLine>New York, NY, USA, Article</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">38</biblScope>
+		</imprint>
+	</monogr>
+	<note>2 pages</note>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Big data analytics for healthcare industry: impact, applications, and tools</title>
+		<author>
+			<persName><forename type="first">Sunil</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maninder</forename><surname>Singh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Big Data Mining and Analytics</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="48" to="57" />
+			<date type="published" when="2019-03" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Heiner</forename><surname>Lasi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Fettke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hans-Georg</forename><surname>Kemper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Feld</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Hoffmann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Business &amp; Information Systems Engineering</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="239" to="242" />
+			<date type="published" when="2014-08-01" />
+		</imprint>
+	</monogr>
+	<note>Industry 4.0.</note>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Big future for cyber-physical manufacturing systems</title>
+		<author>
+			<persName><forename type="first">Jay</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Behrad</forename><surname>Bagheri</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Design World</title>
+		<imprint>
+			<date type="published" when="2015-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">A Novel Cloud-Based Framework for the Elderly Healthcare Services Using Digital Twin</title>
+		<author>
+			<persName><forename type="first">Ying</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lin</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuan</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Longfei</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lei</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rong</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhibo</forename><surname>Pang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jamal Deen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="49088" to="49101" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Exploring the role of Digital Twin for</title>
+		<author>
+			<persName><forename type="first">Marco</forename><surname>Macchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Irene</forename><surname>Roda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elisa</forename><surname>Negri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Fumagalli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">16th IFAC Symposium on Information Control Problems in Manufacturing INCOM</title>
+				<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="790" to="795" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Architectural Aspects of Digital Twins in IIoT Systems</title>
+		<author>
+			<persName><forename type="first">Somayeh</forename><surname>Malakuti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sten</forename><surname>Grüner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 12th European Conference on Software Architecture: Companion Proceedings (ECSA &apos;18)</title>
+				<meeting>the 12th European Conference on Software Architecture: Companion Proceedings (ECSA &apos;18)<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+	<note>Article 12, 2 pages</note>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">The Blue Brain Project</title>
+		<author>
+			<persName><forename type="first">Henry</forename><surname>Markram</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Reviews Neuroscience</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="153" to="160" />
+			<date type="published" when="2006-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">A Review of the Roles of Digital Twin in CPS-based Production Systems</title>
+		<author>
+			<persName><forename type="first">Elisa</forename><surname>Negri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Fumagalli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marco</forename><surname>Macchi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">27th International Conference on Flexible Automation and Intelligent Manufacturing, FAIM2017</title>
+				<meeting><address><addrLine>Modena, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017-06-30" />
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="939" to="948" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Emerging New Era of Mobile Health Technologies</title>
+		<author>
+			<persName><forename type="first">Young-Taek</forename><surname>Park</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Healthcare Informatics Research</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="253" to="254" />
+			<date type="published" when="2016-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">A machine learning ensemble to predict treatment outcomes following an Internet intervention for depression</title>
+		<author>
+			<persName><forename type="first">Rahel</forename><surname>Pearson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Derek</forename><surname>Pisner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Björn</forename><surname>Meyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jason</forename><surname>Shumake</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><forename type="middle">G</forename><surname>Beevers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Psychological Medicine</title>
+		<imprint>
+			<biblScope unit="page" from="1" to="12" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Advancing the Frontier of Data-driven Healthcare</title>
+		<author>
+			<persName><forename type="first">Narges</forename><surname>Razavian</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">XRDS</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page" from="34" to="37" />
+			<date type="published" when="2015-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Predictive Big Data Analytics in Healthcare</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Reddy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P. Suresh</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2016 Second International Conference on Computational Intelligence Communication Technology (CICT)</title>
+				<imprint>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="623" to="626" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<title level="m" type="main">Finding Top-Line Opportunities in a Bottom-Line Healthcare Market: Revenue Generation Opportunities Created by an Innovative Contact-Free Continuous Monitoring Solution</title>
+		<author>
+			<persName><forename type="first">&amp;</forename><surname>Frost</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Sullivan</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Digital Twin in Industry: State-of-the-Art</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">He</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Datadriven Medicine: Promise and Challenges</title>
+		<author>
+			<persName><forename type="first">Tomas</forename><surname>Tokar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Igor</forename><surname>Jurisica</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Naomi</forename><forename type="middle">P</forename><surname>Visanji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Veillette</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 28th Annual International Conference on Computer Science and Software Engineering (CASCON &apos;18). IBM Corp</title>
+				<meeting>the 28th Annual International Conference on Computer Science and Software Engineering (CASCON &apos;18). IBM Corp<address><addrLine>Riverton, NJ, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="384" to="386" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<title level="m" type="main">DYNAMICO: A Reference Model for Governing Control Objectives and Context Relevance in Self-Adaptive Software Systems</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Norha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gabriel</forename><surname>Villegas</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Tamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hausi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurence</forename><surname>Müller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rubby</forename><surname>Duchien</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Casallas</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013" />
+			<publisher>Springer</publisher>
+			<biblScope unit="page" from="265" to="293" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Digital twins: Understanding the added value of integrated models for through-life engineering services</title>
+		<author>
+			<persName><forename type="first">Rok</forename><surname>Vrabič</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">Ahmet</forename><surname>Erkoyuncu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Butala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rajkumar</forename><surname>Roy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 7th International Conference on Through-life Engineering Services</title>
+				<meeting>the 7th International Conference on Through-life Engineering Services</meeting>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="139" to="146" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">A Computer Simulation Model of Diabetes Progression, Quality of Life, and Cost</title>
+		<author>
+			<persName><forename type="first">Honghong</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Deanna</forename><forename type="middle">J M</forename><surname>Isaman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shari</forename><surname>Messinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Morton</forename><forename type="middle">B</forename><surname>Brown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ronald</forename><surname>Klein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Brandle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">H</forename><surname>Herman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Diabetes Care</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page" from="2856" to="2863" />
+			<date type="published" when="2005" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Industry 4.0: Towards future industrial opportunities and challenges</title>
+		<author>
+			<persName><forename type="first">Keliang</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Taigang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lifeng</forename><surname>Zhou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">12th International Conference on Fuzzy Systems and Knowledge Discovery (FSKD</title>
+				<imprint>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="2147" to="2152" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

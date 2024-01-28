@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">IIoT and cyber-resilience</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Springer Science and Business Media LLC</publisher>
+				<availability status="unknown"><p>Copyright Springer Science and Business Media LLC</p>
+				</availability>
+				<date type="published" when="2020-08-04">2020-08-04</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Sebastian</forename><surname>Gajek</surname></persName>
+							<email>sebastian.gajek@hs-flensburg.de</email>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Applied Sciences Flensburg</orgName>
+								<address>
+									<settlement>Flensburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Michael</forename><surname>Lees</surname></persName>
+							<email>michael.lees@cub.com.au</email>
+							<affiliation key="aff2">
+								<orgName type="department">Carlton &amp; United Breweries and The Department of Electrical and Electronic Engineering</orgName>
+								<orgName type="institution">The University of Melbourne</orgName>
+								<address>
+									<settlement>Melbourne</settlement>
+									<country key="AU">Australia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Christoph</forename><surname>Jansen</surname></persName>
+							<email>christoph.jansen@hs-flensburg.de</email>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Applied Sciences Flensburg</orgName>
+								<address>
+									<settlement>Flensburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Michael Lees</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">IIoT and cyber-resilience</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">AI &amp; SOCIETY</title>
+						<title level="j" type="abbrev">AI &amp; Soc</title>
+						<idno type="ISSN">0951-5666</idno>
+						<idno type="eISSN">1435-5655</idno>
+						<imprint>
+							<publisher>Springer Science and Business Media LLC</publisher>
+							<date type="published" when="2020-08-04" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1007/s00146-020-01023-w</idno>
+					<note type="submission">Received: 27 February 2019 / Accepted: 13 July 2020</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:36+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Resilience</term>
+					<term>Cybersecurity</term>
+					<term>Enterprise</term>
+					<term>Supply chain</term>
+					<term>Digitalization</term>
+					<term>Industry 4.0</term>
+					<term>Blockchain</term>
+					<term>USB</term>
+					<term>Stuxnet</term>
+					<term>Digital twin</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Contemporary business (including those with integrated AI capabilities) often encompasses or aspires towards the automated, networked production of industrial goods across transnational supply chains that have many digitalized interfaces. This allows competitive operations in time, costs, and quality, which have been widely discussed. On the downside, it entails cyber threats with significant risks for society in areas including business, environment, and health. Hence, to adequately manage these risks in the emerging digital world, there is a vital necessity to raise awareness, establish, maintain, and further develop cyber-security measures to ensure an appropriate level of protection along the entire value chain and supply chain. Blockchain capabilities are introduced to improve the technical and organizational basis for secured operations in industrial networks. Its advantages are explained by a simple USB-device use case, that has often been the root cause to subsequent security incidents, especially in the Stuxnet incident.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>Since its inception, industry has been under relentless pressure to increase its efficiency, improve (and validate) product quality and, more recently, to minimize its impact on the environment. Automation and plant information systems have been instrumental in driving the significant advancements in this direction over the last few decades. More recently, the emerging integration of AI has further increased the sophistication and capabilities of digital environments. Such systems typically rely on access to data often across interconnected business entities. The same autonomous high-speed decision-making capability of AI systems that provide higher productivity can also propagate consequences of malware at unprecedented speed.</p><p>Cybersecurity has long been an issue in industry since the introduction of computers. The use of computers in automation (particularly the introduction of commodity operating systems into the factory floor) has extended cybersecurity risks deep into manufacturing facilities. The interconnection of automation networks and in particular the convergence and integration of Operational Technology (OT) and IT networks has further increased the cybersecurity risks and the probability of issues. The Petya and WannaCry ransomware attacks infested a huge number of systems worldwide in 2017. The adoption of Industrial Internet of Things (IIoT) devices results in the networked integration extending much deeper into devices (sensors, actuators, etc.), significantly increasing the degree of vulnerability and impact. Integrated Business-to-Business (B2B) systems both within transnational sections of a company as well as across integrated supply chains provide an unprecedented expansion of attack surface that spans separate companies and countries.</p><p>The advent of the Fourth Industrial Revolution and the push towards Industry 4.0 is accelerating the adoption of networked technologies. This impacts the entire enterprise control system hierarchy <ref type="bibr" target="#b9">(Jansen and Jeschke 2018)</ref>, and spans from IIoTenabled devices through the digitization of company internal and external interfaces enabling interconnected transnational supply chain management.</p><p>One specific use case within a supply chain is the utilization of USB-stick devices in manufacturing automation infrastructures. Who assures that USB sticks are only used within a dedicated IT infrastructure, e.g., to update a certain software package on a production machine? Who can assure that this stick has only been used for the intended procedures on specific machines-along the entire life cycle of the device? Enterprise procedures, education of staff, and rules for selecting USBstick suppliers can only be auxiliary measures as they still rely on human behaviour to identify, authenticate, and track devices in IIoT environments. A prominent illustration of this use case has been the Stuxnet attack that affected an Iranian facility handling nuclear substances. From an operator's viewpoint, a system is required that identifies, authenticates, and subsequently controls the access of the device throughout its entire lifecycle. The physical level of the hardware device has to be connected to an entity in the IT level, which addresses the concept of a digital twin.</p><p>Contemporary cybersecurity protection concepts (models, infrastructure, and approaches) have a number of limitations. <ref type="bibr" target="#b16">Lees et al. (2018)</ref> state that "The current state of ICS cybersecurity defence (across most industry sectors) is arguably typically inadequate". In addition, the current infrastructure stack has a number of inherent vulnerabilities, some of them deep within established mechanisms. Although implementation of cybersecurity measures can never achieve total protection against cyber threats of any kind, it is of vital importance to understand the necessity of appropriate protection levels, including the ability of the target to recover. In an analogous reference to biological systems, this system feature is called cyber-resilience <ref type="bibr" target="#b16">(Lees et al. 2018)</ref>.</p><p>This paper presents an advanced protection mechanism based on blockchain, which identifies, authenticates, and subsequently controls the access of the device throughout its entire lifecycle, and hence significantly improves the inherent resilience of digitalized industrial business environments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">The digital world-the interconnection of architectures, systems, and supply chain organisations</head><p>Interconnections within Supply Chain organisations obviously pre-date the digital era. The difference is that in the digital world the interconnections are a lot faster, more efficient, and more plentiful. There are also many new categories of connection that did not exist prior to the digital world. Many of these are in relation to contemporary services such as third-party support and maintenance, software updates, and cloud-based services and data storage.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Connectivity, the industrial enterprise, and IIoT</head><p>Industry's relentless pursuit of growth, efficiency, and profitability has inevitably resulted in a drive for greater data analytics. The Industrial Internet of Things, which is an industry version of IoT, implemented across industrial automation infrastructure, has provided a pathway for sourcing the type and volume of data that is required to fuel the analytics. While industrial automation has long been providing data connectivity and visibility, using any number of fieldbus technologies, the IIoT has enabled a significant step change in data accessibility. The IIoT momentum has flooded the industrial automation market with Ethernet enabled devices that were previously non-networked (or connected via traditional fieldbus only). Among other things, Ethernet provides ease of integration, making data and information available across network boundaries. Recent advances and the convergence of a number of technologies-including IIoT, big data, cloud computing, and data analytics-have led to Industry 4.0 and the era where the concept of the 'smart factory' has become a serious aspiration.</p><p>There are a number of emerging themes that are transformative in their impact on the digital ecosystem of the enterprise. Some of the more prominent examples include:</p><p>1. Interconnection: Businesses are now undoubtedly more (digitally) interconnected with each other. Some of the dominant examples include: interconnection with each other across the supply chain, with cloud or platform services and with third-party infrastructure. All parties now have a greater dependence on the Internet. 2. Large-scale data: Automated data connectivity from the plant floor to corporate applications has existed for decades via traditional fieldbus technologies. However, the recent drive towards Industry 4.0 and interconnected business has contributed to the exponential increase in IIoT-enabled, vertically integrated devices. 3. Abstraction of platforms: The virtualisation of servers, platforms, and networks is largely an outcome of the quest to minimise capital and operating costs of operations. While it arguably exists independently, the drive for business interconnection and Industry 4.0 has accelerated the proliferation of these technologies (particularly in terms of off-site cloud platforms). The optimisation in footprint has often come at the cost of increasing sophistication (however, transparent to the user it may appear).</p><p>4. Mobile devices: The use of mobile terminals, tablets, and platforms of OT-related apps in the plant floor of the manufacturing enterprise have become increasingly common. Hence, networking is no longer solely controlled via physical media. 5. Bring your own device (BYOD): An organisation's opportunistic/parasitic use of equipment that it neither owns nor controls.</p><p>These emerging characteristics (among others) have collectively and significantly altered the topology of the digital ecosystem of the enterprise.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Supply chain</head><p>In the context of the contemporary manufacturing-based enterprise, the term Supply Chain typically refers to the collection of people, organisations, resources, and activities that are required to obtain raw materials, transform them into products of value, and distribute them to the customer. The term also (increasingly) encompasses Reverse logistics; the return of spent product components; and materials for reuse or disposal. More specifically, the term is used here in reference to manufacturing industries that rely on automation within networked facilities across transnational environments. Within transnational companies, there are typically two categories of supply chain:</p><p>1. Product stream: Raw materials to customer (often also reverse logistics) 2. Support stream: Support services required for the company /infrastructure to function (e.g., maintenance and support from equipment suppliers and Original Equipment Manufacturers (OEM), external service providers: training, HR, IT, cloud host and third-party data analytic or AI platforms, building services, invoice/billing mechanisms, etc.)</p><p>The drive for increased business integration across the supply chain has a number of objectives, typically including:</p><p>• Efficiency: coordination of just-in-time production to minimise stock buffers • Resilience and risk management: ensure that minimal stock buffers are sufficient; feasible contingency plans for supply of materials and services.</p><p>The developments in supply chain management result in significant and important alterations and expansions to the digital ecosystem of the enterprise. Some of the significant implications include the expansion of the company's digital ecosystem. This could be either traversing the intracompany's footprint via the Internet, dependence on cloud infrastructures and providers, and, finally, the integration with the digital environments of other members of the supply chain.</p><p>There is an increased reliance on Internet between premises of the same company and between adjacent third-party companies and an increased level of trust in the security of infrastructure and platforms that are managed by others. Typical scenarios include:</p><p>• Within the same company (the same company policies and procedures) but subject to laws and regulations and cultures of a different country • Between different companies (typically no visibility of policies, procedures).</p><p>In addition to this, there are a number of compounding factors including:</p><p>• Pace of change and adoption of new platforms • Increasing sophistication (abstraction/virtual platforms and components) • Lack of transparency of what is hosted (physical locations of data centres, and backup repositories of international cloud providers).</p><p>The changes to the digital ecosystem of the contemporary enterprise are substantial and the consequential emerging demands on cybersecurity are significant.</p><p>3 Cyber vulnerabilities of the digital interconnected supply chain</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Cyber-resilience</head><p>Cybersecurity is a key consideration in the design of contemporary information systems. For many areas of industry, cyber-resilience is a non-optional component of business continuity and risk mitigation processes. The United States National Institute of Standards and Technology (NIST) have developed some concise definitions for cyber-resilience and cyber-resilient systems <ref type="bibr" target="#b20">(Stouffer et al. 2015</ref>):</p><p>• "Cyber resilient systems have required security safeguards that are "built in" as a foundational part of the system architecture and design and that can withstand an attack and continue to operate "even in a degraded or debilitated state" to carry out essential functions." • "...cyber resiliency, which is the ability to anticipate, withstand, recover from, and adapt to adverse conditions, stresses, attacks, or compromises on cybersecurity resources."</p><p>In addition to malware immunity, this, of course, includes such considerations as: resilience by design, redundancy, and disaster recovery planning and systems. Estimates of the annual economic impact of cybercrime vary. However, two things that are apparent are: the estimates are large and that they tend to increase year on year. The IBM sponsored report "2018 Cost of a Data Breach Study" by <ref type="bibr">Ponemon (2018)</ref>, reported that the "global average cost of a data breach is up 6.4% over the previous year to $3.86 million.".</p><p>Today's supply chain is arguably less resilient against cyber-incident induced downtime due to a number of reasons, including:</p><p>1. Globalisation/consolidation of production facilities: Globalisation of production facilities and, thus, consolidation within multinational corporations typically provide less alternative options during times of interruption.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Lean and progress towards Manufacturing Excellence:</head><p>Through the systematic elimination of (all) forms of waste within operations, programs of Lean Management and Manufacturing Excellence have a side-effect of effectively reducing the disturbance rejection capabilities of the supply chain. Just-In-Time (JIT) stock management has minimised stock-holding costs at the expense of minimal (if-any) stock buffer. This has also shortened the time to flow-on impact to adjacent companies. A major portion of industry are now participating in some form of Manufacturing Excellence program journey. 3. Joint vulnerability-shared consequences: In a JIT/Lean supply chain, all participants are vulnerable to any interruption to supply chain workflow. The supply chain is only as strong as its weakest link. All members have business interest in the cyber-resilience of other members in the supply chain.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Cyber-resilience requirements of enterprises</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.1">Key cyber-resilience challenges of the emerging digital ecosystem</head><p>In manufacturing environments, physical machines (e.g., production machines, or machine tools) are important assets, which are quite often crucial to the whole production process. Failure of operations might affect the output of an entire production line. The addition of contemporary automation infrastructure to these machines brings with it an IT layer that opens up the conceptual space of networked cyber-physical systems (Jansen and Jeschke 2018). Business impact analyses of cyber-incidents often bring out these machines as critical assets.</p><p>Internet connection of machines became common largely due to cost saving opportunities for OEMs during maintenance. Hence, advanced protection measures need to be applied that take additional inter-company data transfer requirements into account.</p><p>Transnational premises, third-party interaction, and cloud services have resulted in data pathways that can re-enter the Internet multiple times during the journey from source to destination. This results in complex, re-emergent pathways of data through the Internet and private networks.</p><p>The attack surface has dramatically expanded, resulting in a new scale of challenges within the emerging digital ecosystem:</p><p>1. Depth of vertical integration 2. Volume of IIoT devices 3. Previously non-networked devices 4. Maintaining currency of patches and software/firmware updates.</p><p>It is important to note that the boundaries between IIoT and IoT are conceptually overlapping. To give an example: inadvertently used commodity smart light bulbs within IIoT process cells on the shop floor can unintentionally introduce additional vulnerabilities into the process cell's control system.</p><p>The emerging digital ecosystem clearly segregates accountability and the ability to effectively control digitalized systems and processes to their full extent. Obvious examples are (1) the usage of third-party platforms and cloud providers, (2) BYOD strategies/ acceptance, and (3) interdependent and shared accountability within the supply chain. Such boundaries can present significant challenges when purging an infection.</p><p>Hosting network nodes of distributed ledgers and maintaining the security of digital interfaces require a different category of responsibility and consequences, e.g., for product tracking and tracing. It typically comes along with more sophisticated protocols such as blockchain.</p><p>OEMs often require remote access deep into the automation layer of their customer's plant control network to provide the required/contracted maintenance services to the equipment that they have supplied. If these kinds of maintenance services are delegated to a third party, adequate protection becomes more complex. A specific type of supply chain deals with the supply of IT security services, as described in <ref type="bibr" target="#b9">Jansen and Jeschke (2018)</ref>.</p><p>Besides the service level, the supply chain (in terms of material flow) provides additional complexity: The handling of any data in conjunction to the flow of material or goods like specifications or documentation has to be agreed upon and managed, complying to the most advanced protection concept. The supply chains within some industries (such as automotive) contain players that have sufficient dominance to define the cyber-protection rules and requirements to which the other players must adhere.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.2">Vulnerabilities</head><p>Vulnerabilities of digitalized enterprises are weaknesses that can be exploited by attackers to perform unauthorized actions within the IT/OT systems. Dominant categories of vulnerabilities and constraints include technical vulnerabilities, compliance, and resourcing.</p><p>Technical vulnerabilities encompass deficiencies within the existing state-of-the-art. They are related to assets like hardware, firmware, software, or networks.</p><p>Compliance is addressing the availability and adherence to policies and procedures for any IT/OT processes. It closely connects technical assets and humans by organizational means.</p><p>Resourcing aims at achieving and sustaining best-practice compliance. It requires the ability (and capacity) to adequately implement security measures both initially as well as to relentlessly adhere to required update cycles, e.g., patching of software and firmware.</p><p>In the context of this categorisation, the attack vector of malicious USB devices is a technical vulnerability. Existing defence measures typically rely on human compliance and administrative processes. It has to be noted that relying on compliance is neither sufficient nor sustainable <ref type="bibr" target="#b21">(Tischer et al. 2016)</ref>. The impact of a successful attack can be amplified in insufficiently resourced environments where patching and software updates are not up-to-date.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Cyber-resilience strategies and tools for managing risks in the emerging digital world</head><p>The frequency, scale, and impact of cyber-incidents illustrate that contemporary progress towards cyber-resilience is largely insufficient and is lagging both the traditional and emerging vulnerabilities within the industrial manufacturing landscape.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Protecting the enterprise's digital ecosystem</head><p>A number of standards, guidelines, best practices, and maturity models have been developed to help the enterprise to maximise its cyber-resilience and to protect its digital ecosystem. In this context, there are two dominant categories of vulnerability that still exist in practice:</p><p>1. Inadequate implementation and adherence to existing state-of-the-art: While standards, guidelines, and matu-rity models have existed for some time, they are all too often not followed or implemented correctly <ref type="bibr" target="#b16">(Lees et al. 2018</ref>). As would be expected, the financial impact of cyber crime has been found to vary in proportion to cyber-security maturity (McAfee 2019). Excuses for lagging compliance (be they inadequate resourcing or lack of awareness) are of little consolation following a cyber-security incident. 2. Deficiencies within the existing state-of-the-art: There is a specific class of yet to be discovered (and hence currently unpatchable) zero-day vulnerabilities. These vulnerabilities are inherent in existing technologies, protocols, and hardware, and could only be downscaled by well-established components to minimize the attack surface.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.1">Contemporary state-of-the-art</head><p>Industrial manufacturing facilities with a contemporary level of automation require adequate protection from cyber threats. Given the different levels of automation, this protection ranges from office level to field level. A range of standards, frameworks, and guidelines exist including: </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Entry points for malicious code-managing the USB threat vector</head><p>The Universal Serial Bus (USB) is a protocol that defines an interface for the interconnection of peripherals and devices. Its performance and ease-of-use have resulted in its ubiquitous deployment across computer systems from servers to plant controllers and IIoT devices.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.1">Risk of USB as an attack vector</head><p>While USB has been a known attack vector for some time, in 2018, Honeywell have reported some interesting research findings (Honeywell Process Solutions 2018). In an experiment spanning 50 locations across 4 industries (and 4 continents), USB-based malicious (or malware related) code was detected and blocked at 44% of the locations. One in four of the detections that were blocked "... had the potential to cause a major disruption to an industrial control environment, including loss of view or loss of control, and 16% were targeted specifically against Industrial Control System (ICS) or Internet of Things (IoT) systems." Interestingly, 9% of the discovered malware was specifically designed to exploit weakness in a USB protocol or interface.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.2">Probability of security breach</head><p>If there is a perception that USB devices can be 'controlled' with policy, then what is the likelihood of a security breach?</p><p>In an experiment with 300 USB flash drives, <ref type="bibr" target="#b21">Tischer et al. (2016)</ref> verified the assumption that users will simply and reliably pick up and plug in flash drives that they find. Astonishing 45-98% (depending on how they were labeled) of deliberately 'dropped' USB drives were connected (one of them within just 6 min) <ref type="bibr" target="#b21">(Tischer et al. 2016)</ref>. In this context, the apparent air gap is not so insurmountable.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.3">Consequences</head><p>Quite a number of potent malware variants have been found to propagate across USB including: Stuxnet, Mirai, TRI-TON, and WannaCry (Honeywell Process Solutions 2018).</p><p>The consequences of such a breach in an ICS environment can range from physical damage to equipment through to the financial implications of extended periods of production downtime. "USB represents an even greater threat than spreading malware: a USB device can be used to attack systems directly, using the USB interface as a powerful attack vector. Ever since the Stuxnet attack used a USB flash drive to obliterate any semblance of an air gap in an Iranian nuclear facility, the industry has been well aware of the vulnerability that USB devices can introduce to their operations." (Arampatzis 2018)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.4">Solutions</head><p>Attempts to improve the vulnerabilities of the USB attack vector have taken a number of directions. Some of the prominent examples include:</p><p>• Policy management: Company policies are often set in place to shape human behaviour as well as electronic policies to disable USB ports via active directory • Commercial products: As an example-Honeywell have developed a Secure Media Exchange (SMX) product "System and method supporting secure data transfer into and out of protected systems using removable media" • Patents: A number of relevant patents exist including "Using a USB host controller extension for controlling changes in and auditing USB topology" "The invention provides systems and methods for protecting computer systems from attacks that attempt to change USB topology and for ensuring that the system's information regarding USB topology is accurate." (Avraham et al.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2019)</head><p>Yet, the ubiquitous USB is still a significant cyber-security vulnerability.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">The case study: Stuxnet</head><p>The air-gap defence (or perception of its defence) is often relied upon as a component of a cyber-protection strategy of a critical network. One of the reasons that USBs are a significant cyber-security target is their potential to cross the air gap. One of the most prominent examples of this was the Stuxnet worm.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.1">A brief introduction to Stuxnet</head><p>Stuxnet was an advanced worm that was designed to target specific industrial control system technology <ref type="bibr" target="#b17">(Matrosov et al. 2019;</ref><ref type="bibr" target="#b14">Langer 2011)</ref>. While several variants exist, it made use of four zero-day Microsoft vulnerabilities and contains a PLC root kit. In a suspected operation against critical infrastructure in the Iranian nuclear program, it was applied in a semi-targeted attack that had an impact on the Natanz Fuel Enrichment Plant (infecting Siemens SCADA software and Siemens S7-417 PLCs). It was first discovered in 2010. Stuxnet was specifically designed to damage centrifuges that are used for Uranium enrichment. While it has not been confirmed, Stuxnet is believed to have been responsible for damage to 1000 centrifuges <ref type="bibr" target="#b4">(Brown 2011)</ref>, significantly slowing down the Iranian nuclear program. As the first discovered malware that targets industrial control systems, it has irreversibly changed the cybersecurity world.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.2">The role of USB in Stuxnet</head><p>USB enabled Stuxnet to traverse the air gap and access the control network in the Natanz Nuclear enrichment plant in Iran. According to Langer (2013) "Whatever the cyber-security posture of contractors may have been, it certainly was not at par with the Natanz Fuel Enrichment facility. Getting the malware on their mobile devices and USB sticks proved good enough as sooner or later they would physically carry those on site and connect them to the FEP's [fuel enrichment plant's] most critical systems, unchallenged by any guards."</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.3">Pathways for managing the USB entry point</head><p>It is clear that a reliable and effective means of managing access and control of USB device is required. The ability to restrict USB access to a set of company internal devices that are tightly controlled would help to reduce the USB-associated vulnerability within an attack surface. This is not so easy to do with the existing USB devices as they are clonable making it difficult to police the software content and the hardware component concurrently and to confirm that they have not been separated. To manage and control a USB device, a means of binding the hardware with its digital twin is required. Once this is achieve, a means of authentication to confirm that the binding is correct and valid is also required.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.4">Digital twin</head><p>A digital twin is a digital representation of a physical object, process, or system, and it can exist in many forms. Digital Twin in the human context is all the data footprint that we as humans create through our attributes and interactions. Attributes are core data that make up what we are, including name, age, gender, address, ethnicity, education, salary, etc. Interaction refers to all the data and footprint that is created when we interact with the external world. The term Digital Twin, therefore, can be loosely applied to any form of digital representation.</p><p>The concept of a digital twin may be applied to physical objects, as well. The vision of the Digital Twin is depicted as "a comprehensive physical and functional description of a component, product or system, which includes more or less all information which could be useful in all-the current and subsequent-lifecycle phases" <ref type="bibr" target="#b3">(Boschert and Rosen 2016)</ref>. Typically, the digital twin has some cryptographic identity linked to a digital certificate summarizing the attributes and properties of the physical object. The fact that a physical object has a cryptographic identity facilitates the authentication of the physical object, proof of ownership, tracking, and tracing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Blockchain-based solution approach</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">A primer: decentralized ≠ distributed</head><p>The blockchain is a promising technology that recently received much attention in industry and academia. The reason is that the blockchain technology changes the way that computation occurs and revolutionises the design and implementation of computer networks, most notably the Internet. In a nutshell, the blockchain technology stands for the paradigm shift of moving from a centralized computing network infrastructure to a decentralized one. The canonical example for a centralized infrastructure is cloud computing. While, in general, cloud architectures are distributed over multiple computing nodes, they are owned, managed, and governed by a single authority. Hence, the central authority has full control over the infrastructure. The data and events which the authority receives, processes, and generates are typically relied upon for continued plant operation.</p><p>Enterprises need-by assumption-to trust the infrastructure. Trust is a critical factor in cloud computing; in present practice, it depends largely on perception of reputation and self-assessment by providers of cloud services <ref type="bibr" target="#b6">(Huang and Nicol 2013)</ref>. However, the lack of methods to quantify and verify reputation and self-assessment makes trust a fragile foundation for sustainable and robust IIoT cyber-resilience methodologies. This is a severe problem for many IIoT corporates and service providers, as the lack of trust raises security, privacy, and reliability issues <ref type="bibr" target="#b8">(Jansen 2011</ref>). On the other hand, trust becomes a dominant requirement in future emerging IIoT use cases, as the trend is to open up industrial automation networks and services. Future emerging business models require collaboration of potentially competing and distrusting entities. Consider, for example, the emerging use case where industrial robot maintenance data are sold to some third-party AI-empowered data analytics service. For such a use, case trust is an ultimate prerequisite to attain a prolonged and stable business model. Centralized or distributed technologies are incapable of achieving trust beyond the internal security perimeter, as-by design-they are under the control of a single authority.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">The blockchain trustlessness</head><p>At the bottom of blockchain technologies stands the idea of trustless decentralization. The approach leverages the democratization of centralized computing networks, applications, and services. Instead of a single authority being responsible for the computation, the blockchain network consists of multiple, independent entities (nodes) computing the same task. What the network relies on is a mechanism to agree on the common truth of the outcome of the task known as consensus <ref type="bibr" target="#b13">(Lamport et al. 1982)</ref>. Due to network latencies, faults and crashes a node's local state can deviate from the global view of the common state of all other nodes. A key property of the consensus mechanism is to ensure all nodes are in sync and share the same local state. Implicitly, a consensus guarantees the soundness of the computation, as a quorum is required to accept the common truth. As long as the majority of the nodes agree on the outcome, the minority will sync with the view. In other words, the blockchain carries over the principles of democratism to the world of computation.</p><p>While the redundant computation of the task by multiple, potentially malicious nodes leads to significant overhead, it also leads to a trustless infrastructure: despite the distrust between the nodes, the susceptibility of nodes to cyberattacks, or the presence of a coalition of nodes aiming to game the outcome, the network achieves the correct result (in the sense of the quorum). That paradoxical property of trustful agreement in the light of untrusted entities is a fundamentally novel computing paradigm, which has not been achieved with prior consensus mechanisms in that full dimension. To be a bit more precise, one classifies blockchain technologies into two groups according to the underlying consensus mechanism. In a private blockchain, sometimes referred to as Enterprise Blockchain, the number of nodes is known in advance and is typically fixed, while in a public blockchain nodes can go online/offline at any point in time. Example mechanisms belonging to the first category are <ref type="bibr" target="#b12">Lamport (2011)</ref> and <ref type="bibr" target="#b11">Kotla et al. (2009)</ref>, while Proof of Work <ref type="bibr" target="#b19">(Nakamoto 2008)</ref> and Proof of Stake <ref type="bibr" target="#b10">(Kiayias et al. 2017</ref>) are examples for the second category. Moreover, consensus mechanisms differ in the number of nodes covering the blockchain network, effectiveness to perform the consensus (scalability), costs related to transactions, and universality of the smart contracts. Blockchain technologies also vary in the computational task which they agree upon. Looking at the evolution of blockchain technology, we identify three variants.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.1">Blockchain as a storage</head><p>One of the first applications of blockchains are decentralized storage mechanisms. In contrast to distributed databases, no single administrator exists that orchestrates the databases and their replicas. The fact that the data are stored over multiple, independent nodes, each representing a different organization or trust entity, has the advantage of being significantly more cyber-resilient against internal or external cyberattacks. Blockchains have the unique property of immutability. The data cannot be erased, manipulated, or overwritten for the lifetime of the blockchain. 1</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.2">Blockchain as a payment</head><p>Probably, the task which has led to the rapid proliferation of blockchain technologies is the application to cryptocurrencies. A bank implements a centralized database and maintains accounts associated with its clients. Loosely speaking transactions are updates in the database of the sender's and receiver's account, which apply digital signatures to approve and validate the transaction. A blockchain can implement the same functionality without the need of a centralized, trusted bank. In fact, each customer may become the bank by hosting its own blockchain node, thus decentralizing the bank and sharing the trust among the network.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.3">Blockchain as a distributed computing platform</head><p>Generalizing the above ideas, the nodes execute any program not only limited to a payment transaction and agree upon the outcome. This leads to a trustless, distributed computing platform with the following advantages: No entity owns the platform and controls the outcome of the computation. In comparison to the existing cloud computing platforms, computation becomes not only more fault tolerant, but the correct result is independently verified by the network.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Blockchained digital twins</head><p>Creating a Digital Twin within a Blockchain is not different from the standard approach. The manufacturer of the physical object issues a cryptographic identifier. The corresponding certificate attesting the objects attributes is stored in the blockchain. Here, the immutability property of the blockchain ensures the integrity and verification of the certificate. Once stored in the blockchain, no party has the opportunity to modify the digital identity of the physical object. In an interconnected enterprise, this approach can lead to improvements of various standardized tasks. Sharing information about manufacturing process, assembly, delivery, and maintenance of products with suppliers and vendors becomes transparent. The blockchain serves as a common ground for suppliers and vendors for their Digital Twins. Not only do they benefit from a common view of all twins and the processes which they are involved in, they may also leverage the common view to detect and exclude fraudulent devices harming a sustainable supply chain. As a direct consequence tasks such as assigning or verifying certifications or certain properties of physical products becomes easier. Also origin and ownership claims are clear and subject to a common understanding between supply chain nodes. All supply chain nodes may derive at any point in time the truthful view of the object, track, and trace the purchase orders, change orders, receipts, shipment notifications, or other trade-related documents.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.4">Thwarting the Stuxnet attack</head><p>Regardless of the application, blockchain technologies offer sustainable supply chains versatile advantages. Let us elaborate on the advantages in the Stuxnet case. Suppose that the USB stick has a Digital Twin, represented by a unique, unclonable cryptographic identifier. <ref type="bibr">2</ref> The certificate mapped to the identifier is stored in the blockchain. This way, virtually, any number of participants, accessing from any number of touchpoints, have access to the information on the blockchain, including a register of legitimately created USB sticks. None of the parties can modify the blockchain entry and, for example, inject a malign Digital Twin without the consent of the network. To increase trust and eliminate the bias in today's opaque supply chains, one could document the journey of the USB stick across the "blockchained" supply chain during its production, trace the transfer of ownership, and the instalment of firmware on the stick. With the information on the blockchain, participants have a common understanding about the content and ownership of the USB stick. Smart contracts can codify rules to eliminate the possibility of storing Digital Twins whose journey is noncompliant with the security policy of suppliers and vendors. An IIoT machine or any other USB-enabled digital device would now require authentication against the Digital Twin's identity on the blockchain (including compliance check with security policy) to interact. Failed authentication would prevent propagation of Malware, as an infected USB device would be denied connection through the interface.</p><p>No key management and revocation has to be installed at the machine, as it only has to look up the twin's identity in the blockchain. In the negative case, the machine rejects to read from the USB device and avoids installing the software.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.5">Blockchained (dis-)incentive mechanism: the case of curated registries</head><p>Stuxnet serves as a running example for malware attacks. The attack and related cyber attacks share one notion. There is a strong incentive to commit the attack. In the case of Stuxnet, the motivation may have been the delay of a nuclear war <ref type="bibr" target="#b4">(Brown 2011)</ref>. In general, the attacks are motivated by personal or political enrichments. Analysing the scenarios from a game-theoretic angle, the incentives to put the attack in execution outvote the disincentives. Reasons include the inability to technically trace the origins of the attacks due to the anonymity of the Internet or the lack of criminal proceedings over multiple legislatures. Cyberattacks are economically asymmetrical. The costs to implement, for example, malware and propagate it through the Internet stand in no relation to the costs resulting in their damage (for example, Industroyer shut down Ukraine's power grid in December 2016). Another useful (less publicised) characteristic of Blockchains is the ability to design protocols and applications based on incentive strategies. Although a token is a sequence of bitstrings along a digital signature, it is widely accepted as an object with value. It can be traded and exchanged for fiat. A strong ecosystem already exists for turning tokens into assets and it has proven to work. In addition, the blockchain network offers the necessary infrastructure to implement the enforcement of (dis-)incentive strategies through smart contracts. It shows that participants follow rational behavior and strive to maximize their utility quantified in tokens. With the blockchain comes a new opportunity to (re-)design protocols, applications, and services for interconnected Enterprises. The high-level idea behind it follows a staking and slashing mechanism. By staking, we mean the mechanism of locking the tokens as collateral to backup a future decision, event, or action. In the previous section, we described how a Digital Twin is created in the blockchain and its journey is trackable and traceable. Suppose now, each party in the supply chain is asked to deposit some token collateral for its tasks, actions, or events it creates. The party is challenged for the proposal to accept the activity in the supply chain by a group of validators who co-stake, each validator with an amount of tokens proportional to the size of the group, and verify the proposal. By a majority decision, the stake of the parties deviating from the quorum is slashed among the majority. This implies that the proposer fortifies her stake in case of a correct proposal. However, she loses her stake in case of a dishonest proposal.</p><p>Analyzing the mechanism, we observe that the proposer is incentivized to make an honest proposal from which all supply chain nodes benefit. Otherwise, she loses her stake. Furthermore, she has a natural incentive to volunteer. Validators have the incentive to vote honestly as they risk losing their stake in the event of a decision against the quorum. The fact that they potentially receive a reward is an incentive to engage in the validation process.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Discussion</head><p>A cardinal question remains. Could the application of blockchain potentially have stopped Stuxnet? To answer the question, one needs to look deeper into the infection vector. The attack exploited vulnerabilities on two fronts. The first is related to lack of human authentication. The networks of many industrial factories (especially top secret nuclear facilities and other critical infrastructures) are not connected to the Internet, making it much harder to introduce malware to the system from the outside. The attacker thus had physical access to a computer in the Intranet of the uranium enrichment facility. From here on, Stuxnet propagated to the other computers with the goal to reach the computer running the industrial control application.</p><p>Humans are known to be the weakest link in a security system. The presence of blockchain technologies would not have helped to stop a human from perpetrating the attack.</p><p>The second front is related to the lack of device authentication. Present computer systems lack the ability to authenticate an external USB device. Looking at the USB standard, no cryptographic measures have been implemented to authenticate devices. Hence, any device may access the universal serial bus to connect to the computer. The conclusion is that the implementation of device authentication mechanisms would have already thwarted the Stuxnet attack from propagation and infiltration of other computers, provided that USB devices have a Digital Twin to cryptographically authenticate the device.</p><p>A problem remains. How does the computer know it shall grant a particular USB device access, while rejecting other USB sticks. Given the large number of USB manufacturers and owners it is merely infeasible to implement for each computer an access control list locally. A look-up in a database is, however, a technically promising and practical approach. As argued before, a centralized or decentralized database is under the control of a single entity. If corrupted, the entity might manipulate entries in the database, add certificate of malign digital twins, and this way allow the circumvention of any access control mechanism in place. Storing the Digital Twin's certificate in the blockchain and adding track and trace information of the journey from the device manufacturer to the owner give the required level of security.</p><p>To conclude, Stuxnet and related attacks in general can be thwarted when a blockchain is in place. A prerequisite is the ability to implement unclonable Digital Twins and ensure that the blockchain mirrors the Digital Twin.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7">Conclusion</head><p>The advancement and proliferation of IIoT, at deep automation device level, has increased the attack surface and vulnerability of the contemporary enterprise. The adoption of AI and machine learning technologies means that the associated analysis and decision-making capabilities place an even greater reliance on the resilience and integrity of the IIoT connectivity. Transnational supply chain integration means that the vulnerabilities are no longer as contained as they once were. With integrated B2B networking the supply chain is almost the one entity and its cyber-vulnerability has evolved accordingly. The contemporary just-in-time supply chain is only as strong as its weakest link.</p><p>Existing cybersecurity protection methods are arguably inadequate for managing the risks in the emerging digital world. They are often not implemented as designed and hence fail to achieve full benefit. There are also some significant fundamental technical weaknesses in the infrastructure stack such as USB devices.</p><p>There is an opportunity to reduce some of the cybersecurity vulnerabilities by redesigning key elements of the stack. This paper presents a method for positively identifying and managing USB sticks using a mechanism based on blockchain. The proposed solution also enables the entire history of a USB stick to be tracked and stored in the blockchain making it available for use during automated access decisions (pre-connection device authentication). This enables the realistic development of a managed segregated USB system that is independent of human (non-)compliance. It provides a significant improvement in reducing the Malware risks that have long been inherent in USB devices. Further research is recommended to demonstrate the technical feasibility of implementation (for USB device management) in a factory environment.</p></div>			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">Technically, this is achieved by writing each entry into a block linked to the previous block containing a link to all previously written entries. Hence the name blockchain.2 Physical Unclonable Functions (PUFs) empower the realization of a hardware identifier. Due to the unique physical properties of the hardware implementation, PUFs are unclonable. The replication of a PUF would require replication of the hardware material at a level of granularity that is currently considered to be technically infeasible.</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>The first author's work is supported by the EU H2020 project FENTEC (Grant no. 780108). The authors would also like to thank the management of Carlton &amp; United Breweries for permission to publish this work.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Human(secur)ity and its subjects</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Arampatzis</surname></persName>
+		</author>
+		<idno type="DOI">10.4324/9780203584309-11</idno>
+		<ptr target="https://www.tripwire.com/" />
+	</analytic>
+	<monogr>
+		<title level="m">Human Security in Turkey</title>
+				<imprint>
+			<publisher>Routledge</publisher>
+			<date type="published" when="2013-07-04" />
+			<biblScope unit="page" from="33" to="56" />
+		</imprint>
+	</monogr>
+	<note>USB threats to cybersecurity of industrial facilities</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Bauer, Dr Louis Hopewell, (18 July 1888–2 Feb. 1964), retired as Hon. Secretary and Treasurer, United States Committee of World Medical Association</title>
+		<author>
+			<persName><forename type="first">Avraham</forename><forename type="middle">I</forename><surname>Ray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Williams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Wooten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">R</forename></persName>
+		</author>
+		<idno type="DOI">10.1093/ww/9780199540884.013.u49833</idno>
+		<ptr target="http://patentimages.storage.googleapis.com/pdfs/US7761618.pdf" />
+	</analytic>
+	<monogr>
+		<title level="s">United States Patent No. US7761618</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<date type="published" when="2007-12-01" />
+			<publisher>Oxford University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Intended effects of cyber resiliency techniques on adversary activities</title>
+		<author>
+			<persName><forename type="first">Deborah</forename><surname>Bodeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Graubart</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ths.2013.6698967</idno>
+		<ptr target="https://www.mitre.org/publications/technical-papers/cyber-resiliency-design-principles" />
+	</analytic>
+	<monogr>
+		<title level="m">2013 IEEE International Conference on Technologies for Homeland Security (HST)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013-11" />
+			<biblScope unit="volume">27</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Digital Twin—The Simulation Aspect</title>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Boschert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Roland</forename><surname>Rosen</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-32156-1_5</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Mechatronic Futures</title>
+				<meeting><address><addrLine>Berlin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="59" to="74" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Boomerang Nurses: Why They Leave and Why They Return</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Brown</surname></persName>
+		</author>
+		<idno type="DOI">10.2139/ssrn.3440877</idno>
+		<ptr target="https://ssrn.com/abstract=2485181" />
+	</analytic>
+	<monogr>
+		<title level="j">SSRN Electronic Journal</title>
+		<title level="j" type="abbrev">SSRN Journal</title>
+		<idno type="ISSNe">1556-5068</idno>
+		<imprint>
+			<date type="published" when="2019" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Insider Threat Control: Using Universal Serial Bus (USB) Device Auditing to Detect Possible Data Exfiltration by Malicious Insiders</title>
+		<author>
+			<persName><forename type="first">George</forename><forename type="middle">J</forename><surname>Silowash</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Todd</forename><forename type="middle">B</forename><surname>Lewellen</surname></persName>
+		</author>
+		<idno type="DOI">10.21236/ada610588</idno>
+		<imprint>
+			<date type="published" when="2013-01-01" />
+			<publisher>Defense Technical Information Center</publisher>
+		</imprint>
+	</monogr>
+	<note type="report_type">Honeywell Industrial USB Threat Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Trust mechanisms for cloud computing</title>
+		<author>
+			<persName><forename type="first">Jingwei</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">M</forename><surname>Nicol</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/2192-113x-2-9</idno>
+		<ptr target="https://doi.org/10.1186/2192-113X-2-9" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Cloud Computing: Advances, Systems and Applications</title>
+		<title level="j" type="abbrev">Journal of Cloud Computing: Advances, Systems and Applications</title>
+		<idno type="ISSN">2192-113X</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">9</biblScope>
+			<date type="published" when="2013" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Development of industrial cyber security standards: IEC 62443 for scada and industrial control system security</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S H</forename><surname>Piggin</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">ISA</orgName>
+			</affiliation>
+		</author>
+		<idno type="DOI">10.1049/cp.2013.0001</idno>
+		<ptr target="https://cdn2.hubspot.net/hubfs/3415072/Resources/The%2062443%20Series%20of%20Standards.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">IET Conference on Control and Automation 2013: Uniting Problems and Solutions</title>
+				<imprint>
+			<publisher>Institution of Engineering and Technology</publisher>
+			<date type="published" when="2013" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Cloud Hooks: Security and Privacy Issues in Cloud Computing</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">A</forename><surname>Jansen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/hicss.2011.103</idno>
+		<ptr target="https://doi.org/10.1109/HICSS.2011.103" />
+	</analytic>
+	<monogr>
+		<title level="m">2011 44th Hawaii International Conference on System Sciences</title>
+				<meeting><address><addrLine>Koloa, Kauai, HI, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2011-01" />
+			<biblScope unit="page" from="1" to="10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Mitigating risks of digitalization through managed industrial security services</title>
+		<author>
+			<persName><forename type="first">Christoph</forename><surname>Jansen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sabina</forename><surname>Jeschke</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00146-018-0812-1</idno>
+		<ptr target="https://doi.org/10.1007/s00146-018-0812-1" />
+	</analytic>
+	<monogr>
+		<title level="j">AI &amp; SOCIETY</title>
+		<title level="j" type="abbrev">AI &amp; Soc</title>
+		<idno type="ISSN">0951-5666</idno>
+		<idno type="ISSNe">1435-5655</idno>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="163" to="173" />
+			<date type="published" when="2018-02-09" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol</title>
+		<author>
+			<persName><forename type="first">Aggelos</forename><surname>Kiayias</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Russell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bernardo</forename><surname>David</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Roman</forename><surname>Oliynykov</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-63688-7_12</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-63688-7_12" />
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Cryptology – CRYPTO 2017</title>
+				<meeting><address><addrLine>Santa Barbara, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="357" to="388" />
+		</imprint>
+	</monogr>
+	<note>Proceedings, Part I</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Zyzzyva</title>
+		<author>
+			<persName><forename type="first">Ramakrishna</forename><surname>Kotla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lorenzo</forename><surname>Alvisi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mike</forename><surname>Dahlin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Allen</forename><surname>Clement</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edmund</forename><surname>Wong</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1658357.1658358</idno>
+		<idno>7:1-7:39</idno>
+		<ptr target="https://doi.org/10.1145/1658357.1658358" />
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Computer Systems</title>
+		<title level="j" type="abbrev">ACM Trans. Comput. Syst.</title>
+		<idno type="ISSN">0734-2071</idno>
+		<idno type="ISSNe">1557-7333</idno>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1" to="39" />
+			<date type="published" when="2009-12" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Byzantizing Paxos by Refinement</title>
+		<author>
+			<persName><forename type="first">Leslie</forename><surname>Lamport</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-24100-0_22</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<meeting><address><addrLine>Rome, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2011" />
+			<biblScope unit="page" from="211" to="224" />
+		</imprint>
+	</monogr>
+	<note>Proceedings</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">The Byzantine Generals Problem</title>
+		<author>
+			<persName><forename type="first">Leslie</forename><surname>Lamport</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Shostak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marshall</forename><surname>Pease</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/357172.357176</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Programming Languages and Systems</title>
+		<title level="j" type="abbrev">ACM Trans. Program. Lang. Syst.</title>
+		<idno type="ISSN">0164-0925</idno>
+		<idno type="ISSNe">1558-4593</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="382" to="401" />
+			<date type="published" when="1982-07" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Stuxnet: Dissecting a Cyberwarfare Weapon</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Langer</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/msp.2011.67</idno>
+		<ptr target="https://doi.org/10.1109/MSP.2011.67" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security &amp; Privacy Magazine</title>
+		<title level="j" type="abbrev">IEEE Secur. Privacy Mag.</title>
+		<idno type="ISSN">1540-7993</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="49" to="51" />
+			<date type="published" when="2011-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">http://ljournal.ru/wp-content/uploads/2017/03/a-2017-023.pdf</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Langer</surname></persName>
+		</author>
+		<idno type="DOI">10.18411/a-2017-023</idno>
+		<ptr target="https://www.langner.com/wp-content/uploads/2017/03/to-kill-a-centrifuge.pdf" />
+		<imprint>
+			<date type="published" when="2017" />
+			<publisher>LJournal</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Towards industrial cybersecurity resilience of multinational corporations</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lees</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Crawford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Jansen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol</idno>
+		<ptr target="https://doi.org/10.1016/j.ifacol" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IFAC international conference on international stability</title>
+				<meeting>the IFAC international conference on international stability<address><addrLine>Baku, Azerbaijan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="0201" />
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="756" to="761" />
+		</imprint>
+	</monogr>
+	<note>IFAC PapersOn-Line</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Stuxnet under the microscope</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Matrosov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Rodionov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Harley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Malcho</surname></persName>
+		</author>
+		<ptr target="http://daveschull.com/wp-content/uploads/2015/05/Stuxnet_Under_the_Microscope.pdf.Accessed" />
+		<imprint>
+			<date type="published" when="2019-02-18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">The economic impact of cybercrime-no slowing down</title>
+		<author>
+			<persName><surname>Mcafee</surname></persName>
+		</author>
+		<ptr target="https://www.mcafee.com/enterprise/en-us/assets/executive-summaries/es-economic-impact-cybercrime.pdf.Accessed" />
+		<imprint>
+			<date type="published" when="2019-02-18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Human(secur)ity and its subjects</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nakamoto</surname></persName>
+		</author>
+		<idno type="DOI">10.4324/9780203584309-11</idno>
+		<ptr target="https://www.ibm.com/security/data-breach?ce=ISM0484&amp;ct=SWG&amp;cmp=IBMSocial&amp;cm=h&amp;cr=Security&amp;ccy=US" />
+	</analytic>
+	<monogr>
+		<title level="m">Human Security in Turkey</title>
+				<imprint>
+			<publisher>Routledge</publisher>
+			<date type="published" when="2013-07-04" />
+			<biblScope unit="page" from="33" to="56" />
+		</imprint>
+	</monogr>
+	<note>Cost of a data breach study</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Guide to Industrial Control Systems (ICS) Security</title>
+		<author>
+			<persName><forename type="first">Keith</forename><surname>Stouffer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Victoria</forename><surname>Pillitteri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Suzanne</forename><surname>Lightman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marshall</forename><surname>Abrams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Hahn</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.800-82r2</idno>
+		<ptr target="http://dx.doi.org/10.6028/NIST.SP.800-82r2" />
+		<imprint>
+			<date type="published" when="2015-06" />
+			<publisher>National Institute of Standards and Technology</publisher>
+			<biblScope unit="volume">21</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Users Really Do Plug in USB Drives They Find</title>
+		<author>
+			<persName><forename type="first">Matthew</forename><surname>Tischer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zakir</forename><surname>Durumeric</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sam</forename><surname>Foster</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sunny</forename><surname>Duan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alec</forename><surname>Mori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elie</forename><surname>Bursztein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Bailey</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sp.2016.26</idno>
+		<ptr target="https://doi.org/10.1109/SP.2016.26" />
+	</analytic>
+	<monogr>
+		<title level="m">2016 IEEE Symposium on Security and Privacy (SP)</title>
+				<meeting><address><addrLine>San Jose, CA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-05" />
+			<biblScope unit="page" from="306" to="319" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Jurisdictional immunity of foreign States with regard to claims relating to infringements of obligations under peremptory norms</title>
+		<idno type="DOI">10.1163/1875-8096_pplrdc_ej.9789004255579.009_185.12</idno>
+		<imprint>
+			<date>null</date>
+			<publisher>Brill</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

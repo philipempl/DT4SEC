@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Integrating digital twin security simulations in the security operations center</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>ACM</publisher>
+				<availability status="unknown"><p>Copyright ACM</p>
+				</availability>
+				<date type="published" when="2020-07-30">2020-07-30</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Marietheres</forename><surname>Dietz</surname></persName>
+							<email>marietheres.dietz@ur.de</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Information Systems</orgName>
+								<orgName type="institution">University of Regensburg Germany Manfred Vielberth</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Information Systems</orgName>
+								<orgName type="institution">University of Regensburg</orgName>
+								<address>
+									<country>Germany Günther Pernul</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Information Systems</orgName>
+								<orgName type="institution">University of Regensburg</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Manfred</forename><surname>Vielberth</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+						</author>
+						<title level="a" type="main">Integrating digital twin security simulations in the security operations center</title>
+					</analytic>
+					<monogr>
+						<title level="m">Proceedings of the 15th International Conference on Availability, Reliability and Security</title>
+						<meeting>the 15th International Conference on Availability, Reliability and Security						</meeting>
+						<imprint>
+							<publisher>ACM</publisher>
+							<date type="published" when="2020-07-30" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1145/3407023.3407039</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:31+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>digital twin</term>
+					<term>security operations center</term>
+					<term>security information and event management</term>
+					<term>security framework</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>While industrial environments are increasingly equipped with sensors and integrated to enterprise networks, current security strategies are generally not prepared for the growing attack surface that resides from the convergence of their IT infrastructure with the industrial systems. As a result, the organizations responsible for corporate security, the Security Operations Center (SOC), are overwhelmed with the integration of the industrial systems.</p><p>To facilitate monitoring the industrial assets, digital twins represent a helpful novel concept. They are the virtual counterparts of such assets and provide valuable insights through collecting asset-centric data, analytic capabilities and simulations. Moreover, digital twins can assist enterprise security by simulating attacks and analyzing the effect on the virtual counterpart. However, the integration of digital twin security simulations into enterprise security strategies, that are mainly controlled by the SOC, is currently neglected.</p><p>To close this research gap, this work develops a process-based security framework to incorporate digital twin security simulations in the SOC. In the course of this work, a use case along with a digital twin-based security simulation provides proof of concept. It is demonstrated how a man-in-the-middle attack can be performed in a simulated industry setting and how it affects the systems. Moreover, we show how the resulting system logs can support the SOC by building technical rules to implement in Security Information and Event Management (SIEM) systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CCS CONCEPTS</head><p>• Computer systems organization → Embedded and cyberphysical systems; • Security and privacy → Virtualization and security.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>The increasing integration of industrial assets in corporate networks leads to a convergence of operational technology (OT) and information technology (IT). While this phenomena entails various benefits, e.g. enhanced monitoring and predictive maintenance, the attack surface eventually increases.</p><p>In current enterprises, the Security Operations Center (SOC) upholds corporate security. On the technical side, the SOC is commonly supported by Security Information and Event Management (SIEM) systems. The capabilities of such systems range from managing security-relevant data, over security analyses to deduce security rules or patterns as well as to check the adherence of security rules. However, contemporary SIEM systems mainly monitor the IT infrastructure, while the incorporation of industrial systems is pressing.</p><p>A novel paradigm, currently considered an essential milestone in companies, especially in those pursuing Industry 4.0, is the digital twin. It refers to a virtual representation of an enterprise assetat most an industrial one. It relies, amongst others, on simulation technology to analyse potential outcomes of physical processes and to determine machine fatigue. Moreover, some digital twins even employ prescriptive maintenance that provides maintenance solutions on top. Next to optimization of production, digital twins may contribute to corporate security. For instance, simulating an attack on an industrial asset with digital twins might provide information about system weaknesses and behavior under attack. Thus, it provides potential assistance for SOC und SIEM systems by delivering novel security insights on industrial systems that are currently neglected.</p><p>This paper tackles this issue by proposing an effective integration of the digital twin paradigm to SOC and SIEM systems that provides novel potentials for security. The main contributions can be summarized as follows:</p><p>• development of a process-based security framework and its formal requirements • proposition of a use case for demonstration • evaluation by prototypical implementation The remainder of this work is organized as follows. Section 2 provides the foundations for our research, outlines related works and the research gap. Subsequently, Section 3 proposes a process-based security framework to integrate digital twin security operations with SIEM and SOCs and states formal requirements to achieve this integration. In Section 4, we evaluate our framework by a use case and implemented prototype. Finally, a conclusion of our work is drawn and future work is stated in Section 5.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">BACKGROUND</head><p>The following sections lay the foundation of this work and introduce the respective related work. The first two focus on the SOC and SIEM concept. The next section presents the digital twin paradigm, while the subsequent section addresses works employing simulations in the security field and points out the addressed research gap.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Security Operations Center</head><p>The Security Operations Center (SOC) represents an organizational aspect of a security strategy in an enterprise by providing procedures, technologies and people <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b24">25]</ref>. It is usually not seen as a single entity or system, but rather as a complex structure to manage and enhance the overall security posture of an organization, whereby the core purpose of a SOC is the protection of the organization's system infrastructure. Thereto, it integrates, monitors and analyses all security-relevant systems and events in a central point. In general, the activities within a SOC can be classified as reactive and proactive, although these cannot always be clearly separated. An integral task of the SOC is to handle alerts and take countermeasures to protect data and applications. Furthermore, it provides governance and compliance as a framework, in which people operate and to which processes and technologies are tailored. When installed and operated correctly, a SOC improves an organizations security posture, creates situational awareness, mitigates the exposed risks, and helps to fulfill regulatory requirements <ref type="bibr" target="#b13">[14]</ref>. Since people play an essential role in the security of companies, this is also an important part of a SOC. From the SOC manager to the analyst, a variety of roles can be defined, whereby a SOC must take care of staffing and recruitment. Furthermore, the security awareness of employees can also be assigned to a SOC. To realize the technical side for security operations, SOCs commonly employ, amongst others, SIEM systems as central tools.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Security Information and Event Management</head><p>A key aspect of today's SIEM systems is that it provides a holistic and centralized view on all security relevant systems of an organization, whereas other systems (such as Network Intrusion Systems) only take a limited perspective on selected systems or functions.</p><p>A pattern describing SIEM abstractly was proposed in <ref type="bibr" target="#b27">[28]</ref>. Compared to the anatomy of SIEM introduced by <ref type="bibr" target="#b17">[18]</ref>, it describes SIEM in more detail by considering relevant interfaces and a broader breakdown of relevant components. In general, a SIEM provides means for collecting data (such as log data or network flows) from various heterogeneous sources and reports about incidents by humans <ref type="bibr" target="#b26">[27]</ref>. To improve its value for further processing, the collected data gets enriched with context data and is normalized into a uniform format. The core of a SIEM is the correlation and analysis module, which interconnects the gathered data and deduces possible security incidents or abnormalities. Most SIEM systems provide interfaces for sharing the gained threat intelligence externally with other systems on the one hand, and interfaces for human or expert interaction on the other hand. In case of an incident, measures for incident response can be taken either automatically of supported by staff that gets informed by alerts. Moreover, recent works propose to deploy SIEM systems to handle the industrial security by incorporating OT systems next to IT systems <ref type="bibr" target="#b22">[23]</ref>. In the course of this paper the in-and outputs of a SIEM are of special importance, as these provide interaction options with digital twins. In Figure <ref type="figure" target="#fig_0">1</ref>, these are illustrated by a black box view of a SIEM.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Digital Twin</head><p>Generally, a digital representation of any real-world counterpart such as a system, product, process or other enterprise asset over its lifecycle can be referred to as digital twin <ref type="bibr" target="#b1">[2]</ref>. The digital twin comprises asset-specific data and typically adds context to the data by semantic technologies. Based on the semantically linked data, analyses such as predictive maintenance can be conducted <ref type="bibr" target="#b4">[5]</ref>. Moreover, the data allows to model the real-world counterpart virtually in order to conduct simulations <ref type="bibr" target="#b11">[12]</ref>. Overall, simulations play a decisive role in digital twin research <ref type="bibr" target="#b19">[20]</ref>. Dependent on the specific use case, digital twins are capable of asset management ranging from simple monitoring to autonomy. Figure <ref type="figure" target="#fig_2">2</ref> illustrates this paradigm. It highlights the simulation aspect of the paradigm which presents the focus of this work in respect to digital twin research.  Various authors mention the importance of security in the digital twin concept (e.g. <ref type="bibr" target="#b9">[10]</ref>, <ref type="bibr" target="#b23">[24]</ref> and <ref type="bibr" target="#b25">[26]</ref>), which can also be considered from two different angles: At first, security mechanisms may support the digital twin such as presented in <ref type="bibr" target="#b6">[7]</ref>. The second perspective proposes the application of the digital twin concept to enhance security, e.g. <ref type="bibr" target="#b7">[8]</ref> and <ref type="bibr" target="#b8">[9]</ref>. For the latter, the digital twin provides versatile potentials to enhance current security analyses <ref type="bibr" target="#b5">[6]</ref>, such as analyses on an asset's historical data, emulated assetenvironments to simulate cyber-attacks and transmission of an asset's current state (e.g. by sensor data). Our work focuses on how the simulation of security-relevant incidents within a digital twin can provide helpful insights for SOCs and support the enhancement of SIEM systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Digital twin</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Real-world asset</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Simulations and their Use in Cyber Security</head><p>In contrast to traditional intrusion detection mechanisms, simulations of cyber security incidents (e.g. attack simulation) can lead to completely new ways for security monitoring. Simulations differ from simple analyses as they are based on a model, e.g. of a realworld asset. Moreover, simulations depend on user-specified settings and parameters. Consequently, security can benefit from cyber security simulations in the following ways <ref type="bibr" target="#b5">[6]</ref>: Simulations enable repeatability and offer to compress the time interval. Additionally, simulations can show a system's behavior under a broad range of specified configurations like during a security incident, which supports the comprehension of emergent as well as prospective behavior. Most importantly, simulations run in a standalone-virtual environment and therefore do not affect the physical environment. Moreover, whenever historical data is missing, resulting data of simulations might deliver important input. Despite all these benefits, simulations are mostly neglected in current security approaches. However, during recent years, some authors have approached this area as follows:</p><p>Testbeds, cyber ranges and honey pots. The generation of testbeds is commonly employed for critical infrastructure testing and represents an approach that usually combines virtual and physical components. For instance, the Opnet module <ref type="bibr" target="#b18">[19]</ref> is applied in numerous testbeds (e.g. <ref type="bibr" target="#b12">[13]</ref>, <ref type="bibr" target="#b2">[3]</ref>) to integrate physical network devices with the virtual part of the testbeds. Testbeds are often used to test planed infrastructures in terms of functionality, but also to assess the level of security e.g. by spotting vulnerabilities. Cyber ranges are virtual environments to develop IT systems or infrastructures <ref type="bibr" target="#b10">[11]</ref>. Their main purpose is to provide a training environment with tools that help improve the security as well as stability and performance of IT infrastructures and systems <ref type="bibr" target="#b21">[22]</ref>. Honey pots are commonly employed to attract attackers by emulating real-world systems and simulating their behavior. Their usage mainly aims at extracting attack methodologies including the attackers' tactics, techniques and procedures (TTP). To create a more realistic system for the attacker than virtualized machine environments, honey pots perform better when automation hardware is integrated <ref type="bibr" target="#b22">[23]</ref>.</p><p>Our approach extends work of <ref type="bibr" target="#b8">[9]</ref>, where a digital twin of a cyberphysical system (CPS) is generated to run a man-in-the-middle (MITM) attack simulation on it. However, the security functionalities only lie within their digital twin solution, while our approach crosses borders beyond the digital twin through the inclusion of SOCs and SIEM systems. To the best of our knowledge, a holistic approach to employ simulations to enhance corporate security management is missing. Therefore, we suggest applying simulations of security incidents (e.g. threats, attacks) in the virtual counterparts of assets (digital twins) and to combine the gathered information with SOC and SIEM systems that protect these assets.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">PROCESS-BASED SECURITY FRAMEWORK</head><p>This chapter introduces the proposed approach to holistically address security by combining the digital twin concept, SOC and SIEM systems. The resulting process-based framework is illustrated in Figure <ref type="figure" target="#fig_3">3</ref>, which applies the Business Process Model and Notation (BPMN) modelling technique to describe the process, its corresponding actors, systems and artifacts. Each process activity is explained in the individual sections that refer to the respective BPMN swim lane. The first part addresses the SOC activities, the next part explains the process steps within the digital twin and afterwards the activities conducted by the security analytics tools are presented. Finally, the formal requirements of this framework are summarized.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">The Role of the Security Operations Center</head><p>In order to detect possible security breaches or system security weaknesses, a large amount of data often must be collected and processed -usually handled by SIEM systems. However, SIEM systems also require domain knowledge about threats etc. and thus, highly depend on cognitive processes <ref type="bibr" target="#b3">[4]</ref>. For instance, although SIEM systems allow setting and monitoring security rules, these rules must be created in advance by experts, who we assume to be organized within a SOC.</p><p>Determination of simulation settings. This first activity of the process is conducted by the SOC. Within this activity, the security experts decide the purpose of the subsequent simulation in the digital twin. This includes deciding which security incident to be simulated as well as which parameters and settings to use. For instance, they could decide to run an attack on the communication between a host to another host using an MITM attack. Another security simulation purpose could be to test if specified security rules apply -preventing the exploitation of vulnerabilities. The output of this activity is the Simulation settings-artifact.</p><p>Incident Analysis. Subsequent to the security simulation by the digital twin, the SOC studies the simulation output. Thereby, it analyzes the Incident data produced by the digital twin simulation. The outcome of this analysis is the Incident information-artifact. This information is further used in the subsequent incident detection and handling of the test SIEM to verify the derived SIEM logic/patterns in order to catch the security incidents.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Security Simulation with the Digital Twin</head><p>To ensure the security of the system, attack detection mechanisms and rules require constant review and development. The Digital Twin can serve this purpose. Thus, a central part of our framework lies in simulating security incidents within a digital twin.</p><p>In contrast to the related work introduced in section 2.4, the digital twin provides a sheer digital approach with strong focus on the asset instead of the attack <ref type="bibr" target="#b5">[6]</ref>. Moreover, it allows to model modular components of an asset as well as their network and interplay.</p><p>Another advantage presents the bi-directional connection of the real-world asset with its digital twin. Therefore, subsequent to the evaluation of the simulation outcome, the real-world counterpart can be adapted to the desired setting by transmitting the respective commands and parameters. Possible benefits of this approach are damage limitation of the physical asset, lower prototyping costs, reduction of asset downtime and certainly the promotion of a high security level. Security simulation. At first, the digital twin virtually represents the real-world asset with the help of the Asset information-artifact. The previous activity of the SOC sets the purpose of the simulation and its related conditions. Thereby, the purpose of the simulation can be distinguished between:</p><p>• System security testing: The simulation investigates security configurations of the emulated systems to investigate potential misconfigurations or vulnerabilities. It further provides feedback whether the weakness is present. For instance, in order to reveal security weaknesses, specified security rules of the system might be tested. • Pentesting: While system security testing involves the assessment and reporting of security weaknesses, pentesting attempts to exploit these vulnerabilities in order to verify the feasibility of malicious activity. In short, it assesses the system's sensitivity to security incidents. • Attack simulation: The simulation of an attack reveals the behavior of the system under attack. Its subsequent analysis can derive patterns. These can be signature-based, anomalybased or specification-based <ref type="bibr" target="#b15">[16]</ref>.</p><p>Note that the presented simulation types types are not absolutely distinct from each other and might exist additional as well as hybrid forms. By setting the system's conditions and details (Simulation settings-artifact), the simulation can be created. Each security simulation produces certain data, e.g. logs reporting occurred events.</p><p>The produced Incident data of the digital twin security simulation is analyzed in the succeeding activity by the SOC.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Security Analytics with SIEM</head><p>The benefit of a SIEM is its holistic view on multiple IT systems. In order to detect security incidents, it correlates events and analyses them. Thereby, various techniques for attack detection are applied.</p><p>The most common method is rule based detection <ref type="bibr" target="#b17">[18]</ref> but is expanded by more advanced methods in modern SIEMs. To avoid influencing the production system negatively during testing a test SIEM can be set up in the test environment, where it can be linked to the digital twin simulation.</p><p>Incident detection and handling. Based on the Incident information-artifact, the SIEM ideally detects the incident. The incident should be detected in the Incident data produced by the digital twin security simulation. In case the incident detection was not successful, either the simulation settings or the analysis of the incident by the SOC were erroneous or incomplete. Thus, these steps must be reevaluated and repeated. Incident information can for example be detection rules, which were deduced manually by SOC analysts or automatically derived patterns by machine learning methods such as anomaly detection. To determine the risk of the incident, asset information such as the asset value is needed.</p><p>Deployment. If the incident was detected successfully in the test environment, the security rules or security settings, such as a trained detection model, are transferred to the production SIEM so that the incident can be detected upon occurrence in the production environment. Therefore, the utilized technology in the production SIEM should be the same as in the test SIEM in order to avoid side effects during deployment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">Formal requirements</head><p>On the basis of the explanations of the framework's activities, the requirements to be met are formally stated in the following. Each of these requirements corresponds to at least one activity of the process-based framework (Figure <ref type="figure" target="#fig_3">3</ref>). Moreover, all artifacts of the framework, which serve as inputs resp. outputs of the activities, can be found formally stated:</p><p>• </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">EVALUATION</head><p>To evaluate the proposed approach a security simulation for a digital twin of an industrial filling plant is implemented. Furthermore, it is demonstrated how this output can serve the SOC to build SIEM rules. This is tested by implementing a SIEM tool that directly receives the logs produced by the digital twin simulation. In the following, the use case (an industrial filling plant) and the tools used for the prototypical implementation are introduced. Afterwards, we concentrate on the conceptual setting of the attack. Afterwards, the obtained results are summarized. We review each activity of our process-based security framework (Figure <ref type="figure" target="#fig_3">3</ref>) in our use case, and show how the formal requirements can be met. The evaluation is concluded by a discussion of the use case and the proposed approach.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Use Case and Tools</head><p>The physical process and the relevant components of our use case are illustrated in Figure <ref type="figure" target="#fig_6">4</ref>. The industrial filling plant consists of a tank that contains some liquid and an actuator, e.g. a motor-driven valve (MV), which controls the outflow of the tank. The liquid flows through the pipe into a bottle. The tank, the bottle and the pipe each have a sensor that reads the liquid level (LL) resp. the flow level (FL). Three programmable logic controllers (PLCs) monitor the sensors and the actuator. In the use case setting, PLC2 controls the sensor measuring the flow level in the pipes (Sensor2-FL) and PLC3 controls the liquid level of the bottle that is to be filled (Sensor3-LLbottle). Meanwhile, PLC1 gets hold of the sensor value of the tank's liquid level (Sensor1-LL-tank) and follows a control strategy for the motor-driven valve (Actuator1-MV). To accomplish the control of the actuator, PLC1 receives the other sensor values controlled by PLC2 and PLC3. The network communication is realized over Ethernet/IP (ENIP) and organized by ENIP tags that store the sensor values in the respective PLCs. For instance, the "Sensor3-LL-bottle"tag is stored in PLC3, and can be requested and received by PLC1.</p><p>Figure <ref type="figure" target="#fig_8">6</ref> shows the use case's network infrastructure. Next to the PLCs, a Human-Machine Interface (HMI) allows direct control the actuator (open/close). Together, the Figures <ref type="figure" target="#fig_6">4 and 6</ref>   The following tools are utilized for prototypical implementation of the filling plant simulation within the digital twin. Commonly, Mininet 1 is employed for simulations with a digital twin <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b8">9]</ref>. To fit our use case, we chose a technology relying on Mininet, namely MiniCPS 2 , which enables the simulation of industrial assets and originates from research levels, from which the simulated sensors get their values. Moreover, each PLC in MiniCPS can be implemented with a own ENIP server that can store tags <ref type="bibr" target="#b0">[1]</ref>. For instance, in the use case setting, PLC2 stores the value of Sensor2 as ENIP tag ("SENSOR2-FL") in its ENIP server. Additionally, we added a logging strategy to capture the respective system's events (system logs) to each of the MiniCPS PLCs main function. Currently, they are stored in the logs folder of the project, from where they can be directly transferred to the SIEM system.</p><p>To simulate the attackers behavior, the attacker node in our setting currently makes use of tools like Ettercap 3 to capture the network traffic and start a MITM attack. The respective source code with installation details, further description of the use case implementation and the resulting logs are available for the public and can be found at Github <ref type="bibr" target="#b3">4</ref> .</p><p>The technical side of the incident analysis within the SOC is supported by the SIEM tool Dsiem 5 , which builds upon Elasticsearch, Logstash and Kibana 6 . These tools are under open source licence to a large extent, and are commonly favored in research for their in-depth comprehensibility.</p><p>The overall architecture of the tools and their interaction is shown in Figure <ref type="figure" target="#fig_7">5</ref>. From the SIEM system side, Filebeat is responsible for the collection of the log data that is transmitted by the digital twin simulation into the files of the logs folder. Within Filebeat, the log files are monitored and in case new lines are added, these are transmitted to Logstash. Logstash normalizes the data by parsing the logs line by line and transforming them into semi-structured JSON-documents in order to enable and facilitate further processing and readability. Dsiem is a correlation engine, which detects incidents based on rules and offers the possibility to trigger an alarm. If an alarm is triggered, it is pushed back to logstash to pass it along the pipeline. Elasticsearch provides the data storage and query execution. Finally, Kibana visualizes the data, displays alarms and offers analytics capabilities, which enables experts to manually analyze incidents.</p><p>The total environment is realized in the form of a micro-service architecture, where each component is deployed within a docker container. This facilitates the later transfer into the production system and simplifies the use of the framework for research in order to build upon or extend it. Furthermore, individual components are easily replaceable if more suitable ones for the respective environment emerge.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Attack Setting</head><p>SOC: Determination of simulation settings. The first activity of processbased framework (see Figure <ref type="figure" target="#fig_3">3</ref>), defines the attack scenario. In our use case, the SOC determines the attacker to be present in the network of the filling plant as shown in Figure <ref type="figure" target="#fig_8">6</ref>. Moreover, the SOC lets the attacker start an ARP spoofing MITM attack between PLC1 that monitors the actuator (open/close motordriven valve) and PLC3, which sends the liquid level of the bottle to PLC1. More precisely, the attacker only shortly sniffs the network traffic between PLC1 and PLC3 and stops the attack. This is repeated about every two minutes. The goal is to not completely stop the network traffic for a longer time period, so that the physical process seems to be running regular and is not stopped at all. This attack strategy proceeds similarly to the spying phase of Advanced Persistent Threats (APTs). With this procedure, the SOC tests if their log management strategy is sufficient to detect this simple attack.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Switch</head><p>In terms of requirements, our use case produces the set of settings S = {attacker in network, attack, targets, repeat, attack duration}, whereby attacker in network = true, attack = MITM ARP spoofing, targets = {PLC1, PLC3}, repeat = {true, 2 min}, attack duration = 15 s that fulfills Reqirement 1.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">Results</head><p>Digital Twin: Security simulation. The purpose of the performed simulation as dictated by the SOC, can be summarized as a hybrid of attack simulation and pentesting as it reveals how the attack affects the systems and their response. To build the simulation SI M, the general information about the asset I Asset , i.e. the information about the network topology and the physical process, is linked with the simulation settings S (Reqirement 2). To start the attack, the attacker node of the simulation executes the shell commands for the MITM attack. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Listing 1: System logs of PLC1</head><p>The output of the security simulation SI M is the incident data D I nc (Reqirement 2), which, in this case, are several log files, i.e. the system logs of PLC1, PLC2 and PLC3. This security simulation output of the digital twin as referenced in Figure <ref type="figure" target="#fig_3">3</ref> (Incident dataartifact), can be found at GitHub <ref type="bibr" target="#b6">7</ref> . Listing 1 shows an extract of the logged system events of PLC1 (10.0.0.1). As can be seen from the logs, the control strategy of PLC1 works fine until the value of Sensor3 that is managed by PLC3 cannot be received any more. This causes the program to produce error messages and leads to the actuator being left at the state as it was at last. In the case of Listing 1, it remains open. The physical result would be a bottle overflow, which would only be stopped when the tank reaches its lower-bound threshold or after the attacker stops the MITM attack. SOC: Incident Analysis. The analysis of simulation output D I nc by the SOC suggest that the ARP poisoning MITM attack allows to place the attacker successfully between PLC1 and PLC3 and results in a denial-of-service (DOS) of network communication between PLC1 and PLC3. Thereby, the pattern of the ARP MITM attack can be deduced from D I nc , and the Incident information-artifact I I nc is created (Reqirement 3): The artifact mainly consists of multiple correlation rules I Det to detect the attack. Therefore, it can be detected in two stages. The first stage detects, that the sensor data of PLC3 was not received. If the condition of the first stage is fulfilled, the second stage waits for log data within a specific time window, that shows, that PLC3 is operating normally and that there must be a communication problem between PLC1 and PLC3, which in turn indicates a potential MITM attack. Figure <ref type="figure" target="#fig_10">7</ref> exemplary shows the generalized detection rule in the form of a decision tree. The actually JSON-formatted and implemented correlation rules can be found at Github <ref type="bibr" target="#b7">8</ref> . Furthermore, parameters for risk calculation are preset during this step. First, the priority of the incident I P r i is set. This parameter determines the severity of the incident. In the case of Dsiem the priority is represented as a value between 1 and 5. Since the severity of the attack is estimated as medium, I P r i = 3 is assumed. Second, the reliability I Rel of the detection is set to a value between 1 and 10. This is based on the two-stage rules as explained above. If it was recognized that no more data is received from PLC3, I Rel = 3 is predefined. The reliability of the first stage is rather low, as the warning might also indicate a general connection problem of PLC3. However, if the second stage rule (PLC3 is operating normally) applies in addition, I Rel = 8 is predefined, since an attack is more likely, but there is still the possibility of a false positive.   SIEM: Deployment. As in the use case, the asset is in the Planning &amp; Design phase, no actual physical asset exits. Therefore, the deployment is currently accomplished in the virtual environment (cf. further explanation in the following section) by carrying out the deduced security rule.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4">Discussion</head><p>In order to reach significant results, the use case and its simulation requires to be realistic. To achieve a setup as close as possible to reality, the filling plant use case is oriented on the input of a security expert of an industrial company 9 that plans, develops and manufactures machines and complete lines for the fields of process, filling and packaging technology. Additional statistics support the use case settings. For instance, a recent study shows that the communication's over Industrial Ethernet annual growth is at 20%, whereby ENIP is applied the most <ref type="bibr" target="#b20">[21]</ref>. Moreover, regarding the current states of OT solutions, software patching remains a slow process <ref type="bibr" target="#b14">[15]</ref>, representing easy entry points for the attackers. So, the attacker already being in the network topology as illustrated in Figure <ref type="figure" target="#fig_8">6</ref> is a realistic setting indeed. While the ARP spoofing represents also a realistic attack against ICS, future attack simulations could cover more advanced and more affecting scenarios (e.g. ransomware attacks).</p><p>Regarding the process-based framework, it might be questionable to what extent other simulation technologies for cyber security can be applied instead of the digital twin. While the concept might be <ref type="bibr" target="#b8">9</ref> https://www.krones.com/en/ realizable with technologies such as testbeds, the digital twin is however the most fitting solution for the following reasons: Digital twins cover the whole lifecycle of their physical counterparts. This means that they can be created in the Planning &amp; Design phase, where no physical counterpart might exist yet, but data can already be gathered. In terms of security, this enables creating an asset by following security-by-design paradigm as the digital twin might already simulate a planned industrial asset and security-related vulnerabilities can be found before the real-world assets exists and operates <ref type="bibr" target="#b5">[6]</ref>. This goes hand in hand with the digital twins being mere virtual technologies, and, esp. in comparison to testbeds, no physical assets are mandatory. The main argument for employing digital twins in our framework is that digital twins contain by far more data and analytic capacities than simulations alone (see Figure <ref type="figure" target="#fig_2">2</ref>), such as asset-centric data (e.g. context data, domain-and expertknowledge). This data presents additional important input for SOC and SIEM systems (cf. Figure <ref type="figure" target="#fig_0">1</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">CONCLUSION AND FUTURE WORK</head><p>In this work, a process-based framework for integrating digital twin security simulations in SOCs is developed. By prototypical implementation and use case demonstration, it is shown that the suggested approach can be accomplished in practice. As the use case's digital twin security simulation repeats the MITM attack only about every two minutes and sniffs the occurring traffic for only a few seconds, the attack wouldn't be noticed without logs. This is reminiscent of the espionage phase of APTs, which often target industrial environments. However, in industrial systems currently many proprietary, but no standardized, log management solutions are pursued. In this work, we highlight how the digital twin security simulation can support the SOC in their security strategies (e.g. log management and monitoring).</p><p>The presented approach is the first of its kind to combine the research areas digital twin and SOC and thus, requires demonstration of feasibility first. In the scope of this work, an evaluation in terms of efficiency or performance is not carried out yet. However, future work will address the performance-based evaluation as well as the creation of more and different attacks to simulate, and the subsequent processing of the simulation output in the SOC and SIEM systems. As addressed above, future work could further extend the framework, e.g. by passing on further security-relevant data from the digital twin to the SOC.</p><p>Moreover, future research should tackle to integrate even further -towards cyber threat intelligence (CTI). For instance, the structured description of attacks (e.g. STIX format) could be applied to the simulation data. This includes the report of found vulnerabilities, e.g. via lists like the Common Vulnerabilities and Exposures (CVE). Seeing the even bigger picture, the presented approach could work together with further attack knowledge to simulate the attacks as close to reality as possible, e.g. by integrating knowledge from honeypots to get current methods of the attackers.</p><p>Regarding SIEM systems, one major research challenge lies in the complexity of creating detection and correlation rules. Since this requires the definition of multiple parameters and since this syntax for rule definition is designed for SIEM experts, SOC analysts struggle with creating rules. Future work should address this problem by designing approaches, which are targeted at a broader security audience and offer a higher usability -while still providing the ability to define rules for detection of complex incidents. Lowcode approaches, tailored to the special demands within a SOC, could present promising solutions to this problem.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Black box view of SIEM embedded in a SOC.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: The Digital Twin paradigm.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: Process-based Security Management Framework integrating Digital Twin security simulations.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Reqirement 1 (</head><label>1</label><figDesc>Determination of simulation settings). A set of simulation settings S = {s 1 , s 2 , ..., s n }, n ∈ N \ {0} is determined. Reqirement 2 (Security simulation). Asset information I Asset linked with simulation settings S are required to build the simulation SI M, which produces incident data D I nc : I Asset • S → SI M → D I nc Reqirement 3 (Incident analysis). Incident information I I nc is deduced from data D I nc : D I nc |= I I nc . I I nc = {I Det , I Rel , I P r i }, whereby I Det is information to incident detection (such as rules), I Rel is the detection reliability and I P r i the priority or severity of the incident. Reqirement 4 (Incident detection + Deployment). Incident information I I nc implemented in a functional SIEM that detects the incident: SI EM(I I nc , D I nc ) → Inc Determination of risk I Ris , based on I Asset , I Rel and I P r i : I Ris = I Rel • I P r i • I Asset</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>Asset information: I Asset • Incident data: D I nc • Incident information: I I nc In regard to the swimlanes, the simulation carried out in the Digital Twin and the SIEM system are formalized into SI M and SIEM.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: Use case -An industrial filling plant.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: Implemented micro-service architecture for digital twin and SIEM deployment -managed by the SOC.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: The attacker inside the network topology of the industrial filling plant.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head></head><label></label><figDesc>INFO 03/16/2020 13:31:59 10.0.0.1 main_loop Liquid level ( SENSOR 3) under BOTTLE_M [ ' UpperBound ']: 0.84 &lt; 0.90 -&gt; open mv ( ACTUATOR 1) . INFO 03/16/2020 13:32:01 10.0.0.1 main_loop Flow level ( SENSOR 2) under SENSOR2_THRESH : 2.45 &lt; 3.00 -&gt; leave mv status ( ACTUATOR 1) . WARNING 03/16/2020 13:32:06 10.0.0.1 main_loop Liquid level ( SENSOR 3) is not received . Program is unable to proceed properly INFO 03/16/2020 13:32:08 10.0.0.1 main_loop Flow level ( SENSOR 2) under SENSOR2_THRESH : 2.45 &lt; 3.00 -&gt; leave mv status ( ACTUATOR 1) .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 7 :</head><label>7</label><figDesc>Figure 7: Deduced detection rules for MITM Attack as decision tree</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 8 :</head><label>8</label><figDesc>Figure 8: Screenshot of the Dsiem incident detection.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 8</head><label>8</label><figDesc>Figure8shows the visualization of the prototypical recognition of the incident by Dsiem. In the upper right corner a line chart shows the log data stream (turquoise) and the detected attacks (red peaks). The heatmap on the left side shows the risk level of the detected incidents and allows a quick overview of the threat level. If the incident is successfully detected, one can proceed to deploy the implementation in the production SIEM.SIEM: Deployment. As in the use case, the asset is in the Planning &amp; Design phase, no actual physical asset exits. Therefore, the deployment is currently accomplished in the virtual environment (cf. further explanation in the following section) by carrying out the deduced security rule.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>can be referred to as Asset information-artifact as presented in our process-based framework.</figDesc><table><row><cell>Sensor1-LL-tank LIQUID LEVEL SENSOR</cell><cell>Sensor2-FL FLOW LEVEL SENSOR</cell><cell>Sensor3-LL-bottle</cell></row><row><cell>TANK</cell><cell>Actuator1-MV MOTORIC VALVE</cell><cell>LIQUID LEVEL SENSOR</cell></row><row><cell></cell><cell>BOTTLE</cell><cell></cell></row><row><cell>PLC1</cell><cell>PLC2</cell><cell>PLC3</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">http://mininet.org 2 https://github.com/scy-phy/minicps</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3">https://www.ettercap-project.org/ 4 https://github.com/FrauThes/DigitalTwin-SIEM-integration 5 https://www.dsiem.org/ 6 https://www.elastic.co/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7">https://github.com/FrauThes/DigitalTwin-SIEM-integration/tree/master/example-l ogs</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8">https://github.com/FrauThes/DigitalTwin-SIEM-integration/blob/master/deploym ents/docker/conf/dsiem/configs/directives_dsiem-digital_twin.json</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENTS</head><p>This work is partly performed under the ZIM SISSeC project (https:// www.it-logistik-bayern.de/produktionslogistik/projekt-sissec), which is supported under contract by the German Federal Ministry for Economic Affairs and Energy (16KN085725).</p><p>We further thank Andreas Reisser from the Krones Group (https: //www.krones.com/en/) for the helpful remarks to the industrial use case and the professional support from the industry.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">MiniCPS</title>
+		<author>
+			<persName><forename type="first">Daniele</forename><surname>Antonioli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nils</forename><forename type="middle">Ole</forename><surname>Tippenhauer</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2808705.2808715</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the First ACM Workshop on Cyber-Physical Systems-Security and/or PrivaCy</title>
+				<meeting>the First ACM Workshop on Cyber-Physical Systems-Security and/or PrivaCy<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2015-10-16" />
+			<biblScope unit="page" from="91" to="100" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Preface for the special issue of TMCE 2016 International Symposium on Tools and Methods of Competitive Engineering</title>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Boschert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christoph</forename><surname>Heinrich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Roland</forename><surname>Rosen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jcde.2017.11.012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computational Design and Engineering</title>
+		<idno type="ISSNe">2288-5048</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="2" />
+			<date type="published" when="2017-12-01" />
+			<publisher>Oxford University Press (OUP)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Implementing attacks for modbus/TCP protocol in a real-time cyber physical system test bed</title>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nishant</forename><surname>Pattanaik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ana</forename><surname>Goulart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karen</forename><forename type="middle">L</forename><surname>Butler-Purry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Deepa</forename><surname>Kundur</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cqr.2015.7129084</idno>
+		<ptr target="https://doi.org/10.1109/CQR.2015.7129084" />
+	</analytic>
+	<monogr>
+		<title level="m">2015 IEEE International Workshop Technical Committee on Communications Quality and Reliability (CQR)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-05" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Challenges and Directions in Security Information and Event Management (SIEM)</title>
+		<author>
+			<persName><forename type="first">Marcello</forename><surname>Cinque</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Domenico</forename><surname>Cotroneo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Pecchia</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/issrew.2018.00-24</idno>
+		<ptr target="https://doi.org/10.1109/ISSREW.2018.00-24" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE International Symposium on Software Reliability Engineering Workshops (ISSREW)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-10" />
+			<biblScope unit="page" from="95" to="99" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Digital Twin: Empowering Enterprises Towards a System-of-Systems Approach</title>
+		<author>
+			<persName><forename type="first">Marietheres</forename><surname>Dietz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12599-019-00624-0</idno>
+		<ptr target="https://doi.org/10.1007/s12599-019-00624-0" />
+	</analytic>
+	<monogr>
+		<title level="j">Business &amp; Information Systems Engineering</title>
+		<title level="j" type="abbrev">Bus Inf Syst Eng</title>
+		<idno type="ISSN">2363-7005</idno>
+		<idno type="ISSNe">1867-0202</idno>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="179" to="184" />
+			<date type="published" when="2019-11-25" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Unleashing the Digital Twin&apos;s Potential for ICS Security</title>
+		<author>
+			<persName><forename type="first">Marietheres</forename><surname>Dietz</surname></persName>
+			<idno type="ORCID">0000-0002-6885-4622</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Gunther</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/msec.2019.2961650</idno>
+		<ptr target="https://doi.org/10.1109/MSEC.2019.2961650" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Security &amp; Privacy</title>
+		<title level="j" type="abbrev">IEEE Secur. Privacy</title>
+		<idno type="ISSN">1540-7993</idno>
+		<idno type="ISSNe">1558-4046</idno>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="20" to="27" />
+			<date type="published" when="2020-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A Distributed Ledger Approach to Digital Twin Secure Data Sharing</title>
+		<author>
+			<persName><forename type="first">Marietheres</forename><surname>Dietz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benedikt</forename><surname>Putz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-22479-0_15</idno>
+		<ptr target="https://doi.org/10.1007/978-3-030-22479-0_15" />
+	</analytic>
+	<monogr>
+		<title level="m">Data and Applications Security and Privacy XXXIII</title>
+				<editor>
+			<persName><forename type="first">Applications</forename><surname>Data</surname></persName>
+			<persName><surname>Security</surname></persName>
+			<persName><forename type="first">Xxxiii</forename><surname>Privacy</surname></persName>
+			<persName><forename type="first">Simon</forename><forename type="middle">N</forename><surname>Foley</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="281" to="300" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A Specification-based State Replication Approach for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264892</idno>
+		<ptr target="https://doi.org/10.1145/3264888.3264892" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+			<biblScope unit="page" from="36" to="47" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Towards Security-Aware Virtual Environments for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3198458.3198464</idno>
+		<ptr target="https://doi.org/10.1145/3198458.3198464" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 4th ACM Workshop on Cyber-Physical System Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-22" />
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Digital Twins for Cyber-Physical Systems Security: State of the Art and Outlook</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-25312-7_14</idno>
+		<ptr target="https://doi.org/10.1007/978-3-030-25312-7_14" />
+	</analytic>
+	<monogr>
+		<title level="m">Security and Quality in Cyber-Physical Systems Engineering</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="383" to="412" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">National Cyber Range Overview</title>
+		<author>
+			<persName><forename type="first">Bernard</forename><surname>Ferguson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anne</forename><surname>Tall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Denise</forename><surname>Olsen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/milcom.2014.27</idno>
+		<ptr target="https://doi.org/10.1109/MILCOM.2014.27" />
+	</analytic>
+	<monogr>
+		<title level="m">2014 IEEE Military Communications Conference</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Digital Twin: Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Grieves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Vickers</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-38756-7_4</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-38756-7_4" />
+	</analytic>
+	<monogr>
+		<title level="m">Transdisciplinary Perspectives on Complex Systems</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016-08-17" />
+			<biblScope unit="page" from="85" to="113" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Cyber-Physical Security Testbeds: Architecture, Application, and Evaluation for Smart Grid</title>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Hahn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Ashok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Siddharth</forename><surname>Sridhar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Manimaran</forename><surname>Govindarasu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2012.2226919</idno>
+		<ptr target="https://doi.org/10.1109/TSG.2012.2226919" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="847" to="855" />
+			<date type="published" when="2013-06" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Best Practices for Building a Security Operations Center</title>
+		<author>
+			<persName><forename type="first">Diana</forename><surname>Kelley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ron</forename><surname>Moritz</surname></persName>
+		</author>
+		<idno type="DOI">10.1201/1086.1065898x/45782.14.6.20060101/91856.6</idno>
+		<ptr target="https://doi.org/10.1201/1086.1065898X/45782.14.6.20060101/91856.6" />
+	</analytic>
+	<monogr>
+		<title level="j">Information Systems Security</title>
+		<title level="j" type="abbrev">Info. Systems Security</title>
+		<idno type="ISSN">1065-898X</idno>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="27" to="32" />
+			<date type="published" when="2006-01-01" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Security Challenges in Cyber-Physical Production Systems</title>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Kieseberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edgar</forename><surname>Weippl</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-71440-0_1</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-71440-0_1" />
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Business Information Processing</title>
+				<editor>
+			<persName><forename type="first">Dietmar</forename><surname>Winkler</surname></persName>
+			<persName><forename type="first">Stefan</forename><surname>Biffl</surname></persName>
+			<persName><forename type="first">Johannes</forename><surname>Bergsmann</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017-11-19" />
+			<biblScope unit="page" from="3" to="16" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Intrusion detection system: A comprehensive review</title>
+		<author>
+			<persName><forename type="first">Hung-Jen</forename><surname>Liao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chun-Hung</forename><surname>Richard Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ying-Chih</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kuang-Yuan</forename><surname>Tung</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jnca.2012.09.004</idno>
+		<ptr target="https://doi.org/10.1016/j.jnca.2012.09.004" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Network and Computer Applications</title>
+		<title level="j" type="abbrev">Journal of Network and Computer Applications</title>
+		<idno type="ISSN">1084-8045</idno>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="16" to="24" />
+			<date type="published" when="2013-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Log management comprehensive architecture in Security Operation Center (SOC)</title>
+		<author>
+			<persName><forename type="first">Afsaneh</forename><surname>Madani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saed</forename><surname>Rezayi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hossein</forename><surname>Gharaee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cason.2011.6085959</idno>
+		<ptr target="https://doi.org/10.1109/CASON.2011.6085959" />
+	</analytic>
+	<monogr>
+		<title level="m">2011 International Conference on Computational Aspects of Social Networks (CASoN)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2011-10" />
+			<biblScope unit="page" from="284" to="289" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Security information and event management (SIEM) implementation</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Miller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shon</forename><surname>Harris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Allen</forename><surname>Harper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephen</forename><surname>Vandyke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><surname>Blask</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011" />
+			<publisher>McGraw-Hill</publisher>
+			<pubPlace>New York, NY</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Simulations of an Airframe-Integrated Two-Dimensional Supersonic Inlet at Off-Design Conditions</title>
+		<author>
+			<persName><forename type="first">Sparsh</forename><surname>Mittal</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2021-0879.vid</idno>
+		<imprint>
+			<date type="published" when="2020-01-11" />
+			<publisher>American Institute of Aeronautics and Astronautics (AIAA)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">A Review of the Roles of Digital Twin in CPS-based Production Systems</title>
+		<author>
+			<persName><forename type="first">Elisa</forename><surname>Negri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Fumagalli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marco</forename><surname>Macchi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2017.07.198</idno>
+		<ptr target="https://doi.org/10.1016/j.promfg.2017.07.198" />
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Manufacturing</title>
+		<title level="j" type="abbrev">Procedia Manufacturing</title>
+		<idno type="ISSN">2351-9789</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="939" to="948" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Industrial network market shares 2019 according to HMS</title>
+		<author>
+			<persName><forename type="first">Joakim</forename><surname>Nideborn</surname></persName>
+		</author>
+		<ptr target="https://www.hms-networks.com/news-and-insights/news-from-hms/2019/05/07/industrial-network-market-shares-2019-according-to-hms" />
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note>Online</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">CyRIS</title>
+		<author>
+			<persName><forename type="first">Cuong</forename><surname>Pham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dat</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ken-Ichi</forename><surname>Chinen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Razvan</forename><surname>Beuran</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3011077.3011087</idno>
+		<ptr target="https://doi.org/10.1145/3011077.3011087" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Seventh Symposium on Information and Communication Technology</title>
+				<meeting>the Seventh Symposium on Information and Communication Technology<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2016-12-08" />
+			<biblScope unit="page" from="251" to="258" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Active Defence Using an Operational Technology Honeypot</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Piggin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Buffey</surname></persName>
+		</author>
+		<idno type="DOI">10.1049/cp.2016.0860</idno>
+		<ptr target="https://doi.org/10.1049/cp.2016.0860" />
+	</analytic>
+	<monogr>
+		<title level="m">11th International Conference on System Safety and Cyber-Security (SSCS 2016)</title>
+				<imprint>
+			<publisher>Institution of Engineering and Technology</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+	<note>SSCS 2016</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Analysis of Cybersecurity Threats in Industry 4.0: The Case of Intrusion Detection</title>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">E</forename><surname>Rubio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rodrigo</forename><surname>Roman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Javier</forename><surname>Lopez</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-99843-5_11</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-99843-5_11" />
+	</analytic>
+	<monogr>
+		<title level="m">Critical Information Infrastructures Security</title>
+				<editor>
+			<persName><forename type="first">D'</forename><surname>Gregorio</surname></persName>
+			<persName><forename type="first">Antonio</forename><surname>Agostino</surname></persName>
+			<persName><surname>Scala</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="119" to="130" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">A Framework for Designing a Security Operations Centre (SOC)</title>
+		<author>
+			<persName><forename type="first">Stef</forename><surname>Schinagl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Keith</forename><surname>Schoon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ronald</forename><surname>Paans</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/hicss.2015.270</idno>
+		<ptr target="https://doi.org/10.1109/HICSS.2015.270" />
+	</analytic>
+	<monogr>
+		<title level="m">2015 48th Hawaii International Conference on System Sciences</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-01" />
+			<biblScope unit="page" from="2253" to="2262" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">The Digital Twin: Realizing the Cyber-Physical Production System for Industry 4.0</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">J</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Uhlemann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rolf</forename><surname>Lehmann</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Steinhilper</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2016.11.152</idno>
+		<ptr target="https://doi.org/10.1016/j.procir.2016.11.152" />
+	</analytic>
+	<monogr>
+		<title level="m">Procedia CIRP</title>
+				<meeting>edia CIRP</meeting>
+		<imprint>
+			<publisher>Elsevier B.V</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page" from="335" to="340" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Correction to: Human-as-a-security-sensor for harvesting threat intelligence</title>
+		<author>
+			<persName><forename type="first">Manfred</forename><surname>Vielberth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Florian</forename><surname>Menges</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/s42400-019-0041-z</idno>
+		<idno>s42400-019-0040-0</idno>
+		<ptr target="https://doi.org/10.1186/" />
+	</analytic>
+	<monogr>
+		<title level="j">Cybersecurity</title>
+		<title level="j" type="abbrev">Cybersecur</title>
+		<idno type="ISSNe">2523-3246</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">23</biblScope>
+			<date type="published" when="2019-11-26" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">A Security Information and Event Management Pattern</title>
+		<author>
+			<persName><forename type="first">Manfred</forename><surname>Vielberth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Günther</forename><surname>Pernul</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">12th Latin American Conference on Pattern Languages of Programs (SugarLoafPLoP). The Hillside Group</title>
+				<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

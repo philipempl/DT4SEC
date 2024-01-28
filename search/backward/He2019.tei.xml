@@ -1,0 +1,1602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Data-driven digital twin technology for optimized control in process systems</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2019-12">2019-12</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Rui</forename><surname>He</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Centre for Offshore Engineering and Safety Technology (COEST)</orgName>
+								<orgName type="institution">University of Petroleum (East China)</orgName>
+								<address>
+									<addrLine>No.66, Changjiang West Road</addrLine>
+									<settlement>Qingdao</settlement>
+									<country>China, China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Guoming</forename><surname>Chen</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Centre for Offshore Engineering and Safety Technology (COEST)</orgName>
+								<orgName type="institution">University of Petroleum (East China)</orgName>
+								<address>
+									<addrLine>No.66, Changjiang West Road</addrLine>
+									<settlement>Qingdao</settlement>
+									<country>China, China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Che</forename><surname>Dong</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Centre for Offshore Engineering and Safety Technology (COEST)</orgName>
+								<orgName type="institution">University of Petroleum (East China)</orgName>
+								<address>
+									<addrLine>No.66, Changjiang West Road</addrLine>
+									<settlement>Qingdao</settlement>
+									<country>China, China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Shufeng</forename><surname>Sun</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Centre for Offshore Engineering and Safety Technology (COEST)</orgName>
+								<orgName type="institution">University of Petroleum (East China)</orgName>
+								<address>
+									<addrLine>No.66, Changjiang West Road</addrLine>
+									<settlement>Qingdao</settlement>
+									<country>China, China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Xiaoyu</forename><surname>Shen</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Centre for Offshore Engineering and Safety Technology (COEST)</orgName>
+								<orgName type="institution">University of Petroleum (East China)</orgName>
+								<address>
+									<addrLine>No.66, Changjiang West Road</addrLine>
+									<settlement>Qingdao</settlement>
+									<country>China, China</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Data-driven digital twin technology for optimized control in process systems</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">ISA Transactions</title>
+						<title level="j" type="abbrev">ISA Transactions</title>
+						<idno type="ISSN">0019-0578</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">95</biblScope>
+							<biblScope unit="page" from="221" to="234"/>
+							<date type="published" when="2019-12" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1016/j.isatra.2019.05.011</idno>
+					<note type="submission">Received 31 January 2019 Received in revised form 22 April 2019 Accepted 11 May 2019</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:39+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Data-driven methods Digital twin Process monitoring and diagnosis Optimized control configuration Tennessee Eastman process</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>h i g h l i g h t s</head><p>• A timely monitoring and diagnosis scheme is proposed based on virtual systems.</p><p>• Three types of process faults are studied, and corresponding optimized control configurations are proposed.</p><p>• Both reconfiguration problems of bias faults and apparatus failures are considered.</p><p>• Adaptive algorithms are integrated to design digital twins at both on-line and off-line stage.</p><p>• Proposed digital twins are appropriate for the dynamic systems with unknown model parameters.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Process systems are complex socio-technical systems that are susceptible to catastrophic incidents due to inevitable processes, machinery, instrumentation, or human hazards <ref type="bibr" target="#b1">[1]</ref>. Generally, the materials in process factories are toxic, flammable, and explosive, while the necessity of optimizing productions is forcing the operating condition to severe limits such as high pressure or high temperature <ref type="bibr" target="#b2">[2]</ref>. Since the process industry has numerous sensors and actuators, once a fault is not detected and corrected, the process performance would deteriorate and further severe safety issues could occur <ref type="bibr" target="#b3">[3]</ref>. In order to provide automatic security decisions during the operational stage in the context of industrial automation production, intelligent monitoring and control systems need to be developed and deployed <ref type="bibr" target="#b4">[4]</ref>.</p><p>Under the tide of the fourth industrial revolution, digital twins are of crucial importance for industrial automation. Digital twins describe the use of holistic simulations to virtually mirror a physical system <ref type="bibr" target="#b5">[5]</ref>. Adopting digital twins allows operators to monitor productions, test deviations in an isolated virtual environment, and further strengthen the security of process industries <ref type="bibr" target="#b6">[6]</ref>. Extending from the life-cycle design of process factories, Patterson et al. <ref type="bibr" target="#b7">[7]</ref> propose an integrated nuclear digital environment linked to the real world. Longo et al. <ref type="bibr" target="#b8">[8]</ref> introduce a physical modeling framework of digital twins for emergency management and decision-making in process industries. However, with the significant growth of process data, traditional model-based methods are impractical to describe the state-space of complex systems. Therefore, data-driven technology has become a potential solution to model digital twins for process industries <ref type="bibr" target="#b9">[9]</ref>. In https://doi.org/10.1016/j.isatra.2019.05.011 0019-0578/© 2019 Published by Elsevier Ltd on behalf of ISA.</p><p>the early period, the multivariate statistical analysis reveals the effectiveness of data-driven technologies. Most related multivariate statistical works focus on condition monitoring and system diagnosis. Ding <ref type="bibr" target="#b10">[10]</ref> and Yin et al. <ref type="bibr" target="#b11">[11]</ref> survey the basic theory of data-driven methods for system monitoring, including principal component analysis (PCA), partial least squares (PLS), and generalized likelihood ratio (GLR). Kadlec et al. <ref type="bibr" target="#b12">[12]</ref> discuss general soft sensor technologies for process monitoring and diagnosis. Severson et al. <ref type="bibr" target="#b13">[13]</ref> summarize data-driven methods such as fisher discriminant analysis (FDA) and support vector machine (SVM) for the diagnosis design of digital systems. Zhang et al. <ref type="bibr" target="#b14">[14]</ref> propose an extensible deep belief network (DBN) based fault diagnosis model for chemical processes. However, such multivariate statistical analysis and machine learning methods rely on a large number of multi-category fault data, which are difficult to collect. Besides, most related methods are limited to describe dynamical system status and cannot be applied for the real-time diagnosis. Concerned with the construction of digital twins, the subspace identification method (SIM) <ref type="bibr" target="#b15">[15]</ref> describes the complex process through a state-space matrix, which provides an attractive virtual mirror for the MIMO system. Furthermore, Ding et al. <ref type="bibr" target="#b16">[16]</ref> develop the SIM and propose an observer-based algorithm to deal with the data-driven design of process monitoring systems. Nevertheless, existing SIMs are difficult to construct available virtual models for complex closed-loop systems. Therefore an adaptive SIM needs to be developed to improve the identification performance for digital twins.</p><p>The intent of developing digital twins is to improve the security of process systems, and thus automatic fault-tolerant control (FTC) is one of the critical technologies for digital twins. FTC design enables process factories to continue its predetermined operation after the apparatus fails, possibly at a reduced level rather than a complete failure <ref type="bibr" target="#b17">[17]</ref>. The FTC configuration generally consists of two strategies: the passive approach or the active one. The former employs the robustness of the closed-loop control system to accommodate faults, while the other scheme reconfigures the closed-loop control system after a fault occurs <ref type="bibr" target="#b18">[18]</ref>. The FTC performance depends on the design of reconfiguring control gains. Reconfiguration approaches primarily comprise model-matching, pseudo-inverse, adaptive control, and model predictive control <ref type="bibr" target="#b19">[19]</ref>. The passive control is limited in handling massive failures due to the insensitive robustness, while the active control scheme based on the Youla parameterization is efficacious in the reconfiguring control and attract widespread attention <ref type="bibr" target="#b20">[20]</ref>. Ding et al. <ref type="bibr" target="#b21">[21]</ref> equate the Youla parameterization controller with the observer-based controller, accordingly propose a flexible configuration for the FTC design using process data. Yin et al. <ref type="bibr" target="#b22">[22]</ref> develop the observer-based framework and present iterative optimization methods to enhance system performances. Most FTC related literatures only consider bias and gain faults, while rarely pay enough attention to apparatus failures. Actuator failures cause the controller to be uncontrollable, which increases the difficulties of control reconfiguration. Wen et al. <ref type="bibr" target="#b23">[23]</ref> propose an adaptive failure compensation scheme based on the linear-quadratic (LQ) control for discrete-time systems with unknown actuator failures. Teixeira et al. <ref type="bibr" target="#b24">[24]</ref> integrate model-matching and LQ control to address the problem of distributed reconfiguration upon the removal of misbehaving sensors and actuators. However, previous control schemes base on preset reconstruction gains to improve control performance, while cannot automatically adjust the control gain according to the process diagnosis results. Besides, most control studies based on the concept of FTC aim for guaranteeing the stability of productions under faulty conditions, while ignoring the security of process systems.</p><p>Motivated by the studies mentioned above, the present paper proposes a data-driven digital twin architecture for the optimized control in process industries. Compared with existing applications, we emphasize the following contributions. (1) Proposed digital twins only rely on standard samples under stable productions, which is easy to collect. (2) Proposed digital twin technologies can be applied for dynamical systems with unknown model parameters, and simultaneously, adaptive algorithms are applied to realize offline and online optimization in the optimized control configuration. <ref type="bibr" target="#b3">(3)</ref> The mechanical faults are divided into three categories: sensor fault, actuator failure, and process disturbance. The proposed control configuration not only considers the gain and bias faults, but also addresses the reconfiguration problem with uncontrollable actuators. (4) Differing from the previous contributions, the proposed optimized control configuration aims for guaranteeing stable operations and enhancing securities of control systems versus simply stabilizing productions by reducing disturbances.</p><p>The rest of the paper is organized as follows. In Section 2, process fault descriptions and problem formulations are first presented. Section 3 briefly introduces the critical digital twin technology, including the virtual system modeling, process monitoring, diagnosis, as well as the optimized control configuration. In Section 4, the fault identification scheme and the digital twin architecture are discussed. In Section 5, the case study on TE benchmark process is manifested. Finally, conclusions are made in Section 6.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Fault description and problem formulation</head><p>A fault in a dynamical system is a deviation of the system structure from the nominal situation. In general, the process faults comprise sensor faults, actuator faults, and plant faults <ref type="bibr" target="#b17">[17]</ref>. Sensor faults include offset faults, drift faults, and complete failures, which typically manifest as additive faults. Actuator faults contain clogging faults, constant gain deviations, and failures, which generally manifest as multiplicative faults <ref type="bibr" target="#b25">[25]</ref>. Since the actuator is entirely uncontrollable when an actuator failure occurs, we regard the actuator failure as a separate type of process faults. Besides, dynamical pressure fluctuations generated by external interferences at the inlet or outlet of the process could cause instability of the pressure-driven system, and therefore we incorporate the other actuator faults and the plant faults into a new type of faults as process disturbances. Ultimately, we divide the process faults into sensor faults, actuator failures, and process disturbance in present works.</p><p>Process faults can also be distinguished concerning their size and temporal behavior. To determine the applicability of proposed systems, we assume that all process faults are abrupt and occur in closed-loop systems. Since the compensation effect of the feedback control makes the closed-loop system have certain fault tolerances for incipient faults, we assume that all faults are significant and could cause obvious interferences to the system. Furthermore, the temporal behavior of the fault is assumed to be continuous. The control of intermittent faults requires constant initialization for reconfiguration controllers, so it cannot achieve satisfactory control performance, which will be discussed in Section 5.3.2. According to assumptions, the main topic of this paper is to develop an optimized control configuration to guarantee stable control performance under the above-mentioned fault scenarios.</p><p>As a result, under the condition that the parameters of the system plant model are unknown, this paper proposes an integrated digital twin system to achieve optimized control performances in system faulty cases. The design process of digital twin system is formulated as follows: First, the adaptive closed-loop SIM is applied to build the data-driven residual generator based on the virtual system modeling with unknown parameters of plant mod-els; Second, performance indices for abnormal status diagnosis are developed to enhance the identification performance of the process monitoring and diagnosis scheme; Finally, corresponding to different process faults, optimized control configurations are designed based on the offline adaptive tuning and online iterative training to improve the security under faulty conditions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Integrated design of digital twins</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Virtual system modeling</head><p>When a process plant contains high-dimensional variables, huge computational overheads and memory issues could lead to inaccurate results. Referring to the Multi-block PLS process <ref type="bibr" target="#b26">[26]</ref>, the plant is first decomposed into meaningful blocks associated with a physical unit. To construct the virtual system, each plant block is modeled as the following form of discrete-time multivariable state-space:</p><formula xml:id="formula_0">x(k + 1) = Ax(k) + Bu(k) + ξ (k) y(k) = Cx(k) + Du(k) + υ(k) (1)</formula><p>where x(k) ∈ R n , y(k) ∈ R m , u(k) ∈ R l represent the vectors of the state variables, process outputs, and inputs respectively. ξ (k)∈ R n and υ (k) ∈ R m denote zero-mean standard distributed noise sequences. A, B, C, D are state-space matrices. It is assumed that the plant model is controllable and observable, and the data-driven virtual system designed in this work is implemented under actual operating conditions, where the measurement noise and the external disturbance are considered. Moreover, the state-space matrix A is assumed to be stable and non-derogatory <ref type="bibr" target="#b27">[27]</ref>. When dealing with nonlinear systems, some nonlinear state-spaces <ref type="bibr" target="#b28">[28,</ref><ref type="bibr" target="#b29">29]</ref> can be applied to model complex nonlinear characteristics. Besides, when the amount of monitoring data is quite large, a variable selection method <ref type="bibr" target="#b30">[30]</ref> is necessary to reduce redundant information and useless variables. Remark 1. SIMs are typically exploited for characterizing system features by constructing residual signals. However, for MIMO systems, the application of a single residual signal will lead to imperfect monitoring performances <ref type="bibr" target="#b21">[21]</ref>. Due to unknown system orders and closed-loop interferences, conventional SIMs would have difficulties selecting appropriate parameters to achieve acceptable residual results. Therefore, inspired by previous works <ref type="bibr" target="#b11">[11,</ref><ref type="bibr" target="#b16">16,</ref><ref type="bibr" target="#b31">31]</ref>, we develop a multiple adaptive SIM to model attractive virtual mirrors for the processing system.</p><p>With closed-loop output data y and input data u, the Hankel structures Y f , Y p , U f , U p are first constructed to generate the past</p><formula xml:id="formula_1">Hankel matrix as Z p = [Y p T , U p T ] T . Y f = ⎡ ⎢ ⎢ ⎢ ⎢ ⎣ y(k) • • • y(k + N − 1) . . . . . . . . . y(k + s) • • • y(k + s + N − 1) ⎤ ⎥ ⎥ ⎥ ⎥ ⎦ , Y p = ⎡ ⎢ ⎢ ⎢ ⎢ ⎣ y(k − s − 1) • • • y(k − s + N − 2) . . . . . . . . . y(k − 1) • • • y(k + N − 2) ⎤ ⎥ ⎥ ⎥ ⎥ ⎦ U f = ⎡ ⎢ ⎢ ⎢ ⎢ ⎣ u(k) • • • u(k + N − 1) . . . . . . . . . u(k + s) • • • u(k + s + N − 1) ⎤ ⎥ ⎥ ⎥ ⎥ ⎦ , U p = ⎡ ⎢ ⎢ ⎢ ⎢ ⎣ u(k − s − 1) • • • u(k − s + N − 2) . . . . . . . . . u(k − 1) • • • u(k + N − 2) ⎤ ⎥ ⎥ ⎥ ⎥ ⎦ (2)</formula><p>where N denotes the number of sampled data, the subscript p stands for the data in the ''past'', and f denotes the data in the ''future''. The integer s represents the observer order, and generally s ≥ n.</p><p>To describe the system by Hankel matrices, the dynamic model Eq. (1) can be written as:</p><formula xml:id="formula_2">Y f = Γ s X k + H u,s U f + H w,s W f + V f X k = [ x k • • • x k+N−1 ]<label>(3)</label></formula><p>where H w,s W f + V f denotes the influence of noise vectors on the process output. Γ s , H u,s , and H w,s are quasi-standard forms.</p><p>Taking extended observability matrix Γ ⊥ s as the orthogonal complement of Γ s , we obtain (Γ ⊥ s ) T Γ s = 0. According to the left coprime factorization (LCF) <ref type="bibr" target="#b21">[21]</ref>, the matrices Γ ⊥ s and Γ ⊥ s H u,s can be identified by Eq. (4a) QR-decompositions and Eq. (4b) Singular Value Decompositions (SVD).</p><p>[</p><formula xml:id="formula_3">Z p U f Y f ] = [ R 11 0 0 R 21 R 22 0 R 31 R 32 R 33 ] [ Q 1 Q 2 Q 3 ] (4a) [ R 21 R 22 R 31 R 32 ] = [ U 1 U 2 ] [ Σ 1 0 0 Σ 2 ] V T z , U 2 = [ U 21 U 22 ] , Γ ⊥ s = U 22 ∈ R ((s+1)m−n)×(s+1)m , Γ ⊥ s H u,s = −U 21 ∈ R ((s+1)m−n)×(s+1)l (4b)</formula><p>In this work, the residual signal r(k) is defined to assess the deviation between the actual process and the virtual system. The basic idea of modeling the residual signal is to construct multiple residual generators, and each generator is driven by all process input variables and a single sensor signal.</p><p>According to the one-to-one relationship between the ith sensor signal and the parity-vector-based residual generator <ref type="bibr" target="#b32">[32]</ref>, a parity vector α s,i = [α s,i,0 , . . . , α s,i,s i ] ∈ R s i +1 is defined and selected from Γ ⊥ s,i , i = 1, . . . , m. Dividing α s,i by its last element leads to the α s</p><formula xml:id="formula_4">,i = [α s,i,0 , . . . , α s,i,s i −1 , 1] and correspondingly β s,i = α s,i H u,s,i . The ith residual correlation matrices A z,i , B z,i , L z,i , c z,i , d z,i are calculated corresponding to the α s,i and β s,i . A z,i = ⎡ ⎢ ⎢ ⎣ 0 0 • • • 0 1 0 • • • 0 . . . . . . . . . . . . 0 • • • 1 0 ⎤ ⎥ ⎥ ⎦ ∈ R s i ×s i , L z,i = − ⎡ ⎢ ⎢ ⎣ α s,i,0 α s,i,1 . . . α s,i,s i −1 ⎤ ⎥ ⎥ ⎦ ∈ R s i ×1 (5a) B z,i = ⎡ ⎢ ⎢ ⎣ β s,i,0 β s,i,1 . . . β s,i,s i −1 ⎤ ⎥ ⎥ ⎦ ∈ R s i ×l , c z,i = [ 0 • • • 0 1 ] ∈ R 1×s i , d z,i = β s,i,s i ∈ R 1×l (<label>5b</label></formula><formula xml:id="formula_5">)</formula><p>where z(k) = Tx(k) with a transformation matrix T ∈ R s i ×n .</p><p>For the closed-loop implementation, an observer gain matrix</p><formula xml:id="formula_6">L 0,i ∈ R s i ×1</formula><p>should be chosen to ensure that all eigenvalues of the matrix (A z − L 0 c z ) lie within the unit circle <ref type="bibr" target="#b16">[16]</ref>, then the ith residual generator is constructed as:</p><formula xml:id="formula_7">z i (k + 1) = A z,i z i (k) + B z,i u(k) + L z,i y i (k) − L 0,i r i (k) ∈ R s i r i (k) = y i (k) − c z,i z i (k) − d z,i u(k) ∈ R, i = 1, . . . , m<label>(6)</label></formula><p>With the appropriate L 0,i for each residual generator, the residual signal r(k) is modeled by combining with m adaptive residual generators:</p><formula xml:id="formula_8">z(k + 1) = A z z(k) + B z u(k) + L z y(k) − L 0 r(k) ∈ R s r(k) = y(k) − C z z(k) − D z u(k) ∈ R m (7) where s = ∑ m i=1 s i , A z = diag ( A z,1 , . . . , A z,m ) ∈ R s×s , C z = diag ( c z,1 , . . . , c z,m ) ∈ R m×s , L z = diag ( L z,1 , . . . , L z,m ) ∈ R s×m , L 0 = diag ( L 0,1 , . . . , L 0,m ) ∈ R s×m , B z = ⎡ ⎢ ⎣ B z,1 . . . B z,m ⎤ ⎥ ⎦ ∈ R s×l , D z = ⎡ ⎢ ⎣ β s,1,s . . . β s,m,s ⎤ ⎥ ⎦ ∈ R m×l .</formula><p>Remark 2. Note that the (L z − L 0 ) is similar to the gain of Kalman filter, which is difficult to adjust by the hand-crafted design. Therefore, the Genetic Algorithm (GA) <ref type="bibr" target="#b33">[33]</ref> is incorporated into the design of the residual generator to adaptively eliminate the closed-loop interferences. For the ith residual generator, we have at the beginning one matrix L 0,i to be optimized with GAs, and design the objective function as the absolute sum of the residual signal r i (k).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Process monitoring and diagnosis</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.1.">Process monitoring</head><p>To obtain satisfactory monitoring performances, suitable thresholds should be set for evaluating the residual signals. In this work, the standard generalized likelihood ratio (GLR) <ref type="bibr" target="#b11">[11]</ref> is applied, where the criterion function J res and the threshold J th are defined as follows:</p><formula xml:id="formula_9">J res = 1 2σ 2 r N ( m ∑ i=1 r i (k) ) 2 , J th = χ α (m)/2<label>(8)</label></formula><p>where r T (k) = [r 1 (k), . . . , r m (k)] is obtained by Eq. ( <ref type="formula">7</ref>), σ r denotes the standard deviation of the residual signal.</p><p>In the practical case, with a period contains N sampling points, if the criterion function J res of α×N samples exceed the threshold J th , the system issues an alarm.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.2.">Process diagnosis</head><p>Suppose that the process model is given by Eq. (1). The sensor faults f sen and the actuator faults f act can be modeled as <ref type="bibr" target="#b34">[34]</ref>:</p><formula xml:id="formula_10">x(k + 1) = Ax(k) + B (u(k) + f act (k)) + ξ (k) y(k) = Cx(k) + D (u(k) + f act (k)) + υ(k) + f sen (k) (9)</formula><p>To achieve a robust sensor and actuator diagnosis, the following H 2 performance indices are presented in the subspace framework <ref type="bibr" target="#b35">[35]</ref>:</p><formula xml:id="formula_11">J s = min αs,sen∈Γ ⊥ s α s,sen H u,s H T u,s α T s,sen α s,sen α T s,sen<label>(10)</label></formula><formula xml:id="formula_12">J a = max αs,act ∈Γ ⊥ s α s,act H u,s H T u,s α T s,act α s,act α T s,act<label>(11)</label></formula><p>With the H 2 performance indices, the fault detection oriented sensor residual r sen and the actuator residual r act can be built as:</p><formula xml:id="formula_13">r sen (k) = α s,sen y s (k) − β s,sen u s (k) (12) r act (k) = α s,act y s (k) − β s,act u s (k) (13)</formula><p>where α s,sen ∈ R (s+1)m and α s,act ∈ R (s+1)m are obtained from Eqs. ( <ref type="formula" target="#formula_11">10</ref>) and ( <ref type="formula" target="#formula_12">11</ref>), and correspondingly β s,sen = α s,sen H u,s ∈ R (s+1)l and β s,act = α s,act H u,s ∈ R (s+1)l . The output is denoted as y s (k) =</p><p>[y(k-s) T , . . . , y(k) T ] T ∈ R (s+1)m , and the input is presented as u s (k) =</p><p>[u(k-s) T , . . . , u(k) T ] T ∈ R (s+1)l . With the threshold J th set by Eq. ( <ref type="formula" target="#formula_9">8</ref>), if r sen (k) &gt; J th or r act (k) &gt; J th , the sensor or actuator fault occurs.</p><p>For the process diagnosis, the Γ ⊥ s is reconstructed for the jth sensor, as well as the Ξ s = Γ ⊥ s H s,u is defined and re-constructed for the kth actuator.</p><formula xml:id="formula_14">Γ ⊥ s,j = [ Γ ⊥ s,0,1 . . . Γ ⊥ s,0,j−1 Γ ⊥ s,0,j+1 . . . Γ ⊥ s,0,m . . . Γ ⊥ s,s,1 . . . Γ ⊥ s,s,j−1 Γ ⊥ s,s,j+1 . . . Γ ⊥ s,s,m ] ∈ R ((s+1)m−n)×(s+1)(m−1)<label>(14)</label></formula><formula xml:id="formula_15">Ξ s,k = [ Ξ s,0,1 . . . Ξ s,0,k−1 Ξ s,0,k+1 . . . Ξ s,0,m . . . Ξ s,s,1 . . . Ξ s,s,k−1 Ξ s,s,k+1 . . . Ξ s,s,m ] ∈ R ((s+1)m−n)×(s+1)(l−1)<label>(15)</label></formula><p>where</p><formula xml:id="formula_16">Γ ⊥ s,j = [Γ ⊥ s,0 • • • Γ ⊥ s,s ], Γ ⊥ s,i = [Γ ⊥ s,i,1 • • • Γ ⊥ s,i,m ] ∈ R ((s+1)m−n)×m , Γ ⊥ s,i,j ∈ R ((s+1)m−n) , Ξ s,k = [Ξ s,0 • • • Ξ s,s ], Ξ s,i = [Ξ s,i,1 • • • Ξ s,i,l ] ∈ R ((s+1)m−n)×l , Ξ s,i,k ∈ R ((s+1)m−n) , i = 0, . . . , s, j = 0, . . . , m, k = 0, . . . , l.</formula><p>To construct the residual generators for process diagnosis, the P sen,j ∈ R (s−n+1)×((s+1)m−n) is defined and solved by P sen,j Γ ⊥ s,j = 0, as well as the P act,k ∈ R ((s+1)(m−l)−n+1)×((s+1)m−n) is explained by P act,k Ξ s,k = 0, thereby the P sen,j Γ ⊥ s ∈ R (s−n+1)×(s+1)m and P act,k Γ ⊥ s ∈ R ((s+1)(m−l)−n+1)×(s+1)m are obtained only responsive to the jth sensor fault and the kth actuator fault respectively.</p><p>Instantly, the minimum parity vector α s,sen,j ∈R (s+1)m and the maximum parity vector α s,act,k ∈R (s+1)m are obtained by substituting the P sen,j Γ ⊥ s and P act,k Γ ⊥ s into the Eqs. ( <ref type="formula" target="#formula_11">10</ref>) and <ref type="bibr" target="#b11">(11)</ref>. Finally, a bank of m process diagnosis oriented residual generators can be constructed for the process fault diagnosis as follows:</p><formula xml:id="formula_17">r sen,dia (k) = ⎡ ⎢ ⎣ α s,sen,1 . . . α s,sen,m ⎤ ⎥ ⎦ y s (k) − ⎡ ⎢ ⎣ β s,sen,1 . . . β s,sen,m ⎤ ⎥ ⎦ u s (k) (16) r act,dia (k) = ⎡ ⎢ ⎣ α s,act,1 . . . α s,act,m ⎤ ⎥ ⎦ y s (k) − ⎡ ⎢ ⎣ β s,act,1 . . . β s,act,m ⎤ ⎥ ⎦ u s (k)<label>(17)</label></formula><p>where β s,sen,j = α s,sen,j H u,s ∈ R (s+1)l and β s,act,k = α s,act,k H u,s ∈ R (s+1)l .</p><p>With the threshold J th , if r sen,dia,j &gt; J th or r act,dia,k &gt; J th , the jth sensor or the kth actuator has failed.</p><p>Remark 3. From above process monitoring and diagnosis models, we have four different residual generators to identify the abnormal status for a process plant. All designed residual generators are generally computed simultaneously and sufficiently sensitive to sensor faults or actuator faults. However, different from the general application, the robust process diagnosis model may identify a single fault as multiple faults in the presence of external interferences and obtain an indecisive result. Besides, the alarm flooding <ref type="bibr" target="#b36">[36]</ref> has caused residual models challenging to integrate into the automated control systems. As a result, we propose a robust process identification scheme in Section 4.1 to evaluate the residual generator individually for automated implementation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Optimized control configuration</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.1.">Sensor fault</head><p>Process control problems for the sensor fault can be formulated as: given the identified extended observability matrices Γ ⊥ s , Γ ⊥ s H u,s , process inputs u(k), and normal sensor signals y 1 (k), . . . , y j−1 (k), y j+1 (k), . . . , y m (k), to estimate the fault sensor signal y j (k). For this purpose, the data-driven based softsensor monitoring is performed. Different to the previous contributions <ref type="bibr" target="#b37">[37,</ref><ref type="bibr" target="#b38">38]</ref>, the soft-sensor proposed here aims to ensure the production stability and safety for process industries, rather than to create a simple signal estimator for hard-to-measure quantities.</p><p>Considering a fault of the jth sensor, we define a row vector p ∈ R ((s+1)m−n) to satisfy Eqs. ( <ref type="formula">18</ref>) and ( <ref type="formula" target="#formula_18">19</ref>) with the Γ ⊥ s given by Eq. (4), and then prove the α s = pΓ ⊥ s as a parity vector <ref type="bibr" target="#b16">[16]</ref>. After that, the α s−1 H s−1,u can be obtained by Eq. ( <ref type="formula">20</ref>), and the α s−1 is defined as Eq. ( <ref type="formula">21</ref>).</p><formula xml:id="formula_18">pΓ ⊥ s = [α s−1 0] , α s−1 = [ α s−1,0 . . . α s−1,s−1 ] ∈ R sm (18) α s−1,i = [ α s−1,i,1 . . . α s−1,i,j−1 0 α s−1,i,j+1 . . . α s−1,i,m ] ∈ R m , i = 0, . . . , s − 2 α s−1,s−1 = [ α s−1,s−1,1 . . . α s−1,s−1,j−1 − 1α s−1,s−1,j+1 . . . α s−1,s−1,m ] ∈ R m (<label>19</label></formula><formula xml:id="formula_19">)</formula><formula xml:id="formula_20">pΓ ⊥ s H u,s = [ α s−1 H u,s−1 0 ] , α s−1 H u,s−1 ∈ R sl (20) α s−1 = [ α s−1,0 . . . α s−1,s−1 ] ∈ R s(m−1) , α s−1,i = [ α s−1,i,1 . . . α s−1,i,j−1 α s−1,i,j+1 . . . α s−1,i,m ] ∈ R (m−1) , i = 0, . . . , s − 1 (21)</formula><p>To assess the signal of the jth sensor, the signal outputs y j (k) are defined as:</p><formula xml:id="formula_21">y j (k) = [ y 1 (k) . . . y j−1 (k) y j+1 (k) . . . y m (k) ] T (<label>22</label></formula><formula xml:id="formula_22">)</formula><p>Then the faulted sensor signalŷ j (k) can be estimated by:</p><formula xml:id="formula_23">y j (k) = α s−1 y s−1,j (k) − α s−1 H u,s−1 u s−1 (k)<label>(23)</label></formula><p>where</p><formula xml:id="formula_24">y s−1,j (k) = [y s−1,j (k − s + 1) T , . . . , y s−1,j (k) T ] T ∈ R s(m−1) , and u s−1 (k) = [u(k − s + 1) T , . . . , u(k) T ] T ∈ R sl .</formula><p>Finally, the estimated sensor signalŷ j (k) is integrated into the normal sensor outputs to achieve safe and stable feedback control.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.2.">Process disturbance</head><p>As demonstrated in Section 2, all unknown faults and partial actuator faults are considered as the process disturbance, since in this case all actuators can still be controlled. The optimized control configuration of process disturbances not only considers parameter updates under fault conditions but also is suitable for the stability control under normal conditions to prevent misdiagnosis. Therefore, the Youla parameterization based closed-loop control architecture shown in Fig. <ref type="figure" target="#fig_0">1</ref> is applied in this work. The core of the approach is the virtual system based realization of the Youla parameterization for all stabilization controllers <ref type="bibr" target="#b22">[22]</ref>. Proposed control architecture can be applied to the complex process with open loop instabilities. The optimized control configuration of process disturbances includes offline adaptive feedback design and online update of control parameters as described below:</p><p>The residual signal converted by Eq. ( <ref type="formula">7</ref>) can be represented as:</p><formula xml:id="formula_25">z(k + 1) = A z z(k) + B z u(k) + (L z − L 0 ) r(k) ∈ R s r(k) = y(k) − C z z(k) − D z u(k) ∈ R m (<label>24</label></formula><formula xml:id="formula_26">)</formula><p>where</p><formula xml:id="formula_27">A z = A z + L z C z , B z = B z + L z C z .</formula><p>The feedback gain K z is derived such that the A+BK z is stable.</p><p>Assume that u = K z z(k), the controller can be designed as an optimal linear-quadratic (LQ) regulator for the plant system. In this work, the feedback gain K z is optimized by minimizing the criterion Eq. ( <ref type="formula" target="#formula_28">25</ref>) and computed by Eq. ( <ref type="formula" target="#formula_29">26</ref>) <ref type="bibr" target="#b39">[39]</ref>.</p><formula xml:id="formula_28">J 0 = 1 2 ∞ ∑ k=0 [ z(k) T Qz(k) + u(k) T Ru(k) + 2z(k) T Nu(k) ]<label>(25)</label></formula><formula xml:id="formula_29">u(k) = K f y d (k) + K z z(k), K z = − ( R + B T z PB z ) −1 × ( B T z PA z + N T ) A T z PA z − ( A T z PB z + N ) ( R + B T z PB z ) −1 ( B T z PA z + N T ) −P + Q = 0, Q = C T z Q 0 C z , R = R 0 + D T z Q 0 D z , N = C T z Q 0 D z (26a) K f = ( (C z + D z K z ) ( I s − A z − B z K z ) −1 B z + D z ) † (<label>26b</label></formula><formula xml:id="formula_30">)</formula><p>where K f denotes the feedforward gain, Q 0 ∈ R m×m and R 0 ∈ R l×l are weight matrices, P ∈ R s×s is the solution of the Riccati equation, and y d is the reference signal.</p><p>Remark 4. To guarantee satisfactory control performances, we adopt GAs to optimize the LQ controller by adaptively adjusting the design parameters. We have two matrices Q 0 and R 0 to be optimized with GAs, and design the objective function as the Mean Squared Error (MSE) between the predictive control input and actual input, thereby achieving a stable control performance in the fault-free case.</p><p>When a process disturbance occurs, the R c (z) is introduced to deal with the disturbance and further optimize the control performance. The state-space representation of R c (z) can be modeled as:</p><formula xml:id="formula_31">x r (k + 1) = A r x r (k) + B r r(k) ∈ R or r c (k) = C r x r (k) − D r r(k) ∈ R l (27)</formula><p>where x r (k) ∈ R m presents the state vector of the R c (z), o r ≥ m.</p><p>A r is a stable matrix assigned by the designer. Besides, A r and B r are offline design parameters, while the C r and D r are online optimization matrices with zero initial values of appropriate size.</p><p>Typically, the A r and B r are designed as Eq. ( <ref type="formula" target="#formula_32">28</ref>), with the α = [−α 1 , . . . , −α or ] ∈ αs, to ensure the eigenvalues of A r are comparable in the magnitude with the eigenvalues of A z . The A r can be determined by a simple heuristic approach, where A r = A − B r K with the K obtained by an LQ regulator based on the canonical form matrices A and B r .</p><formula xml:id="formula_32">A r = ⎡ ⎢ ⎢ ⎣ 0 1 • • • 0 . . . . . . . . . . . . 0 0 • • • 1 −α 1 −α 2 • • • −α or ⎤ ⎥ ⎥ ⎦ ∈ R or ×or , B r = ⎡ ⎢ ⎢ ⎣ 0 . . . 0 I m ⎤ ⎥ ⎥ ⎦ ∈ R or ×m<label>(28)</label></formula><p>Meanwhile, the C r ∈ R l×or and D r ∈ R l×m are online optimization parameters of R c (z). In this work, we define a tuning parameter θ by Eq. ( <ref type="formula" target="#formula_33">29</ref>) to optimize the C r and D r .</p><formula xml:id="formula_33">θ C = col(C r ), θ D = col(D r ), θ = [ θ T C θ T D ] T (<label>29</label></formula><formula xml:id="formula_34">)</formula><p>where col(•) denotes a columnwise re-ordering of the matrix.</p><p>To determine the convergence trend of the online parameters, we define an objective control function for the control optimization in the case of process disturbance as:</p><formula xml:id="formula_35">J (θ (k) , k) = N+k 0 −1 ∑ k=k 0 ϕ (θ (k) , k) W ϕ T (θ (k) , k) (30)</formula><p>where W is the expected weight matrix, k 0 and N represent the starting point and the time window, ϕ(θ(k), k) = [e(k), u(k)], and</p><formula xml:id="formula_36">e(k) = y(k) − y d (k).</formula><p>For each period N, we apply the Gradient Descent algorithm <ref type="bibr" target="#b22">[22,</ref><ref type="bibr" target="#b40">40]</ref> to update the online parameters C r and D r , and achieve a stable control performance under process disturbance conditions by Eq. (31) to Eq. <ref type="bibr" target="#b33">(33)</ref>.</p><formula xml:id="formula_37">θ (k + 1) = θ (k) − γ ∂J (θ (k) , k) ∂θ (<label>31</label></formula><formula xml:id="formula_38">)</formula><formula xml:id="formula_39">∂z (k + 1) ∂θ Ci = ( A z + B z K z ) ∂z (k) ∂θ Ci + B z ∂C r ∂θ Ci x r (k) ⎡ ⎢ ⎢ ⎣ ∂y (k) ∂θ Ci ∂u (k) ∂θ Ci ⎤ ⎥ ⎥ ⎦ = [ C z + D z K z K z ] ∂z (k) ∂θ Ci + ⎡ ⎢ ⎢ ⎣ D z ∂C r ∂θ Ci ∂C r ∂θ Ci ⎤ ⎥ ⎥ ⎦ x r (k)<label>(32)</label></formula><formula xml:id="formula_40">∂z (k + 1) ∂θ Di = ( A z + B z K z ) ∂z (k) ∂θ Di + B z ∂D r ∂θ Di r(k) ⎡ ⎢ ⎢ ⎣ ∂y (k) ∂θ Di ∂u (k) ∂θ Di ⎤ ⎥ ⎥ ⎦ = [ C z + D z K z K z ] ∂z (k) ∂θ Di + ⎡ ⎢ ⎢ ⎣ D z ∂D r ∂θ Di ∂D r ∂θ Di ⎤ ⎥ ⎥ ⎦ r(k) (<label>33</label></formula><formula xml:id="formula_41">)</formula><p>where θ Ci is ith element of θ C , and θ Di is ith element of θ D .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.3.">Actuator failure</head><p>Despite the increased use of motor-driven valves, lift-type pneumatic control valves are still applied in most process control applications. The pneumatic control valve includes the air-toopen valve and the air-to-close valve, which is selected according to the safety factors <ref type="bibr" target="#b41">[41]</ref>. Due to the signal interruption from the transmitter, the actuator typically fails, causing the valve to close or open and uncontrollable. The control strategy for the actuator failure can be formulated as minimizing the performance degradation by adjusting the available actuators u 1 (k), . . . , u j−1 (k), u j+1 (k), . . . , u l (k), to compensate the faulty actuator u j (k) <ref type="bibr" target="#b42">[42]</ref>. The process control procedure for the actuator failure comprises two steps: evaluating the redundancy of the faulty actuator and performing the actuator reconfiguration.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Remark 5. Existing process control configurations focus only on bias and gain faults, with little attention to actuator failures.</head><p>In this work, we propose an optimized control strategy based on the residual signal to reconfigure control gain to guarantee acceptable control performance with one uncontrollable actuator. Since partial actuator failures cannot be maintained by compensating controllers, we have to check the redundancy of the control system and determine the necessity of the faulty actuator before the control reconfiguration.</p><p>Based on the residual signal obtained by Eq. ( <ref type="formula" target="#formula_25">24</ref>), the virtual system obtained by Eq. (1) can also be modeled as:</p><formula xml:id="formula_42">y (z) = G u (z) u (z) + G ξ (z) ξ (z) + υ (z) , G u (z) = C x (zI − A x ) −1 B x + D x , G ξ (z) = C x (zI − A x ) −1 (34)</formula><p>where G u (z) and G ξ (z) are the process transfer function matrices with sizes of m×l and m×s, respectively.</p><p>To assess the system redundancy, the relative gain array <ref type="bibr" target="#b43">[43]</ref> in the case of the non-square system G u is incorporated by:</p><formula xml:id="formula_43">Λ = G u ⊙ ( G † u ) T (<label>35</label></formula><formula xml:id="formula_44">)</formula><p>where ⊙ denotes the element-by-element product.</p><p>The element λ ij of the ith row and the jth column of the matrix Λ represents the correlation gain between the y i and u j . Corresponding to an actuator u j , if the λ ij is close to 1, the other actuators have a slight interaction effect on the output y i , while the value around 0.5 or lower indicates a specific interaction effect. When an actuator u j fails, if one of the elements λ ij in the jth column of the matrix Λ is close to 1 and the corresponding output y i is necessary, an emergency shutdown is required for safety reasons, or the actuator reconfiguration can be performed to compensate the u j .</p><p>When the system has redundant actuators, the actuator reconfiguration is performed by minimizing a steady-state estimation error and a control cost. The equal-order residual generator with the jth uncontrollable actuator can be modeled as:</p><formula xml:id="formula_45">z(k + 1) = A z z(k) + B z,a u a (k) + B z,f u f (k) + (L z − L 0 ) r(k) ∈ R m r(k) = y(k) −ŷ(k) = y(k) − C z z(k) − D z u a (k) ∈ R m B z,a = B z (I l − Γ ) , B z,f = B z Γ (36)</formula><p>where Γ ∈ R l×l is a diagonal matrix with [Γ ] ii = γ i ∈ {0,1}. γ i = 1 means that the ith actuator fails, while γ i = 0 indicates the actuator works. u a (k) is the applied control input from a feedback control gain, and u f (k) is the uncontrollable input.</p><p>Based on the Model-matching <ref type="bibr" target="#b19">[19]</ref>, the actuator reconfiguration can be formulated as:</p><formula xml:id="formula_46">J 0 = 1 2 ∞ ∑ k=0 [ŷ (k) T Qŷ(k) + u a1 (k) T Ru a1 (k) ] , u a (k) = u a1 (k) + u a2 (k) + K f y d (k)<label>(37)</label></formula><p>where u a1 (k) is the feedback control signal to achieve system stability and optimality, and u a2 (k) is a signal to compensate for the effect of the actuator failure characterized by B z,f u f (k). The solution of the actuator reconfiguration problem is <ref type="bibr" target="#b23">[23]</ref>:</p><formula xml:id="formula_47">u a1 (k) = − ( R + B T z,a PB z,a ) −1 ( B T z,a PA z + N T ) z (k) u a2 (k) = − ( B T z,a PB z,a ) † B T z,a PB z,f u f (k)<label>(38)</label></formula><p>where P, R, and N is obtained by Eq. <ref type="bibr" target="#b26">(26)</ref>. The reconfiguration parameters can be optimized by GAs similar to the design of the feedback gain K z .</p><p>To further decrease the external interference, the R c (z) can also be optimized based on the offline design and online updating by Eq. ( <ref type="formula">27</ref>) to (33).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Conceptual architecture of digital twins</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Fault identification scheme</head><p>Without considering the common-failure <ref type="bibr" target="#b44">[44]</ref>, a data-driven based process identification scheme is proposed to diagnose specific fault sites by evaluating the residual signal of the virtual system. The new procedure based on Fig. <ref type="figure" target="#fig_1">2</ref> designs residuals with desired performance indices and arranges residual calculations corresponding to the control strategy, and thus it is suitable for the automated implementation of the practical process.</p><p>As presented in Fig. <ref type="figure" target="#fig_1">2</ref>, the primary procedure of the process identification scheme is to detect faults, identify fault types, and further diagnose specific fault sites. To prevent false alarms, the process identification is performed sequentially from the sensor to the actuator. Besides, the single residual generator is constructed to avoid producing indecisive results due to the oversensitivity. When an alarm occurs from the process monitoring model at the time-step k, the procedure first computes the sensor residual r sen to identify the fault type. If a sensor fault is identified, the program calculates the diagnosis oriented sensor residual r sen,dia to determine the specific fault site. When the sensor residual r sen stays within its threshold, the actuator residual r act is computed to identify if the factory has an uncontrollable actuator. Similar to the above programs, the diagnosis oriented actuator residual r act,dia is calculated to determine the specific uncontrollable actuator when an actuator failure is detected, or the alarm is determined to be a fault of process disturbance. The diagnostic sequence of the process identification scheme is related to the control strategy, and thereby the system will not fail due to the control gain reconfiguration when a false alarm occurs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Digital twin architecture</head><p>Integrating fault identification scheme with residual design models, we present an automatic digital twin system integrated into the Safety Instrumented System (SIS) to guarantee stable controls and safe productions in faulty cases. Proposed digital twin architecture is based on the actual systems with linear parameter deviations. We combine four major aspects for digital twin modeling: (A) virtual system modeling and residual computing, (B) residual evaluation and process monitoring, (C) process diagnosis and fault identification, and (D) tolerant control and online optimization. The virtual system mirrors the physical process system virtually by using holistic simulations to build offline models for the part (B), (C), and (D). The framework developed in Fig. <ref type="figure" target="#fig_2">3</ref> provides the relationship among each primary part of the proposed system.</p><p>Through adaptive closed-loop SIMs, the virtual system is first identified according to the history fault-free dataset. When the system output at the time-step k is received, the residual signal r(k) is computed by comparing the predictive output from the virtual system with real outputs. Based on the residual signal r(k), the process monitoring module evaluates the residual signal and determines the status of the system. When the residual signal r(k) exceeds the threshold J th , the system alerts, then the system identifies the fault type and diagnoses the specific fault location, and the independently optimized control configurations are automatically exploited to guarantee the process performance within an admissible range. When the residual signal r(k) stays within its threshold, the system maintains stable controls based on the fault-free control gain. Besides, it is necessary to recognize that most faults can be tolerated within an acceptable limit, while few serious faults require an emergency shutdown and immediate repair. All system modules are applied simultaneously to guarantee the safe and stable production and prevent the fault from evolving into a severe accident.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Case study</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.">Description of TE benchmark process</head><p>TE process model is a realistic simulation program of chemical plants and is widely accepted as a benchmark for control and monitoring studies <ref type="bibr" target="#b45">[45]</ref>. The flow diagram of the TE process is shown in Fig. <ref type="figure" target="#fig_3">4</ref>, which comprises five significant units: reactor, condenser, compressor, separator, and stripper. A complete process contains 41 process variables and 12 manipulated variables. According to the chemical production process, a revised Simulink code is available to simulate the plant's closed-loop behavior <ref type="bibr" target="#b46">[46]</ref>. Therefore, the simulator modified in Ref. <ref type="bibr" target="#b47">[47]</ref> is used in this research. Based on the simulator, the operation modes, measurement noises, sampling times and magnitudes of the faults can be flexibly modified to generate a dataset for the process control study.</p><p>To avoid computational overheads, we divide the simulated measurements into multiple meaningful blocks. In this work, the establishing process of digital twin systems is demonstrated by a stripper block shown in the red box in Fig. <ref type="figure" target="#fig_3">4</ref>. As listed in Tables <ref type="table" target="#tab_0">1 and 2</ref>, the stripper block has three manipulated variables as inputs and six process variables as outputs. Meanwhile, Table <ref type="table" target="#tab_1">3</ref> lists the process disturbances associated with the stripper. The appropriate flow rate, pressure, temperature, and level are critical control targets for the safe and stable operation. Note that using the linear model (1) for constructing a plant with highly nonlinear features may not obtain good residual estimation. However, if the process is nearly linear, the difficulty of high-dimensional variables can be addressed by multi-block solutions. To guarantee satisfactory control performances, we also consider some other process variables and manipulated variables, which are demonstrated in Section 5.3. Furthermore, the process variable XMEAS <ref type="bibr" target="#b19">(19)</ref> and manipulated variable XM0V( <ref type="formula">9</ref>) are removed due to the zero value.  In the simulation, the sampling period is 0.6 min and the simulated time is 40 h. Both inputs and outputs of the stripper are normalized concerning their mean and standard deviations. According to Eq. (6), we first construct the virtual observer based on the original PID-type controllers under the stable operating condition. Setting the value of s for six process outputs to 14, 12, 5, 5, 6, and 9, we identify the Γ ⊥ s,i and Γ ⊥ s,i H u,s,i of each residual generator by Eq. (3). Finally, the matrices</p><formula xml:id="formula_48">A z ∈ R 51×51 , B z ∈ R 51×3 , C z ∈ R 6×51 , D z ∈ R 6×3 , L z ∈ R 51×6 , and L 0 ∈ R 51×6</formula><p>are obtained by combining with six adaptive residual generators. Each fault model will present itself as a significant deviation in the temperature, and thus we characterize the control performance by monitoring the abnormal fluctuations in the stripper temperature. The temperature estimation predicted by the virtual  system is shown in Fig. <ref type="figure" target="#fig_4">5</ref>(a) and the residual signal between the measurement and its estimation is denoted in Fig. <ref type="figure" target="#fig_4">5(b</ref>). In the fault-free case, the residual signal fluctuates around zero with a minor error. Accordingly, the virtual system can be applied to process monitoring, diagnosis, and optimized control.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.">Fault scenarios modeling and performance evaluating</head><p>Four kinds of fault scenarios are simulated based on the original PID-type controllers to present the control performance of the proposed digital twin system. The process measurements and estimations in the case of various process faults are shown in Fig. <ref type="figure" target="#fig_5">6</ref>. In this work, we introduce the process faults at 5 h. The XMEAS(4) sensor fault is considered as an additive fault with an additional 0.2 output, while the XMV(3) actuator failure is denoted as an uncontrollable fault with fixed 80 outputs. Besides, a broader discussion on the problem of multi-fault scenarios is provided in which the XMEAS(4) sensor fault and the IDV (1) process disturbance co-occur.</p><p>As shown in Fig. <ref type="figure" target="#fig_5">6</ref>, the PID feedback controller has a specific ability to regulate most of the process deviations caused by disturbances and device faults, except for actuator failures. The deviation between measurements and estimations reflects the severity of process faults. Since the virtual system is constructed based on the fault-free case data, excessive interference will result in significant deviations. During the system instability, process faults are most likely to evolve into catastrophic accidents, such as fires and explosions, requiring special attention.</p><p>To achieve safe productions in process industries, the digital twin system should detect and diagnose faults as early as possible and maintain the process performance within acceptable limits in faulty cases. Two generally used indices, i.e., fault detection rate (FDR) and false alarm rate (FAR), are considered as Eq. (39) for evaluating the performance of the process monitoring and diagnosis <ref type="bibr" target="#b11">[11,</ref><ref type="bibr" target="#b48">48]</ref>. False alarms are alarms that are raised when the process variable is behaving normally, while fault detections express no alarm is raised when the process variable is behaving abnormally. An excessive FAR indicates a large number of false alarms would unnecessarily disturb operators. A high value of FDR implies the designed functionality of process monitoring and diagnosis systems would be severely degraded.</p><formula xml:id="formula_49">FDR = ∫ J th 0 p(J res )dJ res FAR = ∫ +∞ J th q(J res )dJ res (39)</formula><p>where p(J res ) and q(J res ) denote the probability density functions (PDF) of residual statistics J res in the abnormal and normal conditions respectively. The first step for calculating the FDR and FAR values is to estimate the probability density for J res in both normal and abnormal cases. Since the closed-loop feedback controller has modest fault tolerance capabilities, the critical step to estimate probability density is to separate the normal and abnormal sections of J res . According to <ref type="bibr" target="#b48">[48]</ref>, the PDFs of J res in the normal and abnormal conditions are estimated by the mean-change point detection and kernel density estimation (KDE). And finally, based on the PDFs, the FDR and FAR can be computed.</p><p>Furthermore, a security index (SI) is designed to evaluate the control capability of the processing system to survive plausible  contingencies without interruptions <ref type="bibr" target="#b49">[49]</ref>.</p><formula xml:id="formula_50">SI = ∑ m i=1 σ 2 i,MV ∑ m i=1 σ 2 i × 100% (<label>40</label></formula><formula xml:id="formula_51">)</formula><p>where σ 2 i,MV is the minimum variance computed based on the ith faulty-free process output, σ 2 i is the actual variance extracted from the ith measured samples. The mean value in the variance calculation is set to the set-point of process outputs. A high value of SI implies that the control system would tolerate contingencies without an emergent interruption.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.">Results and discussions</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.1.">Sensor fault scenarios</head><p>After the XMEAS(4) sensor fault occurs, the virtual system modeled by Eq. ( <ref type="formula">7</ref>) is applied to evaluate the residual signal r(k) for the process monitoring and diagnosis. According to Eq. (8), the evaluated residual criterion function J res and the corresponding threshold J th are denoted in the first plot of Fig. <ref type="figure" target="#fig_7">7</ref>. It can be seen from Fig. <ref type="figure" target="#fig_7">7</ref>(a) that the fault is successfully detected. Simultaneously, the sensor fault is detected by evaluating the sensor residual r sen according to Eq. (12), and the XMEAS(4) sensor is diagnosed by Eq. (16) as shown in Fig. <ref type="figure" target="#fig_7">7(b)</ref>. Based on all the detected change points and J th = 6.29, the system status from 7.22 h to 14.46 h is recognized as the fault status. Two PDFs in the normal and abnormal conditions are estimated via KDE, thereby the FDR is 6.76% and the FAR is 0.83% by Eq. (39). The system has excellent alarm performances and common detection effects, and therefore we can appropriately reduce the threshold J th to improve the performance of the process monitoring and diagnosis.</p><p>In this work, the primary intent is to apply normal sensor signals to estimate the fault sensor signal XMEAS <ref type="bibr" target="#b4">(4)</ref>. Based on the soft-sensor technology in Section 3.3.1, the fault sensor signal XMEAS(4) is estimated in Fig. <ref type="figure" target="#fig_7">7(c</ref>), and the process control is optimized in Fig. <ref type="figure" target="#fig_7">7(d</ref>) by integrating the estimated XMEAS(4) signal into the normal sensor outputs. Note that the estimated value of the fault signal is the signal characterization under fault-free conditions. The SI without soft-sensor technology is 24.2%, while the SI with soft-sensor optimized control is 95.1%. Comparing to the process monitoring results in Fig. <ref type="figure" target="#fig_5">6</ref>(a), the control performance based on digital twins shown in Fig. <ref type="figure" target="#fig_7">7(d</ref>) is significantly improved and is close to the faulty-free condition.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.2.">Process disturbance scenarios</head><p>When the process disturbance occurs, the virtual system is developed to detect and diagnose system status. As shown in the first plot of Fig. <ref type="figure" target="#fig_8">8</ref>, the residual signal r(k) rapidly exceeds the threshold J th after the IDV(1) process disturbance occurs. It can be seen that the IDV(1) disturbance is adjusted over about 10 h by PID controllers. At the offline stage, the normal and abnormal data are separated based on the mean-change point detection, and two PDFs are estimated by kernel-based methods, accordingly, the FDR is 10.98% and the FAR is 3.03%. Due to closed-loop controls, the fault boundary of process disturbance is blurred, and thus the process monitoring has general performances. Although feedback control has certain fault tolerances, process disturbances may evolve into catastrophic accidents during the system instability.</p><p>Since the IDV(1) involves another manipulated variable XMV(3), manipulated variables XMV (3) (4) (7) (8) and process variables XMEAS (1) (4) (8) (12) (14) (15) ( <ref type="formula" target="#formula_17">17</ref>) are applied to construct the residual signal by Eq. <ref type="bibr" target="#b24">(24)</ref>. We design a process controller to optimize above four manipulated variables to reduce interferences from IDV(1), while the PID controllers still control other manipulated variables. In the design of R c (z), the order of the parameter matrix R c (z) is set as o r = 7, and the Gradient Descent step γ is chosen as a small positive constant 1×10 −8 .</p><p>The reference signals of the XMEAS(1) (4) ( <ref type="formula" target="#formula_14">14</ref>) <ref type="bibr" target="#b17">(17)</ref> are set as dynamical signals by preset simulators, while the reference XMEAS(8) (12) (15) are set to fixed values of 65, 50, and 50 respectively. Designing appropriate LQ parameters Q 0 and R 0 by GAs, the stripper temperature with the application of the proposed optimized control scheme is demonstrated in Fig. <ref type="figure" target="#fig_8">8(b)</ref>. According to Eq. (40), the SI with PID controls is 2.7%, while the SI with optimized control is 6.97%. Our purpose is to minimize system disturbances and guarantee the system to return to steady states rapidly after a fault occurs, rather than returning to the initial state of the system. Compared to the PID control results in Fig. <ref type="figure" target="#fig_5">6</ref>(b), the optimized control scheme eliminates disturbances during parameter adjustments and guarantees the security for the plants.</p><p>Furthermore, an optimization control case of intermittent fault IDV( <ref type="formula" target="#formula_9">8</ref>) is introduced to discuss the universality of the proposed method. The process fault time is specified based on the residual signals, then two PDFs in the normal and abnormal conditions are estimated. Among 40 h simulations, the FDR is 11.63% and the FAR is 4.23%, which denotes the system has excellent monitoring performances. Besides, since the fault is discontinuous, the FDR is relatively high, which does not mean the diagnostic performance of the system is inadequate. Based on the above parameter matrix R c (z), the SI with PID controls is 1.78% and the SI with optimized control is 2.03%. Since the intermittent fault is random and discontinuous, the control of intermittent faults requires constant initialization for reconfiguration controllers. Therefore, the digital twin system can diagnose the intermittent faults, but cannot achieve more stable and safe control performance based on the optimized controller.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.3.">Actuator failure scenarios</head><p>As early mentioned, the virtual system is designed and developed by using the adaptive SIM described in Section 3.1. As shown in the first plot of Fig. <ref type="figure" target="#fig_9">9</ref>, the actuator failure is successfully detected at 5 h, simultaneously, the XMV(3) actuator is diagnosed as shown in Fig. <ref type="figure" target="#fig_9">9</ref>(b) by evaluating the actuator residual signal r act,dia . In more mentions, the PID controller is unable to completely restore the plant to a steady state when an actuator failure occurs. Through the mean-change point detection and tdistributed statistics, the system status from 5.02 h to 40 h is isolated as the fault status. Based on two PDFs in the normal and abnormal cases, the FDR is 0.17% and the FAR is 0.23%, which indicates the system has excellent monitoring and diagnosis performances for the actuator failure. When XMV(3) actuator fails and tends to be a tremendous value, the TE process needs to increase product discharge and other feed flow rates to guarantee the stability and security of the system. The primary intent of digital twins is to guarantee closed-loop stabilities and obtain certain control performances in the event of device failures, and thus we increase the value of the preset product flow rate from 22.89 to 30 to improve the controllability of the processing system.</p><p>To improve the actuator redundancy, manipulated variables XMV ( <ref type="formula">1</ref> A comparison study of the stripper temperature without and with the application of optimized control schemes is demonstrated in Fig. <ref type="figure" target="#fig_9">9</ref>(c). Besides, for in-depth discussion, FTC system with performance optimization <ref type="bibr" target="#b22">[22]</ref> is implemented for guaranteeing control performance in the event of XMV(3) actuator failures. Different from the FTC, the proposed optimized control scheme incorporates the controller reconfiguration into the online optimization. Based on the results from TE simulators, the SI with PID controls, FTC system, and optimized control scheme are given in Table <ref type="table" target="#tab_2">4</ref>. With the actuator reconfiguration and the online optimization, the system control performance is significantly improved, and the disturbance can be rapidly adjusted in approximately 5 h. Furthermore, online control error is effectively reduced based on Gradient Descent training. After about 5 h, the control performance with actuator failures is close to the faulty-free condition.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.4.">Multi-fault scenarios</head><p>To deeply explore the control performance of digital twins for multi-fault systems, we provide a fault scenario when the XMEAS(4) sensor fault and the IDV (1) process disturbance cooccur. As shown in Fig. <ref type="figure" target="#fig_0">10</ref>(a), the residual signal r(k) rapidly exceeds the threshold J th at 5 h. After estimating PDFs for the normal and abnormal cases, the FDR is 9.37% and the corresponding FAR is 2.96% by Eq. <ref type="bibr" target="#b39">(39)</ref>. Compared to the monitoring results from single faults, digital twins are more sensitive to multiple fault conditions. Meanwhile, based on the soft-sensor technology, the fault sensor signal XMEAS(4) is estimated in Fig. <ref type="figure" target="#fig_0">10(c</ref>), and the process control is optimized in Fig. <ref type="figure" target="#fig_0">10(d</ref>) by incorporating estimated signals with optimized control schemes. All parameter configurations are the same as the case of process disturbances. Based on Eq. (40), the SI with and without the soft-sensor and optimized control is 6.48% and 2.18%, respectively. The control performance based on digital twins is significantly improved and is close to the case of process disturbances.  In deep analyses, the digital twins have higher fault tolerances for sensor faults. Therefore, the system has better control abilities for some multi-fault conditions, such as sensor faults and process disturbances or sensor faults and actuator failures. For the rest of the more complex fault conditions, the plant should be treated for an emergency shutdown. Besides, we should note that the digital twin system can only diagnose a single device fault, and thus the system cannot automatically perform actuator reconfiguration when a sensor fault and an actuator failure co-occur.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Conclusions</head><p>Integrating process monitoring, diagnosis, and optimized control into a cooperative framework, we propose a data-driven digital twin system to reduce severe fluctuations and guarantee safe controls for industrial processes. Three types of process faults, i.e., sensor faults, actuator faults, and process disturbances are considered, and the corresponding fault size and temporal behavior are discussed. We develop adaptive SIM to accommodate different faults and provides accurate and timely diagnostic and controllable information by designing optimized control configurations. Different simulations have been performed using TE benchmark model in the presence of realistic fault scenarios. All simulation studies and numerical results indicate that the proposed configurations are valid for safe operations in the event of a process fault.</p><p>The significant contribution of the proposed approach is to establish an integrated system by digital twin concepts based on adaptive algorithms to identify process faults and reconfigure control parameters. Most of the existing model-matching based reconfiguration methods are limited by integrating the advantages of virtual models and adaptive algorithms, which cannot diagnose faults in time and optimize control gain. Proposed digital twins enable the controllers to make decisions and optimizations automatically based on fault information in the processing factory, hence better guarantee the safe operation of process systems. Besides, proposed digital twins construct virtual systems for process monitoring and diagnosis by using the data collected from normal processes rather than faulty processes, which makes digital twins more applicable to current process industries. The optimized control configurations can consider both reconfiguration problems of bias faults and apparatus failures, and simultaneously, the digital twins are suitable for the dynamical systems with unknown model parameters. It is worth mentioning that the digital twin is primarily developed for timely monitoring, diagnosis, and tolerance control in process factories, which can extend the operation time of any faulty plant with an acceptable performance until the next maintenance time is  reached. In other words, the digital twin system shortens the downtime of factories and extend the operation time for process systems.</p><p>For complex fault scenarios, the process diagnostic performance of digital twins is slightly insufficient, so the specific fault location needs to be further judged by online instruments. However, since the proposed digital twin is robust during the periods of disturbances, the nominal performance of plants would be unaffected under false alarms. The proposed method is easy to understand and implement in the real application to process systems. Concerning the future research, more accurate fault diagnosis method would be focused, as well as an efficient distributed digital twin approach should be developed to improve the practical application performance of systems.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. The optimized control configuration based on the Youla parameterization.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. The flowchart of the process identification scheme.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. The architecture of the digital twin system.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. The flow diagram of the TE process [22].</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Process estimates and its residual signals (fault-free case).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Process measurements and estimations (faulty case).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head></head><label></label><figDesc>) (2) (3) (4) (6) (7) (8) and process variables (1) (2) (3) (4) (10) (14) (17) were applied to construct the residual control model. The order of parameter matrix R c (z) is set as o r = 7, and all reference signals are set as dynamical signals by preset simulators. As shown in Fig. 9(d), the online control error based on Eq. (30) is optimized by Gradient Descent algorithm. Since the number of actuators is less than the system order, compensation output u a2 and reference signals y d need to be adjusted based on the control results in Section 3.3.3.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Process monitoring, diagnosis, and optimized control for XMEAS(4) sensor fault.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. Process monitoring and optimized control for IDV(1) process disturbance.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Process monitoring, diagnosis, and optimized control for XMV(4) actuator failure.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Fig. 10 .</head><label>10</label><figDesc>Fig. 10. Process monitoring, diagnosis, and optimized control for multi-faults.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1</head><label>1</label><figDesc>Process variables in the stripper block.</figDesc><table><row><cell>Number</cell><cell></cell><cell cols="2">Variable name</cell><cell>Marker</cell></row><row><cell>XMEAS(4)</cell><cell></cell><cell cols="2">A and C feed</cell></row><row><cell cols="2">XMEAS(14)</cell><cell cols="2">Separator underflow</cell></row><row><cell cols="2">XMEAS(15)</cell><cell cols="2">Stripper level</cell></row><row><cell cols="2">XMEAS(16)</cell><cell cols="2">Stripper pressure</cell></row><row><cell cols="2">XMEAS(17)</cell><cell cols="2">Stripper underflow</cell></row><row><cell cols="2">XMEAS(18)</cell><cell cols="2">Stripper temperature</cell></row><row><cell>Table 2</cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="4">Manipulated variables in the stripper block.</cell></row><row><cell cols="2">Number Variable name</cell><cell></cell><cell cols="2">Base value (%) Units</cell><cell>Marker</cell></row><row><cell>XMV(4)</cell><cell>A and C feed flow</cell><cell></cell><cell>61.302</cell><cell>kscmh</cell></row><row><cell>XMV(7)</cell><cell cols="2">Separator pot liquid flow</cell><cell>38.100</cell><cell>m 3 h −1</cell></row><row><cell>XMV(8)</cell><cell cols="3">Stripper liquid product flow 46.534</cell><cell>m 3 h −1</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 3</head><label>3</label><figDesc>Related process disturbance faults in the stripper block.</figDesc><table><row><cell cols="2">Fault number Process variable</cell><cell>Type</cell></row><row><cell>IDV (1)</cell><cell>A/C feed ratio, B composition constant</cell><cell>Step</cell></row><row><cell>IDV (2)</cell><cell>B composition, A/C ratio constant</cell><cell>Step</cell></row><row><cell>IDV (7)</cell><cell cols="2">C header pressure loss-reduced availability Step</cell></row><row><cell>IDV (8)</cell><cell>A,B,C feed composition</cell><cell>Random variation</cell></row><row><cell>IDV (10)</cell><cell>C feed temperature</cell><cell>Random variation</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 4</head><label>4</label><figDesc>Comparisons of control schemes for the XMV(4) actuator failure.</figDesc><table><row><cell>Control scheme</cell><cell>PID control</cell><cell>FTC system</cell><cell>Optimized control scheme</cell></row><row><cell>SI (%)</cell><cell>0.237</cell><cell>0.336</cell><cell>1.13</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">R. He, G. Chen, C. Dong et al. / ISA Transactions xxx (xxxx) xxx</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>The authors gratefully acknowledge the financial support provided by China National Key Research and Development Program</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Declaration of competing interest</head><p>The authors declare that there is no conflict of interest in this paper</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Effect of Air Quantity Distribution Ratio on Flame Height of Flue Gas Self-Circulation Burner</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">J</forename><surname>Cui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><forename type="middle">Q</forename><surname>Qiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">X</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.29252/jafm.13.01.30148</idno>
+		<idno>YCX2018061</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Applied Fluid Mechanics</title>
+		<title level="j" type="abbrev">JAFM</title>
+		<idno type="ISSN">1735-3572</idno>
+		<idno type="ISSNe">1735-3645</idno>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="233" to="243" />
+			<date type="published" when="2020-01-01" />
+			<publisher>Academic World Research</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>Project of China University of Petroleum (East China</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Resilience-Based Process Upset Event Prediction Analysis for Uncertainty Management Using Bayesian Deep Learning: Application to a Polyvinyl Chloride Process System</title>
+		<author>
+			<persName><forename type="first">Prerna</forename><surname>Jain</surname></persName>
+			<idno type="ORCID">0000-0002-9628-3759</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Antik</forename><surname>Chakraborty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Efstratios</forename><forename type="middle">N</forename><surname>Pistikopoulos</surname></persName>
+			<idno type="ORCID">0000-0001-6220-818X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Sam</forename><surname>Mannan</surname></persName>
+			<idno type="ORCID">0000-0002-4058-2119</idno>
+		</author>
+		<idno type="DOI">10.1021/acs.iecr.8b01069</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Industrial &amp; Engineering Chemistry Research</title>
+		<title level="j" type="abbrev">Ind. Eng. Chem. Res.</title>
+		<idno type="ISSN">0888-5885</idno>
+		<idno type="ISSNe">1520-5045</idno>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">43</biblScope>
+			<biblScope unit="page" from="14822" to="14836" />
+			<date type="published" when="2018-10-05" />
+			<publisher>American Chemical Society (ACS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Real-time risk monitoring system for chemical plants</title>
+		<author>
+			<persName><forename type="first">Ky-Soo</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jae-Wook</forename><surname>Ko</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/bf02701457</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Korean Journal of Chemical Engineering</title>
+		<title level="j" type="abbrev">Korean J. Chem. Eng.</title>
+		<idno type="ISSN">0256-1115</idno>
+		<idno type="ISSNe">1975-7220</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="26" to="31" />
+			<date type="published" when="2005-01" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">State space model predictive fault-tolerant control for batch processes with partial actuator failure</title>
+		<author>
+			<persName><forename type="first">Ridong</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingyi</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hongyi</forename><surname>Qu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Furong</forename><surname>Gao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jprocont.2014.03.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Process Control</title>
+		<title level="j" type="abbrev">Journal of Process Control</title>
+		<idno type="ISSN">0959-1524</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="613" to="620" />
+			<date type="published" when="2014-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Abnormal situation management for smart chemical process operation</title>
+		<author>
+			<persName><forename type="first">Yiyang</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hangzhou</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Faisal</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jinsong</forename><surname>Zhao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.coche.2016.07.009</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Current Opinion in Chemical Engineering</title>
+		<title level="j" type="abbrev">Current Opinion in Chemical Engineering</title>
+		<idno type="ISSN">2211-3398</idno>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="49" to="55" />
+			<date type="published" when="2016-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">About The Importance of Autonomy and Digital Twins for the Future of Manufacturing</title>
+		<author>
+			<persName><forename type="first">Roland</forename><surname>Rosen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Georg</forename><surname>Von Wichert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kurt</forename><forename type="middle">D</forename><surname>Bettenhausen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2015.06.141</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="567" to="572" />
+			<date type="published" when="2015" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Towards Security-Aware Virtual Environments for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3198458.3198464</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 4th ACM Workshop on Cyber-Physical System Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-22" />
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A framework for an integrated nuclear digital environment</title>
+		<author>
+			<persName><forename type="first">Eann</forename><forename type="middle">A</forename><surname>Patterson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><forename type="middle">J</forename><surname>Taylor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Bankhead</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.pnucene.2015.11.009</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Progress in Nuclear Energy</title>
+		<title level="j" type="abbrev">Progress in Nuclear Energy</title>
+		<idno type="ISSN">0149-1970</idno>
+		<imprint>
+			<biblScope unit="volume">87</biblScope>
+			<biblScope unit="page" from="97" to="103" />
+			<date type="published" when="2016-03" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Emergency preparedness in industrial plants: A forward-looking solution based on industry 4.0 enabling technologies</title>
+		<author>
+			<persName><forename type="first">Francesco</forename><surname>Longo</surname></persName>
+			<idno type="ORCID">0000-0002-8538-9857</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Letizia</forename><surname>Nicoletti</surname></persName>
+			<idno type="ORCID">0000-0003-4423-0716</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Padovano</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compind.2018.12.003</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers in Industry</title>
+		<title level="j" type="abbrev">Computers in Industry</title>
+		<idno type="ISSN">0166-3615</idno>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page" from="99" to="122" />
+			<date type="published" when="2019-02" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Data-Based Techniques Focused on Modern Industry: An Overview</title>
+		<author>
+			<persName><forename type="first">Shen</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xianwei</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Huijun</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Okyay</forename><surname>Kaynak</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tie.2014.2308133</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Electronics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Electron.</title>
+		<idno type="ISSN">0278-0046</idno>
+		<idno type="ISSNe">1557-9948</idno>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="657" to="667" />
+			<date type="published" when="2015-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A survey of the application of basic data-driven and model-based methods in process monitoring and fault diagnosis</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">X</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Jeinsch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">L</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Engel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Gui</surname></persName>
+		</author>
+		<idno type="DOI">10.3182/20110828-6-it-1002.02842</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC Proceedings Volumes</title>
+		<title level="j" type="abbrev">IFAC Proceedings Volumes</title>
+		<idno type="ISSN">1474-6670</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="12380" to="12388" />
+			<date type="published" when="2011-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">A comparison study of basic data-driven fault diagnosis and process monitoring methods on the benchmark Tennessee Eastman process</title>
+		<author>
+			<persName><forename type="first">Shen</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">X</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adel</forename><surname>Haghani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haiyang</forename><surname>Hao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ping</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jprocont.2012.06.009</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Process Control</title>
+		<title level="j" type="abbrev">Journal of Process Control</title>
+		<idno type="ISSN">0959-1524</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="1567" to="1581" />
+			<date type="published" when="2012-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Data-driven Soft Sensors in the process industry</title>
+		<author>
+			<persName><forename type="first">Petr</forename><surname>Kadlec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bogdan</forename><surname>Gabrys</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sibylle</forename><surname>Strandt</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compchemeng.2008.12.012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="795" to="814" />
+			<date type="published" when="2009-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Perspectives on process monitoring of industrial systems</title>
+		<author>
+			<persName><forename type="first">Kristen</forename><surname>Severson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paphonwit</forename><surname>Chaiwatanodom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><forename type="middle">D</forename><surname>Braatz</surname></persName>
+			<idno type="ORCID">0000-0003-4304-3484</idno>
+		</author>
+		<idno type="DOI">10.1016/j.arcontrol.2016.09.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Annual Reviews in Control</title>
+		<title level="j" type="abbrev">Annual Reviews in Control</title>
+		<idno type="ISSN">1367-5788</idno>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="page" from="190" to="200" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">A deep belief network based fault diagnosis model for complex chemical processes</title>
+		<author>
+			<persName><forename type="first">Zhanpeng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jinsong</forename><surname>Zhao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compchemeng.2017.02.041</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">107</biblScope>
+			<biblScope unit="page" from="395" to="407" />
+			<date type="published" when="2017-12" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">An overview of subspace identification</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Qin</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compchemeng.2006.05.045</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">10-12</biblScope>
+			<biblScope unit="page" from="1502" to="1513" />
+			<date type="published" when="2006-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Subspace method aided data-driven design of fault detection and isolation systems</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">X</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Naik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">L</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Huang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jprocont.2009.07.005</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Process Control</title>
+		<title level="j" type="abbrev">Journal of Process Control</title>
+		<idno type="ISSN">0959-1524</idno>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="1496" to="1510" />
+			<date type="published" when="2009-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Distributed Fault Diagnosis and Fault-Tolerant Control</title>
+		<author>
+			<persName><forename type="first">Mogens</forename><surname>Blanke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michel</forename><surname>Kinnaert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jan</forename><surname>Lunze</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcel</forename><surname>Staroswiecki</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-662-47943-8_10</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Diagnosis and Fault-Tolerant Control</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2015-08-12" />
+			<biblScope unit="page" from="467" to="518" />
+		</imprint>
+	</monogr>
+	<note>2nd ed.</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Fault-tolerant cooperative control in an offshore wind farm using model-free and model-based fault detection and diagnosis approaches</title>
+		<author>
+			<persName><forename type="first">Hamed</forename><surname>Badihi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Youmin</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Henry</forename><surname>Hong</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.apenergy.2016.12.096</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Energy</title>
+		<title level="j" type="abbrev">Applied Energy</title>
+		<idno type="ISSN">0306-2619</idno>
+		<imprint>
+			<biblScope unit="volume">201</biblScope>
+			<biblScope unit="page" from="284" to="307" />
+			<date type="published" when="2017-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Reconfigurable Fault-tolerant Control: A Tutorial Introduction</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lunze</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Richter</surname></persName>
+		</author>
+		<idno type="DOI">10.3166/ejc.14.359-386</idno>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Control</title>
+		<title level="j" type="abbrev">European Journal of Control</title>
+		<idno type="ISSN">0947-3580</idno>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="359" to="386" />
+			<date type="published" when="2008-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Observer based adaptive dynamic programming for fault tolerant control of a class of nonlinear systems</title>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Derong</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuanchun</forename><surname>Li</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ins.2016.12.016</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Sciences</title>
+		<title level="j" type="abbrev">Information Sciences</title>
+		<idno type="ISSN">0020-0255</idno>
+		<imprint>
+			<biblScope unit="volume">384</biblScope>
+			<biblScope unit="page" from="21" to="33" />
+			<date type="published" when="2017-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Data-Driven Design of Fault-Tolerant Control Systems</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">X</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">L</forename><surname>Ding</surname></persName>
+		</author>
+		<idno type="DOI">10.3182/20120829-3-mx-2028.00125</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC Proceedings Volumes</title>
+		<title level="j" type="abbrev">IFAC Proceedings Volumes</title>
+		<idno type="ISSN">1474-6670</idno>
+		<imprint>
+			<biblScope unit="volume">45</biblScope>
+			<biblScope unit="issue">20</biblScope>
+			<biblScope unit="page" from="1323" to="1328" />
+			<date type="published" when="2012-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Real-Time Implementation of Fault-Tolerant Control Systems With Performance Optimization</title>
+		<author>
+			<persName><forename type="first">Shen</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">X</forename><surname>Ding</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tie.2013.2273477</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Electronics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Electron.</title>
+		<idno type="ISSN">0278-0046</idno>
+		<idno type="ISSNe">1557-9948</idno>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="2402" to="2411" />
+			<date type="published" when="2014-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Adaptive LQ control based actuator failure compensation</title>
+		<author>
+			<persName><forename type="first">Liyan</forename><surname>Wen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gang</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Fuyang Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/acc.2016.7525214</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 American Control Conference (ACC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-07" />
+			<biblScope unit="page" from="2011" to="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Distributed Sensor and Actuator Reconfiguration for Fault-Tolerant Networked Control Systems</title>
+		<author>
+			<persName><forename type="first">Andre</forename><forename type="middle">M H</forename><surname>Teixeira</surname></persName>
+			<idno type="ORCID">0000-0001-5491-4068</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jose</forename><surname>Araujo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Henrik</forename><surname>Sandberg</surname></persName>
+			<idno type="ORCID">0000-0003-1835-2963</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Karl</forename><forename type="middle">Henrik</forename><surname>Johansson</surname></persName>
+			<idno type="ORCID">0000-0001-9940-5929</idno>
+		</author>
+		<idno type="DOI">10.1109/tcns.2017.2732158</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Control of Network Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Control Netw. Syst.</title>
+		<idno type="ISSNe">2372-2533</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1517" to="1528" />
+			<date type="published" when="2018-12" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Fault detection with limit checking</title>
+		<author>
+			<persName><forename type="first">Rolf</forename><surname>Isermann</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/3-540-30368-5_7</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Fault-Diagnosis Systems</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2006" />
+			<biblScope unit="page" from="95" to="110" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Process analysis, monitoring and diagnosis, using multivariate projection methods</title>
+		<author>
+			<persName><forename type="first">Theodora</forename><surname>Kourti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">F</forename><surname>Macgregor</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/0169-7439(95)80036-9</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Chemometrics and Intelligent Laboratory Systems</title>
+		<title level="j" type="abbrev">Chemometrics and Intelligent Laboratory Systems</title>
+		<idno type="ISSN">0169-7439</idno>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="3" to="21" />
+			<date type="published" when="1995-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Parameterization and identification of multivariable state-space systems: A canonical approach</title>
+		<author>
+			<persName><forename type="first">Guillaume</forename><surname>Mercère</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Bako</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.automatica.2011.02.049</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<title level="j" type="abbrev">Automatica</title>
+		<idno type="ISSN">0005-1098</idno>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1547" to="1555" />
+			<date type="published" when="2011-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Cognitive fault diagnosis in Tennessee Eastman Process using learning in the model space</title>
+		<author>
+			<persName><forename type="first">Huanhuan</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Tiňo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Yao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compchemeng.2014.03.015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="page" from="33" to="42" />
+			<date type="published" when="2014-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Neural Network-Based State of Charge Observer Design for Lithium-Ion Batteries</title>
+		<author>
+			<persName><forename type="first">Jian</forename><surname>Chen</surname></persName>
+			<idno type="ORCID">0000-0002-0123-5165</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Quan</forename><surname>Ouyang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chenfeng</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hongye</forename><surname>Su</surname></persName>
+			<idno type="ORCID">0000-0002-7003-1000</idno>
+		</author>
+		<idno type="DOI">10.1109/tcst.2017.2664726</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Control Systems Technology</title>
+		<title level="j" type="abbrev">IEEE Trans. Contr. Syst. Technol.</title>
+		<idno type="ISSN">1063-6536</idno>
+		<idno type="ISSNe">1558-0865</idno>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="313" to="320" />
+			<date type="published" when="2018-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">A variable selection aided residual generator design approach for process control and monitoring</title>
+		<author>
+			<persName><forename type="first">Chaojing</forename><surname>Duan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhongyang</forename><surname>Fei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiachen</forename><surname>Li</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neucom.2015.07.042</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neurocomputing</title>
+		<title level="j" type="abbrev">Neurocomputing</title>
+		<idno type="ISSN">0925-2312</idno>
+		<imprint>
+			<biblScope unit="volume">171</biblScope>
+			<biblScope unit="page" from="1013" to="1020" />
+			<date type="published" when="2016-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Data-Driven Design of Observers and Its Applications</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">X</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Ni</surname></persName>
+		</author>
+		<idno type="DOI">10.3182/20110828-6-it-1002.00891</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC Proceedings Volumes</title>
+		<title level="j" type="abbrev">IFAC Proceedings Volumes</title>
+		<idno type="ISSN">1474-6670</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="11441" to="11446" />
+			<date type="published" when="2011-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">A Review on Basic Data-Driven Approaches for Industrial Process Monitoring</title>
+		<author>
+			<persName><forename type="first">Shen</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">X</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaochen</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Luo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tie.2014.2301773</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Electronics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Electron.</title>
+		<idno type="ISSN">0278-0046</idno>
+		<idno type="ISSNe">1557-9948</idno>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="6418" to="6428" />
+			<date type="published" when="2014-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Nominal Controller Design Based on Decentralized Integral Controllability in the Framework of Reconfigurable Fault-Tolerant Structures</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Luppi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Outbib</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Basualdo</surname></persName>
+		</author>
+		<idno type="DOI">10.1021/ie501574d</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Industrial &amp; Engineering Chemistry Research</title>
+		<title level="j" type="abbrev">Ind. Eng. Chem. Res.</title>
+		<idno type="ISSN">0888-5885</idno>
+		<idno type="ISSNe">1520-5045</idno>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1301" to="1312" />
+			<date type="published" when="2015-01-26" />
+			<publisher>American Chemical Society (ACS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Data-driven design of monitoring and diagnosis systems for dynamic processes: A review of subspace technique based schemes and some recent results</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">X</forename><surname>Ding</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jprocont.2013.08.011</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Process Control</title>
+		<title level="j" type="abbrev">Journal of Process Control</title>
+		<idno type="ISSN">0959-1524</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="431" to="449" />
+			<date type="published" when="2014-02" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Subspace aided data-driven design of robust fault detection and isolation systems</title>
+		<author>
+			<persName><forename type="first">Yulei</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guangfu</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">X</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chuanjiang</forename><surname>Li</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.automatica.2011.05.028</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<title level="j" type="abbrev">Automatica</title>
+		<idno type="ISSN">0005-1098</idno>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="2474" to="2480" />
+			<date type="published" when="2011-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Design of Scenario-Based Early Warning System for Process Operations</title>
+		<author>
+			<persName><forename type="first">Hangzhou</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Faisal</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Salim</forename><surname>Ahmed</surname></persName>
+		</author>
+		<idno type="DOI">10.1021/acs.iecr.5b02481</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Industrial &amp; Engineering Chemistry Research</title>
+		<title level="j" type="abbrev">Ind. Eng. Chem. Res.</title>
+		<idno type="ISSN">0888-5885</idno>
+		<idno type="ISSNe">1520-5045</idno>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="issue">33</biblScope>
+			<biblScope unit="page" from="8255" to="8265" />
+			<date type="published" when="2015-08-14" />
+			<publisher>American Chemical Society (ACS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">A probabilistic self-validating soft-sensor with application to wastewater treatment</title>
+		<author>
+			<persName><forename type="first">Yiqi</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingdong</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zonghai</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daoping</forename><surname>Huang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compchemeng.2014.08.008</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="page" from="263" to="280" />
+			<date type="published" when="2014-12" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Data-driven soft-sensors for online monitoring of batch processes with different initial conditions</title>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Shokry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Patricia</forename><surname>Vicente</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gerard</forename><surname>Escudero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Montserrat</forename><surname>Pérez-Moya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Moisès</forename><surname>Graells</surname></persName>
+			<idno type="ORCID">0000-0002-0553-2191</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Espuña</surname></persName>
+			<idno type="ORCID">0000-0002-1238-8108</idno>
+		</author>
+		<idno type="DOI">10.1016/j.compchemeng.2018.07.014</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">118</biblScope>
+			<biblScope unit="page" from="159" to="179" />
+			<date type="published" when="2018-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Improved infinite horizon LQ tracking control for injection molding process against partial actuator failures</title>
+		<author>
+			<persName><forename type="first">Ridong</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Furong</forename><surname>Gao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compchemeng.2015.05.018</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">80</biblScope>
+			<biblScope unit="page" from="130" to="139" />
+			<date type="published" when="2015-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">A data-driven fault-tolerant control design of linear multivariable systems with performance optimization</title>
+		<author>
+			<persName><forename type="first">Zhe</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guang-Hong</forename><surname>Yang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.isatra.2017.07.021</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ISA Transactions</title>
+		<title level="j" type="abbrev">ISA Transactions</title>
+		<idno type="ISSN">0019-0578</idno>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="200" to="208" />
+			<date type="published" when="2017-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Teaching process control in the 21/sup st/ century: what has changed?</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">E</forename><surname>Seborg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">F</forename><surname>Edgar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Mellichamp</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/acc.2003.1239104</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2003 American Control Conference, 2003.</title>
+				<meeting>the 2003 American Control Conference, 2003<address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date>2010</date>
+		</imprint>
+	</monogr>
+	<note>3rd ed.</note>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Fault-tolerant control design for safe production of hydrogen from bio-ethanol</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Luppi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Nieto Degliuomini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>García</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Basualdo</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ijhydene.2013.10.081</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Hydrogen Energy</title>
+		<title level="j" type="abbrev">International Journal of Hydrogen Energy</title>
+		<idno type="ISSN">0360-3199</idno>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="231" to="248" />
+			<date type="published" when="2014-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Plant-wide control strategy applied to the Tennessee Eastman process at two operating points</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">D</forename><surname>Molina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dar</forename><forename type="middle">A R</forename><surname>Zumoffen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Basualdo</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compchemeng.2010.11.006</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="2081" to="2097" />
+			<date type="published" when="2011-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Hazards inherent to control systems: Case studies and lessons learned</title>
+		<author>
+			<persName><forename type="first">Brenton</forename><forename type="middle">L</forename><surname>Cox</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephen</forename><forename type="middle">W</forename><surname>Garner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><forename type="middle">R</forename><surname>Carpenter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><forename type="middle">T</forename><surname>Fecke</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/prs.11868</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Process Safety Progress</title>
+		<title level="j" type="abbrev">Proc. Safety Prog.</title>
+		<idno type="ISSN">1066-8527</idno>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="273" to="279" />
+			<date type="published" when="2016-12-02" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">A plant-wide industrial process control problem</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Downs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">F</forename><surname>Vogel</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/0098-1354(93)80018-i</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Chemical Engineering</title>
+		<title level="j" type="abbrev">Computers &amp; Chemical Engineering</title>
+		<idno type="ISSN">0098-1354</idno>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="245" to="255" />
+			<date type="published" when="1993-03" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Revision of the Tennessee Eastman Process Model</title>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Bathelt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">Lawrence</forename><surname>Ricker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohieddine</forename><surname>Jelali</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2015.08.199</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="309" to="314" />
+			<date type="published" when="2015" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<monogr>
+		<title level="m" type="main">Tennessee Eastman challenge archive</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">L</forename><surname>Ricker</surname></persName>
+		</author>
+		<ptr target="http://depts.washington.edu/control/LARRY/TE/download.html" />
+		<imprint>
+			<date type="published" when="2005" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Performance Assessment and Design for Univariate Alarm Systems Based on FAR, MAR, and AAD</title>
+		<author>
+			<persName><forename type="first">Jianwei</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiandong</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Iman</forename><surname>Izadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tongwen</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tase.2011.2176490</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automation Science and Engineering</title>
+		<title level="j" type="abbrev">IEEE Trans. Automat. Sci. Eng.</title>
+		<idno type="ISSN">1545-5955</idno>
+		<idno type="ISSNe">1558-3783</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="296" to="307" />
+			<date type="published" when="2012-04" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">An overview of control performance assessment technology and industrial applications</title>
+		<author>
+			<persName><forename type="first">Mohieddine</forename><surname>Jelali</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.conengprac.2005.11.005</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Control Engineering Practice</title>
+		<title level="j" type="abbrev">Control Engineering Practice</title>
+		<idno type="ISSN">0967-0661</idno>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="441" to="466" />
+			<date type="published" when="2006-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

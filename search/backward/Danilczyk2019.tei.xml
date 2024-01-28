@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">ANGEL: An Intelligent Digital Twin Framework for Microgrid Security</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>IEEE</publisher>
+				<availability status="unknown"><p>Copyright IEEE</p>
+				</availability>
+				<date type="published" when="2019-10">2019-10</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">William</forename><surname>Danilczyk</surname></persName>
+							<email>wdanilczyk@my.uri.edu</email>
+							<affiliation key="aff0">
+								<orgName type="institution">Electrical Engineering University of Rhode Island Kingston</orgName>
+								<address>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yan</forename><surname>Sun</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Haibo</forename><surname>He</surname></persName>
+							<email>haibohe@uri.edu</email>
+							<affiliation key="aff1">
+								<orgName type="department">Computer Engineering</orgName>
+								<orgName type="institution">University of Rhode Island</orgName>
+								<address>
+									<settlement>Kingston</settlement>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">ANGEL: An Intelligent Digital Twin Framework for Microgrid Security</title>
+					</analytic>
+					<monogr>
+						<title level="m">2019 North American Power Symposium (NAPS)</title>
+						<imprint>
+							<publisher>IEEE</publisher>
+							<date type="published" when="2019-10" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/naps46351.2019.9000371</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:31+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Digital Twin</term>
+					<term>Cyber Physical Security</term>
+					<term>Smart Grid</term>
+					<term>Microgrid</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The ANGEL Digital Twin for Cyber-Physical System Security is a novel approach for improving the security of critical and non-critical infrastructure. Digital Twin technology, widely used in the aviation, manufacturing and automotive industries, has the potential to improve the security and resiliency of the microgrid. In this paper, we present a framework for adapting the Digital Twin to the application of microgrid security. The Digital Twin is a real-time, physics-based simulation that runs alongside the physical system providing for its constant monitoring and control. The Automatic Network Guardian for ELectrical systems, or ANGEL, will model both the cyber and physical layers of the microgrid and provide real-time data visualization. As a result, users will be aided in assessing the health of the physical plant and overall behavior over a range of operating conditions. The ANGEL Digital Twin will be able to use the real-time two-way coupling between the simulation and physical system to update and evolve the simulation to provide greater insight into the physical system. Ultimately ANGEL will provide the ability to diagnose and heal the physical system, mitigating both component failures and the effects of cyber attack. This paper will explain the methodology behind the design of this digital twin and the advantages of such an approach. To demonstrate the current capabilities of the ANGEL framework as a Level III digital twin, a simulation example is presented on the IEEE 39-bus benchmark.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Many experts estimate that over the next 20 years, the energy market will be flooded with millions of new wind farms, photovoltaic plants and other distributed energy resources <ref type="bibr" target="#b0">[1]</ref> along with the massive energy storage systems <ref type="bibr" target="#b2">[2]</ref> required to balance the ever-increasing loads on the grid <ref type="bibr" target="#b3">[3]</ref>. The increasing popularity of electric vehicles will only intensify the need for smart control of the power grid <ref type="bibr" target="#b4">[4]</ref>. These energy resources and storage systems will need to function in perfect harmony to maintain grid stability. As computing solutions become cheaper and more powerful, the integrated systems can be controlled and monitored in ways that were previously not This work was supported by the Office of Naval Research under Grant N00014-18-1-2396. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the Office of Naval Research.</p><p>thought to be possible due to expense and required resources <ref type="bibr" target="#b5">[5]</ref>. The development of smart devices and the Internet of Things (IoT) has created the opportunity to control Smart Grids in new ways. The Smart Grid will depend on a digital communication between the power utility in the Smart Meters, commonly referred to as advanced metering infrastructure. The Smart Grid will require passing immense amount of data from the distributed energy resources (DERs) to the control station requiring better data networks <ref type="bibr" target="#b6">[6]</ref>. The latest in embedded system-on-chip and cloud-based computing servers allow the digital twin to overcome the issue of processing the large amount of sensor data generated by the Smart Grids <ref type="bibr" target="#b7">[7]</ref>.</p><p>The modern Smart Grid has two interwoven components, the cyber communication network and the physical components of the power grid. The duality of the power grid creates a unique challenge to protect and defend the grid from natural outages such as weather-related causes as well as cyber or physical attacks issued by malicious actors. The cyber and physical layers of the modern power grid rely on constant and accurate communication to maintain a stable power grid.</p><p>The recent increase in probes into the US power grid by malicious state-actors has been well documented <ref type="bibr" target="#b8">[8]</ref> [9] <ref type="bibr" target="#b9">[10]</ref> with some reports stating the hackers have been able to gain direct access to the US Power Grid Controls <ref type="bibr" target="#b10">[11]</ref>. The energy sector is identified as uniquely critical because it provides an enabling function across all infrastructure sectors <ref type="bibr" target="#b11">[12]</ref>. It is estimated that the cost of a single wave of cyberattacks on the US critical infrastructures could exceed $700 billion and every one of the 16 critical infrastructures relies on the energy sector to function <ref type="bibr" target="#b12">[13]</ref>.</p><p>The importance of the power grid coupled with the fact that malicious and state-sponsored cyberattacks are on the rise worldwide <ref type="bibr" target="#b13">[14]</ref> makes the power grid a high value target for malicious actors. Additionally, without future advancements, the legacy Supervisory Control and Data Acquisition (SCADA) system will continue to have difficulty responding to the escalating cyberattacks <ref type="bibr" target="#b14">[15]</ref>. The potential power of a fully deployed digital twin provides exciting possibilities for improving the cyber physical security of the future grid as well as an avenue to visualize the response of the power grid when placed under duress.</p><p>This paper proposes the Automatic Network Guardian for 978-1-7281-0407-2/19/$31.00 ©2019 IEEE ELectrical systems (ANGEL) framework, which is an adaptation of state-of-the-art Digital Twin technology, to bridge the gap between simulation and control leading to a safer more secure power grid. Section II presents a brief survey on the current state-of-the-art of digital twin technology. The proposed ANGEL framework, explained in Section III, represents a new approach to microgrid security using the data acquisition techniques already applied in legacy SCADA system. A case study using the ANGEL system is also presented in Section III. Sections IV presents a discussion of potential usage of the ANGEL digital twin for cyber defense. Finally, Sections V and IV contain a brief conclusion of the work presented and a summary of the development path of the ANGEL framework.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. THE DIGITAL TWIN</head><p>A. What is a Digital Twin?</p><p>The digital twin was first imagined by Dr. Michael Grieves in his 2002 presentation for the formation of a Product Lifecycle Management (PLM) center. Originally called the "Conceptual Ideal for PLM", this concept became the framework of the modern digital twin architecture. The definition put forth by Dr. Grieves was taken a step further to include "an integrated multiphysics, multiscale, probabilistic simulation of an as-built vehicle or system that uses the best available physical models, sensor updates, fleet history, etc., to mirror the life of its corresponding flying twin" <ref type="bibr" target="#b0">[1]</ref>. To accomplish this, the digital twin needs to expand beyond the traditional modeling and simulation techniques by incorporating sensor feedback in the simulation and feeding information from the simulation back into the physical model in real-time.</p><p>Recently, the term Digital Twin has become a buzzword in many industries often referring to a model, simulation or digital asset as a "Digital Twin". This often leads to confusion as to what exactly is a digital twin and necessitates a clear classification differentiating the sophistication of the digital twin in question. In his recent work, Madni proposes to categorize the maturity of a digital twin into four levels: Pre-Digital Twin, Digital Twin, Adaptive Digital Twin and Intelligent Digital Twin <ref type="bibr" target="#b15">[16]</ref>. The four levels of Digital Twin sophistication is presented in Fig. <ref type="figure" target="#fig_0">1</ref>. The Pre-Digital Twin encompasses all the design engineering tools that models the physical system without communication to the physical system. These tools are often used in the early stages of the design cycle before the construction of the physical system and are also commonly referred to as virtual prototypes. The next level of maturity is the Digital Twin. At this level, the digital twin is capable of communicating with the physical system in real-time. The digital twin collects data from the physical system and incorporates the data into the simulation. The third level of maturity is the Adaptive Digital Twin that is able to learn the preference and priorities of the human operators. This level is focused on creating a human interface that facilitates fast and accurate decision making by the system operator. The highest level of sophistication is the Intelligent Digital Twin which incorporates machine learning capabilities to discern patterns and make control decisions <ref type="bibr" target="#b15">[16]</ref>. While, the full ANGEL Digital Twin Framework is to function as a Level IV Intelligent Digital Twin, the features that are currently implemented function as a Level III digital twin. The machine learning functionality is being developed and will be presented as future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Current Applications in Industry</head><p>The implementation of digital twins began in the aviation industry before rapidly expanding into manufacturing industries. More recently, the digital twin concept has been adopted by other industries that are focusing on the product lifecycle management (PLM) of consumer products such as the automotive industry, led by Tesla <ref type="bibr" target="#b16">[17]</ref>. General Electric and Siemens are also at the forefront of developing Digital Twin technologies for anything from Distributed Energy Resources (DERs) such as wind farms <ref type="bibr" target="#b17">[18]</ref> to cloud-based digital twin networks of multiple interconnected systems <ref type="bibr" target="#b18">[19]</ref>. A more limited, but still beneficial, application of the Digital Twin is monitoring the structural fatigue of loaded structures, such as aircraft or submarines, to assess structural integrity and predict potential failures <ref type="bibr" target="#b19">[20]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Current Application in Power Systems</head><p>While digital twin technology is being adopted in numerous other industries, the energy sector has been slow to develop a digital twin for the power grid. The power grid continues to be modernized with devices that introduce small time constants, such as HVDC and FACTS, as well as, the phasor measurement units (PMUs) that are able to report measurements with a high temporal resolution. This has created a strain on the legacy SCADA system that cannot deal with the speed requirements of these high frequency elements <ref type="bibr" target="#b20">[21]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. ANGEL DIGITAL TWIN FRAMEWORK</head><p>Power grid control centers have long relied on the legacy SCADA system to protect and control the power grid. However, the new Smart Grid that will be a fundamental building block for the future of Smart Cities could benefit from a more sophisticated system for control and security. The Automatic Network Guardian for Electrical (ANGEL) system has the ability to monitor the power system in real time and provide insight into the inner workings of the grid dynamics. This will allow a digital twin to direct the physical "twin" when abnormal grid behaviors are detected. The modern power grid is a perfect application for the digital twin technology. Using the legacy SCADA system that is already in place, the digital twin can access real-time data about the physical system and provide guidance in real-time. While early adaptations of the digital twin would likely include a human in the loop structure, the fully realized digital twin could potentially analyze and control the power system with virtually no human interaction.</p><p>Using the legacy communication techniques already found in the SCADA and wide area monitoring (WAM) systems, the ANGEL digital twin is able to attach itself to the control center environment and provide useful feedback. The physical microgrid and grid communication network feed data into the physics-based simulation, machine learning and data analysis, as well as the user interface and visualization suite of the digital twin, Fig. <ref type="figure" target="#fig_1">2</ref>. While analyzing additional data from the grid could be advantageous, using the legacy communication protocols will allow the digital twin to be deployed and tested on a microgrid without significant modifications.</p><p>The digital twin is required to effectively model both the physical and cyber layers of the Smart Grid. The ability to accurately model and simulate all aspects of the physical system is critical to being able to properly predict and assess the behavior of the Smart Grid. However, while doing this the simulations have to be fast enough to provide feedback to the Smart Grid in near real-time. The balance of fidelity and computational efficiency is essential to successfully executing a digital twin.</p><p>The physical twin surrogate runs in real-time using the pacing feature in Mathworks Simulink™. Alongside the real-time simulation, the digital twin simulation is run in a faster than real-time virtual environment. Since the digital twin simulation is able to run approximately five times faster than real time the ANGEL digital twin is able to compare the data from the physical and digital systems and flag any discrepancies.</p><p>As development of the ANGEL system continues, the power grid surrogate will be replaced with a state-of-theart hardware-in-the-loop (HIL) simulation that will model not only the physical aspects, including the high frequency components, of the power grid but the cyber components as well. Phase 1 of this project has focused on the development of the ANGEL digital twin framework as well as the implementation of computationally efficient but accurate simulation techniques. Phases 2 and 3 will follow with the development of machine learning environment for the detection of cyber attacks and development of a performance analysis framework, respectively.</p><p>The digital twin uses a memory-based co-simulation method to pass data back and forth from the digital twin to the physical system. The co-simulation method of communication allows for the prototyping of the physics-based simulation methods and will be replaced with real power grid communication protocols, such as Modbus and IEC61850, when deployed on the hardware-in-the-loop system. Using this working prototype, we can evaluate the methodology by comparing the digital twin to the grid surrogate in the Matlab GUI environment.</p><p>The ANGEL digital twin is being developed to secure the modern cyber physical grid against these types of attacks and exploits. Using real-time, physics-based modeling and simulation techniques along with advanced stochastic methods, the ANGEL system will be able to not only identify a potential breach but evaluate the potential damage before it occurs. This will allow the system to adapt, creating a self-healing microgrid and ultimately similar systems could be applied to Smart Grids. The useful application of the self-healing aspects of the digital twin is not limited to malicious attacks. General degradation due to age or operating condition can also be mitigated using the same techniques.</p><p>Using parallel computing techniques, the digital twin is able to simulate many system states concurrently. Using these simulations, the digital twin is able to evaluate the current state of the physical twin against the simulations and make intelligent judgments of the physical system state. Combining the simulation technique along with machine learning algorithms could create a first line of defense that could potentially reduce grid vulnerabilities as well as lessen the time it takes for a system infiltration to be detected.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Case Study using ANGEL Digital Twin</head><p>While the ANGEL digital twin framework is for a Level IV Intelligent Digital Twin, the case study presented here is using the ANGEL system after completion of first phase of the development effort. This case study uses the IEEE 39-bus, commonly known as "the 10-machine New-England Power System", as the initial test case for the digital twin. First presented in 1970, the 39 Bus New England System is a simplified model of the high voltage transmission system in the northeast of the U.S.A. (New England area). It has since been often used for scientific research and publications. The 39 Bus New England System consists of 39 buses, 10 generators, 19 loads, 34 lines and 12 transformers <ref type="bibr" target="#b21">[22]</ref>. The 39-bus benchmark (Fig. <ref type="figure" target="#fig_2">3</ref>) is commonly used in attack and defense scenarios due to its simplified nature and relatively small size and therefore minimal computational expense. The ANGEL GUI is fully interactive and can not only display the power grid topography, but it is also able to display pertinent data from the grid. These visualization techniques give the ANGEL system an ability to display any anomalies that are detected in the physical system. The user is able to select the desired grid element to inspect the network and meter data being returned from the physical system. In Fig. <ref type="figure" target="#fig_3">4</ref>, the user has selected a set of four buses, highlighted in blue, to inspect the bus characteristic data for each bus. In Fig. <ref type="figure" target="#fig_3">4</ref>, the user has selected the bus that encountered the fault, the Bus 39, as well as the two adjacent buses, Bus 1 and Bus 9, and a bus far removed from the fault, Bus 23. For each bus being inspected, data from the digital twin and the physical twin are able to be compared on a single screen, shown in Fig. <ref type="figure" target="#fig_4">5</ref>, for the user to analyze. The ANGEL digital twin models both the physical and cyber layers of the Smart Grid. By modeling both layers the digital twin is able to evaluate the performance of the grid as well as validate the data it is receiving from the power system. In the event a grid anomaly is detected the Angel system will direct the physical system to a stable condition while also identifying the potential cause of the anomaly.</p><p>The ANGEL digital twin GUI, shown in Figures <ref type="figure" target="#fig_3">4, 5 and 6</ref>, is developed using the Mathwork MATLAB App Designer and Mathworks Simulink™ SimPowerSystems as a surrogate for the power grid for the ANGEL prototype. The ANGEL GUI runs alongside the benchmark system and extracts meaningful data from the simulation model. The ANGEL system will take this data and displays the current state of the physical system as well as feed the data into the digital twin simulation. This structure will allow future expansion the capabilities of the ANGEL system to a full hardware-in-the-loop simulation and eventually a full microgrid without requiring too much modification. To show ANGEL in action, a simple demo case was set up to create a discrepancy between the physical system and the digital twin. Similar to the methodology used in <ref type="bibr" target="#b22">[23]</ref>, a threephase fault is implemented on bus 39 in the physical twin at the 10 second mark and the fault is cleared at 10.2 seconds.</p><p>An important part of the digital twin is the ability to visualize the data acquired from physical and digital twins. The visualization is aimed to inform the operator of the condition of the physical system and how well it is aligning with the digital twin. The digital twin and physical twin align quite well for this demo case up, shown in Figure <ref type="figure" target="#fig_5">6</ref> until the 10s mark when the fault is triggered. This is to be expected because both systems are running in nearly identical environments without any perturbations.</p><p>At the 10s mark the three-phase fault is triggered on bus 39 and the impact of his fault reverberates throughout the system. As one would expect the response is most severe on bus 39 which is displayed in Figure <ref type="figure" target="#fig_5">6</ref>. The ANGEL digital twin is able to capture the differences between the digital twin simulation which does not have the fault and the physical twin which has a three-phase fault at bus 39. When this divergence occurs, the angel GUI detects the discrepancy and alerts the user of the potential issue. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. USING A DIGITAL TWIN FOR CYBER DEFENSE</head><p>The ability of the digital twin to not only model, but to influence the physical system creates an extremely powerful entity that could defend the grid against cyber-attack and exploit. The hybrid approach of the digital twin makes it very well suited to evaluate the performance of the full power grid and make decisions to protect the stability of the grid in real time. While digital twins are not currently used in modern power system monitoring and control, similar concepts have become part of the discussion in recent years <ref type="bibr" target="#b20">[21]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. False Data Injection</head><p>The false data injection attack is the most obvious potential vulnerability to the digital twin for Smart Grids. The digital twin is an integral part of the Smart Grid that it is installed on. This tight two-way coupling makes it extremely vulnerable to reacting to bad data. However, the physics-based simulation that is the basis of the digital twin will make it more difficult for the attacker to inject data that still aligns with a probable real-world solution. The simulation approach has built-in redundancy due to the entire system being modeled not just an individual node.</p><p>While false data injection attacks have proven successful against state estimation techniques <ref type="bibr" target="#b23">[24]</ref>, the physics-based simulation environment of the digital twin increases the difficulty of such attacks. Signal data that does not align with the simulation-based system state will be flagged and evaluated to determine the source of the error. Using this type of approach, the Digital Twin can add layers of protection to the traditional SCADA system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Denial-of-Service</head><p>The Digital Twin relies on a constant stream of data to keep the simulation model in lock-step with the physical twin. If the data received by the Digital Twin is cut off or delayed the Digital Twin would not be effective in directing the physical system because any control or guidance the physical twin receives from the digital twin will no longer be present. In this case, the physical system would default to the traditional SCADA system. Likewise, the temporal accuracy of the sensor information is important to the digital twin. If the sensor information is delayed in a way that puts the digital twin out of sync with the physical Smart Grid, the input provided by the digital twin could excite any grid instabilities that are present in the physical system. Due to the importance of the temporal component in digital twin's dynamic simulation, the timestamp of the data would also need to be analyzed in conjunction with the physical parameters of the system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Topology Attack</head><p>The topology attack is a man-in-the middle attack where the attacker is able to intercept network and meter data, modify them and forward the modified data packets onto the control system <ref type="bibr" target="#b24">[25]</ref>. While modern power systems have bad data tests to compare the network and meter data, if both data set are changed to be consistent the data check will not discover the change. Further, this type of attack can be shown to be impossible for the traditional SCADA system to detect without proper countermeasures in place <ref type="bibr" target="#b25">[26]</ref>. One of the countermeasures suggested in <ref type="bibr" target="#b25">[26]</ref> is to lock down certain meters to prevent tampering with the meter data. While this method would likely work, it could possibly be difficult to lock down a meter with absolute certainty.</p><p>The digital twin presents another possible solution to the defense of this attack. By providing an independent real-time simulation of the full topology of the physical system, the digital twin will be able to detect any unnatural changes in the data that the digital twin receives from the physical twin. Furthermore, the digital twin will be able to evaluate the likelihood of the recorded meter and network data being accurate or bad data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Digital Twin Vulnerability to Attack</head><p>The addition of more elements to any system creates a potential vulnerability for attack and the digital twin is no different. The ANGEL framework attempts to mitigate the inherent risks involved with a powerful system by designing the digital twin with the capability to fall back on the SCADA system if required. However, this is not enough to prevent the digital twin from becoming a potential single point of failure for the system is installed on. It is imperative that the ANGEL framework be designed with this vulnerability in mind and the ability to detect and self-diagnose is critically important.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. CONCLUSION AND FUTURE WORK</head><p>The ANGEL system is able to demonstrate its ability to gather system data and to present anomalies to the operator. Gathering this anomaly data is the first step to implementing a machine learning algorithm that can characterize the data set to make intelligent decisions using an AI framework. Once equipped with AI decision-making, the ANGEL Intelligent Digital Twin will create a learning and self-healing system is the fully developed digital twin that we believe is needed to defend the power grid. The ANGEL framework will allow for the implementation of more sophisticated defense of the power grid using real-time response and damage mitigation.</p><p>While the prior sections outline the potential applications of the ANGEL system, the development of the ANGEL Digital Twin for Microgrid Security is currently ongoing. The opening of the new URI Cyber Physical Security lab will provide us with the opportunity to use state-of-the-art hardware-in-theloop based simulation as the microgrid surrogate. This will also allow the ANGEL framework to transition to using the SCADA communication network for as a data delivery system rather than the current co-simulation memory-based approach. This will enable the ANGEL framework to test the system in attack and defense scenarios on both the cyber and physical layers with minimal modification required to the traditional power grid testbeds.</p><p>While the power of the digital twin is beginning to be realized in other industries, the power distribution sector has been relatively slow to develop digital twin technology. As Industry 4.0 and the Internet of Things (IoT) technologies continue to infiltrate themselves into all industries, the potential applications and power of digital twins continue to increase. Creating digital twins of individual devices or components to determine maintenance cycles and service life is valuable; however, the ability to leverage the digital twin to not only model the full physical system but also to control, adapt and protect the physical system would be extremely beneficial.</p><p>The ANGEL digital twin for Cyber Physical System Security of microgrids can be a game-changer in the defense of distributed energy resources. The ability to monitor, evaluate and control remote assets using physics-based simulations and machine learning algorithms is the next step in smart control systems. The legacy SCADA system would still be valuable and can be used as a safety net to prevent malicious actors from targeting the digital twin virtual environment as a single point of failure. The digital twin will create a framework for a learning and self-healing cyber physical system that is able to combat the sophisticated malicious cyber attacks that are being implemented worldwide. The power grid is perhaps the most essential piece of modern infrastructure and therefore protecting it is critical.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. The four levels of Digital Twin sophistication.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Overview of the ANGEL Digital Twin for Cyber Physical Security.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. The IEEE 39-bus benchmark diagram.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. ANGEL Digital Twin displaying the typography of the IEEE 39-bus benchmark (left) and characteristic data of the selected buses (Bus 1, Bus 9, Bus 23 and Bus 39) .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. ANGEL Digital Twin plotting the voltage on Bus 39 received from the physical twin (left) and digital twin (right).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 6 .</head><label>6</label><figDesc>Fig.<ref type="bibr" target="#b6">6</ref>. ANGEL Digital Twin displaying the voltage of Bus 39 of the physical system as well as the expected data of the digital twin simulation.</figDesc></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENT</head><p>The authors would like to thank Joseph Benin of the U.S. Coast Guard Academy for his guidance throughout this work. The first author would also like to thank Dave Kring and Navatek LLC. for their continued support of this research.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The Digital Twin Paradigm for Future NASA and U.S. Air Force Vehicles</title>
+		<author>
+			<persName><forename type="first">Edward</forename><surname>Glaessgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Stargel</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2012-1818</idno>
+	</analytic>
+	<monogr>
+		<title level="m">53rd AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics and Materials Conference&lt;BR&gt;20th AIAA/ASME/AHS Adaptive Structures Conference&lt;BR&gt;14th AIAA</title>
+				<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2012-04-23" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Pressurized Morphing Wing Structures</title>
+		<author>
+			<persName><forename type="first">Srinivas</forename><surname>Vasista</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Liyong</forename><surname>Tong</surname></persName>
+		</author>
+		<idno type="DOI">10.2514/6.2012-1905</idno>
+	</analytic>
+	<monogr>
+		<title level="m">53rd AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics and Materials Conference&lt;BR&gt;20th AIAA/ASME/AHS Adaptive Structures Conference&lt;BR&gt;14th AIAA</title>
+				<imprint>
+			<publisher>American Institute of Aeronautics and Astronautics</publisher>
+			<date type="published" when="2012-04-23" />
+			<biblScope unit="page">1818</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Battery energy storage technology for power systems—An overview</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">C</forename><surname>Divya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jacob</forename><surname>Østergaard</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.epsr.2008.09.017</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Electric Power Systems Research</title>
+		<title level="j" type="abbrev">Electric Power Systems Research</title>
+		<idno type="ISSN">0378-7796</idno>
+		<imprint>
+			<biblScope unit="volume">79</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="511" to="520" />
+			<date type="published" when="2009-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Demand Response and Distribution Grid Operations: Opportunities and Challenges</title>
+		<author>
+			<persName><forename type="first">Jose</forename><surname>Medina</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nelson</forename><surname>Muller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ilya</forename><surname>Roytelman</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tsg.2010.2050156</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Smart Grid</title>
+		<title level="j" type="abbrev">IEEE Trans. Smart Grid</title>
+		<idno type="ISSN">1949-3053</idno>
+		<idno type="ISSNe">1949-3061</idno>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="193" to="198" />
+			<date type="published" when="2010-09" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Electric vehicles: solution or new problem?</title>
+		<author>
+			<persName><forename type="first">Amela</forename><surname>Ajanovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Reinhard</forename><surname>Haas</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10668-018-0190-3</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Environment, Development and Sustainability</title>
+		<title level="j" type="abbrev">Environ Dev Sustain</title>
+		<idno type="ISSN">1387-585X</idno>
+		<idno type="ISSNe">1573-2975</idno>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">S1</biblScope>
+			<biblScope unit="page" from="7" to="22" />
+			<date type="published" when="2018-06-06" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Smart Grid: The Electric Energy System of the Future [Scanning the Issue]</title>
+		<author>
+			<persName><forename type="first">Hamid</forename><surname>Gharavi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Reza</forename><surname>Ghafurian</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jproc.2011.2124210</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<title level="j" type="abbrev">Proc. IEEE</title>
+		<idno type="ISSN">0018-9219</idno>
+		<idno type="ISSNe">1558-2256</idno>
+		<imprint>
+			<biblScope unit="volume">99</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="917" to="921" />
+			<date type="published" when="2011-06" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Smart grids, smart cities need better networks [Editor&apos;s Note</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">M</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mnet.2010.5430136</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Network</title>
+		<title level="j" type="abbrev">IEEE Network</title>
+		<idno type="ISSN">0890-8044</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="2" to="3" />
+			<date type="published" when="2010-03" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+	<note>editor&apos;s note</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Weather-related power outages and electric system resiliency</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Campbell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Congressional Research</title>
+		<imprint>
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">How cyber-attacks in Ukraine show the vulnerability of the U.S. power grid</title>
+		<author>
+			<persName><forename type="first">Julia</forename><forename type="middle">E</forename><surname>Sullivan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dmitriy</forename><surname>Kamensky</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.tej.2017.02.006</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The Electricity Journal</title>
+		<title level="j" type="abbrev">The Electricity Journal</title>
+		<idno type="ISSN">1040-6190</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="30" to="35" />
+			<date type="published" when="2017-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Homeland Security Administration and Finance: A Survey of Texas County Officials</title>
+		<idno type="DOI">10.1201/9780849379277-33</idno>
+		<ptr target="https://www.wsj.com/articles/russian-hackers-reach-u-s-utility-control-rooms-homeland-security-officials-say-1532388110" />
+	</analytic>
+	<monogr>
+		<title level="m">Homeland Security Handbook</title>
+				<imprint>
+			<publisher>CRC Press</publisher>
+			<date type="published" when="2008-01-24" />
+			<biblScope unit="page" from="433" to="452" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Hacking Power Grids: A Current Problem</title>
+		<author>
+			<persName><forename type="first">Nir</forename><surname>Kshetri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeffrey</forename><surname>Voas</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mc.2017.4451203</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<title level="j" type="abbrev">Computer</title>
+		<idno type="ISSN">0018-9162</idno>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="91" to="95" />
+			<date type="published" when="2017-12" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">NSC, Directive, Presidential Directive/NSC-28 ::United States Policy on Chemical Warfare Program and Bacteriol</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">P P</forename><surname>Directive</surname></persName>
+		</author>
+		<idno type="DOI">10.1163/9789004346673.wmdo-09_014</idno>
+		<imprint>
+			<date>2013</date>
+			<publisher>Brill</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Roig-Cisa, Pablo</title>
+		<idno type="DOI">10.1093/benz/9780199773787.article.b00154903</idno>
+		<ptr target="https://www.dhs.gov/cisa/energy-sector" />
+		<imprint>
+			<date type="published" when="2011-10-31" />
+			<publisher>Oxford University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Overview of Cyberattack on Saudi Organizations</title>
+		<author>
+			<persName><forename type="first">Salem</forename><surname>Alelyani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Harish</forename><surname>Kumar G R</surname></persName>
+		</author>
+		<idno type="DOI">10.26735/16587790.2018.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Information Security and Cybercrimes Research</title>
+		<title level="j" type="abbrev">JISCR</title>
+		<idno type="ISSN">1658-7782</idno>
+		<idno type="ISSNe">1658-7790</idno>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2018" />
+			<publisher>Naif Arab University for Security Sciences</publisher>
+		</imprint>
+	</monogr>
+	<note>JISCR)</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Vulnerability Assessment of Cybersecurity for SCADA Systems</title>
+		<author>
+			<persName><forename type="first">Chee-Wooi</forename><surname>Ten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chen-Ching</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Govindarasu</forename><surname>Manimaran</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tpwrs.2008.2002298</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Power Systems</title>
+		<title level="j" type="abbrev">IEEE Trans. Power Syst.</title>
+		<idno type="ISSN">0885-8950</idno>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1836" to="1846" />
+			<date type="published" when="2008-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Leveraging Digital Twin Technology in Model-Based Systems Engineering</title>
+		<author>
+			<persName><forename type="first">Azad</forename><surname>Madni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carla</forename><surname>Madni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Scott</forename><surname>Lucero</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/systems7010007</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Systems</title>
+		<title level="j" type="abbrev">Systems</title>
+		<idno type="ISSNe">2079-8954</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2019-01-30" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Shaping the digital twin for design and production engineering</title>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Schleich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nabil</forename><surname>Anwer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Mathieu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sandro</forename><surname>Wartzack</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cirp.2017.04.040</idno>
+	</analytic>
+	<monogr>
+		<title level="j">CIRP Annals</title>
+		<title level="j" type="abbrev">CIRP Annals</title>
+		<idno type="ISSN">0007-8506</idno>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="141" to="144" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Digital twin interface for operating wind farms</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Lund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Mochel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-W</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Onetto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Srinivasan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Gregg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Bergman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">D</forename><surname>Hartling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ahmed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chotai</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018-12" />
+			<biblScope unit="page">278</biblScope>
+		</imprint>
+	</monogr>
+	<note>uS Patent 9</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Next generation digital twin</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Boschert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Rosen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Heinrich</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 12th International Symposium on Tools and Methods of Competitive Engineering TMCE</title>
+				<meeting>the 12th International Symposium on Tools and Methods of Competitive Engineering TMCE</meeting>
+		<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="209" to="218" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Reengineering Aircraft Structural Life Prediction Using a Digital Twin</title>
+		<author>
+			<persName><forename type="first">Eric</forename><forename type="middle">J</forename><surname>Tuegel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anthony</forename><forename type="middle">R</forename><surname>Ingraffea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">G</forename><surname>Eason</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">Michael</forename><surname>Spottswood</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2011/154798</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Aerospace Engineering</title>
+		<title level="j" type="abbrev">International Journal of Aerospace Engineering</title>
+		<idno type="ISSN">1687-5966</idno>
+		<idno type="ISSNe">1687-5974</idno>
+		<imprint>
+			<biblScope unit="volume">2011</biblScope>
+			<biblScope unit="page" from="1" to="14" />
+			<date type="published" when="2011" />
+			<publisher>Hindawi Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Recent and prospective developments in power system control centers: Adapting the digital twin technology for application in power system control centers</title>
+		<author>
+			<persName><forename type="first">Christoph</forename><surname>Brosinsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dirk</forename><surname>Westermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rainer</forename><surname>Krebs</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/energycon.2018.8398846</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE International Energy Conference (ENERGYCON)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-06" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">On-line stability analysis study, rp 90-1</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Bills</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">North American Rockwell Information Systems Co</title>
+		<imprint>
+			<date type="published" when="1970" />
+		</imprint>
+	</monogr>
+	<note>Tech. Rep.</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Dynamic IEEE Test Systems for Transient Analysis</title>
+		<author>
+			<persName><forename type="first">Panayiotis</forename><surname>Demetriou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Markos</forename><surname>Asprou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jairo</forename><surname>Quiros-Tortos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elias</forename><surname>Kyriakides</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jsyst.2015.2444893</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Systems Journal</title>
+		<title level="j" type="abbrev">IEEE Systems Journal</title>
+		<idno type="ISSN">1932-8184</idno>
+		<idno type="ISSNe">2373-7816</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2108" to="2117" />
+			<date type="published" when="2017-12" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">On false data-injection attacks against power system state estimation: Modeling and countermeasures</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>An</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zhao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Parallel and Distributed Systems</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="717" to="729" />
+			<date type="published" when="2013" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">On topology attack of a smart grid</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Tong</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2013 IEEE PES Innovative Smart Grid Technologies Conference (ISGT)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">On Topology Attack of a Smart Grid: Undetectable Attacks and Countermeasures</title>
+		<author>
+			<persName><forename type="first">Jinsub</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lang</forename><surname>Tong</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jsac.2013.130712</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Journal on Selected Areas in Communications</title>
+		<title level="j" type="abbrev">IEEE J. Select. Areas Commun.</title>
+		<idno type="ISSN">0733-8716</idno>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1294" to="1305" />
+			<date type="published" when="2013-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

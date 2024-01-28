@@ -1,0 +1,2491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A new perspective towards the development of robust data-driven intrusion detection for industrial control systems</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Elsevier BV</publisher>
+				<availability status="unknown"><p>Copyright Elsevier BV</p>
+				</availability>
+				<date type="published" when="2020-12">2020-12</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Abiodun</forename><surname>Ayodeji</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Fundamental Science on Nuclear Safety</orgName>
+								<orgName type="institution">Simulation Technology Laboratory Harbin Engineering University</orgName>
+								<address>
+									<postCode>150001</postCode>
+									<settlement>Harbin</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yong-Kuo</forename><surname>Liu</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Fundamental Science on Nuclear Safety</orgName>
+								<orgName type="institution">Simulation Technology Laboratory Harbin Engineering University</orgName>
+								<address>
+									<postCode>150001</postCode>
+									<settlement>Harbin</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">State Key Laboratory of Nuclear Power Safety Monitoring Technology and Equipment Shenzhen</orgName>
+								<address>
+									<postCode>518172</postCode>
+									<settlement>Guangdong</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Nan</forename><surname>Chao</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Fundamental Science on Nuclear Safety</orgName>
+								<orgName type="institution">Simulation Technology Laboratory Harbin Engineering University</orgName>
+								<address>
+									<postCode>150001</postCode>
+									<settlement>Harbin</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Li-Qun</forename><surname>Yang</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Fundamental Science on Nuclear Safety</orgName>
+								<orgName type="institution">Simulation Technology Laboratory Harbin Engineering University</orgName>
+								<address>
+									<postCode>150001</postCode>
+									<settlement>Harbin</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="laboratory">Fundamental Science on Nuclear Safety and Simulation Technology Laboratory Harbin Engineering University</orgName>
+								<address>
+									<postCode>150001</postCode>
+									<settlement>Harbin</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A new perspective towards the development of robust data-driven intrusion detection for industrial control systems</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Nuclear Engineering and Technology</title>
+						<title level="j" type="abbrev">Nuclear Engineering and Technology</title>
+						<idno type="ISSN">1738-5733</idno>
+						<imprint>
+							<publisher>Elsevier BV</publisher>
+							<biblScope unit="volume">52</biblScope>
+							<biblScope unit="issue">12</biblScope>
+							<biblScope unit="page" from="2687" to="2698"/>
+							<date type="published" when="2020-12" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1016/j.net.2020.05.012</idno>
+					<note type="submission">Received 16 January 2020 Received in revised form 18 March 2020 Accepted 11 May 2020</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:17+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Cybersecurity Intrusion detection system Nuclear power plant Pattern recognition</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Most of the machine learning-based intrusion detection tools developed for Industrial Control Systems (ICS) are trained on network packet captures, and they rely on monitoring network layer traffic alone for intrusion detection. This approach produces weak intrusion detection systems, as ICS cyber-attacks have a real and significant impact on the process variables. A limited number of researchers consider integrating process measurements. However, in complex systems, process variable changes could result from different combinations of abnormal occurrences. This paper examines recent advances in intrusion detection algorithms, their limitations, challenges and the status of their application in critical infrastructures. We also introduce the discussion on the similarities and conflicts observed in the development of machine learning tools and techniques for fault diagnosis and cybersecurity in the protection of complex systems and the need to establish a clear difference between them. As a case study, we discuss special characteristics in nuclear power control systems and the factors that constraint the direct integration of security algorithms. Moreover, we discuss data reliability issues and present references and direct URL to recent open-source data repositories to aid researchers in developing data-driven ICS intrusion detection systems.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Recently, digital devices are being introduced into industrial control consoles to replace aging and obsolete analog control systems and to enhance the decision-making process. In cyberphysical systems (CPS), the introduction of digital systems has produced a network of safety components with programmable logic controllers (PLCs), which provide information useful for control optimization and lifespan extension. The shared compatibility of digital systems has led to the proliferation of IT devices in monitoring CPS network data traffic. However, utilizing shared devices exposed the traditional opacity common in legacy CPS control, as the vulnerabilities associated with these digital systems have been inherited by the safety systems and these cyber vulnerabilities partly account for the recent surge in cyber-attacks. Moreover, cyber assaults on process control and monitoring systems could lead to a significant control failure such as spurious valve position change, pump control loss, sudden feed water loss and the failure of safety-critical components as demonstrated by the Stuxnet worm attack <ref type="bibr" target="#b6">[1]</ref>, Davis-Besse nuclear plant attack <ref type="bibr" target="#b7">[2]</ref> and California system operator attack <ref type="bibr" target="#b8">[3]</ref>.</p><p>Recent developments in industrial data acquisition systems have spurred a renewed interest in the utilization of data-driven approaches to curb the rise of industrial cyber-attacks. Some machine learning-based intrusion detection systems (IDS) monitor traffic and dataflow at the operating system (host intrusion detection system -HIDS) or at the network level (network intrusion detection system -NIDS) to detect attacks targeted at the host or the network. For the HIDS development, the host-based packet captures (PCAP) are preprocessed and applied in training the datadriven model, while the NIDS utilizes the network layer information for model development. However, the implementation of both the host-based and network-based solutions in complex industrial systems are limited because cyber-attacks have a real and significant impact on the process variables or the physical system. Conversely, some process-based intrusion detection systems (PIDS) have also been developed using process measurements alone. This approach has the same weakness as NIDS because analyzing the process change in isolation would not provide a significant clue regarding the causal path.</p><p>In an attempt to improve the capability of existing IDS for sophisticated attack detection in cyber-physical systems, some researchers have integrated both host/network traffic and process layer information to develop a robust detection system. A major drawback to adopting this approach is that in complex industrial systems, process variable change could result from normal operating transients, incipient system fault, component degradation, sensor drift, cyber-attacks, or the combination of a number of these occurrences. The existing accounts fail to resolve the differences between the process changes resulting from different initiating events. This limitation results in an intrusion detection system with a high false alarm rate, and the high false alarm rate has rendered many of the proposed solutions un-implementable.</p><p>The primary goal of this paper is to introduce the discussion on the similarities, conflicts, and limitations of the tools commonly used by fault diagnosis and cybersecurity practitionersetwo areas that are having an increasing connection with the advancements in machine learning (ML) and pattern recognition algorithms. This paper is based on the following observations:</p><p>1. Similar datasets or signatures are being used to develop pattern classification tools for detecting cyber-attacks (PIDS) and to diagnose faults in cyber-physical systems. We believe these tasks are fundamentally different, and it is imperative to establish the differences and domain-specific requirements necessary for the effective implementation of the tools. 2. Many reported cyber-attacks carried out on cyber-physical systems usually appear as system malfunction or fault injection, and there is a need to build a system with the capability to recognize and recover from both incidents without complicating the already complex system, and with no hindrance to other safety-related functions. 3. Attackers are adaptive and dynamic. Tools developed to detect adaptive attacks should be adaptive, as the attacker could exploit the vulnerabilities discovered in the tools and undermine their effectiveness. Extending pattern classification theory and design methods to security settings without considering the adversarial influence is ineffective. Data can be manipulated by attackers to undermine IDS functionality and attacks can be directed at the IDS itself. 4. Pattern recognition systems commonly used in adversarial environments without a detailed threat assessment may result in classification systems that exhibit vulnerabilities whose exploitation may severely affect their performance and consequently limit their practical utility.</p><p>These observations have severe implications for research that utilizes system datasets for abnormal occurrence detection. To extensively discuss the main thesis of this paper, we first present a brief description and characteristics of the industrial SCADA system and preliminaries on the existing ML algorithm in section 2. Then in section 3, we enumerate different data domains and techniques used in the development of ML-based intrusion detection systems for ICS with emphasis on the issues and limitations of the resulting algorithms. As a case study, the nuclear plant control system, its operating states and common system signatures that are similar to the once obtainable during random system fault and cyber-attacks are discussed. In section 4, we describe IDS evaluation methods and discuss the reliability of the dataset available to researchers, which is critical in the development of a functional ML-based intrusion detection algorithm. Section 5 is a discussion on proposed techniques and recommendations for the development of an effective abnormal occurrence detection system applicable to complex industrial controllers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Preliminaries</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">SCADA system</head><p>Supervisory Control and Data Acquisition (SCADA) has been consistently defined to include embedded systems, sensors and actuators used in monitoring and control of critical industrial and national infrastructures such as smart grid, transportation networks, and power generating plants. Supervision, control and data acquisition functions of SCADA are achieved by some computerbased applications and networked devices. Automatic and userdefined real-time monitoring and control of process measurements are performed through remote terminal units (RTU), intelligent field-programmable devices, and their networks.</p><p>Successfully implementing defense against cyber-attacks on critical SCADA infrastructure depends on understanding the vulnerabilities attributed to the specific SCADA system. The SCADA operating environment is characterized by special input voltage, different mounting options, utilization of proprietary operating system without security hardening, infrequent patch update, and the use of special protocols with limited computing capabilities <ref type="bibr" target="#b9">[4]</ref>. In modern.</p><p>ICS where controllability and integrity are prioritized, these characteristics have security implications with potentially catastrophic consequences <ref type="bibr" target="#b10">[5]</ref>. There have been efforts to quantitatively evaluate and share information on discovered vulnerabilities in information technology systems <ref type="bibr" target="#b11">[6]</ref>. Government-owned repository of security-related software flaws and vulnerabilities with data on common vulnerabilities and exposures (CVE), and the associated impact analysis tools such as the common vulnerability scoring system (CVSS) and common weakness enumeration (CWE) <ref type="bibr" target="#b12">[7,</ref><ref type="bibr" target="#b13">8]</ref> are existing attempts to document and quantify security risks. Also, in SCADA systems, there have been attempts to share known vulnerabilities and SCADA network test tools used to secure against cyber exploits <ref type="bibr" target="#b14">[9]</ref>. However, for privacy and security considerations, there are no known publicly available repositories for common vulnerabilities in industrial-scale SCADA systems.</p><p>The inadequacy in utilizing the conventional ICT security technologies for SCADA systems and the inherent differences between the characteristics of the information technology security approach and that of SCADA systems and components have been demonstrated <ref type="bibr" target="#b15">[10]</ref>. The strong real-time constraints and requirements for the domain-specific cyber-security approach for critical infrastructures have also been explained <ref type="bibr" target="#b16">[11,</ref><ref type="bibr" target="#b17">12]</ref>. To address the security gaps observed in industrial control systems, some innovative approaches to critical digital assets security have been presented. A one-way and dual-path data diode that allows data to flow in a single predetermined direction is being used to defend against the cyber threat in some US nuclear installations. The architectural design uses diodes to provide a form of physical separation between the operation of technology comprising digital instrumentation and control, and the conventional information technology space usually referred to as the business space in nuclear power facilities. Data diode has been praised for its simple set up and installation procedure, as well as its low maintenance cost <ref type="bibr" target="#b18">[13]</ref>. However, it is inadequate, as complete isolation of critical cyber assets, single destination gateway, installation cost, software support, and insider threat/human reliability issues still exist <ref type="bibr" target="#b18">[13]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">ML tools for SCADA IDS</head><p>Machine learning algorithms and other artificial intelligence models are being used in different fields to solve different problems. Clustering algorithms such as Naïve Bayes, Random Forest, NB Tree, support vector machine, neural networks, and an ensemble of soft computing algorithms have been used to diagnose complex system faults <ref type="bibr" target="#b19">[14,</ref><ref type="bibr" target="#b20">15]</ref>. K-means recursive clustering <ref type="bibr">[16,</ref><ref type="bibr" target="#b22">17]</ref>, Hidden Markov Model <ref type="bibr" target="#b23">[18]</ref>, Adaboost <ref type="bibr" target="#b24">[19]</ref>, fuzzy-based inference system and its variants <ref type="bibr" target="#b25">[20,</ref><ref type="bibr" target="#b26">21]</ref> have also been previously utilized for access control in a metro system <ref type="bibr" target="#b27">[22]</ref>, and for embedded intrusion protection systems <ref type="bibr" target="#b28">[23]</ref>. To build better classifiers, these algorithms are often ensemble homogenously or heterogeneously, with specific decision rules. To address security issues in SCADA systems, some researchers have also utilized the real-time functionality of machine learning algorithms to detect malicious network traffic in SCADA systems <ref type="bibr">[16,</ref><ref type="bibr" target="#b29">24]</ref> and for other intrusions and anomaly detection purposes <ref type="bibr" target="#b30">[25,</ref><ref type="bibr" target="#b31">26]</ref>. Different SCADA intrusion and anomaly detection techniques have also been combined into a single hybrid system with decision rules <ref type="bibr" target="#b17">[12,</ref><ref type="bibr" target="#b32">27]</ref>  <ref type="bibr" target="#b24">[19]</ref>, data scaling and normalization <ref type="bibr" target="#b33">[28]</ref>, data dimensionality reduction with statistical models and cross-validated data processing to improve learning speed and detection time <ref type="bibr" target="#b34">[29,</ref><ref type="bibr" target="#b35">30]</ref> and integrating multiple learning techniques to reduce overfitting. Meta-heuristics and hyperparameter selection approach also vary for different algorithms. The selection methods for neural networks' hidden layer transfer function, layer number, optimal hidden neuron size, and output layer activation function are discussed in Ref. <ref type="bibr" target="#b33">[28]</ref>. Kernel-based support vector machine heuristic selection and optimization for various classification and regression problems and the applicationdependent confidence level requirement for each algorithm are also discussed in Ref. <ref type="bibr" target="#b35">[30,</ref><ref type="bibr" target="#b36">31]</ref>. Further tutorials on machine learning or data mining methods for intrusion detection are presented in Ref. <ref type="bibr" target="#b37">[32,</ref><ref type="bibr" target="#b38">33]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Similarities and conflicts in ICS fault monitoring and cybersecurity</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Common techniques for developing data-driven IDS</head><p>Most of the available security solutions and protective techniques against cyber-attacks in critical systems are focused on extending traditional IDS networking needs and requirements that generally match attack signatures using a signature-based IDS or detect network anomalies with machine learning techniques <ref type="bibr" target="#b39">[34]</ref>. In the development of signature-based IDS, attack patterns are aggregated and processed to train the algorithm. Each traffic data is labeled (supervised training) or clustered (unsupervised/semi-supervised training) according to a specific pattern generated during the attack. Anomaly-based systems utilize normal traffic data for training and testing, and the anomaly is detected when there are exceptional changes or deviation from known traffic. Robust anomaly detection algorithms rely heavily on specific domain protocols and legitimate characteristics of the target system for efficient performance. Signature-based IDS rely on historical attack signatures on specific systems for intrusion detection. This is a kind of hypothesize-andematch technique where signatures of known attacks are used to train the algorithm. However, signature-based IDS cannot detect novel attacks, as it is impractical to acquire signatures of all types of attacks in a single dataset. Also, the secondorder chaotic nature of exploits such as stealthy or spy attacks makes novel attack prediction and simulation difficult. Fig. <ref type="figure" target="#fig_0">1</ref> shows a detailed flow chart for the development of industrial IDS.</p><p>To support the argument in this section, we define a few terminologies that could be ambiguous. We define the terms based on their uses in engineering maintenance and complex system security.</p><p>1. System fault: A spontaneous or slowly-developing, non-malicious defects that cause detectable process deviation from the recognized system's behavior. Such system faults include component degradation, sensor drift, fouling or crud formation on pipes, heat exchanger ruptures, etc. 2. Cyber-attacks: Hostile, malicious invasion of controls systems and components with the potential to affect the availability, integrity or confidentiality of the safety functions performed by the control systems. It can also be a result of malicious misuse, insider exploits resulting in anomaly behavior that impacts the control system, networks or the process.</p><p>There are attacks aimed to exploit the vulnerabilities in network-level based compatible field devices (e.g. DOS, DDOS, etc) and there are some attacks aimed to exploit the SCADA process controller itself (e.g. MITM, false sequential logic attack, etc). Several IDS developers rely on data traffic from the network or host domain alone.</p><p>Others utilize data from the physical process while some integrate the information from different domains. The following subsections describe each IDS development, its implementation challenges, and functional limitations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Host/network domain-based IDS models</head><p>Network traffic features contain SCADA communication patterns and information on the device such as the address, the packet source, the packet, and function code length, etc. SCADA communication protocols can be specifically targeted by corruption, interception, or tampering attacks. These can potentially lead to a loss of confidentiality, visibility, or device connectivity, and also provide support to implement process-aware attacks, thus compromising safety and security.</p><p>The contemporary intrusion detection algorithms on information technology assets are based on network traffic classifiers built with IP network flows. Recently, an extension of the detection system based on network behavior or host monitoring has been utilized for intrusion detection in industrial control systems. This technique uses anomaly-based or signature-based misuse detection models to detect system intrusion. As a signature-based model, this approach involves creating a database that contains all the signatures of the known payload attributes and single packet-based attacks on SCADA protocols and using this database in the development of the IDS. However, apart from the paucity of the SCADA-specific training dataset, the signature-based approach is ineffective in detecting novel attacks because updating attack signatures is hard. Also, some zero-day, advanced persistent attacks common to ICS have signatures that are not particularly known. Considering these limitations to the development of signaturebased IDS, researchers now utilize an anomaly detection algorithm.</p><p>As an anomaly-based model, the approach involves inspection of signals that specifies normal traffic, and building a model that can identify the normal traffic pattern and flag abnormal usage. This algorithm is built with normal system traffic data, and any deviation from the normal operation is flagged as an anomaly. Fuzzy inference systems and artificial neural networks were applied in Refs. <ref type="bibr" target="#b40">[35,</ref><ref type="bibr" target="#b41">36]</ref> to increase the security awareness of embedded cyber sensors using network-level data. Network scanning tools, Nmap and Nessus, were utilized to create abnormal network behavior in an experimental control system testbed. The detection systems were constructed based on the feature stream in the network traffic packets. Anomaly-based IDS is relatively easy to build as the data requirement is almost homogenous, and it is convenient for application where the acquisition of attack signature is difficult. It has a relatively simple design as it only processes a single data stream from the network feed and does not require attack signatures. However, the model is limited in real-world applications because it cannot identify and localize attacks. Moreover, port registration, the legality of interception, and critical operational requirements for network packet inspection and port-based analysis are other issues to yet be resolved <ref type="bibr" target="#b42">[37]</ref>. A more important limitation of this approach in critical infrastructures is that process measurement is essential in detecting attacks. Control and safety is the fundamental ICS function which makes it an attractive target for sophisticated attackers. This is partly because of the technical sophistication and resources that are available for threat actors interested in such a facility. Hence, the historical behavior of the physical process is critical to detect ICS cybersecurity incidence, and the process parameters are the most effective indicators of the historical and current state of the system and control functions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Process measurement-based model for IDS</head><p>The discovery of attackers with partial or total control of the sensor or actuator has led to the proposal of several intrusion detection schemes for ICS using data collected from physical sensors. To achieve the maximum return on the attack, most SCADA penetration targets critical control devices such as sensors and actuators. The exploit of these devices results in a significant impact on the process measurements and the physical system. To develop robust IDS, many researchers consider the application of process variables. The logic considers attack scenarios such as false data injection and deceptive man-in-the-middle (MITM) attacks that could mask the real process state or present spurious parameter measurement to manipulate the control response. For instance, an attacker with access to process configuration could launch an attack to modify process set-point and trigger undesirable system response.</p><p>Li et al. <ref type="bibr" target="#b43">[38]</ref> demonstrated the utility of process parameters in detecting cyber intrusion by investigating a false sequential logic attack on the SCADA system using process-level parameters. Analysis of the physical effect of the attack on a simplified pumpvalve control system shows the possibility of serious process disruption and equipment damage. Anomalies in a water supply control system were detected using signal variations from a control system to train and evaluate KNN, SVM and Random Forest algorithms <ref type="bibr" target="#b44">[39]</ref>. In this approach, process parameter deviations and process variables non-conformity to natural behavior are used as indicators of the anomaly. Data representing features expected in normal operations of the system is derived first. This dataset is used to develop the anomaly detection algorithm. In the implementation phase, the algorithm monitors the real-time operation of the system and compares the real-time features with the features derived from normal operations. In some applications, a dynamic threshold is set to flag the comparison result that is beyond a certain level of deviation from the normal features. An intrusion is detected when a flag is generated. This is usually based on the possibility that an attacker may pass a deceptive measurement in place of real measurements, and manipulate control response, an instance of data injection or false operation attack.</p><p>Behavioral modeling tools such as the autoregressive model is being used to monitor for changes to high-value variables that would normally stay constant <ref type="bibr" target="#b45">[40]</ref>. A state-based intrusion detection system for MODBUS-DNP3 network traffic is presented in Ref. <ref type="bibr" target="#b46">[41]</ref>. Complex attacks are detected by considering the transitioning of the system from known steady, secure state to significant process deviation that results in the critical system failure. The state change information, process control knowledge and internal representation of the SCADA system are utilized for intrusion detection. Also, detecting the advanced persistent threat in the SCADA system is possible through process monitoring. However, the attractiveness of this method is beclouded by the fact that there are many initiating events for process change. As previously stated, observed deviation could be a result of normal operating transients, incipient system fault, component degradation, sensor drift, cyberattacks or the combination of a number of these occurrences.</p><p>Incidentally, the real-time pattern attributes in the process measurements also make it suitable for diagnosing system or component faults. This attribute has been utilized to build independent ML models for fault diagnostic purposes using only process measurement. For instance, process deviation has been used to diagnose the reactor coolant system and component faults using neural networks <ref type="bibr" target="#b33">[28]</ref>, and support vector machine <ref type="bibr" target="#b34">[29,</ref><ref type="bibr" target="#b35">30]</ref>. Evolutionary algorithms and optimized statistical models have been used to diagnose leakages in industrial steam generators <ref type="bibr" target="#b35">[30,</ref><ref type="bibr" target="#b36">31]</ref>. Moreover, some of the reported cyber-attacks seek to compromise ICS by first defeating the safety measures put in place. This method of attack could be easily mistaken for a random fault. Diagnosing the breach and identifying the root cause takes time and expertise. For instance, the changes in a process variable for offset or geometric attack that involves constant or time-dependent addition of spurious values to the sensor or actuator output, and the variable trend noticed for an incipient leakage in heat exchanger pipes or reactor pump seal leakage may be difficult to differentiate. The similarity in trend and signature may obscure the causal path and eventually result in -at best e a false positive, or -worst case -a more serious misdiagnosis resulting in safety breach and other consequences of successful advanced persistent attacks. Fig. <ref type="figure" target="#fig_1">2</ref> shows the possible causal path for the observed process change in complex industrial systems.</p><p>An attempt to distinguish between different anomalies by analyzing the anomaly behavior based on the instrument output data has been proposed by Jie et al. <ref type="bibr">[42]</ref>. They argued that instrument output beyond a fixed band, transfer function similarities in the input-output relationship between two adjacent switch devices and logical relationships in state values can be used to distinguished between system failure, DoS attack, and false data injection. However, they also utilized process level measurement alone for the analysis. Moreover, the simple system analyzed to evaluate the method does not represent the dynamics observed in complex systems as demonstrated in section 3.4. Also, setting a fixed threshold for a system with such dynamics is not viable. Moreover, a similar method is prominent in fault identification and isolation research work, especially for fault isolation and localization involving sensor drifts and dropped packets.</p><p>The limitation in this model further explains the simplistic approach and the reluctance in the real-world implementation of some of the researched intrusion detection systems. Some researchers <ref type="bibr" target="#b48">[43,</ref><ref type="bibr" target="#b49">44]</ref> recognized the inherent weakness in the PID system and considered integrating process-level information with the network traffic data for robust intrusion detection.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">Multi-domain data mining technique for IDS development</head><p>To address the issues identified with homogenous data-driven intrusion detection systems, several researchers developed IDS algorithms built on both host/network traffic data as well as processlevel knowledge to strengthened ICS security. Morris and Gao <ref type="bibr" target="#b50">[45]</ref> utilized network traffic information and state-based payload content features such as sensor measurements and distributed control state to detect anomaly in a SCADA system. Zhang et al. <ref type="bibr" target="#b49">[44]</ref>, utilized heterogeneous data derived from the simulation of five attacks on a private ICS testbed. They compared the classification performance of K-means, random forest and decision tree on the data from the testbed. However, this approach also suffers from the limitation of the process level intrusion detection. A much more systematic approach would identify how various initiating events (shown in Fig. <ref type="figure" target="#fig_1">2</ref>.) interact to change the process variables. The implementation of such a model in a real-world system is bound to result in high false alarm rates. Table <ref type="table" target="#tab_1">1</ref> summarizes the available IDS techniques and decision engines utilized.</p><p>3.5. Case study: process measurements change initiating events in the nuclear power plant</p><p>In complex systems such as nuclear power plants, there are some operating transients and load changes that characterize the normal operation of the plant. To ensure the balance of plant, a typical nuclear power plant utilizes many distributed control and safety systems designed to ensure safe operation and -in case of an accident -safe shut down and cooling of the reactor core. In normal operation, the neutron population and fission rate are being controlled by several systems such as control rod and chemical shim. In a typical PWR, minor reactivity or power adjustment is done with the aid of the chemical and volume control system (.i.e. boric acid). Also, based on the turbine-generator configuration for the reactor, changes in the power demand from the grid could necessitate a corresponding change in the power supply from the reactor. All these changes introduce a unique dynamic into the control of the nuclear power plant which needs to be integrated for the robust development of IDS suitable for detecting attacks in such systems. Fig. <ref type="figure">3</ref> shows a simplified representation of the nuclear plant control system.</p><p>In Fig. <ref type="figure">3</ref>, Layer 1 is the physical level where the sensor and actuators are utilized to control the physical system. The second layer (Layer 2) is the distributed controllers responsible for implementing automated control based on the current state of the component being monitored. The controllers utilize the automatic feedback response from the current process measurement output to set the next stage of the process. In industrial control systems, this function is carried out by devices such as programmable logic controllers (PLCs). These controllers have internal memory with the capability to process control logic for the attached component and to relay the measurement to the operator through the process control network. Layer 3 is the process control network, where the detection, control, and monitoring functions are usually performed. Control and communication protocols such as Modbus, DNP3, etc are used to ensure effective flow of control and safety signals.</p><p>Beyond the automated functions in Layer 2, additional safety and control signals are routed through the process control network. Layer 4 is the supervisory control and data acquisition layer with a direct connection to the process control network. Here, the process measurements are stored in a data historian. The dataset in this historian are analyzed for fault diagnosis and maintenance purposes. This layer also contains systems such as the control consoles, workstations, servers, network equipment and systems with a human-machine interface where operators can monitor and control the physical process.</p><p>A key aspect of this ICS security is the validity of the data values sent from programmable logic controllers to the HMI. An attacker could gain remote access to Level 2 sensors and actuators modify their software or their environment or intercept the transmission.</p><p>With this access, attackers could launch coordinated attacks on the physical system through the process being controlled. An attacker who can manipulate the data values can mount attacks with severe consequences. Access to layer 2 devices could also empower the attacker to trick the human operator by sending spurious measurements <ref type="bibr" target="#b66">[61]</ref>. Another major consideration is the process measurement dynamics introduced when complex ICS system undergoes routine maintenance or part replacement. These dynamics also affect the process measurement trends used in the development of some intrusion detection systems. In constructing robust IDS applicable to the complex system utilized in the control of a nuclear plant, it is pertinent to consider the nuances introduced by the control of the plant, as well as the causal path of other  possible abnormal occurrences.</p><p>To further elaborate on the similarities in some stated attack and incipient fault, consider the development of a state-aware intrusion detection system for stealthy man-in-the-middle attacks against ICS field-bus water tank level control system discussed in Ref. <ref type="bibr" target="#b67">[62]</ref>.</p><p>The study depicts a false data injection attack where the attacker gains root access to sensor measurement and actuator command (level 2 as illustrated in Fig. <ref type="figure" target="#fig_1">2</ref>) and forces a decrease in water level in a simulated industrial water tank. The attacker slowly changes the sensor reading of the tank level using a small constant increment, trying to remain undetected <ref type="bibr" target="#b67">[62]</ref>. Also, the study designs a detection mechanism that relies on the residual which is the difference between sensor measurement for the water level and its estimated value. There are obvious similarities in the signatures generated in this instance and many diagnostic approaches for incipient, slowlydeveloping faults that also rely on process level change <ref type="bibr" target="#b36">[31]</ref> and residual generation for system fault detection.</p><p>Moreover, modeling and simulating the transients explained above is not a trivial task. Researchers utilize several computer codes to simulate process control and acquire process parameter deviations. However, the outputs of the codes are estimates with limited applications. Similar constraints are present in NIDS development. Simulating attacks that represent real-world exploit to retrieve signatory data, or to evaluate ML model performance is difficult. Hence, most researchers rely on publicly-sourced data to train, test, and evaluate the intrusion detection system. In the next section, we examine the composition of public data repositories and their reliability for developing ICS intrusion detection systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">IDS data sources and data reliability</head><p>The key element that determines the optimum performance of any data-driven model is the quality of the data used in its development. Effective application of ML approach to intrusion detection requires significant training data. Also, proper implementation and reliability of the IDS depend on the sources and credibility of the dataset. Datasets that contain normal and malicious traffic is scarce and developers rely on abstracted simulation or synthesized network traffic in publicly available data repositories to train the ML algorithms. This is even more pronounced for critical ICSs, where obtaining historical data of attacks is difficult. Commonly used public database for NIDS is presented in Table <ref type="table" target="#tab_2">2</ref>. A prominent source is the data presented by NSL-KDD, an improvement on KDD 99 dataset. KDD and its variant, NSL-KDD dataset has been applied to develop IDS models such as artificial neural network and neighborhood outlier factor <ref type="bibr" target="#b51">[46]</ref>, one-class support vector machine <ref type="bibr">[16,</ref><ref type="bibr" target="#b52">47]</ref> and fuzzy neural network <ref type="bibr" target="#b19">[14,</ref><ref type="bibr" target="#b25">20]</ref>. The Center for Applied Internet Data Analysis (CAIDA) and other repositories that captures full or truncated local network packets including some background traffic, useful for IDS researchers are also listed in Table <ref type="table" target="#tab_2">2</ref>. Australian defense force academy windows dataset (ADFA-WD) and Australian defense force academy Linux dataset (ADFA-LD) are some of the later adaptation for UNIX-based operating systems which houses signatures of some contemporary cyber threats sourced from exploiting vulnerabilities in virtual kernel-based hosts. ADFA-LD and ADFA WD dataset utilized system call distribution pattern and the number of traces contained in each class as the metric for training ID algorithms, based on previous research on the accuracy of system calls traces for decision engines. Data traces are collected and utilized for the training and validation of IDS decision engines. The dataset structure and raw trace count for both Linux and Windows OS are as shown in Table <ref type="table" target="#tab_3">3</ref>. References to other datasets and repositories of packet capture for network-based intrusion detection systems are listed in Ref. <ref type="bibr" target="#b68">[63]</ref>.</p><p>Furthermore, categories of attack modeled to generate each dataset are different, as it is impractical to model all possible attacks in a single experiment. Table <ref type="table" target="#tab_4">4</ref> contains the attacks simulated to generate the dataset for KDD, UNSW-NB15, and NSL-KDD datasets and the number of instances for each attack. The distribution of the data depends on the attack simulated and the domain Fig. <ref type="figure">3</ref>. A simplified process control system for a typical nuclear power plant. considered. Commonly used dataset for SCADA and ICS intrusion detection is presented in Table <ref type="table">5</ref>. Some of the repositories contain data from legacy systems commonly found in industrial control systems, while some combine the process measurements and packet capture from advanced SCADA systems.</p><p>Data acquisition cost, privacy, and data source reliability considerations have restricted most of the proposed ML-based IDS to fixed, simplified parametric algorithms. Data paucity results in constrained, weak algorithm, which poorly fit the data and cannot process complex problems. Data inadequacy also results in biases that are reflected in the performance of IDS systems <ref type="bibr" target="#b83">[78]</ref>. Security considerations inform the privacy imposed on ICS data and common vulnerabilities discovered in SCADA systems. Hence, most research and commercial intrusion detection solutions project the successes recorded in developing and testing the tool on other platforms. Unfortunately, the dataset collected for a certain system configuration is not a sufficient representation for all other application and the full range of attack surface presented by different hosts. For instance, as demonstrated in section 3.5, the SCADA architecture in NPP and device connection varies from other industrial control systems because of imposed special safety requirements. Consequently, the data generated from such a connection would be unique. Hence, application-specific traffic would have to be collected for a comprehensive evaluation of the performance of the tools meant for such systems. Moreover, in the openly available data examined, there is no consideration for the heterogeneous data requirement discussed in section 3.3. Where the data is heterogeneous, it fails to consider other causalities presented in Fig. <ref type="figure" target="#fig_1">2</ref>, hence they are not representative of the realworld complexity observed in industrial control systems. Also, for security reasons, a number of the publicly available packet traces are released in anonymized form, while some did not specify the payload.</p><p>Data benchmarking is another challenge, because threat actors and attack dataset evolve rapidly, making it difficult to rely on dated data. Moreover, attack paths and malicious behavior considered for each data set vary, as comprehensively capturing all possible malicious intents and attacks for all ICS configurations is not feasible. Besides, some of the testing and evaluation technique is subjective. Many models are tested and evaluated on randomly sampled data from the training set, resulting in reports of impressive accuracy in theory, but high false positives on real-world systems. This also makes an independent evaluation of SCADA IDS a difficult task. Biased models are some of the results from deficient, highly synthetic, non-representative data, skewed and redundant records present in the publicly available dataset <ref type="bibr" target="#b80">[75,</ref><ref type="bibr" target="#b83">78]</ref>. Existing datasets face other reliability challenges. One is the fact that some repositories have an unlabeled dataset, and labeling them for application purposes is difficult. Considering the size of data needed for developing a robust intrusion detection model, some repositories contain an insignificant amount of dataset or incomplete payload.</p><p>The value and ultimate reliability of a particular dataset depend on the acquisition framework and application expertise. Hence, we did not attempt to compare the performance of different datasets in this work. Nevertheless, research work towards verifying KDD and NSL-KDD as benchmark data set shows that the data set lacks modern low footprint attack style, the normal traffic data is outdated and there is a mismatch in the attack types, resulting in different distribution for training and test dataset <ref type="bibr" target="#b82">[77]</ref>. Currently, there is no known effort to quantify the effect of synthetic data on the real-world performance of the algorithm. Moreover, proclivity for any of the datasets and user's preference decisions are unclear,  subjective or based on convenience. Hence, a detailed analysis of the dataset for suitability is recommended, as diverse data collection methods were implemented for the datasets <ref type="bibr" target="#b93">[88]</ref>. Hence, the computing domain, network protocol, simulated threat models, attack path, attack sequence, and originality are some of the considerations critical to the successful utilization of these resources for building a robust intrusion detection system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">IDS performance metrics and evaluation testbeds</head><p>Common ML algorithm performance evaluation technique computes the number of false alarms generated (percentage of false positive), classification accuracy, detection rate, or statistical performance measurements. To generally define the percentage of correctly classified instances among the total number of instances, commonly applied ML IDS evaluation methods are the detection rate (DT), true positive (TP), false positive(FP), true negative (TN), and false-negative (FN). Based on the constraints defined above for critical infrastructure, the selection of any of these metrics is highly subjective and situation driven. The Receiver Operating Characteristics curve (ROC), is one of the most widely used evaluation metrics. It is a plot of a false-positive rate versus the sensitivity, with the area under the curve reported as a good measure of an algorithm's classification performance. However, the ROC curve is a weak metric for IDS evaluation <ref type="bibr" target="#b83">[78]</ref>. Table <ref type="table">5</ref> shows some of the performance evaluation approaches for certain IDS techniques.</p><p>Although comparison of different IDS methods is difficult because the datasets for either network-based or process-based IDSs for major critical systems are not available, there are research efforts towards ML algorithm performance evaluation using a single platform such as Waikato environment for knowledge analysis (WEKA) <ref type="bibr" target="#b94">[89]</ref> and testbeds for the development and validation of cybersecurity solutions <ref type="bibr" target="#b17">[12]</ref>. Most testbeds consist of some switches, process monitors and PLCs to mimic small-scale industrial SCADA systems, with the capability to detect several network layer attacks such as DoS, port scanning, spoofing, etc.</p><p>Research that evaluates common models built by respective evolutionary algorithms for data mining problems using knowledge extraction based on evolutionary learning (KEEL), WEKA and Rapid Miner (RM) ML data mining tools have been conducted <ref type="bibr" target="#b95">[90]</ref>.</p><p>Although limited in scope, a significant difference was reported for model output from each tool. Apart from data reliability issues, extending such research to cover critical infrastructure requires careful consideration of the nuances in the generated data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Discussion and recommendation</head><p>Predicting and responding to assault against cyber-physical systems is an art because of the range of novelty involved in cyber-attacks. Moreover, the fuzziness of the attack surface, modernization, and sophistication of the attack or the threat actors also make the defense of the industrial control system a challenge. Most critical is the non-parametric characteristic of the cyber attacker and the physical consequence of a successful attack on ICS Table <ref type="table">5</ref> Threat models and their evaluation metric.</p><p>Threat model/Attacks analyzed Evaluation metrics with increasingly short detection and response time before the adversary violates the monitored system. Application of datadriven tools to the monitoring and detection of cyber-attack comes with a lot of promises. However, the rate of false alarm generated in real-world applications is a serious issue. In the development of a robust SCADA defense system, the questions about the influence of diverse cause of abnormal occurrence on the rate of false alarm generated by the IDS needs to be addressed. A critical analysis is needed to establish the nuances between different industrial control system configurations, the process behavior, component and its failure conditions, control principles, and how process knowledge could aid a successful attack. Dataset lifespan is being shortened and "benchmark" datasets are fast becoming obsolete because threat actors are highly dynamic and sophisticated, and the corresponding upgrade in modern systems generate different data composition. Developing a new, comprehensive dataset requires detailed consideration for modern attack surface and well-defined dataset structure. Performing extensive evaluation of the system to obtain a robust dataset that considers zero-day and other modern exploits are expensive. Extending such consideration to different network architecture present further difficulties. In the absence of a robust historical database for specific real-world SCADA intrusions, establishing unified criteria to evaluate the effectiveness of existing IDS is difficult.</p><p>Also, proper development and implementation of a data-driven algorithm that seeks to identify and localize attacks based on dataset require a certain level of domain expertise. We observed some knowledge gaps in the development of ML algorithms. Multidisciplinary approach and domain knowledge are crucial to precisely define the expected operating conditions, analyze the available data, distill the output result, evaluate the performance of the algorithm, and characterize the nature of the detected anomalies. That is, the selection of appropriate dataset suitable for certain application require domain expertise. First, we observed that different data segmentation and selection methods are implemented to process data for algorithm development. Some researchers randomly select features or instances of data from the database for training the algorithm. Testing is done by another round of randomly selected features or instances, while others used the whole dataset for training and evaluating the algorithm. In the works of literature reviewed, no study describes the effect of these data sampling methods on the performance of the algorithm. For instance, an algorithm trained with large data size has been proven to present better performance than those trained on a small data set <ref type="bibr" target="#b51">[46]</ref>. Despite prior evidence, worse algorithm performance with a larger dataset has been reported <ref type="bibr" target="#b27">[22]</ref>. This lack of domain expertise and oversight in requisite preprocessing that goes into building an effective decision engine has limited the application of these engines in real systems. Secondly, most studies do not present a hyper-parameter selection method or optimization technique for the model, while some studies have no cognitive justification for the data preprocessing technique or model evaluation method used. Although we found some dated research that discusses issues on testing intrusion detection systems <ref type="bibr" target="#b96">[91]</ref>, we recommend a new study in this area, considering the rate of development in this field.</p><p>Moreover, efforts need to be directed to address the issues that constraints extensive evaluation of available algorithms. For instance, the performance of IDS built on data from privately owned protocol-specific testbeds cannot be independently repeated. Also, testing a model developed with data from a different SCADA configuration may not scale well on these testbeds. Besides, deploying such an intrusion detection model on production SCADA may result in high false negatives. This is because some interactions occur in a production SCADA that may not be well represented in testbeds. For instance, in a pressurized water nuclear power plant, the process control network is directly connected to critical programmable logic controllers and other subnetworks that handle information flow for the controllers that control the reactor, steam generator, feedwater flow, and the turbine. The scale of data exchange on such a process control network would be difficult to simulate using small scale testbeds. Also, the complex routine interaction that occurs between the connected components add an extra signature that needs to be considered to establish a robust testbed. Nevertheless, a good start is the development of open-source, high-fidelity, large-scale testbeds or SCADA virtual architectures, network and system simulators and programmable logic controllers to design, test and validate these algorithms <ref type="bibr" target="#b87">[82,</ref><ref type="bibr" target="#b97">92,</ref><ref type="bibr" target="#b98">93]</ref>. A predictable issue with publicly available SCADA virtual architecture is that this architecture is also available to attackers to test their exploits, which present a cyber defense as a second-order chaotic problem. False-positive can be triggered intentionally by attackers with knowledge of the specially crafted data manipulation to feed into the system.</p><p>Consequently, it is necessary to develop a comprehensive abnormal occurrence detection system. We propose a dedicated private virtual machine or a "digital twin" with the capability to utilize real-time data from complex processes and reproducing a functional representation of the process, suitable for testing and evaluating the performances of a dedicated intrusion detection system without interrupting the real process. At the core of the digital twin is the development of a high-fidelity data-driven prototype of industrial machines and components. This virtual prototype is developed fully based on the physical pair, and runs in parallel with the physical system, enabling real-time condition monitoring, change detection, and process optimization. It can be developed as a virtual prototype of the nuclear power plant, enabling functional verification, virtual commissioning, and system performance analysis before, during, or after maintenance or major component changes. This allows for rapid task-planning and testing in the virtual world before any system changes are made to the physical plant.</p><p>There are two possible implementations of the digital twin:</p><p>1. Design (information/knowledge-driven): This approach involves developing a high-fidelity virtual prototype of the physical system using a database containing detailed design information, inspection information, maintenance, and service records, among others. This information is used to develop a simulation model that runs in-line with the physical system. 2. Data-driven: The data-driven approach involves utilizing realtime sensor values and parametric data as the input to the model. The model could be developed using deep learning or other machine learning algorithms. The parametric data with real-time process information are used to dynamically train the model, and the predictive output of the model is used as the prediction for the next sensor reading.</p><p>The capability of this digital twin could be extended to recognizing the nuances between random system faults, cyber events, and other anomaly initiators. Functionally, the system will explore the dependency effect of process change and network traffic data to effectively classify process change resulting from system fault and cyber-attack. This ultimately tends towards a re-designed resilient ICS with the capacity to perform an important safety function under cyber-attacks and incipient faults. This system will possess a mechanism to detect system faults and cyber-attacks independently while using redundant reconfiguration to achieve safety functions if the control system is under attack. Since process variables deviate due to different reasons, weights could be attached to reduce the contribution of this consideration in the final intrusion detection output. Real-time implementation of this system is critical, to eliminate manual network traffic data sorting and additional pre-processes expertise.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Conclusion</head><p>A robust and sufficient security solution demands a comprehensive consideration of all critical interactions in the systems. Detecting process-level attacks targeting loss of SCADA process visibility or manipulating critical process parameters is not considered by many IDS proposals. This results in user-dependent monitoring systems with a high false alarm rate and low reliability. A framework to integrate process level constraints with network-level needs has been implemented. However, the works did not consider the complexity that characterizes industrial control systems, resulting in process changes for different operating states and initiating events.</p><p>In this work, we argue that the major contribution to the false alarm generation is the failure to identify and differentiate between the inherently similar signature that defines normal transients common to a complex system, incipient/slowly-developing fault and cyber intrusion with physical impact on the process information. To support our argument, we discuss nuclear plant control system characteristics that account for observed process measurement change and high false alarm rate for the intrusion detection system applied to detect intrusions on industrial controllers. Also, to aid IDS development and evaluation, we presented available synthetic and real industrial control systems data repositories. To significantly reduce the amount of nuisance alarm generated, we recommended an approach that considers the nuances in the data used in the development of machine learning algorithms. The present findings and recommended course of action serve as a foundation for the development of robust IDS with a significant reduction in the false alarm problem common to current intrusion detection systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Declaration of competing interest</head><p>We declare no conflict of interest for this submission.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Flow chart for the development of industrial IDS.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Potential initiating events for the observed changes in industrial process parameters.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>obtained from field devices. Various heuristic refinement and innovative training optimization techniques are being utilized to enhance ML algorithms classification, clustering, or predictive accuracy. Optimization techniques include iterative online training with heterogeneous data</head><label></label><figDesc></figDesc><table><row><cell>. Basically, the development of</cell></row><row><cell>ML algorithms for ICS security application involves the following</cell></row><row><cell>steps:</cell></row><row><cell>I. Identifying and obtaining threat signatures that represent</cell></row><row><cell>the intrusion to be detected (for signature-based, misuse</cell></row><row><cell>detection approach) or obtaining normal traffic features (for</cell></row><row><cell>anomaly-based approach).</cell></row><row><cell>II. Preprocessing and segmentation of the data into training,</cell></row><row><cell>testing, and validation set.</cell></row><row><cell>III. Identifying the confidence level required, and tuning the</cell></row><row><cell>hyper-parameters accordingly.</cell></row><row><cell>IV. Evaluating the performance of the algorithm on the repre-</cell></row><row><cell>sentative data as input to the trained model and comparing</cell></row><row><cell>the output within the range of the confidence interval</cell></row><row><cell>selected.</cell></row><row><cell>Variation in the implementation is observed in the spread of the</cell></row><row><cell>data used and the training techniques employed. Depending on the</cell></row><row><cell>sophistication of the algorithm, the training method, and the level</cell></row><row><cell>of automation involved, data preprocessing procedure could vary</cell></row><row><cell>from manual data sorting and partitioning to online adaptive</cell></row><row><cell>training with data</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 1</head><label>1</label><figDesc>Commonly used technique for developing ICS intrusion detection systems, data type and the decision engine utilized.</figDesc><table><row><cell>IDS Technique</cell><cell>Training Dataset source</cell><cell>Data type</cell><cell>Decision engine</cell><cell>References</cell></row><row><cell>Network traffic/host-based</cell><cell>Testbed a</cell><cell>b Synthetic</cell><cell>OCSVM; K-mean clustering</cell><cell>[16,17]</cell></row><row><cell></cell><cell>KDD</cell><cell>Real</cell><cell>ANN, Neighborhood outlier</cell><cell>[46]</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Factor</cell><cell></cell></row><row><cell></cell><cell>NSL-KDD</cell><cell>Synthetic</cell><cell>GA-SVM; FNN</cell><cell>[14,20]</cell></row><row><cell></cell><cell></cell><cell></cell><cell>1-class SVM</cell><cell>[47]</cell></row><row><cell></cell><cell></cell><cell></cell><cell>DNN</cell><cell>[48,49]</cell></row><row><cell></cell><cell>UNS-NB15</cell><cell>Synthetic</cell><cell>DNN</cell><cell>[48]</cell></row><row><cell></cell><cell>DARPA 1998</cell><cell>Real</cell><cell>ANN, SVM, MARS</cell><cell>[15]</cell></row><row><cell></cell><cell>ADFA-WD</cell><cell>Synthetic</cell><cell>ANN, SVM, HMM, ELM,</cell><cell>[50]</cell></row><row><cell></cell><cell></cell><cell></cell><cell>STIDE</cell><cell></cell></row><row><cell></cell><cell>ADFA-LD</cell><cell>Synthetic</cell><cell>KNN, HMM, STIDE, Naïve</cell><cell>[51,52]</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Bayes, k-means, SVM</cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell>SMO,</cell><cell></cell></row><row><cell></cell><cell>Testbed</cell><cell>Synthetic</cell><cell>SVM; KNN, Decision tree;</cell><cell>[53]</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Random forest</cell><cell></cell></row><row><cell>Process variable-based</cell><cell>Testbed</cell><cell>Synthetic</cell><cell>Association rules</cell><cell>[42]</cell></row><row><cell></cell><cell>Suez water distribution dataset</cell><cell>Real</cell><cell>One-class SVM</cell><cell>[54]</cell></row><row><cell>Integrated approach(Network traffic</cell><cell>***CIPC-MSU water dataset</cell><cell>Synthetic</cell><cell>SVM, ANN etc.</cell><cell>[22,55,56],</cell></row><row><cell>and process variables</cell><cell>ORNL dataset</cell><cell>Synthetic</cell><cell>EM clustering</cell><cell>[57]</cell></row><row><cell></cell><cell></cell><cell></cell><cell>KNN; NB, RF</cell><cell>[58]</cell></row><row><cell></cell><cell>iTrust eSwaT</cell><cell>Real data</cell><cell>ANN; DNN</cell><cell>[59,60]</cell></row><row><cell></cell><cell>Dataset</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>Testbed</cell><cell>Real data</cell><cell>KNN, decision tree, random</cell><cell>[44]</cell></row><row><cell></cell><cell></cell><cell></cell><cell>Forest</cell><cell></cell></row></table><note>a Testbeds include the scaled-down version of the SCADA system that controls a real physical process or uses a hardware-in-the-loop (HIL) simulation of the physical process.b Synthesized data include those generated from SCADA mimics, workbenches, and sanitized data.Acronyms: ELM ¼ Extreme learning machine; HMM¼ Hidden Markov Model EM ¼ expectation-maximization STIDE: Sequence Time-Delay Embedding; DNN ¼ Deep neural network; FNN ¼ fuzzy neural network; MARS ¼ Multivariate Adaptive Regression Splines.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2</head><label>2</label><figDesc>Open source data set for NIDS security research.</figDesc><table><row><cell>Data source</cell><cell>Description</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 3</head><label>3</label><figDesc>Attack category and instances in KDD, UNSW-NB15 and NSL-KDD datasets.</figDesc><table><row><cell>Attack category</cell><cell cols="2">Number of instances (Training þ Test)</cell><cell></cell></row><row><cell></cell><cell>KDD</cell><cell>UNSW-NB15</cell><cell>NLS-KDD</cell></row><row><cell>Remote to local(R2L</cell><cell>1126</cell><cell>e</cell><cell>77,054</cell></row><row><cell>Probing/Exploits</cell><cell>4107</cell><cell>44,525</cell><cell>14,077</cell></row><row><cell>Denial of service(DoS)</cell><cell>391458</cell><cell>16,353</cell><cell>53,385</cell></row><row><cell>User to root(U2R)</cell><cell>52</cell><cell>e</cell><cell>252</cell></row><row><cell>Analysis</cell><cell>e</cell><cell>2,677</cell><cell>e</cell></row><row><cell>Backdoor</cell><cell>e</cell><cell>2,329</cell><cell>e</cell></row><row><cell>Fuzzers</cell><cell>e</cell><cell>24,246</cell><cell>e</cell></row><row><cell>Generic</cell><cell>e</cell><cell>58,871</cell><cell>e</cell></row><row><cell>Reconnaissance</cell><cell>e</cell><cell>13,987</cell><cell>e</cell></row><row><cell>Shellcode</cell><cell>e</cell><cell>1,511</cell><cell>e</cell></row><row><cell>Worms</cell><cell>e</cell><cell>174</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 4</head><label>4</label><figDesc>ICS network packet captures (PCAP) and process measurement data repository. Oak Ridge National Laboratory's repository of measurements related to normal, disturbance, control and cyber-attack behaviors for electric transmission systems, gas pipeline, and energy management system.</figDesc><table><row><cell>Data source</cell><cell>Description</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot">Please cite this article as: A. Ayodeji et al., A new perspective towards the development of robust data-driven intrusion detection for industrial control systems, Nuclear Engineering and Technology, https://doi.org/10.1016/j.net.2020.05.012</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0" />
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix A. Supplementary data</head><p>Supplementary data to this article can be found online at https://doi.org/10.1016/j.net.2020.05.012.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">NetScan Classification accuracy</title>
+		<author>
+			<persName><forename type="first">Mitm</forename><surname>Dos</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>detection speed</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Contribution of Four Class Labeled Attributes of Kdd Dataset on Detection and False Alarm Rate for Intrusion Detection System</title>
+		<author>
+			<persName><forename type="first">Preeti</forename><surname>Aggarwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Deepak</forename><surname>Dahiya</surname></persName>
+		</author>
+		<idno type="DOI">10.17485/ijst/2016/v9i5/83656</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Indian Journal of Science and Technology</title>
+		<idno type="ISSN">0974-6846</idno>
+		<idno type="ISSNe">0974-5645</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<date type="published" when="2016-02-09" />
+			<publisher>Indian Society for Education and Environment</publisher>
+		</imprint>
+	</monogr>
+	<note>data exfiltration) ROC curve/Detection rate [50e52</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Is Apple&apos;s iMac Leopard Operating System Secure under ARP-Based Flooding Attacks?</title>
+		<author>
+			<persName><forename type="first">Sirisha</forename><surname>Surisetty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sanjeev</forename><surname>Kumar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icimp.2010.30</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2010 Fifth International Conference on Internet Monitoring and Protection</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2010" />
+		</imprint>
+	</monogr>
+	<note>ICMP flooding</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">MOSFET parameter degradation after Fowler–Nordheim injection stress</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Candelori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Gomiero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Ghidini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Paccagnella</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0026-2714(97)00054-1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Microelectronics Reliability</title>
+		<title level="j" type="abbrev">Microelectronics Reliability</title>
+		<idno type="ISSN">0026-2714</idno>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="189" to="193" />
+			<date type="published" when="1998-02" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Hybrid Routing for Man-in-the-Middle (MITM) Attack Detection in IoT Networks</title>
+		<author>
+			<persName><forename type="first">James</forename><forename type="middle">Jin</forename><surname>Kang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kiran</forename><surname>Fahd</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sitalakshmi</forename><surname>Venkatraman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rolando</forename><surname>Trujillo-Rasua</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Haskell-Dowland</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/itnac46935.2019.9077977</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2019 29th International Telecommunication Networks and Applications Conference (ITNAC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Naïve and complex injection attacks Kappa statistics; detection speed [45,55] Classification accuracy; False positive rates; Confusion Matrix; Kappa statistics [22,56] Command injection, relay settings change, data injection. Detection rate, False positive rate</title>
+		<author>
+			<persName><surname>Reconnaisance</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>57,58] Single and multiple-stage, multi-point attacks ROC curve</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Stuxnet and the Future of Cyber War</title>
+		<author>
+			<persName><forename type="first">James</forename><forename type="middle">P</forename><surname>Farwell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rafal</forename><surname>Rohozinski</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00396338.2011.555586</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Survival</title>
+		<title level="j" type="abbrev">Survival</title>
+		<idno type="ISSN">0039-6338</idno>
+		<idno type="ISSNe">1468-2699</idno>
+		<imprint>
+			<biblScope unit="volume">53</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="23" to="40" />
+			<date type="published" when="2011-01-28" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">The Vulnerability of Nuclear Facilities to Cyber Attack; Strategic Insights: Spring</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Kesler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Strategic Insights</title>
+				<imprint>
+			<date type="published" when="2010" />
+			<biblScope unit="page">2011</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stamp</surname></persName>
+		</author>
+		<title level="m">Common Vulnerabilities in Critical Infrastructure Control Systems. SAND2003-1772C</title>
+				<imprint>
+			<date type="published" when="2003" />
+		</imprint>
+		<respStmt>
+			<orgName>Sandia National Laboratories</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Understanding the threat to SCADA networks</title>
+		<author>
+			<persName><forename type="first">Oded</forename><surname>Gonda</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s1353-4858(14)70093-5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Network Security</title>
+		<title level="j" type="abbrev">Network Security</title>
+		<idno type="ISSN">1353-4858</idno>
+		<imprint>
+			<biblScope unit="volume">2014</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="17" to="18" />
+			<date type="published" when="2014-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Key management issue in SCADA networks: A review</title>
+		<author>
+			<persName><forename type="first">Abdalhossein</forename><surname>Rezai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Parviz</forename><surname>Keshavarzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zahra</forename><surname>Moravej</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jestch.2016.08.011</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Engineering Science and Technology, an International Journal</title>
+		<title level="j" type="abbrev">Engineering Science and Technology, an International Journal</title>
+		<idno type="ISSN">2215-0986</idno>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="354" to="363" />
+			<date type="published" when="2017-02" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+	<note>Engineering science and technology</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Towards a Common Enumeration of Vulnerabilities</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">E</forename><surname>Mann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Christey</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1999" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Use of the Common Vulnerabilities and Exposures (CVE) vulnerability naming scheme</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Mell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Grance</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.800-51</idno>
+		<imprint>
+			<date type="published" when="2002" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+		<respStmt>
+			<orgName>CVE Vulnerability Search Engine, National Institute of Standards and Technology</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Use of the Common Vulnerabilities and Exposures (CVE) vulnerability naming scheme</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Mell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Grance</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.800-51</idno>
+	</analytic>
+	<monogr>
+		<title level="j">NATIONAL INST OF STANDARDS AND TECH-NOLOGY GAITHERSBURG MD COMPUTER SECURITY DIV</title>
+		<imprint>
+			<date type="published" when="2002" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Assessing and augmenting SCADA cyber security: A survey of techniques</title>
+		<author>
+			<persName><forename type="first">Sajid</forename><surname>Nazir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shushma</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dilip</forename><surname>Patel</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2017.06.010</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="436" to="454" />
+			<date type="published" when="2017-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Scada Malware, a Proof of Concept</title>
+		<author>
+			<persName><forename type="first">Andrea</forename><surname>Carcano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Igor</forename><forename type="middle">Nai</forename><surname>Fovino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcelo</forename><surname>Masera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alberto</forename><surname>Trombetta</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-03552-4_19</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2009" />
+			<biblScope unit="page" from="211" to="222" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Cyber-security evaluation for a hypothetical nuclear power plant using the attack tree method</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Akinola</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Phys. Secur</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="19" to="e36" />
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">A cybersecurity detection framework for supervisory control and data acquisition systems</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Cruz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Indust. Inf</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="2236" to="e2246" />
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Industrial automation systems and integration. Physical device control. Data model for computerized numerical controllers</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Scott</surname></persName>
+		</author>
+		<idno type="DOI">10.3403/bsiso14649</idno>
+		<imprint>
+			<date>2015</date>
+			<publisher>BSI British Standards</publisher>
+			<biblScope unit="page" from="1" to="e32" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">An efficient intrusion detection system based on hypergraph - Genetic algorithm for parameter optimization and feature selection in support vector machine</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Gauthama Raman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nivethitha</forename><surname>Somu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kannan</forename><surname>Kirthivasan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ramiro</forename><surname>Liscano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">S</forename><surname>Shankar Sriram</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.knosys.2017.07.005</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Knowledge-Based Systems</title>
+		<title level="j" type="abbrev">Knowledge-Based Systems</title>
+		<idno type="ISSN">0950-7051</idno>
+		<imprint>
+			<biblScope unit="volume">134</biblScope>
+			<biblScope unit="page" from="1" to="12" />
+			<date type="published" when="2017-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Intrusion detection using an ensemble of intelligent paradigms</title>
+		<author>
+			<persName><forename type="first">Srinivas</forename><surname>Mukkamala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><forename type="middle">H</forename><surname>Sung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ajith</forename><surname>Abraham</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jnca.2004.01.003</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Network and Computer Applications</title>
+		<title level="j" type="abbrev">Journal of Network and Computer Applications</title>
+		<idno type="ISSN">1084-8045</idno>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="167" to="182" />
+			<date type="published" when="2005-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">A novel intrusion detection method based on OCSVM and K-means recursive clustering</title>
+		<author>
+			<persName><forename type="first">Leandros</forename><forename type="middle">A</forename><surname>Maglaras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianmin</forename><surname>Jiang</surname></persName>
+		</author>
+		<idno type="DOI">10.4108/sesa.2.3.e5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ICST Transactions on Security and Safety</title>
+		<title level="j" type="abbrev">ICST Transactions on Security and Safety</title>
+		<idno type="ISSNe">2032-9393</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">e5</biblScope>
+			<date type="published" when="2015-01-30" />
+			<publisher>European Alliance for Innovation n.o.</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">An unsupervised anomaly-based detection approach for integrity attacks on SCADA systems</title>
+		<author>
+			<persName><forename type="first">Abdulmohsen</forename><surname>Almalawi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xinghuo</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zahir</forename><surname>Tari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adil</forename><surname>Fahad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ibrahim</forename><surname>Khalil</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2014.07.005</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="page" from="94" to="110" />
+			<date type="published" when="2014-10" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">A simple and efficient hidden Markov model scheme for host-based anomaly intrusion detection</title>
+		<author>
+			<persName><forename type="first">Jiankun</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xinghuo</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Qiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hsiao-Hwa</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mnet.2009.4804323</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Network</title>
+		<title level="j" type="abbrev">IEEE Network</title>
+		<idno type="ISSN">0890-8044</idno>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="42" to="47" />
+			<date type="published" when="2009-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Online Adaboost-Based Parameterized Methods for Dynamic Distributed Network Intrusion Detection</title>
+		<author>
+			<persName><forename type="first">Weiming</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yanguo</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ou</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephen</forename><surname>Maybank</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tcyb.2013.2247592</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Cybernetics</title>
+		<title level="j" type="abbrev">IEEE Trans. Cybern.</title>
+		<idno type="ISSN">2168-2267</idno>
+		<idno type="ISSNe">2168-2275</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="66" to="82" />
+			<date type="published" when="2014-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Fuzziness based semi-supervised learning approach for intrusion detection system</title>
+		<author>
+			<persName><forename type="first">Rana</forename><forename type="middle">Aamir Raza</forename><surname>Ashfaq</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xi-Zhao</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joshua</forename><forename type="middle">Zhexue</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haider</forename><surname>Abbas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu-Lin</forename><surname>He</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ins.2016.04.019</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Sciences</title>
+		<title level="j" type="abbrev">Information Sciences</title>
+		<idno type="ISSN">0020-0255</idno>
+		<imprint>
+			<biblScope unit="volume">378</biblScope>
+			<biblScope unit="page" from="484" to="497" />
+			<date type="published" when="2017-02" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">On the combination of genetic fuzzy systems and pairwise learning for improving detection rates on Intrusion Detection Systems</title>
+		<author>
+			<persName><forename type="first">Salma</forename><surname>Elhag</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alberto</forename><surname>Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Abdullah</forename><surname>Bawakid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saleh</forename><surname>Alshomrani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francisco</forename><surname>Herrera</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.eswa.2014.08.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Systems with Applications</title>
+		<title level="j" type="abbrev">Expert Systems with Applications</title>
+		<idno type="ISSN">0957-4174</idno>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="193" to="202" />
+			<date type="published" when="2015-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Automatic fine-grained access control in SCADA by machine learning</title>
+		<author>
+			<persName><forename type="first">Lu</forename><surname>Zhou</surname></persName>
+			<idno type="ORCID">0000-0001-6240-6688</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Chunhua</forename><surname>Su</surname></persName>
+			<idno type="ORCID">0000-0002-6461-9684</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Zhen</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhe</forename><surname>Liu</surname></persName>
+			<idno type="ORCID">0000-0001-8578-2635</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Gerhard</forename><forename type="middle">P</forename><surname>Hancke</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.future.2018.04.043</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Future Generation Computer Systems</title>
+		<title level="j" type="abbrev">Future Generation Computer Systems</title>
+		<idno type="ISSN">0167-739X</idno>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page" from="548" to="559" />
+			<date type="published" when="2019-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Embedding Encryption and Machine Learning Intrusion Prevention Systems on Programmable Logic Controllers</title>
+		<author>
+			<persName><forename type="first">Thiago</forename><surname>Alves</surname></persName>
+			<idno type="ORCID">0000-0003-4440-8959</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Rishabh</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Morris</surname></persName>
+			<idno type="ORCID">0000-0002-4854-5419</idno>
+		</author>
+		<idno type="DOI">10.1109/les.2018.2823906</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Embedded Systems Letters</title>
+		<title level="j" type="abbrev">IEEE Embedded Syst. Lett.</title>
+		<idno type="ISSN">1943-0663</idno>
+		<idno type="ISSNe">1943-0671</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="99" to="102" />
+			<date type="published" when="2018-09" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">&lt;inline-formula&gt;&lt;tex-math notation=&quot;TeX&quot;&gt;${l_p}$&lt;/tex-math&gt;&lt;/inline-formula&gt;-norms in One-Class Classification for Intrusion Detection in SCADA Systems</title>
+		<author>
+			<persName><forename type="first">Patric</forename><surname>Nader</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Honeine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pierre</forename><surname>Beauseroy</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tii.2014.2330796</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+		<idno type="ISSN">1551-3203</idno>
+		<idno type="ISSNe">1941-0050</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2308" to="2317" />
+			<date type="published" when="2014-11" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Data Mining Approach for Developing Various Models Based on Types of Attack and Feature Selection as Intrusion Detection Systems (IDS)</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">S</forename><surname>Hota</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Akhilesh</forename><forename type="middle">Kumar</forename><surname>Shrivas</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-81-322-1665-0_85</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Intelligent Computing, Networking, and Informatics</title>
+				<meeting><address><addrLine>New Delhi</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer India</publisher>
+			<date type="published" when="2014" />
+			<biblScope unit="page" from="845" to="851" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Design of an Evolutionary Approach for Intrusion Detection</title>
+		<author>
+			<persName><forename type="first">Gulshan</forename><surname>Kumar</surname></persName>
+			<idno type="ORCID">0000-0001-8013-6140</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Krishan</forename><surname>Kumar</surname></persName>
+			<idno type="ORCID">0000-0001-9877-0238</idno>
+		</author>
+		<idno type="DOI">10.1155/2013/962185</idno>
+		<ptr target="https://doi.org/10.1155/2013/962185" />
+	</analytic>
+	<monogr>
+		<title level="j">The Scientific World Journal</title>
+		<title level="j" type="abbrev">The Scientific World Journal</title>
+		<idno type="ISSNe">1537-744X</idno>
+		<imprint>
+			<biblScope unit="volume">2013</biblScope>
+			<biblScope unit="page" from="1" to="14" />
+			<date type="published" when="2013" />
+			<publisher>Hindawi Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">A survey of intrusion detection systems based on ensemble and hybrid classifiers</title>
+		<author>
+			<persName><forename type="first">Abdulla</forename><forename type="middle">Amin</forename><surname>Aburomman</surname></persName>
+			<idno type="ORCID">0000-0002-8092-6000</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Mamun</forename><forename type="middle">Bin Ibne</forename><surname>Reaz</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2016.11.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="page" from="135" to="152" />
+			<date type="published" when="2017-03" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Knowledge base operator support system for nuclear power plant fault diagnosis</title>
+		<author>
+			<persName><forename type="first">Abiodun</forename><surname>Ayodeji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yong-Kuo</forename><surname>Liu</surname></persName>
+			<idno type="ORCID">0000-0001-7729-7154</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Hong</forename><surname>Xia</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.pnucene.2017.12.013</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Progress in Nuclear Energy</title>
+		<title level="j" type="abbrev">Progress in Nuclear Energy</title>
+		<idno type="ISSN">0149-1970</idno>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page" from="42" to="50" />
+			<date type="published" when="2018-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">CANN: An intrusion detection system based on combining cluster centers and nearest neighbors</title>
+		<author>
+			<persName><forename type="first">Wei-Chao</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shih-Wen</forename><surname>Ke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chih-Fong</forename><surname>Tsai</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.knosys.2015.01.009</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Knowledge-Based Systems</title>
+		<title level="j" type="abbrev">Knowledge-Based Systems</title>
+		<idno type="ISSN">0950-7051</idno>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page" from="13" to="21" />
+			<date type="published" when="2015-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Support vector ensemble for incipient fault diagnosis in nuclear plant components</title>
+		<author>
+			<persName><forename type="first">Abiodun</forename><surname>Ayodeji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yong-Kuo</forename><surname>Liu</surname></persName>
+			<idno type="ORCID">0000-0001-7729-7154</idno>
+		</author>
+		<idno type="DOI">10.1016/j.net.2018.07.013</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Engineering and Technology</title>
+		<title level="j" type="abbrev">Nuclear Engineering and Technology</title>
+		<idno type="ISSN">1738-5733</idno>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1306" to="1313" />
+			<date type="published" when="2018-12" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">SVR optimization with soft computing algorithms for incipient SGTR diagnosis</title>
+		<author>
+			<persName><forename type="first">Abiodun</forename><surname>Ayodeji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yong-Kuo</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.anucene.2018.07.011</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Annals of Nuclear Energy</title>
+		<title level="j" type="abbrev">Annals of Nuclear Energy</title>
+		<idno type="ISSN">0306-4549</idno>
+		<imprint>
+			<biblScope unit="volume">121</biblScope>
+			<biblScope unit="page" from="89" to="100" />
+			<date type="published" when="2018-11" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">A Survey of Data Mining and Machine Learning Methods for Cyber Security Intrusion Detection</title>
+		<author>
+			<persName><forename type="first">Anna</forename><forename type="middle">L</forename><surname>Buczak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Erhan</forename><surname>Guven</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/comst.2015.2494502</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<title level="j" type="abbrev">IEEE Commun. Surv. Tutorials</title>
+		<idno type="ISSNe">2373-745X</idno>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1153" to="1176" />
+			<date type="published" when="2016" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">The use of computational intelligence in intrusion detection systems: A review</title>
+		<author>
+			<persName><forename type="first">Shelly</forename><forename type="middle">Xiaonan</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wolfgang</forename><surname>Banzhaf</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.asoc.2009.06.019</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Soft Computing</title>
+		<title level="j" type="abbrev">Applied Soft Computing</title>
+		<idno type="ISSN">1568-4946</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="35" />
+			<date type="published" when="2010-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">A SCADA Intrusion Detection Framework that Incorporates Process Semantics</title>
+		<author>
+			<persName><forename type="first">Jeyasingam</forename><surname>Nivethan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mauricio</forename><surname>Papa</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2897795.2897814</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 11th Annual Cyber and Information Security Research Conference</title>
+				<meeting>the 11th Annual Cyber and Information Security Research Conference</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2016-04-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Neural Network based Intrusion Detection System for critical infrastructures</title>
+		<author>
+			<persName><forename type="first">Ondrej</forename><surname>Linda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Todd</forename><surname>Vollmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Milos</forename><surname>Manic</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ijcnn.2009.5178592</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2009 International Joint Conference on Neural Networks</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2009-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Towards resilient critical infrastructures: Application of Type-2 Fuzzy Logic in embedded network security cyber sensor</title>
+		<author>
+			<persName><forename type="first">Ondrej</forename><surname>Linda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Milos</forename><surname>Manic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jim</forename><surname>Alves-Foss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Todd</forename><surname>Vollmer</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/isrcs.2011.6016083</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2011 4th International Symposium on Resilient Control Systems</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2011-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">A survey of techniques for internet traffic classification using machine learning</title>
+		<author>
+			<persName><forename type="first">Thuy</forename><forename type="middle">T T</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Grenville</forename><surname>Armitage</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/surv.2008.080406</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<title level="j" type="abbrev">IEEE Commun. Surv. Tutorials</title>
+		<idno type="ISSNe">1553-877X</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="56" to="76" />
+			<date type="published" when="2008" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">False sequential logic attack on SCADA system and its physical impact analysis</title>
+		<author>
+			<persName><forename type="first">Weize</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lun</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zulan</forename><surname>Deng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhiliang</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2016.01.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="page" from="149" to="159" />
+			<date type="published" when="2016-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">A supervised energy monitoring-based machine learning approach for anomaly detection in a clean water supply system</title>
+		<author>
+			<persName><forename type="first">Andres</forename><surname>Robles-Durazno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Naghmeh</forename><surname>Moradpoor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">James</forename><surname>Mcwhinnie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gordon</forename><surname>Russell</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cybersecpods.2018.8560683</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 International Conference on Cyber Security and Protection of Digital Services (Cyber Security)</title>
+				<meeting><address><addrLine>Glasgow, UK</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Through the eye of the PLC</title>
+		<author>
+			<persName><forename type="first">Dina</forename><surname>Hadžiosmanović</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robin</forename><surname>Sommer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Emmanuele</forename><surname>Zambon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pieter</forename><forename type="middle">H</forename><surname>Hartel</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2664243.2664277</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 30th Annual Computer Security Applications Conference</title>
+				<meeting>the 30th Annual Computer Security Applications Conference<address><addrLine>New Orleans, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2014-12-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Modbus/DNP3 State-Based Intrusion Detection System</title>
+		<author>
+			<persName><forename type="first">Igor</forename><forename type="middle">Nai</forename><surname>Fovino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrea</forename><surname>Carcano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thibault</forename><surname>De Lacheze Murel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alberto</forename><surname>Trombetta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcelo</forename><surname>Masera</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/aina.2010.86</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2010 24th IEEE International Conference on Advanced Information Networking and Applications</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2010-04" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Anomaly behavior detection and reliability assessment of control systems based on association rules</title>
+		<author>
+			<persName><forename type="first">Xinchun</forename><surname>Jie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haikuan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Minrui</forename><surname>Fei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dajun</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qing</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">C</forename><surname>Yang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ijcip.2018.06.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Critical Infrastructure Protection</title>
+		<title level="j" type="abbrev">International Journal of Critical Infrastructure Protection</title>
+		<idno type="ISSN">1874-5482</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="90" to="99" />
+			<date type="published" when="2018-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">The Process Matters</title>
+		<author>
+			<persName><forename type="first">Marina</forename><surname>Krotofil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jason</forename><surname>Larsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dieter</forename><surname>Gollmann</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2714576.2714599</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 10th ACM Symposium on Information, Computer and Communications Security</title>
+				<meeting>the 10th ACM Symposium on Information, Computer and Communications Security<address><addrLine>Singapore</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2015-04-14" />
+		</imprint>
+		<respStmt>
+			<orgName>Computer and Communications Security</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Multilayer Data-Driven Cyber-Attack Detection System for Industrial Control Systems Based on Network, System, and Process Data</title>
+		<author>
+			<persName><forename type="first">Fan</forename><surname>Zhang</surname></persName>
+			<idno type="ORCID">0000-0002-8094-2473</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Hansaka</forename><forename type="middle">Angel Dias Edirisinghe</forename><surname>Kodituwakku</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Wesley</forename><surname>Hines</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jamie</forename><surname>Coble</surname></persName>
+			<idno type="ORCID">0000-0002-0736-673X</idno>
+		</author>
+		<idno type="DOI">10.1109/tii.2019.2891261</idno>
+		<ptr target="https://doi.org/10.1109/TII.2019.2891261" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+		<idno type="ISSN">1551-3203</idno>
+		<idno type="ISSNe">1941-0050</idno>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="4362" to="4369" />
+			<date type="published" when="2019-07" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Industrial Control System Traffic Data Sets for Intrusion Detection Research</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Morris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Gao</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-662-45355-1_5</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Progress in Pattern Recognition, Image Analysis, Computer Vision, and Applications</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2014" />
+			<biblScope unit="page" from="65" to="78" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Intrusion Detection System (IDS): Anomaly Detection Using Outlier Detection Approach</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Jabez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Muthukumar</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procs.2015.04.191</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<title level="j" type="abbrev">Procedia Computer Science</title>
+		<idno type="ISSN">1877-0509</idno>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="page" from="338" to="346" />
+			<date type="published" when="2015" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">A novel hybrid intrusion detection method integrating anomaly detection with misuse detection</title>
+		<author>
+			<persName><forename type="first">Gisung</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Seungmin</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sehun</forename><surname>Kim</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.eswa.2013.08.066</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Expert Systems with Applications</title>
+		<title level="j" type="abbrev">Expert Systems with Applications</title>
+		<idno type="ISSN">0957-4174</idno>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1690" to="1700" />
+			<date type="published" when="2014-03" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Identification of malicious activities in industrial internet of things based on deep learning models</title>
+		<author>
+			<persName><forename type="first">A.-H</forename><surname>Muna</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Inf. Secur. Appl</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page" from="1" to="e11" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Deep Feature Extraction for multi-Class Intrusion Detection in Industrial Control Systems</title>
+		<author>
+			<persName><forename type="first">Sasanka</forename><surname>Potluri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Diedrich</surname></persName>
+		</author>
+		<idno type="DOI">10.7763/ijcte.2017.v9.1169</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Computer Theory and Engineering</title>
+		<title level="j" type="abbrev">IJCTE</title>
+		<idno type="ISSNe">1793-8201</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="374" to="379" />
+			<date type="published" when="2017" />
+			<publisher>IACSIT Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<monogr>
+		<title level="m" type="main">Developing a High-Accuracy Cross Platform Host-Based Intrusion Detection System Capable of Reliably Detecting Zero-Day Attacks</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Creech</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014" />
+			<pubPlace>Canberra, Australia</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>University of New South Wales</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Generation of a new IDS test dataset: Time to retire the KDD collection</title>
+		<author>
+			<persName><forename type="first">Gideon</forename><surname>Creech</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiankun</forename><surname>Hu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/wcnc.2013.6555301</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2013 IEEE Wireless Communications and Networking Conference (WCNC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013-04" />
+		</imprint>
+	</monogr>
+	<note>2013 IEEE Wireless Communications and Networking Conference (WCNC)</note>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Evaluation of Modified Vector Space Representation Using ADFA-LD and ADFA-WD Datasets</title>
+		<author>
+			<persName><forename type="first">Bhavesh</forename><surname>Borisaniya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dhiren</forename><surname>Patel</surname></persName>
+		</author>
+		<idno type="DOI">10.4236/jis.2015.63025</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Information Security</title>
+		<title level="j" type="abbrev">JIS</title>
+		<idno type="ISSN">2153-1234</idno>
+		<idno type="ISSNe">2153-1242</idno>
+		<imprint>
+			<biblScope unit="volume">06</biblScope>
+			<biblScope unit="issue">03</biblScope>
+			<biblScope unit="page" from="250" to="264" />
+			<date type="published" when="2015" />
+			<publisher>Scientific Research Publishing, Inc.</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Denial of Service Attacks: Detecting the Frailties of Machine Learning Algorithms in the Classification Process</title>
+		<author>
+			<persName><forename type="first">Ivo</forename><surname>Frazão</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pedro</forename><forename type="middle">Henriques</forename><surname>Abreu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tiago</forename><surname>Cruz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hélder</forename><surname>Araújo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paulo</forename><surname>Simões</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-05849-4_19</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Critical Information Infrastructures Security</title>
+				<meeting><address><addrLine>Kaunas, Lithuania</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018-12-30" />
+			<biblScope unit="page" from="230" to="235" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Detection of cyberattacks in a water distribution system using machine learning techniques</title>
+		<author>
+			<persName><forename type="first">Patric</forename><surname>Nader</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Honeine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pierre</forename><surname>Beauseroy</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icdipc.2016.7470786</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 Sixth International Conference on Digital Information Processing and Communications (ICDIPC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-04" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">An Evaluation of Selection Method in the Classification of Scada Datasets Based on the Characteristics of the Data and Priority of Performance</title>
+		<author>
+			<persName><forename type="first">Jaime</forename><surname>Yeckle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sherif</forename><surname>Abdelwahed</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3093241.3093271</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference on Compute and Data Analysis - ICCDA &apos;17</title>
+				<meeting>the International Conference on Compute and Data Analysis - ICCDA &apos;17<address><addrLine>Florida, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Intrusion Detection for SCADA Systems</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">P</forename><surname>Turnipseed</surname></persName>
+		</author>
+		<idno type="DOI">10.1201/b16390-14</idno>
+	</analytic>
+	<monogr>
+		<title level="m">The State of the Art in Intrusion Prevention and Detection</title>
+				<imprint>
+			<publisher>Auerbach Publications</publisher>
+			<date type="published" when="2014-01-29" />
+			<biblScope unit="page" from="229" to="250" />
+		</imprint>
+		<respStmt>
+			<orgName>Mississippi State University</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">Privacy preservation intrusion detection technique for SCADA systems</title>
+		<author>
+			<persName><forename type="first">Marwa</forename><surname>Keshk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nour</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elena</forename><surname>Sitnikova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gideon</forename><surname>Creech</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/milcis.2017.8190422</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 Military Communications and Information Systems Conference (MilCIS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">C B</forename><surname>Hink</surname></persName>
+		</author>
+		<title level="m">Machine learning for power system disturbance and cyberattack discrimination</title>
+				<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+	<note>7th International Symposium on Resilient Control Systems (ISRCS)</note>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">Detecting Cyber Attacks in Industrial Control Systems Using Convolutional Neural Networks</title>
+		<author>
+			<persName><forename type="first">Moshe</forename><surname>Kravchik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Asaf</forename><surname>Shabtai</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264896</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy<address><addrLine>Toronto, ON, Canada</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Anomaly Detection in Cyber Physical Systems Using Recurrent Neural Networks</title>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Goh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sridhar</forename><surname>Adepu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcus</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zi</forename><forename type="middle">Shan</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/hase.2017.36</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE 18th International Symposium on High Assurance Systems Engineering (HASE)</title>
+				<meeting><address><addrLine>Singapore</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">Control variable classification, modeling and anomaly detection in Modbus/TCP SCADA systems</title>
+		<author>
+			<persName><forename type="first">Noam</forename><surname>Erez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Avishai</forename><surname>Wool</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ijcip.2015.05.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Critical Infrastructure Protection</title>
+		<title level="j" type="abbrev">International Journal of Critical Infrastructure Protection</title>
+		<idno type="ISSN">1874-5482</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="59" to="70" />
+			<date type="published" when="2015-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">I</forename><surname>Urbina</surname></persName>
+		</author>
+		<title level="m">Attacking Fieldbus Communications in ICS: Applications to the SWaT Testbed, SG-CRC</title>
+				<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">A survey of network-based intrusion detection data sets</title>
+		<author>
+			<persName><forename type="first">Markus</forename><surname>Ring</surname></persName>
+			<idno type="ORCID">0000-0002-6348-5717</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Sarah</forename><surname>Wunderlich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Deniz</forename><surname>Scheuring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dieter</forename><surname>Landes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Hotho</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2019.06.005</idno>
+		<idno type="arXiv">arXiv:1903.02460vol.2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page" from="147" to="167" />
+			<date type="published" when="2019-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Toward developing a systematic approach to generate benchmark datasets for intrusion detection</title>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Shiravi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hadi</forename><surname>Shiravi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mahbod</forename><surname>Tavallaee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2011.12.012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="357" to="374" />
+			<date type="published" when="2012-05" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title level="a" type="main">SURGIMIENTO Y CAÍDA DEL IMPERIO MEXICANO</title>
+		<author>
+			<persName><surname>Caida</surname></persName>
+		</author>
+		<idno type="DOI">10.2307/j.ctv512zjf.4</idno>
+		<ptr target="http://www.caida.org/data2019" />
+	</analytic>
+	<monogr>
+		<title level="m">Surgimiento y caída del Imperio mexicano</title>
+				<imprint>
+			<publisher>El Colegio de México</publisher>
+			<date type="published" when="2006-01-01" />
+			<biblScope unit="page" from="13" to="52" />
+		</imprint>
+	</monogr>
+	<note>cited 2019 07/08]. [Dataset</note>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<monogr>
+		<title level="m" type="main">Anonymized traces collected by U. Brescia Ground Truth (GT) software suite</title>
+		<author>
+			<persName><surname>Unibs</surname></persName>
+		</author>
+		<idno type="DOI">10.4000/traces.5030</idno>
+		<ptr target="http://netweb.ing.unibs.it/~ntw/tools/traces/" />
+		<imprint>
+			<date type="published" when="2011-05-16" />
+			<publisher>OpenEdition</publisher>
+		</imprint>
+	</monogr>
+	<note>cited 2019 07/08</note>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<monogr>
+		<title level="m" type="main">Destination Nano! September 22 - 23 at UMass Lowell</title>
+		<author>
+			<persName><surname>Umass</surname></persName>
+		</author>
+		<idno type="DOI">10.4053/hi448-100915</idno>
+		<ptr target="http://traces.cs.umass.edu/index.php/Main/HomePage2018" />
+		<imprint>
+			<date>null</date>
+			<publisher>National Nanomanufacturing Network</publisher>
+		</imprint>
+	</monogr>
+	<note>cited 2019 07/08]. [Dataset</note>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<monogr>
+		<title level="m" type="main">Network forensic and network security monitoring PCAP repository</title>
+		<author>
+			<persName><surname>Nfnsm</surname></persName>
+		</author>
+		<ptr target="https://www.netresec.com/?page¼PcapFiles2019" />
+		<imprint/>
+	</monogr>
+	<note>cited 2019 07/08]. [Dataset</note>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">Towards a Reliable Intrusion Detection Benchmark Dataset</title>
+		<author>
+			<persName><forename type="first">Iman</forename><surname>Sharafaldin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amirhossein</forename><surname>Gharib</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arash</forename><forename type="middle">Habibi</forename><surname>Lashkari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.13052/jsn2445-9739.2017.009</idno>
+		<ptr target="https://registry.opendata.aws/cse-cic-ids2018/2018" />
+	</analytic>
+	<monogr>
+		<title level="j">Software Networking</title>
+		<title level="j" type="abbrev">JSN</title>
+		<idno type="ISSN">2445-9739</idno>
+		<imprint>
+			<biblScope unit="volume">2017</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="177" to="200" />
+			<date type="published" when="2017" />
+			<publisher>River Publishers</publisher>
+		</imprint>
+	</monogr>
+	<note>Dataset</note>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Information Exploration Shootout or &quot;Benchmarks for Information Exploration&quot;</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Grinstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Piatetsky-Shapiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Wills</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/visual.1996.568163</idno>
+		<ptr target="http://ivpr.cs.uml.edu/shootout/network.html2001" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of Seventh Annual IEEE Visualization &apos;96</title>
+				<meeting>Seventh Annual IEEE Visualization &apos;96</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date>null</date>
+		</imprint>
+	</monogr>
+	<note>cited 2019 07/08</note>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<monogr>
+		<title level="m" type="main">sequence-based Intrusion detection</title>
+		<author>
+			<persName><forename type="first">U</forename><forename type="middle">O N</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mexico</forename></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>cited 2019 07/08</note>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<analytic>
+		<title level="a" type="main">Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization</title>
+		<author>
+			<persName><forename type="first">Iman</forename><surname>Sharafaldin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arash</forename><surname>Habibi Lashkari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.5220/0006639801080116</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th International Conference on Information Systems Security and Privacy</title>
+				<meeting>the 4th International Conference on Information Systems Security and Privacy</meeting>
+		<imprint>
+			<publisher>SCITEPRESS - Science and Technology Publications</publisher>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A G</forename><surname>Dua</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Uci Machine Learning</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Repository</surname></persName>
+		</author>
+		<ptr target="http://archive.ics.uci.edu/ml" />
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note>cited 2019 20/06</note>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Hettich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bay</surname></persName>
+		</author>
+		<ptr target="https://www.digitalbond.com/2019" />
+		<title level="m">The UCI KDD Archive</title>
+				<meeting><address><addrLine>Irvine, CA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1999" />
+			<biblScope unit="volume">152</biblScope>
+		</imprint>
+		<respStmt>
+			<orgName>University of California. Department of Information and Computer Science</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">A detailed analysis of the KDD CUP 99 data set</title>
+		<author>
+			<persName><forename type="first">Mahbod</forename><surname>Tavallaee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ebrahim</forename><surname>Bagheri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><forename type="middle">A</forename><surname>Ghorbani</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cisda.2009.5356528</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2009 IEEE Symposium on Computational Intelligence for Security and Defense Applications</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2009-07" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">UNSW-NB15: a comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set)</title>
+		<author>
+			<persName><forename type="first">Nour</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jill</forename><surname>Slay</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/milcis.2015.7348942</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2015 Military Communications and Information Systems Conference (MilCIS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">The evaluation of Network Anomaly Detection Systems: Statistical analysis of the UNSW-NB15 data set and the comparison with the KDD99 data set</title>
+		<author>
+			<persName><forename type="first">Nour</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jill</forename><surname>Slay</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/19393555.2015.1125974</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Information Security Journal: A Global Perspective</title>
+		<title level="j" type="abbrev">Information Security Journal: A Global Perspective</title>
+		<idno type="ISSN">1939-3555</idno>
+		<idno type="ISSNe">1939-3547</idno>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">1-3</biblScope>
+			<biblScope unit="page" from="18" to="31" />
+			<date type="published" when="2016-01-11" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<analytic>
+		<title level="a" type="main">Testing Intrusion detection systems</title>
+		<author>
+			<persName><forename type="first">John</forename><surname>Mchugh</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/382912.382923</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Transactions on Information and System Security</title>
+		<title level="j" type="abbrev">ACM Trans. Inf. Syst. Secur.</title>
+		<idno type="ISSN">1094-9224</idno>
+		<idno type="ISSNe">1557-7406</idno>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="262" to="294" />
+			<date type="published" when="2000-11" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Adhikari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Morris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Borges</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Beaver</surname></persName>
+		</author>
+		<ptr target="https://sites.google.com/a/uah.edu/tommy-morris-uah/ics-data-sets2018" />
+		<title level="m">ORNL industrial control system (ICS) cyber attack datasets</title>
+				<imprint/>
+	</monogr>
+	<note>cited 2019 07-09</note>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<monogr>
+		<title level="m" type="main">CTF-WP industrial control traffic</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Laboratory</surname></persName>
+		</author>
+		<ptr target="http://www.icsmaster.org/archives/ics/7412018" />
+		<imprint/>
+	</monogr>
+	<note>cited 2019 07/09</note>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<monogr>
+		<author>
+			<persName><forename type="first">S</forename><surname>Adepu</surname></persName>
+		</author>
+		<ptr target="https://itrust.sutd.edu.sg/itrust-labs_datasets/" />
+		<title level="m">iTrust-SWaT Dataset</title>
+				<imprint/>
+	</monogr>
+	<note>cited 2019 07-11</note>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<monogr>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">I C</forename></persName>
+		</author>
+		<ptr target="https://www.netresec.com/?page¼PCAP4SICS2019" />
+		<title level="m">Conference, 4SICS repositories</title>
+				<imprint/>
+	</monogr>
+	<note>cited 2019 07/08</note>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<monogr>
+		<title level="m" type="main">3rd International Symposium for ICS &amp; SCADA Cyber Security Research 2015</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Peterson</surname></persName>
+		</author>
+		<idno type="DOI">10.14236/ewic/ics2015</idno>
+		<ptr target="https://www.digitalbond.com/2019" />
+		<imprint>
+			<date type="published" when="2015" />
+			<publisher>BCS Learning &amp;Development Ltd</publisher>
+		</imprint>
+	</monogr>
+	<note>Available from. cited 2019 07/ 08</note>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<analytic>
+		<title level="a" type="main">An isolated virtual cluster for SCADA network security research</title>
+		<author>
+			<persName><forename type="first">Antoine</forename><surname>Lemay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">José</forename><forename type="middle">Enrique</forename><surname>Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Scott</forename><forename type="middle">S</forename><surname>Knight</surname></persName>
+		</author>
+		<idno type="DOI">10.14236/ewic/icscsr2013.10</idno>
+		<ptr target="https://github.com/antoine-lemay/Modbus_dataset" />
+	</analytic>
+	<monogr>
+		<title level="m">9th Workshop on Cyber Security Experimentation and Test</title>
+				<imprint>
+			<publisher>BCS Learning &amp; Development</publisher>
+			<date type="published" when="2013-09-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Smith</surname></persName>
+		</author>
+		<ptr target="https://github.com/automayt/ICS-pcap2019" />
+		<title level="m">A collection of ICS/SCADA PCAPs</title>
+				<imprint/>
+	</monogr>
+	<note>cited 2019 07/08</note>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<monogr>
+		<title level="m" type="main">DARPA intrusion detection evaluation on LLDOS and Windows NT</title>
+		<author>
+			<persName><surname>Darpa</surname></persName>
+		</author>
+		<ptr target="http://www.ll.mit.edu/r-d/datasets/2000-darpa-intrusion-detection-scenario-specific-datasets2000" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<monogr>
+		<title level="m" type="main">LBNL/ICSI enterprise tracing project</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B N L</forename><surname>Icsi</surname></persName>
+		</author>
+		<ptr target="https://www.icir.org/enterprise-tracing/download.html2005" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<analytic>
+		<title level="a" type="main">A survey on network data collection</title>
+		<author>
+			<persName><forename type="first">Donghao</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zheng</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yulong</forename><surname>Fu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhen</forename><surname>Yao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jnca.2018.05.004</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Network and Computer Applications</title>
+		<title level="j" type="abbrev">Journal of Network and Computer Applications</title>
+		<idno type="ISSN">1084-8045</idno>
+		<imprint>
+			<biblScope unit="volume">116</biblScope>
+			<biblScope unit="page" from="9" to="23" />
+			<date type="published" when="2018-08" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b94">
+	<analytic>
+		<title level="a" type="main">The WEKA data mining software</title>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Hall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eibe</forename><surname>Frank</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Geoffrey</forename><surname>Holmes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bernhard</forename><surname>Pfahringer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Reutemann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ian</forename><forename type="middle">H</forename><surname>Witten</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1656274.1656278</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGKDD Explorations Newsletter</title>
+		<title level="j" type="abbrev">SIGKDD Explor. Newsl.</title>
+		<idno type="ISSN">1931-0145</idno>
+		<idno type="ISSNe">1931-0153</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="10" to="18" />
+			<date type="published" when="2009-11-16" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b95">
+	<analytic>
+		<title level="a" type="main">Comparative Analysis of Premises Valuation Models Using KEEL, RapidMiner, and WEKA</title>
+		<author>
+			<persName><forename type="first">Magdalena</forename><surname>Graczyk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tadeusz</forename><surname>Lasota</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bogdan</forename><surname>Trawiński</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-04441-0_70</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Computational Collective Intelligence. Semantic Web, Social Networks and Multiagent Systems</title>
+				<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2009" />
+			<biblScope unit="page" from="800" to="812" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b96">
+	<monogr>
+		<title level="m" type="main">An overview of issues in testing intrusion detection systems</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Mell</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.ir.7007</idno>
+		<imprint>
+			<date type="published" when="2003" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b97">
+	<analytic>
+		<title level="a" type="main">OpenPLC: An IEC 61,131–3 compliant open source industrial controller for cyber security research</title>
+		<author>
+			<persName><forename type="first">Thiago</forename><surname>Alves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Morris</surname></persName>
+			<idno type="ORCID">0000-0002-4854-5419</idno>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2018.07.007</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page" from="364" to="379" />
+			<date type="published" when="2018-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b98">
+	<analytic>
+		<title level="a" type="main">A Survey of Industrial Control System Testbeds</title>
+		<author>
+			<persName><forename type="first">Hannes</forename><surname>Holm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Karresand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arne</forename><surname>Vidström</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Erik</forename><surname>Westring</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-26502-5_2</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Secure IT Systems</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="11" to="26" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

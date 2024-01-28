@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A Conceptual Architecture and Model for Smart Manufacturing Relying on Service-Based Digital Twins</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>IEEE</publisher>
+				<availability status="unknown"><p>Copyright IEEE</p>
+				</availability>
+				<date type="published" when="2019-07">2019-07</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Tiziana</forename><surname>Catarci</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Sapienza Università di Roma</orgName>
+								<address>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Donatella</forename><surname>Firmani</surname></persName>
+							<email>donatella.firmani@uniroma3.it</email>
+							<affiliation key="aff1">
+								<orgName type="institution">Università Roma Tre</orgName>
+								<address>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Francesco</forename><surname>Leotta</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Sapienza Università di Roma</orgName>
+								<address>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Federica</forename><surname>Mandreoli</surname></persName>
+							<email>federica.mandreoli@unimore.it</email>
+						</author>
+						<author>
+							<persName><forename type="first">Massimo</forename><surname>Mecella</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Sapienza Università di Roma</orgName>
+								<address>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Francesco</forename><surname>Sapio</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Sapienza Università di Roma</orgName>
+								<address>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">Università di Modena e</orgName>
+								<address>
+									<settlement>Reggio Emilia</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A Conceptual Architecture and Model for Smart Manufacturing Relying on Service-Based Digital Twins</title>
+					</analytic>
+					<monogr>
+						<title level="m">2019 IEEE International Conference on Web Services (ICWS)</title>
+						<imprint>
+							<publisher>IEEE</publisher>
+							<date type="published" when="2019-07" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/icws.2019.00047</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:24+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The technological foundation of smart manufacturing consists of cyber-physical systems and the Internet-of-Things (IoT). Each IoT device in a smart factory can be coupled with a digital twin, that is, a dynamic virtual representation of the physical system across its life-cycle using real-time sensor data. Currently, the manufacturing process itself, the involved devices, and how they interact, is designed by human experts in a traditional way. We envision an architecture where humans can instead specify a goal and take advantage of technologies such as digital twins to automatically compose the corresponding physical processes, sharing some analogies with the notion of Web service composition.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Last years witnessed a continuous evolution of technologies in the fields of communication, networking, storage and computing, that found their way in the traditional world of industrial automation. This trend, functional to increase productivity and quality, to ease workers' lives, and to define new business opportunities, goes under the name of smart manufacturing or Industry 4.0.</p><p>Digital factory is a key concept. It aims at using digital technologies to promote the integration of product design processes, manufacturing processes, and general collaborative business processes across factories. An important aspect of this integration is to ensure interoperability between machines, products, processes, and services. A digital factory consists of a multi-layered integration of the information related to various activities along the factory and related resources. Actors can fall in different categories, being humans (i.e., final users or participants in the production process), information systems or industrial machines. These physical entities must have a faithful representation in the digital world, usually referred to as digital twins. <ref type="bibr" target="#b0">1</ref> A digital twin (DT) exposes a set of services allowing to execute certain operations and produce data describing its activity. We can imagine these data stored in a factory data space together with other information, e.g., data available from the company and production history, worker suggestions and preferences. Such services are typically used to query or manipulate the state of the system, and associated data are leveraged for diagnostics and prognostics. The availability of DT services and data can have a huge impact on the design of manufacturing processes, by allowing automatic recovery and optimization, and even automatic composition of the intermediate steps for achieving a production goal.</p><p>Inspired by the research about automatic orchestration and composition of software artefacts, such as Web services, we argue that: (i) an important step towards the development of new automation techniques in smart manufacturing is the modeling of DT services and data as software artifacts; (ii) the principles and techniques for composition of artifacts in the digital world can be leveraged to improve automation in the physical one.</p><p>A crucial difference between traditional software artifacts used in composition techniques and DTs is that DTs may not share the same view of the world. Modern information systems and industrial machines may natively come out indeed with their digital twin. In other cases, especially when the approach is applied to already established factories and production processes, digital twins are obtained by wrapping actors that are already in place. In such scenarios, data management techniques (including integration and exchange) are a key ingredient for DTs interoperability.</p><p>Properties of DTs. DTs are commonly known as a key enabler for the digital transformation in manufacturing, however, in the literature, there is no common understanding concerning this term. Different definitions agree on features such as (i) connectivity, i.e., the ability to communicate with other entities and digital twins, (ii) autonomy, i.e., the possibility for the DT to live independently from other entities, (iii) homogeneity, i.e., the capability, strictly connected to the autonomy, that allows to use the same DT regardless of the specific production environment, (iv) easiness of customization, i.e., the possibility to modify the behavior of a physical entity by using the functionalities exposed by its DT, and (v) traceability, i.e., the fact that a DT leaves traces of the activity of the corresponding physical entity.</p><p>Our contribution. In this context, the contribution of this paper is twofold: (i) initially, we aim at reviewing recent approaches for handling DTs, in order to fully understand the relationship between DTs and software artefacts such as Web services (WSs); and then (ii) we propose a complex architecture for digital factories, which exploits digital twins and aim at exploiting automatic composition techniques of WSs, based on the seminal results of <ref type="bibr" target="#b4">[5]</ref>. Our proposal captures analogies and differences between DTs and WSs, and enables integration and composition of DTs through offered services and data available in the data space. We believe that the similarity between DTs and WSs envisioned in our approach will foster further research on smart manufacturing.</p><p>Outline. The paper is organized as it follows. Section II surveys relevant literature about DTs, and outlines available technologies. Section III describes the proposed architecture, and finally Section IV concludes the paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. SURVEYING DIGITAL TWINS</head><p>We perform a survey on relevant work, by adopting methods typical of a Systematic Literature Review (SLR) <ref type="bibr" target="#b11">[12,</ref><ref type="bibr" target="#b12">13]</ref>. Rather than strictly performing a SLR, we adopt some SLR techniques in order to summarize the current status of the technology, highlight the benefits and limitations of the proposed methods, and suggest areas for further investigation. Specifically, we define a set of queries over Google Scholar, and focus on the recent works that are returned for those queries, as summarized in Table <ref type="table" target="#tab_0">I</ref>. Intuitively, our queries correspond to the following research questions: (R1) which is the actual overlapping between DTs and cyber-physical systems? (R2) how much is the DT concept strictly related to smart manufacturing? (R3,R4) What current approaches for DTs propose as far as semantics and data exchange? (R5) How can I predict the behaviour of a DT without its physical counterpart?</p><p>Finally, we use papers in Table <ref type="table" target="#tab_0">I</ref> to identify other related works. The resulting body of papers is discussed in the following, together with the answers to the above questions. (R1) DTs and cyber-physical systems. DTs monitor and control physical entities, where physical entities send data to update what are commonly referred to as the virtual models <ref type="bibr" target="#b13">[14,</ref><ref type="bibr" target="#b2">3]</ref>.</p><p>Authors in <ref type="bibr" target="#b0">[1]</ref> introduce a DT reference model for a cloud-based cyber-physical system, such as a smart city. The model is based on a smart interaction controller using a Bayesian belief network. They divide the system into three operational modes, namely (i) physical level sensors-fusion mode, (ii) cyber-level digital twin services-fusion mode and (iii) a deep integration of sensor-services fusion mode. They provide a context-based control decision scheme that uses Bayesian networks and fuzzy logic based rules to select any of these system modes for inter-system interactions.</p><p>Authors in <ref type="bibr" target="#b26">[27]</ref> introduce a novel architecture for largescale DT platforms including a distributed DT cooperation framework, flexible data-centric communication middleware, and the platform-based DT application to develop a reliable advanced driver assistance system.</p><p>(R2) DTs and smart manufacturing. In the the traditional manufacturing process, the production plan is generated based on the new and historical orders. Then the preparation for production is carried out, such as equipment maintenance and material collection. Finally, formal production is executed according to the plan. If some conflicts appear, the plan is modified to adapt to the actual situations. After production, finished products are inspected to ensure whether they meet requirements, and consequently transported into the warehouse or repaired. Information generated during production such as process documents and fault records are kept in files for the next round. The work of <ref type="bibr" target="#b22">[23]</ref> provides a conceptual model and specific operation mechanisms for a DT shop-floor, that is, a basic unit of manufacturing, where data from both physical and virtual sides as well as the fused data are provided to drive all the steps of the production process.</p><p>Authors in <ref type="bibr" target="#b23">[24]</ref> introduce a DT-based system for the waste electrical and electronic equipment (WEEE) recovery to support the manufacturing/re-manufacturing operations throughout the product's life cycle. The system is based on a Service Oriented Architecture (SOA), in which both the electronic device and its DT are considered as the services. The DT plays as the bridge between the physical world and the cyber world. As the product moves from the beginningof-life to middle-of-life and end-of-life, the knowledge and information maintained inside its DT becomes bigger and richer. The digital world is supported and hosted by a cloud computing environment. Computer-aided engineering modules help to simulate the performance to validate and improve the product design. During manufacturing processes, the operations are controlled by the manufacturing execution system. With the help of multiple enablers, e.g., smart monitors, wireless sensors and other IoT devices, the DT is strengthened by the related operation and product performance data collected from the factory. After an end user purchases the product, she can interact with the DT via multiple enablers, e.g., a RFID reader and near-field communication, which are affordable devices for general usage.</p><p>Authors in <ref type="bibr" target="#b24">[25]</ref> provide an overview of Industry 4.0 features in multiple reference architectures and develops a maturity model for IT architectures for data-driven manufacturing. The group around Reference Architecture Model Industry 4.0 -RAMI -developed a detailed conceptual architecture and a first implementation of the digital twin, the open Asset Administrative Shell. It consists of an operating system and can be integrated into a SOA. RAMI is explicitly defined as a SOA, relying on functionalities encapsulated into services. As an example, RAMI provides access to an administrative shell through a service interface and a common data format. More in details, the digital twin in the Industrial Internet Reference Architecture is located in the entity abstraction layer of the control domain. It directly "simulation" (≥ 2018) <ref type="bibr">[19] [10, 7, 26]</ref> builds upon of the communication layer and provides an abstraction of sensor values and actuators.</p><p>(R3) Models of and in digital twins. Authors in <ref type="bibr" target="#b27">[28]</ref> introduce a semantic schema representation that categorises industrial data streams in DTs, allowing subscribers to consume similar data from multiple assets within a single data analytics pipeline, and paving the way for a more intuitive management of digital twin representations from industrial assets.</p><p>In order to execute operations between products, processes and resources, authors in <ref type="bibr" target="#b3">[4]</ref> propose the usage of the popular Automation Markup Language (AutomationML), for modelling a structural parts machining cell. Automa-tionML stores engineering information following an objectoriented paradigm and allows to model physical and logical components as data objects. An object may consist of other sub-objects, and may itself be a part of a larger composition or aggregation.</p><p>Authors in <ref type="bibr" target="#b1">[2]</ref> model digital factories as the DTs of physical facilities, replicating the facility in terms of installed machinery, material handling equipment, and layout. The digital factory is supported by a formal ontology and a mathematical model for quantifying the processing capabilities. Manufacturing Service Description Language (MSDL) is a descriptive ontology developed for representation of capabilities of manufacturing services. MSDL decomposes the manufacturing capabilities into five levels of abstraction, namely, supplier-level, shop-level, machine-level, devicelevel, and process-level. A unique feature of MSDL is that it is built around a service-oriented paradigm, therefore, it can be used for representing a manufacturing system as a collection of manufacturing services. MSDL was initially designed to enable automated supplier discovery in distributed environments with focus on mechanical machining services. However, to address a wider range of services offered by small and medium-sized suppliers in contract manufacturing industry, the service ontology can always be extended systematically through active involvement of a community of ontology users.</p><p>All the above works aim at building models of some aspects of DTs. Clearly, a DT itself consists of an information model to describe its physical twin <ref type="bibr" target="#b10">[11]</ref>. Specifically, a DT can consist of different models and data, that take into account the different phases of product life cycle. As discussed in <ref type="bibr" target="#b19">[20]</ref>, such models include: system models, functional models, 3D geometric models, multiphysics models, manufacturing models, and usage models. (R4) Data exchange. Some problems affecting product data management and application in Product Lifecycle Management (PLM) exist as follows: (1) due to the different purposes and tasks, the data generated in various phases of the entire product lifecycle may form information islands between different phases of the product lifecycle; (2) there is a lot of duplicate data in different phases of product lifecycle. These duplicate data may cause wasting of resources and data sharing problem; (3) the interaction and iteration between the so-called big data analysis and various activities in the entire product lifecycle are nowadays relatively absent; (4) the current applications of big data prefer to put emphasis on the analysis of physical product data rather than the data from virtual models.</p><p>Authors in <ref type="bibr" target="#b19">[20]</ref> use AutomationML (analogously to the already mentioned work of <ref type="bibr" target="#b3">[4]</ref>) to model attributes of a DT, and discuss its application towards the data exchange between different systems that are connected with the DT itself.</p><p>Authors in <ref type="bibr" target="#b21">[22]</ref> discuss more in general how to generate and use converged DT data to better serve product lifecycle, so as to drive product design and manufacturing. (R5) Simulation in DTs. Simulation is widely used to predict how the physical twin of a DT can be expected to perform in the real world, thus it is crucial in a hypothetical DTs composition task. By incorporating data from the physical twin into the DT, engineers can improve system models, and subsequently use the results of the analysis with the DT to improve the operation of the physical system in the real-world.</p><p>Authors in <ref type="bibr" target="#b18">[19]</ref> introduce simulation techniques to make digital twins experimentable, in order to have Experimentable Digital Twins (EDTs). The resulting networks of interacting EDTs is simulated in virtual testbeds, providing new foundations for comprehensive simulation-based systems engineering. The networking of EDTs with real assets leads to hybrid application scenarios in which EDTs are used in combination with real hardware, thus realizing complex control algorithms, innovative user interfaces, or mental models for intelligent systems.</p><p>Authors in <ref type="bibr" target="#b9">[10]</ref> present an approach to automatically generate the virtual environment from specifications. The architecture of their framework is composed of two main modules, the generator and the virtual environment. The generator module takes engineer-and domain-specific knowledge as input to create the virtual environment. Once the DTs and the network topology have been generated, the virtual environment can operate in two modes. First, the virtual environment provides a simulation mode, in which the DTs run independently from the physical environment. Second, the replication mode records events such as network traffic from the physical environment and replicates them in the virtual setup. The framework also includes multiple modules that can be activated on demand, such as monitoring, security analysis and intrusion detection.</p><p>Authors in <ref type="bibr" target="#b6">[7]</ref> focus on the efficacy of modelling and simulating the as-manufactured geometry of each individual component towards the realization of a DT for nonstandardized material test specimen.</p><p>Authors in <ref type="bibr" target="#b25">[26]</ref> discuss upcoming challenges to exploit the full potential of modelling and simulation within smart factories; to address these challenges, they present a framework for modelling and simulation in CPS-based factories.</p><p>From the discussed literature, we observe that DTs are used in a variety of smart manufacturing scenarios, possibly confused with the more general cyber-physical systems. Models of DTs mainly focus on specific interoperability aspects rather than capturing the whole operation semantic. We note that data exchange techniques for DTs are available in literature, although they do not take fully into account the heterogeneity of a digital factory data space. No work to the best of our knowledge deals with automatic DT composition.</p><p>Finally, state-of-the-art simulation techniques show promising results.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Technologies for realizing digital twins</head><p>Several technologies do exist allowing to implement DTs. In general, current solutions provided by some of the key IoT platforms are pretty basic. There is a lot of work needed for digital twins to become a reality for developers.</p><p>The exceptions appears to be the Eclipse Ditto and Bosch IoT Things solutions; they appear to have the most advanced technology for DTs, basic building blocks seem to be there, nevertheless there are still missing features, like simulation and data integration. Open source solutions. Eclipse Ditto 2 is a project created by the Eclipse Foundation and contains the technology used for IoT solutions. The Eclipse Ditto website contains detailed documentation and a sandbox server. Commercial solutions. GE Predix 3 is a sophisticated solution dealing with asset-centric digital twins. GE Predix provides a detailed tutorial on how to create a digital twin for analytics. It also has an Asset Service that allows to model its own assets, which can be essential to any DT solution. Bosch IoT Things <ref type="bibr" target="#b3">4</ref> is the digital twin solution by Bosch. Bosch provides detailed technical documentation, including developer guides, demo applications, and hosted dashboard. The Bosch DT solution appears to be the most advanced and, more importantly, the most accessible to developers.</p><p>Cloud-based solutions. Microsoft Azure IoT 5 includes the concept of device twin as part of their device management solution. A device twin is automatically created when a device is connected to the MS IoT Hub. The device twin is represented by a JSON file that stores the device state information that can be used to synchronize device information with back-end processes. Amazon AWS IoT 6 refers to a digital twin through the introduction of the notion of a device shadow. A device shadow is a JSON file that contains the state information, meta-data, timestamp, unique client token, and version of a device connected to the device shadow service. There are three basic REST APIs that can be used to interact with the device shadow: GET, UPDATE, DELETE. You can also interact with device shadows using MQTT messages. IBM Watson IoT <ref type="bibr" target="#b6">7</ref> introduces three different products (IBM Rational Rhapsody, Rational Engineering Lifecycle Manager, IBM Rational Lifecycle Integration Adapters) to deal with digital twins. Apparently, IBM is the vendor who is investing the most in promoting the concept of digital twin (see also https://www.youtube. com/watch?v=RaOejcczPas).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. ARCHITECTURAL MODEL</head><p>Our approach, inspired by the Roman model for service composition <ref type="bibr" target="#b5">[6,</ref><ref type="bibr" target="#b4">5]</ref>, considers smart manufacturing scenarios where DTs of physical systems -or, simply, twins -provide stateful services wrapping the functionalities of machines and tasks of human operators.</p><p>In such contexts, data are usually available through several sources not sharing a common schema and vocabulary, as DTs come from different vendors. It is reasonable to consider an heterogeneous data space where a mediator is present and it also takes the role of translator between different formalisms and access methods.</p><p>We consider learning as a fundamental feature of DT. Learned functions include the automatic generation of alarms, but also automatic triggering of actions and status changes. Additionally, twins can be queried on learned functions and, as a result, the data space is far more dynamic than in more traditional scenarios.</p><p>As in modern micro-services architectures, notifications based on publish&amp;subscribe is a common architectural pattern, and therefore we provide for subscriptions to events generated by other DTs.</p><p>We propose an architecture for a smart manufacturing process based on DTs as depicted in Figure <ref type="figure" target="#fig_0">1</ref>, where the main components are the DTs, the data space, human supervisors and a mediator.</p><p>DTs wrap physical entities involved in the process. These physical entities can be manufacturing machines or human operators. A DT exposes a Web API consisting, in general, of three parts: the synchronous one, the query interface and the asynchronous one. The synchronous interface allows to give instructions to the physical entity. These instructions may, for example, produce a state change in a manufacturing machine (in case the twin is over a machine) or ask a human operator to perform a manual task (in case the twin is over a manufacturing worker). The query interface allows for asking information to the physical entity about its state and related information; noteworthy, these latter can be obtained by applying diagnostic and prognostic functions results of machine learning. The asynchronous interface generates events available to subscribers.</p><p>It is important to note how manufacturing machines and human actors can be considered identical from the point of view of the offered API, e.g., human actors produce asynchronous events as well, for example generating alarms.</p><p>The data space contains all the data available to the process. These data are heterogeneous in their nature from the access technology point of view, the employed schema (or its absence) and the employed vocabulary. It is important to note how the DTs contribute to the data space with both the query API and the asynchronous one. Other sources for the data space may include relational and no-SQL databases or unstructured sources such as spurious files, which constitute the factory information system. The human supervisor is the one defining the goals of the process in terms of both final outcomes and key performance indicators to be obtained.</p><p>In order to reach the goal defined by the human supervisor, available twins and data must be integrated. This task is fulfilled by the mediator. The mediator acts in two phases: the synthesis phase and the execution phase. During the synthesis phase, the specifications of the APIs exposed by digital twins and the meta-data (e.g. data source schemas) available in the data space, are composed in order to construct a mediator process. During the execution phase, the mediator runs its program by preparing the input messages for the single twins involved in the proper sequencing/interleaving. Indeed, as each twin may potentially adopt a different language and vocabulary, in order to compose required input/output messages, the mediator translates and integrates the data available in the data space to comply with the format requested by the specific called service.</p><p>An important aspect of the proposed architecture is that multiple companies can participate in the process (typically those ones involved in the value chain). Again, it is not reasonable to have twins directly communicating with one another. Once again, the role of the mediator is fundamental, being the component that can access the services offered by the twins available in the different companies.</p><p>Example. In the following, we will give an intuition of the proposed approach by considering a cardboard boxes real manufacturing scenario involving three companies: the cardboard manufacturer, the die cutter manufacturer and a delivery service. For the sake of simplicity, we will consider three twins: the twin corresponding to the die cutter manufacturer, the twins corresponding to the delivery services (potentially they might be many) and a twin corresponding to a single die cutter installed at the cardboard manufacturer factory.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. The data space as a polystore</head><p>In digital factories, it is of strategic importance to provide effective mechanisms for searching information along diverse and distributed data sources. Indeed, when dealing with data management, organizations are becoming polyglot <ref type="bibr" target="#b14">[15]</ref>: they tend to adopt the data management systems that are most suitable to the kind of data, that can significantly vary. Polystores <ref type="bibr" target="#b20">[21]</ref>, together with its first reference implementation BigDAWG <ref type="bibr" target="#b7">[8]</ref>, have been proposed recently as a valuable solution for this scenario. A polystore system provides a loosely coupled integration over multiple, disparate data models and query languages. In this system, queries are posed over islands of information, i.e. collections of data sources, each accessed with a single query language, and the same data can be accessed from multiple islands. Data transformation and migration in polystores have been considered in <ref type="bibr" target="#b8">[9]</ref>.</p><p>In our approach, the data space can be modelled as a polystore. We inherit the data modelling approach proposed in <ref type="bibr" target="#b14">[15]</ref> where a polystore is made of a set of databases stored in a variety of data management systems, each one potentially offered by a twin through the query interface.</p><p>A collection of operators act on the polystore with the aim of supporting the data access needs due to digital twin composition.</p><p>Example (cont). The polystore will contain the APIs of the twins and the historical production and shipping data from the die cutter manufacturer and the delivery services.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Modelling the DTs</head><p>We model the behaviour of DTs as guarded automaton (by extending <ref type="bibr" target="#b4">[5]</ref>): a DT wraps a physical entity which, in a production process, follows specific stages/steps. The synchronous API of the twin corresponds then to input messages of the guarded automaton. The main difference here consists in what the local storage contains and how this influence automaton transitions and atomic processes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Space</head><note type="other">Relational</note><p>In <ref type="bibr" target="#b4">[5]</ref>, the local storage of a Web service contains variables instantiated and modified by the automaton during the execution, and by messages sent by the mediator. Here we extend to have autonomous threads enriching the local storage with measurements coming from sensors and outcome of machine learning predictions. In this sense, data provided by sensors and machine learning are somewhat similar. We add a further UStore (where the U stands for uncertain) containing triples (s, m, c) where s is a variable name corresponding to a sensor or a prediction task, m is the information measured or predicted, and c is the confidence in this value. As a consequence, we can define the transition conditions of the guarded automaton in terms of UStore as well. The result is the possibility to include in the model automatic transitions that are not the result of explicit message exchange.</p><p>The data contained in the local storage is part of the polystore defining the process. In order to query this data, each digital twin provides the query API.</p><p>The DT can additionally provide asynchronous data to other twins and to the mediator itself through its asynchronous API. In particular, asynchronous events can be generated in response to a change of the UStore or to the transition of the twin automaton. Interested recipients subscribe to this events following a publish/subscribe architectural pattern.</p><p>Example (cont). The digital twin corresponding to the die cutter contains at least two states: mounted and unmounted. At any time, the twin provides information about the number of rotations performed and the residual life expectancy. The twin corresponding to the die cutter manufacturer may provide information about the time needed to produce a new die cutter, whereas the twin of a delivery service may provide information about the expected shipping time from the die cutter manufacturer factory to the cardboard manufacturer factory.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Actual and simulation perspectives</head><p>Machine learning represents a fundamental feature of DTs, especially for simulation purposes. Most real systems that are confronted with multiple data streams benefit from machine learning and analysis to make sense of the data. For example, machine learning can automate complex analytical tasks, evaluate data in real time, regulate behavior with the minimum need for supervision, and increase the likelihood of desired results <ref type="bibr" target="#b15">[16]</ref>. The uses of machine learning within a DT include: supervised learning (for example, using neural networks) of the preferences and priorities of the user in an experimental test bed based on simulation <ref type="bibr" target="#b17">[18]</ref>; learning without supervision of objects and models using, for example, clustering techniques in virtual and real environments <ref type="bibr" target="#b16">[17]</ref>; and strengthening the learning of system and environment states in uncertain and partially observable operating environments.</p><p>Another fundamental feature of a digital twin is simulation. We have already introduced the role of machine learning in the population of the UStore, but it has a fundamental role in simulation too. In particular, when proposing possible solutions, the mediator may require to simulate the result of operations on the twins following the human-in-the-loop philosophy. When the supervisor takes a decision, the actions in the proposed plan are executed in the real world and the actual results can be used to improve the simulation feature in a reinforcement learning pattern.</p><p>In order to do this, both twins and data space have two perspectives. The actual perspective reflects the current state of the physical world, whereas the simulation perspective allows the mediator to perform simulations useful to produce alternatives for the supervisor.</p><p>As a result, each DT has two instances of the corresponding automaton, in different states and with different values in the local storage. The same holds for the other data sources composing the polystore. To access the functionalities of the simulation perspective, the DT provides a further simulation API.</p><p>Example (cont). The twin corresponding to the die cutter may expose a simulation API that can help to simulate what happens if the die cutter undergoes a given setting of the rotation speed throughout a 24h period.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Semantics</head><p>The principal differences between the mediator proposed in <ref type="bibr" target="#b4">[5]</ref> and the evolution we propose to meet the requirements of smart manufacturing, are (i) the way the goal is defined by the supervisor, and (ii) the need for it to operate a translation over the data available in the data space in order to perform its coordination task between the digital twins required to reach the goal.</p><p>In <ref type="bibr" target="#b4">[5]</ref>, the goal of the mediator was a guarded automaton to be synthesized combining the automatons of the single services. This is not appropriate for our scenario, as it requires an expensive human work and the vocabulary of the automaton to be compliant with that of twins. We propose instead to formulate goals in terms of key performance indicators in a declarative manner. In order to do that, the goal declaration must be translated in terms of the input/output messages of twins' automatons and the content of the data space. Additionally, the mediator must be able to discover twins and their capabilities in terms of offered services.</p><p>Example (cont). The production goal may be to avoid interruptions in the production process. Currently, for economic reasons, manufacturers prefer not to store in the warehouse replacement production machines and tools. As a consequence, the supervisor may instruct the mediator to order a new die cutter by predicting when the current one is going to break, taking into account production time on the die cutter manufacturing site and shipping time. In order to satisfy the goal, the mediator will discover the different services and automatically understand how to combine them.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. CONCLUDING REMARKS</head><p>In this paper, we provide an initial scouting of the possibilities offered by composition techniques in smart manufacturing. The intuition here is that, likewise a Web service, a DT, which is a fundamental concept in smart manufacturing, can be described as a stateful automaton and, as a consequence, DTs can be combined following approaches that have been proposed to combine Web services aiming at a specific goal. This paper first provides a literature review concerning DTs and the different ways to model and implement them, and then outline an extension of the service composition modeling framework provided in <ref type="bibr" target="#b4">[5]</ref> to meet the challenging requirements imposed by smart manufacturing.</p><p>The proposed approach requires extensive future work to be fully technically realized and then validated. In order to do that, we are conducting a set of real world studies in manufacturing companies (cf. the example provided in the text).</p><p>As a first step, we are developing frameworks for real DTs of manufacturing machines and company services.</p><p>Finally, a point not addressed by the current paper, is how goals, expressed in terms of key performance indicators, can be translated in a composition of twins. In general, several possible solutions will be provided to the supervisor, who will decide which solution to apply according to a confidence estimation. How this confidence must be computed, according to the quality of machine learning tasks involved in DTs and in the mediator for entity resolution, is a challenging ongoing research task.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. The proposed architecture.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table I MOST</head><label>I</label><figDesc>RELEVANT RESULTS TO OUR GOOGLE SCHOLAR QUERIES ("DIGITAL TWIN"+ "X ") AND RELATED WORKS, POSSIBLY FOCUSING ON PUBLICATION YEAR ≥ Y .</figDesc><table><row><cell></cell><cell>query</cell><cell>results</cell><cell>related</cell></row><row><cell>R1</cell><cell>"cyber physical system"</cell><cell>[14, 3]</cell><cell>[1, 27]</cell></row><row><cell>R2</cell><cell>"shop floor" / "industry 4.0" (≥ 2018)</cell><cell>[23, 24]</cell><cell>[25]</cell></row><row><cell>R3</cell><cell>"semantic" / "model operations" (≥ 2018)</cell><cell>[28, 4]</cell><cell>[2, 20]</cell></row><row><cell>R4</cell><cell>"data exchange"</cell><cell>[20]</cell><cell>[22]</cell></row><row><cell>R5</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">See, for instance, http://www.forbes.com/sites/bernardmarr/2017/03/06/ what-is-digital-twin-technology-and-why-is-it-so-important</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2019">IEEE International Conference on Web Services (ICWS) 978-1-7281-2717-0/19/$31.00 ©2019 IEEE DOI 10.1109/ICWS.2019.00047</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2">See https://www.eclipse.org/ditto 3 See https://www.ge.com/digital/iiot-platform</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4">See https://www.bosch-iot-suite.com/service/things<ref type="bibr" target="#b4">5</ref> See https://azure.microsoft.com/en-us/services/iot-hub<ref type="bibr" target="#b5">6</ref> See http://aws.amazon.com/iot<ref type="bibr" target="#b6">7</ref> See https://ww.ibm.com/internet-of-things</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Acknowledgements. This work has been partly supported by the European Commission through the H2020 project FIRST -virtual Factories: Interoperation suppoRting buSiness innovaTion (grant agreement # 734599). The work of Tiziana Catarci, Francesco Leotta, Massimo Mecella and Francesco Sapio has been also partly supported by the research contract with Rota Laser Dies.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">C2PS: A Digital Twin Architecture Reference Model for the Cloud-Based Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">Kazi</forename><forename type="middle">Masudul</forename><surname>Alam</surname></persName>
+			<idno type="ORCID">0000-0003-4731-9847</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Abdulmotaleb</forename><surname>El Saddik</surname></persName>
+			<idno type="ORCID">0000-0002-7690-8547</idno>
+		</author>
+		<idno type="DOI">10.1109/access.2017.2657006</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="2050" to="2062" />
+			<date type="published" when="2017" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Digital Factories for Capability Modeling and Visualization</title>
+		<author>
+			<persName><forename type="first">Farhad</forename><surname>Ameri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ramin</forename><surname>Sabbagh</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-51133-7_9</idno>
+	</analytic>
+	<monogr>
+		<title level="m">IFIP Advances in Information and Communication Technology</title>
+				<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="69" to="78" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Kishan Baheti [People in Control]</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Baheti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Gill</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mcs.2011.940734</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Control Systems</title>
+		<title level="j" type="abbrev">IEEE Control Syst.</title>
+		<idno type="ISSN">1066-033X</idno>
+		<idno type="ISSNe">1941-000X</idno>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="27" to="27" />
+			<date type="published" when="2011-06" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">The modelling and operations for the digital twin in the context of manufacturing</title>
+		<author>
+			<persName><forename type="first">Jinsong</forename><surname>Bao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dongsheng</forename><surname>Guo</surname></persName>
+			<idno type="ORCID">0000-0002-5107-1525</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jie</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jie</forename><surname>Zhang</surname></persName>
+			<idno type="ORCID">0000-0002-6215-0237</idno>
+		</author>
+		<idno type="DOI">10.1080/17517575.2018.1526324</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Enterprise Information Systems</title>
+		<title level="j" type="abbrev">Enterprise Information Systems</title>
+		<idno type="ISSN">1751-7575</idno>
+		<idno type="ISSNe">1751-7583</idno>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="534" to="556" />
+			<date type="published" when="2018-10" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">ComposingWeb Services with Nondeterministic Behavior</title>
+		<author>
+			<persName><forename type="first">Daniela</forename><surname>Berardi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giuseppe</forename><surname>De Giacomo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Massimo</forename><surname>Mecella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Diego</forename><surname>Calvanese</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icws.2006.45</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2006 IEEE International Conference on Web Services (ICWS&apos;06)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2006-09" />
+			<biblScope unit="page" from="613" to="624" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Automatic Composition of E-services That Export Their Behavior</title>
+		<author>
+			<persName><forename type="first">Daniela</forename><surname>Berardi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Diego</forename><surname>Calvanese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giuseppe</forename><surname>De Giacomo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maurizio</forename><surname>Lenzerini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Massimo</forename><surname>Mecella</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-24593-3_4</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Computer Science</title>
+				<editor>
+			<persName><forename type="first">M</forename><forename type="middle">E</forename><surname>Science</surname></persName>
+			<persName><forename type="first">S</forename><surname>Orlowska</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Weerawarana</surname></persName>
+			<persName><forename type="first">J</forename><surname>Papazoglou</surname></persName>
+			<persName><surname>Yang</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Trento, Italy</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer Berlin Heidelberg</publisher>
+			<date type="published" when="2003" />
+			<biblScope unit="volume">2910</biblScope>
+			<biblScope unit="page" from="43" to="58" />
+		</imprint>
+	</monogr>
+	<note>Service-Oriented Computing -ICSOC</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">On the Effects of Modeling As-Manufactured Geometry: Toward Digital Twin</title>
+		<author>
+			<persName><forename type="first">Albert</forename><surname>Cerrone</surname></persName>
+			<idno type="ORCID">0000-0003-2905-1410</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jacob</forename><surname>Hochhalter</surname></persName>
+			<idno type="ORCID">0000-0003-3607-4573</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Gerd</forename><surname>Heber</surname></persName>
+			<idno type="ORCID">0000-0002-7577-6140</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Anthony</forename><surname>Ingraffea</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2014/439278</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Aerospace Engineering</title>
+		<title level="j" type="abbrev">International Journal of Aerospace Engineering</title>
+		<idno type="ISSN">1687-5966</idno>
+		<idno type="ISSNe">1687-5974</idno>
+		<imprint>
+			<biblScope unit="volume">2014</biblScope>
+			<biblScope unit="page" from="1" to="10" />
+			<date type="published" when="2014" />
+			<publisher>Hindawi Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">The BigDAWG Polystore System</title>
+		<author>
+			<persName><forename type="first">Jennie</forename><surname>Duggan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aaron</forename><forename type="middle">J</forename><surname>Elmore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Stonebraker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Magda</forename><surname>Balazinska</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bill</forename><surname>Howe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeremy</forename><surname>Kepner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sam</forename><surname>Madden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Maier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tim</forename><surname>Mattson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stan</forename><surname>Zdonik</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2814710.2814713</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGMOD Record</title>
+		<title level="j" type="abbrev">SIGMOD Rec.</title>
+		<idno type="ISSN">0163-5808</idno>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="11" to="16" />
+			<date type="published" when="2015-08-12" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Data transformation and migration in polystores</title>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Dziedzic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aaron</forename><forename type="middle">J</forename><surname>Elmore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Stonebraker</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/hpec.2016.7761594</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 IEEE High Performance Extreme Computing Conference (HPEC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-09" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Towards Security-Aware Virtual Environments for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3198458.3198464</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 4th ACM Workshop on Cyber-Physical System Security</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-22" />
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Modeling of Cloud-Based Digital Twins for Smart Manufacturing with MT Connect</title>
+		<author>
+			<persName><forename type="first">Liwen</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ngoc-Tu</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenjin</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ming</forename><forename type="middle">C</forename><surname>Leu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaoqing</forename><forename type="middle">Frank</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Md</forename><forename type="middle">Rakib</forename><surname>Shahriar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M Nahian</forename><surname>Al Sunny</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2018.07.155</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Manufacturing</title>
+		<title level="j" type="abbrev">Procedia Manufacturing</title>
+		<idno type="ISSN">2351-9789</idno>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page" from="1193" to="1203" />
+			<date type="published" when="2018" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Procedures for performing systematic reviews</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Kitchenham</surname></persName>
+		</author>
+		<idno>TR/SE-0401</idno>
+		<imprint>
+			<date type="published" when="2004" />
+			<pubPlace>UK, Keele University</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Department of Computer Science, Keele University</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Evidence-Based Software Engineering (EBSE)</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Kitchenham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Charters</surname></persName>
+		</author>
+		<idno type="DOI">10.1201/b19467-8</idno>
+		<idno>EBSE-2007-01</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Evidence-Based Software Engineering and Systematic Reviews</title>
+				<imprint>
+			<publisher>Chapman and Hall/CRC</publisher>
+			<date type="published" when="2015-11-04" />
+			<biblScope unit="page" from="51" to="64" />
+		</imprint>
+	</monogr>
+	<note type="report_type">EBSE Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Cyber Physical Systems: Design Challenges</title>
+		<author>
+			<persName><forename type="first">Edward</forename><forename type="middle">A</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/isorc.2008.25</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2008 11th IEEE International Symposium on Object and Component-Oriented Real-Time Distributed Computing (ISORC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2008-05" />
+			<biblScope unit="page" from="363" to="369" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Augmented Access for Querying and Exploring a Polystore</title>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Maccioni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Riccardo</forename><surname>Torlone</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icde.2018.00017</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE 34th International Conference on Data Engineering (ICDE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-04" />
+			<biblScope unit="page" from="77" to="88" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Leveraging Digital Twin Technology in Model-Based Systems Engineering</title>
+		<author>
+			<persName><forename type="first">Azad</forename><surname>Madni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carla</forename><surname>Madni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Scott</forename><surname>Lucero</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/systems7010007</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Systems</title>
+		<title level="j" type="abbrev">Systems</title>
+		<idno type="ISSNe">2079-8954</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2019-01-30" />
+			<publisher>MDPI AG</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Model-based systems engineering: Motivation, current status, and research opportunities</title>
+		<author>
+			<persName><forename type="first">Azad</forename><forename type="middle">M</forename><surname>Madni</surname></persName>
+			<idno type="ORCID">0000-0001-5225-0034</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Sievers</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/sys.21438</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Systems Engineering</title>
+		<title level="j" type="abbrev">Syst Eng</title>
+		<idno type="ISSN">1098-1241</idno>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="172" to="190" />
+			<date type="published" when="2018-05" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Experimentable digital twins for model-based systems engineering and simulation-based development</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Schluse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Linus</forename><surname>Atorf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juergen</forename><surname>Rossmann</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/syscon.2017.7934796</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 Annual IEEE International Systems Conference (SysCon)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-04" />
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Experimentable Digital Twins—Streamlining Simulation-Based Systems Engineering for Industry 4.0</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Schluse</surname></persName>
+			<idno type="ORCID">0000-0003-1336-2636</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Marc</forename><surname>Priggemeyer</surname></persName>
+			<idno type="ORCID">0000-0003-3563-7514</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Linus</forename><surname>Atorf</surname></persName>
+			<idno type="ORCID">0000-0002-6670-791X</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Juergen</forename><surname>Rossmann</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/tii.2018.2804917</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+		<idno type="ISSN">1551-3203</idno>
+		<idno type="ISSNe">1941-0050</idno>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1722" to="1731" />
+			<date type="published" when="2018-04" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Digital Twin Data Modeling with AutomationML and a Communication Methodology for Data Exchange</title>
+		<author>
+			<persName><forename type="first">Greyce</forename><forename type="middle">N</forename><surname>Schroeder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Charles</forename><surname>Steinmetz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlos</forename><forename type="middle">E</forename><surname>Pereira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Danubia</forename><forename type="middle">B</forename><surname>Espindola</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2016.11.115</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">30</biblScope>
+			<biblScope unit="page" from="12" to="17" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">The case for partial indexes</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stonebraker</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/74120.74121</idno>
+		<ptr target="https://wp.sigmod.org/?p=1629" />
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGMOD Record</title>
+		<title level="j" type="abbrev">SIGMOD Rec.</title>
+		<idno type="ISSN">0163-5808</idno>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="4" to="11" />
+			<date type="published" when="1989-12" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Digital twin-driven product design, manufacturing and service with big data</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiangfeng</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qinglin</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">He</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fangyuan</forename><surname>Sui</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00170-017-0233-1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The International Journal of Advanced Manufacturing Technology</title>
+		<title level="j" type="abbrev">Int J Adv Manuf Technol</title>
+		<idno type="ISSN">0268-3768</idno>
+		<idno type="ISSNe">1433-3015</idno>
+		<imprint>
+			<biblScope unit="volume">94</biblScope>
+			<biblScope unit="issue">9-12</biblScope>
+			<biblScope unit="page" from="3563" to="3576" />
+			<date type="published" when="2017-03-16" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Digital Twin Shop-Floor: A New Shop-Floor Paradigm Towards Smart Manufacturing</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+			<idno type="ORCID">0000-0002-9020-0633</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/access.2017.2756069</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<title level="j" type="abbrev">IEEE Access</title>
+		<idno type="ISSNe">2169-3536</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="20418" to="20427" />
+			<date type="published" when="2017" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Digital twin-based WEEE recycling, recovery and remanufacturing in the background of Industry 4.0</title>
+		<author>
+			<persName><forename type="first">Xi</forename><forename type="middle">Vincent</forename><surname>Wang</surname></persName>
+			<idno type="ORCID">0000-0001-9694-0483</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Lihui</forename><surname>Wang</surname></persName>
+			<idno type="ORCID">0000-0001-8679-8049</idno>
+		</author>
+		<idno type="DOI">10.1080/00207543.2018.1497819</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Production Research</title>
+		<title level="j" type="abbrev">International Journal of Production Research</title>
+		<idno type="ISSN">0020-7543</idno>
+		<idno type="ISSNe">1366-588X</idno>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="3892" to="3902" />
+			<date type="published" when="2018-07-19" />
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">M2DDM – A Maturity Model for Data-Driven Manufacturing</title>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Weber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jan</forename><surname>Königsberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laura</forename><surname>Kassner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bernhard</forename><surname>Mitschang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2017.03.309</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<title level="j" type="abbrev">Procedia CIRP</title>
+		<idno type="ISSN">2212-8271</idno>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="page" from="173" to="178" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Future Modeling and Simulation of CPS-based Factories: an Example from the Automotive Industry</title>
+		<author>
+			<persName><forename type="first">Stephan</forename><surname>Weyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Torben</forename><surname>Meyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Moritz</forename><surname>Ohmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dominic</forename><surname>Gorecky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Detlef</forename><surname>Zühlke</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2016.12.168</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">31</biblScope>
+			<biblScope unit="page" from="97" to="102" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Data-centric middleware based digital twin platform for dependable cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Seongjin</forename><surname>Yun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun-Hong</forename><surname>Park</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Won-Tae</forename><surname>Kim</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icufn.2017.7993933</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 Ninth International Conference on Ubiquitous and Future Networks (ICUFN)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-07" />
+			<biblScope unit="page" from="922" to="926" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Representing Industrial Data Streams in Digital Twins using Semantic Labeling</title>
+		<author>
+			<persName><forename type="first">Philipp</forename><surname>Zehnder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dominik</forename><surname>Riemer</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/bigdata.2018.8622400</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE International Conference on Big Data (Big Data)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-12" />
+			<biblScope unit="page" from="4223" to="4226" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

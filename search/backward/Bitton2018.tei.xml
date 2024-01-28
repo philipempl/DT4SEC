@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Deriving a Cost-Effective Digital Twin of an ICS to Facilitate Security Evaluation</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Springer International Publishing</publisher>
+				<availability status="unknown"><p>Copyright Springer International Publishing</p>
+				</availability>
+				<date type="published" when="2018">2018</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Ron</forename><surname>Bitton</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Software and Information Systems Engineering</orgName>
+								<orgName type="institution">Ben-Gurion University of the Negev</orgName>
+								<address>
+									<settlement>Beersheba</settlement>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Tomer</forename><surname>Gluck</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Software and Information Systems Engineering</orgName>
+								<orgName type="institution">Ben-Gurion University of the Negev</orgName>
+								<address>
+									<settlement>Beersheba</settlement>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Orly</forename><surname>Stan</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Software and Information Systems Engineering</orgName>
+								<orgName type="institution">Ben-Gurion University of the Negev</orgName>
+								<address>
+									<settlement>Beersheba</settlement>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Masaki</forename><surname>Inokuchi</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Security Research Laboratories</orgName>
+								<orgName type="institution">NEC Corporation</orgName>
+								<address>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yoshinobu</forename><surname>Ohta</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Security Research Laboratories</orgName>
+								<orgName type="institution">NEC Corporation</orgName>
+								<address>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yoshiyuki</forename><surname>Yamada</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Security Research Laboratories</orgName>
+								<orgName type="institution">NEC Corporation</orgName>
+								<address>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Tomohiko</forename><surname>Yagyu</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Security Research Laboratories</orgName>
+								<orgName type="institution">NEC Corporation</orgName>
+								<address>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yuval</forename><surname>Elovici</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Software and Information Systems Engineering</orgName>
+								<orgName type="institution">Ben-Gurion University of the Negev</orgName>
+								<address>
+									<settlement>Beersheba</settlement>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Asaf</forename><surname>Shabtai</surname></persName>
+							<email>shabtaia@bgu.ac.il</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Software and Information Systems Engineering</orgName>
+								<orgName type="institution">Ben-Gurion University of the Negev</orgName>
+								<address>
+									<settlement>Beersheba</settlement>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Deriving a Cost-Effective Digital Twin of an ICS to Facilitate Security Evaluation</title>
+					</analytic>
+					<monogr>
+						<title level="m">Computer Security</title>
+						<idno type="ISSN">0302-9743</idno>
+						<idno type="eISSN">1611-3349</idno>
+						<imprint>
+							<publisher>Springer International Publishing</publisher>
+							<biblScope unit="page" from="533" to="554"/>
+							<date type="published" when="2018" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1007/978-3-319-99073-6_26</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:22+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Industrial control systems Supervisory control and data acquisition • Penetration test Non linear integer programming</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Industrial control systems (ICSs), and particularly supervisory control and data acquisition (SCADA) systems, are used in many critical infrastructures and are inherently insecure, making them desirable targets for attackers. ICS networks differ from typical enterprise networks in their characteristics and goals; therefore, security assessment methods that are common in enterprise networks (e.g., penetration testing) cannot be directly applied in ICSs. Thus, security experts recommend using an isolated environment that mimics the real one for assessing the security of ICSs. While the use of such environments solves the main challenge in ICS security analysis, it poses another one: the trade-off between budget and fidelity. In this paper we suggest a method for creating a digital twin that is network-specific, cost-efficient, highly reliable, and security test-oriented. The proposed method consists of two modules: a problem builder that takes facts about the system under test and converts them into a rules set that reflects the system's topology and digital twin implementation constraints; and a solver that takes these inputs and uses 0-1 non-linear programming to find an optimal solution (i.e., a digital twin specification), which satisfies all of the constraints. We demonstrate the application of our method on a simple use case of a simplified ICS network.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>Supervisory control and data acquisition (SCADA) is user to refer to a range of industrial control systems (ICSs) which assist in overseeing complex industrial processes. SCADA systems are used in a long list of industrial applications and processes in facilities including electricity generation plants, chemical plants, manufacturing plants, water and sewage treatment facilities, and industries such as the transportation industry. SCADA systems have gained increasing popularity, and industries have become heavily dependent on these systems for collecting data from industrial processes in order to control and monitor their operations to ensure that they are functioning properly. A failure in a SCADA system or one of its elements may result in a failure of the industrial process being controlled. In some cases those systems are life critical, and thus a successful attack on them can jeopardize thousands of people's lives <ref type="bibr" target="#b13">[12,</ref><ref type="bibr" target="#b19">18]</ref>. Because of this, the foremost design considerations of such systems have always included a high level of reliability and availability. In general, modern SCADA systems are comprised of a communication infrastructure and the following major elements:</p><p>The programmable logical controller (PLC) is one of the main components of the SCADA system. Field devices, e.g., sensors and controllers, send signals and status updates to the PLC and receive operational commands from the PLC, usually without the direct involvement of a human operator. The PLC is also responsible for reflecting the field device state to remote devices (e.g., HMI).</p><p>The engineering workstation (EWS) is a computer workstation used to update the PLC software and program the PLC logic.</p><p>The human machine interface (HMI) is a computer workstation that makes the industrial process controlled by a SCADA system accessible to a human operator. The operator can monitor processes (e.g., the HMI may display the current water level at an automated reservoir) and send commands to the field devices through an HMI (e.g., stopping the operation of a pump).</p><p>Sensors are used in order to reflect the state of an industrial element (e.g., wind speed in a wind tunnel) or the environment (e.g., air temperature). The information from sensors is used by the PLC to control the industrial elements.</p><p>Communication infrastructure includes switches, cables, wireless receivers, etc. Contemporary SCADA systems are able to use Ethernet and TCP/IP infrastructure in order to achieve connectivity; legacy SCADA systems rely on older technologies and communication protocols. SCADA components communicate by utilizing standard SCADA protocols, such as DNP3 and IEC 61850, or proprietary vendor-specific protocols, such as S7 and variants of Modbus.</p><p>Additional components such as controllers and actuators, databases which store historical information (i.e., Historian), and security elements such as Firewall and one-way traffic devices can also be found in a typical SCADA system.</p><p>SCADA systems, especially legacy SCADA systems, are inherently insecure. Initially they were designed and built using specialized and proprietary protocols, implemented by old software and hardware which were rarely patched <ref type="bibr" target="#b12">[11]</ref>. Security measures such as anti-viruses and encryption are usually not considered in ICSs. These security measures are not capable of identifying and defending against ICS-specific attacks (e.g., attacks against SCADA protocols such as Modbus) and might harm the availability of the system, which is one of its most important requirements <ref type="bibr" target="#b8">[7,</ref><ref type="bibr" target="#b15">14]</ref>.</p><p>The use of SCADA systems in critical infrastructures makes them desirable targets for attackers. Attacks on such systems have been increasing in recent years. As demonstrated by the Stuxnet worm, and more recently by the TRITON malware, a successful SCADA attack can have serious impact on a nation's economy, safety, and stability. For this reason, continuous security evaluation of ICSs is crucial for mitigating cyber-attacks. Penetration testing (pen-testing) [1] is a commonly used security measure. The goal of pen-testing is to detect weaknesses in the network such as hosts running vulnerable software, misconfiguration of network components or security countermeasures, usage of default passwords for login services, etc.</p><p>The security evaluation of an ICS is quite different from the security evaluation of a typical enterprise network. Typical pen-testing activity focuses on an enterprise's IT environment, especially IT components that can be exploited via the Internet. These kinds of tests usually represent a small part of a typical security evaluation of an ICS [1]. Pen-testing for ICSs mainly focuses on the industrial components (e.g., Historian, HMI, PLC, and sensors) which communicate over dedicated industrial protocols (e.g., Modbus, DNP3). These components and protocols were originally developed for serial communication based on the assumption that ICSs are isolated from the IT environment (and thus not connected to the Internet); therefore, security properties such as authentication and encryption are usually not implemented in these protocols. Currently, industrial protocols are commonly transmitted over TCP/IP; in addition, many ICSs are connected to the Internet, thus making them easy targets for attackers.</p><p>The fact that SCADA systems are implemented in critical infrastructures also makes it difficult to evaluate their security. A typical pen-testing activity (for a non-industrial environment) is usually executed within the enterprise network, however this cannot be done in the case of an ICS. Pen-testing activities involve intrusive actions such as port scanning (e.g., using Nmap) and vulnerability assessment (e.g., using OpenVAS or a Zeus scanner), which may crash industrial components and therefore cannot be directly executed in operational industrial environments. Given this, security experts have suggested the construction of a dedicated testbed for evaluating the security of an ICS <ref type="bibr">[5,</ref><ref type="bibr" target="#b8">7,</ref><ref type="bibr" target="#b10">9]</ref>.</p><p>A testbed is an isolated environment which contains a generic implementation of the architecture of the system under test and allows safe execution of penetration tests. The creation of a testbed requires significant investment of funds and effort. Therefore, an efficient testbed should be able to mimic a variety of ICS setups <ref type="bibr">[5]</ref>. For this reason, most testbeds are not designed to represent a specific ICS environment, but are more generic so as to be able to address the needs of multiple facilities in the same industry. Keeping the testbed generic can compromise the fidelity (i.e., the requirement that a testbed should represent the system under inspection as accurately as possible) <ref type="bibr" target="#b18">[17]</ref>.</p><p>In this paper, we introduce a new automated method for inferring the specification of a digital twin that is designed to facilitate the security evaluation of a specific industrial environment. In contrast to testbeds, which are generic, a digital twin is a replica of a specific ICS; i.e., a model that consists of all of the components from the original industrial environment. Each replicated component can either be implemented as a digital clone (e.g., by using simulation or virtualization software), or alternatively can be physically installed in the twin model. The components that are implemented within the digital twin, as well as the level of implementation of each component, defines the specific security tests that can be conducted on the digital twin (e.g., a digital twin without the HMI implemented does not support the execution of security tests on the HMI). The primary benefit of using a digital twin, as opposed to a testbed, is that it reliably represents the real industrial environment. In other words, the results of a pen-test conducted on the digital twin genuinely reflect the expected results of conducting the same test in the real environment. One of the most challenging tasks in the process of creating a digital twin is determining the implementation level (specification) of its components. The implementation level of the components in the digital twin directly affects the overall cost of establishing the digital twin as well as the degree to which it reflects the industrial environment (fidelity). For example, a twin model that is completely identical to the real industrial environment (i.e., a physical clone) has the highest fidelity (as it allows the execution of all possible tests), but implementing such a model is extremely expensive. We present a method for deriving the specification of a cost-effective digital twin that is specifically designed to facilitate the security evaluation of a specific industrial environment. The proposed method models the problem of deriving the digital twin for a specific industrial environment as an optimization problem. The optimization problem attempts to maximize the impact of the digital twin under strict budget constraints (i.e., allowing the execution of the most important penetration tests for improving the security of the industrial environment).</p><p>The contributions of this paper are as follows:</p><p>-We introduce the concept of creating a cost-effective digital twin that is specifically designed to facilitate the security evaluation of a specific industrial environment. -We propose a method that is based on a constrained optimization problem, specifically, 0-1 non-linear programming, for deriving the configuration of the digital twin model of a specific industrial environment. -We demonstrate the application of our proposed method on a simplified thermal power plant architecture.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Related Work</head><p>In order to conduct penetration testing on ICS networks, the use of a testbed has been proposed. A testbed is an isolated environment that simulates the operation of some real system.</p><p>According to a recent survey conducted by Qassim et al. <ref type="bibr" target="#b16">[15]</ref> testbed implementation approaches can be categorized as follows:</p><p>Physical implementation: refers to a physical clone of the components. This approach reflects the industrial environment at the highest degree. However, physical implementation of all of the components of a specific factory is in Deriving a Cost-Effective Digital Twin of an ICS 537 most cases, not feasible because of the high costs of such implementation. As a result, the majority of physical testbeds are more generic, aimed at being able to address the needs of multiple facilities in the same industry, rather than specific facilities. Virtualization/emulation software: eliminates the software's dependency on the hardware. Virtualization/emulation software enables the establishment of large-scale testbeds, while requiring less hardware, thereby reducing the implementation costs. This approach enables the testing of software components and protocols, but it does not enable the testing of hardware components. In addition, by eliminating software and hardware dependencies, some of the penetration tests may not provide the expected results as tests performed in the real environment. Software simulation: designed to simulate the inputs, outputs, and behavior of real components (e.g., temperature sensor). This approach can provide large-scale implementation at a low cost, however, it provides very low fidelity. Therefore, the main usage of simulation software is to enable the testing of other components (e.g., to feed a virtual or physical component with simulated inputs/outputs).</p><p>To avoid the high costs (as described above), as well as the maintenance involved in a physical replication testbed, many researchers chose to implement their testbed using the simulation, virtualization, or hybrid approaches.</p><p>Genge et al.</p><p>[4] and Lemay et al. <ref type="bibr" target="#b9">[8]</ref> presented testbeds for assessing the security of ICS networks. Both works suggested the combination of emulated and simulated components in order to reduce implementation costs. Lemay et al. <ref type="bibr" target="#b9">[8]</ref> provided the following methodology for component implementation: the components that are relevant to the test objectives should be emulated; components that directly interface with the emulated components should be implemented as closely as possible to real life; the remaining components can be implemented at any level, and can even be simulated.</p><p>Unlike Genge et al.</p><p>[4] and Lemay et al. <ref type="bibr" target="#b9">[8]</ref>, Gao et al.</p><p>[3] and Green et al.</p><p>[5] suggested the integration of physical devices in their testbeds.</p><p>Alves et al.</p><p>[2] also addressed the discrepancies between different implementation levels. They established physical and virtual gas pipeline testbeds and showed that the testbeds behave differently under a denial of service attack, and behave similarly under a man-in-the-middle attack.</p><p>A digital twin is a concept from the product life-cycle management (PLM) domain introduced by Grieves et al. <ref type="bibr">[6]</ref>. It is a virtual representation of a specific physical product. The idea behind this concept is that the digital twin should be linked to the physical product throughout the product's life-cycle and constantly mirror it. By doing so, the digital twin enables the prediction of the future behavior and performance of the real product.</p><p>Unlike the previously mentioned works that suggested general testbed architectures, we propose an adaptive method for deriving the configuration of a cost-effective digital twin for a specific industrial environment. The costeffective digital twin defines the implementation level of the different industrial </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Cost-Effective Digital Twin for ICS</head><p>In this section, we present an adaptive method for deriving a digital twin specification for a given ICS, under strict budget constraints. The proposed method maximizes, within the budgetary limitations, the impact of the digital twin. The impact of a digital twin is evaluated by the number and types of security penetration tests that it supports. On one hand, each test has its own benefit i.e., security-wise, one test might be more important than another. On the other hand, each test has its own cost. The cost of a test is determined by the costs of the participating components (i.e., the direct cost of implementing them in the digital twin), as well as the test's execution costs (e.g., security expert's time/salary). Note that a component might be required for multiple security tests.</p><p>Similar to the creation of testbeds, we consider three types of implementation levels for each element: physical, virtualization/emulation, and software simulation. The output of the proposed method specifies the digital twin configuration, i.e., which components of the ICS should be implemented and at which implementation level.</p><p>Our proposed method models the problem of deriving a cost-effective digital twin as a 0-1 non-linear programming problem. Such problems optimizes a nonlinear target function (e.g., the overall benefit of the tests supported by the digital twin), while being subjected to multiple related constraints (e.g., budget limits).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Notations</head><p>In order to formally describe the problem and the method's inputs, we define the following notations.</p><p>General ICS Environment Information. The set of possible ICS components is denoted by</p><formula xml:id="formula_0">C = {c 1 , . . . , c nC }.</formula><p>For example, C = {P LC, EW S, Historian, P C, . . .}.</p><p>We also define the following subsets of C: </p><formula xml:id="formula_1">-N ⊂ C -ICS component communicating over IP -M ⊂ N -ICS</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>. t nT }</head><p>A list of possible tests for the penetration testing of electric utilities based on the NESCOR methodology <ref type="bibr" target="#b17">[16]</ref> is presented in Appendix C.</p><p>We denote the execution of test t i on component c j by t i (c j ). For each test t i ∈ T we specify three types of prerequisites in order to be able to execute t i on c j : device implementation requirements (DIR), environment implementation requirements (EIR), and prerequisite test (PT).</p><p>-DIR(t i , c j ), t i ∈ T ∧ c j ∈ C -denotes the minimal implementation level of a tested component c j , which enables the execution of test t i in the digital twin. For example, disassembling an embedded device (test t 4.1.1 in Appendix C) cannot be performed on either an emulated or simulated device, thus a physical implementation of the component in the digital twin is essential for executing this test. The formal representation of this requirement is as follows (p stands for physical):  Using these three types of requirements, we define the set of test dependencies (T D) for executing test t i ∈ T on a component c j ∈ C, as follows: -Example I: Device disassembly. In order to enable the disassembling of a field device f ∈ F (t 4.2.1 ), the digital twin model must physically implement f . Thus, the test dependencies for device disassembly of field devices f ∈ F are as follows: -E = {e 1 , . . . , e nE } -the set of elements in a specific ICS environment, e.g., e i is a specific PLC in the ICS. -Communication = {&lt;e i , e j &gt; | e i , e j ∈ E} -the set of links between elements in the specific ICS environment, as was observed in the ICS's network, e.g., &lt;e i , e j &gt; indicates that a communication was observed between element e i and element e j . -T opology = &lt;E, Communication&gt; -the topology of the specific ICS, which consists of the set of elements (E) and their communication links (Communication). -I = {p, v, s} -the set of possible implementation levels of an element in E where p stands for physical replica, v for virtualization, and s for simulation. -role : E → C -a function that maps an element in the specific ICS environment to its type, e.g., role(e 1 ) = P LC indicates that element e 1 is an instance of a PLC in the ICS.</p><formula xml:id="formula_2">DIR(t 4.1.1 , f ∈ F ) = f p -EIR(t i , c j ), t i ∈ T ∧ c j ∈ C -</formula><formula xml:id="formula_3">EIR(t 4.1.1 , d ∈ D) = {D e d , S e d , F s d } -P T (t i , c j ), t i ∈ T ∧ c j ∈ C -</formula><formula xml:id="formula_4">T D(t i , c j ) = &lt;DIR(t i , c j ), EIR(t i , c j ), P T (t i , c j )&gt;</formula><formula xml:id="formula_5">T D(t 4.2.1 , f ∈ F ) = &lt;f p ,</formula><p>In addition, we define the specific environment dependencies (ED) as follows:</p><formula xml:id="formula_6">ED(t i , e j ), t i ∈ T ∧ e j ∈ E</formula><p>Unlike the test dependencies (T D), the environment dependencies (ED) are derived for a specific ICS environment, e.g., the following expression: ED(t m , e n ) = {e 2 v , e 4 s , e 5 s } indicates that in order to execute test t m on the specific element e n , the digital twin must contain the following: a virtual (or higher) implementation of element e 2 and at least a simulation of elements e 4 , and e 5 . According to the proposed method the main prerequisite for deriving the digital twin is the topology of the specific ICS environment. Typical ICS environments are extremely complex and may change over time; thus, acquiring the environment information is not a trivial task. There are several tools and methods that can be used to collect the required information, including the ICS blueprints which usually contain the architecture design of the specific ICS environment, as well as passive monitoring tools such as the GRASSMARLIN that are able to extract information from the live (or recorded) network traffic (including IP addresses, operating system of components, vendors, and component types).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Costs, Benefits and Budget</head><p>cost : E × I → R -a function that maps a specific implementation of an element to its cost, e.g., cost(e, p) = 650 indicates that a physical implementation of element e in the digital twin costs $650. -benef it : T × E → R -a function that defines the benefit of executing a test on an element, e.g., by setting the benef it(t, e) to b, the asset owner indicates that the benefit of executing test t on element e is b; where, a high b value will increase the probability that this test will be supported by the digital twin model (by setting the benef it(t, e) to ∞, the asset owner can force the algorithm to derive a digital twin which support this test). The benefit of a test is assigned according to the importance of the test (the significance of the expected findings) and the element being tested. -Budget ∈ R -the overall budget assigned to create the digital twin.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Proposed Method</head><p>The proposed method consists of the following three main modules (see Fig. <ref type="figure" target="#fig_17">2</ref> in Appendix E):</p><p>The Data Processor is responsible for integrating the general test dependencies (i.e., T D) and the topology of a specific industrial environment (i.e., T opology), in order to derive the list of environment dependencies (i.e., ED) of the specific industrial environment.</p><p>The Problem Builder is responsible for translating the information provided for the specific industrial environment (e.g., budget and test dependencies) to a non-linear maximization problem.</p><p>The Solver solves the non-linear maximization problem in order to derive the specification of the cost-effective digital twin.</p><p>The input to the proposed method includes the following: ICS Architecture: the specification of the architecture of the industrial environment for which the digital twin is created. The specification includes: system topology (T opology) i.e., a description of the elements in the system (E) and their communication patterns (Communication); the role of each element (role(e)); the cost for each possible implementation of the elements (cost(e, i)); and the benefit of executing tests on elements (benef it(t, e)). Budget: (Budget) the overall budget allocated for the creation of the digital twin.</p><p>Test Specification: includes the set of possible tests T = {t 1 . . . t nT } and the set of test dependencies T D(t i , c j ), t i ∈ T ∧ c j ∈ C.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Data Processor</head><p>The Data Processor derives the set of environment dependencies (ED) by analyzing the following inputs: (1) a general specification of test dependencies (T D); (2) the specific topology of the industrial environment under test (T opology = &lt;E, Communication&gt;); and (3) an element in the environment (e ∈ E). This is done according to the process presented in Algorithm 1.</p><p>Given the inputs, the Data Processor initially adds the appropriate device implementation requirement (DIR) to the environment dependencies (lines 10-12). Then, for each environment implementation requirement r ∈ EIR it adds the elements in the ICS that communicate with e and are of the type specified in r (lines <ref type="bibr" target="#b14">[13]</ref><ref type="bibr" target="#b15">[14]</ref><ref type="bibr" target="#b16">[15]</ref><ref type="bibr" target="#b17">[16]</ref>. Finally, it recursively adds the environment dependencies of the prerequisite tests (lines 19-21). The output of the procedure are the environment dependencies for executing t on e, which are specific for the particular ICS architecture.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">Problem Builder</head><p>The Problem Builder represents the digital twin inference problem as a 0-1 non-linear programming problem. The non-linear integer programming problem focuses on the optimization of a non-linear target function, while satisfying a set of non-linear constraints (that are represented as algebraic equations) <ref type="bibr" target="#b11">[10]</ref>. The non-linear integer problem is formally defined as follows:</p><formula xml:id="formula_7">min / max f (x) s.t g i (x) ≤ b i , i = 1, . . . , m h i (x) = y i , j = 1, . . . , k x ∈ X, X ⊂ Z n and X is a f inite set</formula><p>where f (x) is the target function that we wish to maximize (or minimize), and the constraints are represented by g i (x) and h i (x).</p><p>A 0-1 non-linear programming problem is a special case of the non-linear integer programming problem, in which x can either be 0 or 1. In this section, we describe how we define the target function (f (x)) and the constraints (g i (x)), in order to represent the digital twin specification inference problem as a 0-1 non-linear programming problem.</p><p>The specification of a given digital twin model is defined by the variables of the 0-1 non-linear programming problem, which are denoted as follows:</p><formula xml:id="formula_8">X = &lt;x s 1 , x e 1 , x p 1 , . . . , x s nE , x e nE , x p nE &gt;.</formula><p>(1) T opology ← &lt;E, Communication&gt; 4:</p><p>e ∈ E 5: Precondition: 6:</p><p>role(e) ∈ C 7: Initialize: 8:</p><p>ED ← ∅ 9: function ProcessData(T D(t, c), e ,Communication) 10:</p><p>DIR ← GetDeviceImplementationRequirement(T D(t, c)) 11:</p><p>i ← GetImplementationLevel(DIR) 12:</p><p>ED ← ED ∪ e i 13:</p><p>EIR ← GetEnvironmentImplementationRequirement(T D(t, c)) 14:</p><p>for each r ∈ EIR do 15:</p><p>i ← GetImplementationLevel(r) 16:</p><p>C ← GetIndustrialControlSubGroup(r) 17:</p><p>for each &lt;j, k&gt; ∈ Communication|j = e ∧ role(k) ∈ C do 18:</p><p>ED ← ED ∪ k i 19:</p><p>P T ← GetP rerequisiteT ests(T D(t, c)) 20:</p><p>for each t * ∈ P T do 21:</p><p>ED ← ED ∪ P rocess(T D(t * , c), e, Communication)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>22: return ED</head><p>Each variable indicates whether a specific element e is implemented as i within the digital twin as defined by Eq. 2.</p><formula xml:id="formula_9">X = {x i e | i ∈ I, e ∈ E} (2)</formula><p>These variables can be equal to 0 (zero) or 1 (one), and thus the first set of constraints is:</p><p>x i e ∈ {0, 1}</p><p>where x i e = 1 indicates that element e is implemented in the digital twin as i, and x i e = 0 indicates that element e is not implemented in the digital twin as i. Equation 4 presents the implementation constraint, which ensures that an element e is implemented as either simulated, virtualized, physical, or not implemented at all. The number of implementation constraints is equal to the number of elements in the given ICS (i.e., n E ).</p><p>x p e + x v e + x s e ≤ 1 (4)</p><p>In order to ensure that the overall cost of the digital twin implementation does not exceed the allocated budget, we define the cost constraint presented in Eq. 5. Each assignment for X defines a possible configuration of the digital twin, where a valid assignment satisfies all of the defined constraints.</p><p>Given the above constraints, the target function (defined in Eq. 6) is designed to maximize the impact of the digital twin model. max e∈E,t∈T benef it(t, e) • e i j ∈ED(t,e)</p><p>x i ej (6)</p><p>where the impact of a given digital twin model (defined by the assignment X) is defined as the sum of all of the benefit values for the tests in T that can be executed on X. As can be seen, the benefit value is added only if all of the dependencies of a test are satisfied.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5">Solver</head><p>A 0-1 non-linear programming problem is NP-hard <ref type="bibr" target="#b14">[13]</ref>. In small environments the solution for this problem can be determined by applying a brute force approach, i.e., for each possible assignment for X, first check whether it satisfies all of the constraints; if all of the constraints are satisfied, compute the value of the target function, and finally, select a valid assignment that provides the maximal value.</p><p>The time that it will take for the brute force approach to provide the optimal result is significant as it grows exponentially by the number of components. Given n components, and m security tests, and three implementation levels (real, emulated, simulated), the time complexity for the brute force algorithm is as follows:</p><formula xml:id="formula_11">O(3 n • nm • n) (7)</formula><p>where, 3 n represents all of the possible implementation of a components, nm represents the maximum tests per component, and n is the calculation of the cost per implementation state. The exponential time complexity makes the brute force algorithm unsuitable for large ICS environments (more than 20 components). For example, executing the brute force approach on the simple ICS environment presented in Appendix E in Fig. <ref type="figure" target="#fig_18">3</ref>, which consisted of 14 components, takes three minutes when using a standard personal computer. In future work, we plan to develop and evaluate different heuristics which are on average sub-exponential (but may not provide the best setup for the digital twin.)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Demonstration</head><p>In this section, we demonstrate the application of the proposed method on a simplified ICS environment of a thermal power station with one boiler and two generators.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Description of the Tested ICS Environment</head><p>The simplified environment (illustrated in Appendix E, Fig. <ref type="figure" target="#fig_18">3</ref>) consists of an enterprise network, a supervision layer, a direct control layer, and field devices. The enterprise network contains an IT client and an IT server, which are connected to the supervision layer through a firewall that filters improper packets.</p><p>The supervision layer consist of the following components which monitor and control the direct control components:</p><p>-Historian. Responsible for logging all events occurring during the process.</p><p>To do so, the historian periodically queries the PLCs for their states (via Modbus/TCP in the case of PLC-1, or S7comm in the case of PLC-2). -Human machine interface (HMI). Provides a human-friendly interface for interacting with the field devices. In order to report the field devices' states and alarms to the operator, the HMI periodically queries the PLCs, as the Historian does (via Modbus/TCP in the case of PLC-1, or S7comm in the case of PLC-2). Moreover, the HMI enables the operator to remotely change field devices' parameters.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>-Engineering Work Station (EWS). Enables the operator to change the</head><p>PLCs' configurations and logic. The EWS has all of the required programming and configuration software installed. It communicates with the PLCs and HMI through the S7comm protocol when such updates occur.</p><p>The supervision layer's components are connected to the direct control devices through a switch. The direct control components include:</p><p>-Two Siemens S7-300 PLCs. These components directly control the field devices. PLC-1 controls both the boiler (BLR) and one of the generators (GEN-1). It can turn the boiler's heater on or off, change the generator's rotation speed, and start or stop its operation. PLC-2 controls only GEN-2 and can perform the two latter actions as well. The PLCs are connected to the supervision layer via the switch (SW-2), and communicate with each other via the S7comm protocol. -Remote Terminal Unit (RTU). This component is connected directly to the PLCs and enables the operator to manually change the field devices' parameters and present their current states and alarms.</p><p>The field devices include the components that physically perform the process. This simplified environment contains two generators (GEN-1 and GEN-2) and one boiler (BLR).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Security Test Specifications</head><p>For the demonstration, we followed the pen-testing methodology presented by the National Electric Sector Cybersecurity Organization Resource (NESCOR) <ref type="bibr" target="#b17">[16]</ref>. This methodology provides guidelines for executing penetration tests on smart grid systems. Although the NESCOR methodology is specifically designed for smart grid systems such as advanced metering infrastructure (AMI), widearea monitoring, protection and control (WAMPAC), and home area network (HAN), it provides an extensive list of pen-testing activities that can be applied on other types of ICSs. The various testing activities presented in their methodology are classified into four categories: embedded device penetration tasks, which address the physical attack vector against field devices; network communication penetration tasks, which address the exploitation of devices through network protocol manipulation; server application penetration tasks, which address testing applications that are running on the control servers; and, server operating system penetration tasks, which address testing of the operating system of the control servers.</p><p>Execution of the pen-tests presented in the NESCOR methodology on a digital twin in which not all of the components are physically implemented is not trivial, because, as described in Sect. 3.2, the execution of some activities in a digital twin may depend on a specific set of requirements (denoted by DIR, EIR, and PT).</p><p>We thoroughly analyzed more than 80 penetration tests presented in the NESCOR methodology and defined the three types of requirements for each test. The complete set of tests and requirements is summarized in Appendix C. For our demonstration we select the following five tests: Device Disassembly (4.1.1), Interface Functional Analysis (4.2.1) Communication Capture (5.2.1), Fuzzing (5.2.4), Application Fingerprinting (7.1.1), and Application Functional Analysis (7.1.2).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">Implementation Cost Description</head><p>In the proposed method we considered three types of implementation levels: physical, virtual, and simulation.</p><p>Obviously, not all of the components can be implemented by all type of implementations, and some physical devices may not have an emulated/virtual version. In addition, the pricing of different implementation levels is not the same for different vendors. For example, a physical SIEMENS PLC can cost from hundreds of dollars to thousands with an average cost of about $2500 for the S7300 models 1 ; a license for S7-Plcsim software, which can be used for emulating a SIEMENS PLC or HMI costs $700 2 ; and using third party tools to simulate a PLC can be less expensive (e.g., awlsim 3 is free of charge, with costs just for the setup time).</p><p>For simplicity, in our demonstration we assumed that a physical implementation of a device would have the highest cost and a simulation-based implementation the lowest. Specifically, as presented in Appendix B, a physical implementation is ten times more expensive than virtualization, which is three times more expensive than simulation. In addition, an equal benefit for all tests i.e., benef it(t, e) = 1 ∀t ∈ T ∧ e ∈ E was assumed. It should be mentioned that these assumptions do not affect the construction of the problem or its solution by using 0-1 non-linear methods; therefore we believe that these assumptions are plausible.</p><p>1 http://www.isgautomation.com/siemens-simatic-s7-300-plc-6es7.html. 2 https://www.steinerelectric.com/p/siemens-simatic-s7-s7-plcsim-v5-4-floating-lic/ 429647. 3 https://github.com/mbuesch/awlsim. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4">Results</head><p>The creation of the cost-effective digital twin model for the specific ICS environment starts with processing the generic test specification (T D) and the specific topology inputs (T opology = &lt;E, Communication&gt;). This is done by applying the data processing algorithm presented in Algorithm 1 on each combination of element e ∈ E and test t ∈ T . The output of this algorithm produces 42 different tests (presented in Appendix D), each of which includes a set of environment dependencies (ED). The environment dependencies are specific to the ICS environment described in Sect. A.</p><p>Next, given the specific budgetary limitations, we apply the Problem Builder module and create the 0-1 non-linear programming problem (A formal representation of the problem is presented in Appendix A). We implemented a naive brute force algorithm to find the optimal configuration for a given budgetary limitation.</p><p>We conducted an experiment in which we derived the configuration of a digital twin model for different budgetary limitation values, while considering all of the tests presented in Appendix D (a total of 42 tests).</p><p>The results of this experiment are presented in Fig. <ref type="figure" target="#fig_14">1</ref>. As expected, the higher the available budget the higher the impact of the digital twin.</p><p>In this figure, it can also be seen that when Budget = $3700, all of the elements are implemented as virtual devices; in this case, the digital twin model supports 36 tests of the 42 possible tests. The remaining tests require physical implementation of various elements; in order to support all of the tests, the budget required is $23500 (while the total cost of the industrial system is $40000).</p><p>The results show a logarithmic increase of the benefit (impact) with the increase in the available budget.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Conclusions and Future Work</head><p>We present a method for deriving the specification of a digital twin for an ICS for the purpose of security analysis. The resulting specification is a cost-effective representation of the ICS under test that provides the high fidelity required for executing a given set of security tests. The method is designed as a three step process. First, the Data Processor derives the ICS's environment dependencies from its topology and the tests' dependencies. Then, the Problem Builder uses the ICS's architecture, tests' dependencies, and budgetary limitations to create a 0-1 non-linear programming problem representation. Finally, the Solver applies a search algorithm to find the best solution for the problem, i.e., finds the digital twin specification with the highest impact and an affordable cost (i.e., its implementation cost does not exceed the specified budget). To demonstrate the application of the proposed method, we used a simplified structure of a thermal power station and the NESCOR pen-testing methodology to define the tests and their requirements.</p><p>In future work we plan to evaluate the method on more realistic environments from a diverse range of industries and propose a heuristic algorithm for finding a near-optimal solution (digital twin setup) with sub-exponential time complexity.</p><p>In addition, we plan to extend the solution to support different pricing strategies for the various implementations, such as software bundles with contribution margin-based pricing. We also plan to (1) add new types of constraints, e.g., constraints that take the physical space available within the digital twin that will be implemented (e.g., a small room or an open space) into account;</p><p>(2) consider implementations of multiple elements as virtual or simulations on the same machine; and (3) handle identical setups in an industrial environment (e.g., if two similar production lines are implemented, there is no need to test both of them). Finally, a general knowledge base of possible tests and their test dependencies should be researched and established.</p><p>A Formal Representation     </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.">role(e)</head><formula xml:id="formula_12">= ⎧ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎨ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎪ ⎩ P C, e = IT − Client Server, e = IT − Server Switch, e ∈ {SW − 1, SW − 2} F irewall, e = F W</formula></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>Deriving a Cost-Effective Digital Twin of an ICS 535</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>implementation, virtualization/emulation software, and simulation software) to allow the evaluation of the desired security tests.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>components running modern operating systems (e.g., desktops, Web servers, HMI, EWS, Historian) -NC ⊂ N -Network components (e.g., router, switch, and firewall) -F ⊂ C -Field devices (e.g., generator and boiler) Deriving a Cost-Effective Digital Twin of an ICS 539 -D ⊂ N -ICS components which are part of the direct control layer (e.g., RTU and PLC) -S ⊂ M -ICS components which are part of the supervision layer (e.g., HMI, EWS, and Historian) General Test Specification. The set of all possible tests is denoted by T = {t 1 . .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head></head><label></label><figDesc>{T D(t, c)|t ∈ T ∧ c ∈ C} 3:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head></head><label></label><figDesc>Deriving a Cost-Effective Digital Twin of an ICS 545</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head></head><label></label><figDesc>Deriving a Cost-Effective Digital Twin of an ICS 547</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Fig. 1 .</head><label>1</label><figDesc>Fig.1. The trade-off between the budget and the impact of the digital twin computed for the simple thermal power station.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>1. 9 .</head><label>9</label><figDesc>C = {P C, Server, Switch, F irewall, EW S, HMI, Historian, P LC, RT U, Generator, Boiler} 2. N = {P C, Server, Historian, HM I, EW S, P LC} 3. M = {P C, Server, Historian, HM I, EW S} 4. NC = {Switch, F irewall} 5. F = {Generator, Boiler} 6. D = {P LC, RT U} 7. S = {EW S, HM I, Historian} 8. E = {IT − Client, IT − Server, SW − 1, F W − 1, EW S − P C, HMI − P C, SW − 2, Hist − P C, P LC − 1, P LC − 2, RT U − 1, GEN − 1, GEN − 2, Deriving a Cost-Effective Digital Twin of an ICS 549 Communication = {&lt;IT − Client, IT − Server&gt;, &lt;IT − Server, IT − Client&gt;, &lt;Hist − P C, P LC − 1&gt;, &lt;Hist − P C, P LC − 2&gt;, &lt;HM I − P C, P LC − 1&gt;, &lt;HM I − P C, P LC − 2&gt;, &lt;EW S − P C, HMI − P C&gt;, &lt;EW S − P C, P LC − 1&gt;, &lt;EW S − P C, P LC − 2&gt;, &lt;P LC −1, GEN −1&gt;, &lt;P LC −1, BLR&gt;, &lt;P LC −2, GEN −2&gt;, &lt;RT U −1, P LC − 1&gt;, &lt;RT U − 1, P LC − 2&gt;} 10. T = {4.1.1, 4.2.1, 5.2.1, 5.2.4, 7.1.1, 7.1.2}.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head></head><label></label><figDesc>− 1 EW S, e = EW S − P C HM I, e = HM I − P C Historian, e = Hist − P C P LC, e ∈ {P LC − 1, P LC − 2} RT U, e = RT U − 1 Generator, e ∈ {GEN − 1, GEN − 2} Boiler, e = BLR 12. The cost function is defined in Appendix B.B Implementation Costs of the ICS Components (USD)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. An illustration of the proposed method.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_18"><head>Fig. 3 .C</head><label>3</label><figDesc>Fig. 3. Simple thermal power station environment.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>denotes the minimal implementation level of components that communicate with c j and are required for executing t i . For example, in order to perform functional analysis (test t 4.2.1 in Appendix C) on d ∈ D, such as a PLC, one must emulate the components that communicate with the PLC from the direct control group, such as other PLCs (denoted by D d ), and from the supervisory control group, such as HMI (denoted by S d ). In addition, there is a need to simulate field devices that communicate with the PLC (denoted by F d ). The formal representation of these requirements is as follows (e stands for emulation, and s stands for simulation):</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>represents the dependencies between tests; for example, P T (t 4.2.5 , f ∈ F ) = {t 4.2.3 , t 4.2.2 , t 4.2.1 } indicates that tests t 4.2.3 , t 4.2.2 , t 4.2.1 should be executed first in order to execute test t 4.2.5 on f .</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head></head><label></label><figDesc>Endpoint fuzzing (t 4.2.5 ) is a pen-testing activity that could be executed on an emulated or physical device. However, it is not possible to perform fuzzing without understanding the tested interface and without capturing and analyzing the communication with the interface. For these reasons, capture analysis (t 4.2.3 ), communication capture (t 4.2.2 ), and interface functional analysis (t 4.2.1 ) are prerequisite tests for endpoint fuzzing. In addition, in order to perform this test the digital twin must also emulate the direct control devices which communicate with the tested device. Thus, the test dependencies for fuzzing a field device f ∈ F are as follows:</figDesc><table><row><cell>∅, ∅&gt;</cell></row></table><note>-Example II: Endpoint fuzzing.T D(t 4.2.5 , f ∈ F ) = &lt;f e , {De f }, {t 4.2.3 , t 4.2.2 , t 4.2.1 }&gt; Specific ICS Environment Information. The specific ICS environment (for which we would like to derive the digital twin definition) is denoted as follows:</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head></head><label></label><figDesc>{M e , D s } 7.1.1 7.1.3 Process Flow Modeling m ∈ M m e {M e , D s } 7.1.2 7.1.4 Request/Resource Mapping m ∈ M m e {M e , D s } 7.1.3 Application Discovery 7.2.1 Default Configuration Testing m ∈ M m e {} 7.2.2 Authentication Testing m ∈ M m e {M e , D s } 7.2.3 Session Management Testing m ∈ M m e {M e , D s } 7.2.2 7.2.4 Authorization Testing m ∈ M m e {M e , D s } 7.2.3 7.2.5 Business Logic Testing m ∈ M m e {M e , D s } 7.2.6 Code Injection Testing m ∈ M m e {M e , D s } 7.2.7 Denial of Service Testing m ∈ M m e {M e , D s } 7.2.8 Client-Side Code Testing m ∈ M m e {M e , D s } Application Exploitation 7.3.1 Identify Attack Avenues m ∈ M m e {M e , D s } 7.1,7.2 7.3.2 Vulnerability Exploitation m ∈ M m e {M e , D s } 7.3.2 7.3.3 Post Exploitation m ∈ M m e {M e , D s } 7.3.3</figDesc><table><row><cell></cell><cell></cell><cell cols="4">Deriving a Cost-Effective Digital Twin of an ICS</cell><cell cols="4">551</cell></row><row><cell></cell><cell></cell><cell>(continued)</cell><cell></cell><cell></cell><cell>t</cell><cell>r</cell><cell>a</cell><cell>c</cell><cell>k</cell><cell>er-</cell><cell>s of t w a r e</cell><cell>. c o m</cell></row><row><cell cols="3">Category Subcategory ID Name</cell><cell>T</cell><cell>DIR EIR</cell><cell>PT</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>Firmware</cell><cell>4.3.1 Disassembly</cell><cell>f ∈ F</cell><cell>f p {}</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>Binary</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>4.3.2 Code Analysis</cell><cell>f ∈ F</cell><cell>f p {}</cell><cell>4.3.1</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>4.3.3 Exploitation</cell><cell>f ∈ F</cell><cell>f p {}</cell><cell>4.3.2</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>4.3.1 Disassembly</cell><cell cols="2">d ∈ D d p {}</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>4.3.2 Code Analysis</cell><cell cols="2">d ∈ D d p {}</cell><cell>4.3.1</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>4.3.3 Exploitation</cell><cell cols="2">d ∈ D d p {}</cell><cell>4.3.2</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Network</cell><cell>Protocol</cell><cell>5.2.1 Communication Capture</cell><cell cols="2">n ∈ N n e {N e }</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>Analysis</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>5.2.2 Cryptographic Analysis</cell><cell cols="2">n ∈ N n e {N e }</cell><cell>5.2.1</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>5.2.3 Unknown Protocol Decoding</cell><cell cols="2">n ∈ N n e {N e }</cell><cell>5.2.2</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>5.2.4 Fuzzing</cell><cell cols="2">n ∈ N n e {N e }</cell><cell>5.2.1</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>5.2.5 Exploitation</cell><cell cols="2">n ∈ N n e {N e }</cell><cell>5.2.4</cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="2">Server OS Information</cell><cell>6.1.1 DNS Interrogation</cell><cell cols="2">m ∈ M m e {}</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>Gathering</cell><cell>6.1.2 Port Scanning</cell><cell cols="2">m ∈ M m e {}</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.1.3 Service Fingerprinting</cell><cell cols="2">m ∈ M m e {}</cell><cell>6.1.2</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.1.4 SNMP Enumeration</cell><cell cols="2">m ∈ M m e {}</cell><cell>6.1.3</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.1.5 Packet Sniffing</cell><cell cols="3">m ∈ M m e {M e , D e } 6.1.4</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.1.2 Port Scanning</cell><cell cols="2">n ∈ NC n e {}</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.1.3 Service Fingerprinting</cell><cell cols="2">n ∈ NC n e {}</cell><cell>6.1.2</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.1.5 Packet Sniffing</cell><cell cols="2">n ∈ NC n e {}</cell><cell>6.1.4</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>Vulnerability</cell><cell>6.2.1 Unauthenticated Vulnerability</cell><cell cols="2">m ∈ M m e {}</cell><cell>6.1.4</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>Analysis</cell><cell>Scanning</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.2.2 Authenticated Vulnerability</cell><cell cols="2">m ∈ M m e {}</cell><cell>6.1.4</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>Scanning</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.2.3 Vulnerability Validation</cell><cell cols="2">m ∈ M m e {}</cell><cell cols="5">6.2.1,6.2.2</cell></row><row><cell></cell><cell></cell><cell>6.2.4 Packet Capture Analysis</cell><cell cols="3">m ∈ M m e {M e , D e } 6.1.5</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.2.1 Unauthenticated Vulnerability</cell><cell cols="2">n ∈ NC n e {}</cell><cell>6.1.4</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>Scanning</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.2.2 Authenticated Vulnerability</cell><cell cols="2">n ∈ NC n e {}</cell><cell>6.1.4</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>Scanning</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.2.3 Vulnerability Validation</cell><cell cols="2">n ∈ NC n e {}</cell><cell cols="5">6.2.1,6.2.2</cell></row><row><cell></cell><cell></cell><cell>6.2.4 Packet Capture Analysis</cell><cell cols="2">n ∈ NC n e {}</cell><cell>6.1.5</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell cols="2">Exploitation 6.3.1 Identify Attack Avenues</cell><cell cols="4">m ∈ M m e {M e , D e } 6.1,6.2</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.3.2 Vulnerability Exploitation</cell><cell cols="3">m ∈ M m e {M e , D e } 6.3.1</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.3.3 Post Exploitation</cell><cell cols="3">m ∈ M m e {M e , D e } 6.3.2</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.3.1 Identify Attack Avenues</cell><cell cols="2">n ∈ NC n e {}</cell><cell cols="2">6.1,6.2</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.3.2 Vulnerability Exploitation</cell><cell cols="2">n ∈ NC n e {}</cell><cell>6.3.1</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.3.3 Post Exploitation</cell><cell cols="2">n ∈ NC n e {}</cell><cell>6.3.2</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Server</cell><cell>Application</cell><cell>7.1.1 Application Fingerprinting</cell><cell cols="2">m ∈ M m e {}</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Applica-</cell><cell>Mapping</cell><cell>7.1.2 Functional Analysis</cell><cell cols="2">m ∈ M m e</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>tions</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0" />			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>{sw −2 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Sw −1 E , F W −1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hmi −p C E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ew S−p C E</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>P LC −1 e , P LC −2 e }</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">−2 e } 13 5.2.1</title>
+		<author>
+			<persName><surname>{sw −2 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Sw −1 E , F W −1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hmi −p C E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ew S−p C E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lc −1 E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lc ; Ews-Pc {ew S − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lc − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Lc − 2 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Sw −</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>2 e } 14 5.2.4 EWS-PC {EW S − P C e , P LC − 1 e , P LC − 2 e , SW − 2 e } .1 HMI-PC {HMI − P C e , P LC − 1 e , P LC − 2 e , SW − 2 e } 18 5.2.4 HMI-PC {HMI − P C e , P LC − 1 e , P LC − 2 e , SW − 2 e }</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Friend, Maj.-Gen. Rt Hon. Sir Lovick Bransby, (25 April 1856–19 Nov. 1944)</title>
+		<author>
+			<persName><surname>{p Lc − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rt U − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Blr S</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Gen − 1 S</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hmi − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ew S − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">−</forename><surname>Hist</surname></persName>
+		</author>
+		<author>
+			<persName><surname>P C E }</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/ww/9780199540884.013.u225638</idno>
+		<imprint>
+			<date type="published" when="2007-12-01" />
+			<publisher>Oxford University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>{p Lc − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rt U − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hmi − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ew S − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">−</forename><surname>Hist</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>SW − 2 e }</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>{p Lc − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rt U − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hmi − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ew S − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">−</forename><surname>Hist</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>SW − 2 e }</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Friend, Maj.-Gen. Rt Hon. Sir Lovick Bransby, (25 April 1856–19 Nov. 1944)</title>
+		<author>
+			<persName><surname>{p Lc − 2 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rt U − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Gen − 2 S</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hmi − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ew S − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">−</forename><surname>Hist</surname></persName>
+		</author>
+		<author>
+			<persName><surname>P C E }</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/ww/9780199540884.013.u225638</idno>
+		<imprint>
+			<date type="published" when="2007-12-01" />
+			<publisher>Oxford University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>{p Lc − 2 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rt U − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hmi − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ew S − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">−</forename><surname>Hist</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>SW − 2 e }</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>{p Lc − 2 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rt U − 1 E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hmi − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ew S − P C E</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">−</forename><surname>Hist</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>SW − 2 e }</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">A Survey of Industrial Control System Testbeds</title>
+		<author>
+			<persName><forename type="first">Hannes</forename><surname>Holm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Karresand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arne</forename><surname>Vidström</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Erik</forename><surname>Westring</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-26502-5_2</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Secure IT Systems</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="11" to="26" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">An isolated virtual cluster for SCADA network security research</title>
+		<author>
+			<persName><forename type="first">Antoine</forename><surname>Lemay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">José</forename><forename type="middle">Enrique</forename><surname>Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Scott</forename><forename type="middle">S</forename><surname>Knight</surname></persName>
+		</author>
+		<idno type="DOI">10.14236/ewic/icscsr2013.10</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 1st International Symposium for ICS &amp; SCADA Cyber Security Research</title>
+				<meeting>the 1st International Symposium for ICS &amp; SCADA Cyber Security Research</meeting>
+		<imprint>
+			<publisher>BCS Learning &amp; Development</publisher>
+			<date type="published" when="2013-09-01" />
+			<biblScope unit="page">88</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">ENISA Study</title>
+		<author>
+			<persName><forename type="first">Rafal</forename><surname>Leszczyna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elyoenai</forename><surname>Egozcue</surname></persName>
+		</author>
+		<idno type="DOI">10.4018/978-1-4666-2659-1.ch005</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Securing Critical Infrastructures and Critical Control Systems</title>
+				<imprint>
+			<publisher>IGI Global</publisher>
+			<date type="published" when="2013" />
+			<biblScope unit="page" from="105" to="143" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Sun</surname></persName>
+		</author>
+		<title level="m">Nonlinear Integer Programming</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2006" />
+			<biblScope unit="volume">84</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">The Cybersecurity Landscape in Industrial Control Systems</title>
+		<author>
+			<persName><forename type="first">Stephen</forename><surname>Mclaughlin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Charalambos</forename><surname>Konstantinou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xueyang</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lucas</forename><surname>Davi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ahmad-Reza</forename><surname>Sadeghi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michail</forename><surname>Maniatakos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ramesh</forename><surname>Karri</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/jproc.2015.2512235</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the IEEE</title>
+		<title level="j" type="abbrev">Proc. IEEE</title>
+		<idno type="ISSN">0018-9219</idno>
+		<idno type="ISSNe">1558-2256</idno>
+		<imprint>
+			<biblScope unit="volume">104</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1039" to="1057" />
+			<date type="published" when="2016-05" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A survey of intrusion detection techniques for cyber-physical systems</title>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Mitchell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ing-Ray</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2542049</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Computing Surveys</title>
+		<title level="j" type="abbrev">ACM Comput. Surv.</title>
+		<idno type="ISSN">0360-0300</idno>
+		<idno type="ISSNe">1557-7341</idno>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1" to="29" />
+			<date type="published" when="2014-04" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">An algorithm for nonlinear optimization problems with binary variables</title>
+		<author>
+			<persName><forename type="first">Walter</forename><surname>Murray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kien-Ming</forename><surname>Ng</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10589-008-9218-1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computational Optimization and Applications</title>
+		<title level="j" type="abbrev">Comput Optim Appl</title>
+		<idno type="ISSN">0926-6003</idno>
+		<idno type="ISSNe">1573-2894</idno>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="257" to="288" />
+			<date type="published" when="2008-12-02" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Assessing and augmenting SCADA cyber security: A survey of techniques</title>
+		<author>
+			<persName><forename type="first">Sajid</forename><surname>Nazir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shushma</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dilip</forename><surname>Patel</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2017.06.010</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<title level="j" type="abbrev">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="436" to="454" />
+			<date type="published" when="2017-09" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Towards implementing scalable and reconfigurable SCADA security testbed in power system environment</title>
+		<author>
+			<persName><forename type="first">Qais</forename><forename type="middle">Saif</forename><surname>Qassim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Norziana</forename><surname>Jamil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maslina</forename><surname>Daud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hafizah</forename><forename type="middle">Che</forename><surname>Hasan</surname></persName>
+		</author>
+		<idno type="DOI">10.1504/ijcis.2019.098834</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Critical Infrastructures</title>
+		<title level="j" type="abbrev">IJCIS</title>
+		<idno type="ISSN">1475-3219</idno>
+		<idno type="ISSNe">1741-8038</idno>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">91</biblScope>
+			<date type="published" when="2019" />
+			<publisher>Inderscience Publishers</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">NESCOR guide to penetration testing for electric utilities</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Searle</surname></persName>
+		</author>
+		<imprint/>
+		<respStmt>
+			<orgName>National Electric Sector Cybersecurity Organization Resource (NESCOR)</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Technical report</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Cyber-physical testbeds</title>
+		<author>
+			<persName><forename type="first">Christos</forename><surname>Siaterlis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Béla</forename><surname>Genge</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2602575</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<title level="j" type="abbrev">Commun. ACM</title>
+		<idno type="ISSN">0001-0782</idno>
+		<idno type="ISSNe">1557-7317</idno>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="64" to="73" />
+			<date type="published" when="2014-06" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Guide to Industrial Control Systems (ICS) Security - Supervisory Control and Data Acquisition (SCADA) systems, Distributed Control Systems (DCS), and other control system configurations such as Programmable Logic Controllers (PLC)</title>
+		<author>
+			<persName><forename type="first">Keith</forename><surname>Stouffer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joe</forename><surname>Falco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karen</forename><surname>Scarfone</surname></persName>
+		</author>
+		<idno type="DOI">10.6028/nist.sp.800.82</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Publ</title>
+		<imprint>
+			<biblScope unit="volume">800</biblScope>
+			<biblScope unit="issue">82</biblScope>
+			<biblScope unit="page">16</biblScope>
+			<date type="published" when="2011-06" />
+			<publisher>National Institute of Standards and Technology</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

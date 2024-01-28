@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Conclusion and Outlook on Security and Quality of Complex Cyber-Physical Systems Engineering</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Springer International Publishing</publisher>
+				<availability status="unknown"><p>Copyright Springer International Publishing</p>
+				</availability>
+				<date type="published" when="2019">2019</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Stefan</forename><surname>Biffl</surname></persName>
+							<email>stefan.biffl@tuwien.ac.at</email>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Information Systems Engineering</orgName>
+								<orgName type="institution">Technische Universität Wien</orgName>
+								<address>
+									<settlement>Vienna</settlement>
+									<country key="AT">Austria</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Institute of Information Systems Engineering</orgName>
+								<orgName type="laboratory">Christian Doppler Laboratory for Security and Quality Improvement in the Production System Lifecycle (CDL-SQI)</orgName>
+								<orgName type="institution">Technische Universität Wien</orgName>
+								<address>
+									<settlement>Vienna</settlement>
+									<country key="AT">Austria</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+							<email>matthias.eckhart@tuwien.ac.at</email>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Information Systems Engineering</orgName>
+								<orgName type="institution">Technische Universität Wien</orgName>
+								<address>
+									<settlement>Vienna</settlement>
+									<country key="AT">Austria</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="institution">SBA Research</orgName>
+								<address>
+									<settlement>Vienna</settlement>
+									<country key="AT">Austria</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Arndt</forename><surname>Lüder</surname></persName>
+							<email>arndt.lueder@ovgu.de</email>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Information Systems Engineering</orgName>
+								<orgName type="institution">Technische Universität Wien</orgName>
+								<address>
+									<settlement>Vienna</settlement>
+									<country key="AT">Austria</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="department">Otto-v.-Guericke University/IAF</orgName>
+								<address>
+									<settlement>Magdeburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Edgar</forename><surname>Weippl</surname></persName>
+							<email>edgar.weippl@tuwien.ac.at</email>
+							<affiliation key="aff0">
+								<orgName type="department">Institute of Information Systems Engineering</orgName>
+								<orgName type="institution">Technische Universität Wien</orgName>
+								<address>
+									<settlement>Vienna</settlement>
+									<country key="AT">Austria</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="institution">SBA Research</orgName>
+								<address>
+									<settlement>Vienna</settlement>
+									<country key="AT">Austria</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Conclusion and Outlook on Security and Quality of Complex Cyber-Physical Systems Engineering</title>
+					</analytic>
+					<monogr>
+						<title level="m">Security and Quality in Cyber-Physical Systems Engineering</title>
+						<imprint>
+							<publisher>Springer International Publishing</publisher>
+							<biblScope unit="page" from="497" to="507"/>
+							<date type="published" when="2019" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1007/978-3-030-25312-7_18</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:21+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Complex cyber-physical systems</term>
+					<term>Engineering process</term>
+					<term>Multidisciplinary engineering</term>
+					<term>AutomationML</term>
+					<term>Information security</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Typical assumptions for research in quality and security assurance and improvement for small software-intensive systems may not hold for long-running technical systems, such as critical infrastructure or industrial production systems. Therefore, researchers in quality and security assurance and improvement can benefit from better understanding challenges on quality and security assurance and quality improvement coming from the engineering of Complex Cyber-Physical Systems based on the use cases and requirements presented. This chapter summarizes and reflects on the material presented in this book regarding challenges and solutions for Security and Quality of Complex Cyber-Physical Systems (C-CPS) Engineering. Contributions in this book consider requirements, risks, and solutions to improve the security and quality of C-CPS. Engineers and project managers will be enabled to identify quality and security challenges they should consider. In addition, the chapter describes measures to assist the involved staff in handling the identified challenges. The chapter discusses the contributions of the chapters to the Research Questions raised in Chap. 1 of this book.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="18.1">Part I: Engineering Complex Cyber-Physical Systems</head><p>The improvement of quality and security in engineering Complex Cyber-Physical Systems (C-CPS) is only possible if the engineering process is understood by all involved stakeholders. This understanding enables identifying possible impacts of the engineering process execution on quality and security properties and makes it possible to develop and evaluate quality and security improvement approaches. Therefore, the initial research question within this book has been the following.</p><p>RQ1a: What are typical characteristics of engineering processes for long-running software-intensive technical systems?</p><p>Chapters 2-4 have considered this research question and provided detailed descriptions of practically relevant engineering processes and the challenges to be tackled by engineers using these processes. Nevertheless, the chapters take three viewpoints that represent different types of engineering organization and their engineering processes.</p><p>Chapter 2 takes the viewpoint of an international engineering organization and discusses challenges emerging from executing engineering processes in this international setting. One possible measure to tackle these challenges is a readiness check for engineering internationalization that highlights main questions to answer when setting up an international engineering organization. These questions highlight success critical characteristics of engineering processes, such as workload distribution and process/task descriptions, knowledge management, and information exchange.</p><p>Chapter 3 takes the viewpoint of engineering in a large automotive OEM. The New Product and Production system Development Process (NPPDP) considers the joined engineering of two C-CPS types: cars and car production systems. Dynamic complexity is a critical characteristic of these joined engineering processes. This dynamic complexity comes from the diversity of engineering tasks and artifacts, the strong connectivity between these tasks and artifacts, and the uncertainty of required changes within the artifacts. Therefore, a complexity management framework can help manage dynamic complexity in a holistic way by providing the required understanding of (a) the engineering processes, (b) the engineering process dependencies, and (c) the engineering data logistics needed.</p><p>Chapter 4 provides insights into the engineering of rail systems by collecting special challenges that emerge within this field of public transport due to safety and warranty regulations. With a focus on the engineering of signaling systems, the authors present the engineering process and its tool chain. A main element in rail system engineering is the data consistency along the tool chain.</p><p>Beyond these more general views on C-CPS engineering, Chaps. 5 and 6 discuss selected special views on C-CPS engineering and derive characteristics of these engineering processes.</p><p>Chapter 5 considers interrelations between the engineering and use of a production system by discussing methods to improve the production system engineering based on In contrast, Chap. 6 discusses the important topic of data-intensive systems as a special kind of C-CPS, stressing the difficulties to properly test this type of C-CPS and extending test characteristics matrices used. Thereby, the authors show that data management in data-intensive C-CPS is a characteristic with much more facets than usually perceived.</p><p>Together, these chapters highlight that C-CPS engineering processes can be characterized as a network of multidisciplinary processes that connect engineering activities, which are optimized independently, by engineering data exchange <ref type="bibr" target="#b0">(Biffl et al. 2017)</ref>. The success of the engineering process is strongly related to the quality and security of the engineering data exchange.</p><p>The second research question considers the support C-CPS engineering can expect from well-proven approaches in (business) informatics.</p><p>RQ1b: What are requirement areas from engineering processes for long-running software-intensive technical systems that require informatics contributions?</p><p>Chapter 2 derives from the structure and execution of the readiness check requirements for IT support considering four requirements clusters. The first cluster is dedicated to the overall engineering organization solution portfolio including requirements like (a) required system-of-systems approaches or (b) adequate data modeling approaches. The second cluster is dedicated to engineering team with (c) dedicated working conditions and (d) security-related issues. The third cluster is related to the engineering artifacts covering requirements related to (e) consistent and scalable data exchange structures, (f) consistency in engineering change management, (g) data quality across different locations, and (h) security of engineering data. Finally, the fourth cluster reflects the used engineering tools with requirements related to (i) interoperability and (j) tool chain design.</p><p>Chapter 3 derives from the complexity management framework for NPPDP requirements for understanding the engineering processes, their dependencies, and the engineering data logistics. Thereby, the authors highlight requirements to (a) IT systems that enable engineering process modeling and analysis, (b) data logistics in engineering processes impacting engineering quality over data quality assurance, and (c) capabilities for consistent modeling of engineering objects.</p><p>Chapter 4 discusses data consistency along the tool chain of rail system engineering and derives requirements for IT systems regarding (a) safe and reliable data exchange, integration, and migration; (b) role-based data security; and (c) support for engineering data reuse.</p><p>In the scope of their special views on C-CPS engineering, Chaps. 5 and 6 provide valuable requirements. Chapter 5 stresses requirements for appropriate information modeling and data management as foundation for collecting data from run-time systems and integrating the run-time data with design models to improve the accuracy of the design models. Chapter 6 discusses security issues that testing of data-intensive software systems can help address and identifies new security threats as input to a subsequent security analysis. In summary, the information engineering processes collected in Part I can be characterized as interconnected multidisciplinary network of engineering decisions <ref type="bibr" target="#b0">(Biffl et al. 2017</ref>) that strongly rely on • The available knowledge related to process structure and execution rules • The consistency, quality, and completeness of the complete set of engineering artifacts created, exchanged, and used in the engineering network • The tool set applied within the network with its interfaces and use conditions • The secure information creation, exchange, and use within the engineering network</p><p>The challenges to information science anticipated in Chap. 1 have been confirmed. They can be summarized as challenges related to (C1): The increasing digitalization of CPS with multi-model data integration that enables the assurance of consistency, quality, and completeness of engineering information in an engineering network (C2): Consistent and fault-free engineering information exchange between engineering disciplines along the complete C-CPS engineering lifecycle (C3): Information and knowledge management in an engineering network (C4): Secure engineering processes and engineering data management</p><p>The chapters in Parts II and III provide contributions from quality improvement and from security improvement to address these challenges in C-CPS engineering.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="18.2">Part II: Engineering Quality Improvement</head><p>Business informatics aims at improving business processes, in the case of C-CPS these are the processes of engineering organizations. Chaps. 7-10 in Part II focus on the engineering processes of collaborating discipline-specific workgroups in an engineering network to support decision making, quality assurance, and information management. In addition, Chaps. 5 and 6 in Part I play a dual role by providing requirements for quality improvement and by introducing methods for quality improvement.</p><p>In the focus of Part II, Chaps. 5-10 address quality improvement challenges identified in Part I, in particular, engineering data/model representation and integration, methods for consistent and fault-free engineering information exchange, and methods for quality assurance. The two research questions of Part II, defined in Chap. 1, consider both the potentials of better quality improvement capabilities for engineering C-CPS and security requirements and issues that quality improvement approaches may introduce or intensify. Chapters 5-10 address this research question. Chapters 5, 7, and 10 discuss approaches for better knowledge representation to address challenges of data and model integration as foundation for better information management in an engineering network. Chapters 7 and 8 analyze and improve the process of engineering information exchange between disciplines in a C-CPS engineering network. Chapters 6 and 9 discuss methods for quality assurance, in particular, correctness and consistency of engineering information in an engineering network.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RQ2a: How can approaches adapted from business informatics address quality improvement requirements coming from characteristics of C-CPS engineering?</head><p>Chapter 5 follows a model-based engineering approach to improve the backflow of information from operation to the engineering phase. The authors introduce the Temporal Model Framework to link production system design models to run-time models as foundation for improving the accuracy and completeness of information in the design-time models based on aggregated information from analysis of operation data, such as the confidence interval of the duration for a transport process. The extension of design models with run-time information improves the usefulness of the design models for iterative engineering, keeps the design models relevant along the lifetime of the C-CPS, and collects relevant information for designing similar systems in a C-CPS family.</p><p>Chapter 6 discusses the role of data in testing systems and requirements for appropriate testing approaches for data-intensive software. In data-intensive software, the quality of data plays a vital role for the quality of the system, beyond the traditional input data to a system. For example, software functions may depend on a large body of data collected from previous projects or from operation. The quality of this data becomes, therefore, instrumental to the quality of the software.</p><p>However, an open issue is how to measure and assure the quality of such data and how to provide data with specified quality levels for testing data-intensive software. As C-CPSs are increasingly likely to contain data-intensive software, the quality assurance of data-intensive software and the underlying data becomes an increasing concern.</p><p>Chapter 7 analyzes gaps regarding critical engineering knowledge in the exchange between disciplines in a C-CPS engineering network. The authors focus on the information needs of detail engineers regarding knowledge on product and production process requirements that basic engineers know but often fail to document, leading to risks and delays in the C-CPS engineering process. The chapter introduces a method for product/ion-aware analysis of production system engineering (PSE) processes based on the engineering process analysis method <ref type="bibr" target="#b4">(Lüder et al. 2012</ref>) and the BPMN 2.0 notation. To address shortcomings in the BPMN 2.0 notation, the authors introduce a notation for representing linked knowledge on products, production processes, and production system resources (PPR) in the BPMN 2.0, the product/ion-aware data processing map (PPR DPM). The PPR DPM enables advanced analyses of PPR knowledge needs and gaps as foundation for better information management in a C-CPS engineering network.</p><p>Chapter 8 aims at improving the process of engineering information exchange between engineering disciplines in a C-CPS engineering network by enabling a more frequent and efficient synchronization between collaborating workgroups in C-CPS engineering. The authors introduce a method for efficient Engineering Data Exchange, in particular, for negotiating and representing the data that consumers in an engineering network require, as foundation for configuring an Engineering Data Exchange information system for the efficient and consistent management of information in a C-CPS engineering network. For typical C-CPS engineering networks, which rely on the traditional point-to-point exchange of engineering artifacts, the approach aims at reducing the risk of diverging local data views, effort for rework, and unclear project progress assessment. Chapter 9 discusses methods for improving the automated testing of softwareintensive systems that are used in C-CPS. The authors focus on knowledge representation for the reuse of artifacts for automated testing in similar but different test environments, for example, the efficient generation of test source code in different testing environments. For example, the underlying technology of a system part may change, for example, if a pick-and-place robot is exchanged for another robot with similar functionality but different programming language. In a C-CPS engineering network, the approach can reduce the effort and risk coming from the manual adaptation of testing artifacts.</p><p>Chapter 10 discusses an approach for the efficient representation of knowledge on product variants in a family of C-CPSs to identify reusable parts as foundation for better quality assurance. The representation of a product portfolio is the foundation for efficiently identify which C-CPSs are likely to be affected by a defect found in one C-CPS and to manage a suite of test cases and artifacts for the systems in the C-CPS family.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RQ2b: Which interventions of quality improvement approaches are likely to introduce or increase information security requirements and risks?</head><p>Chapters 5-10 introduce and discuss approaches that primarily aim at quality improvement in engineering networks. However, these improvement approaches can also be seen as interventions in traditional engineering networks, interventions that change the way of working and that may be relevant for information security concerns. As a cross-cutting quality concern, effective and efficient security cannot be added later, but needs to be designed into an engineering network, its tools, and the C-CPS operational environment. Surprisingly, in traditional C-CPS engineering, security is often an add-on consideration to engineering and quality improvement, possibly due to the discipline-specific focus in C-CPS engineering.</p><p>The quality improvement contributions build on the foundations of better knowledge representation and the integration and centralization of previously scattered, often isolated, knowledge. These foundations allow developing more effective and efficient approaches for engineering and quality management by providing better access to integrated knowledge. The knowledge can be used to improve understanding of engineers and managers regarding (a) characteristics of the engineering network, (b) C-CPS characteristics, (c) C-CPS operational characteristics, and (d) the reuse in a C-CPS family of similar systems.</p><p>However, these advantages for legitimate users can become security risks if accessible to external attackers, who may use the integrated knowledge for gaining intelligence on the roles and information in the engineering process, the C-CPS, and the planned C-CPS operation functionality. Attackers can extract this intelligence to inform the competition. Attackers can use this intelligence for planning attacks on the engineering network and the C-CPS. Further, attackers can use this intelligence to manipulate engineering artifacts (a) to lower the quality of the C-CPS or its operation as well as (b) to make the C-CPS more vulnerable against future attacks. These risk scenarios emphasize security requirements for capabilities to protect engineering processes and data against adversarial access. In addition, there are inside attackers, legitimate users, who misuse their access privileges. Therefore, security requirements have to include capabilities (a) to trace access and changes to relevant engineering knowledge and (b) to trace exported data in a legally binding way. Therefore, the C-CPS engineering examples in Part II point out potential targets that IT security should defend, as input to the security methods introduced in Part III of this book.</p><p>Overall, readers gain from these chapters' insights into a variety of approaches to improve engineering quality for addressing requirements raised in Part I of this book for making better informed decisions in the design and improvement of C-CPS engineering processes. Further, Part II discusses a range of security requirements and threats as input to the security methods introduced in Part III of this book.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="18.3">Part III: Engineering Security Improvement</head><p>System integrators, who seek to improve information security in the context of C-CPSs engineering face a twofold challenge: First, it has to be ensured that the engineering process is adequately protected against adversarial access and manipulations. Failure to do so may result in information leaks through industrial cyber espionage attacks or the manipulation of engineering artifacts in order to make the engineered systems inherently vulnerable. Second, security needs to become a first-class citizen in the engineering of C-CPSs in order to achieve industrial systems that are built to be secure. The consequences of security negligence in the industrial sector have already manifested themselves and, considering the long lifecycle of C-CPSs, will remain an issue in the years to come. Thus, security must be established as an integral part of (green-field) engineering projects to counter this trend. The two research questions of Part III, defined in Chap. 1, relate to both of the aforementioned issues.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RQ3a: Which security concepts mitigate cyber threats targeting the engineering process of complex cyber-physical systems?</head><p>The first two chapters of Part III, that is, Chaps. 11 and 12, address this research question.</p><p>Chapter 11 discusses measures to mitigate security risks pertaining to central data repositories used for the exchange of engineering information, specifically in the context of AutomationML. The chapter first gives an introduction to access control and clarifies its relevance for engineering networks. After that, the authors introduce a stepwise approach that can be used to analyze the security of engineering data exchange platforms. The main finding relevant to this research question is that general IT security measures (according to established cybersecurity standards) must be supplemented by cryptographic measures to protect the content of engineering artifacts. In this way, the risk of potential confidentiality breaches caused by external threat actors can be significantly mitigated.</p><p>Chapter 12 deals with security concepts that system integrators can adopt in order to thwart insider threats (e.g., from legitimate partners involved in engineering projects). After motivating the need for mechanisms to secure engineering data against exfiltration and manipulation, the chapter provides background information on fingerprinting mechanisms and expert-in-the-loop systems. On this basis, the authors extend the doctor in the loop paradigm (cf. for instance, <ref type="bibr" target="#b3">Kieseberg et al. 2016)</ref>, to embed audit and control capabilities into engineering environments. Furthermore, the authors propose two measures to mitigate the risk of engineering data exfiltration, namely, (i) incorporating read access into the transaction mechanism of engineering databases, and (ii) applying database steganography through slack space. Their proposed approach also includes ex-post protection by means of fingerprinting, enabling system integrators to track and prove data leaks. This reactive measure enables taking legal action against parties, which leak data but cannot be easily controlled or monitored.</p><p>Both chapters provide insights into mitigating security risks pertaining to the C-CPSs engineering process. In particular, these two chapters show that general IT security measures (e.g., implemented according to the ISO/IEC 27000-series) constitute merely the foundation for protecting engineering environments. Securing engineering artifacts on a content level via cryptographic methods and integrating data manipulation and exfiltration detection mechanisms into engineering databases are further measures that must be taken to reduce security risks emanating from malicious acts of external threat actors and insiders.</p><p>RQ3b: How can the security of complex cyber-physical systems be enhanced by considering security aspects during the engineering phase?</p><p>Chapters 13-17 address this research question.</p><p>Chapter 13 provides valuable background information on potential security issues of CPSs and discusses how they can be addressed by introducing the security-bydesign principle to the Operational Technology (OT) domain. Furthermore, the chapter refers to multiple streams of research in CPSs security and attempts to show the current state of knowledge in this area. The authors of this chapter identified run-time security monitoring as a key component of an effective defense, which must be designed in line with the system to be engineered. The reason for this is that the implementation of measures for detecting and preventing cyber-attacks against CPSs is driven by the system's specification as well as by the considered threat model. Thus, developing run-time security monitoring techniques right from the beginning of the CPS's lifecycle provides the means to tailor them to the system's characteristics (e.g., the design of control loops), which may result in fine-tuned implementations that yield a high detection performance. Chapter 14 reviews literature on the concept of digital twins in the context of information security. The authors first give an overview of the digital twin concept by describing its origins, types of digital twins, its use cases in the manufacturing domain, and its connection to the digital thread concept, which aims to establish a consistent data link over the systems' lifecycle. Then, the authors expand on the security-related use cases of digital twins that have been initially presented by <ref type="bibr">Eckhart and Ekelhart (2018a, b)</ref> and discuss other relevant use cases covered in the literature. The chapter shows that the following security-related digital twin use cases, which can be applied in engineering activities, are already discussed in the literature: (1) supporting the design of more secure CPSs, (2) detecting hardware and software misconfigurations, (3) conducting security testing, and (4) monitoring security and legal compliance. Finally, the authors identify research gaps to address in future research. For instance, use cases applicable to the engineering phase, which are in need of further investigation, are the assessment of security risks, improving the resilience of CPSs, and performing security testing in an automated manner.</p><p>Chapter 15 discusses the security risks associated with the use of Radio Frequency (RF) technologies in industrial facilities and describes mitigation strategies that vendors and system integrators can implement during engineering activities. First, the chapter provides a brief introduction to wireless protocols and their application in an industrial setting. Then, the chapter shows how typical attacks against RFbased systems can be executed. Based on this knowledge, the authors demonstrate how threat modeling and penetration testing can be embedded in the engineering lifecycle as a proactive measure to mitigate these attacks. In particular, the authors describe how the STRIDE model can be applied in conjunction with the DREAD model to assess security risks pertaining to RF-based systems. Furthermore, they show how Software Defined Radio can be leveraged as a penetration testing tool. As the authors correctly point out, conducting threat modeling activities and penetration testing of wireless systems during development may reveal vulnerabilities at an early stage of the system's lifecycle, allowing engineers to fix these weaknesses efficiently at a lower cost.</p><p>Chapter 16 provides a review of security and safety challenges concerning Industrial Internet of Things (IIoT) systems and surveys machine learning and deep learning (ML/DL) methods that can be applied to address these challenges. The authors of this chapter highlight the specificities of IIoT systems, such as resource constraints, the prevalence of wireless communication, and, in particular, their distributed and embedded nature. These characteristics need to be considered in the threat model and represent a determining factor in mitigating security risks, especially in the context of ML/DL. The results of their literature review indicate that current papers on detecting cyber-attacks against IIoT systems pay particular attention to DL methods, given their promising performance in such applications. In the context of the engineering lifecycle, the authors suggest that a close collaboration between C-CPSs engineers (i.e., domain experts) and ML/DL specialists is required for proper feature engineering, as it affects the accuracy of ML/DL models.</p><p>Chapter 17 examines the connection between blockchain technologies and Byzantine fault tolerance and discusses their application for addressing technical challenges that emerge when engineering safety-critical systems. After providing an introduction to Byzantine fault tolerance and blockchain, the chapter delves into the topic of decentralizing trust in the context of Bitcoin's Nakamoto consensus.</p><p>In this context, the chapter presents use cases of blockchain technologies beyond cryptocurrencies and thereby establishes a strong link to the book's theme. For instance, trusted timestamping, digital identities, and trusted execution environments are blockchain-related use cases that may be implemented to improve the security of C-CPSs. In addition to the discussed concepts for improving the security of C-CPSs, the chapter addresses RQ3a. In particular, the authors describe how Byzantine fault tolerance and blockchain technologies can be leveraged to protect the engineering process of C-CPSs by referring to previous research relevant to the subject. The findings of this chapter suggest that blockchain technologies do not only represent a promising advance for achieving Byzantine fault tolerance, but also for securing engineering processes and C-CPSs themselves.</p><p>To sum up, the chapters examine several security concepts that can be implemented as part of C-CPS engineering for the purpose of enhancing the security of C-CPSs. The specific security concepts covered in these chapters are not closely related to each other and therefore provide insights from different perspectives. More specifically, the considered security-improving methods range over intrusion detection, digital twins, wireless communication, machine and deep learning methods, and blockchain technologies. Altogether, these chapters only discuss a fraction of the topics relevant to improving the security of C-CPSs. However, the chapters still represent a valuable contribution to the scientific progress in this area, as they discuss a variety of security challenges pertaining to C-CPSs and, more importantly, provide pointers to address them.</p><p>Summing up all chapters, this book discusses challenges and solutions for improving quality and security of and within the engineering of C-CPSs. As visualized in Table <ref type="table">18</ref>.1, all challenge fields identified in Part I have been addressed and the research questions named in Chap. 1 have been tackled.</p><p>In total, the chapters discuss a broad range of methodologies to improve quality and security of C-CPS by improving and securing the C-CPS engineering process. Even if the provided methods cover a wide area, there are still several open issues for research identified within this book in relation to the research questions.</p><p>The most relevant open issues are related to the multimodel nature of C-CPS engineering and sufficient data integration in C-CPS engineering as well as the knowledge protection within engineering data exchange, to name only two open issues.</p><p>Finally, it can be stated that this book has reached its target of providing a review on the state of the art in its field and to open up existing solutions and open issues for further research. This will enable researchers and practitioners to take better informed decisions when dealing with C-CPS engineering process quality and security.   </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>Outlook on Security and Quality of Complex Cyber-. . . 499 run-time data. The authors extended model-based engineering to represent and make good use of the interdependencies of models along the complete C-CPS lifecycle.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>Outlook on Security and Quality of Complex Cyber-. . . 501</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>Outlook on Security and Quality of Complex Cyber-. . . 503</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head></head><label></label><figDesc>Outlook on Security and Quality of Complex Cyber-. . . 507</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 18 . 1</head><label>181</label><figDesc>Mapping of C-CPS challenge fields Cx to chapter contributions</figDesc><table><row><cell></cell><cell>Challenge</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell>C1</cell><cell>C2</cell><cell>C3</cell><cell>C4</cell></row><row><cell></cell><cell>Multimodel data</cell><cell>Information</cell><cell>Information/knowledge</cell><cell>Secure</cell></row><row><cell>Chapters</cell><cell>integration</cell><cell>exchange</cell><cell>management</cell><cell>engineering</cell></row><row><cell>5</cell><cell>x</cell><cell></cell><cell>x</cell><cell></cell></row><row><cell>6</cell><cell>x</cell><cell></cell><cell></cell><cell></cell></row><row><cell>7</cell><cell>x</cell><cell>x</cell><cell>x</cell><cell></cell></row><row><cell>8</cell><cell></cell><cell>x</cell><cell></cell><cell></cell></row><row><cell>9</cell><cell>x</cell><cell></cell><cell>x</cell><cell></cell></row><row><cell>10</cell><cell>x</cell><cell></cell><cell>x</cell><cell></cell></row><row><cell>11</cell><cell>x</cell><cell>x</cell><cell></cell><cell>x</cell></row><row><cell>12</cell><cell>x</cell><cell></cell><cell></cell><cell>x</cell></row><row><cell>13</cell><cell></cell><cell></cell><cell>x</cell><cell>x</cell></row><row><cell>14</cell><cell>x</cell><cell></cell><cell>x</cell><cell>x</cell></row><row><cell>15</cell><cell></cell><cell></cell><cell>x</cell><cell>x</cell></row><row><cell>16</cell><cell></cell><cell></cell><cell></cell><cell>x</cell></row><row><cell>17</cell><cell></cell><cell></cell><cell></cell><cell>x</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="18">Conclusion and Outlook on Security and Quality of Complex Cyber-. . .</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>The financial support by the Christian Doppler Research Association, the Austrian Federal Ministry for Digital and Economic Affairs and the National Foundation for Research, Technology and Development is gratefully acknowledged.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Multi-Disciplinary Engineering for Cyber-Physical Production Systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Biffl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gerhard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lüder</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-56345-9</idno>
+		<imprint>
+			<date type="published" when="2017" />
+			<publisher>Springer International Publishing</publisher>
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Towards Security-Aware Virtual Environments for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3198458.3198464</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 4th ACM Workshop on Cyber-Physical System Security<address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-22" />
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">A Specification-based State Replication Approach for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264892</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+			<biblScope unit="volume">115</biblScope>
+			<biblScope unit="page" from="22" to="23" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">A tamper-proof audit and control system for the doctor in the loop</title>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Kieseberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bernd</forename><surname>Malle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Frühwirt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edgar</forename><surname>Weippl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Holzinger</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s40708-016-0046-2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Brain Informatics</title>
+		<title level="j" type="abbrev">Brain Inf.</title>
+		<idno type="ISSN">2198-4018</idno>
+		<idno type="ISSNe">2198-4026</idno>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="269" to="279" />
+			<date type="published" when="2016-03-19" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Application of engineering processes analysis to evaluate benefits of mechatronic engineering</title>
+		<author>
+			<persName><forename type="first">Arndt</forename><surname>Luder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Foehr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adrian</forename><surname>Kohlein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Birthe</forename><surname>Bohm</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/etfa.2012.6489710</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of 2012 IEEE 17th International Conference on Emerging Technologies &amp; Factory Automation (ETFA 2012)</title>
+				<meeting>2012 IEEE 17th International Conference on Emerging Technologies &amp; Factory Automation (ETFA 2012)</meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2012-09" />
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

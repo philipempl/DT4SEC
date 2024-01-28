@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Digital Twin for Cybersecurity Incident Prediction: A Multivocal Literature Review</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Abhishek</forename><surname>Pokhrel</surname></persName>
+							<email>abhishep@hiof.no</email>
+						</author>
+						<author>
+							<persName><forename type="first">Vikash</forename><surname>Katta</surname></persName>
+							<email>vikash.katta@ife.no</email>
+						</author>
+						<author>
+							<persName><forename type="first">Ricardo</forename><surname>Colomo-Palacios</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Faculty of Computer Science</orgName>
+								<orgName type="institution">Østfold University College</orgName>
+								<address>
+									<postCode>1783</postCode>
+									<settlement>Halden</settlement>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="department">Dept. Risk, Safety and Security Institute for Energy Technology</orgName>
+								<address>
+									<postCode>1777</postCode>
+									<settlement>Halden</settlement>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="department">Faculty of Computer Science</orgName>
+								<orgName type="institution">Østfold University College</orgName>
+								<address>
+									<postCode>1783</postCode>
+									<settlement>Halden</settlement>
+									<country key="NO">Norway</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<address>
+									<addrLine>8 pages</addrLine>
+									<settlement>Seoul</settlement>
+									<country key="KR">Republic of Korea</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Digital Twin for Cybersecurity Incident Prediction: A Multivocal Literature Review</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1145/3387940.3392199</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:48+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Multivocal literature review</term>
+					<term>IoT</term>
+					<term>Digital Twin</term>
+					<term>Cybersecurity</term>
+					<term>Fault detection</term>
+					<term>Incident prediction</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The advancements in the field of internet of things, artificial intelligence, machine learning, and data analytics has laid the path to the evolution of digital twin technology. The digital twin is a high-fidelity digital model of a physical system or asset that can be used e.g. to optimize operations and predict faults of the physical system. To understand different use cases of digital twin and its potential for cybersecurity incident prediction, we have performed a Systematic Literature Review (SLR). In this paper, we summarize the definition of digital twin and state-of-the-art on the development of digital twin including reported work on the usability of a digital twin for cybersecurity. Existing tools and technologies for developing digital twin is discussed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CCS CONCEPTS</head><p>• Security and privacy~Intrusion/anomaly detection and malware mitigation~Intrusion detection systems • Security and privacy~Intrusion/anomaly detection and malware mitigation • Computing methodologies~Modeling and simulation~Simulation types and techniques~Real-time simulation</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>The shift towards the 4th industrial revolution and Industry 4.0 has increased the level of automation of the industrial systems and processes and connectivity between them. In this revolutionary trend, one of the focus areas is creating transparency between the physical world and the digital world (cyberspace) and this led to a new concept, called digital twin <ref type="bibr" target="#b0">[1]</ref>. Some related or partially overlapping conceptual terms are the digital counterparts, virtual twin, virtual object, product agent, and an avatar <ref type="bibr" target="#b1">[2]</ref>. A digital twin is a replica model residing in a virtual environment that includes everything that is known about an object. It is a replica of physical counterparts that change with the current environment in real-time to assist in monitor, test, treat and maintain a physical system <ref type="bibr" target="#b16">[16]</ref>.</p><p>IoT is an extension and expansion of an Internet-based network that expands the communication among the physical world, the virtual world, the digital world, and the society by taking machine-tomachine communication (M2M) to the next level <ref type="bibr" target="#b4">[5]</ref>. With the increasing number of heterogeneous devices connected to IoT and generating data, cybersecurity is an inevitable problem that must be solved for the further development of IoT <ref type="bibr" target="#b3">[4]</ref>. IoT devices are becoming the new weakest link in the security chain in the modern world making themselves a powerful amplifying platform for cyberattacks <ref type="bibr" target="#b9">[10]</ref>. Thus, it must be ensured that the IoT cybersecurity is not an afterthought when developing and using IoT devices <ref type="bibr" target="#b12">[12]</ref>. While digital twin is regarded as one of the top technological trends, and more and more industries are looking into the usability of this technology to optimize the development and maintenance of their systems and processes, very less is known or published on the topic of usability of a digital twin for cybersecurity. This paper presents our work on an exploratory study, using a literature review, to review the published work on digital twin and their usability for cybersecurity. The concept of the digital twin was first coined by Michael Grieves back in 2002 at the University of Michigan <ref type="bibr" target="#b19">[19]</ref>. Furthermore, this concept was greatly expanded in his book called, Virtually Perfect: Driving Innovative and Lean Products through Product Lifecycle Management <ref type="bibr" target="#b18">[18]</ref>. Probably, the first definition of the digital twin was given by NASA as "an integrated multi-physics, multi-scale, probabilistic simulation of a vehicle or system that uses the best available Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from Permissions@acm.org. physical models, sensor updates, fleet history, etc., to mirror the life of its flying twin. The digital twin is ultra-realistic and may consider one or more important and interdependent vehicle systems, including propulsion/energy storage, avionics, life support, vehicle structure, thermal management/TPS, etc." <ref type="bibr">[41]</ref>. Most literature and recent works show that this concept is mostly linked to maintenance, optimization, and simulation but this concept can also be used to enhance the safety and security of cyber-physical systems.</p><p>The rest of the paper is organized as follows. Section 2 describes the multivocal literature review methodology followed, and the research questions addressed. Section 3 presents the results of the literature review. Section 4 narrates the findings regarding the literature review and research objectives. Finally, Section 5 concludes the paper. This paper is part of a Master-level Business Project done by a student (first author) at the Institute for Energy Technology (IFE). This paper presents a shortened version of the work -Literature review -reported in the project technical report <ref type="bibr" target="#b32">[29]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Research Methodology</head><p>In this section, an outline of the research methodology based on a Multivocal Literature Review (MLR), research questions and data collection procedure, is presented.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Multivocal Literature Review (MLR)</head><p>A type of SLR study where the data from both scientific and grey literature (GL) are accepted is referred to as Multivocal Literature Review (MLR). This study covers the gap between academic literature and industrial/practical knowledge. MLR stands where purely research-based surveys or studies are unable to give significant decisions about complex interventions and a national or regional context for differences in implementation. Not all SLRs need to include GL and become MLRs but if extending the scope and including GL will bring value and benefits to study, researchers should consider evaluating MLR <ref type="bibr" target="#b17">[17]</ref>.</p><p>The academic literature available on a digital twin is in a significantly limited amount. Our findings indicated that including GL to this study can give significant advantages as the scope of the digital twin is very broad and ambiguous. We found examples of numerous practitioners, companies and their sources being ignored in previous studies. Those sources can not only be academic studies and books but also a wide variety of unpublished non-research literature available online such as blog posts, white papers, presentation videos, and tools. Furthermore, the digital twin is a field of both scientific and practical interest where the research for this topic is growing enormously since the last decade. Besides, to our knowledge, we also found there is no MLR study conducted on this topic until now. So, we chose to conduct our study utilizing MLR according to the guidelines described by Garousi <ref type="bibr" target="#b17">[17]</ref>. The MLR process conducted followed six steps: a) Define research questions, search strategy and search string, b) Define inclusion/exclusion criteria, c) Perform a search on the selected databases, d) Filter/Selection procedures among the founded papers, e) Review of the papers that passed filtering process and f) Summarise results and findings.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Research Questions</head><p>The main purpose of the MLR is to observe, classify, review, document, analyze and summarize the state of the art and practice related to digital twin and its use on cybersecurity. Based on the purpose and objective of the study, we have the following two research questions.</p><p>RQ1: What are the reported uses of the digital twin? RQ2: What are the reported uses of the digital twin in cybersecurity for fault detection and incident prediction?</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Search Strategy</head><p>The scope of this step is to characterize the search and evaluation strategy which allows thorough search of the available literature needed to answer the proposed research questions. This helps in identifying the primary sources from the scientific and grey literature <ref type="bibr" target="#b5">[6]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.1">Search data sources.</head><p>Once the search string has been defined, the next step is to determine where the searches will be performed. We performed the searches on following digital libraries to identify formally published literature: IEEE Xplore; Science Direct; Google Scholar; ACM Digital Library; Springer Link; Web of Science. We have used a conventional web search engine, Google to find out the grey literature including white papers, blogs, articles, videos, etc. For searching, the rules of each search engine on an individual basis had been considered since the search engines have different search categories, constraints and various degrees of support for logical search keyword compositions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.2">Search term.</head><p>The following search string has been used to perform searches in the digital libraries: "Digital Twin" AND (("cyber security") OR ("cyber-security") OR ("cybersecurity")) AND (("incident prediction") OR ("fault detection") OR ("prediction") OR ("detection"))</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.3">Search process.</head><p>This process allows the selection of primary studies from the scientific literature. This process is composed of four phases that follow the test-retest approach to find the scientific primary studies <ref type="bibr" target="#b6">[7]</ref>. The same steps were also used to identify grey literature while searching on Google. The four phases are: Phase 1. Initial search: We will apply the search string to each digital resource to identify the studies/literature related to the topic under review. Only sections of title, abstract and keywords are considered in this phase to find the relevant studies. Phase 2. Remove duplicates: Papers found during the first phase of the selection process will be checked for duplicates. There may be the same paper retrieved from different digital sources. If any paper is found to be duplicated, only the paper which provides more data, complete references of the publication, etc are selected for further process. Phase 3. First selection process: In this phase, all the selected papers after Phase 2 will be evaluated with inclusion/exclusion criteria. During this phase, the title and abstract of each paper will be reviewed. If the paper is out of the inclusion criteria it will not be selected for the further review process. But if the paper fulfils the criterion for inclusion then it will be included for the next phase of the selection process. Phase 4. Second selection process: The papers selected after Phase 3 will be thoroughly reviewed. It is a rigorous study to evaluate whether a paper contains relevant information for the topic under review. If the paper contains non-relevant information, it will not be selected. The quality of the work presented in the paper is also performed in this phase.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.4">Search selection.</head><p>The inclusion/exclusion criteria are a method for source selection if the papers retrieved from the searches can be included or excluded in the study.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Inclusion Criteria</head><p>The criteria for the inclusion are:</p><p>The literature should explicitly discuss the state of art concepts of the digital twin. The literature must be related to the research questions. The literature should discuss various implementations of the digital twin. The literature should discuss the application of digital twins in cybersecurity.</p><p>The literature should have its implementations discussed in detail.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Exclusion Criteria</head><p>The criteria for the exclusion are:</p><p>The literature that is written in any language other than English.</p><p>The literature where the abstract and full text is not available. The literature that is not relevant to our research. The literature that is duplicated/repeated.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.5">Search execution.</head><p>From the search strings, a total of 751 articles were retrieved, 660 articles were excluded at the first phase after the Title, Keywords and Abstract were reviewed. And this resulted in 91 articles being selected from Phase 1. In Phase 2, all the duplicate articles were removed, which left 77 articles. And then, those articles were checked with inclusion/exclusion criteria which reduced the total articles to 48. After the final phase -Phase 4-of quality assessment, the total number of final selected papers was 17. The detail categorization and analysis of the search results as per the individual database in each phase are shown below. For grey literature, firstly, we performed a google search using the general terms and keyword based as defined in Section 2.3.2. The search string resulted in 9 articles along with over 3800 results in the News section and around 3000 results in the Videos section. We have observed that pertinent results usually appear only in the first few pages. We have checked the first 10 pages (i.e., somewhat a search "saturation" effect) and only continued further if needed, e.g. when the 10 th page results still looked relevant and not mentioned in the previous pages. From these grey sources, we have selected approximately 5 sources including a YouTube video, blogs, and news articles. Google chrome browser was used for the search where the respective google account was logged out and all the sessions and browsing history were cleared to ensure that the search results will not be directed towards one's preferences. The selected grey articles are [39], [40], <ref type="bibr" target="#b46">[42]</ref>, <ref type="bibr" target="#b47">[43]</ref>, <ref type="bibr" target="#b48">[44]</ref>.</p><p>To ensure the inclusion of all relevant articles, we have used forward and backward snowballing as recommended by MLR guidelines, on the set of sources already in the pool. Forward snowballing is identifying articles that have cited the articles found in the search and backward snowballing is identifying articles from the reference lists. The articles found after snowballing are <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b8">[9]</ref>, <ref type="bibr" target="#b23">[22]</ref>, <ref type="bibr" target="#b33">[30]</ref>, <ref type="bibr" target="#b35">[31]</ref>, <ref type="bibr" target="#b36">[32]</ref>, <ref type="bibr" target="#b40">[35]</ref>, <ref type="bibr" target="#b41">[36]</ref>, <ref type="bibr" target="#b43">[37]</ref>, <ref type="bibr" target="#b44">[38]</ref>.</p><p>All the finalised articles were used to answer two research questions listed in Section 2.2. The sources and their relevance to the appropriate research questions are shown below:</p><p>Research Questions References RQ1 <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b8">[9]</ref>, <ref type="bibr" target="#b15">[15]</ref>, <ref type="bibr" target="#b23">[22]</ref>, <ref type="bibr" target="#b26">[24]</ref>, <ref type="bibr" target="#b30">[27]</ref>, <ref type="bibr" target="#b33">[30]</ref>, <ref type="bibr" target="#b35">[31]</ref>, <ref type="bibr" target="#b36">[32]</ref>, <ref type="bibr" target="#b39">[34]</ref>, <ref type="bibr" target="#b40">[35]</ref>, <ref type="bibr" target="#b41">[36]</ref>, <ref type="bibr" target="#b43">[37]</ref>, <ref type="bibr" target="#b44">[38]</ref> [3], <ref type="bibr" target="#b9">[10]</ref>, <ref type="bibr" target="#b10">[11]</ref>, <ref type="bibr" target="#b13">[13]</ref>, <ref type="bibr" target="#b14">[14]</ref>, <ref type="bibr" target="#b15">[15]</ref>, <ref type="bibr" target="#b16">[16]</ref>, <ref type="bibr" target="#b22">[21]</ref>, <ref type="bibr" target="#b26">[24]</ref>, <ref type="bibr" target="#b30">[27]</ref>, <ref type="bibr" target="#b35">[31]</ref>, <ref type="bibr" target="#b37">[33]</ref>, <ref type="bibr" target="#b40">[35]</ref>, <ref type="bibr" target="#b47">[43]</ref>, <ref type="bibr" target="#b48">[44</ref>] Table <ref type="table">2</ref> Sources and their relevance to research questions</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Results</head><p>In this section, the authors present the results of the MLR according to the research questions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">RQ1: What are the reported uses of the digital twin?</head><p>To answer this question, we have collected information related to digital twin concepts, implementation, case studies in industrial sectors.</p><p>The digital twin concept has become one of the most exciting R&amp;D areas in autonomous and intelligent manufacturing with the rapid development of advanced technologies in mechanical, electrical and information technologies, as well as virtual simulation and data acquisition technologies <ref type="bibr" target="#b44">[38]</ref>. Smart manufacturing is one of the strategic priorities shared by all the major manufacturing initiatives such as Industry 4.0 and the Industrial Internet <ref type="bibr" target="#b41">[36]</ref>. Manufacturing is shifting from traditional knowledge-based intelligent manufacturing to data-driven and knowledge-enabled smart manufacturing which is supported by smart technologies such as IoT, digital twin, big data and cyber-physical systems (CPS) <ref type="bibr" target="#b41">[36]</ref>.</p><p>As Chris O'Connor stated, digital twin, can be implemented for whole product life cycle management (design, production, operation, testing to maintenance) <ref type="bibr" target="#b46">[42]</ref>. In the product design phase, the digital twin can be used to design new products in a more responsive, efficient, and informed manner. The authors of <ref type="bibr" target="#b41">[36]</ref> discussed how System of Systems (SoS) level digital twin can shorten the design cycle with great improvement in the process and also reducing the cost in terms of time and money. Similarly, authors of <ref type="bibr" target="#b35">[31]</ref> proposed a digital twin model of a tool system and discussed how a feedback mechanism of a digital twin can effectively help to correct errors in the tool system design stage. Digital twin replaces the traditional design processes and practices, that used a "build it and tweak it" approach, instead, this concept allows manufacturers to validate the design against the requirements in the early stages of the process <ref type="bibr" target="#b39">[34]</ref>. And several companies (e.g. NASA and US Air Force) had applied the digital twin technology in the product design phase to predict the future performance and status of the system built <ref type="bibr" target="#b44">[38]</ref>.</p><p>In the product manufacture phase, with the use of a digital twin, the manufacturing system can be highly enhanced <ref type="bibr" target="#b44">[38]</ref>. A digital twin of a system can enclose Industry 4.0 along with Information and Communications Technology (ICT) advances such as CPS, IoT and cloud computing which are not only helpful in the development and design stages but also in the production stages to check that production is running smoothly, detect wear and tear without needing to halt production or predict component failure and other disruptions <ref type="bibr">[2] [35]</ref>. Digital twin plays a pivot role as the impetus in the vision of the "smart manufacturing" and can influence future manufacturing from the following aspects <ref type="bibr" target="#b30">[27]</ref>:</p><p>Digital twin for manufacturing assets: All the manufacturing assets can be connected and replicated in cyberspace via their digital twin. Digital twin for people: Digital twin can also represent people/workers including their data (weight, health data, activity data, and emotional status) which can aid in establishing models to better understand the wellbeing and working conditions of humans in a factory. Digital twin for factories: A live factory environment can also be abstracted with digital twins with its complete operational visibility and flexibility. Digital twin for production networks: By connecting manufacturing assets, people and service via digital twin, every aspect of business can be virtually represented.</p><p>Furthermore, this is often a case that the global trend tends to focus on fostering a pure machine to machine manufacturing environment in the future where it overlooks the impact of the human component on production and business performance. In <ref type="bibr" target="#b26">[24]</ref>, a human-centric paradigm within Industry 4.0 towards Smart Factory harnessing the technology of digital twin has been presented. Their main aim is to deliver ubiquitous valuable knowledge within and among all the elements of the smart factory (including employees) to achieve full information symmetry. For this, an architecture of the Service-oriented digital twin is defined where apps and services are used which can be accessed at any place and at any time via the cloud enabling both on-site and remote monitoring.</p><p>In the product operation and maintenance phase, the digital twin can be implemented to improve the safety and reliability of any system. Fault prediction based digital twin if used in the life cycle of the system can be of great significance to improve the reliability, availability, and safety of the equipment or machine. With a digital twin, it is possible to process information from complex or different sources and monitor the real working conditions. The prediction results can be placed in the digital model to show the accuracy of the cutting amount or the better feed of the tool system and system behaviour can be automatically optimised <ref type="bibr" target="#b35">[31]</ref>.</p><p>In summary, as stated in <ref type="bibr" target="#b36">[32]</ref>, the various applications of the digital twin in industrial production can be summarised: </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">RQ2: What are the reported uses of the digital twin in fault and incident prediction?</head><p>Through this research question, our goal was to explore digital twin implementation in cybersecurity for fault and incident prediction through the retrieved primary studies. We describe reported use cases of digital twins to improve the security of a system and to support security analysis.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Intrusion Detection</head><p>In a study conducted by Eckhart and Ekelhart <ref type="bibr" target="#b13">[13]</ref>, the authors presented a framework called CPS Twinning where the input to any system is implicitly defined so as it is relevant to security and safety analysis to detect intrusions. In another study <ref type="bibr" target="#b14">[14]</ref>, the same authors extended their framework, CPS Twinning so that digital twins can be generated based on the specification of CPSs. Intrusions can be easily detected with a real-time comparison of specification-based digital twin signals and real device signals. Additional security rules can be defined in the specifications for continuous safety and security. The same authors gave a new framework based on digital twin "A Cyber Situational Awareness Framework" where they combine their previous works to add more features such as visual feedback to users for detected intrusions and 'record and replay' feature that assists in recovering past states <ref type="bibr" target="#b15">[15]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Anomaly Detection</head><p>In a study conducted by Gaikwad et al. <ref type="bibr" target="#b16">[16]</ref>, the authors concluded that the digital twin approach in additive manufacturing (AM) can detect potential anomalies introduced through malicious cyberphysical intrusions while utilizing in-situ sensor data and machine learning. A similar approach is presented in <ref type="bibr" target="#b2">[3]</ref>, where a digital twin architecture for AM is introduced that uses a formal specification language, signal temporal logic (STL). This digital twin architecture will detect anomalies on each process signals if any STL specification is violated.</p><p>A digital twin, specifically called dynamic digital model (DDM), proposed for transmission systems is proven to detect failures/anomalies before they occur by simulating the current signals with historical data or data trend and comparing with the measured signals <ref type="bibr" target="#b22">[21]</ref>.</p><p>Another interesting idea is presented by Dr. Datta on the digital twin in the form of digital swarm or flock <ref type="bibr" target="#b10">[11]</ref>, where hundreds of instances of the physical event are created as a digital duplication which may provide a wealth of information/data to understand patterns, predict faults, detect anomalies and use true "big" data to feed other functions such as security threats policy, intruder detection.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Monitoring (Remote and On-site)</head><p>A service-oriented digital twin becomes a virtual representation of the CPS enabling ubiquitous knowledge accessible at fingertips through apps and services. This model can provide remote monitoring through different services such as fault diagnosis and state monitoring service, prognostics and scenario optimisation service, manufacturing scenario execution service and the notification service. The same model also enables on-site monitoring with all those remote services and in addition "Augmented Assistance &amp; Tutoring Service" <ref type="bibr" target="#b26">[24]</ref>. A similar type of model is developed by STEP Tools Inc. <ref type="bibr" target="#b30">[27]</ref>, called Digital twin machining application that allows real-time remote monitoring through Web-based applications to access all the data in the Digital Twin. Another tool MTConnect-based Cyber-Physical Machine Tool allows near real-time remote machine monitoring <ref type="bibr" target="#b30">[27]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Virtual Commissioning</head><p>A six-layer digital twin architecture presented in <ref type="bibr" target="#b37">[33]</ref> consists of a practical layer, capable of the role of virtual commissioning. The digital model can control the sequence of process events without data flow between the physical and digital objects. This is essential when rapid prototyping and testing are needed. For example, detecting misconfiguration while testing on the virtual environment before integrating with the real environment, detecting manipulation by an attacker when the physical device is not consistent, perform system tests on virtual model and simulation <ref type="bibr" target="#b13">[13]</ref>. This approach can lead to better product quality and increased safety.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Autonomy</head><p>The digital twin can be used for forward simulations to anticipate the consequences of actions in each situation. This information can be used to create autonomous systems that are able to execute highlevel task specifications without explicitly being programmed. These systems can take autonomous decisions over action alternatives to react to variation in products, production volume and the context of intrusions, cyber-attacks or in case of fault detection <ref type="bibr" target="#b40">[35]</ref>. An example of an autonomous system is given in <ref type="bibr" target="#b9">[10]</ref>, where the digital twin supports the simulation of Smart Car's operational lifecycle to perform security, safety and operational analyses, predict insights and create analytics-based decisions that are automatically sent to respective stakeholders, either suggesting operational changes or performing operational decisions with or without human interventions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Predictive Analytics</head><p>The digital twin based predictive maintenance software takes in the real-time data and analyses it against historical data about the physical models' failure modes, their criticality, their weak parts and scenarios where the physical model can be possibly infiltrated <ref type="bibr" target="#b48">[44]</ref>. The future condition of a physical twin can be predicted before any malfunction occurs by forecasting errors and problems in facilities <ref type="bibr" target="#b37">[33]</ref>. Similarly, ABB <ref type="bibr" target="#b47">[43]</ref> presented their work on how digital twins can be integrated into the marine industry. The digital twin is implemented onboard and onshore and the data collected in their model in onboard twin goes through edge analytics to predict the condition of the actual physical asset and the information is sent onshore for cybersecurity analysis.</p><p>Similarly, <ref type="bibr" target="#b35">[31]</ref> proposes a new model called the five-dimensional digital twin model of tool system over the three-dimensional model presented in most studies. This model performs data analytics (descriptive analytics, diagnostic analytics, predictive analytics, and prescriptive analytics) for identifying fault patterns and making decisions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Documentation and communication</head><p>The digital twin provides a mechanism for identifying and describing behaviors and can be used as a mechanism for communication and documentation to illustrate equipment behaviors <ref type="bibr" target="#b37">[33]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Discussions</head><p>The literature review conducted presents a detailed analysis of the concept of digital twin, its definition, its history, and use cases. The review started with the justification of the need for the MLR and grey literature and followed by the MLR settings to extract necessary literature relevant to the study under review. It involved an examination of the literature found in the database using a search string. The main aim of the review was to answer the research questions mentioned in Section 2.2. The literature review focused on those studies that addressed proper concepts of digital twin and its application on cybersecurity as reported by scientific and grey literature. The papers preferred after source selections (i.e. mentioned in Section 2.3.5) were published in the last 10 years with an increase in studies since 2015. Most research is done by the organizations in Europe, North America. Some of the companies are such as DNV GL -Digital Solutions, IFE, General Electric, Hirotec Corporation, Rockwell Automation, ABB and Siemens <ref type="bibr" target="#b3">[4]</ref>.</p><p>The results of the different literature evaluations, the conclusions of the analyzed studies and the perceived benefits of their authors allow us to conclude that digital twin has potential in the industrial sector and can be extended to many other fields for improving safety and security.</p><p>Our paper contributes a new procedure for performing MLR that establishes all the steps involved in the search and evaluation strategies to get the quality primary studies from both the scientific and grey literature sources. The procedure is based on the practices and guidelines proposed in <ref type="bibr" target="#b17">[17]</ref> that take into consideration grey literature in systematic reviews. By conducting this MLR, we identified multiple primary studies that were further evaluated using the quality assessment. After this, both research questions were discussed using the quality papers found in the MLR we performed.</p><p>We found that the digital twin can be applied through the whole product lifecycle from concept to product implementation. One can simulate and evaluate a product at a conceptual stage before manufacturing the product itself. This usage of a digital twin has been proven to be applicable in autonomous industries, spacecraft industries, agriculture industries, and several other industries. Our study shows that digital twin can be used to improve the security and safety of the system. Digital twin, if implemented can detect intruders, anomalies and we can set up a notification or alarm service or maybe we can set up our system to automatically change the configuration to be safe from cyberattacks. We can utilise data analytics to predict future behavior. We can use the technologies of augmentation reality (AR) to detect the malfunction in real-time.</p><p>There are lots of applications of digital twin through which we can predict the threats or faults in the system to be safe from any hazards. All to all, there are few grey literatures where it is imagined, we (human beings) will have our own digital twin to assist in the medical sector <ref type="bibr" target="#b49">[45]</ref>. There is an exponential increase in the research on this field since the last decade.</p><p>We also found different names (types) of digital twins with their multiple implementations. In case of any organization using high fidelity simulation models -Digital twin of a process or part of the process, it has many implementations <ref type="bibr" target="#b39">[34]</ref> [1] such as Stand Alone Digital Twin -Disconnected In-line Digital Twin Digital twin with optimal and model-predictive control techniques combined with advanced machine learning capabilities Embedded Digital Twin.</p><p>We also found new approaches using digital twin concept namely, Digital swarm or flock <ref type="bibr" target="#b10">[11]</ref>, Cyber Twin <ref type="bibr" target="#b1">[2]</ref>, Machine Tool Digital Twin (MTDT) <ref type="bibr" target="#b24">[23]</ref>, Digital Twin-based Cyber-Physical Production System(DT-CPPS) <ref type="bibr" target="#b12">[12]</ref>, Edge-deployed digital twin [46], Digital Avatar <ref type="bibr">[46]</ref>.</p><p>And, we found many different definitions of the digital twin. Some of them are, According to Dr. Datta <ref type="bibr" target="#b10">[11]</ref>, the concept of digital twin posits that the flow of data, process, and decision is captured in a software avatar that mimics the operation. The digital twin is a technology to model assets with all their geometrical data, kinetic functionality and logical behavior using digital tools <ref type="bibr" target="#b27">[25]</ref>.</p><p>A digital twin is virtual (i.e. digital), it includes both static(i.e. design documents, process specifications, and so forth) and dynamic(i.e. data acquisition and simulation) parts, and it addresses every instance of its twin product or process for its total life cycle <ref type="bibr" target="#b20">[20]</ref>.</p><p>The digital twin is a virtual counterpart to actual physical devices(entities) that combines many Artificial Intelligence(AI) -based technologies and methods, realtime predictive analyses, and forecasting algorithms performing on top of Big Data derived from the Internet of Things(IoT) sensors and acquired historical data <ref type="bibr" target="#b7">[8]</ref>.</p><p>The digital twin is defined as a virtual model in the cloud of a product, process, physical asset, that is persistent even if its physical counterpart is not always online/connected <ref type="bibr" target="#b4">[5]</ref>.</p><p>The digital twin is a simulation process using physical models and sensors to acquire data and complete mapping in virtual space to reflect the corresponding entity's lifecycle process <ref type="bibr" target="#b28">[26]</ref>.</p><p>The digital twin is a simulation environment that can accurately represent the temporal dynamics of the realworld systems <ref type="bibr" target="#b31">[28]</ref>.</p><p>A virtual image of the physical device or system is created that simplifies the accessibility of data and verification of properties. This structured collection of data and algorithms form the device's "digital twin" [46]. Hence, more research and experimental outcomes are needed to observe the full potential of a digital twin as a learning scope.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Conclusions</head><p>This paper presents a multivocal literature review (MLR) on the state of the art and practice related to digital twin and its use in cybersecurity. MLR includes both scientific and grey literature. In this paper, we have reported the published work on digital twins and their usage in several industrial sectors. We have also reported published work on the usability of a digital twin for cybersecurity, and the list of tools and technologies used for the development of digital twin. Our future work will focus on the development of digital twin approaches for cybersecurity incident prediction. We will build our approach based on the existing methods and tools identified through the MLR.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 Overall search results per digital database</head><label>1</label><figDesc></figDesc><table><row><cell>Digital</cell><cell></cell><cell>No. of</cell><cell cols="4">Phase1 Phase2 Phase3 Phase4</cell></row><row><cell>Source</cell><cell></cell><cell>Initial</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>Result</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="3">IEEE Xplore 1</cell><cell>1</cell><cell>1</cell><cell>1</cell><cell>1</cell></row><row><cell>Science</cell><cell></cell><cell>47</cell><cell>14</cell><cell>14</cell><cell>10</cell><cell>1</cell></row><row><cell>Direct</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Scopus</cell><cell></cell><cell>50</cell><cell>8</cell><cell>6</cell><cell>5</cell><cell>3</cell></row><row><cell>Google</cell><cell></cell><cell>587</cell><cell>56</cell><cell>45</cell><cell>28</cell><cell>11</cell></row><row><cell>Scholar</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="3">SpringerLink 65</cell><cell>11</cell><cell>10</cell><cell>3</cell><cell>1</cell></row><row><cell>Web</cell><cell>of</cell><cell>1</cell><cell>1</cell><cell>1</cell><cell>1</cell><cell>0</cell></row><row><cell>Science</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Total</cell><cell></cell><cell>751</cell><cell>91</cell><cell>77</cell><cell>48</cell><cell>17</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head></head><label></label><figDesc>the vehicles. DNV GL explains the major incident that happened in the North Sea where unmanned barge collided with offshore oil platforms [39] could have been predicted if implemented digital twin[40]. Similarly,<ref type="bibr" target="#b43">[37]</ref> presents a proposal for reengineering the structural life prediction and management process with a real-life scenario for an aircraft where each type of physics has its separate model. Laaki et al.<ref type="bibr" target="#b23">[22]</ref> demonstrated a digital twin framework to perform remote surgery, investigating mobile networks.</figDesc><table><row><cell>Increased productivity; Reduced complexity; Time and cost savings; Identification of new business fields; Increased quality; Increased cyber-security; Reduction or risks; Increased efficiency; Improved safety and reliability; Real-time remote monitoring and control; Predictive maintenance and scheduling; Scenario and risk assessment; Efficient and informed decision support system; Better documentation and communication. Some common examples are: Tesla is working on developing a digital twin for every car it produces, allowing for synchronous data transmission between cars and its factory [38] to improve the safety and reliability of Current commercial and open-source digital twin solutions We explored currently available tools and technologies which are either fully commercial or open-source solutions. Some of the commercial software solutions implementing industrial digital twin technology are [29] [9]: General Electric (GE) digital twin, Windchill developed by PTC, Dassault Systèmes (DS) software called "Built to Operate", DXC's digital twin, "Simcenter 3D" developed by Siemens, Bosch IoT Suite, Microsoft's IoT service, Seebo digital twin, and ANSYS Twin Builder. On the other hand, the opensource community is also increasingly developing software and hardware solutions for the experiments in Industry 4.0 and Smart Manufacturing. Nonetheless, there are only a few opensource tools for developing digital twins: Eclipse Ditto and CPS Twinning [15].</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENTS</head><p>This work is done as a part of the CybWin project funded by the Norwegian Research Council.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">A System of Systems Digital Twin to Support Life Time Management and Life Extension of Subsea Production Systems</title>
+		<author>
+			<persName><forename type="first">Edmary</forename><surname>Altamiranda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eliezer</forename><surname>Colina</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/OCEANSE.2019.8867187</idno>
+		<ptr target="https://doi.org/10.1109/OCEANSE.2019.8867187" />
+	</analytic>
+	<monogr>
+		<title level="m">OCEANS 2019 -Marseille, 1-9</title>
+				<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Machine Tool: From the Digital Twin to the Cyber-Physical Systems</title>
+		<author>
+			<persName><forename type="first">Mikel</forename><surname>Armendia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aitor</forename><surname>Alzaga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Flavien</forename><surname>Peysson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tobias</forename><surname>Fuertjes</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-030-02203-7_1</idno>
+		<ptr target="https://doi.org/10.1007/978-3-030-02203-7_1" />
+	</analytic>
+	<monogr>
+		<title level="m">Twin-Control: A Digital Twin Approach to Improve Machine Tools Lifecycle, Mikel Armendia</title>
+				<editor>
+			<persName><forename type="first">Mani</forename><surname>Ghassempouri</surname></persName>
+			<persName><forename type="first">Erdem</forename><surname>Ozturk</surname></persName>
+			<persName><forename type="first">Flavien</forename><surname>Peysson</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="3" to="21" />
+		</imprint>
+	</monogr>
+	<note>Frédéric Cugnon, Erdem Ozturk, and Dominik Flum</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">A Digital Twin Framework for Performance Monitoring and Anomaly Detection in Fused Deposition Modeling</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Efe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dawn</forename><forename type="middle">M</forename><surname>Balta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kira</forename><surname>Tilbury</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Barton</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/COASE.2019.8843166</idno>
+		<ptr target="https://doi.org/10.1109/COASE.2019.8843166" />
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE 15th International Conference on Automation Science and Engineering (CASE)</title>
+				<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="823" to="829" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">The Facets of Digital Twins in Production and the Automotive Industry</title>
+		<author>
+			<persName><forename type="first">Florian</forename><surname>Biesinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Weyrich</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICMECT.2019.8932101</idno>
+		<ptr target="https://doi.org/10.1109/ICMECT.2019.8932101" />
+	</analytic>
+	<monogr>
+		<title level="m">2019 23rd International Conference on Mechatronics Technology (ICMT)</title>
+				<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Digital transformation of manufacturing through cloud services and resource virtualization</title>
+		<author>
+			<persName><forename type="first">Theodor</forename><surname>Borangiu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Damien</forename><surname>Trentesaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">André</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paulo</forename><surname>Leitão</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jose</forename><surname>Barata</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.compind.2019.01.006</idno>
+		<ptr target="https://doi.org/10.1016/j.compind.2019.01.006" />
+	</analytic>
+	<monogr>
+		<title level="j">Computers in Industry</title>
+		<imprint>
+			<biblScope unit="volume">108</biblScope>
+			<biblScope unit="page" from="150" to="162" />
+			<date type="published" when="2019-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">A multivocal literature review on serious games for software process standards education</title>
+		<author>
+			<persName><forename type="first">Alejandro</forename><surname>Calderón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mercedes</forename><surname>Ruiz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rory</forename><forename type="middle">V</forename><surname>O'connor</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.csi.2017.11.003</idno>
+		<ptr target="https://doi.org/10.1016/j.csi.2017.11.003" />
+	</analytic>
+	<monogr>
+		<title level="j">Computer Standards &amp; Interfaces</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page" from="36" to="48" />
+			<date type="published" when="2018-03" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A multivocal literature review on serious games for software process standards education</title>
+		<author>
+			<persName><forename type="first">Alejandro</forename><surname>Calderón</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mercedes</forename><surname>Ruiz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rory</forename><forename type="middle">V</forename><surname>O'connor</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.csi.2017.11.003</idno>
+		<ptr target="https://doi.org/10.1016/j.csi.2017.11.003" />
+	</analytic>
+	<monogr>
+		<title level="j">Computer Standards &amp; Interfaces</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page" from="36" to="48" />
+			<date type="published" when="2018-03" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A Digital Twin-based Privacy Enhancement Mechanism for the Automotive Industry</title>
+		<author>
+			<persName><forename type="first">Violeta</forename><surname>Damjanovic-Behrendt</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IS.2018.8710526</idno>
+		<ptr target="https://doi.org/10.1109/IS.2018.8710526" />
+	</analytic>
+	<monogr>
+		<title level="m">2018 International Conference on Intelligent Systems (IS)</title>
+				<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="272" to="279" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">An open source approach to the design and implementation of Digital Twins for Smart Manufacturing</title>
+		<author>
+			<persName><forename type="first">Violeta</forename><surname>Damjanovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">-</forename><surname>Behrendt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wernher</forename><surname>Behrendt</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/0951192X.2019.1599436</idno>
+		<ptr target="https://doi.org/10.1080/0951192X.2019.1599436" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Computer Integrated Manufacturing</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="page" from="366" to="384" />
+			<date type="published" when="2019-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Violeta</forename><surname>Damjanovic-Behrendt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michaela</forename><surname>Mühlberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cristina</forename><surname>De Luca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomos</forename><surname>Christos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Heinz</forename><surname>Weiskirchner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edin</forename><surname>Arnautovic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Violeta Damjanovic-Behrendt</title>
+		<imprint>
+			<biblScope unit="volume">45</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Emergence of Digital Twins -Is this the march of reason? jim</title>
+		<author>
+			<persName><forename type="first">Shoumen Palit Austin</forename><surname>Datta</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017-11" />
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="14" to="33" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.24840/2183-0606_005.003_0003</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Defining a Digital Twin-based Cyber-Physical Production System for autonomous manufacturing in smart shop floors</title>
+		<author>
+			<persName><forename type="first">Kai</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">S</forename><surname>Felix</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xudong</forename><surname>Chan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guanghui</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fuqiang</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00207543.2019.1566661</idno>
+		<ptr target="https://doi.org/10.1080/00207543.2019.1566661" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Production Research</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">20</biblScope>
+			<biblScope unit="page" from="6315" to="6334" />
+			<date type="published" when="2019-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Towards Security-Aware Virtual Environments for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3198458.3198464</idno>
+		<ptr target="https://doi.org/10.1145/3198458.3198464" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th ACM Workshop on Cyber-Physical System Security -CPSS &apos;18</title>
+				<meeting>the 4th ACM Workshop on Cyber-Physical System Security -CPSS &apos;18<address><addrLine>Incheon, Republic of Korea</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">A Specification-based State Replication Approach for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264892</idno>
+		<ptr target="https://doi.org/10.1145/3264888.3264892" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy -CPS-SPC &apos;18</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy -CPS-SPC &apos;18<address><addrLine>Toronto, Canada</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM Press</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="36" to="47" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Enhancing Cyber Situational Awareness for Cyber-Physical Systems through Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edgar</forename><surname>Weippl</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ETFA.2019.8869197</idno>
+		<ptr target="https://doi.org/10.1109/ETFA.2019.8869197" />
+	</analytic>
+	<monogr>
+		<title level="m">24th IEEE International Conference on Emerging Technologies and Factory Automation (ETFA)</title>
+				<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="1222" to="1225" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Toward the Digital Twin of Additive Manufacturing -Integrating Thermal Simulations, Sensing, and Analytics to Detect Process Faults. IISE Transactions 0, ja</title>
+		<author>
+			<persName><forename type="first">Aniruddha</forename><surname>Gaikwad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Reza</forename><surname>Yavari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohammad</forename><surname>Montazeri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Cole</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Linkan</forename><surname>Bian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Prahalada</forename><surname>Rao</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/24725854.2019.1701753</idno>
+		<ptr target="https://doi.org/10.1080/24725854.2019.1701753" />
+		<imprint>
+			<date type="published" when="2019-12" />
+			<biblScope unit="page" from="1" to="22" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Guidelines for including grey literature and conducting multivocal literature reviews in software engineering</title>
+		<author>
+			<persName><forename type="first">Vahid</forename><surname>Garousi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Felderer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mika</forename><forename type="middle">V</forename><surname>Mäntylä</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.infsof.2018.09.006</idno>
+		<ptr target="https://doi.org/10.1016/j.infsof.2018.09.006" />
+	</analytic>
+	<monogr>
+		<title level="j">Information and Software Technology</title>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page" from="101" to="121" />
+			<date type="published" when="2019-02" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Virtually perfect: Driving innovative and lean products through product lifecycle management</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Grieves</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011" />
+			<publisher>Space Coast Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Digital Twin: Mitigating Unpredictable, Undesirable Emergent Behavior in Complex Systems</title>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Grieves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Vickers</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-38756-7_4</idno>
+		<ptr target="https://doi.org/10.1007/978-3-319-38756-7_4" />
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="85" to="113" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<author>
+			<persName><forename type="first">Christos</forename><surname>Koulamas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Athanasios</forename><surname>Kalogeras</surname></persName>
+		</author>
+		<title level="m">Cyber-Physical Systems and Digital Twins in the Industrial Internet of Things</title>
+				<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+	<note>Cyber-Physical Systems</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title/>
+		<idno type="DOI">10.1109/MC.2018.2876181</idno>
+		<ptr target="https://doi.org/10.1109/MC.2018.2876181" />
+	</analytic>
+	<monogr>
+		<title level="j">Computer</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="95" to="98" />
+			<date type="published" when="2018-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Challenges and opportunities for phasor data based event detection in transmission control centers under cyber security constraints</title>
+		<author>
+			<persName><forename type="first">André</forename><surname>Kummerow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dennis</forename><surname>Rösch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cristian</forename><surname>Monsalve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steffen</forename><surname>Nicolai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Bretschneider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christoph</forename><surname>Brosinsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dirk</forename><surname>Westermann</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/PTC.2019.8810711</idno>
+		<ptr target="https://doi.org/10.1109/PTC.2019.8810711" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Milan PowerTech</title>
+		<imprint>
+			<biblScope unit="page" from="1" to="6" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Prototyping a Digital Twin for Real Time Remote Control Over Mobile Networks: Application of Remote Surgery</title>
+		<author>
+			<persName><forename type="first">Heikki</forename><surname>Laaki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yoan</forename><surname>Miche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kari</forename><surname>Tammi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2019.2897018</idno>
+		<ptr target="https://doi.org/10.1109/ACCESS.2019.2897018" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="20325" to="20336" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">A Cyber-Physical Machine Tools Platform using OPC UA and MTConnect</title>
+		<author>
+			<persName><forename type="first">Chao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hrishikesh</forename><surname>Vengayil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuqian</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xun</forename><surname>Xu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Manufacturing Systems</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="61" to="74" />
+			<date type="published" when="2019-04" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.1016/j.jmsy.2019.04.006</idno>
+		<ptr target="https://doi.org/10.1016/j.jmsy.2019.04.006" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Ubiquitous knowledge empowers the Smart Factory: The impacts of a Service-oriented Digital Twin on enterprises&apos; performance</title>
+		<author>
+			<persName><forename type="first">Francesco</forename><surname>Longo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Letizia</forename><surname>Nicoletti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Padovano</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.arcontrol.2019.01.001</idno>
+		<ptr target="https://doi.org/10.1016/j.arcontrol.2019.01.001" />
+	</analytic>
+	<monogr>
+		<title level="j">Annual Reviews in Control</title>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="page" from="221" to="236" />
+			<date type="published" when="2019-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<title level="m" type="main">An idea of using Digital Twin to perform the functional safety and cybersecurity analysis</title>
+		<author>
+			<persName><forename type="first">Xinxin</forename><surname>Lou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yun</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuan</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karl</forename><surname>Waedt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mithil</forename><surname>Parekh</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page">12</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Oil and Gas 4.0 era: A systematic review and outlook</title>
+		<author>
+			<persName><forename type="first">Hongfang</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lijun</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohammadamin</forename><surname>Azimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kun</forename><surname>Huang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computers in Industry</title>
+		<imprint>
+			<biblScope unit="volume">111</biblScope>
+			<biblScope unit="page" from="68" to="90" />
+			<date type="published" when="2019-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.1016/j.compind.2019.06.007</idno>
+		<ptr target="https://doi.org/10.1016/j.compind.2019.06.007" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Digital Twin-driven smart manufacturing: Connotation, reference model, applications and research issues</title>
+		<author>
+			<persName><forename type="first">Yuqian</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I-Kai</forename><surname>Kevin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Huiyue</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xun</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Xu</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.rcim.2019.101837</idno>
+		<ptr target="https://doi.org/10.1016/j.rcim.2019.101837" />
+	</analytic>
+	<monogr>
+		<title level="j">Robotics and Computer-Integrated Manufacturing</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page">101837</biblScope>
+			<date type="published" when="2020-02" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Smart energy systems for sustainable smart cities: Current developments, trends and future directions</title>
+		<author>
+			<persName><forename type="first">O'</forename><surname>Edward</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Indranil</forename><surname>Dwyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Salvador</forename><surname>Pan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nilay</forename><surname>Acha</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Shah</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.apenergy.2019.01.024</idno>
+		<ptr target="https://doi.org/10.1016/j.apenergy.2019.01.024" />
+	</analytic>
+	<monogr>
+		<title level="j">Applied Energy</title>
+		<imprint>
+			<biblScope unit="volume">237</biblScope>
+			<biblScope unit="page" from="581" to="597" />
+			<date type="published" when="2019-03" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">BUSINESS PROJECT : DIGITAL TWIN APPROACH FOR CYBERSECURITY FOR FAULT PREDICTION</title>
+		<author>
+			<persName><forename type="first">Abhishek</forename><surname>Pokhrel</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019" />
+			<pubPlace>Halden, Norway</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Østfold University College</orgName>
+		</respStmt>
+	</monogr>
+	<note>Retrieved from Available on Request</note>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Enabling technologies and tools for digital twin</title>
+		<author>
+			<persName><forename type="first">Qinglin</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tianliang</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nabil</forename><surname>Anwer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yongli</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lihui</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Manufacturing Systems</title>
+		<imprint>
+			<date type="published" when="2019-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.1016/j.jmsy.2019.10.001</idno>
+		<ptr target="https://doi.org/10.1016/j.jmsy.2019.10.001" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Digital Twin for Machining Tool Condition Prediction</title>
+		<author>
+			<persName><forename type="first">Qianzhe</forename><surname>Qiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jinjiang</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lunkuan</forename><surname>Ye</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">X</forename><surname>Gao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procir.2019.04.049</idno>
+		<ptr target="https://doi.org/10.1016/j.procir.2019.04.049" />
+	</analytic>
+	<monogr>
+		<title level="j">Procedia CIRP</title>
+		<imprint>
+			<biblScope unit="volume">81</biblScope>
+			<biblScope unit="page" from="1388" to="1393" />
+			<date type="published" when="2019-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<author>
+			<persName><forename type="first">Adil</forename><surname>Rasheed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Omer</forename><surname>San</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Trond</forename><surname>Kvamsdal</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1910.01719</idno>
+		<title level="m">Digital Twin: Values, Challenges and Enablers</title>
+				<imprint>
+			<date type="published" when="2019-10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<title level="m" type="main">A six-layer architecture for the digital twin: a manufacturing case study implementation</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J H</forename><surname>Redelinghuys</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Basson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kruger</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Manuf</forename><surname>Intell</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10845-019-01516-6</idno>
+		<ptr target="https://doi.org/10.1007/s10845-019-01516-6" />
+		<imprint>
+			<date type="published" when="2019-12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Industry 4.0 and the New Simulation Modelling Paradigm</title>
+		<author>
+			<persName><forename type="first">Blaž</forename><surname>Rodič</surname></persName>
+		</author>
+		<idno type="DOI">10.1515/orga-2017-0017</idno>
+		<ptr target="https://doi.org/10.1515/orga-2017-0017" />
+	</analytic>
+	<monogr>
+		<title level="j">Organizacija</title>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="page" from="193" to="207" />
+			<date type="published" when="2017-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">About The Importance of Autonomy and Digital Twins for the Future of Manufacturing</title>
+		<author>
+			<persName><forename type="first">Roland</forename><surname>Rosen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Georg</forename><forename type="middle">Von</forename><surname>Wichert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kurt</forename><forename type="middle">D</forename><surname>Bettenhausen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2015.06.141</idno>
+		<ptr target="https://doi.org/10.1016/j.ifacol.2015.06.141" />
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="567" to="572" />
+			<date type="published" when="2015-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qinglin</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lihui</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y C</forename><surname>Nee</surname></persName>
+		</author>
+		<title level="m">Digital Twins and Cyber-Physical Systems toward Smart Manufacturing and Industry 4.0: Correlation and Comparison. Engineering</title>
+				<imprint>
+			<date type="published" when="2019-05" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.1016/j.eng.2019.01.014</idno>
+		<ptr target="https://doi.org/10.1016/j.eng.2019.01.014" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Reengineering Aircraft Structural Life Prediction Using a Digital Twin</title>
+		<author>
+			<persName><forename type="first">Eric</forename><forename type="middle">J</forename><surname>Tuegel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anthony</forename><forename type="middle">R</forename><surname>Ingraffea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">G</forename><surname>Eason</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">Michael</forename><surname>Spottswood</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2011/154798</idno>
+		<ptr target="https://doi.org/10.1155/2011/154798" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Aerospace Engineering</title>
+		<imprint>
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">An application framework of digital twin and its case study</title>
+		<author>
+			<persName><forename type="first">Yu</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sen</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Huanchong</forename><surname>Cheng</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s12652-018-0911-3</idno>
+		<ptr target="https://doi.org/10.1007/s12652-018-0911-3" />
+	</analytic>
+	<monogr>
+		<title level="j">J Ambient Intell Human Comput</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1141" to="1153" />
+			<date type="published" when="2019-03" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<title level="m" type="main">Digitalization, digital twins and cyber-physical systems...what&apos;s in it for us? DNV GL -Software</title>
+		<idno>501321main_TA11-MSITP-DRAFT-Nov2010-A1</idno>
+		<ptr target="https://www.nasa.gov/pdf/501321main_TA11-MSITP-DRAFT-Nov2010-A1.pdf" />
+		<imprint>
+			<date type="published" when="2016-07-09" />
+			<biblScope unit="volume">40</biblScope>
+		</imprint>
+	</monogr>
+	<note>Damaging North sea collision averted. from https://blogs.dnvgl.com/software/2016/04/digital-twins-structuralengineering</note>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<title level="m" type="main">Genius of Things: An End to End Approach to IoT with Chris O&apos;Connor</title>
+		<ptr target="https://www.youtube.com/watch?v=gUCCnVXgYvw" />
+		<imprint>
+			<date type="published" when="2020-02-01" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<monogr>
+		<title level="m" type="main">Your systems may be optimized but digital twins could learn to do it better</title>
+		<ptr target="https://new.abb.com/news/detail/24663/your-systems-may-be-optimized-but-digital-twins-could-learn-to-do-it-better" />
+		<imprint>
+			<date type="published" when="2020-01-17" />
+		</imprint>
+	</monogr>
+	<note>Retrieved</note>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title/>
+		<ptr target="https://www.informationweek.com/big-data/ai-machine-learning/a-digital-twin-approach-to-predictive-maintenance/a/d-id/1333331" />
+	</analytic>
+	<monogr>
+		<title level="j">A Digital Twin Approach to Predictive Maintenance. InformationWeek</title>
+		<imprint>
+			<date type="published" when="2019-07-08" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title/>
+		<ptr target="https://www.youtube.com/watch?v=H6JzPCbyVSM" />
+	</analytic>
+	<monogr>
+		<title level="j">Philips Digital Twin concept</title>
+		<imprint>
+			<date type="published" when="2020-03-11" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

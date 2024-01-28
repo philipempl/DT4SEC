@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Digital-Twin based Services for advanced Monitoring and Control of future power systems</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">André</forename><surname>Kummerow</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Energy Department Fraunhofer IOSB-AST Ilmenau</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Steffen</forename><surname>Nicolai</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Energy Department Fraunhofer IOSB-AST Ilmenau</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Christoph</forename><surname>Brosinsky</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Power Systems Group Ilmenau University of Technology Ilmenau</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Dirk</forename><surname>Westermann</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Power Systems Group Ilmenau University of Technology Ilmenau</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">André</forename><surname>Naumann</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="department">Convergent Supply Infrastructures Fraunhofer IFF</orgName>
+								<address>
+									<settlement>Magdeburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Marc</forename><surname>Richter</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="department">Convergent Supply Infrastructures Fraunhofer IFF</orgName>
+								<address>
+									<settlement>Magdeburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Digital-Twin based Services for advanced Monitoring and Control of future power systems</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:41+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Digital Twin</term>
+					<term>EMS</term>
+					<term>Substation</term>
+					<term>Communication</term>
+					<term>Cyber Security</term>
+					<term>Cyber-Physical System I</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>As real-time applications in information technology (IT) and operational technology (OT) advance, new innovative concepts become possible. IT/OT convergence opens new pathways to design and operate intelligent cyber-physical systems, such as the Digital Twin (DT) concept, which has been discovered as key technology by several industries. This paper describes how centralized and decentralized DTs can help to monitor and control future power systems with special consideration of their interaction in case of corrupted communication from cyber-attacks.</p><p>While the virtual representation of substations is regarded from the edge computing perspective the control room of the interconnected power system represents the centralized perspective. The concepts allows to have a system wide perspective, while also keeping detailed information at hand. The future system operator in the control room will benefit from services provided by DTs analytical and control features, rising resilience to cyber-physical anomalies and enhance situational awareness.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>INTRODUCTION</head><p>Time-synchronized digital telemetry technologies in power transmission systems such as Wide Area Monitoring Systems (WAMS) provide a system wide view of dynamic power system phenomena and enable wide area control approaches. Several synchrophasor based monitoring, protection and control algorithms have been proposed before <ref type="bibr" target="#b0">[1]</ref><ref type="bibr" target="#b1">[2]</ref><ref type="bibr" target="#b2">[3]</ref>. A decentralized dynamic state estimation techniques in multi machine power systems has been discussed in <ref type="bibr" target="#b3">[4]</ref>. The utilization of Digital Twins (DT) has become an emerging trend in many industrial applications for manufacturing or other process control <ref type="bibr" target="#b4">[5]</ref>. A recently published interview has shown, that DT applications for power system online analysis are already existing for steady state analysis, but utilize only SCADA data from substation RTUs <ref type="bibr" target="#b5">[6]</ref>. The approach discussed in this publication goes beyond the state of the art. The paper at hand describes how DT based services can help to monitor and control future power systems utilizing SCADA and phasor measurement unit (PMU) data. A central DT at control center level and a decentral DT at substation level is introduced to enhance existing monitoring and con-trol capabilities with special focus on the dynamic system behaviour. Furthermore, it discusses the requirements of collecting and processing large amounts of real-time data, as well as the challenges connected with partly unreliable or disrupted communication infrastructure. Novel DT based applications are proposed considering their interaction under cyber-security constraints using a distributed development and testing environment.</p><p>Following the introduction, the paper structures as follows. Section II gives an overview of the state of the art functions in dynamic control centers and describes possible benefits of using DT technologies. In section III the dynamic digital mirror (DDM) concept is introduced at the control center and substation level as well as associated applications. Additionally, possible interactions between centralized and decentralized DDM are presented as well as associated applications. Section IV introduces the communication and data management concept for coupling the DDMs considering the prevention and detection of cyber-physical anomalies. A short description of the test bench to demonstrate DDM based services is given in section V. The summary and a conclusion is given in section VI.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. STATE OF THE ART IN TECHNOLOGY AND RESEARCH</head><p>A. Dynamic control center architecture Today's power system control room operators are facing a rising number of dynamic phenomena and events. To handle those during daily system operation, in modern control room environments, a multitude of functions exist. They enable operators to monitor and operate the power system efficiently <ref type="bibr" target="#b6">[7]</ref>. In the power system control center, many different software applications are running, such as supervisory control and data acquisition (SCADA), state estimation (SE), contingency analysis (CA), dynamic security assessment (DSA), as well as wide area monitoring systems (WAMS). Thus, energy management systems (EMS) increasingly allow to receive constant feedback of vital power system variables and enable the monitoring and control of dynamic power systems <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b8">9]</ref>. The architecture of a dynamic control center is shown in blue frames in Fig. <ref type="figure" target="#fig_0">1</ref>. The green frames in Fig. <ref type="figure" target="#fig_0">1</ref>   </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Digital twin technology for power systems</head><p>Generally, a Digital Twin (DT) can be defined as a continuously adaptive model of a complex physical system <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b9">10]</ref>. Thus, the most significant difference between a DT and a mathematical simulation model is its continuous adaptability to altering states of the modelled object or system. Today's applications of the DT technology range from product life cycle management (PLM) to utilization for power plant and offshore windfarm design, engineering, commissioning and maintenance. The applicability of DTs for power system monitoring and control as well as the concept of a dynamic power system mirror have been discussed recently <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b10">11]</ref>. Generally, DTs can help to fill sensor data gaps, recognize device failures earlier and support anomaly detection as well as the prediction of possible future operating conditions. Unlike static power system models, parameter are updated dynamically using parts of the measurement information to tune the model. This allows to derive a highly accurate virtual representation of the physical objects within an interconnected power system. Accurate dynamic models are substantial to advance EMS applications and to address upcoming challenges in operation. The presented approach proposes a modular setup, where centralized and decentralized DT interact and therefore can provide data and new information to enable novel analytical applications and model based predictive control in the power system control centers and affiliated substations. Existing communication channels and standardized data modelling techniques are used to explore limits regarding data transmission volume and latency. In the long term, those measures increase local intelligence and therefore reduce the dependency of distributed components.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Applicability of the approach</head><p>There are several features that make a DT suitable for applications in power systems on the control center side as well as on the substation side. Possible benefits from implementing DT based technologies in power systems can be summarized as follows.</p><p>1) Enhanced modelling and observation: DTs can reflect physical condition variables in or faster than real-time. This enables the generation and online-validation of high-fidelity power system models enabling accurate system analysis (e.g. DSA) and control feedback. Additionally, unobservable data can be provided by application of analytical methods.</p><p>2) Enhanced monitoring and assessment: DTs enable a continuous analysis and assessment of the system state even at inaccessible or unobserved locations. This enhances existing anomaly detection capabilities (e.g. system stresses, malfunctions, IT attacks, model failures), and can reduce unplanned outages trough continuous online monitoring and optimal maintenance schedules.</p><p>3) Enhanced prediction and forecasting: DTs can deliver a behavioral forecast allowing to identify prospective problems and appropriate countermeasures including the identification of maintenance tasks. Additionally, a DT improves control techniques (e.g. for power plant starts), and the prediction of future operational states. 4) Enhanced system reliability: DTs can help to optimize unit controls to increase dynamic system stability. By the provision of substitute data, the operation of separated areas or islands is improved and allow automated operation by local system controllers.</p><p>Further benefits beyond system operations can be achieved for operational planning tasks or other offline applications like operator training and life cycle management of equipment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. DIGITAL DYNAMIC MIRROR BASED MONITORING AND CONTROL SERVICES</head><p>From the findings in the previous section, DTs can significantly enhance existing applications for the modelling, monitoring and control of today's power systems. Especially for the handling of transient events, a dynamic digital mirror is used as basic dynamic model engine to track and adapt to the actual grid state in real-time by the utilization of high-resolution measurement data as well as analytical model equations. Due to the increased system complexity at lower voltage levels a combination of centralized and decentralized DDMs is proposed to handle differences in modelling depth and temporal resolution. The principle architecture is shown in Fig. <ref type="figure" target="#fig_0">1</ref>. Both model engines can exchange information via IEC 61850 protocol and collect measurements from field devices (e.g. PMU, IED) to improve and validate their underlying modes. More detailed explanations are given in the following subsections.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. DDM Initialization and Tuning</head><p>Based on standardized telemetry protocols such as IEEE C37.118, IEC 60870-5-104 and IEC 61850, actual measurement data is transferred to the information model management (IMM) system. It contains the topological data of the system (e.g., breaker states, de-energized devices, etc.), state variables from SCADA, as well as PMU data for parameter estimation or dynamic model equivalents. The power system model is described by differential algebraic equations. The differential equations comprise the description of generator dynamics and their control devices, while the algebraic equations describe the power flow. The modelling of power system dynamics is thoroughly described in <ref type="bibr" target="#b11">[12,</ref><ref type="bibr" target="#b12">13]</ref>. To tune the subordinate generator and controller transfer functions, parameter tuning is applied. A recent review of methodologies for automatic parameter tuning and their applicability for metaheuristic approaches is given in <ref type="bibr" target="#b13">[14]</ref>. Dynamic state estimation based parameter estimation techniques are described in <ref type="bibr" target="#b14">[15]</ref>, and can be extended for the model validation and calibration of various system components, e.g., generators, inverters or dynamic loads. The objective function e of the parameter tuning algorithms is to minimize the deviation between the measured xmeas and the simulated response xsim of the device i in the power system time-domain model. The incoming measurements of the SCADA system and PMU data are used as inputs. A weighting factor w can be included to emphasize trusted values. The system model's subsequent parameter set is aligned until the absolute error is within satisfactory limits -see <ref type="bibr" target="#b0">(1)</ref>. The use of the weighted mean square error objective function for the model tuning has the advantage, that it is applicable for data sets with variable quality and its well accepted from traditional state estimation techniques. If a constant variance in the errors of the measurement residuals can be assumed, the objective function e can be reformulated. Several parameter identification techniques are applicable to evaluate the objective function e within the search space. Examples for suitable numerical algorithms are particle swarm optimization, differential evolution or Nelder-Mead, depending on system size and component model order.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Centralized dynamic digital mirror for dynamic control centers</head><p>The central DDM approach in the control center EMS combines sensor data analysis and dynamic simulation. It allows augmenting power system observability by a constantly tuned dynamic high fidelity model. The general concept of a DDM control room instance is illustrated in Fig. <ref type="figure" target="#fig_0">1</ref>. Actual measurement data is transferred to the information model management system, where measurement and asset data are processed to create a holistic data set in a local object-oriented database. The conditioned data is then used to build a time-domain system model and a state-space representation of the system. The DDM runtime environment in the control room keeps track of changes in the supervised system by updating internal states. Advanced system analysis tools and operator assistant systems in the control room are built upon the DDM modelling engine. The continuously tuned model has the advantage that subsequent tools for system analyses e.g. dynamic security assessment systems can provide a precise assessment based on a more accurate model. Running multiple DDM instances in parallel furthermore allows to analyze different scenarios simultaneously. Additionally, the centralized DDM services can provide a virtual test bench for remedial actions or special protection schemes, validation of grid component models or the evaluation of operational performance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Dynamic digital mirrors in intelligent substations</head><p>The application of the DDM approach at substation level allows different applications to be realized. Sample of 3-dimensional cluster data at generic substation feeders for active power P1, P2 and reactive power Q</p><p>In contrast to the central DDM only a section of the power grid in the direct environment of the substation is modelled. Thus, the modelling depth of the physical grid and its components can be increased providing more detailed information for the control center DDM. In contrast to the central DDM with a positive sequence phasor domain simulation, in the decentral DDM 3-phase instantaneous values are simulated. A more detailed view shall be given on the electrical anomaly detection and counter-reaction in substations using Digital Twin information. A multi-dimensional cluster of several parameters can be derived by comparison of measured data and synthetic DDM data from the substation and its components. A sample cluster is shown in Fig. <ref type="figure" target="#fig_1">2</ref>, representing data for normal, stable system operations. The cluster data is based on historical data and using Digital Twin information to model the complete cluster data. In the figure shown, the multidimensional cluster is reduced to 3 dimensions showing selected active and reactive power values of a substation. In normal situations, the representing characteristic data points fit into the cluster. Since the station algorithms perform a continuous comparison of instantaneous measured data with the cluster data, data points not fitting into the clusters will be identified immediately, indicating an abnormal state of operation. Based on this identification appropriate measures can be taken, e.g. report to the control center, performed precalculated actions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Interaction between centralized and decentralized dynamic digital mirrors</head><p>Nowadays control centers are connected with field sensors and actors using process interfaces to monitor measurements and topology changes (telemetry protocol interpreter) and to send command and set points (telecontrol). The information model management keeps track of topological changes, equipment information, measurements as well as ICT information. By the utilization of DT technology at control center and substation level decentralized DDMs can be integrated into the IMM as more accurate data and modelling source. With that the control center has access to unobservable or virtual sensor data avoiding underdetermined equation systems for state estimation as well as more detailed information about the system state</p><formula xml:id="formula_0">max 0 2 , , 1 | ( ( ) ( )) | min t n meas i sim i i i t e x t x t w dt       (1)</formula><p>at lower voltage levels. Additionally, the exchange and validation of model parameters between both DDM instances enables more advanced applications or services like temporarily, autonomous operation of substations as well as the resynchronization with the control center. The autonomous control actions or remedial action schemes can be supported by edge computing devices implemented in the substation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. CYBER-SECURE COMMUNICATION AND DATA MANAGEMENT</head><p>For the secure and reliable coupling between the centralized and the decentralized DDM as well as the field sensors and actors a holistic concept is proposed for establishing and monitoring the data transfer between control center and substation level. This includes cyber-secure interfaces for the client-server connections as well as an intelligent data management system incorporating information or services provided from the centralized DDM for analyzing the network traffic and the exchanged measurement and control payloads. The general architecture is shown in Fig. <ref type="figure" target="#fig_2">3</ref>. PMU data are transmitted via IEEE C37.118 protocol at high reporting rates (10 to 50 f.p.s.) and SCADA data as well as DDM parameters via IEC 61850 protocol. PMU and SCADA data, the associated network traffic and simulated sensor data from the centralized DDM are passed to the dynamic system monitor (see Fig. <ref type="figure" target="#fig_0">1</ref>) to detect cyberphysical anomalies (e.g. data manipulations). These information are used in the data stream management to assess the quality and confidence of the transmitted data using statistical methods (e.g. an expert system). Additionally, replacement values are provided to maintain reliable grid operation functionalities in case of corrupted, abnormal or unavailable measurement signals. The true values are estimated by machine learning techniques (e.g. forecasts) or by utilizing DDM simulation data depending on the estimated confidence levels from the data stream assessment module. The dynamic system monitor and data stream assessment run in parallel to the central and decentral DDM without affecting the data traffic between control center and substation. Secure IEC 61850 MMS client-server communication is used to transmit set points / parameters of active components, AC / DC measurements and status information as well as DDM parameters. High resolution phasor data are transmitted via IEEE C37.118 client-server connection, respectively. Efficient TLS encryption and authentication mechanism are implemented at both client and server side to fulfill realtime requirements. Additionally, SSL / TSL encryption, SASL authentication and ACL authorization are intended to implement a secure, message-broker based communication between the different services or modules at control center level.</p><p>For the cyber-physical anomaly detection two sub-modules are proposed -see also <ref type="bibr" target="#b15">[16]</ref>. Within the grid disturbance and operation monitor simulated sensor data from the centralized DDM and measured phasor measurements are used to detect, identify and locate physical anomalies (e.g. outages, malfunctions). Especially DDM simulation results can be compared with field measurements to recognize abnormal signal or system behaviour in case of high deviations.  In contrast to that, the cyber-attack monitor analyzes the network traffic under inclusion of the exchanged PMU and SCADA payload information to detect virtual anomalies between control center and station level. The main threats considered within this study are manipulations of control and monitoring data (e.g. false data injections, spoofing) as well as communication delays and disruptions (e.g. denial-of-service). The incorporation of DT-based technologies can cause positive and negative effects on system reliability when considering cyberattacks. From the positive perspective, DDM can provide additional information from simulated measurement signals as well as virtual sensor data to enable or enhance the detection of physical anomalies. On the downside, unnoticed and only marginal manipulations of measurement signals may lead to a continuous degradation of the DDM model and its accuracy with major consequences to DDM based applications and services. The reliable detection of corrupted measurements is a major goal within these investigations to establish resilient DDM bases services and to maintain an accurate DDM model in presence of cyber-attacks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. TEST BENCH FOR FUNCTION/SERVICE DEVELOPMENT AND TESTING The investigation of centralized and decentralized Digital</head><p>Twins is done by using a real time Hardware-in-the-Loop simulation system at control center and substation level, extended by a numerical analysis system, evaluating all incoming data into the system. The realization of this system in the lab is done according to Fig. <ref type="figure" target="#fig_3">4</ref>. The detailed system simulation is performed by a HIL-system, running a dynamic model of one or even more substations. The HIL simulator provides appropriate analog and digital interfaces for connecting other hardware devices and perform the necessary analysis of the provided information. The analysis is done on a dedicated workstation running tools for Digital Twin tuning and artificial intelligence. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. SUMMARY AND OUTLOOK</head><p>Within this paper a new concept and architecture for the cyber-secure utilization of Digital Twin technology at control center and substation level is presented. The technology is used to enhance dynamic observability and anomaly detection methods. Based on a state of the art analysis potential benefits and novel applications and services utilizing dynamic digital mirrors are described including model tuning, anomaly detection and counter-reaction. Additionally, possible interactions between centralized and decentralized DDMs are discussed as well as a holistic cyber-security and data management approach ensuring reliable communication between control center and substation DDM. Finally, a test bench is presented for demonstrating cyber-secure, centralized and decentralized DT based services using real-time simulations. Future work includes the integration and validation of the approach for different cyberphysical contingencies and test scenarios, based on commonly known IEEE and Cigré benchmark models. Finally, results have to be analyzed regarding the performance benefits by the utilization of DDMs in power systems. Respective methods, re-sults and conclusions regarding DT tuning algorithms, DT interaction and performance tests are planned for further publication.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. New architecture with central DDM in the control room and decentral DDM in the substation (blue background indicate state-of-theart and green new applications or functions)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2.Sample of 3-dimensional cluster data at generic substation feeders for active power P1, P2 and reactive power Q</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3.Framework for communication and data management between centralized and decentralized DDM considering cyber-security</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Phasor Data Concentrator Interface to EMS Applications Steady State Assessment Dynamic Assessment Virtual Sensor Virtual Actuator Operator Assistance System State Space Control Room Dynamic Digital Mirror (DDM) Substation DDM Substation Data stream management and dynamic system monitor Virtual Device IEC 61850 IED RTU IEEE C37.118 IMM ICT-Layer PMU PMU</head><label></label><figDesc>contain the proposed new DT based components at control center and substation level.</figDesc><table><row><cell>State</cell></row><row><cell>Estimation</cell></row><row><cell>SCADA</cell></row><row><cell>IEC 60870-5-104</cell></row><row><cell>IEC 61850</cell></row><row><cell>ICCP/TASE.2</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENT</head><p>This publication is a partly result of the project HyLITE (0350034) funded by the German Federal Ministry for Economic Affairs and Energy (BMWi).</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Cyber-Physical Attack-Resilient Wide-Area Monitoring, Protection, and Control for the Power Grid</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ashok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Govindarasu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE</title>
+				<meeting>IEEE</meeting>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page" from="1389" to="1407" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Wide-Area Monitoring, Protection, and Control of Future Electric Power Networks</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Terzija</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE</title>
+				<meeting>IEEE</meeting>
+		<imprint>
+			<date type="published" when="2011" />
+			<biblScope unit="volume">99</biblScope>
+			<biblScope unit="page" from="80" to="93" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Dynamic Wide Area Voltage Control Strategy Based on Organized Multi-Agent System</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ashrafi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Shahrtash</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Power Syst</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="2590" to="2601" />
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Local and Wide-Area PMU-Based Decentralized Dynamic State Estimation in Multi-Machine Power Systems</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Ghahremani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kamwa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Power Syst</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="547" to="562" />
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rasheed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>San</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kvamsdal</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/pdf/1910.01719" />
+		<title level="m">Digital Twin: Values, Challenges and Enablers</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Digital twin and its application to power grid online analysis</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Feng</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">CSEE JPES</title>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Recent and prospective developments in power system control centers: Adapting the digital twin technology for application in power system control centers</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Brosinsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Westermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Krebs</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE International Energy Conference (ENERGYCON</title>
+		<imprint>
+			<biblScope unit="page" from="1" to="6" />
+			<date type="published" when="2018-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A new development platform for the next generation of power system control center functionalities for hybrid AC-HVDC transmission systems</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Brosinsky</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE Power &amp; Energy Society General Meeting: 16-20</title>
+				<meeting><address><addrLine>Chicago, IL</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017-07" />
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">PMU-based online and offline applications for modern power system control centers in hybrid AC-HVDC transmission systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kummerow</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of International ETG Congress 2019: 08. -09.05.2019 in Esslingen am Neckar: VDE VERLAG GMBH</title>
+				<meeting>International ETG Congress 2019: 08. -09.05.2019 in Esslingen am Neckar: VDE VERLAG GMBH<address><addrLine>Berlin Offenbach</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="405" to="410" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Digital Twin -Concept of a Continuously Adaptive Power System Mirror</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Brosinsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Westermann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ETG-Fachbericht, Internationaler ETG-Kongress 2019: Das Gesamtsystem im Fokus der Energiewende : 8.-9</title>
+				<meeting><address><addrLine>Neckar Forum, Esslingen am Neckar</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Applicational Concept for a Dynamic Power System Mirror in the Control Room</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Brosinsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Sennewald</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Krebs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Westermann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Cigré Symposium Aalborg</title>
+				<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="1" to="10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Power System Modelling and Scripting</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Milano</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010" />
+			<publisher>Springer-Verlag</publisher>
+			<pubPlace>Berlin, Heidelberg; Berlin Heidelberg</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">W</forename><surname>Sauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Pai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Chow</surname></persName>
+		</author>
+		<title level="m">Power System Dynamics and Stability: With Synchrophasor Measurement and Power System Toolbox</title>
+				<imprint>
+			<publisher>Wiley-IEEE Press</publisher>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note>2nd ed. s.l.</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A Survey of Automatic Parameter Tuning Methods for Metaheuristics</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Yao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Evol. Computat</title>
+		<imprint>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Power System Dynamic State Estimation: Motivations, Definitions, Methodologies, and Future Work</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zhao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Power Syst</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="3188" to="3198" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Challenges and opportunities for phasor data based event detection in transmission control centers under cyber security constraints</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kummerow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rösch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Monsalve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nicolai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bretschneider</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">13th IEEE PowerTech</title>
+				<meeting><address><addrLine>Milano, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Design of a cyber-physical energy laboratory</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ruhe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rösch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of International ETG Congress 2019: 08. -09.05.2019 in Esslingen am Neckar: VDE VERLAG GMBH</title>
+				<meeting>International ETG Congress 2019: 08. -09.05.2019 in Esslingen am Neckar: VDE VERLAG GMBH<address><addrLine>Berlin Offenbach</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="153" to="158" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

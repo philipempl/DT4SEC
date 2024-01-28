@@ -1,0 +1,1225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A Digital Twin Based Industrial Automation and Control System Security Architecture</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+				<availability status="unknown"><p>Copyright Institute of Electrical and Electronics Engineers (IEEE)</p>
+				</availability>
+				<date type="published" when="2020-01">2020-01</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Christian</forename><surname>Gehrmann</surname></persName>
+							<idno type="ORCID">0000-0001-8003-200X</idno>
+							<affiliation key="aff0">
+								<orgName type="department">IEEE Transactions on Industrial Informatics</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Martin</forename><surname>Gunnarsson</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">IEEE Transactions on Industrial Informatics</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A Digital Twin Based Industrial Automation and Control System Security Architecture</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">IEEE Transactions on Industrial Informatics</title>
+						<title level="j" type="abbrev">IEEE Trans. Ind. Inf.</title>
+						<idno type="ISSN">1551-3203</idno>
+						<idno type="eISSN">1941-0050</idno>
+						<imprint>
+							<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+							<biblScope unit="volume">16</biblScope>
+							<biblScope unit="issue">1</biblScope>
+							<biblScope unit="page" from="669" to="680"/>
+							<date type="published" when="2020-01" />
+						</imprint>
+					</monogr>
+					<idno type="DOI">10.1109/tii.2019.2938885</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:37+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>security</term>
+					<term>digital twin</term>
+					<term>state replication</term>
+					<term>security framework</term>
+					<term>security analysis</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The digital twin is a rather new industrial control and automation systems concept. While the approach so far has gained interest mainly due to capabilities to make advanced simulations and optimizations, recently the possibilities for enhanced security have got attention within the research community. In this paper, we discuss how a digital twin replication model and corresponding security architecture can be used to allow data sharing and control of security-critical processes. We identify design-driving security requirements for digital twin based data sharing and control. We show that the proposed state synchronization design meets the expected digital twin synchronization requirements and give a high level design and evaluation of other security components of the architecture. We also make performance evaluations of a proof of concept for protected software upgrade using the proposed digital twin design. Our new security framework provides a foundation for future research work in this promising new area.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Industrial Automation and Control Systems (IACS) is a very broad term covering everything relating to control, monitoring and production in different industries and encompasses all parts of such systems.</p><p>While security for IACS in the past was neglected, in recent years security has obtained a lot of attention in the research community and indeed within the industry. Major security incidents such as the STUXNET worm in 2010 <ref type="bibr" target="#b0">[1]</ref>, the Shamoon Saudi Aramao spear-phishing attack in 2012 <ref type="bibr" target="#b1">[2]</ref> and the German steel factory attack in 2014 <ref type="bibr" target="#b3">[3]</ref> have highlighted the risk of attacks on IACS. Even if the attacks have been of many different types and origins, they have highlighted the need for enhanced security mechanisms and countermeasures.</p><p>Clear evidence that the industry nowadays takes security issues seriously is the development of best practice security guidelines <ref type="bibr" target="#b4">[4]</ref> and the large number of security standards targeting the IACS domain, like ISO/IEC 27000 series <ref type="bibr" target="#b0">1</ref> , the c 2019 IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained for all other uses, in any current or future media, including reprinting/republishing this material for advertising or promotional purposes, creating new collective works, for resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other works.</p><p>Work supported by framework grant RIT17-0032 from the Swedish Foundation for Strategic Research as well as the EU H2020 project CloudiFacturing under grant 768892.</p><p>C, Gehrmann is with the Dept. of Electrical and Information Technology, Lund University, Box 118, 221 00 Lund, Sweden (email: christian.gehrmann@eit.lth.se). M. Gunnarsson is wih the Dept. of Electrical and Information Technology, Lund University, Box 118, 221 00 Lund, Sweden and also with RISE, Ole Römers väg 5A, 223 63 Lund, Sweden (email: martin.gunnarsson@ri.se) <ref type="bibr" target="#b0">1</ref> https://www.iso.org/isoiec-27001-information-security.html ISA/IEC IEC 62443 series <ref type="bibr" target="#b1">2</ref> and the NIST SP800 series. Among those, IEC 62443 is based on the very general ISO 27000 but specified for the IACS area and also the NIST SP 800-82 <ref type="bibr" target="#b5">[5]</ref> in the SP800 series is an IACS standard. In addition, the industrial internet consortium has developed a new security framework <ref type="bibr" target="#b6">[6]</ref>. New technology trends affect IACS as well as the entire society. Security solutions, security recommendations as well as standards, need to adapt to the new technologies. One clear current trend is the move from legacy ISA-95 to highly distributed and cloud based architectures according to the Industry 4.0 and RAMI 4.0 models <ref type="bibr" target="#b7">[7]</ref>. This transition is demanding in many ways, one challenge is control and information sharing between production units and cloud based control functions. This constitutes a major security risk and requires careful system engineering not to jeopardize IACS reliability <ref type="bibr" target="#b8">[8]</ref>. We tackle this general security issue in this paper by looking into the digital twin model as an enabler for enhanced security when opening up IACS low level control functions and data exchange according to the Industry 4.0 vision. Digital twins and state replication as security enablers were recently proposed by different researchers <ref type="bibr" target="#b9">[9]</ref>, <ref type="bibr" target="#b10">[10]</ref>, <ref type="bibr" target="#b11">[11]</ref>. Previous works have not taken an IACS holistic view and in this paper we look into the problem from a system security point of view. The work is focused on identifying main design driving requirements for a digital twin based IACS security architecture and with special attention to a state synchronization model fulfilling the requirements. Detailed design of the different components and protocols in the architecture as well as formal security analysis of these are left for future work. The main contributions of the paper are the following:</p><p>• We introduce a digital twin IACS adversary model and identify security requirements for this model. • We suggest a novel digital twin based security architecture including a new state replication model. • We evaluate the security of the proposed state replication model as well as present a proof of concept implementation for a PLC software upgrade case including performance figures. We proceed as follows: we discuss the digital twin model and make basic definitions which we use throughout the paper ( §II), we introduce our adversary model and derive security requirements ( §III), we suggest a new digital twin security architecture and a novel digital twin design, including a state replication model ( §IV). We make a security analysis of the proposed model and architecture ( §V) and present a proof of concept implementation, including performance figures ( §VI). Lastly we discuss related work ( §II-B) and conclude ( §VII).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. DIGITAL TWIN CONCEPT, RELATED WORK AND DEFINITIONS</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Digital twin model and scenario</head><p>The digital twin was according to Grives <ref type="bibr" target="#b12">[12]</ref>, a terminology invented around 15 years ago by John Vickers of NASA and the term was introduced publicly by NASA in 2010 <ref type="bibr" target="#b14">[13]</ref>. Originally, the concept was used to refer to the digital representation of a product used in simulations software but has been expanded to a concept where not only a physical product is represented in virtual form (software) but each product is directly connected with a virtual counterpart, the digital twin. The general model is depicted in Fig. <ref type="figure" target="#fig_0">1</ref>. The overall goal with this concept is to be able to closely follow products during production (the physical twin) and simulate the process to adjust the production with results of these simulations. This can be done in real-time or close to real-time to optimize production flows etc. <ref type="bibr" target="#b15">[14]</ref>. The concept has then been extended to include all units (robot loading stations, conveyor belts etc.) in a production system allowing advanced simulations of a complete manufacturing system and the units involved in an autonomous system <ref type="bibr" target="#b16">[15]</ref>. Typically, then the digital twin part is represented and executed on cloud resources <ref type="bibr" target="#b17">[16]</ref>. Fig. <ref type="figure" target="#fig_1">2</ref> illustrates the overall scenario and model. As can be seen in Fig. <ref type="figure" target="#fig_1">2</ref>, according to this model not only are the products themselves reflected as digital twins in the virtual (cloud) domain but also the manufacturing units or what we here refer to as "components". Typical components here are PLCs, historians, sensors, actuators data acquisition units, HMI units etc. Several different models and principles for reflecting such units are possible <ref type="bibr" target="#b11">[11]</ref>. Here we focus on the network and logical state of a physical twin rather than the physical properties. The definitions and notations we use are introduced in Section II-C below.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Related work</head><p>Lots of work has been devoted to security in IACS. We will here briefly discuss literature surveys and how our architecture relates to the main security issues previously identified. Next, we will discuss some important previously introduced digital twin models and their relations to our approach. We mainly focus on prior work devoted to digital twin and state replication as enablers for enhanced security.</p><p>Security in IACS in general has been treated in several good surveys <ref type="bibr" target="#b18">[17]</ref>, <ref type="bibr" target="#b19">[18]</ref>. The work by Krotifil and Gollmann <ref type="bibr" target="#b18">[17]</ref> focusing on different types of attacks on existing systems but also concluding that most efforts so far have been devoted to IDS. Many existing IDS are compatible with our suggested architecture but it has the benefit that such systems can be deployed in the virtual domain. A very broad systematic overview of security in cyber-physical systems in general (including IACS) is given in by Humayed et al. in <ref type="bibr" target="#b20">[19]</ref>. The authors identify that major security challenges in IACS are change management (including SW update) as well as the ability to handle legacy systems. Both these issues are tackles with the architecture we proposed in this paper. In addition, as we discussed in the introduction, several existing standards and new standard initiatives, are addressing IACS security in current and future systems. None of the main standardization bodies have so far been working with the digital twin concept as an enabler for enhanced security.</p><p>State machine replication has a very long history. Most of the work in this domain has been devoted to fault tolerance <ref type="bibr" target="#b21">[20]</ref>, <ref type="bibr" target="#b22">[21]</ref>. Achieving state replication under the assumption of fault is much more demanding than the security oriented state replication we consider in this paper. We use a different, simpler model, allowing to choose the correct level of state reflection on the digital twin side depending on the security needs (see our state replication model in Section IV-B). This is justified by the fact that the design goal of a digital twin security system is disparate from a fault tolerance system, as the digital twin cannot replace the physical twin if it fails, but is there to reflect the physical twin and protect it from direct, potential hostile, external interactions.</p><p>The digital twin model was first introduced in <ref type="bibr" target="#b14">[13]</ref>. Lots of work has then been devoted to the topic in resent years and good overview is given in <ref type="bibr" target="#b23">[22]</ref>. The main focus has been on support of health analysis and improved maintenance as well as digitally mirroring the life of the physical entity. We are following the second approach but different from prior the majority of prior art, we are focusing on using the digital twin as an enabler for enhanced security.</p><p>The usage of digital twins for penetrations testing is discussed in a recent work by Bitton et al. <ref type="bibr" target="#b9">[9]</ref>. The author investigate the relation behind a penetration test specification and system realization with focus on system cost optimization. A non-linear programming solution to find an optimal digital twin implementation level needed to perform certain security analysis tasks is presented. This is an approach that also is applicable to the sub-problem of digital twin realization in a system realizing the security architecture we present in this paper.</p><p>In <ref type="bibr" target="#b24">[23]</ref> the idea of using state synchronization as an IoT security enabler was suggested. However, the model presented in <ref type="bibr" target="#b24">[23]</ref> does not cover state changes on the IoT device side and no complete digital twin state synchronization model is given. Most recently, a digital twin security framework was presented in <ref type="bibr" target="#b11">[11]</ref> and later extended in <ref type="bibr" target="#b10">[10]</ref>. In <ref type="bibr" target="#b11">[11]</ref>, a digital twin specification principle using Automation ML (AML) <ref type="bibr" target="#b3">3</ref> was described together with a proof of concept implementation detecting a man-in-the-middle PLC attack. In the follow up work, <ref type="bibr" target="#b10">[10]</ref>, also the state replication problem is considered. In this work, a passive state replication model is presented where state updates are purely done based on inputs in the physical domain. The strength with such a model is that it avoids the negative performance impacts of active state monitoring. Inspired by the work in <ref type="bibr" target="#b11">[11]</ref> and <ref type="bibr" target="#b10">[10]</ref>, we have also looked into the problem area of state modeling as security enabler. However, different from the work in <ref type="bibr" target="#b10">[10]</ref>, we are looking into how digital twin can protect IACS from external attacks and not attacks on the factory domain. With this goal, we have proposed a different state propagation model and a security design allowing to identify attacks at the virtual domain and preventing them for even reaching the physical domain. Furthermore, we have analyzed a complete digital twin system scenario and proposed an overall security architecture for such scenario.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Digital twin definition and notations</head><p>For the purpose of the paper we denote by u ∈ U , a physical twin, where U denotes the set of physical twins in the system. Similarly, we denote by u ∈ U , a digital twin where U is the set of digital twins in the system. Let then S u = {s u0 , s u1 , ..., s um−1 } and S u = {s u 0 , s u 1 , ..., s u n−1 }, m ≥ n, be the finite set of states of u and u , i.e., we assumes that the digital twin always only reflects a subset of the physical twin states and no states which are not represented in the physical twin. Furthermore, denote by I u = {i u0 , i u1 , ..., i ur−1 } the set of possible finite inputs to physical twin u and by I u = {i u 0 , i u 1 , ..., i u d−1 }, the set of finite possible inputs to digital twin u . We denote by s u,t ∈ S u , the state of physical twin u at clock cycle t and by i u,t ∈ I the input to u at clock cycle t. Similarly, denote by s u ,t ∈ S u , the state of digital twin u at clock cycle t and the input to u at clock cycle t by i u ,t ∈ I . Hence, the initial state of the physical twin is s u,0 and the initial state of the digital twin is s u ,0 . Then we can define both the physical and digital twin as finite state machines. We then let δ u : S u × I u → S u and δ u : S u × I u → S u be the transition functions for the physical and digital twin respectively, i.e. s u,t+1 = δ u (s u,t , i u,t ) and s u ,t+1 = δ u (s u ,t , i u ,t ).</p><p>We assume a clock based digital twin state synchronization model where a each clock cycle, t, the state of the twins are synchronized with a message exchange starting with a first synchronization message from the u to u and with a response synchronization message from u to u . We denote these message as m u →u (t) and m u→u (t), respectively. These messages are typically not transferred in clear between the twin and intermediate nodes, but in protected/transformed form. We denote protected version of the synchronization messages by e u →u (t) and e u→u (t).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. ADVERSARY MODEL AND SECURITY REQUIREMENTS</head><p>Next, using the digital twin model and definition introduced in Section II, we describe a digital twin threat model. Using this threat model we identify security requirements for a digital twin based IACS architecture.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Adversary model</head><p>Adversary models for digital twin systems have not been extensively treated in the literature as the concept mostly so far has been used for production optimization and not security. Certain security aspects regarding using digital twin as security enablers in IACS are considered in <ref type="bibr" target="#b10">[10]</ref> and <ref type="bibr" target="#b9">[9]</ref>. The authors in <ref type="bibr" target="#b10">[10]</ref> consider state replication for active monitoring and intrusion detection while <ref type="bibr" target="#b9">[9]</ref> consider the problem of penentration testing of IACS with focus on cost optimization for specific security penetration tests (performed on simulated or emulated digital twin or on an acutal physical component in the IACS). However, since these works have very specific security functions goals, they lack adversary model definitions for the digital twin scenario we are considering. Hence, we have developed a new adversary model below. This is not a generic digital twin adversary model but a model that makes sense in systems with cloud based data sharing and control in IACS. We also give the main motivations for using this rather restrictive adversary model.</p><p>Traditionally, IACS has been separated with firewalls from other networks such as corporate network and the internet. Several good architectures and recommendations are available <ref type="bibr" target="#b6">[6]</ref>. Here, we assume such principles are deployed and we have adopted an adversary model where we do not consider any attacks on the physical twin part or local factory network part of the system but assume these parts can be properly isolated from hostile external networks <ref type="bibr" target="#b4">4</ref> .</p><p>We assume that the digital twin can run in a separate process even on a third party cloud resource. Then the digital twin can be realized using virtualization techniques where the virtualization is offered on the most suitable level <ref type="bibr" target="#b26">[25]</ref>. Providing strong isolation for virtualization and protection against hostile cloud providers is a very challenging topic which has been widely addressed with several different models and solutions the past ten years <ref type="bibr" target="#b27">[26]</ref>- <ref type="bibr" target="#b29">[28]</ref>. Recent attacks Metldown <ref type="bibr" target="#b30">[29]</ref> and Spectre <ref type="bibr" target="#b31">[30]</ref> have shown that one cannot even trust the fundamental hardware functions needed for secure isolation currently in use. However, the security with respect to secure execution environment for virtualized systems is steadily improving and we will for simplicity in this paper disregard attacks on the isolation properties of the digital twin and assume that a secure execution environment and data storage is provided for the digital twin in the system.</p><p>We adopt the Dolev-Yao model <ref type="bibr" target="#b32">[31]</ref> and assume that the attacker can influence the system in all other aspects including the following capabilities of the adversary:</p><p>• The attacker is able to intercept, modify and replay all communication from the physical domain to the digital domain and vice versa. • The attacker is able to launch input attacks by sending arbitrary messages to a digital twin and input requests, i.e. he or she can choose to send arbitrary input from the set I u to the digital twin u . • The attacker is able to launch intercept, modify and replay any information sent between digital twins or between digital twins and other units executing in the virtual domain.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Security definitions</head><p>Next, we give basic security definitions. The basis of the new security architecture is the introduction of state replication between the physical and digital twin. An expectation from such model from robustness perspective is that the synchronization is accurate over all system states and inputs. The synchronization consistent expectation is fundamental for deploying the architecture and very different from architectures introduced in the literature before. The main reason why consistency is important is that without it, one cannot rely on that all system changes in the digital twin part are correctly propagated to physical part of the system and vice versa, which will make it impossible to use the model in practise as the system behaviour would be unreliable. Hence, even if the synchronization consistency not is a pure security requirement, it is fundamental for the proposed architecture and we make a precise definition of synchronization consistent ency. It is also important to notice that one would expect from a specific design and implementation of our architecture to provide the synchronisation consistency property also under attack conditions. Hence, it is important to introduce a proper definition also in this regard.</p><p>Another fundamental, pure security expectation, with respect to the synchronization is the confidentiality and integrity of the synchronization process as such. Hence, we also provide precise definitions for these two aspects. Apart from these definitions, we adopt widely used computer and communication security definitions <ref type="bibr" target="#b33">[32]</ref>.</p><p>Definition III.1. A digital twin system is consistent if there exist functions ∀u ∈ U, f u : S u → S u such that the following is true:</p><formula xml:id="formula_0">∀s ∈ S u , f u (δ u (s, ∅)) = δ u (f u (s), ∅),<label>(1)</label></formula><formula xml:id="formula_1">s u ,0 = f u (s u,0 ). (<label>2</label></formula><formula xml:id="formula_2">)</formula><p>This definition reflects the requirement that when the digital twin starts in a state consistent with the staring state of the physical counterpart and whenever neither the physical twin nor the digital twin receive any input, they are both always transitioned to states that are consistent. i.e. the physical to digital twin state mapping agree with the state of the digital twin.</p><p>Definition III.2. A digital twin system synchronization protocol provides confidentiality protection if an adversary, who observes information, e u →u (t) and e u→u (t)), sent from the digital twin and from the physical twin respectively at time t, cannot execute any attack, A, that in polynomial time will allow the attacker to distinguish the state of the physical twin from any randomly selected state, i.e., after execution of A, the following is true: ∀s ∈ S u , P r(s u = s|e u →u (t), e u→u (t)) = P r(s u = s) (3) Definition III.3. A digital twin system synchronization protocol provides synchronization protection if the adversary cannot execute any attack replacing message exchange e u →u (t) with e u →u (t) and/or replacing e u→u (t) with e u→u (t) which will be accepted by u and u and making the twins out of synchronization, i.e. f u (s u,t ) = s u ,t is always true after successful synchronization independent of adversary substitution choices <ref type="bibr" target="#b5">5</ref> . </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Requirements</head><p>We have used the previously presented adversary model and security definitions to identify a set of system security, performance and accuracy requirements. This is not an exhaustive list but the major identified system architecture requirements. R1. Synchronization security: We require the digital twin state replication model and protocol to be consistent (Definition III.1), provide confidentiality protection (Definition III.2) and synchronization protection (Definition III.3). R2. Synchronization latency: The synchronization message exchange must not cause any delays which prevent time critical control functions to be propagated to from the physical to the digital twin. The precis requirements are application dependent. R3. Digital twin external connections protection: All connections between the digital twin and the external entities must be authenticated. According to the adopted adversary model, we assume each digital twin to run in a protected execution environment but all request external to this environment must be properly authenticated and all information sent from the digital twin to external trusted parties must be confidentiality and integrity protected. R4. Access control: The digital twin itself or a secure entity in direct connection with the digital twin needs to make sure access control is applied on on all incoming requests. This includes request and information exchange with external parties as well as information exchange with other digital twins. R5. Software security: The physical twin software must always be in a trustworthy state. This implies that the physical twin must be protected from installation of harmful software. Mechanisms shall be in place to recover the system in case of zero-days attacks on the physical twins. R6. Local factory network isolation: The local factory network shall not accept any connection requests except for protected synchronization requests with the digital twin (see R1 above). Physical twins should be protected from DoS attacks through boarder unit such as a gateway or firewall making sure that only protected synchronization requests reach a physical twin and no other outside traffic. R7. Digital twin Denial-of-Service (DoS) resilience: The digital twin must be protected from DoS attacks such as network flooding or distributed DoS directly targeting a digital twin. Proper DoS filters and router configurations must be deployed in the factory cloud domain to prevent or limit the DoS possibilities of the attacker. At the same time, filters and router policies must not prevent synchronization exchanges to reach the digital twins in the system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. A DIGITAL TWIN BASED SECURITY ARCHITECTURE AND STATE REPLICATION DESIGN</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Security architecture</head><p>We now have the definitions and requirements in place to define a generic digital twin security architecture. Fig. <ref type="figure" target="#fig_2">3</ref> gives a high-level picture of the proposed architecture. We have here focused on the main security properties and entities in the system. This is not a complete design in all details but a high level design including main components and their roles in the architecture. We verify the key digital twin design of it in our proof of concept evaluation but leave detailed design and evaluation of other components for future work.</p><p>A basic security assumption in this architecture is the possibility to launch digital twins as well as security services in trusted execution containers as Virtual Machines (VMs) on suitable cloud resources. The architecture is completely agnostic on the virutalization technique used for this or on which actual level the vitalization is applied <ref type="bibr">[25] [23]</ref>. However, the architecture requires the virtualization technology to provide trusted execution in the sense that different VMs are strongly isolated from each other and that they have access to protected volatile and non-volatile storage.</p><p>Using the numbering introduced in Fig. <ref type="figure" target="#fig_2">3</ref>, we discuss the different properties of the components in the architecture below.</p><p>1) Digital twin component: The digital twin component is running as a VM in an isolated environment. An overview picture of the main logical functions of the twin is given in Fig. <ref type="figure" target="#fig_3">4</ref>. The core functionality of the digital twin is the actual simulation of the physical counterpart. Only two direct external network interactions are allowed: the synchronization (which occurs over the synchronization GW) and the exchange with external requests and responses. This takes place either through the cloud server which takes all incoming requests and responses from external entities or directly to other digital twins or back-end components. The virtual domain external connections are protected through the cloud Virtual Private Network (VPN) (see Section IV-A9). The state of the digital twin is exported directly to a common (for several digital twins in a system) security analysis component (see also Subsection IV-A7). Also the intermediate state,ŝ u , is exposed to an analyzer in this way. This implies that an external analyzer can have access (if allowed by the access policy) to all digital twin states in the system. This in turn allows abortion of state propagation in case of detection of a fatal security issue by the external analyzer. The digital twin has access to a secure clock, t, for precise synchronization operations with the physical twin. The actual state propagation design we use is described in Section IV-B.  2) Physical twin component: An overview picture of the main logical functions of the physical twin is given in Fig. <ref type="figure">5</ref>. Similar to the digital counterpart, the physical twin executes the defined synchronization protocol. Depending on if the physical twin actually has network connectivity or not, it might run the synchronization itself or it is done through a "measurement unit" <ref type="bibr" target="#b6">6</ref> . A physical twin deployed in an isolated factory network will only exchange synchronization information with a dedicated synchronization GW on the same network. On the other hand, a single deployed physical twin outside such a network will need to directly exchange synchronization information with the synchronization GW in the virtual domain and needs access to the key material needed for such secure interactions. The physical twin will apart from this, not need any specific security adaptations at all. The state propagation design applicable to the physical twin is described in Section IV-B. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Physical twin</head><p>Factory-local interactions</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Synch. GW keys</head><p>To/from synch. GW Fig. <ref type="figure">5</ref>. Physical twin main functions.</p><p>3) Protected connection between synchronization gateways: The connection between the synchronization GW on the local factory and the virtual domain is protected through a secure channel. We have chosen this principle instead of end-to end synchronization protection as we assume it will be possible to deploy synchronization GWs in trusted containers in the virtual domain. Standard IPsec <ref type="bibr" target="#b34">[33]</ref> VPN or a TLS/DTL channels <ref type="bibr" target="#b35">[34]</ref> [35] are assumed. A major advantage with such solution from security management point of view is that this allows a single security relation between the physical and digital domain. Such single relation is very easy to maintain from security perspective. For instance, can a pres-shared key TLS or DTLS relation for instance be used. This can be compared to a situation where external entities are allowed to directly connect to the physical domain. In such situation, each external connection would need a separate security relation with the physical domain. Now, such relations are instead moved to the digital domain, where the security risk is much lower and where it is much less complex to handle such relations from a security configuration management point of view.</p><p>4) Protected connection from isolated physical twin to synchronization gateway: A physical twin not deployed in a protected local factory network, needs to directly connect to the synchronization GW in the virtual domain. This connection then obviously needs to be confidentiality and integrity protected using a suitable secure channel (see Section IV-A3).</p><p>5) Production system external server: The architecture assumes all external requests arrives in the virtual domain, i.e. external input to digital twin u from the set I u arrives to the production system external server prior to (potential) being forwarded to the digital twin u . Similar responses from a digital twin are routed through this sever as well. This allows advanced network filtering at a single point and avoids having such functionality duplicated at each digital twin virtual instance <ref type="bibr" target="#b7">7</ref> .</p><p>6) Intrusion Detection System (IDS): State-of-the art IDS are best deployed at the boarder to the internet <ref type="bibr" target="#b37">[36]</ref>. We adopt this principle and assume the actual intrusion analysis to be done by a VM with direct access to the external network interface traffic.</p><p>7) Security analysis service: The core benefit from a security perspective with a digital twin model like the one we have defined, is the possibility to do security analysis directly on the digital twin state and even on the states of a whole family of digital twins. By letting the analyzing engine having access not only to the final states, but also intermediate states, i.e. thê s u states in the system, it is possible for a security analysis function to detect harmful state transitions (prior to the state propagating to the physical twin) and take direct action in the digital domain (see also Fig. <ref type="figure" target="#fig_3">4</ref>).</p><p>8) Central access control: By letting all external digital twin access be subject to a single point access control, system wide policies can easily be deployed in the system. Advanced security policies can be defined through standard access control frameworks such as Extensible Access Control Markup Language (XACML) <ref type="bibr">[37]</ref>. In order to allow direct interaction between digital twins, this is preferably combined with component local policy enforcement through tokens issued at the central access control entity using standard tokens such as SAML <ref type="bibr" target="#b38">[38]</ref> or OAuth <ref type="bibr" target="#b39">[39]</ref>.</p><p>9) Protected virtual network: Most cloud providers offer network isolation between VMs launched on cloud resources <ref type="bibr">89</ref> . Even if we have not assumed all trusted execution services to be deployed as complete, "traditional" VMs in the virtual domain, higher layer VMs can be launched on such VMs allowing re-use of standard principles for network isolation. There are also other, non-provider dependent solutions to achieve this <ref type="bibr" target="#b40">[40]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. State replication model and design</head><p>Several different state replication principles for digital twins are possible. Recently, a specification-based state replication model for digital twins was proposed <ref type="bibr" target="#b10">[10]</ref>. We have adopted a similar physical and digital twin state transition model. However, the state replication design in <ref type="bibr" target="#b10">[10]</ref> is built upon measurement of input values and that the physical and digital twin runs functional identical programs or what the authors refers to as "passive state replication". This is an approach that is efficient if the main purpose of the design is to evaluate security breaches stemming from the physical domain. Instead, <ref type="bibr" target="#b7">7</ref> Recall that in our adversary model we assume all inputs to a physical twin to be trustworthy and not subject to direct security analysis <ref type="bibr" target="#b8">8</ref> https://docs.aws.amazon.com/vpc/index.html#lang/en us 9 https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networksoverview we in our security architecture use the digital twin as a "guard" against all, potential hostile, external stimuli on the physical domain. Hence, even if demanding from real-time perspective, we instead have adopted a direct state replication or what the authors in <ref type="bibr" target="#b10">[10]</ref> refers to as "active monitoring". This different security goal and approach also allow us to abandon the functional identical program requirements. We assume a model, where the physical and digital twin are synchronized on regular basis. Without loss of generality, we assume that a synchronization is done at each clock cycle. Let z u : S u × S u → S u be a synchronization function and h u : S u → S u a physical to digital state mapping function for twin u. The complete synchronization (including the twins state updates) then consists of the following operations:</p><formula xml:id="formula_3">s u,t+1 = δ u (s u,t , i u,t ),<label>(4)</label></formula><formula xml:id="formula_4">s u ,t+1 = δ u (s u ,t , i u ,t ),<label>(5)</label></formula><formula xml:id="formula_5">s u,t+1 = z u (ŝ u,t+1 ,ŝ u ,t+1 ),<label>(6)</label></formula><formula xml:id="formula_6">s u ,t+1 = h u (s u,t+1 ). (<label>7</label></formula><formula xml:id="formula_7">)</formula><p>This synchronization model works such that the physical and digital twin treat their respective inputs independently. We assume that the input will change the state of the (respective) twins independently, and then at the next time slot, they will synchronize their states to make them consistent considering the inputs received before last synchronization. The choice of the functions z u and h u will depend on the digital twin model and the exact relation between the physical and digital twin. Many different models are possible. For the purpose of this paper, we choose a simple twin model but still a model allow to cover several important security cases as we show in Section VI. Denote by S u = S1 u S2 u S3 u , we then make the following assumption:</p><formula xml:id="formula_8">S1 u S2 u = S1 u S3 u = S2 u S3 u = ∅. Let S u = S1 u</formula><p>S2 u and we assume that S1 u S2 u = ∅. Then we can write the state of the physical twin as s u = (s1 u , s2 u , s3 u ) and the state of the digital twin as s u = (s1 u , s2 u ). We then apply the following restrictions:</p><formula xml:id="formula_9">S2 u = S1 u ,<label>(8)</label></formula><formula xml:id="formula_10">S3 u = S2 u , (<label>9</label></formula><formula xml:id="formula_11">)</formula><formula xml:id="formula_12">∀s u ∈ S u , ∀i u ∈ I u , δ u (s u , i u ) = = (δ1 u (s u , i u ), δ2 u ((s2 u , s3 u ), i u ), s3 u ),<label>(10)</label></formula><formula xml:id="formula_13">∀s u ∈ S u , ∀i u ∈ I u , δ u (s u , i u ) = = (s1 u , δ2 u (s u , i u ))<label>(11)</label></formula><p>In addition, we let</p><formula xml:id="formula_14">s u ,0 = (s1 u ,0 , s2 u ,0 ) = (s2 u,0 , s2 u ,0 ),<label>(12)</label></formula><formula xml:id="formula_15">s u,0 = (s1 u,0 , s2 u,0 , s3 u,0 ) = (s1 u,0 , s2 u,0 , s2 u ,0 )<label>(13)</label></formula><p>With these restrictions, we then let z u (ŝ u,t ,ŝ u ,t ) = (ŝ1 u,t ,ŝ2 u,t ,ŝ2 u ,t ) and</p><formula xml:id="formula_16">h u (s u,t+1 ) = (s2 u,0 , s3 u,0 ) if t &lt; 0 (ŝ2 u,t+1 ,ŝ2 u ,t+1 ) otherwise (<label>14</label></formula><formula xml:id="formula_17">)</formula><p>To send the complete state at each synchronization occasion is very inefficient. Instead, the state changes (deltas) are calculated:</p><formula xml:id="formula_18">m u →u (t) = ∆ŝ u = Diff(ŝ u ,t+1 , s u ,t ), (<label>15</label></formula><formula xml:id="formula_19">) m u→u (t) = ∆ s u = Diff(ŝ2 u,t+1 , s2 u,t ),<label>(16)</label></formula><p>This implies that the digital twin calculates a first delta, ∆ŝ u , and sends it to the physical twin. This delta is then used by the physical twin to reconstructŝ u ,t+1 , which is the input to the z function, i.e. equation <ref type="bibr" target="#b6">(6)</ref>. Next, the physical twin calculates the "return delta", ∆ s u , that is sent back to the digital twin.</p><p>The principle is illustrated in Fig. <ref type="figure" target="#fig_4">6</ref> below. Observe, that we here only illustrate the synchronization information exchange and not the protection of the synchronization messages as such. The protection principles we apply was described in Section IV-A.  It is important to notice from real-time and communication overhead perspectives that when no input is received neither on the physical or digital side, there is no need for the twins to exchange any deltas. This is true given a consistent digital twin system synchronized with accurate clocks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. SECURITY ANALYSIS</head><p>Next, we analyze the proposed framework from security and performance perspectives. We here mainly focus on the synchronization security characteristics. We also give arguments regarding how the proposed architecture meets the other security requirements listed in Section III-C. As the architecture in many aspects only include a high level design, we here postpone detailed security evaluation of these aspects to future work and for specific implementation designs.</p><p>1) Synchronization security:</p><formula xml:id="formula_20">Proposition 1.</formula><p>The digital twin synchronization model and protocol is consistent.</p><p>Proof. Let:</p><formula xml:id="formula_21">f u (s) = f u ((s1, s2, s3)) = (s2, s3).<label>(17)</label></formula><p>From ( <ref type="formula" target="#formula_15">13</ref>) we have that s u,0 = (s1 u,0 , s2 u,0 , s2 u ,0 ) and from ( <ref type="formula" target="#formula_14">12</ref>) and ( <ref type="formula" target="#formula_16">14</ref>), it then follows that f u (s u,0 ) = h u (s u,0 ) = (s2 u,0 , s3 u,0 ) = (s1 u ,0 , s2 u ,0 ) = s u ,0 , which fulfils condition (2). Now, using the assumptions (8), ( <ref type="formula" target="#formula_10">9</ref>), ( <ref type="formula" target="#formula_12">10</ref>) and ( <ref type="formula" target="#formula_13">11</ref>), let:δ u (s u , i u ) = (δ1 u (s u , i u ), δ2 u ((s2 u , s3 u ), i u ), δ2 u ((s2 u , s3 u ), ∅). Then, it follows from (17), f u (δ u (s u , ∅)) = (δ2 u ((s2 u , s3 u ), ∅), δ2 u ((s2 u , s3 u , ∅)).</p><p>Similar, let:</p><formula xml:id="formula_22">δ u (s u , i u ) = (δ2 u ((s1 u , s2 u ), ∅), δ2 u (s u , i u )). Then by direct calculation:δ u (f u (s u ), ∅) =δ u ((s2 u , s3 u ), ∅) = (δ2 u ((s2 u , s3 u ), ∅), δ2 u ((s2 u , s3 u ), ∅)) = f u (δ(s u , ∅))</formula><p>. By then letting the state s u taking any value in S u , it follows that also condition (1) is fulfilled.</p><p>Proposition 2. If the secure channel used for communication towards and between synchronization GW in the architecture provides confidentiality, the digital twin synchronization design also provides confidentiality.</p><p>Proof. According to our attacker model, an adversary can intercept any message sent from the digital twin to the synchronization GW in the virtual domain or any messages sent between synchronization GWs. He or she might also intercept message sent from physical twins towards the GW deployed in the virtual domain. The attacker has no other option to intercept any synchronization information. According to <ref type="bibr" target="#b16">(15)</ref> and ( <ref type="formula" target="#formula_19">16</ref>), at each clock cycle, one delta message is sent from the digital twin towards the physical twin and a replay delta message is sent in return. An adversary has two options to intercept the first message, e u →u (t); Either he or she intercept it when it is sent from the digital twin the synchronization GW in the virtual domain or when it is forwarded from the synchronization to the GW in the factory domain (or physical twin in the second option). As long as both these channels provide confidentiality the attacker will not get any information on s u . As the return message follows the very same path, the also the return message, e u→u (t) , will have the very same protection and equation ( <ref type="formula">3</ref>) is fulfilled. Proposition 3. If the secure channel used for communication towards and between synchronization GW in the architecture provides integrity and replay protection, the digital twin synchronization design also provides synchronization protection.</p><p>Proof. According to Proposition 1 the proposed synchronization model is consistent and consequently if no input is received on neither the digital nor physical twin, h u (s u,t+1 ) = s u ,t+1 . Furthermore, if the synchronization messages also arrives unmodified equation <ref type="bibr" target="#b7">(7)</ref> guarantees that h u (s u,t+1 ) = s u ,t+1 holds also in this case. Hence, the only option for an attacker would be to modify any messages e u →u (t) or e u→u (t)). In analogue with the proof of Proposition 2, if the used secure channels provides integrity and replay protection, such modification will be detected and a modified or replayed message will be rejected.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2) Latency:</head><p>The architecture as such does not make any direct assumption regarding the synchronization real-time behaviour. Depending on the specific IACS application, the networks must be chosen and configured accordingly. Similarly, the synchronization GW must be implemented on platforms powerful enough to fulfill real-time requirements. For some applications, deploying the virtual domain on an edge cloud <ref type="bibr" target="#b8">[8]</ref> can be used to meet R2.</p><p>3) External connections: The architecture assumes all external connection to be intermediates by the external server entity at the boarder of the external network. The external server will only accept authenticated requests. Furthermore, the final hop for the external server to the digital twin runs through the virtual domain VPN. This, if properly implemented, implies that the system fulfills the requirement R3.</p><p>4) Access control: According to the proposed security architecture, the centralized access control VM deployed in the virtual domain makes sure all access requests towards the digital twin are properly authorized. Access control enforcement then takes place at the digital twin VM. This means that the main building blocks are included to fulfil R4. However, the actually authorization and access control mechanisms which are supported are subject to detailed design, which have been left for future work.</p><p>5) Software security: The software state of the physical twin can be replicated to the digital counterpart. A security service with direct access to the twin state can be launched. This service then controls the physical twin software state and upgrade. This is a very efficient way to both monitor the SW status and control upgrades as we show with the experimental evaluation in Section Section VI. Even if this is an important step to meet R5, further SW monitoring tools needs to be deployed in the system to give the wanted software security level.</p><p>6) Network isolation and DoS resilience: The architecture adopts best practise for factory network isolation <ref type="bibr" target="#b5">[5]</ref> to meet R6. In addition, external interaction with the factory domain is only possible indirectly through the protected synchronization. All direct requests towards digital twin are subject to IDS and filtering and additional security protection mechanism can be launched as security service VMs in the virtual domain. With proper design and implementation, such measures will provide network isolation and DoS resilience as required by R7.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. PROOF OF CONCEPT AND PERFORMANCE EVALUATION</head><p>In order to test the feasibility of the proposed architecture and approach, we have implemented a low complexity system with digital twins using our proposed state synchronization protocol. Our main goal here is to get an impression of how the proposed synchronization framework, which is the fundamental basis of the proposed architecture, affects the production units in the system as well as the bandwidth consumption <ref type="bibr" target="#b10">10</ref> . It was argued in <ref type="bibr" target="#b10">[10]</ref> that direct state synchronization or what the authors refer to as active monitoring is not feasible in real-time critical systems due to large bandwidth overhead. While we argue that this is not the case for low complexity digital twin state models and for moderate synchronization frequencies, we are interested to measure the production unit actual computation and bandwidth overhead in a real system.</p><p>To make the evaluation feasible, we here focus on the first three components in the architecture in Fig. <ref type="figure" target="#fig_2">3</ref>. We have implemented a simple manufacturing scenario, as seen in Fig. <ref type="figure" target="#fig_5">7</ref> consisting of a PLC unit, u 1 , controlling an industrial process. In addition, we have a software upgrade server, u 2 , holding software upgrade information, that is deployed in the factory local network. The PLC and the upgrade server are reflected as digital twins: u 1 , u 2 . The goal with introducing the virtual domain is to allow secure software control and upgrade of the production system units. To facilitate this, the software state and software control state are replicated to the digital twin domain.</p><p>It should be noted, that additional components and more complex production scenarios, will give a more detailed picture of how the proposed synchronization model effects the system performance. However, as the proposed synchronization protocol scales linear with the number of units with respect to bandwidth consumption, we argue that measurements in a small systems will give a good view of the overall system impact. Furthermore, the actual effect in terms of computational overhead on a particular production unit, will obvious depend on the computational power of the unit. Here, we use a fairly constrained platform, a RaspberryPI, for the evaluation. Other platforms and systems will be affected in similar ways but obviously platforms with less resources will be affected more. How, different platforms with different resources are affected, is left for future work as our main goal here is to verify the general feasibility of the approach.</p><p>Our proof-of concept implementation shows that as long as we have moderate state changes and the synchronization happens less than 100 times a second, clock synchronization is not an issue. The platform we have worked with can timely process a request and send a response without major delays. Hence there is no need to have a more precise clock synchronization. Here we let the digital twin act as a "master" and the physical twin as a "slave" unit at each synchronization occasion.  The state information for the supported twins are selected to be: s u 1 = [ctrl_flag, ctrl_url, sw_state] and s u 2 = [ctrl_url, sw_package] <ref type="bibr" target="#b11">11</ref> . ctrl_flag is a value holding software upgrade request control and error information and the ctrl_url is a URL of a new software package to be installed. sw_state is a list of all current software packages and versions installed on a unit and sw_package is a new software package. We also assumes a remote operator, w, to be present in the system controlling software upgrades through a remote user device over standard internet.</p><p>A. PLC software update process w identifies a new software package, q, and connects to the external server u 2 . w then downloads q to u 2 and w receives a ctrl_url value for the package in return. u 2 then updates the stateŝ u 2 ,0 to reflect the storage of the new software package. Then a synchronization takes place between u 2 and u 2 . The synchronization is done by sending ∆ŝ u 2 = ctrl_url+q from u 2 to u 2 . This in turn, triggers u 2 through the functions h u2 and z u2 , to update its internal state, resulting in the storage of q which can be downloaded from ctrl_url to other units within the local factory network.</p><p>w makes a second request using the newly received ctrl_url and with information regarding the new software packages towards u 1 . The request trigger u 1 to update states s u 1 ,1 : ctrl_flag, ctrl_url, sw_state, where ctrl_flag contains "available software update indicator", ctrl_url contains the URL to the new software package on u 2 and sw_state contains version information for the pending new software. In the clock cycle 2, this information is propagated to u 1 through ∆ŝ u 1</p><p>. This values in combination with the functions h u1 and z u1 give an updated state s u1,2 . The SW update flag in state s u1,2 triggers u 1 to set the state to update pending allowing to u 2 using ctrl_url to download and install the new SW package, q. Once, the update is finalized, the update status information as well as the new SW state information is propagated back to u 1 through updates of the ctrl_flag and sw_state.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Performance evaluation</head><p>We have implemented the scenario, described above, with a SW update process using digital twins. As the PLC u 1 we have used OpenPLC <ref type="bibr" target="#b41">[41]</ref>, a free, open source PLC implementation, running on a RaspberryPI <ref type="bibr" target="#b12">12</ref> . The Raspberry Pi we have used is a model 2 v1.1 with an ARM Cortex-A7 quad-core processor, clocked at 900MHz.</p><p>The digital twins u 1 , u 2 are running as separate processes in a Ubuntu 18.04 desktop host. The same host also functions as the update server u 2 . Since the physical entities synchronize with digital-twins outside the protected factory network the synchronization protocol is secured by DLTS.</p><p>1) Update time depending on synchronization frequency: In order to evaluate the state synchronization protocol we have looked at the SW update scenario. We want to examine how the state synchronization process affects other processes running on the system.</p><p>First we ran tests without state synchronization to establish a base line for how long time the update process takes. Then we ran the SW update process with state synchronization at different frequencies. We evaluated performance at 1, 10 and 100 state synchronizations per second. The result can be seen in Fig. <ref type="figure" target="#fig_6">8</ref>  <ref type="bibr" target="#b14">13</ref> .</p><p>As can be seen from the figure the performance impact of the state synchronization is very small. Only at a large number of synchronizations per second is the performance noticeable. 2) Compassion of DTLS Cipher Suites: We have compared different DLTS cipher suites to evaluate if this impacts performance. The default strong suite AES-256-GCM with SHA384 was compared to the weaker AES-128-GCM with SHA256. The results can be seen in Figure <ref type="figure" target="#fig_7">9</ref>. It can be noted that the choice of ciphers has only a very small impact on the performance of the update process. 3) Computation cost: A PLC is not a constrained device in a traditional sense, however, since it controls a timecritical process CPU-time is limited. Any added features must consider this so time-critical deadlines are kept.</p><p>We have measured the CPU-time needed by the PLC to implement our state synchronization protocol. By running the protocol over an extended time we have come to the following numbers as seen in Table <ref type="table" target="#tab_4">I</ref>.</p><p>As shown in the table the CPU-time needed by the PLC to implement the state synchronization protocol is very small. An even slower CPU will still be able to run the state synchronization without overloading the processor.</p><p>4) Network performance: Evaluating network performance for the state synchronization process is difficult to do without real ICS network traffic to base an evaluation scenario on. Hence, instead we evaluated the performance in an isolated system. We measured the bandwidth consumption for the PLC per synchronization CPU-load 10 synchronizations/s CPU-load 100 synchronizations/s 0.3772 (s = 0.0602) 0.0038% 0.0377% during the update process. We then measured the bandwidth for the update process while synchronizing with the PLC's digital-twin. The synchronization messages were of size 22 bytes in each direction. The bandwidth consumption can be seen in Table <ref type="table" target="#tab_4">II</ref>. As can be seen from the Table the bandwidth consumption is reasonable for small synchronization frequencies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VII. CONCLUSION AND FUTURE WORK</head><p>Motivated by the need for new security models and principles in IACS to open up the systems for cloud based processing and data sharing, we investigated how digital twins can work as a security enablers in IACS. We introduced a new adversary model, made basic security definitions, identified security requirements, made a novel security architecture and in particular state replication design for a digital twin based IACS. The new state replication design as well as the architecture were then security evaluated against the identified requirements. We showed that the proposed synchronization design meets the introduced digital twin synchronization requirements. Furthermore, we made a high-level design of the other security components in the architecture and argue about how the suggested functions will help in meeting the identified security requirements. Through our proof of concept implementation and performance evaluation, we also showed that the new digital twin synchronization model works well in practice for a small but real production case with reasonable performance impact. Especially, we show that as long as we have not too high update frequency, the performance impact on a platform like RaspberryPI is negligible. As expected, the bandwidth increases linear with the synchronization frequency. In our evaluation, we only reflected a few PLC states, and obviously, the more fine grain states that are reflected, the more impact it will have on the system performance and bandwidth consumption.</p><p>The results shows that a digital twin based security architecture can be a promising way to protect IACS while open them up for external data sharing and access. We have here worked with defining a suitable overall architecture and synchronization model. In order to develop a fully working system based on our architecture and approach, more work is needed. Below, we discuss the most important future work:</p><p>• Performance: We have here made first proof of concept of the architecture. In order to see the effect of the ar-chitecture on different platform and production scenarios, more performance evaluations on different platform, with more complex digital twin state models and with larger amount of production nodes are needed. • Intrusion detection: In our security architecture, we have only show how on principle level how to integrate intrusion detection at the boarder to the virtual domain. It is left for future research to design and integrate intrusion detection in a fully working system. • Access control: The architecture allows for advanced access control in the virtual domain. The main advantage with this approach is that this can be supported without affecting the production domain at all. It remains to design and evaluate this approach in a full system implementation of the architecture. • Formal security analysis: We have proven the consistency of the proposed synchronization protocol and showed that the security of the protocol depends on the security of the underlying used secure channel. Formal analysis of the security of the complete system design and all protocols are left for future work. • Security analysis services: Apart from IDS and access control enforcement in the virtual domain, additional security analysis services may be supported as virtual components as we showed in our architecture design. This include services such as virus scan, DoS prevention etc. The design and evaluation of such services is left to future research as well.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. The original digital twin model.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Digital twin cloud system scenario.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Security architecture overview.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Digital twin main functions</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Synchronization principle.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Setup of out digital twin and software update scenario.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. Update times when using state synchronization at different frequencies.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Comparison of update times with different DTLS cipher-suites.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>TABLE I MEASUREMENTS</head><label>I</label><figDesc>OF CPU-TIME PER STATE SYNCHRONIZATION MESSAGE AND CPU-LOAD.</figDesc><table><row><cell></cell><cell>Bandwidth to PLC</cell><cell>Bandwidth from PLC</cell></row><row><cell>No synch</cell><cell>0.97 KB/s</cell><cell>2.06 KB/s</cell></row><row><cell>1 synch/s</cell><cell>1.20 KB/s</cell><cell>2.38 KB/s</cell></row><row><cell>10 synch/s</cell><cell>2.16 KB/s</cell><cell>3.35 KB/s</cell></row><row><cell>100 synch/s</cell><cell>10.88 KB/s</cell><cell>12.06 KB/s</cell></row><row><cell></cell><cell cols="2">TABLE II</cell></row><row><cell cols="3">BANDWIDTH TO AND FROM THE PLC WHEN UPDATING.</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2">ISA, ISA99, Industrial Automation and Control Systems Security, https://www.isa.org/isa99/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3">Actually, automation ML for digital twin modelling was already suggested by Grecyce et al. in 2016<ref type="bibr" target="#b25">[24]</ref> but not for any security applications.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4">Internal factory network attacks are of course also possible, but we do not consider those in our adversary model.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5">This definition does not take a DoS attack into account and assumes that the synchronization messages arrives at each time slot.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6">For a physical twin that is in production, it could be that it has no program execution capabilities, but its state is only measured through external sensors for instance.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="10">We recall that the synchronization including the protection of the synchronization is the only parts of the architecture that directly affects the production domain.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="11">Here is actually no state information with origin from the physical twin, u 2 , but just digital twin state information which is propagated to the physical twin.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="12">https://www.raspberrypi.org</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="13">In the simple system we are using, actually, the state exchange can be omitted in most cases as we very seldom have state changes, but in our evaluation, we anyway forced a state exchange to take place in order to test the synchronization frequency performance impact.</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGEMENT</head><p>We would like to thank the SSF SEC4FACTORY project team for valuable discussions regarding the research direction and results presented in the paper. In particular we would like to thank the TetraPak project members for their valuable feedback and suggestions.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Christian Gehrmann received the M.Sc. degree in electronic engineering and the Ph.D. degree in information theory from Lund University, Lund, Sweden, in 1991 and 1997, respectively.</p><p>He is an adjunct professor in computer security at Lund University and leads two major research project devoted to security in next generation production systems. His main research interest is in secure systems design, secure execution environments and security protocols. Prof. Gehrmann has been active in many industry standardization bodies and made major contributions to the Bluetooth, Trusted Computing Group and ONVIF (network video) standards. He has been active in research and development of secure computer and communication systems for more than 25 years. He has numerous scientific publications and patents in the information security area that received more than 3400 citations and with and H-index equal to 32.</p><p>Martin Gunnarsson is a PhD student at Lund University, Lund, Sweden. His current research focus is security in industrial control systems. He received his Master of Science degree in Computer Science from Lund University in 2017. He has been working in the Security Lab of RISE since 2017 with a focus on communications security for constrained devices. He has been involved in IoT security standardization work at IETF.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">PDF attacks on the rise, says Symantec</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Falliere</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Murchu</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Chien</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s1353-4858(10)70039-8</idno>
+		<ptr target="http://www.symantec.com/content/en/us/enterprise/media/securityresponse/whitepapers/w32stuxnetdossier.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Network Security</title>
+		<title level="j" type="abbrev">Network Security</title>
+		<idno type="ISSN">1353-4858</idno>
+		<imprint>
+			<biblScope unit="volume">2010</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1" to="2" />
+			<date type="published" when="2010-04" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Hack on saudi aramco hit 30,000 workstations, oil firm admits</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Leyden</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Saudi Aramco—2012</title>
+		<idno type="DOI">10.1201/9781315155852-22</idno>
+		<ptr target="http://www.theregister.co.uk/2012/08/29/saudiaramcomalwareattackanalysis/" />
+	</analytic>
+	<monogr>
+		<title level="m">A History of Cyber Security Attacks</title>
+				<imprint>
+			<publisher>Auerbach Publications</publisher>
+			<date type="published" when="2017-07-28" />
+			<biblScope unit="page" from="113" to="118" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Cyberattack inflicts massive damage on german steel factory</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">F</forename><surname>Roberts</surname></persName>
+		</author>
+		<ptr target="https://securityledger.com/2014/12/cyberattack-inflicts-massive-damage-on-german-steel-factory/" />
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+	<note>The security ledger. Online</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Converged plantwide ethernet solution -converged plantwide ethernet (cpwe) design implementation guide</title>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">M P</forename><surname>Didier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Harstad</surname></persName>
+		</author>
+		<ptr target="https://literature.rockwellautomation.com/idc/groups/literature/documents/td/enet-td001-en-p.pdf" />
+		<imprint>
+			<date type="published" when="2011" />
+		</imprint>
+	</monogr>
+	<note>Cisco Systems and Rockwell Automation</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">NIST SP 800‐82 Security Measures</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Stouffer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Pillitteri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Marshall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Hahn</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/9781119644538.app3</idno>
+		<ptr target="https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-82r2.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">NIST Special Publication</title>
+		<imprint>
+			<biblScope unit="volume">800</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="309" to="327" />
+			<date type="published" when="2019-07-10" />
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">The industrial internet of things -volume g4: Security framework</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Schrecker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Industrial Internet Consortium</title>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A Cyber-Physical Systems architecture for Industry 4.0-based manufacturing systems</title>
+		<author>
+			<persName><forename type="first">Jay</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Behrad</forename><surname>Bagheri</surname></persName>
+			<idno type="ORCID">0000-0003-2175-0946</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Hung-An</forename><surname>Kao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.mfglet.2014.12.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Manufacturing Letters</title>
+		<title level="j" type="abbrev">Manufacturing Letters</title>
+		<idno type="ISSN">2213-8463</idno>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="18" to="23" />
+			<date type="published" when="2015-01" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Local Cloud Internet of Things Automation: Technology and Business Model Features of Distributed Internet of Things Automation Solutions</title>
+		<author>
+			<persName><forename type="first">Jerker</forename><surname>Delsing</surname></persName>
+			<idno type="ORCID">0000-0002-4133-3317</idno>
+		</author>
+		<idno type="DOI">10.1109/mie.2017.2759342</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Industrial Electronics Magazine</title>
+		<title level="j" type="abbrev">EEE Ind. Electron. Mag.</title>
+		<idno type="ISSN">1932-4529</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="8" to="21" />
+			<date type="published" when="2017-12" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Deriving a Cost-Effective Digital Twin of an ICS to Facilitate Security Evaluation</title>
+		<author>
+			<persName><forename type="first">Ron</forename><surname>Bitton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tomer</forename><surname>Gluck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Orly</forename><surname>Stan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Masaki</forename><surname>Inokuchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yoshinobu</forename><surname>Ohta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yoshiyuki</forename><surname>Yamada</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tomohiko</forename><surname>Yagyu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuval</forename><surname>Elovici</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Asaf</forename><surname>Shabtai</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-99073-6_26</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Computer Security</title>
+				<editor>
+			<persName><forename type="first">Computer</forename><surname>Security</surname></persName>
+			<persName><forename type="first">J</forename><surname>Lopez</surname></persName>
+			<persName><forename type="first">J</forename><surname>Zhou</surname></persName>
+			<persName><forename type="first">M</forename><surname>Soriano</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="533" to="554" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A Specification-based State Replication Approach for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264888.3264892</idno>
+		<ptr target="http://doi.acm.org/10.1145/3264888.3264892" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</title>
+				<meeting>the 2018 Workshop on Cyber-Physical Systems Security and PrivaCy</meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-01-15" />
+			<biblScope unit="page" from="36" to="47" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Towards Security-Aware Virtual Environments for Digital Twins</title>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Eckhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Ekelhart</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3198458.3198464</idno>
+		<ptr target="http://doi.acm.org/10.1145/3198458.3198464" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 4th ACM Workshop on Cyber-Physical System Security</title>
+				<meeting>the 4th ACM Workshop on Cyber-Physical System Security<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2018-05-22" />
+			<biblScope unit="page" from="61" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Digital twin manufacturing excellence through virtual factory replication</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Grieves</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Dassault Syst&apos;emes</title>
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">PDF Not Yet Available In IEEE Xplore</title>
+		<idno type="DOI">10.1109/ppic.2011.5982880</idno>
+		<ptr target="http://innovate.fit.edu/plm/documents/docmgr/912/1411.0DigitalTwinWhitePaperDrGrieves.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">IEEE/IAS Pulp &amp; Paper Industry Technical Paper Conference</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2011-06" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">National Aeronautics and Space Administration (NASA)</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shafto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Conroy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Doyle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Glaessgen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kemp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lemoigne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.4135/9781412939591.n797</idno>
+		<ptr target="https://www.nasa.gov/pdf/501321mainTA11-MSITP-DRAFT-Nov2010-A1.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">National Aeronautics and Space Administration (NASA)</title>
+				<imprint>
+			<publisher>SAGE Publications, Inc.</publisher>
+			<date>2010</date>
+		</imprint>
+	</monogr>
+	<note>Online</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">The Digital Twin: Demonstrating the Potential of Real Time Data Acquisition in Production Systems</title>
+		<author>
+			<persName><forename type="first">Null-</forename><forename type="middle">J</forename><surname>Uhlemann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christoph</forename><surname>Schock</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Lehmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Freiberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rolf</forename><surname>Steinhilper</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2017.04.043</idno>
+		<ptr target="http://www.sciencedirect.com/science/article/pii/S2351978917301610" />
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Manufacturing</title>
+		<title level="j" type="abbrev">Procedia Manufacturing</title>
+		<idno type="ISSN">2351-9789</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="113" to="120" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">About The Importance of Autonomy and Digital Twins for the Future of Manufacturing</title>
+		<author>
+			<persName><forename type="first">Roland</forename><surname>Rosen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Georg</forename><surname>Von Wichert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">George</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kurt</forename><forename type="middle">D</forename><surname>Bettenhausen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2015.06.141</idno>
+		<ptr target="http://www.sciencedirect.com/science/article/pii/S2405896315003808" />
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="567" to="572" />
+			<date type="published" when="2015" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">MTComm Based Virtualization and Integration of Physical Machine Operations with Digital-Twins in Cyber-Physical Manufacturing Cloud</title>
+		<author>
+			<persName><forename type="first">Md</forename><forename type="middle">Rakib</forename><surname>Shahriar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M Nahian Al</forename><surname>Sunny</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaoqing</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ming</forename><forename type="middle">C</forename><surname>Leu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Liwen</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ngoc-Tu</forename><surname>Nguyen</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cscloud/edgecom.2018.00018</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2018 5th IEEE International Conference on Cyber Security and Cloud Computing (CSCloud)/2018 4th IEEE International Conference on Edge Computing and Scalable Cloud (EdgeCom)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2018-06" />
+			<biblScope unit="page" from="46" to="51" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Industrial control systems security: What is happening?</title>
+		<author>
+			<persName><forename type="first">Maryna</forename><surname>Krotofil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dieter</forename><surname>Gollmann</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/indin.2013.6622964</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2013 11th IEEE International Conference on Industrial Informatics (INDIN)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013-07" />
+			<biblScope unit="page" from="670" to="675" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Review of cybersecurity issues in industrial critical infrastructure: manufacturing in perspective</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Uchenna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">M</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tiwar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Cyber Security Technology</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="32" to="74" />
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Cyber-Physical Systems Security—A Survey</title>
+		<author>
+			<persName><forename type="first">Abdulmalik</forename><surname>Humayed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingqiang</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fengjun</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Luo</surname></persName>
+			<idno type="ORCID">0000-0001-8196-2436</idno>
+		</author>
+		<idno type="DOI">10.1109/jiot.2017.2703172</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet of Things Journal</title>
+		<title level="j" type="abbrev">IEEE Internet Things J.</title>
+		<idno type="ISSNe">2327-4662</idno>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1802" to="1831" />
+			<date type="published" when="2017-12" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Time, clocks, and the ordering of events in a distributed system</title>
+		<author>
+			<persName><forename type="first">Leslie</forename><surname>Lamport</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/359545.359563</idno>
+		<ptr target="http://doi.acm.org/10.1145/359545.359563" />
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<title level="j" type="abbrev">Commun. ACM</title>
+		<idno type="ISSN">0001-0782</idno>
+		<idno type="ISSNe">1557-7317</idno>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="558" to="565" />
+			<date type="published" when="1978-07" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Implementing fault-tolerant services using the state machine approach: a tutorial</title>
+		<author>
+			<persName><forename type="first">Fred</forename><forename type="middle">B</forename><surname>Schneider</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/98163.98167</idno>
+		<ptr target="http://doi.acm.org/10.1145/98163.98167" />
+	</analytic>
+	<monogr>
+		<title level="j">ACM Computing Surveys</title>
+		<title level="j" type="abbrev">ACM Comput. Surv.</title>
+		<idno type="ISSN">0360-0300</idno>
+		<idno type="ISSNe">1557-7341</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="299" to="319" />
+			<date type="published" when="1990-12" />
+			<publisher>Association for Computing Machinery (ACM)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">A Review of the Roles of Digital Twin in CPS-based Production Systems</title>
+		<author>
+			<persName><forename type="first">Elisa</forename><surname>Negri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luca</forename><surname>Fumagalli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marco</forename><surname>Macchi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.promfg.2017.07.198</idno>
+		<ptr target="http://www.sciencedirect.com/science/article/pii/S2351978917304067" />
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Manufacturing</title>
+		<title level="j" type="abbrev">Procedia Manufacturing</title>
+		<idno type="ISSN">2351-9789</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="939" to="948" />
+			<date type="published" when="2017" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">IoT Protection through Device to Cloud Synchronization</title>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Gehrmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohamed</forename><forename type="middle">Ahmed</forename><surname>Abdelraheem</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/cloudcom.2016.0092</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2016 IEEE International Conference on Cloud Computing Technology and Science (CloudCom)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2016-12" />
+			<biblScope unit="page" from="527" to="532" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Digital Twin Data Modeling with AutomationML and a Communication Methodology for Data Exchange</title>
+		<author>
+			<persName><forename type="first">Greyce</forename><forename type="middle">N</forename><surname>Schroeder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Charles</forename><surname>Steinmetz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carlos</forename><forename type="middle">E</forename><surname>Pereira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Danubia</forename><forename type="middle">B</forename><surname>Espindola</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ifacol.2016.11.115</idno>
+		<ptr target="http://www.sciencedirect.com/science/article/pii/S2405896316325538" />
+	</analytic>
+	<monogr>
+		<title level="j">IFAC-PapersOnLine</title>
+		<title level="j" type="abbrev">IFAC-PapersOnLine</title>
+		<idno type="ISSN">2405-8963</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">30</biblScope>
+			<biblScope unit="page" from="12" to="17" />
+			<date type="published" when="2016" />
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Morgan Kaufmann Publishers, Inc.</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Nair</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ms.1986.233092</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Software</title>
+		<title level="j" type="abbrev">IEEE Softw.</title>
+		<idno type="ISSN">0740-7459</idno>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="95" to="95" />
+			<date type="published" when="1986" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">ObliVM: A Programming Framework for Secure Computation</title>
+		<author>
+			<persName><forename type="first">Chang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiao</forename><forename type="middle">Shaun</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kartik</forename><surname>Nayak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yan</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elaine</forename><surname>Shi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sp.2015.29</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2015 IEEE Symposium on Security and Privacy</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-05" />
+			<biblScope unit="page" from="359" to="376" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">VC3: Trustworthy Data Analytics in the Cloud Using SGX</title>
+		<author>
+			<persName><forename type="first">Felix</forename><surname>Schuster</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Manuel</forename><surname>Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cedric</forename><surname>Fournet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christos</forename><surname>Gkantsidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcus</forename><surname>Peinado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gloria</forename><surname>Mainar-Ruiz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Russinovich</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sp.2015.10</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2015 IEEE Symposium on Security and Privacy</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015-05" />
+			<biblScope unit="page" from="38" to="54" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Providing User Security Guarantees in Public Infrastructure Clouds</title>
+		<author>
+			<persName><forename type="first">Nicolae</forename><surname>Paladi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Gehrmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antonis</forename><surname>Michalas</surname></persName>
+			<idno type="ORCID">0000-0002-0189-3520</idno>
+		</author>
+		<idno type="DOI">10.1109/tcc.2016.2525991</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Cloud Computing</title>
+		<title level="j" type="abbrev">IEEE Trans. Cloud Comput.</title>
+		<idno type="ISSNe">2168-7161</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="405" to="419" />
+			<date type="published" when="2017-07-01" />
+			<publisher>Institute of Electrical and Electronics Engineers (IEEE)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Meltdown: Reading kernel memory from user space</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lipp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Schwarz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gruss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Prescher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Haas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fogh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Horn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mangard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Kocher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Genkin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Yarom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hamburg</surname></persName>
+		</author>
+		<ptr target="https://www.usenix.org/conference/usenixsecurity18/presentation/lipp" />
+	</analytic>
+	<monogr>
+		<title level="m">27th USENIX Security Symposium (USENIX Security 18)</title>
+				<meeting><address><addrLine>Baltimore, MD</addrLine></address></meeting>
+		<imprint>
+			<publisher>USENIX Association</publisher>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="973" to="990" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Spectre Attacks: Exploiting Speculative Execution</title>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Kocher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jann</forename><surname>Horn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anders</forename><surname>Fogh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Genkin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Gruss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Werner</forename><surname>Haas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mike</forename><surname>Hamburg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Moritz</forename><surname>Lipp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Mangard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Prescher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Schwarz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuval</forename><surname>Yarom</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sp.2019.00002</idno>
+		<ptr target="Available:doi.ieeecomputersociety.org/10.1109/SP.2019.00002" />
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE Symposium on Security and Privacy (SP)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019-05" />
+			<biblScope unit="volume">00</biblScope>
+			<biblScope unit="page" from="19" to="37" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">On the security of public key protocols</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dolev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Yao</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/sfcs.1981.32</idno>
+		<ptr target="https://doi.org/10.1109/SFCS.1981.32" />
+	</analytic>
+	<monogr>
+		<title level="m">22nd Annual Symposium on Foundations of Computer Science (sfcs 1981)</title>
+				<meeting><address><addrLine>Washington, DC, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="1981-10" />
+			<biblScope unit="page" from="350" to="357" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<author>
+			<persName><forename type="first">W</forename><surname>Stallings</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Brown</surname></persName>
+		</author>
+		<title level="m">Computer Security: Principles and Practice</title>
+				<meeting><address><addrLine>NJ, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Prentice Hall Press</publisher>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+	<note>3rd ed. Upper Saddle River</note>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<title level="m" type="main">Internet Official Protocol Standards</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Seo</surname></persName>
+		</author>
+		<idno type="DOI">10.17487/rfc5000</idno>
+		<ptr target="https://www.rfc-editor.org/info/rfc4301" />
+		<imprint>
+			<date type="published" when="2008-05" />
+			<publisher>RFC Editor</publisher>
+		</imprint>
+	</monogr>
+	<note>Security architecture for the internet protocol</note>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<monogr>
+		<title level="m" type="main">The Transport Layer Security (TLS) Protocol Version 1.2</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Dierks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Rescorla</surname></persName>
+		</author>
+		<idno type="DOI">10.17487/rfc5246</idno>
+		<ptr target="http://www.ietf.org/rfc/rfc5246.txt" />
+		<imprint>
+			<date type="published" when="2008-08" />
+			<publisher>RFC Editor</publisher>
+		</imprint>
+	</monogr>
+	<note>The Transport Layer Security (TLS) Protocol Version 1.2</note>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Datagram Transport Layer Security Version 1.2</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Rescorla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Modadugu</surname></persName>
+		</author>
+		<idno type="DOI">10.17487/rfc6347</idno>
+		<ptr target="https://rfc-editor.org/rfc/rfc6347.txt" />
+	</analytic>
+	<monogr>
+		<title level="j">RFC</title>
+		<imprint>
+			<biblScope unit="volume">6347</biblScope>
+			<date type="published" when="2012-01" />
+			<publisher>RFC Editor</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Stateful intrusion detection for high-speed network&apos;s</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kruegel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Valeur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Vigna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kemmerer</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/secpri.2002.1004378</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings 2002 IEEE Symposium on Security and Privacy</title>
+				<meeting>2002 IEEE Symposium on Security and Privacy</meeting>
+		<imprint>
+			<publisher>IEEE Comput. Soc</publisher>
+			<date>May 2002</date>
+			<biblScope unit="page" from="285" to="293" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Campbell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mortimore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jones</surname></persName>
+		</author>
+		<idno type="DOI">10.17487/rfc7522</idno>
+		<ptr target="https://rfc-editor.org/rfc/rfc7522.txt" />
+	</analytic>
+	<monogr>
+		<title level="j">RFC</title>
+		<imprint>
+			<biblScope unit="volume">7522</biblScope>
+			<date type="published" when="2015-05" />
+			<publisher>RFC Editor</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+		<title level="m" type="main">The OAuth 2.0 Authorization Framework</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hardt</surname></persName>
+		</author>
+		<ptr target="https://rfc-editor.org/rfc/rfc6749.txt" />
+		<imprint>
+			<date type="published" when="2012-10" />
+			<biblScope unit="volume">6749</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">VSITE: A scalable and secure architecture for seamless L2 enterprise extension in the cloud</title>
+		<author>
+			<persName><forename type="first">Li</forename><forename type="middle">Erran</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Woo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/npsec.2010.5634451</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2010 6th IEEE Workshop on Secure Network Protocols</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2010-10" />
+			<biblScope unit="page" from="31" to="36" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Openplc: An open source alternative to automation</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">R</forename><surname>Alves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Buratto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">M</forename><surname>De Souza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">V</forename><surname>Rodrigues</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Global Humanitarian Technology Conference (GHTC 2014)</title>
+				<imprint>
+			<date type="published" when="2014-10" />
+			<biblScope unit="page" from="585" to="589" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

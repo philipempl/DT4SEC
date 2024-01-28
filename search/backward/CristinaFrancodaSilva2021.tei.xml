@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Using a Cyber Digital Twin for Continuous Automotive Security Requirements Verification</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2021-02-01">1 Feb 2021</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Ana</forename><surname>Cristina</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Franco</forename><surname>Da Silva</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Stefan</forename><surname>Wagner</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Eddie</forename><surname>Lazebnik</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Eyal</forename><forename type="middle">Traitel</forename><surname>Cybellum</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">University of Stuttgart</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution">University of Stuttgart</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Using a Cyber Digital Twin for Continuous Automotive Security Requirements Verification</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2021-02-01">1 Feb 2021</date>
+						</imprint>
+					</monogr>
+					<idno type="arXiv">arXiv:2102.00790v1[cs.CR]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:30+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>A Digital Twin (DT) is a digital representation of a physical object used to simulate it before it is built or to predict failures after the object is deployed. The DT concept was originally applied to manufacturing but has been gaining attention in other areas. In this article, we introduce a novel concept called Cyber Digital Twin (CDT), which transfers the idea of the DT to automotive software for the purpose of security analysis. In our approach, the ECU software (i.e., firmware) is transformed into a CDT, which contains automatically extracted, security-relevant information from the firmware. With this, we can evaluate automotive security requirements through automated security requirements verification using policy enforcement checks and detection of security vulnerabilities. The evaluation can be done continuously using newly integrated checks and published security vulnerabilities.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>AS FOR REQUIREMENTS overall <ref type="bibr" target="#b0">[1]</ref>, a common problem in security requirements is that they are too abstract and, thereby, underspecified. Examples in the automotive domain are the UNECE WP.29 regulation <ref type="bibr" target="#b1">[2]</ref> and the ISO/SAE 21434 standard <ref type="bibr">[3]</ref>, which mostly prescribe processes and methods but do not show how security can be achieved in a concrete system. This leads to various problems in the development but also in the quality assurance of these systems. Cruzes et al. <ref type="bibr" target="#b2">[4]</ref> argue that testing non-functional requirements, such as security, is a great challenge due to cross-functional aspects of testing and the lack of clarity of their needs. In particular, we need concrete requirements to check the security of the systems.</p><p>The Digital Twin (DT) is the idea to digitally represent physical objects to simulate them before they are built or to predict failures to enable predictive maintenance <ref type="bibr" target="#b3">[5]</ref> (see also <ref type="bibr">Sidebar 2)</ref>. In this article we introduce a novel concept, the Cyber Digital Twin (CDT), which transfers the idea of the DT to software as well <ref type="bibr" target="#b4">[6]</ref>. A CDT is a digital representation of an automotive software (i.e., firmware) and can provide many advantages with respect to automating security evaluation of firmwares. We should especially consider that we build large parts of software on the basis of other software libraries and frameworks that are not available as source code. In the case of automotive Original Equipment Manufacturers (OEMs), this even means most of the software in the Electronic Control Units (ECUs) in the cars that they build have software on them that they can only consider as black boxes. The CDT approach presented in this article can automatically extract important information from the firmware binaries such as interfaces and data flow that is needed for other activities such as security analysis. This extracted information enables us to discover security vulnerabilities in the firmware, and furthermore, to check if security requirements of the firmware are fulfilled. In this context, a vulnerability <ref type="bibr" target="#b5">[7]</ref> is defined as a weak spot in the firmware, which can be exploited by intruders and negatively affect the confidentiality, integrity or availability of the firmware. We discuss alternative approaches in Sidebar 1.</p><p>The CDT approach has been applied to hundreds of software systems in various companies to detect known security vulnerabilities in the used libraries (publicly disclosed as CVEs) but also previously unknown vulnerabilities based on the information extracted from the binaries. We will describe the approach including the analysis method, how it can be used to verify security requirements and report which types of vulnerabilities are commonly found with the approach.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">THE CYBER DIGITAL TWIN APPROACH</head><p>We first introduce our approach to create and use the Cyber Digital Twin (CDT) to verify security requirements by checking policy enforcement and detecting vulnerabilities in the pre-and postproduction phases of a firmware. Our approach is depicted in Figure <ref type="figure" target="#fig_1">1</ref>, which is described in the following.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1.">Transformation of a Firmware into a Cyber Digital Twin</head><p>In our approach, a firmware, such as an infotainment system, is automatically transformed into a corresponding Cyber Digital Twin (CDT).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Sidebar 1: Black-Box Vulnerability Analysis</head><p>There are alternatives to the CDT approach to perform black-box analyses for vulnerabilities in software. The main approaches to vulnerability analysis are static analysis of the source code or black-box testing often using fuzzing techniques <ref type="bibr">(Liu et al. 2012</ref>). Static analysis usually requires access to the source code of the software and, hence, cannot be used in a black-box way.</p><p>In case there is no access to the source code, the prevalent approach is black-box testing. This can be manual penetration tests or automated tests usually driven by fuzzing. A common focus is on crawling and then testing web applications for side-channel vulnerabilities (Chapman and Evans 2011) or SQL injection vulnerabilities (Djuric, 2013), for example. Yet, all these approaches need an executable system often installed in a real or realistic environment. The CDT is therefore an alternative digital representation of the firmware, which is used for cybersecurity analysis. A firmware is normally composed of only binaries since in the automobile industry mostly closed-source components are transferred between different parties in the supply chain. Therefore, the source code of a firmware is not required in our approach. During the creation of the CDT, all available interfaces (e.g., CAN Bus, GPS or Bluetooth), employed software libraries (e.g., openssl or sqlite) and further information are discovered automatically and added to the model underlying the CDT. Note that, not only interfaces and employed software libraries are automatically extracted, but rather a much more comprehensive set of information is extracted and added to the CDT. This extracted information enables us to continuously monitor the CDT in respect to its susceptibility to cybersecurity vulnerabilities.</p><p>At the centre of the CDT -as in a normal Digital Twin -is the bill of materials that stores what libraries and components are in a firmware. This is achieved by scanning the binaries for software patterns and comparing them to known applications and modules through pattern recognition. Furthermore, to enrich the bill of materials, we  More concretely, the resulting CDT includes the characteristics in Table <ref type="table" target="#tab_1">1</ref>, which describe the entire structure and context of a firmware.</p><p>In addition to the described characteristics in Table <ref type="table" target="#tab_1">1</ref>, the CDT also includes the interaction between all of them, and any additional configuration information and metadata describing the software and its behavior.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2.">Analysis of the Cyber Digital Twin</head><p>The resulting CDT of a firmware is analysed and continuously monitored to find threats and security vulnerabilities. The analysis is first realized in the pre-production phase of the firmware. In this way, OEMs can solve uncovered issues before the firmware is released. Afterwards, the CDT is still used in post-production where it will be continuously monitored. Hence, the CDT enables vulnerability management of a firmware throughout its lifecycle. A continuous monitoring of the CDT is highly helpful and necessary since new vulnerabilities are discovered every day, and furthermore, already in production firmware might need to be updated a few times a year. Consequently, the results of the analysis in pre-production become deprecated over time.</p><p>Based on the software bill of materials and hardware bill of materials, the CDT is analysed, to find potential vulnerabilities, which are published in databases of common vulnerabilities and exposures (CVE). For each software library in the bill of materials, all CVEs related to this software library are automatically identified by accessing CVEs databases. To find out if the firmware is actually affected by the security issue described in the published CVE, static analysis is done on the CDT to check if the firmware in question uses the vulnerable parts of the corresponding software library. If this is the case, a dynamic analysis is afterwards carried out by running the CDT in a sandbox, i.e., the firmware is emulated, and by trying to trigger the vulnerabilities as described in the CVE.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3.">Requirements Verification</head><p>From experiences of working with and conducting research on security solutions for the automotive industry, we could identify several common security requirements in the automotive industry. Examples for such requirements are the employment of data encryption, secure boot and system hardening techniques. Furthermore, coding standards, such as from AUTOSAR, and Hardware bill of materials (HW BoM)</p><p>The detected hardware components and hardware configuration: (i) CPU architecture, (ii) CPU bit size, (iii) video card, (iv) network interfaces, (v) other peripheral components. This configuration can be derived from static analysis of configuration files, drivers and software libraries detected from the firmware.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Network interfaces</head><p>The detected network interfaces, including physical communication interfaces such as Ethernet, USB, Wifi, Bluetooth, CAN bus, cellular (3G/4G/5G), radio and Zigbee, as well as logical communication protocols such as SMS.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Software bill of materials (SBoM) including libraries names and used versions</head><p>The detected list of distinct software components. These components can be a mixture of open-source software (OSS), third-party commercial software, or first-part developed software libraries or applications.</p><p>Operating system</p><p>The operating system -open-source (Linux, Android) or commercial (QNX, VxWorks etc.).</p><p>Operating system settings Operating system configurations and settings. For example, the Linux /etc files.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Kernel configuration</head><p>The detected kernel configuration -the list of enabled modules and settings (such as sysctl parameters in Linux).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>OS-level security configuration</head><p>Specific operating system security configurations, for authentication or other security mechanisms.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Memory management and mapping</head><p>The operating system memory management system, its configuration and actual usage pattern by the executables within the firmware.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>User credentials</head><p>All the user authentication details -user names, passwords, tokens etc.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Firewall configuration</head><p>The built-in firewall configuration and rules.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Application frameworks in use and their configuration</head><p>Application frameworks in use in the firmware. For example -some commercial frameworks exist which provide additional applicationlevel support.</p><p>Available, accessible and in-use APIs</p><p>The available API sets that are available to use and the actual ones in use.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Application configuration</head><p>Application-specific configurations and settings. For practicality purposes, the focus is mostly on settings that have an impact on security.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Encryption mechanisms and flows</head><p>All encryption services and communication protocols using encryption, and their use by different systems and applications in the firmware.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Encryption keys</head><p>Public and private encryption keys that are used to access internal and external services.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Control and data flow graph representation</head><p>The actual applications code -the control and data flows. The fulfillment of such requirements as well as the compliance to security standards enables higher levels of security in the firmware. Consequently, the verification and evaluation of security requirements of the firmware is a crucial task.</p><p>To check if the firmware meets its cybersecurity requirements, which can start from security policies, such as those in UNECE WP.29 and ISO/SAE 21434, or from discussions with stakeholders. We then retrace the discovered vulnerabilities to these requirements. That is, we check if a specific vulnerability can be traced back to one or more requirements, and therefore, verify the fulfillment of the retraced requirements.</p><p>For example for the software library sqlite v3.31.1, the CVE-2020-11656 was published in the NIST national vulnerability database (NVD), which reports referencing memory after it has been freed (CWE-416: use after free). This issue might enable the execution of arbitrary code, what can be exploited by attackers. Based on the classification provided by the Common Weakness Enumeration (CWE) of the CVE, this kind of vulnerability can be traced back to system hardening requirements. That is, a firmware using the mentioned library might not fulfill a system hardening requirement, in case such a requirement was specified for the firmware.</p><p>In summary, security requirements are evaluated to check if they are fulfilled based on the software bill of materials and on the identified vulnerabilities. For example, it is checked if the firmware uses hardening techniques helping to avoid security attacks, such as address space layout randomization (ASLR). Finally, it is also checked if the firmware complies with security policies, such as the UNECE WP.29 cybersecurity regulations and the ISO/SAE 21434 standard.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">RESULTS</head><p>To comply with cybersecurity regulations, such as the UNECE WP.29, OEMs need to demonstrate that they use a cybersecurity management system capable of ensuring adequate security of vehicles <ref type="bibr" target="#b1">[2]</ref>. The CDT approach supports OEMs thereby through security analysis and vulnerabilities management in the development and post-production phase.</p><p>To explain how the CDT approach is used to continuously verify requirements, we walk through the steps taken to verify a cybersecurity requirement, which was derived from the UNECE WP.29 cybersecurity regulation (4.3.6 Threats to vehicle data/code, in Annex A, Table A1: List of vulnerability or attack method related to the threats) <ref type="bibr" target="#b1">[2]</ref>. In the exemplary requirement, firmwares shall prevent unauthorized access to privacy information. More concrete, to avoid privacy information leakage, adequate security technologies and mechanisms should be employed that validate and prevent privacy information leakage to happen. Examples of privacy information are personal identity, payment account information, passwords, e-mail addresses, or IP addresses.</p><p>First, the Cyber Digital Twin is created for the firmware in question. Second, a security analysis is conducted, in which known vulnerabilities are searched for the libraries in the software bill of materials. In this analysis, the CDT in general is also checked for unknown vulnerabilities and security policies violations, such as system hardening misconfigurations. After, each discovered vulnerability is traced back to corresponding requirements based on its threats, vulnerabilities and attack methods. If no vulnerabilities could be traced back to the aforementioned exemplary requirement, this requirement will be verified as fulfilled. On the other hand, if at least one vulnerability can be traced back to the requirement, this requirement will not be fulfilled. Finally, the security analysis results, e.g., the uncovered vulnerabilities of the firmware in question, are described in a comprehensive report, which is generated automatically. Note that security analyses are also realized in post-production, i.e., the software bill of materials is continuously monitored to catch newly disclosed vulnerabilities. In this way, the CDT approach enables vulnerability management of the entire lifecycle of a firmware.</p><p>Our approach has been implemented in the Cyber Digital Twin Platform <ref type="bibr" target="#b4">[6]</ref>. We applied The presented results in the following are from the third quarter of 2020. Table <ref type="table">2</ref> shows the top 5 most used open-source libraries on the analyzed firmwares. The average number of used libraries per firmware (rich components) corresponds to about 150 libraries. Zlib and Bzip are libraries for data compression, while Expat is a library for parsing XML documents.</p><p>We can see that amongst the top 5, there are the Zlib and Bzip libraries that are used for data compression. They are very likely to be used in any kind of firmware, i.e., not only in automotive-oriented firmwares. Libraries that have this kind of characteristic and that can be used across different OS's are naturally going to appear in many components, and therefore, are very popular.</p><p>With respect to security vulnerabilities, the two most common publicly known vulnerabilities (CVEs) detected in the analysed firmwares were both found in the library sqlite and are use-afterfree vulnerabilities (CVE-2020-11656 and CVE-2020-13631). The average number of detected CVEs per firmware (rich component) was about 600 vulnerabilities, from which about 20 were of critical severity.</p><p>Finally, the average number of discovered unknown vulnerabilities per firmware is about 80, from which 10 are of high severity. Unknown vulnerabilities are classified based on the types defined by the common weakness enumeration (CWE) database. The three most common unknown vulnerabilities identified in the analyzed firmwares are related to memory corruption (CWE-119), buffer overflow (CWE-125) and access control (CWE-338). The latter unknown vulnerability can lead to the nonfulfillment of the aforementioned exemplary requirement (firmwares shall prevent unauthorized access to privacy information), since inadequate access control can facilitate unauthorized access to privacy information.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">CONCLUSION</head><p>In future work, we plan to extend our approach to automatically generate test cases for the CDT based on common cybersecurity requirements of ECU software. From the software bill of materials, we get a list of libraries used and the deployed versions. We can use this information to generate fuzz test cases in several ways. The first and most straightforward way would be to use specific protocol fuzzers for libraries that use known protocols. Second, for the open-source libraries, we can retrieve the interfaces and poten-Sidebar 2: Digital Twin and Cyber Digital Twin A Digital Twin (DT) is a digital representation of a physical object and its lifecycle to simulate it before it is built or to predict failures <ref type="bibr" target="#b3">[5]</ref>. The DT concept comprises not only simulation but also monitoring of existing physical objects including their current states and processes, so that DTs are always in-sync with their physical counterparts to enable reliable monitoring (Grieves and Vickers, 2017). The concept of using twins has emerged within NASA's Apollo program and is still in use by NASA, where space vehicle twins are used for training and simulation purposes (Glaessgen and Stargel,2012). The DT concept has been applied to manufacturing, introduced by Michael Grieves in 2002, and has gained attention in further areas such as in the automotive and IoT domains. An exemplary software solution in manufacturing is the GE Digital Predix Platform (GE Digital, 2013), which is an IIoT platform for creating and tracking DTs of industrial systems. A further example in the automotive domain is the Siemens NX CAD (Siemens, 2007) enabling the creation of DTs for designing and simulating entire cars.</p><p>We extend the DT concept to digitally represent also software objects that can be regarded only as black-boxes. We define a Cyber Digital Twin (CDT) as a digital representation of an automotive software (i.e., firmware), where its digital representation is enhanced with critical information for security analysis, requirements evaluation and monitoring. The firmware normally consists of only binaries and is regarded therefore as a black-box. The CDT is used to evaluate security requirements of the firmware in both pre-production and post-production phases. Hence, the CDT enables vulnerability management and security requirements evaluation of a firmware throughout its lifecycle.</p><p>The creation of Digital Twins for software as well has been also proposed in other works, for example to identify cybersecurity issues. Hadar et al. (2020) use the term Cyber Digital Twin Simulator, in which a Cyber Digital Twin is created based on active networks and attack graph analytics. This CDT automatically collects information about the computer network infrastructure, associates this infrastructure with attack tactics, measures the efficiency of implemented security controls requirements and automatically detects missing security controls. The resulting CDT corresponds to a knowledge graph inferencing model of the active network. Eckhart and Ekelhart (2019) argue that employing DTs for the dynamic assessment of security risks is a viable approach that is able to deal with the dynamic nature of cyber risks, since the DT can be executed in parallel to its physical counterpart and therefore mirrors its behavior. tially mine input grammars from the repositories directly. Third, for commercial libraries, the further control and data flow analyses on the binaries can be used for fuzzing. Fourth, we could build a database of popular libraries, their interfaces and interesting attach surfaces to fuzz corresponding tests.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>Liu, B., Shi, L., Cai, Z., and Li, M. "Software Vulnerability Discovery Techniques: A Survey." 2012 Fourth International Conference on Multimedia Information Networking and Security. IEEE, 2012. Chapman, P. and Evans, D. "Automated black-box detection of side-channel vulnerabilities in web applications." CCS '11: Proceedings of the 18th ACM conference on Computer and communications security. ACM, 2011. Djuric, Zoran. "A black-box testing tool for detecting SQL injection vulnerabilities." 2013 Second International Conference on Informatics &amp; Applications (ICIA). IEEE, 2013.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Approach for Using Cyber Digital Twins to continuously verify Automotive Security Requirements</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Firmware Cyber Digital Twin Verifier Cybersecurity Requirements:</head><label></label><figDesc></figDesc><table><row><cell>• Encryption</cell><cell>• Hardening</cell><cell></cell></row><row><cell>• Secure boot</cell><cell>• Coding standards</cell><cell></cell></row><row><cell>• Allowed interfaces</cell><cell>• Privacy</cell><cell></cell></row><row><cell>• Vulnerabilities management</cell><cell cols="3">IPs, emails, hashed passwords</cell></row><row><cell cols="2">Retracing of Vulnerabilities to Requirements</cell><cell>3</cell><cell>4 Requirements Verification</cell></row><row><cell>1</cell><cell>2</cell><cell></cell></row><row><cell>Transformation</cell><cell cols="2">Analysis</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 1 :</head><label>1</label><figDesc>The Cyber Digital Twin model data privacy measures, such as hashed passwords, should also be used. The management of vulnerabilities throughout the whole firmware lifecycle is a common requirement as well, since new vulnerabilities are discovered from time to time and consequently databases of publicly known cybersecurity vulnerabilities are continuously expanded.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head></head><label></label><figDesc>Linux, QNX, or Android OS. The other kind of analyzed firmwares are lower-level microcontrollers. Such firmwares are usually of smaller size, have no OS, do not use open-source libraries, and have a Renesas or Tricore CPU architecture.</figDesc><table><row><cell cols="2">Rank Package name</cell><cell cols="2">Latest release date Version date</cell><cell>Age</cell></row><row><cell>1</cell><cell>Zlib 1.2.8 (data compres-</cell><cell>2017-01-15</cell><cell>2013-04-29</cell><cell>3 years, 8 months</cell></row><row><cell></cell><cell>sion library)</cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="2">2 &amp; 3 Further versions of Zlib</cell><cell></cell><cell></cell><cell></cell></row><row><cell>4</cell><cell>Bzip 1.0.6 (data compres-</cell><cell>2019-07-13</cell><cell>2010-09-06</cell><cell>8 years, 10 months</cell></row><row><cell></cell><cell>sion library)</cell><cell></cell><cell></cell><cell></cell></row><row><cell>5</cell><cell>Expat 2.2.0 (XML parser</cell><cell>2019-09-25</cell><cell>2016-06-21</cell><cell>3 years, 3 months</cell></row><row><cell></cell><cell>library)</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell cols="4">Table 2: Most used open-source libraries on the analyzed firmwares</cell></row><row><cell cols="3">our approach to about 100 automotive-oriented</cell><cell></cell><cell></cell></row><row><cell cols="3">firmwares, which exist in almost every car nowa-</cell><cell></cell><cell></cell></row><row><cell cols="3">days, such as in-vehicle infotainment (IVI) sys-</cell><cell></cell><cell></cell></row><row><cell cols="3">tems, telematics or advanced driver assistance</cell><cell></cell><cell></cell></row><row><cell cols="2">systems (ADAS).</cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="3">Most of the analyzed firmwares are rich com-</cell><cell></cell><cell></cell></row><row><cell cols="3">ponents, which are firmwares that usually in-</cell><cell></cell><cell></cell></row><row><cell cols="3">clude an operating system (OS), several interfaces</cell><cell></cell><cell></cell></row><row><cell cols="3">and use many open-source libraries. Furthermore,</cell><cell></cell><cell></cell></row><row><cell cols="3">they usually have a MIPS/ARM CPU architec-</cell><cell></cell><cell></cell></row><row><cell>ture and a</cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head></head><label></label><figDesc>Grieves, M., and Vickers, J.. "Digital twin: Mitigating unpredictable, undesirable emergent behavior in complex systems."Transdisciplinaryperspectives on complex systems. Springer, 2017. pp. 85-113. Glaessgen, E., and Stargel, D.. "The digital twin paradigm for future NASA and US Air Force vehicles." 53 rd AIAA/ASME/ASCE/AHS/ASC structures, structural dynamics and materials conference. 2012. Eckhart, M., and Ekelhart, A.. "Digital Twins for Cyber-Physical Systems Security: State of the Art and Outlook." Security and Quality in Cyber-Physical Systems Engineering. Springer, 2019. pp. 383-412. Hadar, E., Kravchenko, D. and Basovskiy, A.. "Cyber Digital Twin Simulator for Automatic Gathering and Prioritization of Security Controls' Requirements." 2020 IEEE 28 th International Requirements Engineering Conference (RE). IEEE, 2020. GE Digital. Predix Platform, 2013. URL: https://www.ge. com/digital/iiot-platform Siemens. NX CAD, 2007. URL: https://new.siemens. com/global/en/markets/automotive-manufacturing/ digital-twin-product.html</figDesc><table /></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Ana Cristina Franco da Silva</head><p>is a postdoc at the Institute of Software Engineering at the University of Stuttgart. Her research interests include Internet of Things, testing of IoT applications, data processing in IoT environments based on complex event processing and data stream processing, and fog computing. She holds a bachelor degree in computing engineering, a master degree in software engineering, and defended her Ph.D. in the field of data processing in the IoT at the University of Stuttgart. Contact her at ana-cristina.franco-dasilva@iste.uni-stuttgart.de. </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Naming the pain in requirements engineering</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">Méndez</forename><surname>Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wagner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kalinowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Felderer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Mafra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vetrò</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Conte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M-T</forename><surname>Christiansson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Greer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lassenius</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Männistö</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Nayabi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Oivo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Penzenstadler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Pfahl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Prikladnicki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Ruhe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Schekelmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Spinola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tuzcu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>De La Vara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Wieringa</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10664-016-9451-7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Empirical Software Engineering</title>
+		<title level="j" type="abbrev">Empir Software Eng</title>
+		<idno type="ISSN">1382-3256</idno>
+		<idno type="ISSNe">1573-7616</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="2298" to="2338" />
+			<date type="published" when="2016-10-24" />
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Risk management at UNECE WP.6</title>
+		<idno type="DOI">10.18356/3062c89d-en</idno>
+		<imprint>
+			<date type="published" when="2013-05-03" />
+			<publisher>United Nations Publications</publisher>
+		</imprint>
+	</monogr>
+	<note>2020. 3. International Organization for Standardization</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">How is Security Testing Done in Agile Teams? A Cross-Case Analysis of Four Software Teams</title>
+		<author>
+			<persName><forename type="first">Daniela</forename><forename type="middle">Soares</forename><surname>Cruzes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Felderer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tosin</forename><forename type="middle">Daniel</forename><surname>Oyetoyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matthias</forename><surname>Gander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Irdin</forename><surname>Pekaric</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-57633-6_13</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Lecture Notes in Business Information Processing</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="201" to="216" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Digital Twin—The Simulation Aspect</title>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Boschert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Roland</forename><surname>Rosen</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-32156-1_5</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Mechatronic Futures</title>
+				<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="59" to="74" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Introduction to Cybellum Security Suite -Risk Assessment for Automotive Software</title>
+		<author>
+			<persName><forename type="first">Ltd</forename><surname>Cybellum Technologies</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2020" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">CVE -Terminology</title>
+		<author>
+			<persName><forename type="first">Mitre</forename><surname>The</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Corporation</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1999" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

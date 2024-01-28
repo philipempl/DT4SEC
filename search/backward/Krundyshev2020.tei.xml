@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Ensuring Cybersecurity of Digital Production Using Modern Neural Network Methods</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">V</forename><forename type="middle">M</forename><surname>Krundyshev</surname></persName>
+							<email>vmk@ibks.spbstu.ru</email>
+							<affiliation key="aff0">
+								<orgName type="institution">Peter the Great St. Petersburg Polytechnic University</orgName>
+								<address>
+									<postCode>195251</postCode>
+									<settlement>St. Petersburg</settlement>
+									<country key="RU">Russia</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Ensuring Cybersecurity of Digital Production Using Modern Neural Network Methods</title>
+					</analytic>
+					<monogr>
+						<idno type="ISSN">0146</idno>
+					</monogr>
+					<idno type="DOI">10.3103/S0146411620080179</idno>
+					<note type="submission">Received August 31, 2019; revised August 31, 2019; accepted September 10, 2019</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.6.2" ident="GROBID" when="2021-06-09T12:40+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>generative adversarial networks</term>
+					<term>artificial intelligence</term>
+					<term>cybersecurity</term>
+					<term>neural networks</term>
+					<term>digital manufacturing</term>
+					<term>GAN</term>
+					<term>IIoT</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The transition from the information economy to the digital one presents new challenges for society associated with the development of disruptive technologies, a network of cyber-physical systems, artificial intelligence and big data. When creating digital platforms, a number of difficulties arise: the large size of the digital infrastructure and its heterogeneity, poorly established information interaction between segments, the lack of a unified approach to ensuring cybersecurity and a high dependence on the qualifications of personnel and equipment reliability. The introduction of the digital economy leads to an increase in the risk of cyber threats associated with access control problems between information flow regulation and control systems. To solve the problems of detecting cyber threats, it is proposed to use generative adversarial neural networks. Algorithms for learning and testing a neural network were presented. The results of the experiments have demonstrated that the proposed solution is highly accurate in detecting cyberattacks.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>INTRODUCTION</head><p>In 2011, at the Hannover Fair, Germany spoke for the first time about the need to develop an industrial development strategy in line with the trends of the new industrial era. The founder and chairman of the World Economic Forum (WEF) Klaus Schwab first coined the term Industry 4.0 <ref type="bibr" target="#b0">[1]</ref>. A distinctive feature of the fourth industrial revolution, which is also called digital, he called the convergence of technologies and the blurring of the lines between digital, biological and physical spheres. The main value of the new economy is data, not physical products. Economic growth is no longer based on capital and natural resources, but on innovation and human imagination. According to analysts at PricewaterhouseCoopers <ref type="bibr" target="#b1">[2]</ref>, the basis of the global digital economy is formed by the most promising technologies: artificial intelligence, augmented reality, unmanned aerial vehicles, blockchain, the Internet of Things, softwaredefined networks, 3D printing, and robotics.</p><p>Other industrialized countries followed the example of Germany, and similar programs were adopted: in the UK, the High Value Manufacturing Catapult; in France, Alliance Industrie du Futur; in Italy, Fabbrica del Futuro; in the Netherlands, Smart Factory; in Belgium, Made Different; in Russia, the National Technology Initiative; in China, Made in China 2025, and so on <ref type="bibr" target="#b2">[3]</ref>. World leaders in networking AT&amp;T, Cisco, General Electric, IBM and Intel created the Industrial Internet Consortium TM (IIC) in 2014 to harmonize standards for application development for Industrial Internet of Things (IIoT) <ref type="bibr" target="#b3">[4]</ref>. The created ecosystem of companies, research centers and government agencies is designed to stimulate the introduction of digital technologies in the real sectors of the economy.</p><p>According to the forecast of McKinsey <ref type="bibr" target="#b4">[5]</ref>, by 2025, the total economic effect from the Industrial Internet of Things will amount to 11 trillion dollars a year. According to Huawei analysts <ref type="bibr" target="#b5">[6]</ref>, by 2025, 100 billion devices will be connected, used in all spheres of business and life. At the same time, the "connectivity" of objects with the Internet entails a number of risks, primarily related to security. Serious threats are associated with the fact that, unexpectedly for engineers, objects turned out to be connected to the Internet, and this possibility was not taken into account during their design. For example, according to the Kaspersky Lab, a computer on the International Space Station was infected with a virus written for gamers. Later it turned out that this was not the only case: computers in space periodically "pick up" viruses, for example, from infected external memory devices. However, for industrial enterprises in digital manufacturing, business continuity is critical. Moreover, many industrial systems relate to critical infrastructure in terms of impact on the environment and human safety, therefore, the consequences of a hacker attack or failure in IIoT can potentially affect not only economic, but also physical, security <ref type="bibr">[7]</ref>.</p><p>To mitigate these risks, leading scientists and researchers are considering modern cybersecurity methods that would counter a wide range of cyber threats. Many researchers have focused their attention on the application of artificial intelligence methods to reveal hidden patterns and deviations <ref type="bibr" target="#b6">[8]</ref><ref type="bibr" target="#b7">[9]</ref><ref type="bibr" target="#b8">[10]</ref><ref type="bibr" target="#b9">[11]</ref><ref type="bibr" target="#b10">[12]</ref><ref type="bibr" target="#b11">[13]</ref><ref type="bibr" target="#b12">[14]</ref>. Big data and artificial intelligence technologies implement efficient processing of intensively incoming unstructured data of superhigh volume and extraction of knowledge from them <ref type="bibr" target="#b13">[15]</ref><ref type="bibr" target="#b14">[16]</ref><ref type="bibr" target="#b15">[17]</ref>. Several solutions have already shown their effectiveness in the tasks of detecting cyber threats, and the fact that the world's largest companies spend impressive sums on research and development in this area only confirms the prospects of this approach <ref type="bibr" target="#b16">[18,</ref><ref type="bibr" target="#b17">19]</ref>.</p><p>To solve the problem of ensuring cybersecurity of digital production, it is proposed to use the apparatus of artificial neural networks (ANN). Among the main advantages of the ANN are the following:</p><p>-No need to formalize knowledge (replaced by learning).</p><p>-Ability to learn automatically and in the course of work.</p><p>-Probability of detection of unknown attacks.</p><p>-Ability to parallelize work.</p><p>There are a large number of ANN models and architectures, but recently researchers have noted the promising outlook of generative adversarial networks <ref type="bibr" target="#b18">[20]</ref><ref type="bibr" target="#b19">[21]</ref><ref type="bibr" target="#b20">[22]</ref><ref type="bibr" target="#b21">[23]</ref>. Generative Adversarial Networks (GANs) are a relatively new class of neural networks, the purpose of which is to generate specific objects. This model was first proposed by Ian Goodfellow of Google in 2014 in <ref type="bibr" target="#b22">[24]</ref>. GANs consist of a combination of two neural networks, one of which generates objects and the other evaluates them. The first network is called a Generator (G), and the second, a Discriminator (D). Thus, a competition arises between the networks: the first must learn to generate more and more believable objects, and the second must learn to distinguish such fakes from real data. Generative adversarial networks have already demonstrated their effectiveness in various fields: in the processing of audio and video information <ref type="bibr" target="#b23">[25]</ref>, in the detection of anomalies <ref type="bibr" target="#b24">[26]</ref> and the generation of data for learning <ref type="bibr" target="#b25">[27]</ref>. The purpose of this work was to assess the possibilities of using an ANN of the GAN type to detect cyberattacks on digital production systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>NEURAL NETWORK ARCHITECTURE</head><p>To implement the GAN network, the TensorFlow framework [28] and the Keras library <ref type="bibr" target="#b26">[29]</ref> were used. To work in TensorFlow, the data must be represented in the form of tensors; for this, the numpy library was connected. Let us consider the discriminator model. It uses a Keras sequential model with Dense layers (fully connected layers). The number of layers and neurons in the layers is set when creating a neural network model class. The discriminator model can be represented as two blocks. The first block consists of many layers, each of which uses a preset weight matrix and the ReLu activation function. The ker-nel_initializer='uniform' parameter implies the use of an initializer that generates uniform tensors. In the problem being solved, this initializer makes it possible to achieve a significant increase in the ANN accuracy. The following Relu function was chosen as the activation function: f(x) = max(0, x), since it more efficiently provided a decrease in the error in solving the problem in comparison with the Sigmoid and Tanh functions <ref type="bibr" target="#b27">[30]</ref>. The second block contains one layer, which, in turn, contains the number of neurons equal to the number of studied features and uses the sigmoidal activation function.</p><p>Instead of the classical stochastic gradient descent procedure, the Adam optimizer <ref type="bibr" target="#b28">[31]</ref> is used to update the iterative weights in the network based on training data. It is well suited for large tasks in terms of data and parameters. The generator model is designed in a similar way. It also uses the ReLu activation functions, the Uniform initializer, and the Adam optimizer.</p><p>GAN training must be done in a special way. While the discriminator is training, the generator values are held constant. Likewise, while training the generator, the discriminator values must remain constant. Everyone should train against a static opponent, this will allow the generator to better read the gradient along which it should learn, and the discriminator will be able to establish this gradient. If the discriminator is trained too well, it will return values very close to 0 or 1, so the generator will have difficulty reading the gradient. The trained neural network had to be saved with the possibility of further loading. Keras makes it pretty easy to save the trained neural network and load it again. For this, the used model is converted to json format, and all weights are written in .h5 format. After loading, the model must be compiled.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ALGORITHM OF TRAINING AND TESTING</head><p>For training and testing the developed ANN, it is necessary to prepare datasets. Existing datasets, such as KDD <ref type="bibr" target="#b29">[32]</ref> and DARPA <ref type="bibr" target="#b30">[33]</ref>, do not take into account the specifics of the dynamic network of digital production, so it was decided to generate data synthetically using the NS-3 network simulator <ref type="bibr">[34]</ref>, which allows creating a digital twin of the enterprise network infrastructure. The developed simulation model was run many times, each time in a new experiment the location of the nodes, their speed and transmitter power changed. In total, 500 000 launches of 4 scenarios were carried out (no attack, black hole attack, gray hole attack and DDoS attack). Each attack has its own characteristics <ref type="bibr" target="#b31">[35]</ref>, which are taken into account by the developed neural network.</p><p>The learning algorithm is as follows:</p><p>1. Information about the number of transitions between nodes is read from the routing tables. Information on the number of transmitted and lost packets is extracted from the flowmon. Packets are extracted from the script file for netanim, and received, transmitted, and dropped packets are calculated for each node. For all this data, statistics are calculated and a vector of features is prepared.</p><p>2. Information from point 1 is combined into one labeled sample: matrix X is a set of feature vectors for each analyzed traffic.</p><p>3. A neural network is built according to the model of generative adversarial neural networks. For this, 3 neural networks are compiled. The first is a generator consisting of three layers: the first of 5 neurons, input dimension 10, the second of 3, the third, output, of 70 (the size of the feature vector). Activation function for 1 and 2 layers is relu, for the output, sigmoid. The second network is a discriminator consisting of three layers: 5, 3, and 1 neurons, respectively. The input dimension is 70. Activation functions are relu, relu, and sigmoid, respectively. The third network (stacked) is a combination of the first and the second into one, where the training of the discriminator is disabled.</p><p>4. The neural network must be compiled. 5. Generated samples are fed to the input of the neural network for training. The neural network is trained for 500 epochs. At each epoch, a random part of the input data is selected, consisting of 1000 vectors. One thousand random vectors of dimension 10 are generated. The latter are passed to the generator input to predict fake features. Fake and real data are concatenated into one table. All fake data is flagged as nonmalicious traffic. The resulting table is fed to the learning input of the discriminator. The discriminator takes each vector, runs the calculations through the neurons, calculates the differentials for each layer, and recalculates the weights for the neurons. Then the generator is trained on a set of random vectors that are marked as malicious. It does this by training the combined neural network. The generator learns on the principle of the discriminator, and the discriminator is not learning at this moment.</p><p>6. The neural network is saved to a file for further reuse. 7. The neural network is ready to work, therefore, one can proceed to testing it. The testing algorithm is as follows:</p><p>1. The neural network is loaded from a file. 2. Data is fed to the input of the neural network. 3. A trained discriminator is used to mark up the dataset. 4. Metrics are calculated to assess the quality of the neural network.</p><p>EXPERIMENTAL STUDIES A numerical evaluation of the quality of the developed neural network was carried out using the metrics library of the sklearn module. To assess the effectiveness of the developed solution, several metrics were used: accuracy, precision, recall, and f-measure. In addition, the precision-recall curve, ROC-curve and error matrix were plotted.</p><p>In the simplest case, such a metric can be the proportion of scenarios for which the neural network made the right decision.</p><p>According to the results of the experiments, the maximum accuracy of detecting cyber threats was 95%. Precision and recall are metrics used in evaluating most information extraction algorithms. Sometimes they are used on their own, sometimes as a basis for derived metrics such as F-measure or R-precision.</p><p>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>P Accuracy N =</head><p>The precision of a system within a class is the proportion of scripts that actually belong to a given class relative to all scripts that the system has assigned to that class.</p><p>The recall of a system is the proportion of scenarios found by the classifier that belong to a class relative to all scenarios of this class in the test sample.</p><p>Obviously, the higher the precision and recall, the better. However, in practice, maximum precision and recall are not achievable at the same time, and some balance must be sought. Therefore, it is advisable to have some kind of metric that would combine information about the precision and recall of a given algorithm. The F-measure is just such a metric.</p><p>The F-measure is the harmonic average between precision and recall. It tends to zero if the precision or recall tends to zero.</p><p>An important role in describing these metrics in terms of classification errors is played by the error matrix <ref type="bibr" target="#b32">[36]</ref>. The classification error matrix for the developed neural network is shown in Fig. <ref type="figure">1</ref>.</p><p>The values of the previously described metrics for the developed neural network are presented in Table <ref type="table">1</ref>.</p><p>.  The method for comparing ROC-curves is to estimate the area under the graph. Since the model is always characterized by a curve located above the positive diagonal, it is usually said about changes from 0.5 ("useless" classifier) to 1.0 ("ideal" model). This estimate can be obtained directly by calculating the area under the polyhedron bounded on the right and bottom by the coordinate axes and on the top left by the experimentally obtained points. The numerical indicator of the area under the curve is called AUC (Area Under Curve) and in this case it is equal to 0.972, which indicates the high efficiency of the developed model for detecting cyber threats.</p><p>Based on the results, it can be concluded that this ANN for the task at hand gives a stable result of 95%. The probabilities of errors of type I and II do not exceed 5%. When trying to increase the input data, the generator reduced the accuracy of the discriminator, so it was not possible to improve the result. It was also noticed that with an increase in network traffic, the processing time of the features that the ANN receives at the input multiplies. ANN training with a large amount of network traffic is much faster than parsing the input data. Taking into account the fact that a large amount of data for training was generated, then further retraining of the network should be carried out less frequently.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CONCLUSIONS</head><p>The study has shown that the use of artificial neural networks in the task of detecting cyberattacks is more promising than classical signature analysis for a number of reasons. Firstly, neural networks are a more flexible solution, expanding the input vector with new features is a simple task and does not require rewriting the network code, and any adaptation to new features occurs automatically. Secondly, the neural network is more efficient than complex signature methods, which, having a huge database of signatures, consume large amounts of resources.</p><p>The experimental results confirmed the effectiveness of the proposed GAN-based solution. In the future, it is planned to expand the number of detected cyber threats, add signs of attacks and conduct a larger study using the computing resources of a supercomputer.  </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2</head><label>2</label><figDesc>Figure2shows the precision-recall curve and the ROC-curve.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>FUNDING</head><label></label><figDesc>The work was funded by the Russian Federation Presidential grants for support of leading scientific schools (SP-443.2019.5).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Precision-recall curve and ROC-curve.</figDesc></figure>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CONFLICT OF INTEREST</head><p>The authors declare that they have no conflicts of interest.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">The Fourth Industrial Revolution</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Schwab</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017" />
+			<pubPlace>Penguin UK</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">As the boards of directors of companies decide on the introduction of advanced technologies</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Klau</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Corp</title>
+				<meeting><address><addrLine>Joint Stock Co</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="30" to="31" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">A new paradigm for industrial development in Germany -the Industry 4.0 strategy</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">B</forename><surname>Belov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sovrem. Evr</title>
+		<imprint>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="11" to="22" />
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Security and privacy for the industrial Internet of Things: An overview of approaches to safeguarding endpoints</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Yeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hancke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Su</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Signal Process. Mag</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="76" to="87" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">The Internet of Things: Mapping the Value Beyond the Hype</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">K</forename><surname>Global</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015" />
+			<publisher>McKinsey &amp; Company</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Huawei Global Industry Vision, Unfolding the Industry Blueprint of an Intelligent World</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Using neural networks to detect internal intruders in vanets</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ovasapyan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Moskvin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kalinin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Control Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="954" to="958" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Using GRU neural network for cyber-attack detection in automated process control systems</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lavrova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zegzhda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yarmak</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Black Sea Conference on Communications and Networking (Black-SeaCom)</title>
+				<meeting><address><addrLine>Sochi</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="1" to="3" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Applying deep learning techniques for Android malware detection</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zegzhda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zegzhda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Pavlenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Ignatev</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3264437.3264476</idno>
+		<ptr target="https://doi.org/10.1145/3264437.3264476" />
+	</analytic>
+	<monogr>
+		<title level="m">ACM International Conference Proceeding Series</title>
+				<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Prevention of attacks on dynamic routing in self-organizing adhoc networks using swarm intelligence</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">O</forename><surname>Kalinin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A</forename><surname>Zubkov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">F</forename><surname>Suprun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">I</forename><surname>Pechenkin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Autom. Control Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="977" to="983" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Homogeneity analysis of power consumption for information security purposes</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Stepanova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kalinin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Baranov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zegzhda</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 3rd International Conference of Security of Information and Networks</title>
+				<meeting>the 3rd International Conference of Security of Information and Networks</meeting>
+		<imprint>
+			<date type="published" when="2010" />
+			<biblScope unit="page" from="113" to="117" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Detection of threats in cyberphysical systems based on deep learning methods using multidimensional time series</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">O</forename><surname>Kalinin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Lavrova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">V</forename><surname>Yarmak</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Autom. Control Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="912" to="917" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Security analysis of cyber-physical systems network infrastructure</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lavrova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poltavtseva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Shtyrkina</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Industrial Cyber-Physical Systems</title>
+		<imprint>
+			<biblScope unit="page" from="818" to="823" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+	<note>ICPS</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Multifractal security analysis of cyberphysical systems</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zegzhda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lavrova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Poltavtseva</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nonlinear Phenom. Complex Syst</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="196" to="204" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Applying correlation analysis methods to control flow violation detection in the Internet of Things</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lavrova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pechenkin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Gluhov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Autom. Control Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="735" to="740" />
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Safe integration of siem systems with Internet of Things: Data aggregation, integrity control, and bioinspired safe routing</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zegzhda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zegzhda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kalinin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pechenkin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Minin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lavrova</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/2947626.2947639</idno>
+		<ptr target="https://doi.org/10.1145/2947626.2947639" />
+	</analytic>
+	<monogr>
+		<title level="m">ACM International Conference Proceeding Series</title>
+				<imprint>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="81" to="87" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Apple wants to do more than guess your next text. It wants to give you an AI</title>
+		<author>
+			<persName><forename type="first">With</forename><surname>Quicktype</surname></persName>
+		</author>
+		<ptr target="https://www.wired.com/2016/06/apple-bringing-ai-revolution-iphone/" />
+		<imprint>
+			<date type="published" when="2019-09-31" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">The Microsoft 2017 Conversational Speech Recognition System</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Xiong</surname></persName>
+		</author>
+		<ptr target="https://www.microsoft.com/en-us/research/publication/microsoft-2017-conversational-speech-recognition-system/" />
+		<imprint>
+			<date type="published" when="2019-09-31" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Technical Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Evaluation of GAN applicability for intrusion detection in self-organizing networks of cyber physical systems</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Belenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Chernenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kalinin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Krundyshev</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/RUSAUTOCON.2018.8501783</idno>
+		<ptr target="https://doi.org/10.1109/RUSAUTOCON.2018.8501783" />
+	</analytic>
+	<monogr>
+		<title level="j">International Russian Automation Conference</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+	<note>Conference Proceedings</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Hybrid neural network model for protection of dynamic cyber infrastructure</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kalinin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Demidov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zegzhda</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nonlinear Phenom. Complex Syst</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="375" to="382" />
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Threat analysis of cyber security in wireless adhoc networks using hybrid neural network model</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">A</forename><surname>Demidov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">D</forename><surname>Zegzhda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">O</forename><surname>Kalinin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Autom. Control Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="971" to="976" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Colorless video rendering system via generative adversarial networks</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Cui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE International Conference on Artificial Intelligence and Computer Applications (ICAICA)</title>
+				<meeting><address><addrLine>Dalian</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019" />
+			<biblScope unit="page" from="464" to="467" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Generative adversarial nets</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Goodfellow</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems</title>
+				<imprint>
+			<date type="published" when="2014" />
+			<biblScope unit="page" from="2672" to="2680" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Unpaired image-to-image translation using cycle-consistent adversarial networks</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Y</forename><surname>Zhu</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="2223" to="2232" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Unsupervised anomaly detection with generative adversarial networks to guide marker discovery</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Schlegl</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Information Processing in Medical Imaging</title>
+				<meeting><address><addrLine>Boone</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="146" to="157" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">DeepDGA: Adversarially-tuned domain generation and detection</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Anderson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Woodbridge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Filar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the</title>
+				<meeting>the<address><addrLine>Vienna</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="13" to="21" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Keras</surname></persName>
+		</author>
+		<ptr target="https://keras.io/" />
+		<imprint>
+			<date type="published" when="2019-09-31" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Threat analysis of IoT networks using artificial neural network intrusion detection system</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Hodo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Symposium on Networks, Computers and Communications (ISNCC)</title>
+				<meeting><address><addrLine>Yasmine Hammamet</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016" />
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Extending MLP ANN hyper-parameters optimization by using genetic algorithm</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Itano</surname></persName>
+		</author>
+		<author>
+			<persName><surname>De Abreu De</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sousa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Del-Moral-</forename><surname>Hernandez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Joint Conference on Neural Networks (IJCNN), Rio de Janeiro</title>
+				<imprint>
+			<date type="published" when="2018" />
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<author>
+			<persName><forename type="first">B</forename><surname>Ingre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Yadav</surname></persName>
+		</author>
+		<title level="m">Performance analysis of NSL-KDD dataset using ANN, International Conference on Signal Processing and Communication Engineering Systems</title>
+				<meeting><address><addrLine>Guntur</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="92" to="96" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Performance evaluation of different intrusion detection system: An empirical approach</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Beigh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Peer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Computer Communication and Informatics</title>
+				<meeting><address><addrLine>Coimbatore</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2014" />
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Prevention of attacks on dynamic routing in self-organizing adhoc networks using swarm intelligence</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">O</forename><surname>Kalinin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A</forename><surname>Zubkov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">F</forename><surname>Suprun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">I</forename><surname>Pechenkin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Autom. Control Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="977" to="983" />
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">An introduction to ROC analysis</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Fawcett</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Pattern Recognit. Lett</title>
+		<editor>S. Avodkova</editor>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="861" to="874" />
+			<date type="published" when="2006" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

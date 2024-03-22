@@ -11,17 +11,19 @@ In an era of rapid technological advancements, digital twins are gaining attenti
 
 ## Research Questions
 To demystify the digital twin paradigm, we aim to answer the following research questions (RQ):
-- **RQ1**: What are digital twins from a cybersecurity perspective?
-- **RQ2**: How do digital twins contribute to cybersecurity?
-- **RQ3**: How to implement digital twins for security operations?
-- **RQ4**: What are current challenges and future cybersecurity research areas enhancing digital twins?
+- **RQ1**: What constitutes a digital twin within the realm of cybersecurity?
+- **RQ2**: How is the digital twin harnessed to fortify cybersecurity?
+- **RQ3**: How can digital twin components be instantiated?
+- **RQ4**: What pivotal challenges remain unaddressed, and what promising avenues beckon for future research?
 
 ## Contribution
 By answering the research questions, we contribute to the following:
-1. We demystify the security-related digital twin paradigm.
-2. We illustrate the state-of-the-art in applying digital twins for cybersecurity.
-3. We provide a collection of best practices and implementation details for digital twins.
-4. We call attention to challenges and derive future research actions.
+1. We confirm the components of the digital twin from a cybersecurity perspective.
+2. We re-define the digital twin paradigm in cybersecurity.
+3. We describe the application domains and security operations based on digital twins.
+4. We provide an overview of implementation techniques and tools.
+5. We shapes future research directions and open issues.
+
 
 ## 1. Search
 You can find all the iterative and systematic search details in the [/search](/search) directory. This directory consists of single BibTex files containing bibliograpic entries. We searched a total of ten IS databases ([dblp](https://dblp.org/), [arXiv](https://arxiv.org/), [AISeL](https://aisel.aisnet.org/), [WoS](https://www.webofscience.com), [IEEE Xplore](https://ieeexplore.ieee.org), [ACM](https://dl.acm.org/), [CSDL](https://www.computer.org/csdl/home), [Wiley](https://onlinelibrary.wiley.com/), [Springer Link](https://link.springer.com/), [ScienceDirect](https://www.sciencedirect.com/)) and performed subsequent backward and forward searches. We merged all unique entries into the BibTex file [references.bib](references.bib).

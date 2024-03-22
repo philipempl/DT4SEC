@@ -7,7 +7,7 @@ the potential to possess more validity/credibility and to manifest improved repr
 > -- _Guy Paré, Mary Tate, David Johnstone, Spyros Kitsiou: Contextualizing the twin concepts of systematicity and transparency in information systems literature reviews. Eur. J. Inf. Syst. 25(6): 493-508 (2016)_
 
 ## Abstract
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+In an era of rapid technological advancements, digital twins are gaining attention in industry and research. These virtual representations of real-world entities, enabled by the Internet of Things (IoT), offer advanced simulation and analysis capabilities. Their application spans various sectors, from smart manufacturing to healthcare, highlighting their versatility. However, the rise of digital technologies has also escalated cybersecurity concerns. Historical cyberattacks underscore the urgency for enhanced security operations. In this context, digital twins represent a novel approach to cybersecurity. Industry and academic research are increasingly exploring their potential to protect their assets. Despite growing interest and applications, more comprehensive research synthesis needs to be done, particularly in security operations based on digital twins. Our paper aims to fill this gap through a structured literature review aggregating knowledge from 201 publications. We focus on defining the digital twin in cybersecurity, exploring its applications, and outlining implementations and challenges. To maintain transparency, our data is documented and is publicly available. This survey serves as a crucial guide for academic and industry stakeholders, fostering digital twins in security operations. 
 
 ## Research Questions
 To demystify the digital twin paradigm, we aim to answer the following research questions (RQ):
@@ -33,20 +33,20 @@ Based on obtained results, we screened the literature. You find the details in t
 ```
 ┌ Search
 | - total: 6428
-| - merged: 5434
+| - merged: 5466
 |
 ├ Screen 1
-| - total: 5434
-| - included: 812
+| - total: 5466
+| - included: 844
 | - excluded: 4622
 |
 ├ Screen 2
-| - total: 812
-| - included: 138
+| - total: 844
+| - included: 201
 | - excluded: 643
 | - TODO: 0
 |
-└ Result: 170
+└ Result: 201
 ```
 
 ## 3. Extraction

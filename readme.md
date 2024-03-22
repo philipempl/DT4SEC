@@ -1,5 +1,5 @@
-# Digital Twins for Security Operations
-## A Systematic Literature Review
+# Digital Twins in Security Operations
+## State-of-the-Art & Outlook
 
 > **"Like many others, we posit that more systematic and transparent reviews hold
 the potential to possess more validity/credibility and to manifest improved reproducibility of methods."**

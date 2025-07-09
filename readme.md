@@ -46,7 +46,6 @@ Based on obtained results, we screened the literature. You find the details in t
 | - total: 844
 | - included: 201
 | - excluded: 643
-| - TODO: 0
 |
 └ Result: 201
 ```

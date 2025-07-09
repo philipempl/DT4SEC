@@ -61,14 +61,14 @@ We summarized all the insights and concluding remarks in our paper. The manuscri
 
 ## Reference
 ```
-@article{Empl2022,
-author = {Philip Empl and David Koch, and Marietheres Dietz, and G{\"u}nther Pernul,
-title = {Digital Twins for Security Operations: State of the Art and Outlook},
+@article{Empl2025,
+author = {Philip Empl and David Koch and Marietheres Dietz and G{\"u}nther Pernul,
+title = {Digital Twins for Security Operations: State of the Art and Future Perspectives},
 journal = {{ACM} Computing Surveys},
 volume = {XX},
 number = {X},
 pages = {XX:1--XX:36},
-year = {2022},
+year = {2025},
 url = {https://doi.org/10.11XX/XXXXX},
 doi = {10.11XX/XXXXX}
 }

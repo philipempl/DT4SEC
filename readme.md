@@ -8,7 +8,7 @@ the potential to possess more validity/credibility and to manifest improved repr
 
 ---
 
-# This paper has already been published
+## This paper has already been published
 
 You can access the results here: [https://doi.org/10.1145/3746279](https://doi.org/10.1145/3746279)
 

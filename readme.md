@@ -6,8 +6,16 @@ the potential to possess more validity/credibility and to manifest improved repr
 >
 > -- _Guy Paré, Mary Tate, David Johnstone, Spyros Kitsiou: Contextualizing the twin concepts of systematicity and transparency in information systems literature reviews. Eur. J. Inf. Syst. 25(6): 493-508 (2016)_
 
+---
+
+# This paper has already been published
+
+You can access the results here: [https://doi.org/10.1145/3746279](https://doi.org/10.1145/3746279)
+
+---
+
 ## Abstract
-In an era of rapid technological advancements, digital twins are gaining attention in industry and research. These virtual representations of real-world entities, enabled by the Internet of Things (IoT), offer advanced simulation and analysis capabilities. Their application spans various sectors, from smart manufacturing to healthcare, highlighting their versatility. However, the rise of digital technologies has also escalated cybersecurity concerns. Historical cyberattacks underscore the urgency for enhanced security operations. In this context, digital twins represent a novel approach to cybersecurity. Industry and academic research are increasingly exploring their potential to protect their assets. Despite growing interest and applications, more comprehensive research synthesis needs to be done, particularly in security operations based on digital twins. Our paper aims to fill this gap through a structured literature review aggregating knowledge from 201 publications. We focus on defining the digital twin in cybersecurity, exploring its applications, and outlining implementations and challenges. To maintain transparency, our data is documented and is publicly available. This survey serves as a crucial guide for academic and industry stakeholders, fostering digital twins in security operations. 
+In an era of rapid technological advancements, digital twins are gaining attention in industry and research. These virtual representations of real-world entities, enabled by the Internet of Things (IoT), offer advanced simulation and analysis capabilities. Their application spans various sectors, from smart manufacturing to healthcare, highlighting their versatility. However, the rise of digital technologies has also escalated cybersecurity concerns. Historical cyberattacks underscore the urgency for enhanced security operations. In this context, digital twins represent a novel approach to cybersecurity. Industry and academic research are increasingly exploring their potential to protect their assets. Despite growing interest and applications, more comprehensive research synthesis needs to be done, particularly in security operations based on digital twins. Our article aims to fill this gap through a structured literature review aggregating knowledge from 201 publications. We focus on defining the digital twin in cybersecurity, exploring its applications, and outlining implementations and challenges. To maintain transparency, our data is documented and is publicly available. This survey serves as a crucial guide for academic and industry stakeholders, fostering digital twins in security operations.
 
 ## Research Questions
 To demystify the digital twin paradigm, we aim to answer the following research questions (RQ):
@@ -62,15 +70,21 @@ We summarized all the insights and concluding remarks in our paper. The manuscri
 ## Reference
 ```
 @article{Empl2025,
-author = {Philip Empl and David Koch and Marietheres Dietz and G{\"u}nther Pernul,
-title = {Digital Twins for Security Operations: State of the Art and Future Perspectives},
-journal = {{ACM} Computing Surveys},
-volume = {XX},
-number = {X},
-pages = {XX:1--XX:36},
+author = {Empl, Philip and Koch, David and Dietz, Marietheres and Pernul, G\"{u}nther},
+title = {Digital Twins in Security Operations: State of the Art and Future Perspectives},
 year = {2025},
-url = {https://doi.org/10.11XX/XXXXX},
-doi = {10.11XX/XXXXX}
+issue_date = {January 2026},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {58},
+number = {1},
+issn = {0360-0300},
+url = {https://doi.org/10.1145/3746279},
+doi = {10.1145/3746279},
+journal = {ACM Computing Surveys},
+month = sep,
+articleno = {18},
+numpages = {38},
 }
 ```
 ## Authors
